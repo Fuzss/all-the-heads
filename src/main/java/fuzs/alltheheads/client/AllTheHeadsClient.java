@@ -2,15 +2,14 @@ package fuzs.alltheheads.client;
 
 import fuzs.alltheheads.AllTheHeads;
 import fuzs.alltheheads.client.model.ModSkullModel;
-import fuzs.alltheheads.client.registry.ModClientRegistry;
 import fuzs.alltheheads.registry.ModRegistry;
 import fuzs.alltheheads.registry.ModSkullType;
 import fuzs.alltheheads.registry.SkullManager;
-import net.minecraft.client.model.PiglinModel;
-import net.minecraft.client.model.geom.builders.CubeDeformation;
-import net.minecraft.client.model.geom.builders.LayerDefinition;
+import it.unimi.dsi.fastutil.Pair;
+import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.blockentity.SkullBlockRenderer;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -28,12 +27,10 @@ public class AllTheHeadsClient {
     }
 
     @SubscribeEvent
-    public static void onRegisterLayerDefinitions(final EntityRenderersEvent.RegisterLayerDefinitions evt) {
-        evt.registerLayerDefinition(ModClientRegistry.PIGLIN_HEAD_MODEL_LAYER_LOCATION, () -> LayerDefinition.create(PiglinModel.createMesh(CubeDeformation.NONE), 64, 64));
-    }
-
-    @SubscribeEvent
     public static void onCreateSkullModels(final EntityRenderersEvent.CreateSkullModels evt) {
-        evt.registerSkullModel(ModRegistry.PIGLIN_SKULL_BLOCK_TYPE, new ModSkullModel(evt.getEntityModelSet().bakeLayer(ModClientRegistry.PIGLIN_HEAD_MODEL_LAYER_LOCATION)));
+        for (ModSkullType skullType : SkullManager.INSTANCE.getAllSkullTypes()) {
+            Pair<ResourceLocation, String> modelLayerLocation = skullType.getModelLayerLocation();
+            evt.registerSkullModel(skullType, new ModSkullModel(evt.getEntityModelSet().bakeLayer(new ModelLayerLocation(modelLayerLocation.left(), modelLayerLocation.right())), skullType.getHeadKey()));
+        }
     }
 }

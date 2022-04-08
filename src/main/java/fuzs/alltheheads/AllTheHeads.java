@@ -3,10 +3,13 @@ package fuzs.alltheheads;
 import fuzs.alltheheads.config.ClientConfig;
 import fuzs.alltheheads.config.ServerConfig;
 import fuzs.alltheheads.data.ModLanguageProvider;
+import fuzs.alltheheads.handler.MobLootHandler;
 import fuzs.alltheheads.registry.ModRegistry;
+import fuzs.alltheheads.registry.SkullManager;
 import fuzs.puzzleslib.config.ConfigHolder;
 import fuzs.puzzleslib.config.ConfigHolderImpl;
 import net.minecraft.data.DataGenerator;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -28,7 +31,15 @@ public class AllTheHeads {
     @SubscribeEvent
     public static void onConstructMod(final FMLConstructModEvent evt) {
         ((ConfigHolderImpl<?, ?>) CONFIG).addConfigs(MOD_ID);
+        SkullManager.INSTANCE.load();
         ModRegistry.touch();
+        registerHandlers();
+    }
+
+    private static void registerHandlers() {
+        MobLootHandler mobLootHandler = new MobLootHandler();
+        MinecraftForge.EVENT_BUS.addListener(mobLootHandler::onLivingDrops);
+        MinecraftForge.EVENT_BUS.addListener(mobLootHandler::onLootTableLoad);
     }
 
     @SubscribeEvent

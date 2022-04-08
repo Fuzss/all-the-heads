@@ -1,5 +1,6 @@
 package fuzs.alltheheads.data;
 
+import fuzs.alltheheads.AllTheHeads;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.LanguageProvider;
 
@@ -15,5 +16,6 @@ public class ModLanguageProvider extends LanguageProvider {
         this.add("block.alltheheads.wall", "%s Wall");
         this.add("block.alltheheads.head", "%s Head");
         this.add("block.alltheheads.skull", "%s Skull");
+        this.add("itemGroup.alltheheads", AllTheHeads.MOD_NAME);
     }
 }

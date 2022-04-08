@@ -2,12 +2,20 @@ package fuzs.alltheheads.client.model;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.minecraft.client.model.SkullModel;
+import net.minecraft.client.model.SkullModelBase;
 import net.minecraft.client.model.geom.ModelPart;
 
-public class ModSkullModel extends SkullModel {
-    public ModSkullModel(ModelPart p_170945_) {
-        super(p_170945_);
+public class ModSkullModel extends SkullModelBase {
+    private final ModelPart head;
+
+    public ModSkullModel(ModelPart modelPart, String headKey) {
+        this.head = modelPart.getChild(headKey);
+    }
+
+    @Override
+    public void setupAnim(float p_103811_, float p_103812_, float p_103813_) {
+        this.head.yRot = p_103812_ * ((float)Math.PI / 180F);
+        this.head.xRot = p_103813_ * ((float)Math.PI / 180F);
     }
 
     @Override
