@@ -1,11 +1,15 @@
 package fuzs.alltheheads.world.level.block;
 
-import fuzs.alltheheads.registry.ModSkullType;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.Maps;
+import com.mojang.math.Vector3f;
+import fuzs.alltheheads.registry.SkullType;
 import fuzs.alltheheads.world.level.block.entity.ModSkullBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SkullBlock;
 import net.minecraft.world.level.block.WallSkullBlock;
@@ -15,33 +19,36 @@ import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
+import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
 
 public class ModWallSkullBlock extends WallSkullBlock {
-    private final VoxelShape shapeFacingNorth;
-    private final VoxelShape shapeFacingEast;
-    private final VoxelShape shapeFacingSouth;
-    private final VoxelShape shapeFacingWest;
+    private final Map<Direction, VoxelShape> shapes;
 
-    public ModWallSkullBlock(SkullBlock.Type p_58101_, Properties p_58102_) {
-        super(p_58101_, p_58102_);
+    public ModWallSkullBlock(SkullBlock.Type type, Properties p_58102_) {
+        super(type, p_58102_);
+        Vector3f skullSize = ((SkullType) type).getSkullSize();
+        this.shapes = Maps.newEnumMap(Direction.Plane.HORIZONTAL.stream()
+                .collect(ImmutableMap.toImmutableMap(Function.identity(), direction -> createShape(skullSize.x(), skullSize.y(), skullSize.z(), direction))));
     }
 
     private static VoxelShape createShape(float width, float height, float depth, Direction direction) {
         return switch (direction) {
-            case NORTH ->
-        }
+            case NORTH -> Block.box(8.0F - width / 2.0F, 8.0F - height / 2.0F, 16.0F - depth, 8.0F + width / 2.0F, 8.0F + height / 2.0F, 16.0F);
+            case EAST -> Block.box(0.0F, 8.0F - height / 2.0F, 8.0F - width / 2.0F, depth, 8.0F + height / 2.0F, 8.0F + width / 2.0F);
+            case SOUTH -> Block.box(8.0F - width / 2.0F, 8.0F - height / 2.0F, 0.0F, 8.0F + width / 2.0F, 8.0F + height / 2.0F, depth);
+            case WEST -> Block.box(16.0F - depth, 8.0F - height / 2.0F, 8.0F - width / 2.0F, 16.0F, 8.0F + height / 2.0F, 8.0F + width / 2.0F);
+            default -> throw new IllegalArgumentException();
+        };
+    }
 
-
-        if (axis == Direction.Axis.X) {
-            return Block.box(8.0F - width / 2.0F, 0.0D, 8.0F - depth / 2.0F, 8.0F + width / 2.0F, height, 8.0F + depth / 2.0F);
-        } else if (axis == Direction.Axis.Z) {
-            return Block.box(8.0F - depth / 2.0F, 0.0D, 8.0F - width / 2.0F, 8.0F + depth / 2.0F, height, 8.0F + width / 2.0F);
-        }
-        return Block.box(8.0F - Math.max(width, depth) / 2.0F, 0.0D, 8.0F - Math.max(width, depth) / 2.0F, 8.0F + Math.max(width, depth) / 2.0F, height, 8.0F + Math.max(width, depth) / 2.0F);
+    @Override
+    public VoxelShape getShape(BlockState state, BlockGetter p_56332_, BlockPos p_56333_, CollisionContext p_56334_) {
+        return this.shapes.get(state.getValue(FACING));
     }
 
     @Override
@@ -51,7 +58,7 @@ public class ModWallSkullBlock extends WallSkullBlock {
 
     @Override
     public MutableComponent getName() {
-        return ((ModSkullType) this.getType()).getWallName();
+        return ((SkullType) this.getType()).getWallName();
     }
 
     @Override
@@ -63,7 +70,7 @@ public class ModWallSkullBlock extends WallSkullBlock {
     @Override
     public List<ItemStack> getDrops(BlockState p_60537_, LootContext.Builder p_60538_) {
         LootContext lootcontext = p_60538_.withParameter(LootContextParams.BLOCK_STATE, p_60537_).create(LootContextParamSets.BLOCK);
-        LootTable loottable = ((ModSkullType) this.getType()).lootTable.get();
+        LootTable loottable = ((SkullType) this.getType()).lootTable.get();
         return loottable.getRandomItems(lootcontext);
     }
 }

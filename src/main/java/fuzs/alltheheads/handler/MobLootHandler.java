@@ -1,11 +1,13 @@
 package fuzs.alltheheads.handler;
 
-import fuzs.alltheheads.registry.ModSkullType;
+import fuzs.alltheheads.registry.SkullType;
 import fuzs.alltheheads.registry.SkullManager;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.Creeper;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.predicates.LootItemKilledByPlayerCondition;
@@ -13,6 +15,7 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceWit
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class MobLootHandler {
@@ -23,23 +26,28 @@ public class MobLootHandler {
             if (skullType.dropsFromChargedCreepers()) {
                 this.dropCustomDeathLoot(target, evt.getSource(), skullType);
             }
-            // injecting into loot tables directly is preferable, just leaving this here in case loot tables don't work with some mod
-//            if (evt.isRecentlyHit()) {
-//                float dropChance = skullType.getDropRate() + evt.getLootingLevel() * skullType.getLootingBonus();
-//                if (target.getRandom().nextFloat() < dropChance) {
-//                    target.spawnAtLocation(skullType.item.get());
-//                }
-//            }
         });
     }
 
-    private void dropCustomDeathLoot(LivingEntity target, DamageSource source, ModSkullType skullType) {
+    private void dropCustomDeathLoot(LivingEntity target, DamageSource source, SkullType skullType) {
         Entity entity = source.getEntity();
         if (entity instanceof Creeper creeper) {
             if (creeper.canDropMobsSkull()) {
                 creeper.increaseDroppedSkulls();
                 target.spawnAtLocation(skullType.item.get());
             }
+        }
+    }
+
+    @SubscribeEvent
+    public void onLivingVisibility(LivingEvent.LivingVisibilityEvent evt) {
+        if (evt.getLookingEntity() != null) {
+            ItemStack helmet = evt.getEntityLiving().getItemBySlot(EquipmentSlot.HEAD);
+            SkullManager.INSTANCE.getSkullTypeByEntity(evt.getLookingEntity().getType()).ifPresent(skullType -> {
+                if (skullType.worksAsMobDisguise() && helmet.is(skullType.item.get())) {
+                    evt.modifyVisibility(evt.getVisibilityModifier() * 0.5);
+                }
+            });
         }
     }
 

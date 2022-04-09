@@ -3,7 +3,7 @@ package fuzs.alltheheads.client;
 import fuzs.alltheheads.AllTheHeads;
 import fuzs.alltheheads.client.model.ModSkullModel;
 import fuzs.alltheheads.registry.ModRegistry;
-import fuzs.alltheheads.registry.ModSkullType;
+import fuzs.alltheheads.registry.SkullType;
 import fuzs.alltheheads.registry.SkullManager;
 import fuzs.alltheheads.server.packs.VirtualPackResources;
 import it.unimi.dsi.fastutil.Pair;
@@ -32,14 +32,14 @@ public class AllTheHeadsClient {
     @SubscribeEvent
     public static void onClientSetup(final FMLClientSetupEvent evt) {
         BlockEntityRenderers.register(ModRegistry.MOB_HEAD_BLOCK_ENTITY_TYPE.get(), SkullBlockRenderer::new);
-        for (ModSkullType skullType : SkullManager.INSTANCE.getAllSkullTypes()) {
+        for (SkullType skullType : SkullManager.INSTANCE.getAllSkullTypes()) {
             SkullBlockRenderer.SKIN_BY_TYPE.put(skullType, skullType.getTextureLocation());
         }
     }
 
     @SubscribeEvent
     public static void onCreateSkullModels(final EntityRenderersEvent.CreateSkullModels evt) {
-        for (ModSkullType skullType : SkullManager.INSTANCE.getAllSkullTypes()) {
+        for (SkullType skullType : SkullManager.INSTANCE.getAllSkullTypes()) {
             Pair<ResourceLocation, String> modelLayerLocation = skullType.getModelLayerLocation();
             evt.registerSkullModel(skullType, new ModSkullModel(evt.getEntityModelSet().bakeLayer(new ModelLayerLocation(modelLayerLocation.left(), modelLayerLocation.right())), skullType));
         }

@@ -1,7 +1,8 @@
 package fuzs.alltheheads.world.level.block;
 
+import com.google.common.collect.ImmutableMap;
 import com.mojang.math.Vector3f;
-import fuzs.alltheheads.registry.ModSkullType;
+import fuzs.alltheheads.registry.SkullType;
 import fuzs.alltheheads.world.level.block.entity.ModSkullBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -21,18 +22,24 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.IntStream;
 
 public class ModSkullBlock extends SkullBlock {
-    private final VoxelShape shapeRotationX;
-    private final VoxelShape shapeRotationZ;
-    private final VoxelShape shapeRotationAny;
+    private final Map<Integer, VoxelShape> shapes;
 
     public ModSkullBlock(Type type, Properties p_56319_) {
         super(type, p_56319_);
-        Vector3f skullSize = ((ModSkullType) type).getSkullSize();
-        this.shapeRotationX = createShape(skullSize.x(), skullSize.y(), skullSize.z(), Direction.Axis.X);
-        this.shapeRotationZ = createShape(skullSize.x(), skullSize.y(), skullSize.z(), Direction.Axis.Z);
-        this.shapeRotationAny = createShape(skullSize.x(), skullSize.y(), skullSize.z(), null);
+        this.shapes = this.makeShapes(((SkullType) type).getSkullSize());
+    }
+
+    private Map<Integer, VoxelShape> makeShapes(Vector3f skullSize) {
+        VoxelShape shapeRotationX = createShape(skullSize.x(), skullSize.y(), skullSize.z(), Direction.Axis.X);
+        VoxelShape shapeRotationZ = createShape(skullSize.x(), skullSize.y(), skullSize.z(), Direction.Axis.Z);
+        VoxelShape shapeRotationAny = createShape(skullSize.x(), skullSize.y(), skullSize.z(), null);
+         return IntStream.range(0, 16).boxed()
+                .collect(ImmutableMap.toImmutableMap(Function.identity(), index -> selectShape(index, shapeRotationX, shapeRotationZ, shapeRotationAny)));
     }
 
     private static VoxelShape createShape(float width, float height, float depth, @Nullable Direction.Axis axis) {
@@ -44,15 +51,18 @@ public class ModSkullBlock extends SkullBlock {
         return Block.box(8.0F - Math.max(width, depth) / 2.0F, 0.0D, 8.0F - Math.max(width, depth) / 2.0F, 8.0F + Math.max(width, depth) / 2.0F, height, 8.0F + Math.max(width, depth) / 2.0F);
     }
 
+    private static VoxelShape selectShape(int rotationValue, VoxelShape rotationX, VoxelShape rotationZ, VoxelShape rotationAny) {
+        if (rotationValue % 8 == 0) {
+            return rotationX;
+        } else if ((rotationValue + 4) % 8 == 0) {
+            return rotationZ;
+        }
+        return rotationAny;
+    }
+
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter p_56332_, BlockPos p_56333_, CollisionContext p_56334_) {
-        int rotation = state.getValue(ROTATION);
-        if (rotation % 8 == 0) {
-            return this.shapeRotationX;
-        } else if ((rotation + 4) % 8 == 0) {
-            return this.shapeRotationZ;
-        }
-        return this.shapeRotationAny;
+        return this.shapes.get(state.getValue(ROTATION));
     }
 
     @Override
@@ -62,7 +72,7 @@ public class ModSkullBlock extends SkullBlock {
 
     @Override
     public MutableComponent getName() {
-        return ((ModSkullType) this.getType()).getName();
+        return ((SkullType) this.getType()).getName();
     }
 
     @Override
@@ -74,7 +84,7 @@ public class ModSkullBlock extends SkullBlock {
     @Override
     public List<ItemStack> getDrops(BlockState p_60537_, LootContext.Builder p_60538_) {
         LootContext lootcontext = p_60538_.withParameter(LootContextParams.BLOCK_STATE, p_60537_).create(LootContextParamSets.BLOCK);
-        LootTable loottable = ((ModSkullType) this.getType()).lootTable.get();
+        LootTable loottable = ((SkullType) this.getType()).lootTable.get();
         return loottable.getRandomItems(lootcontext);
     }
 }

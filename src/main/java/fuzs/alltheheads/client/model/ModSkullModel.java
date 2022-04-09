@@ -3,8 +3,7 @@ package fuzs.alltheheads.client.model;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Vector3f;
-import fuzs.alltheheads.registry.ModSkullType;
-import fuzs.puzzleslib.util.PuzzlesUtil;
+import fuzs.alltheheads.registry.SkullType;
 import net.minecraft.client.model.SkullModelBase;
 import net.minecraft.client.model.geom.ModelPart;
 
@@ -14,7 +13,7 @@ public class ModSkullModel extends SkullModelBase {
     private final float offsetY;
     private final float offsetZ;
 
-    public ModSkullModel(ModelPart modelPart, ModSkullType skullType) {
+    public ModSkullModel(ModelPart modelPart, SkullType skullType) {
         this.head = modelPart.getChild(skullType.getModelPartHeadKey());
         Vector3f modelOffsets = skullType.getModelOffsets();
         this.offsetX = this.head.x + modelOffsets.x();

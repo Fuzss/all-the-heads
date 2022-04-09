@@ -1,13 +1,12 @@
 package fuzs.alltheheads.world.item;
 
-import fuzs.alltheheads.registry.ModSkullType;
+import fuzs.alltheheads.registry.SkullType;
 import net.minecraft.core.BlockSource;
 import net.minecraft.core.dispenser.DispenseItemBehavior;
 import net.minecraft.core.dispenser.OptionalDispenseItemBehavior;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.StandingAndWallBlockItem;
 import net.minecraft.world.level.block.AbstractSkullBlock;
 import net.minecraft.world.level.block.Block;
@@ -27,6 +26,6 @@ public class ModStandingAndWallBlockItem extends StandingAndWallBlockItem {
 
     @Override
     public Component getName(ItemStack p_41458_) {
-        return ((ModSkullType) ((AbstractSkullBlock) this.getBlock()).getType()).getName();
+        return ((SkullType) ((AbstractSkullBlock) this.getBlock()).getType()).getName();
     }
 }

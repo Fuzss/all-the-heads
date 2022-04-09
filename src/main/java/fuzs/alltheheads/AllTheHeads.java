@@ -40,6 +40,7 @@ public class AllTheHeads {
     private static void registerHandlers() {
         MobLootHandler mobLootHandler = new MobLootHandler();
         MinecraftForge.EVENT_BUS.addListener(mobLootHandler::onLivingDrops);
+        MinecraftForge.EVENT_BUS.addListener(mobLootHandler::onLivingVisibility);
         MinecraftForge.EVENT_BUS.addListener(mobLootHandler::onLootTableLoad);
     }
 

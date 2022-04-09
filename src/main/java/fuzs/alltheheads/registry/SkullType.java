@@ -5,7 +5,6 @@ import com.mojang.math.Vector3f;
 import fuzs.alltheheads.AllTheHeads;
 import fuzs.alltheheads.client.model.BuiltInSkullJsonData;
 import fuzs.alltheheads.util.BlockLootUtil;
-import fuzs.puzzleslib.core.ModLoaderEnvironment;
 import it.unimi.dsi.fastutil.Pair;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -25,7 +24,7 @@ import java.util.Objects;
 import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
-public class ModSkullType implements SkullBlock.Type {
+public class SkullType implements SkullBlock.Type {
     private static final String HEAD_SUFFIX = "_head";
     private static final String SKULL_SUFFIX = "_skull";
     private static final String WALL_SUFFIX = "_wall";
@@ -34,23 +33,26 @@ public class ModSkullType implements SkullBlock.Type {
     private static final String WALL_TRANSLATION_KEY = "block.alltheheads.wall";
 
     private final ResourceLocation mobType;
-    private final ResourceLocation textureLocation;
-    private final ResourceLocation modelLocation;
-    private final String layerLocation;
-    private final String headKey;
     private final boolean skull;
     private final float dropRate;
     private final float lootingBonus;
     private final boolean fromChargedCreepers;
+    private final boolean mobDisguise;
     private final Vector3f skullSize;
-    private final Vector3f modelOffsets;
+
     public final Supplier<Block> block;
     public final Supplier<Block> wallBlock;
     public final Supplier<Item> item;
     public final Supplier<EntityType<?>> entityType;
     public final Supplier<LootTable> lootTable;
 
-    private ModSkullType(ResourceLocation mobType, ResourceLocation textureLocation, ResourceLocation modelLocation, String layerLocation, String headKey, boolean skull, float dropRate, float lootingBonus, boolean fromChargedCreepers, Vector3f skullSize, Vector3f modelOffsets) {
+    private final ResourceLocation textureLocation;
+    private final ResourceLocation modelLocation;
+    private final String layerLocation;
+    private final String headKey;
+    private final Vector3f modelOffsets;
+
+    private SkullType(ResourceLocation mobType, ResourceLocation textureLocation, ResourceLocation modelLocation, String layerLocation, String headKey, boolean skull, float dropRate, float lootingBonus, boolean fromChargedCreepers, boolean mobDisguise, Vector3f skullSize, Vector3f modelOffsets) {
         this.mobType = mobType;
         this.textureLocation = textureLocation;
         this.modelLocation = modelLocation;
@@ -60,6 +62,7 @@ public class ModSkullType implements SkullBlock.Type {
         this.dropRate = dropRate;
         this.lootingBonus = lootingBonus;
         this.fromChargedCreepers = fromChargedCreepers;
+        this.mobDisguise = mobDisguise;
         this.skullSize = skullSize;
         this.modelOffsets = modelOffsets;
         this.entityType = Suppliers.memoize(() -> getRegistryEntry(ForgeRegistries.ENTITIES, this.mobType));
@@ -75,8 +78,8 @@ public class ModSkullType implements SkullBlock.Type {
         return value;
     }
 
-    public boolean isValid() {
-        return ModLoaderEnvironment.isModLoaded(this.mobType.getNamespace());
+    public ResourceLocation getMobType() {
+        return this.mobType;
     }
 
     public ResourceLocation getMobLootTableId() {
@@ -141,6 +144,10 @@ public class ModSkullType implements SkullBlock.Type {
         return this.fromChargedCreepers;
     }
 
+    public boolean worksAsMobDisguise() {
+        return this.mobDisguise;
+    }
+
     public MutableComponent getName() {
         return this.getName(this.entityType.get().getDescription());
     }
@@ -159,7 +166,7 @@ public class ModSkullType implements SkullBlock.Type {
     }
 
     public static class Builder {
-        private ResourceLocation mobType;
+        private final ResourceLocation mobType;
         private ResourceLocation textureLocation;
         private ResourceLocation modelLocation;
         private String layerLocation = "main";
@@ -168,16 +175,16 @@ public class ModSkullType implements SkullBlock.Type {
         private float dropRate = 0.025F;
         private float lootingBonus = 0.01F;
         private boolean fromChargedCreepers = true;
+        private boolean mobDisguise = true;
         private Vector3f skullSize = new Vector3f(8.0F, 8.0F, 8.0F);
         private Vector3f modelOffsets = Vector3f.ZERO;
 
-        public Builder mobType(String path) {
-            return this.mobType(new ResourceLocation(path));
+        public Builder(String path) {
+            this(new ResourceLocation(path));
         }
 
-        public Builder mobType(ResourceLocation mobType) {
+        public Builder(ResourceLocation mobType) {
             this.mobType = mobType;
-            return this;
         }
 
         public Builder textureLocation(String path) {
@@ -233,6 +240,11 @@ public class ModSkullType implements SkullBlock.Type {
             return this;
         }
 
+        public Builder disableMobDisguise() {
+            this.mobDisguise = false;
+            return this;
+        }
+
         public Builder skullSize(float width, float height, float depth) {
             this.skullSize = new Vector3f(width, height, depth);
             return this;
@@ -243,10 +255,9 @@ public class ModSkullType implements SkullBlock.Type {
             return this;
         }
 
-        public ModSkullType build() {
-            Objects.requireNonNull(this.mobType);
+        public SkullType build() {
             Objects.requireNonNull(this.textureLocation);
-            return new ModSkullType(this.mobType, this.textureLocation, this.modelLocation == null ? this.mobType : this.modelLocation, this.layerLocation, this.headKey, this.skull, this.dropRate, this.lootingBonus, this.fromChargedCreepers, this.skullSize, this.modelOffsets);
+            return new SkullType(this.mobType, this.textureLocation, this.modelLocation == null ? this.mobType : this.modelLocation, this.layerLocation, this.headKey, this.skull, this.dropRate, this.lootingBonus, this.fromChargedCreepers, mobDisguise, this.skullSize, this.modelOffsets);
         }
     }
 }
