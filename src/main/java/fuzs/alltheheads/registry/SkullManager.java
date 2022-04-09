@@ -32,10 +32,13 @@ public class SkullManager {
     private List<Pair<RegistryObject<Block>, RegistryObject<Block>>> skullBlocks;
     private Map<EntityType<?>, ModSkullType> skullTypeByEntity;
     private Map<ResourceLocation, ModSkullType> skullTypeByLootTable;
+    private Map<ResourceLocation, byte[]> resourceDataByLocation;
 
     public void load() {
         ImmutableSet.Builder<ModSkullType> builder = ImmutableSet.builder();
         builder.add(new ModSkullType.Builder().mobType("piglin").textureLocation("textures/entity/piglin/piglin.png").build());
+        builder.add(new ModSkullType.Builder().mobType("enderman").textureLocation("textures/entity/enderman/enderman.png").build());
+        builder.add(new ModSkullType.Builder().mobType("blaze").textureLocation("textures/entity/blaze.png").build());
         this.skullTypes = builder.build();
     }
 
@@ -63,9 +66,20 @@ public class SkullManager {
 
     public Optional<ModSkullType> getSkullTypeByLootTable(ResourceLocation lootTable) {
         if (this.skullTypeByLootTable == null) {
-            this.skullTypeByLootTable = this.getAllSkullTypes().stream().collect(ImmutableMap.toImmutableMap(ModSkullType::getLootTableId, Function.identity()));
+            this.skullTypeByLootTable = this.getAllSkullTypes().stream().collect(ImmutableMap.toImmutableMap(ModSkullType::getMobLootTableId, Function.identity()));
         }
         return Optional.ofNullable(this.skullTypeByLootTable.get(lootTable));
+    }
+
+    public Map<ResourceLocation, byte[]> getBuiltInResourceData() {
+        if (this.resourceDataByLocation == null) {
+            ImmutableMap.Builder<ResourceLocation, byte[]> builder = new ImmutableMap.Builder<>();
+            for (ModSkullType skullType : this.getAllSkullTypes()) {
+                skullType.buildResourceMap(builder::put);
+            }
+            this.resourceDataByLocation = builder.build();
+        }
+        return this.resourceDataByLocation;
     }
 
     public Block[] getAllSkullBlocks() {

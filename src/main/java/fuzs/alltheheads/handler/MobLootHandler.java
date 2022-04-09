@@ -46,6 +46,7 @@ public class MobLootHandler {
     @SubscribeEvent
     public void onLootTableLoad(final LootTableLoadEvent evt) {
         SkullManager.INSTANCE.getSkullTypeByLootTable(evt.getName()).ifPresent(skullType -> {
+            if (skullType.getDropRate() > 0.0F || skullType.getLootingBonus() > 0.0F)
             evt.getTable().addPool(LootPool.lootPool()
                     .setRolls(ConstantValue.exactly(1.0F))
                     .add(LootItem.lootTableItem(skullType.block.get()))

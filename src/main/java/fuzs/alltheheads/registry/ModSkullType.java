@@ -2,6 +2,7 @@ package fuzs.alltheheads.registry;
 
 import com.google.common.base.Suppliers;
 import fuzs.alltheheads.AllTheHeads;
+import fuzs.alltheheads.client.model.BuiltInSkullJsonData;
 import fuzs.alltheheads.util.BlockLootUtil;
 import fuzs.puzzleslib.core.ModLoaderEnvironment;
 import it.unimi.dsi.fastutil.Pair;
@@ -18,7 +19,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 import net.minecraftforge.registries.IForgeRegistry;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Objects;
+import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
 public class ModSkullType implements SkullBlock.Type {
@@ -71,12 +74,30 @@ public class ModSkullType implements SkullBlock.Type {
         return ModLoaderEnvironment.isModLoaded(this.mobType.getNamespace());
     }
 
-    public ResourceLocation getLootTableId() {
+    public ResourceLocation getMobLootTableId() {
         return new ResourceLocation(this.mobType.getNamespace(), "entities/".concat(this.mobType.getPath()));
     }
 
-    public String getHeadKey() {
+    public String getModelPartHeadKey() {
         return this.headKey;
+    }
+
+    public void buildResourceMap(BiConsumer<ResourceLocation, byte[]> consumer) {
+        consumer.accept(new ResourceLocation(AllTheHeads.MOD_ID, "blockstates/" + this.getId() + ".json"), this.getBuiltInBlockstateVariants().getBytes(StandardCharsets.UTF_8));
+        consumer.accept(new ResourceLocation(AllTheHeads.MOD_ID, "blockstates/" + this.getWallId() + ".json"), this.getBuiltInWallBlockstateVariants().getBytes(StandardCharsets.UTF_8));
+        consumer.accept(new ResourceLocation(AllTheHeads.MOD_ID, "models/item/" + this.getId() + ".json"), this.getBuiltInItemModel().getBytes(StandardCharsets.UTF_8));
+    }
+
+    public String getBuiltInBlockstateVariants() {
+        return BuiltInSkullJsonData.SKULL_BLOCKSTATE_VARIANTS;
+    }
+
+    public String getBuiltInWallBlockstateVariants() {
+        return BuiltInSkullJsonData.SKULL_WALL_BLOCKSTATE_VARIANTS;
+    }
+
+    public String getBuiltInItemModel() {
+        return BuiltInSkullJsonData.SKULL_ITEM_MODEL;
     }
 
     public String getId() {
