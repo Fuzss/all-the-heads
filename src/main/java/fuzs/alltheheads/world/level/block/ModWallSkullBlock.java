@@ -3,8 +3,10 @@ package fuzs.alltheheads.world.level.block;
 import fuzs.alltheheads.registry.ModSkullType;
 import fuzs.alltheheads.world.level.block.entity.ModSkullBlockEntity;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SkullBlock;
 import net.minecraft.world.level.block.WallSkullBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -13,12 +15,33 @@ import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
+import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
 public class ModWallSkullBlock extends WallSkullBlock {
+    private final VoxelShape shapeFacingNorth;
+    private final VoxelShape shapeFacingEast;
+    private final VoxelShape shapeFacingSouth;
+    private final VoxelShape shapeFacingWest;
+
     public ModWallSkullBlock(SkullBlock.Type p_58101_, Properties p_58102_) {
         super(p_58101_, p_58102_);
+    }
+
+    private static VoxelShape createShape(float width, float height, float depth, Direction direction) {
+        return switch (direction) {
+            case NORTH ->
+        }
+
+
+        if (axis == Direction.Axis.X) {
+            return Block.box(8.0F - width / 2.0F, 0.0D, 8.0F - depth / 2.0F, 8.0F + width / 2.0F, height, 8.0F + depth / 2.0F);
+        } else if (axis == Direction.Axis.Z) {
+            return Block.box(8.0F - depth / 2.0F, 0.0D, 8.0F - width / 2.0F, 8.0F + depth / 2.0F, height, 8.0F + width / 2.0F);
+        }
+        return Block.box(8.0F - Math.max(width, depth) / 2.0F, 0.0D, 8.0F - Math.max(width, depth) / 2.0F, 8.0F + Math.max(width, depth) / 2.0F, height, 8.0F + Math.max(width, depth) / 2.0F);
     }
 
     @Override

@@ -23,6 +23,7 @@ import org.slf4j.LoggerFactory;
 public class AllTheHeads {
     public static final String MOD_ID = "alltheheads";
     public static final String MOD_NAME = "All The Heads";
+    public static final String MOD_DESCRIPTION = "WIP";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_NAME);
 
     @SuppressWarnings("Convert2MethodRef")

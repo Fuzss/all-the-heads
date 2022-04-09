@@ -36,9 +36,13 @@ public class SkullManager {
 
     public void load() {
         ImmutableSet.Builder<ModSkullType> builder = ImmutableSet.builder();
-        builder.add(new ModSkullType.Builder().mobType("piglin").textureLocation("textures/entity/piglin/piglin.png").build());
-        builder.add(new ModSkullType.Builder().mobType("enderman").textureLocation("textures/entity/enderman/enderman.png").build());
-        builder.add(new ModSkullType.Builder().mobType("blaze").textureLocation("textures/entity/blaze.png").build());
+        builder.add(new ModSkullType.Builder().mobType("piglin").textureLocation("textures/entity/piglin/piglin.png").skullSize(10.0F, 8.0F, 8.0F).build());
+        builder.add(new ModSkullType.Builder().mobType("zombified_piglin").textureLocation("textures/entity/piglin/zombified_piglin.png").skullSize(10.0F, 8.0F, 8.0F).build());
+        builder.add(new ModSkullType.Builder().mobType("piglin_brute").textureLocation("textures/entity/piglin/piglin_brute.png").skullSize(10.0F, 8.0F, 8.0F).build());
+        builder.add(new ModSkullType.Builder().mobType("cow").textureLocation("textures/entity/cow/cow.png").skullSize(8.0F, 8.0F, 6.0F).modelOffsets(0.0F, -8.0F, 11.0F).build());
+        builder.add(new ModSkullType.Builder().mobType("villager").textureLocation("textures/entity/villager/villager.png").skullSize(8.0F, 10.0F, 8.0F).build());
+        builder.add(new ModSkullType.Builder().mobType("enderman").textureLocation("textures/entity/enderman/enderman.png").modelOffsets(0.0F, 13.0F, 0.0F).build());
+        builder.add(new ModSkullType.Builder().mobType("blaze").textureLocation("textures/entity/blaze.png").modelOffsets(0.0F, -4.0F, 0.0F).build());
         this.skullTypes = builder.build();
     }
 

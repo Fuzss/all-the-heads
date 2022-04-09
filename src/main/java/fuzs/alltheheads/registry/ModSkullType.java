@@ -1,6 +1,7 @@
 package fuzs.alltheheads.registry;
 
 import com.google.common.base.Suppliers;
+import com.mojang.math.Vector3f;
 import fuzs.alltheheads.AllTheHeads;
 import fuzs.alltheheads.client.model.BuiltInSkullJsonData;
 import fuzs.alltheheads.util.BlockLootUtil;
@@ -41,13 +42,15 @@ public class ModSkullType implements SkullBlock.Type {
     private final float dropRate;
     private final float lootingBonus;
     private final boolean fromChargedCreepers;
+    private final Vector3f skullSize;
+    private final Vector3f modelOffsets;
     public final Supplier<Block> block;
     public final Supplier<Block> wallBlock;
     public final Supplier<Item> item;
     public final Supplier<EntityType<?>> entityType;
     public final Supplier<LootTable> lootTable;
 
-    private ModSkullType(ResourceLocation mobType, ResourceLocation textureLocation, ResourceLocation modelLocation, String layerLocation, String headKey, boolean skull, float dropRate, float lootingBonus, boolean fromChargedCreepers) {
+    private ModSkullType(ResourceLocation mobType, ResourceLocation textureLocation, ResourceLocation modelLocation, String layerLocation, String headKey, boolean skull, float dropRate, float lootingBonus, boolean fromChargedCreepers, Vector3f skullSize, Vector3f modelOffsets) {
         this.mobType = mobType;
         this.textureLocation = textureLocation;
         this.modelLocation = modelLocation;
@@ -57,6 +60,8 @@ public class ModSkullType implements SkullBlock.Type {
         this.dropRate = dropRate;
         this.lootingBonus = lootingBonus;
         this.fromChargedCreepers = fromChargedCreepers;
+        this.skullSize = skullSize;
+        this.modelOffsets = modelOffsets;
         this.entityType = Suppliers.memoize(() -> getRegistryEntry(ForgeRegistries.ENTITIES, this.mobType));
         this.wallBlock = Suppliers.memoize(() -> getRegistryEntry(ForgeRegistries.BLOCKS, new ResourceLocation(AllTheHeads.MOD_ID, this.getWallId())));
         this.block = Suppliers.memoize(() -> getRegistryEntry(ForgeRegistries.BLOCKS, new ResourceLocation(AllTheHeads.MOD_ID, this.getId())));
@@ -80,6 +85,14 @@ public class ModSkullType implements SkullBlock.Type {
 
     public String getModelPartHeadKey() {
         return this.headKey;
+    }
+
+    public Vector3f getSkullSize() {
+        return this.skullSize;
+    }
+
+    public Vector3f getModelOffsets() {
+        return this.modelOffsets;
     }
 
     public void buildResourceMap(BiConsumer<ResourceLocation, byte[]> consumer) {
@@ -140,6 +153,11 @@ public class ModSkullType implements SkullBlock.Type {
         return new TranslatableComponent(this.skull ? SKULL_TRANSLATION_KEY : HEAD_TRANSLATION_KEY, description);
     }
 
+    @Override
+    public String toString() {
+        return this.mobType + "={textureLocation=" + this.textureLocation + ", modelLocation=" + this.modelLocation + ", layerLocation='" + this.layerLocation + '\'' + ", headKey='" + this.headKey + '\'' + ", skull=" + this.skull + ", dropRate=" + this.dropRate + ", lootingBonus=" + this.lootingBonus + ", fromChargedCreepers=" + this.fromChargedCreepers + ", skullSize=" + this.skullSize + ", modelOffsets=" + this.modelOffsets + '}';
+    }
+
     public static class Builder {
         private ResourceLocation mobType;
         private ResourceLocation textureLocation;
@@ -150,6 +168,8 @@ public class ModSkullType implements SkullBlock.Type {
         private float dropRate = 0.025F;
         private float lootingBonus = 0.01F;
         private boolean fromChargedCreepers = true;
+        private Vector3f skullSize = new Vector3f(8.0F, 8.0F, 8.0F);
+        private Vector3f modelOffsets = Vector3f.ZERO;
 
         public Builder mobType(String path) {
             return this.mobType(new ResourceLocation(path));
@@ -199,12 +219,12 @@ public class ModSkullType implements SkullBlock.Type {
         }
 
         public Builder dropRate(float dropRate) {
-            this.dropRate = dropRate;
+            this.dropRate = Math.max(0.0F, dropRate);
             return this;
         }
 
         public Builder lootingBonus(float lootingBonus) {
-            this.lootingBonus = lootingBonus;
+            this.lootingBonus = Math.max(0.0F, lootingBonus);
             return this;
         }
 
@@ -213,10 +233,20 @@ public class ModSkullType implements SkullBlock.Type {
             return this;
         }
 
+        public Builder skullSize(float width, float height, float depth) {
+            this.skullSize = new Vector3f(width, height, depth);
+            return this;
+        }
+
+        public Builder modelOffsets(float x, float y, float z) {
+            this.modelOffsets = new Vector3f(x, y, z);
+            return this;
+        }
+
         public ModSkullType build() {
             Objects.requireNonNull(this.mobType);
             Objects.requireNonNull(this.textureLocation);
-            return new ModSkullType(this.mobType, this.textureLocation, this.modelLocation == null ? this.mobType : this.modelLocation, this.layerLocation, this.headKey, this.skull, this.dropRate, this.lootingBonus, this.fromChargedCreepers);
+            return new ModSkullType(this.mobType, this.textureLocation, this.modelLocation == null ? this.mobType : this.modelLocation, this.layerLocation, this.headKey, this.skull, this.dropRate, this.lootingBonus, this.fromChargedCreepers, this.skullSize, this.modelOffsets);
         }
     }
 }
