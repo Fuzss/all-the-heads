@@ -10,6 +10,7 @@ import net.minecraft.resources.ResourceLocation;
 import java.nio.charset.StandardCharsets;
 import java.util.Objects;
 import java.util.function.BiConsumer;
+import java.util.function.Function;
 
 public class ClientSkullType {
     private final SkullType baseSkullType;
@@ -54,28 +55,28 @@ public class ClientSkullType {
         consumer.accept(new ResourceLocation(AllTheHeads.MOD_ID, "models/item/" + this.baseSkullType.getId() + ".json"), this.getBuiltInItemModel().getBytes(StandardCharsets.UTF_8));
     }
 
-    public String getBuiltInBlockstateVariants() {
+    String getBuiltInBlockstateVariants() {
         return BuiltInSkullJsonData.SKULL_BLOCKSTATE_VARIANTS;
     }
 
-    public String getBuiltInWallBlockstateVariants() {
+    String getBuiltInWallBlockstateVariants() {
         return BuiltInSkullJsonData.SKULL_WALL_BLOCKSTATE_VARIANTS;
     }
 
-    public String getBuiltInItemModel() {
+    String getBuiltInItemModel() {
         return BuiltInSkullJsonData.SKULL_ITEM_MODEL;
     }
 
     public static class Builder {
-        private final SkullType baseSkullType;
+        private final String baseSkullTypeKey;
         private ResourceLocation textureLocation;
         private ResourceLocation modelLocation;
         private String layerLocation = "main";
-        private String headKey[] = new String[]{"head"};
+        private String[] headKey = new String[]{"head"};
         private Vector3f modelOffsets = Vector3f.ZERO;
         
-        public Builder(SkullType baseSkullType) {
-            this.baseSkullType = baseSkullType;
+        public Builder(String baseSkullTypeKey) {
+            this.baseSkullTypeKey = baseSkullTypeKey;
         }
 
         public Builder textureLocation(String path) {
@@ -116,9 +117,10 @@ public class ClientSkullType {
             return this;
         }
 
-        public ClientSkullType build() {
+        public ClientSkullType build(Function<String, SkullType> skullTypeGetter) {
             Objects.requireNonNull(this.textureLocation);
-            return new ClientSkullType(this.baseSkullType, this.textureLocation, this.modelLocation == null ? this.baseSkullType.getMobType() : this.modelLocation, this.layerLocation, this.headKey, this.modelOffsets);
+            SkullType baseSkullType = skullTypeGetter.apply(this.baseSkullTypeKey);
+            return new ClientSkullType(baseSkullType, this.textureLocation, this.modelLocation == null ? baseSkullType.getMobType() : this.modelLocation, this.layerLocation, this.headKey, this.modelOffsets);
         }
     }
 }

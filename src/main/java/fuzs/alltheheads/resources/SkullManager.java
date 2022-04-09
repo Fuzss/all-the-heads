@@ -1,6 +1,6 @@
 package fuzs.alltheheads.resources;
 
-import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
 import fuzs.alltheheads.registry.ModRegistry;
 import fuzs.alltheheads.world.item.ModStandingAndWallBlockItem;
@@ -20,20 +20,24 @@ import net.minecraftforge.registries.RegistryObject;
 
 import java.util.*;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class SkullManager {
     public static final SkullManager INSTANCE = new SkullManager();
 
-    private Set<SkullType> skullTypes;
+    private Map<String, SkullType> skullTypesByKey;
     private List<Pair<RegistryObject<Block>, RegistryObject<Block>>> skullBlocks;
     private Map<EntityType<?>, List<SkullType>> skullTypesByEntity;
     private Map<ResourceLocation, List<SkullType>> skullTypesByLootTable;
 
+    public SkullType getSkullType(String key) {
+        return this.skullTypesByKey.get(key.indexOf(':') >= 0 ? key : "minecraft:" + key);
+    }
+
     public Collection<SkullType> getAllSkullTypes() {
         this.dissolve();
-        return this.skullTypes.stream()
-                .filter(skullType -> ModLoaderEnvironment.isModLoaded(skullType.getMobType().getNamespace()))
+        return this.skullTypesByKey.values().stream()
                 .sorted(Comparator.<SkullType, String>comparing(skullType -> skullType.getMobType().getNamespace())
                         .thenComparing(skullType -> skullType.getMobType().getPath())
                         .thenComparing(SkullType::getVariant))
@@ -74,23 +78,25 @@ public class SkullManager {
     }
 
     private void dissolve() {
-        if (this.skullTypes == null) {
-            ImmutableSet.Builder<SkullType> builder = ImmutableSet.builder();
-            builder.add(ModRegistry.PIGLIN_SKULL_TYPE);
-            builder.add(ModRegistry.ZOMBIFIED_PIGLIN_SKULL_TYPE);
-            builder.add(ModRegistry.PIGLIN_BRUTE_SKULL_TYPE);
-            builder.add(ModRegistry.COW_SKULL_TYPE);
-            builder.add(ModRegistry.VILLAGER_SKULL_TYPE);
-            builder.add(ModRegistry.ENDERMAN_SKULL_TYPE);
-            builder.add(ModRegistry.BLAZE_SKULL_TYPE);
-            builder.add(ModRegistry.SPIDER_SKULL_TYPE);
-            builder.add(ModRegistry.CAVE_SPIDER_SKULL_TYPE);
-            builder.add(ModRegistry.WITCH_SKULL_TYPE);
-            builder.add(ModRegistry.SQUID_SKULL_TYPE);
-            builder.add(ModRegistry.LUCY_AXOLOTL_SKULL_TYPE);
-            builder.add(ModRegistry.WILD_AXOLOTL_SKULL_TYPE);
-            builder.add(ModRegistry.GOLD_AXOLOTL_SKULL_TYPE);
-            this.skullTypes = builder.build();
+        if (this.skullTypesByKey == null) {
+            List<SkullType.Builder> builders = Lists.newArrayList();
+            builders.add(new SkullType.Builder("piglin").skullSize(10.0F, 8.0F, 8.0F));
+            builders.add(new SkullType.Builder("zombified_piglin").skullSize(10.0F, 8.0F, 8.0F));
+            builders.add(new SkullType.Builder("piglin_brute").skullSize(10.0F, 8.0F, 8.0F));
+            builders.add(new SkullType.Builder("cow").skullSize(8.0F, 8.0F, 6.0F));
+            builders.add(new SkullType.Builder("villager").skullSize(8.0F, 10.0F, 8.0F));
+            builders.add(new SkullType.Builder("enderman"));
+            builders.add(new SkullType.Builder("blaze"));
+            builders.add(new SkullType.Builder("spider"));
+            builders.add(new SkullType.Builder("cave_spider"));
+            builders.add(new SkullType.Builder("witch").skullSize(8.0F, 10.0F, 8.0F));
+            builders.add(new SkullType.Builder("squid").skullSize(12.0F, 16.0F, 12.0F));
+            builders.add(new SkullType.Builder("axolotl").variant("lucy", "{Variant:0}").skullSize(8.0F, 5.0F, 5.0F));
+            builders.add(new SkullType.Builder("axolotl").variant("wild", "{Variant:1}").skullSize(8.0F, 5.0F, 5.0F));
+            builders.add(new SkullType.Builder("axolotl").variant("gold", "{Variant:2}").skullSize(8.0F, 5.0F, 5.0F));
+            this.skullTypesByKey = builders.stream().map(SkullType.Builder::build)
+                    .filter(skullType -> ModLoaderEnvironment.isModLoaded(skullType.getMobType().getNamespace()))
+                    .collect(ImmutableMap.toImmutableMap(SkullType::getMappingKey, Function.identity()));
         }
     }
 

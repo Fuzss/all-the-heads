@@ -81,6 +81,10 @@ public class SkullType implements SkullBlock.Type {
         return new ResourceLocation(this.mobType.getNamespace(), "entities/".concat(this.mobType.getPath()));
     }
 
+    public String getMappingKey() {
+        return this.mobType.toString() + (this.variant.isEmpty() ? "" : "#" + this.variant);
+    }
+
     public String getId() {
         return this.getBaseId() + this.getSuffixId();
     }
