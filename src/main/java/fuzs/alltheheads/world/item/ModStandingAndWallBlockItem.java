@@ -1,6 +1,6 @@
 package fuzs.alltheheads.world.item;
 
-import fuzs.alltheheads.registry.SkullType;
+import fuzs.alltheheads.resources.SkullType;
 import net.minecraft.core.BlockSource;
 import net.minecraft.core.dispenser.DispenseItemBehavior;
 import net.minecraft.core.dispenser.OptionalDispenseItemBehavior;

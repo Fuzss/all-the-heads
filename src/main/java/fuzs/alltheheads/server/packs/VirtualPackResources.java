@@ -82,6 +82,7 @@ public class VirtualPackResources implements PackResources {
                 .collect(ImmutableSet.toImmutableSet());
     }
 
+    @SuppressWarnings("unchecked")
     @Nullable
     @Override
     public <T> T getMetadataSection(MetadataSectionSerializer<T> deserializer) {

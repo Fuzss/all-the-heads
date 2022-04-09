@@ -2,16 +2,14 @@ package fuzs.alltheheads.client;
 
 import fuzs.alltheheads.AllTheHeads;
 import fuzs.alltheheads.client.model.ModSkullModel;
+import fuzs.alltheheads.client.resources.ClientSkullManager;
+import fuzs.alltheheads.client.resources.ClientSkullType;
 import fuzs.alltheheads.registry.ModRegistry;
-import fuzs.alltheheads.registry.SkullType;
-import fuzs.alltheheads.registry.SkullManager;
+import fuzs.alltheheads.resources.SkullType;
 import fuzs.alltheheads.server.packs.VirtualPackResources;
-import it.unimi.dsi.fastutil.Pair;
-import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.blockentity.SkullBlockRenderer;
 import net.minecraft.network.chat.TextComponent;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.repository.Pack;
 import net.minecraft.server.packs.repository.PackSource;
@@ -24,6 +22,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 import java.nio.file.Path;
+import java.util.Map;
 import java.util.function.Consumer;
 
 @Mod.EventBusSubscriber(modid = AllTheHeads.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
@@ -32,16 +31,16 @@ public class AllTheHeadsClient {
     @SubscribeEvent
     public static void onClientSetup(final FMLClientSetupEvent evt) {
         BlockEntityRenderers.register(ModRegistry.MOB_HEAD_BLOCK_ENTITY_TYPE.get(), SkullBlockRenderer::new);
-        for (SkullType skullType : SkullManager.INSTANCE.getAllSkullTypes()) {
-            SkullBlockRenderer.SKIN_BY_TYPE.put(skullType, skullType.getTextureLocation());
+        for (Map.Entry<SkullType, ClientSkullType> entry : ClientSkullManager.INSTANCE.getSkullTypeClientData().entrySet()) {
+            SkullBlockRenderer.SKIN_BY_TYPE.put(entry.getKey(), entry.getValue().getTextureLocation());
         }
     }
 
     @SubscribeEvent
     public static void onCreateSkullModels(final EntityRenderersEvent.CreateSkullModels evt) {
-        for (SkullType skullType : SkullManager.INSTANCE.getAllSkullTypes()) {
-            Pair<ResourceLocation, String> modelLayerLocation = skullType.getModelLayerLocation();
-            evt.registerSkullModel(skullType, new ModSkullModel(evt.getEntityModelSet().bakeLayer(new ModelLayerLocation(modelLayerLocation.left(), modelLayerLocation.right())), skullType));
+        for (Map.Entry<SkullType, ClientSkullType> entry : ClientSkullManager.INSTANCE.getSkullTypeClientData().entrySet()) {
+            ClientSkullType skullType = entry.getValue();
+            evt.registerSkullModel(entry.getKey(), new ModSkullModel(evt.getEntityModelSet().bakeLayer(skullType.getModelLayerLocation()), skullType));
         }
     }
 
@@ -50,7 +49,7 @@ public class AllTheHeadsClient {
         if (evt.getPackType() == PackType.CLIENT_RESOURCES) {
             evt.addRepositorySource((Consumer<Pack> consumer, Pack.PackConstructor factory) -> {
                 Path packIconPath = ModList.get().getModFileById(AllTheHeads.MOD_ID).getFile().findResource("mod_logo.png");
-                Pack packInfo = Pack.create(AllTheHeads.MOD_ID, true, () -> new VirtualPackResources(AllTheHeads.MOD_NAME + " Resources", packIconPath, new TextComponent(AllTheHeads.MOD_DESCRIPTION), SkullManager.INSTANCE.getBuiltInResourceData()), factory, Pack.Position.BOTTOM, PackSource.BUILT_IN);
+                Pack packInfo = Pack.create(AllTheHeads.MOD_ID, true, () -> new VirtualPackResources(AllTheHeads.MOD_NAME + " Resources", packIconPath, new TextComponent(AllTheHeads.MOD_DESCRIPTION), ClientSkullManager.INSTANCE.getBuiltInResourceData()), factory, Pack.Position.BOTTOM, PackSource.BUILT_IN);
                 consumer.accept(packInfo);
             });
         }

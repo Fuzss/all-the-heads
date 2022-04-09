@@ -1,15 +1,19 @@
-package fuzs.alltheheads.registry;
+package fuzs.alltheheads.resources;
 
 import com.google.common.base.Suppliers;
+import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.math.Vector3f;
 import fuzs.alltheheads.AllTheHeads;
-import fuzs.alltheheads.client.model.BuiltInSkullJsonData;
 import fuzs.alltheheads.util.BlockLootUtil;
-import it.unimi.dsi.fastutil.Pair;
+import net.minecraft.advancements.critereon.NbtPredicate;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtUtils;
+import net.minecraft.nbt.TagParser;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -19,9 +23,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 import net.minecraftforge.registries.IForgeRegistry;
 
-import java.nio.charset.StandardCharsets;
 import java.util.Objects;
-import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
 public class SkullType implements SkullBlock.Type {
@@ -39,6 +41,8 @@ public class SkullType implements SkullBlock.Type {
     private final boolean fromChargedCreepers;
     private final boolean mobDisguise;
     private final Vector3f skullSize;
+    private final String variant;
+    private final String nbtPredicate;
 
     public final Supplier<Block> block;
     public final Supplier<Block> wallBlock;
@@ -46,25 +50,16 @@ public class SkullType implements SkullBlock.Type {
     public final Supplier<EntityType<?>> entityType;
     public final Supplier<LootTable> lootTable;
 
-    private final ResourceLocation textureLocation;
-    private final ResourceLocation modelLocation;
-    private final String layerLocation;
-    private final String headKey;
-    private final Vector3f modelOffsets;
-
-    private SkullType(ResourceLocation mobType, ResourceLocation textureLocation, ResourceLocation modelLocation, String layerLocation, String headKey, boolean skull, float dropRate, float lootingBonus, boolean fromChargedCreepers, boolean mobDisguise, Vector3f skullSize, Vector3f modelOffsets) {
+    private SkullType(ResourceLocation mobType, boolean skull, float dropRate, float lootingBonus, boolean fromChargedCreepers, boolean mobDisguise, Vector3f skullSize, String variant, String nbtPredicate) {
         this.mobType = mobType;
-        this.textureLocation = textureLocation;
-        this.modelLocation = modelLocation;
-        this.layerLocation = layerLocation;
-        this.headKey = headKey;
         this.skull = skull;
         this.dropRate = dropRate;
         this.lootingBonus = lootingBonus;
         this.fromChargedCreepers = fromChargedCreepers;
         this.mobDisguise = mobDisguise;
         this.skullSize = skullSize;
-        this.modelOffsets = modelOffsets;
+        this.variant = variant;
+        this.nbtPredicate = nbtPredicate;
         this.entityType = Suppliers.memoize(() -> getRegistryEntry(ForgeRegistries.ENTITIES, this.mobType));
         this.wallBlock = Suppliers.memoize(() -> getRegistryEntry(ForgeRegistries.BLOCKS, new ResourceLocation(AllTheHeads.MOD_ID, this.getWallId())));
         this.block = Suppliers.memoize(() -> getRegistryEntry(ForgeRegistries.BLOCKS, new ResourceLocation(AllTheHeads.MOD_ID, this.getId())));
@@ -86,50 +81,23 @@ public class SkullType implements SkullBlock.Type {
         return new ResourceLocation(this.mobType.getNamespace(), "entities/".concat(this.mobType.getPath()));
     }
 
-    public String getModelPartHeadKey() {
-        return this.headKey;
-    }
-
-    public Vector3f getSkullSize() {
-        return this.skullSize;
-    }
-
-    public Vector3f getModelOffsets() {
-        return this.modelOffsets;
-    }
-
-    public void buildResourceMap(BiConsumer<ResourceLocation, byte[]> consumer) {
-        consumer.accept(new ResourceLocation(AllTheHeads.MOD_ID, "blockstates/" + this.getId() + ".json"), this.getBuiltInBlockstateVariants().getBytes(StandardCharsets.UTF_8));
-        consumer.accept(new ResourceLocation(AllTheHeads.MOD_ID, "blockstates/" + this.getWallId() + ".json"), this.getBuiltInWallBlockstateVariants().getBytes(StandardCharsets.UTF_8));
-        consumer.accept(new ResourceLocation(AllTheHeads.MOD_ID, "models/item/" + this.getId() + ".json"), this.getBuiltInItemModel().getBytes(StandardCharsets.UTF_8));
-    }
-
-    public String getBuiltInBlockstateVariants() {
-        return BuiltInSkullJsonData.SKULL_BLOCKSTATE_VARIANTS;
-    }
-
-    public String getBuiltInWallBlockstateVariants() {
-        return BuiltInSkullJsonData.SKULL_WALL_BLOCKSTATE_VARIANTS;
-    }
-
-    public String getBuiltInItemModel() {
-        return BuiltInSkullJsonData.SKULL_ITEM_MODEL;
-    }
-
     public String getId() {
-        return this.mobType.getPath().concat(this.skull ? SKULL_SUFFIX : HEAD_SUFFIX);
+        return this.getBaseId() + this.getSuffixId();
     }
 
     public String getWallId() {
-        return this.mobType.getPath().concat(WALL_SUFFIX).concat(this.skull ? SKULL_SUFFIX : HEAD_SUFFIX);
+        return this.getBaseId() + WALL_SUFFIX + this.getSuffixId();
     }
 
-    public ResourceLocation getTextureLocation() {
-        return this.textureLocation;
+    private String getBaseId() {
+        if (this.variant.isEmpty()) {
+            return this.mobType.getPath();
+        }
+        return this.variant + "_" + this.mobType.getPath();
     }
 
-    public Pair<ResourceLocation, String> getModelLayerLocation() {
-        return Pair.of(this.modelLocation, this.layerLocation);
+    private String getSuffixId() {
+        return this.skull ? SKULL_SUFFIX : HEAD_SUFFIX;
     }
 
     public float getDropRate() {
@@ -148,6 +116,27 @@ public class SkullType implements SkullBlock.Type {
         return this.mobDisguise;
     }
 
+    public Vector3f getSkullSize() {
+        return this.skullSize;
+    }
+
+    public String getVariant() {
+        return this.variant;
+    }
+
+    public boolean matchesNbtVariant(Entity entity) {
+        return this.nbtPredicate.isEmpty() || NbtUtils.compareNbt(this.getNbtPredicate(), NbtPredicate.getEntityTagToCompare(entity), true);
+    }
+
+    public CompoundTag getNbtPredicate() {
+        if (this.nbtPredicate.isEmpty()) throw new RuntimeException("Nbt predicate missing for variant " + this.variant);
+        try {
+            return TagParser.parseTag(this.nbtPredicate);
+        } catch (CommandSyntaxException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public MutableComponent getName() {
         return this.getName(this.entityType.get().getDescription());
     }
@@ -162,22 +151,19 @@ public class SkullType implements SkullBlock.Type {
 
     @Override
     public String toString() {
-        return this.mobType + "={textureLocation=" + this.textureLocation + ", modelLocation=" + this.modelLocation + ", layerLocation='" + this.layerLocation + '\'' + ", headKey='" + this.headKey + '\'' + ", skull=" + this.skull + ", dropRate=" + this.dropRate + ", lootingBonus=" + this.lootingBonus + ", fromChargedCreepers=" + this.fromChargedCreepers + ", skullSize=" + this.skullSize + ", modelOffsets=" + this.modelOffsets + '}';
+        return "SkullType{" + "mobType=" + this.mobType + ", skull=" + this.skull + ", dropRate=" + this.dropRate + ", lootingBonus=" + this.lootingBonus + ", fromChargedCreepers=" + this.fromChargedCreepers + ", mobDisguise=" + this.mobDisguise + ", skullSize=" + this.skullSize + '}';
     }
 
     public static class Builder {
         private final ResourceLocation mobType;
-        private ResourceLocation textureLocation;
-        private ResourceLocation modelLocation;
-        private String layerLocation = "main";
-        private String headKey = "head";
         private boolean skull;
         private float dropRate = 0.025F;
         private float lootingBonus = 0.01F;
         private boolean fromChargedCreepers = true;
         private boolean mobDisguise = true;
         private Vector3f skullSize = new Vector3f(8.0F, 8.0F, 8.0F);
-        private Vector3f modelOffsets = Vector3f.ZERO;
+        private String variant = "";
+        private String nbtPredicate = "";
 
         public Builder(String path) {
             this(new ResourceLocation(path));
@@ -185,39 +171,6 @@ public class SkullType implements SkullBlock.Type {
 
         public Builder(ResourceLocation mobType) {
             this.mobType = mobType;
-        }
-
-        public Builder textureLocation(String path) {
-            return this.textureLocation(new ResourceLocation(path));
-        }
-
-        public Builder textureLocation(ResourceLocation textureLocation) {
-            this.textureLocation = textureLocation;
-            return this;
-        }
-
-        public Builder modelLayerLocation(String path) {
-            return this.modelLayerLocation(new ResourceLocation(path));
-        }
-
-        public Builder modelLayerLocation(ResourceLocation model) {
-            this.modelLocation = model;
-            return this;
-        }
-
-        public Builder modelLayerLocation(String path, String layer) {
-            return this.modelLayerLocation(new ResourceLocation(path), layer);
-        }
-
-        public Builder modelLayerLocation(ResourceLocation model, String layer) {
-            this.modelLocation = model;
-            this.layerLocation = layer;
-            return this;
-        }
-
-        public Builder customHeadKey(String headKey) {
-            this.headKey = headKey;
-            return this;
         }
 
         public Builder skull() {
@@ -250,14 +203,14 @@ public class SkullType implements SkullBlock.Type {
             return this;
         }
 
-        public Builder modelOffsets(float x, float y, float z) {
-            this.modelOffsets = new Vector3f(x, y, z);
+        public Builder variant(String variant, String nbtPredicate) {
+            this.variant = variant;
+            this.nbtPredicate = nbtPredicate;
             return this;
         }
 
         public SkullType build() {
-            Objects.requireNonNull(this.textureLocation);
-            return new SkullType(this.mobType, this.textureLocation, this.modelLocation == null ? this.mobType : this.modelLocation, this.layerLocation, this.headKey, this.skull, this.dropRate, this.lootingBonus, this.fromChargedCreepers, mobDisguise, this.skullSize, this.modelOffsets);
+            return new SkullType(this.mobType, this.skull, this.dropRate, this.lootingBonus, this.fromChargedCreepers, this.mobDisguise, this.skullSize, this.variant, this.nbtPredicate);
         }
     }
 }

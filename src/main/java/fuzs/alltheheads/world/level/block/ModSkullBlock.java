@@ -2,7 +2,7 @@ package fuzs.alltheheads.world.level.block;
 
 import com.google.common.collect.ImmutableMap;
 import com.mojang.math.Vector3f;
-import fuzs.alltheheads.registry.SkullType;
+import fuzs.alltheheads.resources.SkullType;
 import fuzs.alltheheads.world.level.block.entity.ModSkullBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

@@ -1,11 +1,15 @@
 package fuzs.alltheheads.client.model;
 
+import com.google.common.collect.Iterators;
+import com.google.common.collect.UnmodifiableIterator;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Vector3f;
-import fuzs.alltheheads.registry.SkullType;
+import fuzs.alltheheads.client.resources.ClientSkullType;
 import net.minecraft.client.model.SkullModelBase;
 import net.minecraft.client.model.geom.ModelPart;
+
+import java.util.Iterator;
 
 public class ModSkullModel extends SkullModelBase {
     private final ModelPart head;
@@ -13,12 +17,21 @@ public class ModSkullModel extends SkullModelBase {
     private final float offsetY;
     private final float offsetZ;
 
-    public ModSkullModel(ModelPart modelPart, SkullType skullType) {
-        this.head = modelPart.getChild(skullType.getModelPartHeadKey());
+    public ModSkullModel(ModelPart modelPart, ClientSkullType skullType) {
+        this.head = getModelPartHeadKey(modelPart, skullType.getModelPartHeadKey());
         Vector3f modelOffsets = skullType.getModelOffsets();
         this.offsetX = this.head.x + modelOffsets.x();
         this.offsetY = this.head.y + modelOffsets.y();
         this.offsetZ = this.head.z + modelOffsets.z();
+    }
+
+    private static ModelPart getModelPartHeadKey(ModelPart modelPart, String[] headKey) {
+        if (headKey.length == 0) throw new IllegalArgumentException("Head key path cannot be empty");
+        ModelPart head = modelPart.getChild(headKey[0]);
+        for (int i = 1; i < headKey.length; i++) {
+            head = head.getChild(headKey[i]);
+        }
+        return head;
     }
 
     @Override
