@@ -24,6 +24,7 @@ import net.minecraftforge.registries.ForgeRegistryEntry;
 import net.minecraftforge.registries.IForgeRegistry;
 
 import java.util.Objects;
+import java.util.function.BooleanSupplier;
 import java.util.function.Supplier;
 
 public class SkullType implements SkullBlock.Type {
@@ -49,6 +50,8 @@ public class SkullType implements SkullBlock.Type {
     public final Supplier<Item> item;
     public final Supplier<EntityType<?>> entityType;
     public final Supplier<LootTable> lootTable;
+
+    private BooleanSupplier configSupplier;
 
     private SkullType(ResourceLocation mobType, boolean skull, float dropRate, float lootingBonus, boolean fromChargedCreepers, boolean mobDisguise, Vector3f skullSize, String variant, String nbtPredicate) {
         this.mobType = mobType;
@@ -104,6 +107,10 @@ public class SkullType implements SkullBlock.Type {
         return this.skull ? SKULL_SUFFIX : HEAD_SUFFIX;
     }
 
+    public boolean obtainableFromNormalDrops() {
+        return this.configSupplier.getAsBoolean() && (this.getDropRate() > 0.0F || this.getLootingBonus() > 0.0F);
+    }
+
     public float getDropRate() {
         return this.dropRate;
     }
@@ -113,7 +120,7 @@ public class SkullType implements SkullBlock.Type {
     }
 
     public boolean dropsFromChargedCreepers() {
-        return this.fromChargedCreepers;
+        return this.configSupplier.getAsBoolean() && this.fromChargedCreepers;
     }
 
     public boolean worksAsMobDisguise() {
@@ -147,6 +154,11 @@ public class SkullType implements SkullBlock.Type {
 
     public MutableComponent getWallName() {
         return this.getName(new TranslatableComponent(WALL_TRANSLATION_KEY, this.entityType.get().getDescription()));
+    }
+
+    public void setConfigSupplier(BooleanSupplier supplier) {
+        if (this.configSupplier != null) throw new IllegalStateException("Config supplier already set!");
+        this.configSupplier = supplier;
     }
 
     private MutableComponent getName(Component description) {

@@ -38,10 +38,8 @@ public class AllTheHeadsClient {
 
     @SubscribeEvent
     public static void onRegisterLayerDefinitions(final EntityRenderersEvent.RegisterLayerDefinitions evt) {
-        for (Map.Entry<SkullType, ClientSkullType> entry : ClientSkullManager.INSTANCE.getSkullTypeClientData().entrySet()) {
-            ClientSkullType skullType = entry.getValue();
-            evt.registerLayerDefinition();
-            evt.registerSkullModel(entry.getKey(), new ModSkullModel(evt.getEntityModelSet().bakeLayer(skullType.getBaseModelLayerLocation()), skullType));
+        for (ClientSkullType skullType : ClientSkullManager.INSTANCE.getSkullTypeClientData().values()) {
+            evt.registerLayerDefinition(skullType.getModelLayerLocationId(), skullType::getLayerDefinition);
         }
     }
 

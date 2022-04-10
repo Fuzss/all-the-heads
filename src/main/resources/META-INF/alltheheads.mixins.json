@@ -5,10 +5,10 @@
   "package": "fuzs.alltheheads.mixin",
   "refmap": "META-INF/alltheheads.refmap.json",
   "mixins": [
+    "ItemMixin"
   ],
   "client": [
-    "client.accessor.LayerDefinitionAccessor",
-    "client.accessor.PartDefinitionAccessor"
+    "client.SkullBlockRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -11,6 +11,7 @@ import fuzs.puzzleslib.registry.RegistryManager;
 import it.unimi.dsi.fastutil.Pair;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.animal.axolotl.Axolotl;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.Block;
@@ -71,7 +72,7 @@ public class SkullManager {
     public Optional<List<SkullType>> getSkullTypeByLootTable(ResourceLocation lootTable) {
         if (this.skullTypesByLootTable == null) {
             this.skullTypesByLootTable = this.getAllSkullTypes().stream()
-                    .filter(skullType -> skullType.getDropRate() > 0.0F || skullType.getLootingBonus() > 0.0F)
+                    .filter(SkullType::obtainableFromNormalDrops)
                     .collect(Collectors.groupingBy(SkullType::getMobLootTableId));
         }
         return Optional.ofNullable(this.skullTypesByLootTable.get(lootTable));
@@ -99,10 +100,10 @@ public class SkullManager {
         builders.add(new SkullType.Builder("cave_spider"));
         builders.add(new SkullType.Builder("witch").skullSize(8.0F, 10.0F, 8.0F));
         builders.add(new SkullType.Builder("squid").skullSize(8.0F, 10.6667F, 8.0F));
-        builders.add(new SkullType.Builder("axolotl").variant("lucy", "{Variant:0}").skullSize(8.0F, 5.0F, 5.0F));
-        builders.add(new SkullType.Builder("axolotl").variant("wild", "{Variant:1}").skullSize(8.0F, 5.0F, 5.0F));
-        builders.add(new SkullType.Builder("axolotl").variant("gold", "{Variant:2}").skullSize(8.0F, 5.0F, 5.0F));
-        builders.add(new SkullType.Builder("chicken").skullSize(4.0F, 6.0F, 3.0F));
+        for (Axolotl.Variant variant : Axolotl.Variant.values()) {
+            builders.add(new SkullType.Builder("axolotl").variant(variant.getName(), "{Variant:" + variant.getId() + "}").skullSize(8.0F, 5.0F, 5.0F));
+        }
+        builders.add(new SkullType.Builder("chicken").skullSize(8.0F, 12.0F, 6.0F));
         return builders;
     }
 
@@ -113,6 +114,7 @@ public class SkullManager {
     }
 
     private void registerItem(RegistryManager registry, SkullType skullType, RegistryObject<Block> headBlock, RegistryObject<Block> wallHeadBlock) {
+        // we use a mixin for all skulls to add them to our custom creative tab, but still set this here so the correct tab shows on creative search tab tooltip
         registry.registerItem(skullType.getId(), () -> new ModStandingAndWallBlockItem(headBlock.get(), wallHeadBlock.get(), new Item.Properties().tab(ModRegistry.ALL_THE_HEADS_CREATIVE_TAB).rarity(Rarity.UNCOMMON)));
     }
 }
