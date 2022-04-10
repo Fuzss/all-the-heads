@@ -5,6 +5,7 @@ import com.mojang.math.Vector3f;
 import fuzs.alltheheads.AllTheHeads;
 import fuzs.alltheheads.client.model.BuiltInSkullJsonData;
 import fuzs.alltheheads.resources.SkullType;
+import fuzs.puzzleslib.client.model.geom.ModelLayerRegistry;
 import fuzs.puzzleslib.util.PuzzlesUtil;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.resources.ResourceLocation;
@@ -16,6 +17,8 @@ import java.util.function.BiConsumer;
 import java.util.function.Function;
 
 public class ClientSkullType {
+    private static final ModelLayerRegistry REGISTRY = ModelLayerRegistry.of(AllTheHeads.MOD_ID);
+
     private final SkullType baseSkullType;
     private final ResourceLocation textureLocation;
     private final ResourceLocation modelLocation;
@@ -42,8 +45,12 @@ public class ClientSkullType {
         return this.textureLocation;
     }
 
-    public ModelLayerLocation getModelLayerLocation() {
+    public ModelLayerLocation getBaseModelLayerLocation() {
         return new ModelLayerLocation(this.modelLocation, this.layerLocation);
+    }
+
+    public ModelLayerLocation getModelLayerLocationId() {
+        return REGISTRY.register(this.modelLocation.getPath() + this.baseSkullType.getSuffixId());
     }
 
     public List<String[]> getModelPartHeadKey() {

@@ -100,7 +100,7 @@ public class SkullType implements SkullBlock.Type {
         return this.variant + "_" + this.mobType.getPath();
     }
 
-    private String getSuffixId() {
+    public String getSuffixId() {
         return this.skull ? SKULL_SUFFIX : HEAD_SUFFIX;
     }
 

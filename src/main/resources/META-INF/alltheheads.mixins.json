@@ -7,6 +7,8 @@
   "mixins": [
   ],
   "client": [
+    "client.accessor.LayerDefinitionAccessor",
+    "client.accessor.PartDefinitionAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
