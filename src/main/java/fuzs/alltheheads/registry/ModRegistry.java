@@ -4,7 +4,6 @@ import fuzs.alltheheads.AllTheHeads;
 import fuzs.alltheheads.resources.SkullManager;
 import fuzs.alltheheads.world.level.block.entity.ModSkullBlockEntity;
 import fuzs.puzzleslib.registry.RegistryManager;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntityType;

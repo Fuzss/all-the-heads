@@ -31,9 +31,11 @@ public class AllTheHeadsClient {
     @SubscribeEvent
     public static void onClientSetup(final FMLClientSetupEvent evt) {
         BlockEntityRenderers.register(ModRegistry.MOB_HEAD_BLOCK_ENTITY_TYPE.get(), SkullBlockRenderer::new);
-        for (Map.Entry<ModSkullType, ClientModSkullType> entry : ClientSkullManager.INSTANCE.getSkullTypeClientData().entrySet()) {
-            SkullBlockRenderer.SKIN_BY_TYPE.put(entry.getKey(), entry.getValue().getTextureLocation());
-        }
+        // we use a mixin since we need a different render type from the default one to support rendering layers in the same z-level
+        // ...and Fabric is going to need the mixin anyways
+//        for (Map.Entry<ModSkullType, ClientModSkullType> entry : ClientSkullManager.INSTANCE.getSkullTypeClientData().entrySet()) {
+//            SkullBlockRenderer.SKIN_BY_TYPE.put(entry.getKey(), entry.getValue().getTextureLocation());
+//        }
     }
 
     @SubscribeEvent

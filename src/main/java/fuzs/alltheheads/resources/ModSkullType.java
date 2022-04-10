@@ -13,6 +13,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
@@ -25,6 +26,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 
 import java.util.Objects;
 import java.util.function.BooleanSupplier;
+import java.util.function.DoubleSupplier;
 import java.util.function.Supplier;
 
 public class ModSkullType implements SkullBlock.Type {
@@ -37,8 +39,8 @@ public class ModSkullType implements SkullBlock.Type {
 
     private final ResourceLocation mobType;
     private final boolean skull;
-    private final float dropRate;
-    private final float lootingBonus;
+    private final double dropRate;
+    private final double lootingBonus;
     private final boolean fromChargedCreepers;
     private final boolean mobDisguise;
     private final Vector3f skullSize;
@@ -51,9 +53,12 @@ public class ModSkullType implements SkullBlock.Type {
     public final Supplier<EntityType<?>> entityType;
     public final Supplier<LootTable> lootTable;
 
-    private BooleanSupplier configSupplier;
+    private DoubleSupplier dropRateSupplier;
+    private DoubleSupplier lootingBonusSupplier;
+    private BooleanSupplier fromChargedCreepersSupplier;
+    private BooleanSupplier mobDisguiseSupplier;
 
-    private ModSkullType(ResourceLocation mobType, boolean skull, float dropRate, float lootingBonus, boolean fromChargedCreepers, boolean mobDisguise, Vector3f skullSize, String variant, String nbtPredicate) {
+    private ModSkullType(ResourceLocation mobType, boolean skull, double dropRate, double lootingBonus, boolean fromChargedCreepers, boolean mobDisguise, Vector3f skullSize, String variant, String nbtPredicate) {
         this.mobType = mobType;
         this.skull = skull;
         this.dropRate = dropRate;
@@ -108,22 +113,38 @@ public class ModSkullType implements SkullBlock.Type {
     }
 
     public boolean obtainableFromNormalDrops() {
-        return this.configSupplier.getAsBoolean() && (this.getDropRate() > 0.0F || this.getLootingBonus() > 0.0F);
+        return this.getDropRate() > 0.0F || this.getLootingBonus() > 0.0F;
     }
 
     public float getDropRate() {
-        return this.dropRate;
+        return (float) this.dropRateSupplier.getAsDouble();
     }
 
     public float getLootingBonus() {
-        return this.lootingBonus;
+        return (float) this.lootingBonusSupplier.getAsDouble();
     }
 
     public boolean dropsFromChargedCreepers() {
-        return this.configSupplier.getAsBoolean() && this.fromChargedCreepers;
+        return this.fromChargedCreepersSupplier.getAsBoolean();
     }
 
     public boolean worksAsMobDisguise() {
+        return this.mobDisguiseSupplier.getAsBoolean();
+    }
+
+    public double getDropRateDefault() {
+        return this.dropRate;
+    }
+
+    public double getLootingBonusDefault() {
+        return this.lootingBonus;
+    }
+
+    public boolean dropsFromChargedCreepersDefault() {
+        return this.fromChargedCreepers;
+    }
+
+    public boolean worksAsMobDisguiseDefault() {
         return this.mobDisguise;
     }
 
@@ -156,9 +177,14 @@ public class ModSkullType implements SkullBlock.Type {
         return this.getName(new TranslatableComponent(WALL_TRANSLATION_KEY, this.entityType.get().getDescription()));
     }
 
-    public void setConfigSupplier(BooleanSupplier supplier) {
-        if (this.configSupplier != null) throw new IllegalStateException("Config supplier already set!");
-        this.configSupplier = supplier;
+    public void setConfigSuppliers(DoubleSupplier dropRate, DoubleSupplier lootingBonus, BooleanSupplier fromChargedCreepers, BooleanSupplier mobDisguise) {
+        if (this.dropRateSupplier != null || this.lootingBonusSupplier != null || this.fromChargedCreepersSupplier != null || this.mobDisguiseSupplier != null) {
+            throw new IllegalStateException("Config supplier already set!");
+        }
+        this.dropRateSupplier = dropRate;
+        this.lootingBonusSupplier = lootingBonus;
+        this.fromChargedCreepersSupplier = fromChargedCreepers;
+        this.mobDisguiseSupplier = mobDisguise;
     }
 
     private MutableComponent getName(Component description) {
@@ -173,8 +199,8 @@ public class ModSkullType implements SkullBlock.Type {
     public static class Builder {
         private final ResourceLocation mobType;
         private boolean skull;
-        private float dropRate = 0.025F;
-        private float lootingBonus = 0.01F;
+        private double dropRate = 0.025;
+        private double lootingBonus = 0.01;
         private boolean fromChargedCreepers = true;
         private boolean mobDisguise = true;
         private Vector3f skullSize = new Vector3f(8.0F, 8.0F, 8.0F);
@@ -195,12 +221,12 @@ public class ModSkullType implements SkullBlock.Type {
         }
 
         public Builder dropRate(float dropRate) {
-            this.dropRate = Math.max(0.0F, dropRate);
+            this.dropRate = Mth.clamp(dropRate, 0.0, 1.0);
             return this;
         }
 
         public Builder lootingBonus(float lootingBonus) {
-            this.lootingBonus = Math.max(0.0F, lootingBonus);
+            this.lootingBonus = Mth.clamp(lootingBonus, 0.0, 1.0);
             return this;
         }
 

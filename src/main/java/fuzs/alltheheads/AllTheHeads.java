@@ -3,8 +3,8 @@ package fuzs.alltheheads;
 import fuzs.alltheheads.data.ModLanguageProvider;
 import fuzs.alltheheads.handler.MobLootHandler;
 import fuzs.alltheheads.registry.ModRegistry;
-import fuzs.alltheheads.resources.SkullManager;
 import fuzs.alltheheads.resources.ModSkullType;
+import fuzs.alltheheads.resources.SkullManager;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.MinecraftForge;
@@ -30,18 +30,18 @@ public class AllTheHeads {
     public static void onConstructMod(final FMLConstructModEvent evt) {
         ModRegistry.touch();
         registerHandlers();
-        setupTemporaryConfig();
+        setupConfig();
     }
 
-    private static void setupTemporaryConfig() {
-        // should be replaced with data driven system in the future, only that serializing model generation will be quite the effort
+    private static void setupConfig() {
+        // should be replaced with data driven system in the future, only problem that serializing model generation will be quite the effort
         ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
-        builder.comment("Allows for disabling individual heads from being obtainable in survival (via mob drops). This will not remove blocks and items, they are still available in-game using cheats.");
-        builder.push(MOD_ID);
+        builder.comment("Allows for disabling individual heads from being obtainable in survival by setting drop rate values to zero and disabling the charged creeper method.", "This will not remove blocks and items, they are still available in-game using cheats (creative/commands). Also already obtained heads will not vanish.", "drop_rate - Chance the head will be dropped when the mob is killed by a player or tamed wolf", "looting_bonus - Bonus for drop rate for each level of looting on the killer weapon", "from_charged_creepers - When the mob is killed via an exploding charged creeper (a creeper struck by lightning) will it be guaranteed to drop the head", "works_as_mob_disguise - Will wearing this head half the detection range of the mob");
         for (ModSkullType skullType : SkullManager.INSTANCE.getAllSkullTypes()) {
-            skullType.setConfigSupplier(builder.define(skullType.getMappingKey(), true)::get);
+            builder.push(skullType.getMappingKey());
+            skullType.setConfigSuppliers(builder.defineInRange("drop_rate", skullType.getDropRateDefault(), 0.0, 1.0)::get, builder.defineInRange("looting_bonus", skullType.getLootingBonusDefault(), 0.0, 1.0)::get, builder.define("from_charged_creepers", skullType.dropsFromChargedCreepersDefault())::get, builder.define("works_as_mob_disguise", skullType.worksAsMobDisguiseDefault())::get);
+            builder.pop();
         }
-        builder.pop();
         // need to make this a common config instead of server as the value is used for injecting into loot tables, and that happens before server configs are loaded
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, builder.build());
     }
