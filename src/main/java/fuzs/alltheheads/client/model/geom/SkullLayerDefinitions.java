@@ -3,6 +3,13 @@ package fuzs.alltheheads.client.model.geom;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 
+/**
+ * how to convert to head models from vanilla definitions:
+ * CubeListBuilder::addBox -originX (negative) needs to be half of sizeX
+ * CubeListBuilder::addBox -originY (negative) needs to be same as sizeY
+ * CubeListBuilder::addBox -originZ (negative) needs to be half of sizeZ
+ * replace any PartPose on main head model with PartPose#ZERO
+ */
 public class SkullLayerDefinitions {
 
     public static LayerDefinition createPiglinHeadLayer(boolean zombified) {
@@ -102,6 +109,20 @@ public class SkullLayerDefinitions {
         MeshDefinition meshdefinition = new MeshDefinition();
         PartDefinition partdefinition = meshdefinition.getRoot();
         partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 0).addBox(-6.0F, -16.0F, -6.0F, 12.0F, 16.0F, 12.0F), PartPose.ZERO);
+        return LayerDefinition.create(meshdefinition, 64, 32);
+    }
+
+    public static LayerDefinition createSheepHeadLayer() {
+        MeshDefinition meshdefinition = new MeshDefinition();
+        PartDefinition partdefinition = meshdefinition.getRoot();
+        partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 0).addBox(-3.0F, -6.0F, -4.0F, 6.0F, 6.0F, 8.0F), PartPose.ZERO);
+        return LayerDefinition.create(meshdefinition, 64, 32);
+    }
+
+    public static LayerDefinition createSheepFurHeadLayer() {
+        MeshDefinition meshdefinition = new MeshDefinition();
+        PartDefinition partdefinition = meshdefinition.getRoot();
+        partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 0).addBox(-3.0F, -6.0F, -2.0F, 6.0F, 6.0F, 6.0F, new CubeDeformation(0.6F)), PartPose.ZERO);
         return LayerDefinition.create(meshdefinition, 64, 32);
     }
 }

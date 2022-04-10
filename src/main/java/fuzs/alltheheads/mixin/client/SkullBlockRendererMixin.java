@@ -37,6 +37,16 @@ public abstract class SkullBlockRendererMixin {
         }
     }
 
+    @Inject(method = "renderSkull", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/MultiBufferSource;getBuffer(Lnet/minecraft/client/renderer/RenderType;)Lcom/mojang/blaze3d/vertex/VertexConsumer;"))
+    private static void renderSkull$invokeGetBuffer(@Nullable Direction direction, float p_173665_, float p_173666_, PoseStack p_173667_, MultiBufferSource p_173668_, int p_173669_, SkullModelBase model, RenderType p_173671_, CallbackInfo callbackInfo) {
+        if (model instanceof ModSkullModel modSkullModel) {
+            float scale = modSkullModel.getSkullType().getModelScale();
+            if (scale != 1.0F) {
+                p_173667_.scale(scale, scale, scale);
+            }
+        }
+    }
+
     @Inject(method = "renderSkull", at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/vertex/PoseStack;popPose()V"))
     private static void renderSkull$injectInvokePopPose(@Nullable Direction direction, float p_173665_, float p_173666_, PoseStack p_173667_, MultiBufferSource p_173668_, int p_173669_, SkullModelBase model, RenderType p_173671_, CallbackInfo callbackInfo) {
         if (model instanceof ModSkullModel modSkullModel) {

@@ -4,6 +4,7 @@ import fuzs.alltheheads.AllTheHeads;
 import fuzs.alltheheads.client.model.ModSkullModel;
 import fuzs.alltheheads.client.resources.ClientModSkullType;
 import fuzs.alltheheads.client.resources.ClientSkullManager;
+import fuzs.alltheheads.client.resources.SkullRenderLayer;
 import fuzs.alltheheads.registry.ModRegistry;
 import fuzs.alltheheads.resources.ModSkullType;
 import fuzs.alltheheads.server.packs.VirtualPackResources;
@@ -43,6 +44,12 @@ public class AllTheHeadsClient {
         for (ClientModSkullType skullType : ClientSkullManager.INSTANCE.getSkullTypeClientData().values()) {
             evt.registerLayerDefinition(skullType.getModelLayerLocationId(), skullType::getLayerDefinition);
         }
+        SkullRenderLayer.registerSheepFurLayerDefinitions(evt::registerLayerDefinition);
+    }
+
+    @SubscribeEvent
+    public static void onAddLayers(final EntityRenderersEvent.AddLayers evt) {
+        SkullRenderLayer.createSheepFurHeadModels(evt.getEntityModels());
     }
 
     @SubscribeEvent

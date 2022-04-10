@@ -11,8 +11,10 @@ import fuzs.puzzleslib.registry.RegistryManager;
 import it.unimi.dsi.fastutil.Pair;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.animal.Sheep;
 import net.minecraft.world.entity.animal.axolotl.Axolotl;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.Block;
@@ -115,6 +117,9 @@ public class SkullManager {
             builders.add(new ModSkullType.Builder("axolotl").variant(variant.getName(), "{Variant:" + variant.getId() + "}").skullSize(8.0F, 5.0F, 5.0F));
         }
         builders.add(new ModSkullType.Builder("chicken").skullSize(8.0F, 12.0F, 6.0F));
+        for (DyeColor dyeColor : DyeColor.values()) {
+            builders.add(new ModSkullType.Builder("sheep").variant(dyeColor.getName(), "{Color:" + dyeColor.getId() + "}").skullSize(8.0F, 8.0F, 10.6667F));
+        }
         return builders;
     }
 

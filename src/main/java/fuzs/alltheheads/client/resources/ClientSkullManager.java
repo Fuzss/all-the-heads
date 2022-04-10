@@ -8,6 +8,7 @@ import fuzs.alltheheads.resources.SkullManager;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.animal.axolotl.Axolotl;
+import net.minecraft.world.item.DyeColor;
 
 import java.util.List;
 import java.util.Map;
@@ -43,6 +44,7 @@ public class ClientSkullManager {
     public RenderType getSkullRenderType(ModSkullType skullType) {
         if (this.renderBySkullType == null) {
             // we use RenderType::entityCutoutNoCull to make sure layers work (vanilla uses RenderType::entityCutoutNoCullZOffset, no idea why)
+            // we could RenderType::entityCutoutNoCullZOffset as well, but this would require redefining a bunch of render types, especially eyes render types
             this.renderBySkullType = this.getSkullTypeClientData().entrySet().stream()
                     .collect(ImmutableMap.toImmutableMap(Map.Entry::getKey, e -> RenderType.entityCutoutNoCull(e.getValue().getTextureLocation())));
         }
@@ -70,7 +72,7 @@ public class ClientSkullManager {
                 String villager = String.format("villager#%s_%s", villagerBiomeType.getPath(), villagerWorkerProfession.getPath());
                 builders.add(new ClientModSkullType.Builder(villager).textureLocation("textures/entity/villager/villager.png").layerDefinition(() -> SkullLayerDefinitions.createVillagerHeadLayer(false)).layer(villager));
                 String zombieVillager = String.format("zombie_villager#%s_%s", villagerBiomeType.getPath(), villagerWorkerProfession.getPath());
-                builders.add(new ClientModSkullType.Builder(zombieVillager).textureLocation("textures/entity/zombie_villager/zombie_villager.png").layerDefinition(() -> SkullLayerDefinitions.createVillagerHeadLayer(false)).layer(zombieVillager));
+                builders.add(new ClientModSkullType.Builder(zombieVillager).textureLocation("textures/entity/zombie_villager/zombie_villager.png").layerDefinition(SkullLayerDefinitions::createZombieVillagerHeadLayer).layer(zombieVillager));
             }
         }
         builders.add(new ClientModSkullType.Builder("enderman").textureLocation("textures/entity/enderman/enderman.png").layerDefinition(SkullLayerDefinitions::createEndermanHeadLayer).layer("eyes"));
@@ -83,6 +85,9 @@ public class ClientSkullManager {
             builders.add(new ClientModSkullType.Builder("axolotl#" + variant.getName()).textureLocation(String.format("textures/entity/axolotl/axolotl_%s.png", variant.getName())).layerDefinition(SkullLayerDefinitions::createAxolotlHeadLayer));
         }
         builders.add(new ClientModSkullType.Builder("chicken").textureLocation("textures/entity/chicken.png").layerDefinition(SkullLayerDefinitions::createChickenHeadLayer).modelScale(2.0F));
+        for (DyeColor dyeColor : DyeColor.values()) {
+            builders.add(new ClientModSkullType.Builder("sheep#" + dyeColor.getName()).textureLocation("textures/entity/sheep/sheep.png").layerDefinition(SkullLayerDefinitions::createSheepHeadLayer).layer(dyeColor.getName() + "_fur").modelScale(1.3333F));
+        }
         return builders;
     }
 
