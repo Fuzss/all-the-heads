@@ -86,7 +86,7 @@ public class VirtualPackResources implements PackResources {
     @Nullable
     @Override
     public <T> T getMetadataSection(MetadataSectionSerializer<T> deserializer) {
-        return deserializer.getMetadataSectionName().equals("pack") ? (T) this.metadataSection : null;
+        return deserializer == PackMetadataSection.SERIALIZER ? (T) this.metadataSection : null;
     }
 
     @Override

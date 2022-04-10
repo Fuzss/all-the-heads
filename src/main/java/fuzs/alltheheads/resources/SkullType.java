@@ -155,7 +155,7 @@ public class SkullType implements SkullBlock.Type {
 
     @Override
     public String toString() {
-        return "SkullType{" + "mobType=" + this.mobType + ", skull=" + this.skull + ", dropRate=" + this.dropRate + ", lootingBonus=" + this.lootingBonus + ", fromChargedCreepers=" + this.fromChargedCreepers + ", mobDisguise=" + this.mobDisguise + ", skullSize=" + this.skullSize + '}';
+        return "SkullType{" + "mobType=" + this.mobType + ", skull=" + this.skull + ", dropRate=" + this.dropRate + ", lootingBonus=" + this.lootingBonus + ", fromChargedCreepers=" + this.fromChargedCreepers + ", mobDisguise=" + this.mobDisguise + ", skullSize=" + this.skullSize + ", variant='" + this.variant + '\'' + ", nbtPredicate='" + this.nbtPredicate + '\'' + '}';
     }
 
     public static class Builder {

@@ -31,10 +31,6 @@ public class SkullManager {
     private Map<EntityType<?>, List<SkullType>> skullTypesByEntity;
     private Map<ResourceLocation, List<SkullType>> skullTypesByLootTable;
 
-    public SkullType getSkullType(String key) {
-        return this.skullTypesByKey.get(key.indexOf(':') >= 0 ? key : "minecraft:" + key);
-    }
-
     public Collection<SkullType> getAllSkullTypes() {
         this.dissolve();
         return this.skullTypesByKey.values().stream()
@@ -42,6 +38,10 @@ public class SkullManager {
                         .thenComparing(skullType -> skullType.getMobType().getPath())
                         .thenComparing(SkullType::getVariant))
                 .toList();
+    }
+
+    public SkullType getSkullType(String key) {
+        return this.skullTypesByKey.get(key.indexOf(':') >= 0 ? key : "minecraft:" + key);
     }
 
     public void register(RegistryManager registry) {
@@ -79,25 +79,31 @@ public class SkullManager {
 
     private void dissolve() {
         if (this.skullTypesByKey == null) {
-            List<SkullType.Builder> builders = Lists.newArrayList();
-            builders.add(new SkullType.Builder("piglin").skullSize(10.0F, 8.0F, 8.0F));
-            builders.add(new SkullType.Builder("zombified_piglin").skullSize(10.0F, 8.0F, 8.0F));
-            builders.add(new SkullType.Builder("piglin_brute").skullSize(10.0F, 8.0F, 8.0F));
-            builders.add(new SkullType.Builder("cow").skullSize(8.0F, 8.0F, 6.0F));
-            builders.add(new SkullType.Builder("villager").skullSize(8.0F, 10.0F, 8.0F));
-            builders.add(new SkullType.Builder("enderman"));
-            builders.add(new SkullType.Builder("blaze"));
-            builders.add(new SkullType.Builder("spider"));
-            builders.add(new SkullType.Builder("cave_spider"));
-            builders.add(new SkullType.Builder("witch").skullSize(8.0F, 10.0F, 8.0F));
-            builders.add(new SkullType.Builder("squid").skullSize(12.0F, 16.0F, 12.0F));
-            builders.add(new SkullType.Builder("axolotl").variant("lucy", "{Variant:0}").skullSize(8.0F, 5.0F, 5.0F));
-            builders.add(new SkullType.Builder("axolotl").variant("wild", "{Variant:1}").skullSize(8.0F, 5.0F, 5.0F));
-            builders.add(new SkullType.Builder("axolotl").variant("gold", "{Variant:2}").skullSize(8.0F, 5.0F, 5.0F));
+            List<SkullType.Builder> builders = this.load();
             this.skullTypesByKey = builders.stream().map(SkullType.Builder::build)
                     .filter(skullType -> ModLoaderEnvironment.isModLoaded(skullType.getMobType().getNamespace()))
                     .collect(ImmutableMap.toImmutableMap(SkullType::getMappingKey, Function.identity()));
         }
+    }
+
+    private List<SkullType.Builder> load() {
+        List<SkullType.Builder> builders = Lists.newArrayList();
+        builders.add(new SkullType.Builder("piglin").skullSize(10.0F, 8.0F, 8.0F));
+        builders.add(new SkullType.Builder("zombified_piglin").skullSize(10.0F, 8.0F, 8.0F));
+        builders.add(new SkullType.Builder("piglin_brute").skullSize(10.0F, 8.0F, 8.0F));
+        builders.add(new SkullType.Builder("cow").skullSize(8.0F, 8.0F, 6.0F));
+        builders.add(new SkullType.Builder("villager").skullSize(8.0F, 10.0F, 8.0F));
+        builders.add(new SkullType.Builder("enderman"));
+        builders.add(new SkullType.Builder("blaze"));
+        builders.add(new SkullType.Builder("spider"));
+        builders.add(new SkullType.Builder("cave_spider"));
+        builders.add(new SkullType.Builder("witch").skullSize(8.0F, 10.0F, 8.0F));
+        builders.add(new SkullType.Builder("squid").skullSize(8.0F, 10.6667F, 8.0F));
+        builders.add(new SkullType.Builder("axolotl").variant("lucy", "{Variant:0}").skullSize(8.0F, 5.0F, 5.0F));
+        builders.add(new SkullType.Builder("axolotl").variant("wild", "{Variant:1}").skullSize(8.0F, 5.0F, 5.0F));
+        builders.add(new SkullType.Builder("axolotl").variant("gold", "{Variant:2}").skullSize(8.0F, 5.0F, 5.0F));
+        builders.add(new SkullType.Builder("chicken").skullSize(4.0F, 6.0F, 3.0F));
+        return builders;
     }
 
     private Pair<RegistryObject<Block>, RegistryObject<Block>> registerBlocks(RegistryManager registry, SkullType skullType) {

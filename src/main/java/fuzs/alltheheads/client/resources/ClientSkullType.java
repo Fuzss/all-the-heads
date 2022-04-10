@@ -1,13 +1,16 @@
 package fuzs.alltheheads.client.resources;
 
+import com.google.common.collect.Lists;
 import com.mojang.math.Vector3f;
 import fuzs.alltheheads.AllTheHeads;
 import fuzs.alltheheads.client.model.BuiltInSkullJsonData;
 import fuzs.alltheheads.resources.SkullType;
+import fuzs.puzzleslib.util.PuzzlesUtil;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.resources.ResourceLocation;
 
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 import java.util.Objects;
 import java.util.function.BiConsumer;
 import java.util.function.Function;
@@ -17,15 +20,17 @@ public class ClientSkullType {
     private final ResourceLocation textureLocation;
     private final ResourceLocation modelLocation;
     private final String layerLocation;
-    private final String[] headKey;
+    private final List<String[]> headKey;
+    private final float modelScale;
     private final Vector3f modelOffsets;
 
-    private ClientSkullType(SkullType baseSkullType, ResourceLocation textureLocation, ResourceLocation modelLocation, String layerLocation, String[] headKey, Vector3f modelOffsets) {
+    private ClientSkullType(SkullType baseSkullType, ResourceLocation textureLocation, ResourceLocation modelLocation, String layerLocation, List<String[]> headKey, float modelScale, Vector3f modelOffsets) {
         this.baseSkullType = baseSkullType;
         this.textureLocation = textureLocation;
         this.modelLocation = modelLocation;
         this.layerLocation = layerLocation;
         this.headKey = headKey;
+        this.modelScale = modelScale;
         this.modelOffsets = modelOffsets;
     }
 
@@ -41,8 +46,12 @@ public class ClientSkullType {
         return new ModelLayerLocation(this.modelLocation, this.layerLocation);
     }
 
-    public String[] getModelPartHeadKey() {
+    public List<String[]> getModelPartHeadKey() {
         return this.headKey;
+    }
+
+    public float getModelScale() {
+        return this.modelScale;
     }
 
     public Vector3f getModelOffsets() {
@@ -72,7 +81,8 @@ public class ClientSkullType {
         private ResourceLocation textureLocation;
         private ResourceLocation modelLocation;
         private String layerLocation = "main";
-        private String[] headKey = new String[]{"head"};
+        private List<String[]> headKey = PuzzlesUtil.make(Lists.newArrayList(), list -> list.add(new String[]{"head"}));
+        private float modelScale = 1.0F;
         private Vector3f modelOffsets = Vector3f.ZERO;
         
         public Builder(String baseSkullTypeKey) {
@@ -107,8 +117,18 @@ public class ClientSkullType {
             return this;
         }
 
-        public Builder customHeadKey(String... headKey) {
-            this.headKey = headKey;
+        public Builder setCustomHeadKey(String... headKey) {
+            this.headKey = Lists.newArrayList();
+            return this.addCustomHeadKey(headKey);
+        }
+
+        public Builder addCustomHeadKey(String... headKey) {
+            this.headKey.add(headKey);
+            return this;
+        }
+
+        public Builder modelScale(float scale) {
+            this.modelScale = scale;
             return this;
         }
 
@@ -120,7 +140,7 @@ public class ClientSkullType {
         public ClientSkullType build(Function<String, SkullType> skullTypeGetter) {
             Objects.requireNonNull(this.textureLocation);
             SkullType baseSkullType = skullTypeGetter.apply(this.baseSkullTypeKey);
-            return new ClientSkullType(baseSkullType, this.textureLocation, this.modelLocation == null ? baseSkullType.getMobType() : this.modelLocation, this.layerLocation, this.headKey, this.modelOffsets);
+            return new ClientSkullType(baseSkullType, this.textureLocation, this.modelLocation == null ? baseSkullType.getMobType() : this.modelLocation, this.layerLocation, this.headKey, this.modelScale, this.modelOffsets);
         }
     }
 }
