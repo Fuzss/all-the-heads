@@ -2,20 +2,20 @@ package fuzs.alltheheads.client.model;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import fuzs.alltheheads.client.resources.ClientSkullType;
+import fuzs.alltheheads.client.resources.ClientModSkullType;
 import net.minecraft.client.model.SkullModelBase;
 import net.minecraft.client.model.geom.ModelPart;
 
 public class ModSkullModel extends SkullModelBase {
-    private final ClientSkullType skullType;
+    private final ClientModSkullType skullType;
     private final ModelPart root;
 
-    public ModSkullModel(ModelPart modelPart, ClientSkullType skullType) {
+    public ModSkullModel(ModelPart modelPart, ClientModSkullType skullType) {
         this.skullType = skullType;
         this.root = modelPart;
     }
 
-    public ClientSkullType getSkullType() {
+    public ClientModSkullType getSkullType() {
         return this.skullType;
     }
 
@@ -27,6 +27,7 @@ public class ModSkullModel extends SkullModelBase {
 
     @Override
     public void renderToBuffer(PoseStack p_103815_, VertexConsumer p_103816_, int p_103817_, int p_103818_, float p_103819_, float p_103820_, float p_103821_, float p_103822_) {
+        // this will also affect subsequent layer renderers as pose stack is purposefully not popped
         float scale = this.skullType.getModelScale();
         if (scale != 1.0F) {
             p_103815_.scale(scale, scale, scale);

@@ -1,6 +1,6 @@
 package fuzs.alltheheads.world.item;
 
-import fuzs.alltheheads.resources.SkullType;
+import fuzs.alltheheads.resources.ModSkullType;
 import net.minecraft.core.BlockSource;
 import net.minecraft.core.dispenser.DispenseItemBehavior;
 import net.minecraft.core.dispenser.OptionalDispenseItemBehavior;
@@ -26,6 +26,6 @@ public class ModStandingAndWallBlockItem extends StandingAndWallBlockItem {
 
     @Override
     public Component getName(ItemStack p_41458_) {
-        return ((SkullType) ((AbstractSkullBlock) this.getBlock()).getType()).getName();
+        return ((ModSkullType) ((AbstractSkullBlock) this.getBlock()).getType()).getName();
     }
 }

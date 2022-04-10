@@ -2,10 +2,10 @@ package fuzs.alltheheads.client;
 
 import fuzs.alltheheads.AllTheHeads;
 import fuzs.alltheheads.client.model.ModSkullModel;
+import fuzs.alltheheads.client.resources.ClientModSkullType;
 import fuzs.alltheheads.client.resources.ClientSkullManager;
-import fuzs.alltheheads.client.resources.ClientSkullType;
 import fuzs.alltheheads.registry.ModRegistry;
-import fuzs.alltheheads.resources.SkullType;
+import fuzs.alltheheads.resources.ModSkullType;
 import fuzs.alltheheads.server.packs.VirtualPackResources;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.blockentity.SkullBlockRenderer;
@@ -31,22 +31,22 @@ public class AllTheHeadsClient {
     @SubscribeEvent
     public static void onClientSetup(final FMLClientSetupEvent evt) {
         BlockEntityRenderers.register(ModRegistry.MOB_HEAD_BLOCK_ENTITY_TYPE.get(), SkullBlockRenderer::new);
-        for (Map.Entry<SkullType, ClientSkullType> entry : ClientSkullManager.INSTANCE.getSkullTypeClientData().entrySet()) {
+        for (Map.Entry<ModSkullType, ClientModSkullType> entry : ClientSkullManager.INSTANCE.getSkullTypeClientData().entrySet()) {
             SkullBlockRenderer.SKIN_BY_TYPE.put(entry.getKey(), entry.getValue().getTextureLocation());
         }
     }
 
     @SubscribeEvent
     public static void onRegisterLayerDefinitions(final EntityRenderersEvent.RegisterLayerDefinitions evt) {
-        for (ClientSkullType skullType : ClientSkullManager.INSTANCE.getSkullTypeClientData().values()) {
+        for (ClientModSkullType skullType : ClientSkullManager.INSTANCE.getSkullTypeClientData().values()) {
             evt.registerLayerDefinition(skullType.getModelLayerLocationId(), skullType::getLayerDefinition);
         }
     }
 
     @SubscribeEvent
     public static void onCreateSkullModels(final EntityRenderersEvent.CreateSkullModels evt) {
-        for (Map.Entry<SkullType, ClientSkullType> entry : ClientSkullManager.INSTANCE.getSkullTypeClientData().entrySet()) {
-            ClientSkullType skullType = entry.getValue();
+        for (Map.Entry<ModSkullType, ClientModSkullType> entry : ClientSkullManager.INSTANCE.getSkullTypeClientData().entrySet()) {
+            ClientModSkullType skullType = entry.getValue();
             evt.registerSkullModel(entry.getKey(), new ModSkullModel(evt.getEntityModelSet().bakeLayer(skullType.getModelLayerLocationId()), skullType));
         }
     }

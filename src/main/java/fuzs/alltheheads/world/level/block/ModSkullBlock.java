@@ -2,7 +2,7 @@ package fuzs.alltheheads.world.level.block;
 
 import com.google.common.collect.ImmutableMap;
 import com.mojang.math.Vector3f;
-import fuzs.alltheheads.resources.SkullType;
+import fuzs.alltheheads.resources.ModSkullType;
 import fuzs.alltheheads.world.level.block.entity.ModSkullBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -31,7 +31,7 @@ public class ModSkullBlock extends SkullBlock {
 
     public ModSkullBlock(Type type, Properties p_56319_) {
         super(type, p_56319_);
-        this.shapes = this.makeShapes(((SkullType) type).getSkullSize());
+        this.shapes = this.makeShapes(((ModSkullType) type).getSkullSize());
     }
 
     private Map<Integer, VoxelShape> makeShapes(Vector3f skullSize) {
@@ -72,7 +72,7 @@ public class ModSkullBlock extends SkullBlock {
 
     @Override
     public MutableComponent getName() {
-        return ((SkullType) this.getType()).getName();
+        return ((ModSkullType) this.getType()).getName();
     }
 
     @Override
@@ -84,7 +84,7 @@ public class ModSkullBlock extends SkullBlock {
     @Override
     public List<ItemStack> getDrops(BlockState p_60537_, LootContext.Builder p_60538_) {
         LootContext lootcontext = p_60538_.withParameter(LootContextParams.BLOCK_STATE, p_60537_).create(LootContextParamSets.BLOCK);
-        LootTable loottable = ((SkullType) this.getType()).lootTable.get();
+        LootTable loottable = ((ModSkullType) this.getType()).lootTable.get();
         return loottable.getRandomItems(lootcontext);
     }
 }

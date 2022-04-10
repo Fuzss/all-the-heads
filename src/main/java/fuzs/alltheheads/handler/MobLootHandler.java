@@ -1,8 +1,8 @@
 package fuzs.alltheheads.handler;
 
 import com.google.common.collect.Lists;
+import fuzs.alltheheads.resources.ModSkullType;
 import fuzs.alltheheads.resources.SkullManager;
-import fuzs.alltheheads.resources.SkullType;
 import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.advancements.critereon.NbtPredicate;
 import net.minecraft.world.damagesource.DamageSource;
@@ -32,7 +32,7 @@ public class MobLootHandler {
     public void onLivingDrops(final LivingDropsEvent evt) {
         LivingEntity target = evt.getEntityLiving();
         SkullManager.INSTANCE.getSkullTypeByEntity(target.getType()).ifPresent(skullTypes -> {
-            for (SkullType skullType : skullTypes) {
+            for (ModSkullType skullType : skullTypes) {
                 if (skullType.dropsFromChargedCreepers() && skullType.matchesNbtVariant(target)) {
                     this.dropCustomDeathLoot(target, evt.getSource(), skullType);
                     break;
@@ -41,7 +41,7 @@ public class MobLootHandler {
         });
     }
 
-    private void dropCustomDeathLoot(LivingEntity target, DamageSource source, SkullType skullType) {
+    private void dropCustomDeathLoot(LivingEntity target, DamageSource source, ModSkullType skullType) {
         Entity entity = source.getEntity();
         if (entity instanceof Creeper creeper) {
             if (creeper.canDropMobsSkull()) {
@@ -56,7 +56,7 @@ public class MobLootHandler {
         if (evt.getLookingEntity() != null) {
             ItemStack helmet = evt.getEntityLiving().getItemBySlot(EquipmentSlot.HEAD);
             SkullManager.INSTANCE.getSkullTypeByEntity(evt.getLookingEntity().getType()).ifPresent(skullTypes -> {
-                for (SkullType skullType : skullTypes) {
+                for (ModSkullType skullType : skullTypes) {
                     if (skullType.worksAsMobDisguise() && helmet.is(skullType.item.get()) && skullType.matchesNbtVariant(evt.getLookingEntity())) {
                         evt.modifyVisibility(evt.getVisibilityModifier() * 0.5);
                         break;
@@ -73,13 +73,13 @@ public class MobLootHandler {
             if (skullTypes.isEmpty()) {
                 throw new IllegalStateException("List cannot possibly be empty");
             } else if (skullTypes.size() == 1) {
-                SkullType skullType = skullTypes.get(0);
+                ModSkullType skullType = skullTypes.get(0);
                 builder.add(LootItem.lootTableItem(skullType.block.get()))
                         .when(LootItemKilledByPlayerCondition.killedByPlayer())
                         .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(skullType.getDropRate(), skullType.getLootingBonus()));
             } else {
                 List<LootPoolEntryContainer.Builder<?>> builders = Lists.newArrayList();
-                for (SkullType skullType : skullTypes) {
+                for (ModSkullType skullType : skullTypes) {
                     builders.add(LootItem.lootTableItem(skullType.block.get())
                             .when(LootItemKilledByPlayerCondition.killedByPlayer())
                             .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(skullType.getDropRate(), skullType.getLootingBonus()))

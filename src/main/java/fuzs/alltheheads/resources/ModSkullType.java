@@ -27,7 +27,7 @@ import java.util.Objects;
 import java.util.function.BooleanSupplier;
 import java.util.function.Supplier;
 
-public class SkullType implements SkullBlock.Type {
+public class ModSkullType implements SkullBlock.Type {
     private static final String HEAD_SUFFIX = "_head";
     private static final String SKULL_SUFFIX = "_skull";
     private static final String WALL_SUFFIX = "_wall";
@@ -53,7 +53,7 @@ public class SkullType implements SkullBlock.Type {
 
     private BooleanSupplier configSupplier;
 
-    private SkullType(ResourceLocation mobType, boolean skull, float dropRate, float lootingBonus, boolean fromChargedCreepers, boolean mobDisguise, Vector3f skullSize, String variant, String nbtPredicate) {
+    private ModSkullType(ResourceLocation mobType, boolean skull, float dropRate, float lootingBonus, boolean fromChargedCreepers, boolean mobDisguise, Vector3f skullSize, String variant, String nbtPredicate) {
         this.mobType = mobType;
         this.skull = skull;
         this.dropRate = dropRate;
@@ -225,8 +225,8 @@ public class SkullType implements SkullBlock.Type {
             return this;
         }
 
-        public SkullType build() {
-            return new SkullType(this.mobType, this.skull, this.dropRate, this.lootingBonus, this.fromChargedCreepers, this.mobDisguise, this.skullSize, this.variant, this.nbtPredicate);
+        public ModSkullType build() {
+            return new ModSkullType(this.mobType, this.skull, this.dropRate, this.lootingBonus, this.fromChargedCreepers, this.mobDisguise, this.skullSize, this.variant, this.nbtPredicate);
         }
     }
 }

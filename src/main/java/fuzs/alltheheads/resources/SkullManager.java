@@ -12,6 +12,7 @@ import it.unimi.dsi.fastutil.Pair;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.axolotl.Axolotl;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.Block;
@@ -23,31 +24,34 @@ import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class SkullManager {
     public static final SkullManager INSTANCE = new SkullManager();
+    public static final List<ResourceLocation> VILLAGER_BIOME_TYPES = Stream.of("desert", "jungle", "plains", "savanna", "snow", "swamp", "taiga").map(ResourceLocation::new).toList();
+    public static final List<ResourceLocation> VILLAGER_WORKER_PROFESSIONS = Stream.of("armorer", "butcher", "cartographer", "cleric", "farmer", "fisherman", "fletcher", "leatherworker", "librarian", "mason", "nitwit", "shepherd", "toolsmith", "weaponsmith").map(ResourceLocation::new).toList();
 
-    private Map<String, SkullType> skullTypesByKey;
+    private Map<String, ModSkullType> skullTypesByKey;
     private List<Pair<RegistryObject<Block>, RegistryObject<Block>>> skullBlocks;
-    private Map<EntityType<?>, List<SkullType>> skullTypesByEntity;
-    private Map<ResourceLocation, List<SkullType>> skullTypesByLootTable;
+    private Map<EntityType<?>, List<ModSkullType>> skullTypesByEntity;
+    private Map<ResourceLocation, List<ModSkullType>> skullTypesByLootTable;
 
-    public Collection<SkullType> getAllSkullTypes() {
+    public Collection<ModSkullType> getAllSkullTypes() {
         this.dissolve();
         return this.skullTypesByKey.values().stream()
-                .sorted(Comparator.<SkullType, String>comparing(skullType -> skullType.getMobType().getNamespace())
+                .sorted(Comparator.<ModSkullType, String>comparing(skullType -> skullType.getMobType().getNamespace())
                         .thenComparing(skullType -> skullType.getMobType().getPath())
-                        .thenComparing(SkullType::getVariant))
+                        .thenComparing(ModSkullType::getVariant))
                 .toList();
     }
 
-    public SkullType getSkullType(String key) {
+    public ModSkullType getSkullType(String key) {
         return this.skullTypesByKey.get(key.indexOf(':') >= 0 ? key : "minecraft:" + key);
     }
 
     public void register(RegistryManager registry) {
         this.skullBlocks = Lists.newArrayList();
-        for (SkullType skullType : this.getAllSkullTypes()) {
+        for (ModSkullType skullType : this.getAllSkullTypes()) {
             Pair<RegistryObject<Block>, RegistryObject<Block>> pair = this.registerBlocks(registry, skullType);
             this.skullBlocks.add(pair);
             this.registerItem(registry, skullType, pair.left(), pair.right());
@@ -62,59 +66,73 @@ public class SkullManager {
                 .toArray(Block[]::new);
     }
 
-    public Optional<List<SkullType>> getSkullTypeByEntity(EntityType<?> entityType) {
+    public Optional<List<ModSkullType>> getSkullTypeByEntity(EntityType<?> entityType) {
         if (this.skullTypesByEntity == null) {
             this.skullTypesByEntity = this.getAllSkullTypes().stream().collect(Collectors.groupingBy(skullType -> skullType.entityType.get()));
         }
         return Optional.ofNullable(this.skullTypesByEntity.get(entityType));
     }
 
-    public Optional<List<SkullType>> getSkullTypeByLootTable(ResourceLocation lootTable) {
+    public Optional<List<ModSkullType>> getSkullTypeByLootTable(ResourceLocation lootTable) {
         if (this.skullTypesByLootTable == null) {
             this.skullTypesByLootTable = this.getAllSkullTypes().stream()
-                    .filter(SkullType::obtainableFromNormalDrops)
-                    .collect(Collectors.groupingBy(SkullType::getMobLootTableId));
+                    .filter(ModSkullType::obtainableFromNormalDrops)
+                    .collect(Collectors.groupingBy(ModSkullType::getMobLootTableId));
         }
         return Optional.ofNullable(this.skullTypesByLootTable.get(lootTable));
     }
 
     private void dissolve() {
         if (this.skullTypesByKey == null) {
-            List<SkullType.Builder> builders = this.load();
-            this.skullTypesByKey = builders.stream().map(SkullType.Builder::build)
+            List<ModSkullType.Builder> builders = this.load();
+            this.skullTypesByKey = builders.stream().map(ModSkullType.Builder::build)
                     .filter(skullType -> ModLoaderEnvironment.isModLoaded(skullType.getMobType().getNamespace()))
-                    .collect(ImmutableMap.toImmutableMap(SkullType::getMappingKey, Function.identity()));
+                    .collect(ImmutableMap.toImmutableMap(ModSkullType::getMappingKey, Function.identity()));
         }
     }
 
-    private List<SkullType.Builder> load() {
-        List<SkullType.Builder> builders = Lists.newArrayList();
-        builders.add(new SkullType.Builder("piglin").skullSize(10.0F, 8.0F, 8.0F));
-        builders.add(new SkullType.Builder("zombified_piglin").skullSize(10.0F, 8.0F, 8.0F));
-        builders.add(new SkullType.Builder("piglin_brute").skullSize(10.0F, 8.0F, 8.0F));
-        builders.add(new SkullType.Builder("cow").skullSize(8.0F, 8.0F, 6.0F));
-        builders.add(new SkullType.Builder("villager").skullSize(8.0F, 10.0F, 8.0F));
-        builders.add(new SkullType.Builder("enderman"));
-        builders.add(new SkullType.Builder("blaze"));
-        builders.add(new SkullType.Builder("spider"));
-        builders.add(new SkullType.Builder("cave_spider"));
-        builders.add(new SkullType.Builder("witch").skullSize(8.0F, 10.0F, 8.0F));
-        builders.add(new SkullType.Builder("squid").skullSize(8.0F, 10.6667F, 8.0F));
-        for (Axolotl.Variant variant : Axolotl.Variant.values()) {
-            builders.add(new SkullType.Builder("axolotl").variant(variant.getName(), "{Variant:" + variant.getId() + "}").skullSize(8.0F, 5.0F, 5.0F));
+    private List<ModSkullType.Builder> load() {
+        List<ModSkullType.Builder> builders = Lists.newArrayList();
+        builders.add(new ModSkullType.Builder("piglin").skullSize(10.0F, 8.0F, 8.0F));
+        builders.add(new ModSkullType.Builder("zombified_piglin").skullSize(10.0F, 8.0F, 8.0F));
+        builders.add(new ModSkullType.Builder("piglin_brute").skullSize(10.0F, 8.0F, 8.0F));
+        builders.add(new ModSkullType.Builder("cow").skullSize(8.0F, 8.0F, 6.0F));
+        for (ResourceLocation villagerBiomeType : VILLAGER_BIOME_TYPES) {
+            for (ResourceLocation villagerWorkerProfession : VILLAGER_WORKER_PROFESSIONS) {
+                String variant = String.format("%s_%s", villagerBiomeType.getPath(), villagerWorkerProfession.getPath());
+                String nbtPredicate = String.format("{VillagerData:{type:\"%s\",profession:\"%s\"}}", villagerBiomeType, villagerWorkerProfession);
+                builders.add(new ModSkullType.Builder("villager").variant(variant, nbtPredicate).skullSize(8.0F, 10.0F, 8.0F));
+                builders.add(new ModSkullType.Builder("zombie_villager").variant(variant, nbtPredicate).skullSize(8.0F, 10.0F, 8.0F));
+            }
         }
-        builders.add(new SkullType.Builder("chicken").skullSize(8.0F, 12.0F, 6.0F));
+        builders.add(new ModSkullType.Builder("enderman"));
+        builders.add(new ModSkullType.Builder("blaze"));
+        builders.add(new ModSkullType.Builder("spider"));
+        builders.add(new ModSkullType.Builder("cave_spider"));
+        builders.add(new ModSkullType.Builder("witch").skullSize(8.0F, 10.0F, 8.0F));
+        builders.add(new ModSkullType.Builder("squid").skullSize(8.0F, 10.6667F, 8.0F));
+        for (Axolotl.Variant variant : Axolotl.Variant.values()) {
+            builders.add(new ModSkullType.Builder("axolotl").variant(variant.getName(), "{Variant:" + variant.getId() + "}").skullSize(8.0F, 5.0F, 5.0F));
+        }
+        builders.add(new ModSkullType.Builder("chicken").skullSize(8.0F, 12.0F, 6.0F));
         return builders;
     }
 
-    private Pair<RegistryObject<Block>, RegistryObject<Block>> registerBlocks(RegistryManager registry, SkullType skullType) {
+    private Pair<RegistryObject<Block>, RegistryObject<Block>> registerBlocks(RegistryManager registry, ModSkullType skullType) {
         RegistryObject<Block> headBlock = registry.registerBlock(skullType.getId(), () -> new ModSkullBlock(skullType, BlockBehaviour.Properties.of(Material.DECORATION).strength(1.0F)));
         RegistryObject<Block> wallHeadBlock = registry.registerBlock(skullType.getWallId(), () -> new ModWallSkullBlock(skullType, BlockBehaviour.Properties.of(Material.DECORATION).strength(1.0F)));
         return Pair.of(headBlock, wallHeadBlock);
     }
 
-    private void registerItem(RegistryManager registry, SkullType skullType, RegistryObject<Block> headBlock, RegistryObject<Block> wallHeadBlock) {
-        // we use a mixin for all skulls to add them to our custom creative tab, but still set this here so the correct tab shows on creative search tab tooltip
-        registry.registerItem(skullType.getId(), () -> new ModStandingAndWallBlockItem(headBlock.get(), wallHeadBlock.get(), new Item.Properties().tab(ModRegistry.ALL_THE_HEADS_CREATIVE_TAB).rarity(Rarity.UNCOMMON)));
+    private void registerItem(RegistryManager registry, ModSkullType skullType, RegistryObject<Block> headBlock, RegistryObject<Block> wallHeadBlock) {
+        registry.registerItem(skullType.getId(), () -> {
+            CreativeModeTab tab;
+            if (skullType.getMobType().equals(new ResourceLocation("villager")) || skullType.getMobType().equals(new ResourceLocation("zombie_villager"))) {
+                tab = ModRegistry.VILLAGERS_CREATIVE_TAB;
+            } else {
+                tab = ModRegistry.DEFAULT_CREATIVE_TAB;
+            }
+            return new ModStandingAndWallBlockItem(headBlock.get(), wallHeadBlock.get(), new Item.Properties().tab(tab).rarity(Rarity.UNCOMMON));
+        });
     }
 }

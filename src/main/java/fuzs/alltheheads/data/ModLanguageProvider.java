@@ -17,5 +17,6 @@ public class ModLanguageProvider extends LanguageProvider {
         this.add("block.alltheheads.head", "%s Head");
         this.add("block.alltheheads.skull", "%s Skull");
         this.add("itemGroup.alltheheads", AllTheHeads.MOD_NAME);
+        this.add("itemGroup.alltheheadsvillagers", AllTheHeads.MOD_NAME + " - Villagers");
     }
 }

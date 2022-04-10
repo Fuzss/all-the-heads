@@ -5,7 +5,6 @@
   "package": "fuzs.alltheheads.mixin",
   "refmap": "META-INF/alltheheads.refmap.json",
   "mixins": [
-    "ItemMixin"
   ],
   "client": [
     "client.SkullBlockRendererMixin"

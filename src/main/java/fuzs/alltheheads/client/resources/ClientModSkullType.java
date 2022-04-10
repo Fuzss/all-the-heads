@@ -1,35 +1,39 @@
 package fuzs.alltheheads.client.resources;
 
+import com.google.common.collect.Lists;
 import fuzs.alltheheads.AllTheHeads;
 import fuzs.alltheheads.client.model.BuiltInSkullJsonData;
-import fuzs.alltheheads.resources.SkullType;
+import fuzs.alltheheads.resources.ModSkullType;
 import fuzs.puzzleslib.client.model.geom.ModelLayerRegistry;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.resources.ResourceLocation;
 
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 import java.util.Objects;
 import java.util.function.BiConsumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-public class ClientSkullType {
+public class ClientModSkullType {
     private static final ModelLayerRegistry REGISTRY = ModelLayerRegistry.of(AllTheHeads.MOD_ID);
 
-    private final SkullType baseSkullType;
+    private final ModSkullType baseSkullType;
     private final ResourceLocation textureLocation;
     private final Supplier<LayerDefinition> layerDefinition;
     private final float modelScale;
+    private final List<SkullRenderLayer> renderLayers;
 
-    private ClientSkullType(SkullType baseSkullType, ResourceLocation textureLocation, Supplier<LayerDefinition> layerDefinition, float modelScale) {
+    private ClientModSkullType(ModSkullType baseSkullType, ResourceLocation textureLocation, Supplier<LayerDefinition> layerDefinition, float modelScale, List<SkullRenderLayer> renderLayers) {
         this.baseSkullType = baseSkullType;
         this.textureLocation = textureLocation;
         this.layerDefinition = layerDefinition;
         this.modelScale = modelScale;
+        this.renderLayers = renderLayers;
     }
 
-    public SkullType getBaseSkullType() {
+    public ModSkullType getBaseSkullType() {
         return this.baseSkullType;
     }
 
@@ -47,6 +51,10 @@ public class ClientSkullType {
 
     public float getModelScale() {
         return this.modelScale;
+    }
+
+    public List<SkullRenderLayer> getRenderLayers() {
+        return this.renderLayers;
     }
 
     public void buildResourceMap(BiConsumer<ResourceLocation, byte[]> consumer) {
@@ -72,6 +80,7 @@ public class ClientSkullType {
         private ResourceLocation textureLocation;
         private Supplier<LayerDefinition> layerDefinition;
         private float modelScale = 1.0F;
+        private final List<String> layers = Lists.newArrayList();
         
         public Builder(String baseSkullTypeKey) {
             this.baseSkullTypeKey = baseSkullTypeKey;
@@ -96,10 +105,25 @@ public class ClientSkullType {
             return this;
         }
 
-        public ClientSkullType build(Function<String, SkullType> skullTypeGetter) {
+        public Builder layer(String layer) {
+            this.layers.add(layer);
+            return this;
+        }
+
+        public ClientModSkullType build(Function<String, ModSkullType> skullTypeGetter) {
             Objects.requireNonNull(this.textureLocation);
             Objects.requireNonNull(this.layerDefinition);
-            return new ClientSkullType(skullTypeGetter.apply(this.baseSkullTypeKey), this.textureLocation, this.layerDefinition, this.modelScale);
+            ModSkullType skullType = skullTypeGetter.apply(this.baseSkullTypeKey);
+            List<SkullRenderLayer> renderLayers = this.layers.stream()
+                    .map(layer -> {
+                        if (layer.indexOf('#') >= 0) {
+                            return layer;
+                        }
+                        return skullType.getMobType().getPath() + "#" + layer;
+                    })
+                    .map(SkullRenderLayer::findRenderLayer)
+                    .toList();
+            return new ClientModSkullType(skullType, this.textureLocation, this.layerDefinition, this.modelScale, renderLayers);
         }
     }
 }

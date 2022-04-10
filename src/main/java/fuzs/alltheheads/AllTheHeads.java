@@ -4,7 +4,7 @@ import fuzs.alltheheads.data.ModLanguageProvider;
 import fuzs.alltheheads.handler.MobLootHandler;
 import fuzs.alltheheads.registry.ModRegistry;
 import fuzs.alltheheads.resources.SkullManager;
-import fuzs.alltheheads.resources.SkullType;
+import fuzs.alltheheads.resources.ModSkullType;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.MinecraftForge;
@@ -38,7 +38,7 @@ public class AllTheHeads {
         ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
         builder.comment("Allows for disabling individual heads from being obtainable in survival (via mob drops). This will not remove blocks and items, they are still available in-game using cheats.");
         builder.push(MOD_ID);
-        for (SkullType skullType : SkullManager.INSTANCE.getAllSkullTypes()) {
+        for (ModSkullType skullType : SkullManager.INSTANCE.getAllSkullTypes()) {
             skullType.setConfigSupplier(builder.define(skullType.getMappingKey(), true)::get);
         }
         builder.pop();
