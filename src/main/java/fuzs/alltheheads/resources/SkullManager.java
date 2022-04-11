@@ -11,7 +11,6 @@ import fuzs.puzzleslib.registry.RegistryManager;
 import it.unimi.dsi.fastutil.Pair;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.animal.Sheep;
 import net.minecraft.world.entity.animal.axolotl.Axolotl;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.DyeColor;
@@ -43,7 +42,7 @@ public class SkullManager {
         return this.skullTypesByKey.values().stream()
                 .sorted(Comparator.<ModSkullType, String>comparing(skullType -> skullType.getMobType().getNamespace())
                         .thenComparing(skullType -> skullType.getMobType().getPath())
-                        .thenComparing(ModSkullType::getVariant))
+                        .thenComparing(ModSkullType::getVariantForComparison))
                 .toList();
     }
 
@@ -118,7 +117,7 @@ public class SkullManager {
         }
         builders.add(new ModSkullType.Builder("chicken").skullSize(8.0F, 12.0F, 6.0F));
         for (DyeColor dyeColor : DyeColor.values()) {
-            builders.add(new ModSkullType.Builder("sheep").variant(dyeColor.getName(), "{Color:" + dyeColor.getId() + "}").skullSize(8.0F, 8.0F, 10.6667F));
+            builders.add(new ModSkullType.Builder("sheep").variant(dyeColor.getName(), "{Color:" + dyeColor.getId() + "}").skullSize(8.0F, 8.0F, 10.6667F).lootTableOverride("entities/sheep/" + dyeColor.getName()));
         }
         return builders;
     }

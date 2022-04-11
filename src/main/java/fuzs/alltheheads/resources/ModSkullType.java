@@ -23,6 +23,7 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 import net.minecraftforge.registries.IForgeRegistry;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
 import java.util.function.BooleanSupplier;
@@ -44,7 +45,11 @@ public class ModSkullType implements SkullBlock.Type {
     private final boolean fromChargedCreepers;
     private final boolean mobDisguise;
     private final Vector3f skullSize;
+    @Nullable
+    private final String lootTableOverride;
+    @Nullable
     private final String variant;
+    @Nullable
     private final String nbtPredicate;
 
     public final Supplier<Block> block;
@@ -58,7 +63,7 @@ public class ModSkullType implements SkullBlock.Type {
     private BooleanSupplier fromChargedCreepersSupplier;
     private BooleanSupplier mobDisguiseSupplier;
 
-    private ModSkullType(ResourceLocation mobType, boolean skull, double dropRate, double lootingBonus, boolean fromChargedCreepers, boolean mobDisguise, Vector3f skullSize, String variant, String nbtPredicate) {
+    private ModSkullType(ResourceLocation mobType, boolean skull, double dropRate, double lootingBonus, boolean fromChargedCreepers, boolean mobDisguise, Vector3f skullSize, @Nullable String lootTableOverride, @Nullable String variant, @Nullable String nbtPredicate) {
         this.mobType = mobType;
         this.skull = skull;
         this.dropRate = dropRate;
@@ -66,6 +71,7 @@ public class ModSkullType implements SkullBlock.Type {
         this.fromChargedCreepers = fromChargedCreepers;
         this.mobDisguise = mobDisguise;
         this.skullSize = skullSize;
+        this.lootTableOverride = lootTableOverride;
         this.variant = variant;
         this.nbtPredicate = nbtPredicate;
         this.entityType = Suppliers.memoize(() -> getRegistryEntry(ForgeRegistries.ENTITIES, this.mobType));
@@ -86,11 +92,11 @@ public class ModSkullType implements SkullBlock.Type {
     }
 
     public ResourceLocation getMobLootTableId() {
-        return new ResourceLocation(this.mobType.getNamespace(), "entities/".concat(this.mobType.getPath()));
+        return new ResourceLocation(this.mobType.getNamespace(), Objects.requireNonNullElseGet(this.lootTableOverride, () -> "entities/" + this.mobType.getPath()));
     }
 
     public String getMappingKey() {
-        return this.mobType.toString() + (this.variant.isEmpty() ? "" : "#" + this.variant);
+        return this.mobType.toString() + (this.variant == null ? "" : "#" + this.variant);
     }
 
     public String getId() {
@@ -102,7 +108,7 @@ public class ModSkullType implements SkullBlock.Type {
     }
 
     private String getBaseId() {
-        if (this.variant.isEmpty()) {
+        if (this.variant == null) {
             return this.mobType.getPath();
         }
         return this.variant + "_" + this.mobType.getPath();
@@ -152,16 +158,16 @@ public class ModSkullType implements SkullBlock.Type {
         return this.skullSize;
     }
 
-    public String getVariant() {
-        return this.variant;
+    public String getVariantForComparison() {
+        return this.variant == null ? "" : this.variant;
     }
 
     public boolean matchesNbtVariant(Entity entity) {
-        return this.nbtPredicate.isEmpty() || NbtUtils.compareNbt(this.getNbtPredicate(), NbtPredicate.getEntityTagToCompare(entity), true);
+        return this.nbtPredicate == null || NbtUtils.compareNbt(this.getNbtPredicate(), NbtPredicate.getEntityTagToCompare(entity), true);
     }
 
     public CompoundTag getNbtPredicate() {
-        if (this.nbtPredicate.isEmpty()) throw new RuntimeException("Nbt predicate missing for variant " + this.variant);
+        if (this.nbtPredicate == null) throw new RuntimeException("Nbt predicate missing for variant " + this.variant);
         try {
             return TagParser.parseTag(this.nbtPredicate);
         } catch (CommandSyntaxException e) {
@@ -204,8 +210,9 @@ public class ModSkullType implements SkullBlock.Type {
         private boolean fromChargedCreepers = true;
         private boolean mobDisguise = true;
         private Vector3f skullSize = new Vector3f(8.0F, 8.0F, 8.0F);
-        private String variant = "";
-        private String nbtPredicate = "";
+        private String lootTableOverride;
+        private String variant;
+        private String nbtPredicate;
 
         public Builder(String path) {
             this(new ResourceLocation(path));
@@ -245,6 +252,11 @@ public class ModSkullType implements SkullBlock.Type {
             return this;
         }
 
+        public Builder lootTableOverride(String lootTableOverride) {
+            this.lootTableOverride = lootTableOverride;
+            return this;
+        }
+
         public Builder variant(String variant, String nbtPredicate) {
             this.variant = variant;
             this.nbtPredicate = nbtPredicate;
@@ -252,7 +264,7 @@ public class ModSkullType implements SkullBlock.Type {
         }
 
         public ModSkullType build() {
-            return new ModSkullType(this.mobType, this.skull, this.dropRate, this.lootingBonus, this.fromChargedCreepers, this.mobDisguise, this.skullSize, this.variant, this.nbtPredicate);
+            return new ModSkullType(this.mobType, this.skull, this.dropRate, this.lootingBonus, this.fromChargedCreepers, this.mobDisguise, this.skullSize, this.lootTableOverride, this.variant, this.nbtPredicate);
         }
     }
 }
