@@ -3,6 +3,7 @@ package fuzs.alltheheads.handler;
 import com.google.common.collect.Lists;
 import fuzs.alltheheads.resources.ModSkullType;
 import fuzs.alltheheads.resources.SkullManager;
+import fuzs.alltheheads.world.item.ModSkullBlockItem;
 import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.advancements.critereon.NbtPredicate;
 import net.minecraft.world.damagesource.DamageSource;
@@ -46,7 +47,7 @@ public class MobLootHandler {
         if (entity instanceof Creeper creeper) {
             if (creeper.canDropMobsSkull()) {
                 creeper.increaseDroppedSkulls();
-                target.spawnAtLocation(skullType.item.get());
+                target.spawnAtLocation(ModSkullBlockItem.createSkullTypeStack(skullType));
             }
         }
     }
@@ -57,7 +58,7 @@ public class MobLootHandler {
             ItemStack helmet = evt.getEntityLiving().getItemBySlot(EquipmentSlot.HEAD);
             SkullManager.INSTANCE.getSkullTypeByEntity(evt.getLookingEntity().getType()).ifPresent(skullTypes -> {
                 for (ModSkullType skullType : skullTypes) {
-                    if (skullType.worksAsMobDisguise() && helmet.is(skullType.item.get()) && skullType.matchesNbtVariant(evt.getLookingEntity())) {
+                    if (skullType.worksAsMobDisguise() && skullType.matchesNbtVariant(evt.getLookingEntity()) && ItemStack.isSameItemSameTags(helmet, ModSkullBlockItem.createSkullTypeStack(skullType))) {
                         evt.modifyVisibility(evt.getVisibilityModifier() * 0.5);
                         break;
                     }

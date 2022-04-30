@@ -1,6 +1,7 @@
 package fuzs.alltheheads;
 
 import fuzs.alltheheads.data.ModLanguageProvider;
+import fuzs.alltheheads.data.ModLootTableProvider;
 import fuzs.alltheheads.handler.MobLootHandler;
 import fuzs.alltheheads.registry.ModRegistry;
 import fuzs.alltheheads.resources.ModSkullType;
@@ -50,13 +51,14 @@ public class AllTheHeads {
         MobLootHandler mobLootHandler = new MobLootHandler();
         MinecraftForge.EVENT_BUS.addListener(mobLootHandler::onLivingDrops);
         MinecraftForge.EVENT_BUS.addListener(mobLootHandler::onLivingVisibility);
-        MinecraftForge.EVENT_BUS.addListener(mobLootHandler::onLootTableLoad);
+//        MinecraftForge.EVENT_BUS.addListener(mobLootHandler::onLootTableLoad);
     }
 
     @SubscribeEvent
     public static void onGatherData(final GatherDataEvent evt) {
         DataGenerator generator = evt.getGenerator();
         final ExistingFileHelper existingFileHelper = evt.getExistingFileHelper();
+        generator.addProvider(new ModLootTableProvider(generator, MOD_ID));
         generator.addProvider(new ModLanguageProvider(generator, MOD_ID));
     }
 }

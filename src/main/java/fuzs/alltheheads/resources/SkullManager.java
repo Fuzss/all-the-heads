@@ -2,27 +2,14 @@ package fuzs.alltheheads.resources;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
-import fuzs.alltheheads.registry.ModRegistry;
-import fuzs.alltheheads.world.item.ModStandingAndWallBlockItem;
-import fuzs.alltheheads.world.level.block.ModSkullBlock;
-import fuzs.alltheheads.world.level.block.ModWallSkullBlock;
 import fuzs.puzzleslib.core.ModLoaderEnvironment;
-import fuzs.puzzleslib.registry.RegistryManager;
-import it.unimi.dsi.fastutil.Pair;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.axolotl.Axolotl;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Rarity;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.Material;
-import net.minecraftforge.registries.RegistryObject;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
-import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -33,7 +20,6 @@ public class SkullManager {
     public static final List<ResourceLocation> VILLAGER_WORKER_PROFESSIONS = Stream.of("armorer", "butcher", "cartographer", "cleric", "farmer", "fisherman", "fletcher", "leatherworker", "librarian", "mason", "nitwit", "shepherd", "toolsmith", "weaponsmith").map(ResourceLocation::new).toList();
 
     private Map<String, ModSkullType> skullTypesByKey;
-    private List<Pair<RegistryObject<Block>, RegistryObject<Block>>> skullBlocks;
     private Map<EntityType<?>, List<ModSkullType>> skullTypesByEntity;
     private Map<ResourceLocation, List<ModSkullType>> skullTypesByLootTable;
 
@@ -46,25 +32,9 @@ public class SkullManager {
                 .toList();
     }
 
+    @Nullable
     public ModSkullType getSkullType(String key) {
         return this.skullTypesByKey.get(key.indexOf(':') >= 0 ? key : "minecraft:" + key);
-    }
-
-    public void register(RegistryManager registry) {
-        this.skullBlocks = Lists.newArrayList();
-        for (ModSkullType skullType : this.getAllSkullTypes()) {
-            Pair<RegistryObject<Block>, RegistryObject<Block>> pair = this.registerBlocks(registry, skullType);
-            this.skullBlocks.add(pair);
-            this.registerItem(registry, skullType, pair.left(), pair.right());
-        }
-    }
-
-    public Block[] getAllSkullBlocks() {
-        return this.skullBlocks.stream().mapMulti((Pair<RegistryObject<Block>, RegistryObject<Block>> pair, Consumer<RegistryObject<Block>> consumer) -> {
-                    consumer.accept(pair.left());
-                    consumer.accept(pair.right());
-                }).map(RegistryObject::get)
-                .toArray(Block[]::new);
     }
 
     public Optional<List<ModSkullType>> getSkullTypeByEntity(EntityType<?> entityType) {
@@ -120,23 +90,5 @@ public class SkullManager {
             builders.add(new ModSkullType.Builder("sheep").variant(dyeColor.getName(), "{Color:" + dyeColor.getId() + "}").skullSize(8.0F, 8.0F, 10.6667F).lootTableOverride("entities/sheep/" + dyeColor.getName()));
         }
         return builders;
-    }
-
-    private Pair<RegistryObject<Block>, RegistryObject<Block>> registerBlocks(RegistryManager registry, ModSkullType skullType) {
-        RegistryObject<Block> headBlock = registry.registerBlock(skullType.getId(), () -> new ModSkullBlock(skullType, BlockBehaviour.Properties.of(Material.DECORATION).strength(1.0F)));
-        RegistryObject<Block> wallHeadBlock = registry.registerBlock(skullType.getWallId(), () -> new ModWallSkullBlock(skullType, BlockBehaviour.Properties.of(Material.DECORATION).strength(1.0F)));
-        return Pair.of(headBlock, wallHeadBlock);
-    }
-
-    private void registerItem(RegistryManager registry, ModSkullType skullType, RegistryObject<Block> headBlock, RegistryObject<Block> wallHeadBlock) {
-        registry.registerItem(skullType.getId(), () -> {
-            CreativeModeTab tab;
-            if (skullType.getMobType().equals(new ResourceLocation("villager")) || skullType.getMobType().equals(new ResourceLocation("zombie_villager"))) {
-                tab = ModRegistry.VILLAGERS_CREATIVE_TAB;
-            } else {
-                tab = ModRegistry.DEFAULT_CREATIVE_TAB;
-            }
-            return new ModStandingAndWallBlockItem(headBlock.get(), wallHeadBlock.get(), new Item.Properties().tab(tab).rarity(Rarity.UNCOMMON));
-        });
     }
 }

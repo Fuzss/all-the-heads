@@ -5,7 +5,9 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Vector3f;
 import fuzs.alltheheads.client.model.ModSkullModel;
 import fuzs.alltheheads.client.resources.ClientSkullManager;
+import fuzs.alltheheads.registry.ModRegistry;
 import fuzs.alltheheads.resources.ModSkullType;
+import fuzs.alltheheads.world.level.block.entity.ModSkullBlockEntity;
 import net.minecraft.client.model.SkullModelBase;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -13,9 +15,11 @@ import net.minecraft.client.renderer.blockentity.SkullBlockRenderer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.SkullBlock;
+import net.minecraft.world.level.block.entity.SkullBlockEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
@@ -23,6 +27,17 @@ import javax.annotation.Nullable;
 
 @Mixin(SkullBlockRenderer.class)
 public abstract class SkullBlockRendererMixin {
+
+    @ModifyVariable(method = "render", at = @At(value = "STORE", ordinal = 0))
+    public SkullBlock.Type render$modifyVariableStore(SkullBlock.Type skullType, SkullBlockEntity blockEntity) {
+        if (skullType == ModRegistry.MOB_SKULL_BLOCK_TYPE) {
+            ModSkullType modSkullType = ((ModSkullBlockEntity) blockEntity).getSkullType();
+            if (modSkullType != null) {
+                return modSkullType;
+            }
+        }
+        return skullType;
+    }
 
     @Inject(method = "renderSkull", at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/vertex/PoseStack;scale(FFF)V"))
     private static void renderSkull$injectInvokeScale(@Nullable Direction direction, float p_173665_, float p_173666_, PoseStack p_173667_, MultiBufferSource p_173668_, int p_173669_, SkullModelBase model, RenderType p_173671_, CallbackInfo callbackInfo) {

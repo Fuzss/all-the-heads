@@ -26,10 +26,6 @@ public class ClientSkullManager {
         return this.clientDataBySkullType;
     }
 
-    public ClientModSkullType getClientSkullType(ModSkullType skullType) {
-        return this.getSkullTypeClientData().get(skullType);
-    }
-
     public Map<ResourceLocation, byte[]> getBuiltInResourceData() {
         if (this.resourceDataByLocation == null) {
             ImmutableMap.Builder<ResourceLocation, byte[]> builder = new ImmutableMap.Builder<>();

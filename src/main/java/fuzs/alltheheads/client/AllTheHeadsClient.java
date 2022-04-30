@@ -8,8 +8,11 @@ import fuzs.alltheheads.client.resources.SkullRenderLayer;
 import fuzs.alltheheads.registry.ModRegistry;
 import fuzs.alltheheads.resources.ModSkullType;
 import fuzs.alltheheads.server.packs.VirtualPackResources;
+import net.minecraft.client.model.SkullModel;
+import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.blockentity.SkullBlockRenderer;
+import net.minecraft.client.resources.DefaultPlayerSkin;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.repository.Pack;
@@ -32,11 +35,7 @@ public class AllTheHeadsClient {
     @SubscribeEvent
     public static void onClientSetup(final FMLClientSetupEvent evt) {
         BlockEntityRenderers.register(ModRegistry.MOB_HEAD_BLOCK_ENTITY_TYPE.get(), SkullBlockRenderer::new);
-        // we use a mixin since we need a different render type from the default one to support rendering layers in the same z-level
-        // ...and Fabric is going to need the mixin anyways
-//        for (Map.Entry<ModSkullType, ClientModSkullType> entry : ClientSkullManager.INSTANCE.getSkullTypeClientData().entrySet()) {
-//            SkullBlockRenderer.SKIN_BY_TYPE.put(entry.getKey(), entry.getValue().getTextureLocation());
-//        }
+        SkullBlockRenderer.SKIN_BY_TYPE.put(ModRegistry.MOB_SKULL_BLOCK_TYPE, DefaultPlayerSkin.getDefaultSkin());
     }
 
     @SubscribeEvent
@@ -54,6 +53,7 @@ public class AllTheHeadsClient {
 
     @SubscribeEvent
     public static void onCreateSkullModels(final EntityRenderersEvent.CreateSkullModels evt) {
+        evt.registerSkullModel(ModRegistry.MOB_SKULL_BLOCK_TYPE, new SkullModel(evt.getEntityModelSet().bakeLayer(ModelLayers.PLAYER_HEAD)));
         for (Map.Entry<ModSkullType, ClientModSkullType> entry : ClientSkullManager.INSTANCE.getSkullTypeClientData().entrySet()) {
             ClientModSkullType skullType = entry.getValue();
             evt.registerSkullModel(entry.getKey(), new ModSkullModel(evt.getEntityModelSet().bakeLayer(skullType.getModelLayerLocationId()), skullType));
@@ -62,7 +62,8 @@ public class AllTheHeadsClient {
 
     @SubscribeEvent
     public static void onAddPackFinders(final AddPackFindersEvent evt) {
-        if (evt.getPackType() == PackType.CLIENT_RESOURCES) {
+        // TODO allow for individual json model files per skull type
+        if (false && evt.getPackType() == PackType.CLIENT_RESOURCES) {
             evt.addRepositorySource((Consumer<Pack> consumer, Pack.PackConstructor factory) -> {
                 Path packIconPath = ModList.get().getModFileById(AllTheHeads.MOD_ID).getFile().findResource("mod_logo.png");
                 Pack packInfo = Pack.create(AllTheHeads.MOD_ID, true, () -> new VirtualPackResources(AllTheHeads.MOD_NAME + " Resources", packIconPath, new TextComponent(AllTheHeads.MOD_DESCRIPTION), ClientSkullManager.INSTANCE.getBuiltInResourceData()), factory, Pack.Position.BOTTOM, PackSource.BUILT_IN);

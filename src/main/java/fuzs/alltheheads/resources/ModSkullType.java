@@ -1,11 +1,15 @@
 package fuzs.alltheheads.resources;
 
 import com.google.common.base.Suppliers;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.Maps;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.math.Vector3f;
-import fuzs.alltheheads.AllTheHeads;
-import fuzs.alltheheads.util.BlockLootUtil;
+import fuzs.alltheheads.registry.ModRegistry;
+import fuzs.alltheheads.world.level.block.ModSkullBlock;
+import fuzs.alltheheads.world.level.block.ModWallSkullBlock;
 import net.minecraft.advancements.critereon.NbtPredicate;
+import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtUtils;
 import net.minecraft.nbt.TagParser;
@@ -16,28 +20,30 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.item.Item;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SkullBlock;
-import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 import net.minecraftforge.registries.IForgeRegistry;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Map;
 import java.util.Objects;
 import java.util.function.BooleanSupplier;
 import java.util.function.DoubleSupplier;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class ModSkullType implements SkullBlock.Type {
     private static final String HEAD_SUFFIX = "_head";
     private static final String SKULL_SUFFIX = "_skull";
     private static final String WALL_SUFFIX = "_wall";
-    private static final String HEAD_TRANSLATION_KEY = "block.alltheheads.head";
-    private static final String SKULL_TRANSLATION_KEY = "block.alltheheads.skull";
-    private static final String WALL_TRANSLATION_KEY = "block.alltheheads.wall";
+    public static final String HEAD_TRANSLATION_KEY = "block.alltheheads.head";
+    public static final String SKULL_TRANSLATION_KEY = "block.alltheheads.skull";
 
+    public final Supplier<EntityType<?>> entityType;
     private final ResourceLocation mobType;
     private final boolean skull;
     private final double dropRate;
@@ -52,18 +58,21 @@ public class ModSkullType implements SkullBlock.Type {
     @Nullable
     private final String nbtPredicate;
 
-    public final Supplier<Block> block;
-    public final Supplier<Block> wallBlock;
-    public final Supplier<Item> item;
-    public final Supplier<EntityType<?>> entityType;
-    public final Supplier<LootTable> lootTable;
+    public Supplier<Block> block;
+//    public Supplier<Block> wallBlock;
+//    public Supplier<Item> item;
+//    public Supplier<LootTable> lootTable;
 
     private DoubleSupplier dropRateSupplier;
     private DoubleSupplier lootingBonusSupplier;
     private BooleanSupplier fromChargedCreepersSupplier;
     private BooleanSupplier mobDisguiseSupplier;
 
+    public final Map<Integer, VoxelShape> shapes;
+    public final Map<Direction, VoxelShape> wallShapes;
+
     private ModSkullType(ResourceLocation mobType, boolean skull, double dropRate, double lootingBonus, boolean fromChargedCreepers, boolean mobDisguise, Vector3f skullSize, @Nullable String lootTableOverride, @Nullable String variant, @Nullable String nbtPredicate) {
+        this.entityType = Suppliers.memoize(() -> getRegistryEntry(ForgeRegistries.ENTITIES, mobType));
         this.mobType = mobType;
         this.skull = skull;
         this.dropRate = dropRate;
@@ -74,11 +83,13 @@ public class ModSkullType implements SkullBlock.Type {
         this.lootTableOverride = lootTableOverride;
         this.variant = variant;
         this.nbtPredicate = nbtPredicate;
-        this.entityType = Suppliers.memoize(() -> getRegistryEntry(ForgeRegistries.ENTITIES, this.mobType));
-        this.wallBlock = Suppliers.memoize(() -> getRegistryEntry(ForgeRegistries.BLOCKS, new ResourceLocation(AllTheHeads.MOD_ID, this.getWallId())));
-        this.block = Suppliers.memoize(() -> getRegistryEntry(ForgeRegistries.BLOCKS, new ResourceLocation(AllTheHeads.MOD_ID, this.getId())));
-        this.item = Suppliers.memoize(() -> getRegistryEntry(ForgeRegistries.ITEMS, new ResourceLocation(AllTheHeads.MOD_ID, this.getId())));
-        this.lootTable = Suppliers.memoize(() -> BlockLootUtil.createSingleItemTable(this.item.get()).build());
+//        this.wallBlock = Suppliers.memoize(() -> getRegistryEntry(ForgeRegistries.BLOCKS, new ResourceLocation(AllTheHeads.MOD_ID, this.getWallId())));
+//        this.block = Suppliers.memoize(() -> getRegistryEntry(ForgeRegistries.BLOCKS, new ResourceLocation(AllTheHeads.MOD_ID, this.getId())));
+//        this.item = Suppliers.memoize(() -> getRegistryEntry(ForgeRegistries.ITEMS, new ResourceLocation(AllTheHeads.MOD_ID, this.getId())));
+//        this.lootTable = Suppliers.memoize(() -> BlockLootUtil.createSingleItemTable(this.item.get()).build());
+        this.shapes = ModSkullBlock.makeShapes(skullSize);
+        this.wallShapes = Maps.newEnumMap(Direction.Plane.HORIZONTAL.stream()
+                .collect(ImmutableMap.toImmutableMap(Function.identity(), direction -> ModWallSkullBlock.createShape(skullSize.x(), skullSize.y(), skullSize.z(), direction))));
     }
 
     private static <T extends ForgeRegistryEntry<T>> T getRegistryEntry(IForgeRegistry<T> registry, ResourceLocation location) {
@@ -179,8 +190,12 @@ public class ModSkullType implements SkullBlock.Type {
         return this.getName(this.entityType.get().getDescription());
     }
 
-    public MutableComponent getWallName() {
-        return this.getName(new TranslatableComponent(WALL_TRANSLATION_KEY, this.entityType.get().getDescription()));
+    public CreativeModeTab getCreativeModeTab() {
+        if (this.mobType.equals(new ResourceLocation("villager")) || this.mobType.equals(new ResourceLocation("zombie_villager"))) {
+            return ModRegistry.VILLAGERS_CREATIVE_TAB;
+        } else {
+            return ModRegistry.DEFAULT_CREATIVE_TAB;
+        }
     }
 
     public void setConfigSuppliers(DoubleSupplier dropRate, DoubleSupplier lootingBonus, BooleanSupplier fromChargedCreepers, BooleanSupplier mobDisguise) {
@@ -199,7 +214,7 @@ public class ModSkullType implements SkullBlock.Type {
 
     @Override
     public String toString() {
-        return "SkullType{" + "mobType=" + this.mobType + ", skull=" + this.skull + ", dropRate=" + this.dropRate + ", lootingBonus=" + this.lootingBonus + ", fromChargedCreepers=" + this.fromChargedCreepers + ", mobDisguise=" + this.mobDisguise + ", skullSize=" + this.skullSize + ", variant='" + this.variant + '\'' + ", nbtPredicate='" + this.nbtPredicate + '\'' + '}';
+        return this.mobType.toString();
     }
 
     public static class Builder {

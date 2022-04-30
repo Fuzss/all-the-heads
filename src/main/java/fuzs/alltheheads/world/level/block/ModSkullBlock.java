@@ -3,38 +3,33 @@ package fuzs.alltheheads.world.level.block;
 import com.google.common.collect.ImmutableMap;
 import com.mojang.math.Vector3f;
 import fuzs.alltheheads.resources.ModSkullType;
+import fuzs.alltheheads.world.item.ModSkullBlockItem;
 import fuzs.alltheheads.world.level.block.entity.ModSkullBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SkullBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.storage.loot.LootContext;
-import net.minecraft.world.level.storage.loot.LootTable;
-import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
-import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.IntStream;
 
 public class ModSkullBlock extends SkullBlock {
-    private final Map<Integer, VoxelShape> shapes;
 
     public ModSkullBlock(Type type, Properties p_56319_) {
         super(type, p_56319_);
-        this.shapes = this.makeShapes(((ModSkullType) type).getSkullSize());
     }
 
-    private Map<Integer, VoxelShape> makeShapes(Vector3f skullSize) {
+    public static Map<Integer, VoxelShape> makeShapes(Vector3f skullSize) {
         VoxelShape shapeRotationX = createShape(skullSize.x(), skullSize.y(), skullSize.z(), Direction.Axis.X);
         VoxelShape shapeRotationZ = createShape(skullSize.x(), skullSize.y(), skullSize.z(), Direction.Axis.Z);
         VoxelShape shapeRotationAny = createShape(skullSize.x(), skullSize.y(), skullSize.z(), null);
@@ -62,7 +57,14 @@ public class ModSkullBlock extends SkullBlock {
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter p_56332_, BlockPos p_56333_, CollisionContext p_56334_) {
-        return this.shapes.get(state.getValue(ROTATION));
+        BlockEntity blockentity = p_56332_.getBlockEntity(p_56333_);
+        if (blockentity instanceof ModSkullBlockEntity blockEntity) {
+            ModSkullType skullType = blockEntity.getSkullType();
+            if (skullType != null) {
+                return skullType.shapes.get(state.getValue(ROTATION));
+            }
+        }
+        return super.getShape(state, p_56332_, p_56333_, p_56334_);
     }
 
     @Override
@@ -71,20 +73,22 @@ public class ModSkullBlock extends SkullBlock {
     }
 
     @Override
-    public MutableComponent getName() {
-        return ((ModSkullType) this.getType()).getName();
+    public void setPlacedBy(Level level, BlockPos pos, BlockState p_49849_, @Nullable LivingEntity p_49850_, ItemStack stack) {
+        super.setPlacedBy(level, pos, p_49849_, p_49850_, stack);
+        // make sure block entity data is set on client from beginning to avoid having to wait server to sync correct data
+        BlockEntity blockentity = level.getBlockEntity(pos);
+        if (blockentity instanceof ModSkullBlockEntity skullBlockEntity) {
+            ModSkullType skullType = ModSkullBlockItem.readStackSkullType(stack);
+            skullBlockEntity.setSkullType(skullType);
+        }
     }
 
     @Override
-    public String getDescriptionId() {
-        // overriding #getName is mostly enough, but just in case something uses this id provide a localized default
-        return "block.alltheheads.mob_head";
-    }
-
-    @Override
-    public List<ItemStack> getDrops(BlockState p_60537_, LootContext.Builder p_60538_) {
-        LootContext lootcontext = p_60538_.withParameter(LootContextParams.BLOCK_STATE, p_60537_).create(LootContextParamSets.BLOCK);
-        LootTable loottable = ((ModSkullType) this.getType()).lootTable.get();
-        return loottable.getRandomItems(lootcontext);
+    public ItemStack getCloneItemStack(BlockGetter p_49823_, BlockPos p_49824_, BlockState p_49825_) {
+        BlockEntity blockEntity = p_49823_.getBlockEntity(p_49824_);
+        if (blockEntity instanceof ModSkullBlockEntity skullBlockEntity) {
+            return ModSkullBlockItem.createSkullTypeStack(skullBlockEntity.getSkullType());
+        }
+        return super.getCloneItemStack(p_49823_, p_49824_, p_49825_);
     }
 }

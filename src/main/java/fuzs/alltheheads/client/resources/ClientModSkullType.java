@@ -58,8 +58,6 @@ public class ClientModSkullType {
     }
 
     public void buildResourceMap(BiConsumer<ResourceLocation, byte[]> consumer) {
-        consumer.accept(new ResourceLocation(AllTheHeads.MOD_ID, "blockstates/" + this.baseSkullType.getId() + ".json"), this.getBuiltInBlockstateVariants().getBytes(StandardCharsets.UTF_8));
-        consumer.accept(new ResourceLocation(AllTheHeads.MOD_ID, "blockstates/" + this.baseSkullType.getWallId() + ".json"), this.getBuiltInWallBlockstateVariants().getBytes(StandardCharsets.UTF_8));
         consumer.accept(new ResourceLocation(AllTheHeads.MOD_ID, "models/item/" + this.baseSkullType.getId() + ".json"), this.getBuiltInItemModel().getBytes(StandardCharsets.UTF_8));
     }
 
@@ -111,9 +109,10 @@ public class ClientModSkullType {
         }
 
         public ClientModSkullType build(Function<String, ModSkullType> skullTypeGetter) {
+            ModSkullType skullType = skullTypeGetter.apply(this.baseSkullTypeKey);
+            Objects.requireNonNull(skullType);
             Objects.requireNonNull(this.textureLocation);
             Objects.requireNonNull(this.layerDefinition);
-            ModSkullType skullType = skullTypeGetter.apply(this.baseSkullTypeKey);
             List<SkullRenderLayer> renderLayers = this.layers.stream()
                     .map(layer -> {
                         if (layer.indexOf('#') >= 0) {

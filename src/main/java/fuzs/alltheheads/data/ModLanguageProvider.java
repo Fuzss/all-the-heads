@@ -1,6 +1,8 @@
 package fuzs.alltheheads.data;
 
 import fuzs.alltheheads.AllTheHeads;
+import fuzs.alltheheads.registry.ModRegistry;
+import fuzs.alltheheads.resources.ModSkullType;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.LanguageProvider;
 
@@ -11,11 +13,10 @@ public class ModLanguageProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
-        this.add("block.alltheheads.mob_head", "Mob Head");
-        this.add("block.alltheheads.mob_wall_head", "Mob Wall Head");
-        this.add("block.alltheheads.wall", "%s Wall");
-        this.add("block.alltheheads.head", "%s Head");
-        this.add("block.alltheheads.skull", "%s Skull");
+        this.add(ModRegistry.MOB_HEAD_BLOCK.get(), "Mob Head");
+        this.add(ModRegistry.MOB_WALL_HEAD_BLOCK.get(), "Mob Wall Head");
+        this.add(ModSkullType.HEAD_TRANSLATION_KEY, "%s Head");
+        this.add(ModSkullType.SKULL_TRANSLATION_KEY, "%s Skull");
         this.add("itemGroup.alltheheads", AllTheHeads.MOD_NAME);
         this.add("itemGroup.alltheheadsvillagers", AllTheHeads.MOD_NAME + " - Villagers");
     }
