@@ -1,5 +1,5 @@
 {
-  "custom_name": "minecraft.warm_cow",
+  "custom_name": "minecraft.cow.warm",
   "entity_predicate": {
     "components": {
       "minecraft:cow/variant": "minecraft:warm"
@@ -7,7 +7,7 @@
   },
   "entity_type": "minecraft:cow",
   "loot": {
-    "loot_table": "minecraft:entities/heads/warm_cow"
+    "loot_table": "minecraft:entities/heads/cow/warm"
   },
   "models_and_textures": [
     {
@@ -17,7 +17,8 @@
   ],
   "note_block_sound": "minecraft:entity.cow.ambient",
   "shape": {
-    "height": 6.0,
+    "depth": 6.0,
+    "height": 8.0,
     "width": 8.0
   }
 }

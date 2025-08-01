@@ -12,6 +12,7 @@
   ],
   "note_block_sound": "minecraft:entity.blaze.ambient",
   "shape": {
+    "depth": 8.0,
     "height": 8.0,
     "width": 8.0
   }

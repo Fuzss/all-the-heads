@@ -15,13 +15,13 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import org.jetbrains.annotations.Nullable;
 
-public class ModSkullBlockEntity extends SkullBlockEntity {
+public class MobHeadBlockEntity extends SkullBlockEntity {
     public static final String TAG_HEAD_TYPE = "head_type";
 
     @Nullable
     private Holder<HeadType> headType;
 
-    public ModSkullBlockEntity(BlockPos pos, BlockState blockState) {
+    public MobHeadBlockEntity(BlockPos pos, BlockState blockState) {
         super(pos, blockState);
     }
 

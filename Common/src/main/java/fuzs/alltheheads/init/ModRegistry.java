@@ -4,9 +4,9 @@ import com.google.common.collect.ImmutableSet;
 import fuzs.alltheheads.AllTheHeads;
 import fuzs.alltheheads.world.item.ModSkullBlockItem;
 import fuzs.alltheheads.world.item.component.HeadType;
-import fuzs.alltheheads.world.level.block.ModSkullBlock;
-import fuzs.alltheheads.world.level.block.ModWallSkullBlock;
-import fuzs.alltheheads.world.level.block.entity.ModSkullBlockEntity;
+import fuzs.alltheheads.world.level.block.MobHeadBlock;
+import fuzs.alltheheads.world.level.block.MobHeadSkullBlock;
+import fuzs.alltheheads.world.level.block.entity.MobHeadBlockEntity;
 import fuzs.puzzleslib.api.init.v3.registry.ContentRegistrationHelper;
 import fuzs.puzzleslib.api.init.v3.registry.RegistryManager;
 import net.minecraft.core.Holder;
@@ -43,13 +43,13 @@ public class ModRegistry {
                 return builder.persistent(HeadType.CODEC).networkSynchronized(HeadType.STREAM_CODEC).cacheEncoding();
             });
     public static final Holder.Reference<Block> MOB_HEAD_BLOCK = REGISTRIES.registerBlock("mob_head",
-            ModSkullBlock::new,
+            MobHeadBlock::new,
             () -> BlockBehaviour.Properties.of()
                     .instrument(NoteBlockInstrument.CUSTOM_HEAD)
                     .strength(1.0F)
                     .pushReaction(PushReaction.DESTROY));
     public static final Holder.Reference<Block> MOB_WALL_HEAD_BLOCK = REGISTRIES.registerBlock("mob_wall_head",
-            ModWallSkullBlock::new,
+            MobHeadSkullBlock::new,
             () -> Blocks.wallVariant(MOB_HEAD_BLOCK.value(), true).strength(1.0F).pushReaction(PushReaction.DESTROY));
     public static final Holder.Reference<Item> MOB_HEAD_ITEM = REGISTRIES.registerBlockItem(MOB_HEAD_BLOCK,
             (Block block, Item.Properties properties) -> new ModSkullBlockItem(block,
@@ -58,12 +58,12 @@ public class ModRegistry {
             () -> Waypoint.addHideAttribute(new Item.Properties())
                     .rarity(Rarity.UNCOMMON)
                     .equippableUnswappable(EquipmentSlot.HEAD));
-    public static final Holder.Reference<BlockEntityType<ModSkullBlockEntity>> MOB_HEAD_BLOCK_ENTITY_TYPE = REGISTRIES.registerBlockEntityType(
-            "skull",
-            ModSkullBlockEntity::new,
+    public static final Holder.Reference<BlockEntityType<MobHeadBlockEntity>> MOB_HEAD_BLOCK_ENTITY_TYPE = REGISTRIES.registerBlockEntityType(
+            "head",
+            MobHeadBlockEntity::new,
             () -> ImmutableSet.of(MOB_HEAD_BLOCK.value(), MOB_WALL_HEAD_BLOCK.value()));
     public static final Holder.Reference<CreativeModeTab> CREATIVE_MODE_TAB = REGISTRIES.registerCreativeModeTab("main",
-            () -> new ItemStack(Items.PLAYER_HEAD),
+            () -> new ItemStack(MOB_HEAD_ITEM),
             (CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output output) -> {
                 output.accept(Items.SKELETON_SKULL);
                 output.accept(Items.WITHER_SKELETON_SKULL);
@@ -82,7 +82,7 @@ public class ModRegistry {
             true);
     public static final Holder.Reference<CreativeModeTab> VILLAGER_CREATIVE_MODE_TAB = REGISTRIES.registerCreativeModeTab(
             "villager",
-            () -> new ItemStack(Items.PLAYER_HEAD),
+            () -> new ItemStack(MOB_HEAD_ITEM),
             (CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output output) -> {
                 itemDisplayParameters.holders()
                         .lookupOrThrow(HEAD_REGISTRY_KEY)

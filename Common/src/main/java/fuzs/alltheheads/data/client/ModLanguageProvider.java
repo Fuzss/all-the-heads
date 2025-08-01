@@ -25,5 +25,6 @@ public class ModLanguageProvider extends AbstractLanguageProvider {
                 "Temperate Cow Head");
         translationBuilder.add(HeadType.createDescriptionId(EntityType.COW, HeadTypes.WARM_COW), "Warm Cow Head");
         translationBuilder.add(HeadType.createDescriptionId(EntityType.COW, HeadTypes.COLD_COW), "Cold Cow Head");
+        translationBuilder.add(HeadType.createDescriptionId(EntityType.OCELOT, HeadTypes.OCELOT), "Ocelot Head");
     }
 }

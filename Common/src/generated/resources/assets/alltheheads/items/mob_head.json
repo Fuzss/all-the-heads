@@ -3,8 +3,7 @@
     "type": "minecraft:special",
     "base": "minecraft:item/template_skull",
     "model": {
-      "type": "minecraft:head",
-      "kind": "alltheheads:mob"
+      "type": "alltheheads:mob_head"
     }
   }
 }

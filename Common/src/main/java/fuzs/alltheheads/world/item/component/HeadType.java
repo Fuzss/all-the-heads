@@ -86,22 +86,22 @@ public record HeadType(Holder<EntityType<?>> entityType,
                 entityType.builtInRegistryHolder().key().location());
     }
 
-    public HeadType(EntityType<?> entityType, Shape shape, ModelAndTexture<ModelType> modelAndTexture, Optional<Holder<SoundEvent>> noteBlockSound, EntityPredicate entityPredicate, @Nullable String pathPrefix) {
+    public HeadType(EntityType<?> entityType, Shape shape, ModelAndTexture<ModelType> modelAndTexture, Optional<Holder<SoundEvent>> noteBlockSound, EntityPredicate entityPredicate, @Nullable ResourceKey<HeadType> resourceKey) {
         this(entityType.builtInRegistryHolder(),
                 shape,
                 List.of(modelAndTexture),
                 noteBlockSound,
                 Optional.of(entityPredicate),
-                pathPrefix);
+                resourceKey != null ? resourceKey.location().getPath() : null);
     }
 
-    private HeadType(Holder.Reference<EntityType<?>> entityType, Shape shape, List<ModelAndTexture<ModelType>> modelAndTexture, Optional<Holder<SoundEvent>> noteBlockSound, Optional<EntityPredicate> entityPredicate, @Nullable String pathPrefix) {
+    private HeadType(Holder.Reference<EntityType<?>> entityType, Shape shape, List<ModelAndTexture<ModelType>> modelAndTexture, Optional<Holder<SoundEvent>> noteBlockSound, Optional<EntityPredicate> entityPredicate, @Nullable String path) {
         this(entityType,
                 shape,
                 modelAndTexture,
                 noteBlockSound,
                 entityPredicate,
-                entityType.key().location().withPrefix(pathPrefix != null ? pathPrefix + "_" : ""));
+                path != null ? entityType.key().location().withPath(path) : entityType.key().location());
     }
 
     private HeadType(Holder<EntityType<?>> entityType, Shape shape, List<ModelAndTexture<ModelType>> modelAndTexture, Optional<Holder<SoundEvent>> noteBlockSound, Optional<EntityPredicate> entityPredicate, ResourceLocation resourceLocation) {
@@ -109,7 +109,7 @@ public record HeadType(Holder<EntityType<?>> entityType,
                 shape,
                 new Loot(resourceLocation),
                 entityPredicate,
-                Optional.of(resourceLocation.toLanguageKey()),
+                Optional.of(resourceLocation.toLanguageKey().replace('/', '.')),
                 true,
                 noteBlockSound,
                 modelAndTexture);
@@ -126,7 +126,7 @@ public record HeadType(Holder<EntityType<?>> entityType,
     public static String createDescriptionId(EntityType<?> entityType, ResourceKey<HeadType> resourceKey) {
         ResourceLocation resourceLocation = BuiltInRegistries.ENTITY_TYPE.getKey(entityType)
                 .withPath(resourceKey.location().getPath());
-        return resourceLocation.toLanguageKey(ModRegistry.MOB_HEAD_BLOCK.value().getDescriptionId());
+        return resourceLocation.toLanguageKey(ModRegistry.MOB_HEAD_BLOCK.value().getDescriptionId()).replace('/', '.');
     }
 
     public Component getName(String descriptionId) {
@@ -144,24 +144,62 @@ public record HeadType(Holder<EntityType<?>> entityType,
         }
     }
 
-    public record Shape(double width, double height, Map<Direction, VoxelShape> shapes) {
+    public record Shape(double width, double height, double depth, double scale, Map<Direction, VoxelShape> shapes) {
         public static final Codec<Shape> CODEC = RecordCodecBuilder.create(instance -> instance.group(Codec.doubleRange(
-                        1.0,
-                        16.0).fieldOf("width").forGetter(Shape::width),
-                Codec.doubleRange(1.0, 16.0).fieldOf("height").forGetter(Shape::height)).apply(instance, Shape::new));
+                                1.0,
+                                16.0).fieldOf("width").forGetter(Shape::width),
+                        Codec.doubleRange(1.0, 16.0).fieldOf("height").forGetter(Shape::height),
+                        Codec.doubleRange(1.0, 16.0).fieldOf("depth").forGetter(Shape::depth),
+                        Codec.doubleRange(0.0, Double.MAX_VALUE).optionalFieldOf("scale", 1.0).forGetter(Shape::scale))
+                .apply(instance, Shape::new));
         public static final StreamCodec<ByteBuf, Shape> STREAM_CODEC = StreamCodec.composite(ByteBufCodecs.DOUBLE,
-                Shape::width,
+                Shape::scaledWidth,
                 ByteBufCodecs.DOUBLE,
-                Shape::height,
+                Shape::scaledHeight,
+                ByteBufCodecs.DOUBLE,
+                Shape::scaledDepth,
                 Shape::new);
 
+        public Shape(double size) {
+            this(size, size);
+        }
+
         public Shape(double width, double height) {
+            this(width, height, width);
+        }
+
+        public Shape(double width, double height, double depth) {
+            this(width, height, depth, 1.0);
+        }
+
+        private Shape(double width, double height, double depth, double scale) {
             this(width,
                     height,
-                    Util.make(Shapes.rotateHorizontal(Block.boxZ(width, 4.0, 4.0 + height, 16.0 - width, 16.0)),
-                            (Map<Direction, VoxelShape> map) -> {
-                                map.put(Direction.UP, Block.column(width, 0.0, height));
-                            }));
+                    depth,
+                    scale,
+                    Util.make(Shapes.rotateHorizontal(Block.boxZ(width * scale,
+                            8.0 - height * scale / 2.0,
+                            8.0 + height * scale / 2.0,
+                            16.0 - depth * scale,
+                            16.0)), (Map<Direction, VoxelShape> map) -> {
+                        map.put(Direction.UP, Block.column(Math.max(width, depth) * scale, 0.0, height * scale));
+                    }));
+        }
+
+        public Shape scale(float scale) {
+            return new Shape(this.width, this.height, this.depth, this.scale * scale);
+        }
+
+        public double scaledWidth() {
+            return this.width * this.scale;
+        }
+
+        public double scaledHeight() {
+            return this.height * this.scale;
+        }
+
+        public double scaledDepth() {
+            return this.depth * this.scale;
         }
     }
 
@@ -183,6 +221,9 @@ public record HeadType(Holder<EntityType<?>> entityType,
         }
     }
 
+    /**
+     * Basically a server-side implementation of {@code ModelLayerLocation}.
+     */
     public record ModelType(ResourceLocation model) {
         public static final ExtraCodecs.LateBoundIdMapper<ResourceLocation, ModelType> ID_MAPPER = new ExtraCodecs.LateBoundIdMapper<>();
         public static final Codec<ModelType> CODEC = ID_MAPPER.codec(ResourceLocation.CODEC);
@@ -193,6 +234,7 @@ public record HeadType(Holder<EntityType<?>> entityType,
         public static final ModelType TEMPERATE_COW = register("temperate_cow_head");
         public static final ModelType WARM_COW = register("warm_cow_head");
         public static final ModelType COLD_COW = register("cold_cow_head");
+        public static final ModelType OCELOT = register("ocelot_head");
 
         private static ModelType register(String model) {
             return register(model, null);
