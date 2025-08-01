@@ -11,11 +11,12 @@
     },
     {
       "asset_id": "minecraft:entity/enderman/enderman_eyes",
-      "model": "alltheheads:enderman_head#eyes"
+      "model": "alltheheads:enderman_head/eyes"
     }
   ],
   "note_block_sound": "minecraft:entity.enderman.ambient",
   "shape": {
+    "depth": 8.0,
     "height": 8.0,
     "width": 8.0
   }

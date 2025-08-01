@@ -15,7 +15,6 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.CowVariants;
-import net.minecraft.world.entity.animal.TemperatureVariants;
 import net.minecraft.world.entity.variant.ModelAndTexture;
 
 import java.util.List;
@@ -28,28 +27,30 @@ public class HeadTypes {
     public static final ResourceKey<HeadType> CAVE_SPIDER = register("cave_spider");
     public static final ResourceKey<HeadType> WITCH = register("witch");
     public static final ResourceKey<HeadType> SQUID = register("squid");
-    public static final ResourceKey<HeadType> TEMPERATE_COW = register("temperate_cow");
-    public static final ResourceKey<HeadType> WARM_COW = register("warm_cow");
-    public static final ResourceKey<HeadType> COLD_COW = register("cold_cow");
+    public static final ResourceKey<HeadType> TEMPERATE_COW = register("cow/temperate");
+    public static final ResourceKey<HeadType> WARM_COW = register("cow/warm");
+    public static final ResourceKey<HeadType> COLD_COW = register("cow/cold");
+    public static final ResourceKey<HeadType> OCELOT = register("ocelot");
 
     public static void bootstrap(BootstrapContext<HeadType> context) {
         HolderGetter<SoundEvent> soundEventLookup = context.lookup(Registries.SOUND_EVENT);
         context.register(ENDERMAN,
                 new HeadType(EntityType.ENDERMAN,
-                        new HeadType.Shape(8.0, 8.0),
+                        new HeadType.Shape(8.0),
                         List.of(new ModelAndTexture<>(HeadType.ModelType.ENDERMAN,
-                                ResourceLocationHelper.withDefaultNamespace("entity/enderman/enderman")), new ModelAndTexture<>(HeadType.ModelType.ENDERMAN_EYES,
-                                ResourceLocationHelper.withDefaultNamespace("entity/enderman/enderman_eyes"))),
+                                        ResourceLocationHelper.withDefaultNamespace("entity/enderman/enderman")),
+                                new ModelAndTexture<>(HeadType.ModelType.ENDERMAN_EYES,
+                                        ResourceLocationHelper.withDefaultNamespace("entity/enderman/enderman_eyes"))),
                         getSoundEventHolder(soundEventLookup, SoundEvents.ENDERMAN_AMBIENT)));
         context.register(BLAZE,
                 new HeadType(EntityType.BLAZE,
-                        new HeadType.Shape(8.0, 8.0),
+                        new HeadType.Shape(8.0),
                         List.of(new ModelAndTexture<>(HeadType.ModelType.BLAZE,
                                 ResourceLocationHelper.withDefaultNamespace("entity/blaze"))),
                         getSoundEventHolder(soundEventLookup, SoundEvents.BLAZE_AMBIENT)));
         context.register(TEMPERATE_COW,
                 new HeadType(EntityType.COW,
-                        new HeadType.Shape(8.0, 6.0),
+                        new HeadType.Shape(8.0, 8.0, 6.0),
                         new ModelAndTexture<>(HeadType.ModelType.TEMPERATE_COW,
                                 ResourceLocationHelper.withDefaultNamespace("entity/cow/temperate_cow")),
                         getSoundEventHolder(soundEventLookup, SoundEvents.COW_AMBIENT),
@@ -60,10 +61,10 @@ public class HeadTypes {
                                                         .getOrThrow(CowVariants.TEMPERATE))))
                                         .build())
                                 .build(),
-                        TemperatureVariants.TEMPERATE.getPath()));
+                        TEMPERATE_COW));
         context.register(WARM_COW,
                 new HeadType(EntityType.COW,
-                        new HeadType.Shape(8.0, 6.0),
+                        new HeadType.Shape(8.0, 8.0, 6.0),
                         new ModelAndTexture<>(HeadType.ModelType.WARM_COW,
                                 ResourceLocationHelper.withDefaultNamespace("entity/cow/warm_cow")),
                         getSoundEventHolder(soundEventLookup, SoundEvents.COW_AMBIENT),
@@ -73,10 +74,10 @@ public class HeadTypes {
                                                 (context.lookup(Registries.COW_VARIANT).getOrThrow(CowVariants.WARM))))
                                         .build())
                                 .build(),
-                        TemperatureVariants.WARM.getPath()));
+                        WARM_COW));
         context.register(COLD_COW,
                 new HeadType(EntityType.COW,
-                        new HeadType.Shape(8.0, 6.0),
+                        new HeadType.Shape(8.0, 8.0, 6.0),
                         new ModelAndTexture<>(HeadType.ModelType.COLD_COW,
                                 ResourceLocationHelper.withDefaultNamespace("entity/cow/cold_cow")),
                         getSoundEventHolder(soundEventLookup, SoundEvents.COW_AMBIENT),
@@ -86,7 +87,13 @@ public class HeadTypes {
                                                 (context.lookup(Registries.COW_VARIANT).getOrThrow(CowVariants.COLD))))
                                         .build())
                                 .build(),
-                        TemperatureVariants.COLD.getPath()));
+                        COLD_COW));
+        context.register(OCELOT,
+                new HeadType(EntityType.OCELOT,
+                        new HeadType.Shape(5.0, 4.0).scale(1.6F),
+                        List.of(new ModelAndTexture<>(HeadType.ModelType.OCELOT,
+                                ResourceLocationHelper.withDefaultNamespace("entity/cat/ocelot"))),
+                        getSoundEventHolder(soundEventLookup, SoundEvents.OCELOT_AMBIENT)));
     }
 
     private static Optional<Holder<SoundEvent>> getSoundEventHolder(HolderGetter<SoundEvent> soundEventLookup, SoundEvent soundEvent) {

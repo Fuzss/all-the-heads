@@ -42,21 +42,6 @@ public class SkullLayerDefinitions {
         return LayerDefinition.create(meshDefinition, 64, 64);
     }
 
-    public static LayerDefinition createCowHeadLayer() {
-        MeshDefinition meshDefinition = new MeshDefinition();
-        PartDefinition partDefinition = meshDefinition.getRoot();
-        partDefinition.addOrReplaceChild("head",
-                CubeListBuilder.create()
-                        .texOffs(0, 0)
-                        .addBox(-4.0F, -8.0F, -3.0F, 8.0F, 8.0F, 6.0F)
-                        .texOffs(22, 0)
-                        .addBox("right_horn", -5.0F, -9.0F, -1.0F, 1.0F, 3.0F, 1.0F)
-                        .texOffs(22, 0)
-                        .addBox("left_horn", 4.0F, -9.0F, -1.0F, 1.0F, 3.0F, 1.0F),
-                PartPose.ZERO);
-        return LayerDefinition.create(meshDefinition, 64, 32);
-    }
-
     public static LayerDefinition createVillagerHeadLayer(boolean isWitch) {
         MeshDefinition meshDefinition = new MeshDefinition();
         PartDefinition partDefinition = meshDefinition.getRoot();

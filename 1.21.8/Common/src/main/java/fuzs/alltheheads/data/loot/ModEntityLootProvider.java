@@ -31,6 +31,7 @@ public class ModEntityLootProvider extends AbstractLootProvider.Simple {
         this.dropHead(HeadTypes.TEMPERATE_COW, headTypeLookup);
         this.dropHead(HeadTypes.WARM_COW, headTypeLookup);
         this.dropHead(HeadTypes.COLD_COW, headTypeLookup);
+        this.dropHead(HeadTypes.OCELOT, headTypeLookup);
     }
 
     private void dropHead(ResourceKey<HeadType> resourceKey, HolderLookup.RegistryLookup<HeadType> headTypeLookup) {

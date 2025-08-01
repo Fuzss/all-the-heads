@@ -27,7 +27,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:temperate_cow"
+            "alltheheads:head_type": "alltheheads:cow/cold"
           },
           "function": "minecraft:set_components"
         }
@@ -35,5 +35,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "alltheheads:entities/heads/temperate_cow"
+  "random_sequence": "alltheheads:entities/heads/cow/cold"
 }
