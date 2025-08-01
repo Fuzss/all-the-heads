@@ -1,0 +1,10 @@
+{
+  "block.alltheheads.mob_head": "Mob Head",
+  "block.alltheheads.mob_head.minecraft.blaze": "Blaze Head",
+  "block.alltheheads.mob_head.minecraft.cold_cow": "Cold Cow Head",
+  "block.alltheheads.mob_head.minecraft.enderman": "Enderman Head",
+  "block.alltheheads.mob_head.minecraft.temperate_cow": "Temperate Cow Head",
+  "block.alltheheads.mob_head.minecraft.warm_cow": "Warm Cow Head",
+  "itemGroup.alltheheads.main": "All The Heads",
+  "itemGroup.alltheheads.villager": "All The Villagers"
+}
