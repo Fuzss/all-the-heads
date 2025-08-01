@@ -18,23 +18,11 @@ public class ClientSkullManager {
     public static final ClientSkullManager INSTANCE = new ClientSkullManager();
 
     private Map<ModSkullType, ClientModSkullType> clientDataBySkullType;
-    private Map<ResourceLocation, byte[]> resourceDataByLocation;
     private Map<ModSkullType, RenderType> renderBySkullType;
 
     public Map<ModSkullType, ClientModSkullType> getSkullTypeClientData() {
         this.dissolve();
         return this.clientDataBySkullType;
-    }
-
-    public Map<ResourceLocation, byte[]> getBuiltInResourceData() {
-        if (this.resourceDataByLocation == null) {
-            ImmutableMap.Builder<ResourceLocation, byte[]> builder = new ImmutableMap.Builder<>();
-            for (ClientModSkullType skullType : this.getSkullTypeClientData().values()) {
-                skullType.buildResourceMap(builder::put);
-            }
-            this.resourceDataByLocation = builder.build();
-        }
-        return this.resourceDataByLocation;
     }
 
     public RenderType getSkullRenderType(ModSkullType skullType) {

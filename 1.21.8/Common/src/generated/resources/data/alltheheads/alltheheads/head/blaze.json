@@ -1,0 +1,18 @@
+{
+  "custom_name": "minecraft.blaze",
+  "entity_type": "minecraft:blaze",
+  "loot": {
+    "loot_table": "minecraft:entities/heads/blaze"
+  },
+  "models_and_textures": [
+    {
+      "asset_id": "minecraft:entity/blaze",
+      "model": "alltheheads:blaze_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.blaze.ambient",
+  "shape": {
+    "height": 8.0,
+    "width": 8.0
+  }
+}

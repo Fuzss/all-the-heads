@@ -1,0 +1,22 @@
+{
+  "custom_name": "minecraft.enderman",
+  "entity_type": "minecraft:enderman",
+  "loot": {
+    "loot_table": "minecraft:entities/heads/enderman"
+  },
+  "models_and_textures": [
+    {
+      "asset_id": "minecraft:entity/enderman/enderman",
+      "model": "alltheheads:enderman_head"
+    },
+    {
+      "asset_id": "minecraft:entity/enderman/enderman_eyes",
+      "model": "alltheheads:enderman_head#eyes"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.enderman.ambient",
+  "shape": {
+    "height": 8.0,
+    "width": 8.0
+  }
+}

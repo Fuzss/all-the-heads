@@ -1,64 +1,44 @@
 package fuzs.alltheheads;
 
-import fuzs.alltheheads.data.ModLanguageProvider;
-import fuzs.alltheheads.data.ModLootTableProvider;
-import fuzs.alltheheads.handler.MobLootHandler;
-import fuzs.alltheheads.registry.ModRegistry;
-import fuzs.alltheheads.resources.ModSkullType;
-import fuzs.alltheheads.resources.SkullManager;
-import net.minecraft.data.DataGenerator;
-import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
-import net.minecraftforge.fml.event.lifecycle.FMLConstructModEvent;
-import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
+import fuzs.alltheheads.handler.HeadBehaviorHandler;
+import fuzs.alltheheads.handler.HeadLootHandler;
+import fuzs.alltheheads.init.ModRegistry;
+import fuzs.alltheheads.world.item.component.HeadType;
+import fuzs.puzzleslib.api.core.v1.ModConstructor;
+import fuzs.puzzleslib.api.core.v1.context.DataPackRegistriesContext;
+import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
+import fuzs.puzzleslib.api.event.v1.entity.living.LivingDropsCallback;
+import fuzs.puzzleslib.api.event.v1.entity.living.LivingVisibilityCallback;
+import fuzs.puzzleslib.api.event.v1.server.LootTableLoadCallback;
+import net.minecraft.resources.ResourceLocation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@Mod(AllTheHeads.MOD_ID)
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-public class AllTheHeads {
+public class AllTheHeads implements ModConstructor {
     public static final String MOD_ID = "alltheheads";
     public static final String MOD_NAME = "All The Heads";
-    public static final String MOD_DESCRIPTION = "WIP";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_NAME);
 
-    @SubscribeEvent
-    public static void onConstructMod(final FMLConstructModEvent evt) {
-        ModRegistry.touch();
-        registerHandlers();
-        setupConfig();
+    @Override
+    public void onConstructMod() {
+        ModRegistry.bootstrap();
+        registerEventHandlers();
     }
 
-    private static void setupConfig() {
-        // should be replaced with data driven system in the future, only problem that serializing model generation will be quite the effort
-        ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
-        builder.comment("Allows for disabling individual heads from being obtainable in survival by setting drop rate values to zero and disabling the charged creeper method.", "This will not remove blocks and items, they are still available in-game using cheats (creative/commands). Also already obtained heads will not vanish.", "drop_rate - Chance the head will be dropped when the mob is killed by a player or tamed wolf", "looting_bonus - Bonus for drop rate for each level of looting on the killer weapon", "from_charged_creepers - When the mob is killed via an exploding charged creeper (a creeper struck by lightning) will it be guaranteed to drop the head", "works_as_mob_disguise - Will wearing this head half the detection range of the mob");
-        for (ModSkullType skullType : SkullManager.INSTANCE.getAllSkullTypes()) {
-            builder.push(skullType.getMappingKey());
-            skullType.setConfigSuppliers(builder.defineInRange("drop_rate", skullType.getDropRateDefault(), 0.0, 1.0)::get, builder.defineInRange("looting_bonus", skullType.getLootingBonusDefault(), 0.0, 1.0)::get, builder.define("from_charged_creepers", skullType.dropsFromChargedCreepersDefault())::get, builder.define("works_as_mob_disguise", skullType.worksAsMobDisguiseDefault())::get);
-            builder.pop();
-        }
-        // need to make this a common config instead of server as the value is used for injecting into loot tables, and that happens before server configs are loaded
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, builder.build());
+    private static void registerEventHandlers() {
+        LootTableLoadCallback.EVENT.register(HeadLootHandler::onLootTableLoad);
+        LivingDropsCallback.EVENT.register(HeadLootHandler::onLivingDrops);
+        LivingVisibilityCallback.EVENT.register(HeadBehaviorHandler::onLivingVisibility);
     }
 
-    private static void registerHandlers() {
-        MobLootHandler mobLootHandler = new MobLootHandler();
-        MinecraftForge.EVENT_BUS.addListener(mobLootHandler::onLivingDrops);
-        MinecraftForge.EVENT_BUS.addListener(mobLootHandler::onLivingVisibility);
-//        MinecraftForge.EVENT_BUS.addListener(mobLootHandler::onLootTableLoad);
+    @Override
+    public void onRegisterDataPackRegistries(DataPackRegistriesContext context) {
+        context.registerSyncedRegistry(ModRegistry.HEAD_REGISTRY_KEY,
+                HeadType.DIRECT_CODEC,
+                HeadType.DIRECT_NETWORK_CODEC);
     }
 
-    @SubscribeEvent
-    public static void onGatherData(final GatherDataEvent evt) {
-        DataGenerator generator = evt.getGenerator();
-        final ExistingFileHelper existingFileHelper = evt.getExistingFileHelper();
-        generator.addProvider(new ModLootTableProvider(generator, MOD_ID));
-        generator.addProvider(new ModLanguageProvider(generator, MOD_ID));
+    public static ResourceLocation id(String path) {
+        return ResourceLocationHelper.fromNamespaceAndPath(MOD_ID, path);
     }
 }

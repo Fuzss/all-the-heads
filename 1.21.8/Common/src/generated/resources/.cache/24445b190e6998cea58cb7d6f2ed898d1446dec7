@@ -1,0 +1,6 @@
+// 1.21.8	2025-08-01T14:30:59.136454	Mod Entity Loot Provider
+10c3ba1663556149b7c6084b35e79212b68ec8d1 data/alltheheads/loot_table/entities/heads/blaze.json
+180a45940d09524caf5e9d312aec0c24d6e9a941 data/alltheheads/loot_table/entities/heads/cold_cow.json
+571bb2543d04ded60fda13a6e4c1b093dc01c6ca data/alltheheads/loot_table/entities/heads/enderman.json
+50f4beac1cacb77efea4f5ec17fdfdadf0d22a81 data/alltheheads/loot_table/entities/heads/temperate_cow.json
+dfc4406c80a1964d2e69a37ef6d448f40c1dd841 data/alltheheads/loot_table/entities/heads/warm_cow.json

@@ -5,10 +5,11 @@ import com.google.common.collect.Maps;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import fuzs.alltheheads.AllTheHeads;
-import fuzs.alltheheads.client.model.ModSkullModel;
 import fuzs.alltheheads.client.model.geom.SkullLayerDefinitions;
 import fuzs.alltheheads.resources.SkullManager;
-import fuzs.puzzleslib.client.model.geom.ModelLayerRegistry;
+import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
+import net.minecraft.client.color.ColorLerper;
+import net.minecraft.client.model.SkullModel;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
@@ -16,7 +17,6 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.animal.Sheep;
 import net.minecraft.world.item.DyeColor;
 
 import java.util.Map;
@@ -26,14 +26,14 @@ import java.util.stream.Stream;
 
 public abstract class SkullRenderLayer {
     private static final Map<ModelLayerLocation, SkullRenderLayer> SKULL_RENDER_LAYERS = Maps.newHashMap();
-    private static final ModelLayerRegistry REGISTRY = ModelLayerRegistry.of(AllTheHeads.MOD_ID);
     private static final Map<DyeColor, ModelLayerLocation> SHEEP_FUR_LAYER_DEFINITIONS;
-    private static Map<DyeColor, ModSkullModel> sheepFurHeadModels;
+    private static Map<DyeColor, SkullModel> sheepFurHeadModels;
 
     static {
         ImmutableMap.Builder<DyeColor, ModelLayerLocation> builder = new ImmutableMap.Builder<>();
         for (DyeColor dyeColor : DyeColor.values()) {
-            builder.put(dyeColor, REGISTRY.register(dyeColor.getName() + "_fur_sheep_head"));
+            builder.put(dyeColor,
+                    new ModelLayerLocation(AllTheHeads.id(dyeColor.getName() + "_fur_sheep_head"), "main"));
         }
         SHEEP_FUR_LAYER_DEFINITIONS = builder.build();
         registerSkullLayers();
@@ -46,9 +46,9 @@ public abstract class SkullRenderLayer {
     }
 
     public static void createSheepFurHeadModels(EntityModelSet entityModelSet) {
-        ImmutableMap.Builder<DyeColor, ModSkullModel> builder = new ImmutableMap.Builder<>();
+        ImmutableMap.Builder<DyeColor, SkullModel> builder = new ImmutableMap.Builder<>();
         for (Map.Entry<DyeColor, ModelLayerLocation> entry : SHEEP_FUR_LAYER_DEFINITIONS.entrySet()) {
-            builder.put(entry.getKey(), new ModSkullModel(entityModelSet.bakeLayer(entry.getValue()), null));
+            builder.put(entry.getKey(), new SkullModel(entityModelSet.bakeLayer(entry.getValue())));
         }
         sheepFurHeadModels = builder.build();
     }
@@ -72,28 +72,32 @@ public abstract class SkullRenderLayer {
     }
 
     private static SkullRenderLayer createEyesRenderLayer(String textureLocation) {
-        final RenderType eyesRenderType = RenderType.eyes(new ResourceLocation(textureLocation));
+        final RenderType eyesRenderType = RenderType.eyes(ResourceLocationHelper.withDefaultNamespace(textureLocation));
         return new SkullRenderLayer() {
 
             @Override
-            public void render(PoseStack poseStack, MultiBufferSource bufferSource, int combinedLight, int overlayTexture, ModSkullModel parentModel) {
+            public void render(PoseStack poseStack, MultiBufferSource bufferSource, int combinedLight, int overlayTexture, SkullModel parentModel) {
                 VertexConsumer vertexconsumer = bufferSource.getBuffer(eyesRenderType);
-                parentModel.renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+                parentModel.renderToBuffer(poseStack, vertexconsumer, 0XF00000, OverlayTexture.NO_OVERLAY);
             }
         };
     }
 
     private static SkullRenderLayer createSheepFurRenderLayer(DyeColor dyeColor) {
-        final RenderType renderType = RenderType.entityCutoutNoCull(new ResourceLocation("textures/entity/sheep/sheep_fur.png"));
-        final float[] colorArray = Sheep.getColorArray(dyeColor);
+        final RenderType renderType = RenderType.entityCutoutNoCull(ResourceLocationHelper.withDefaultNamespace(
+                "textures/entity/sheep/sheep_fur.png"));
         return new SkullRenderLayer() {
 
             @Override
-            public void render(PoseStack poseStack, MultiBufferSource bufferSource, int combinedLight, int overlayTexture, ModSkullModel parentModel) {
-                ModSkullModel model = sheepFurHeadModels.get(dyeColor);
-                parentModel.copyPropertiesTo(model);
+            public void render(PoseStack poseStack, MultiBufferSource bufferSource, int combinedLight, int overlayTexture, SkullModel parentModel) {
+                SkullModel model = sheepFurHeadModels.get(dyeColor);
+//                parentModel.copyPropertiesTo(model);
                 VertexConsumer vertexconsumer = bufferSource.getBuffer(renderType);
-                model.renderToBuffer(poseStack, vertexconsumer, combinedLight, OverlayTexture.NO_OVERLAY, colorArray[0], colorArray[1], colorArray[2], 1.0F);
+                model.renderToBuffer(poseStack,
+                        vertexconsumer,
+                        combinedLight,
+                        OverlayTexture.NO_OVERLAY,
+                        ColorLerper.Type.SHEEP.getColor(dyeColor));
             }
         };
     }
@@ -107,15 +111,17 @@ public abstract class SkullRenderLayer {
     }
 
     private static SkullRenderLayer createVillagerRenderLayer(String entity, String villagerType, String villagerProfession) {
-        final RenderType villagerTypeRenderType = RenderType.entityCutoutNoCull(new ResourceLocation(String.format("textures/entity/%s/type/%s.png", entity, villagerType)));
-        final RenderType villagerProfessionRenderType = RenderType.entityCutoutNoCull(new ResourceLocation(String.format("textures/entity/%s/profession/%s.png", entity, villagerProfession)));
+        final RenderType villagerTypeRenderType = RenderType.entityCutoutNoCull(ResourceLocationHelper.withDefaultNamespace(
+                String.format("textures/entity/%s/type/%s.png", entity, villagerType)));
+        final RenderType villagerProfessionRenderType = RenderType.entityCutoutNoCull(ResourceLocationHelper.withDefaultNamespace(
+                String.format("textures/entity/%s/profession/%s.png", entity, villagerProfession)));
         return new SkullRenderLayer() {
 
             @Override
-            public void render(PoseStack poseStack, MultiBufferSource bufferSource, int combinedLight, int overlayTexture, ModSkullModel parentModel) {
+            public void render(PoseStack poseStack, MultiBufferSource bufferSource, int combinedLight, int overlayTexture, SkullModel parentModel) {
                 Stream.of(villagerTypeRenderType, villagerProfessionRenderType).forEach(renderType -> {
                     VertexConsumer vertexconsumer = bufferSource.getBuffer(renderType);
-                    parentModel.renderToBuffer(poseStack, vertexconsumer, combinedLight, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+                    parentModel.renderToBuffer(poseStack, vertexconsumer, combinedLight, OverlayTexture.NO_OVERLAY);
                 });
             }
         };
@@ -124,9 +130,11 @@ public abstract class SkullRenderLayer {
     public static SkullRenderLayer findRenderLayer(String identifier) {
         int splitterIndex = identifier.indexOf('#');
         if (splitterIndex >= 0) {
-            return findRenderLayer(new ModelLayerLocation(new ResourceLocation(AllTheHeads.MOD_ID, identifier.substring(0, splitterIndex)), identifier.substring(splitterIndex)));
+            return findRenderLayer(new ModelLayerLocation(ResourceLocationHelper.fromNamespaceAndPath(AllTheHeads.MOD_ID,
+                    identifier.substring(0, splitterIndex)), identifier.substring(splitterIndex)));
         } else {
-            throw new IllegalArgumentException("Skull render layer identifier " + identifier + " is not valid,  must contain '#'!");
+            throw new IllegalArgumentException(
+                    "Skull render layer identifier " + identifier + " is not valid,  must contain '#'!");
         }
     }
 
@@ -137,11 +145,13 @@ public abstract class SkullRenderLayer {
     private static void register(String identifier, SkullRenderLayer renderLayer) {
         int splitterIndex = identifier.indexOf('#');
         if (splitterIndex >= 0) {
-            SKULL_RENDER_LAYERS.put(new ModelLayerLocation(new ResourceLocation(AllTheHeads.MOD_ID, identifier.substring(0, splitterIndex)), identifier.substring(splitterIndex)), renderLayer);
+            SKULL_RENDER_LAYERS.put(new ModelLayerLocation(ResourceLocationHelper.fromNamespaceAndPath(AllTheHeads.MOD_ID,
+                    identifier.substring(0, splitterIndex)), identifier.substring(splitterIndex)), renderLayer);
         } else {
-            throw new IllegalArgumentException("Skull render layer identifier " + identifier + " is not valid,  must contain '#'!");
+            throw new IllegalArgumentException(
+                    "Skull render layer identifier " + identifier + " is not valid,  must contain '#'!");
         }
     }
 
-    public abstract void render(PoseStack poseStack, MultiBufferSource bufferSource, int combinedLight, int overlayTexture, ModSkullModel parentModel);
+    public abstract void render(PoseStack poseStack, MultiBufferSource bufferSource, int combinedLight, int overlayTexture, SkullModel parentModel);
 }

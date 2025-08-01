@@ -1,56 +1,73 @@
 package fuzs.alltheheads.world.level.block.entity;
 
-import fuzs.alltheheads.registry.ModRegistry;
-import fuzs.alltheheads.resources.ModSkullType;
-import fuzs.alltheheads.resources.SkullManager;
+import fuzs.alltheheads.init.ModRegistry;
+import fuzs.alltheheads.world.item.component.HeadType;
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.Tag;
+import net.minecraft.core.Holder;
+import net.minecraft.core.component.DataComponentGetter;
+import net.minecraft.core.component.DataComponentMap;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.SkullBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import org.jetbrains.annotations.Nullable;
 
 public class ModSkullBlockEntity extends SkullBlockEntity {
-    public static final String SKULL_TYPE_KEY = "SkullType";
+    public static final String TAG_HEAD_TYPE = "head_type";
 
     @Nullable
-    private ModSkullType skullType;
+    private Holder<HeadType> headType;
 
-    public ModSkullBlockEntity(BlockPos p_155731_, BlockState p_155732_) {
-        super(p_155731_, p_155732_);
+    public ModSkullBlockEntity(BlockPos pos, BlockState blockState) {
+        super(pos, blockState);
     }
 
     @Override
     public BlockEntityType<?> getType() {
-        return ModRegistry.MOB_HEAD_BLOCK_ENTITY_TYPE.get();
+        return ModRegistry.MOB_HEAD_BLOCK_ENTITY_TYPE.value();
     }
 
     @Override
-    protected void saveAdditional(CompoundTag p_187518_) {
-        super.saveAdditional(p_187518_);
-        if (this.skullType != null) {
-            p_187518_.putString(SKULL_TYPE_KEY, this.skullType.getMappingKey());
-        }
+    protected void saveAdditional(ValueOutput valueOutput) {
+        super.saveAdditional(valueOutput);
+        valueOutput.storeNullable(TAG_HEAD_TYPE, HeadType.CODEC, this.headType);
     }
 
     @Override
-    public void load(CompoundTag p_155745_) {
-        super.load(p_155745_);
-        if (p_155745_.contains(SKULL_TYPE_KEY, Tag.TAG_STRING)) {
-            this.skullType = SkullManager.INSTANCE.getSkullType(p_155745_.getString(SKULL_TYPE_KEY));
-        }
+    protected void loadAdditional(ValueInput valueInput) {
+        super.loadAdditional(valueInput);
+        this.headType = valueInput.read(TAG_HEAD_TYPE, HeadType.CODEC).orElse(null);
     }
 
     @Nullable
-    public ModSkullType getSkullType() {
-        return this.skullType;
+    public Holder<HeadType> getHeadType() {
+        return this.headType;
     }
 
-    public void setSkullType(@Nullable ModSkullType skullType) {
-        // vanilla does it like that for player heads, not sure if necessary
-        synchronized (this) {
-            this.skullType = skullType;
-        }
+    @Override
+    public @Nullable ResourceLocation getNoteBlockSound() {
+        return this.headType != null ?
+                this.headType.value().noteBlockSound().map(Holder::value).map(SoundEvent::location).orElse(null) : null;
+    }
+
+    @Override
+    protected void applyImplicitComponents(DataComponentGetter componentGetter) {
+        super.applyImplicitComponents(componentGetter);
+        this.headType = componentGetter.get(ModRegistry.HEAD_TYPE_DATA_COMPONENT_TYPE.value());
+    }
+
+    @Override
+    protected void collectImplicitComponents(DataComponentMap.Builder components) {
+        super.collectImplicitComponents(components);
+        components.set(ModRegistry.HEAD_TYPE_DATA_COMPONENT_TYPE.value(), this.headType);
+    }
+
+    @Override
+    public void removeComponentsFromTag(ValueOutput output) {
+        super.removeComponentsFromTag(output);
+        output.discard(TAG_HEAD_TYPE);
     }
 }

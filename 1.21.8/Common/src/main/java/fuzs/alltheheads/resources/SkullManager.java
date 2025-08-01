@@ -2,7 +2,7 @@ package fuzs.alltheheads.resources;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
-import fuzs.puzzleslib.core.ModLoaderEnvironment;
+import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.axolotl.Axolotl;
@@ -16,8 +16,9 @@ import java.util.stream.Stream;
 
 public class SkullManager {
     public static final SkullManager INSTANCE = new SkullManager();
-    public static final List<ResourceLocation> VILLAGER_BIOME_TYPES = Stream.of("desert", "jungle", "plains", "savanna", "snow", "swamp", "taiga").map(ResourceLocation::new).toList();
-    public static final List<ResourceLocation> VILLAGER_WORKER_PROFESSIONS = Stream.of("armorer", "butcher", "cartographer", "cleric", "farmer", "fisherman", "fletcher", "leatherworker", "librarian", "mason", "nitwit", "shepherd", "toolsmith", "weaponsmith").map(ResourceLocation::new).toList();
+    public static final List<ResourceLocation> VILLAGER_BIOME_TYPES = Stream.of("desert", "jungle", "plains", "savanna", "snow", "swamp", "taiga").map(
+            ResourceLocationHelper::withDefaultNamespace).toList();
+    public static final List<ResourceLocation> VILLAGER_WORKER_PROFESSIONS = Stream.of("armorer", "butcher", "cartographer", "cleric", "farmer", "fisherman", "fletcher", "leatherworker", "librarian", "mason", "nitwit", "shepherd", "toolsmith", "weaponsmith").map(ResourceLocationHelper::withDefaultNamespace).toList();
 
     private Map<String, ModSkullType> skullTypesByKey;
     private Map<EntityType<?>, List<ModSkullType>> skullTypesByEntity;
@@ -57,7 +58,6 @@ public class SkullManager {
         if (this.skullTypesByKey == null) {
             List<ModSkullType.Builder> builders = this.load();
             this.skullTypesByKey = builders.stream().map(ModSkullType.Builder::build)
-                    .filter(skullType -> ModLoaderEnvironment.isModLoaded(skullType.getMobType().getNamespace()))
                     .collect(ImmutableMap.toImmutableMap(ModSkullType::getMappingKey, Function.identity()));
         }
     }

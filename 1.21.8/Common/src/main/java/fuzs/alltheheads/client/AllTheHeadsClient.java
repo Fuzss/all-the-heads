@@ -1,74 +1,58 @@
 package fuzs.alltheheads.client;
 
-import fuzs.alltheheads.AllTheHeads;
-import fuzs.alltheheads.client.model.ModSkullModel;
-import fuzs.alltheheads.client.resources.ClientModSkullType;
-import fuzs.alltheheads.client.resources.ClientSkullManager;
-import fuzs.alltheheads.client.resources.SkullRenderLayer;
-import fuzs.alltheheads.registry.ModRegistry;
-import fuzs.alltheheads.resources.ModSkullType;
-import fuzs.alltheheads.server.packs.VirtualPackResources;
+import fuzs.alltheheads.client.handler.CustomHeadLayerHandler;
+import fuzs.alltheheads.client.model.geom.SkullLayerDefinitions;
+import fuzs.alltheheads.client.renderer.blockentity.ModSkullBlockRenderer;
+import fuzs.alltheheads.init.ModRegistry;
+import fuzs.alltheheads.world.item.component.HeadType;
+import fuzs.puzzleslib.api.client.core.v1.ClientModConstructor;
+import fuzs.puzzleslib.api.client.core.v1.context.BlockEntityRenderersContext;
+import fuzs.puzzleslib.api.client.core.v1.context.LayerDefinitionsContext;
+import fuzs.puzzleslib.api.client.core.v1.context.SkullRenderersContext;
+import fuzs.puzzleslib.api.client.event.v1.renderer.ExtractRenderStateCallback;
 import net.minecraft.client.model.SkullModel;
+import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.model.geom.ModelLayers;
-import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
-import net.minecraft.client.renderer.blockentity.SkullBlockRenderer;
 import net.minecraft.client.resources.DefaultPlayerSkin;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.server.packs.PackType;
-import net.minecraft.server.packs.repository.Pack;
-import net.minecraft.server.packs.repository.PackSource;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.EntityRenderersEvent;
-import net.minecraftforge.event.AddPackFindersEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModList;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
-import java.nio.file.Path;
-import java.util.Map;
-import java.util.function.Consumer;
+public class AllTheHeadsClient implements ClientModConstructor {
 
-@Mod.EventBusSubscriber(modid = AllTheHeads.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-public class AllTheHeadsClient {
-
-    @SubscribeEvent
-    public static void onClientSetup(final FMLClientSetupEvent evt) {
-        BlockEntityRenderers.register(ModRegistry.MOB_HEAD_BLOCK_ENTITY_TYPE.get(), SkullBlockRenderer::new);
-        SkullBlockRenderer.SKIN_BY_TYPE.put(ModRegistry.MOB_SKULL_BLOCK_TYPE, DefaultPlayerSkin.getDefaultSkin());
+    @Override
+    public void onConstructMod() {
+        registerEventHandlers();
     }
 
-    @SubscribeEvent
-    public static void onRegisterLayerDefinitions(final EntityRenderersEvent.RegisterLayerDefinitions evt) {
-        for (ClientModSkullType skullType : ClientSkullManager.INSTANCE.getSkullTypeClientData().values()) {
-            evt.registerLayerDefinition(skullType.getModelLayerLocationId(), skullType::getLayerDefinition);
-        }
-        SkullRenderLayer.registerSheepFurLayerDefinitions(evt::registerLayerDefinition);
+    private static void registerEventHandlers() {
+        ExtractRenderStateCallback.EVENT.register(CustomHeadLayerHandler::onExtractRenderState);
     }
 
-    @SubscribeEvent
-    public static void onAddLayers(final EntityRenderersEvent.AddLayers evt) {
-        SkullRenderLayer.createSheepFurHeadModels(evt.getEntityModels());
+    @Override
+    public void onRegisterBlockEntityRenderers(BlockEntityRenderersContext context) {
+        context.registerBlockEntityRenderer(ModRegistry.MOB_HEAD_BLOCK_ENTITY_TYPE.value(), ModSkullBlockRenderer::new);
     }
 
-    @SubscribeEvent
-    public static void onCreateSkullModels(final EntityRenderersEvent.CreateSkullModels evt) {
-        evt.registerSkullModel(ModRegistry.MOB_SKULL_BLOCK_TYPE, new SkullModel(evt.getEntityModelSet().bakeLayer(ModelLayers.PLAYER_HEAD)));
-        for (Map.Entry<ModSkullType, ClientModSkullType> entry : ClientSkullManager.INSTANCE.getSkullTypeClientData().entrySet()) {
-            ClientModSkullType skullType = entry.getValue();
-            evt.registerSkullModel(entry.getKey(), new ModSkullModel(evt.getEntityModelSet().bakeLayer(skullType.getModelLayerLocationId()), skullType));
-        }
+    @Override
+    public void onRegisterLayerDefinitions(LayerDefinitionsContext context) {
+        context.registerLayerDefinition(ModSkullBlockRenderer.createModelLayer(HeadType.ModelType.DEFAULT),
+                SkullModel::createHumanoidHeadLayer);
+        context.registerLayerDefinition(ModSkullBlockRenderer.createModelLayer(HeadType.ModelType.ENDERMAN),
+                SkullLayerDefinitions::createEndermanHeadLayer);
+        context.registerLayerDefinition(ModSkullBlockRenderer.createModelLayer(HeadType.ModelType.ENDERMAN_EYES),
+                SkullLayerDefinitions::createEndermanHeadLayer);
+        context.registerLayerDefinition(ModSkullBlockRenderer.createModelLayer(HeadType.ModelType.BLAZE),
+                SkullModel::createMobHeadLayer);
+        context.registerLayerDefinition(ModSkullBlockRenderer.createModelLayer(HeadType.ModelType.TEMPERATE_COW),
+                SkullLayerDefinitions::createCowHeadLayer);
+        context.registerLayerDefinition(ModSkullBlockRenderer.createModelLayer(HeadType.ModelType.WARM_COW),
+                SkullLayerDefinitions::createCowHeadLayer);
+        context.registerLayerDefinition(ModSkullBlockRenderer.createModelLayer(HeadType.ModelType.COLD_COW),
+                SkullLayerDefinitions::createCowHeadLayer);
     }
 
-    @SubscribeEvent
-    public static void onAddPackFinders(final AddPackFindersEvent evt) {
-        // TODO allow for individual json model files per skull type
-        if (false && evt.getPackType() == PackType.CLIENT_RESOURCES) {
-            evt.addRepositorySource((Consumer<Pack> consumer, Pack.PackConstructor factory) -> {
-                Path packIconPath = ModList.get().getModFileById(AllTheHeads.MOD_ID).getFile().findResource("mod_logo.png");
-                Pack packInfo = Pack.create(AllTheHeads.MOD_ID, true, () -> new VirtualPackResources(AllTheHeads.MOD_NAME + " Resources", packIconPath, new TextComponent(AllTheHeads.MOD_DESCRIPTION), ClientSkullManager.INSTANCE.getBuiltInResourceData()), factory, Pack.Position.BOTTOM, PackSource.BUILT_IN);
-                consumer.accept(packInfo);
-            });
-        }
+    @Override
+    public void onRegisterSkullRenderers(SkullRenderersContext context) {
+        context.registerSkullRenderer(ModRegistry.MOB_SKULL_BLOCK_TYPE,
+                DefaultPlayerSkin.getDefaultTexture(),
+                (EntityModelSet entityModelSet) -> new SkullModel(entityModelSet.bakeLayer(ModelLayers.PLAYER_HEAD)));
     }
 }
