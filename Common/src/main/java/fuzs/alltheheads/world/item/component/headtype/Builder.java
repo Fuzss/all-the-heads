@@ -87,7 +87,7 @@ public final class Builder {
     }
 
     public Builder lootTable(ResourceKey<HeadType> resourceKey) {
-        ResourceLocation resourceLocation = this.getNamespacedLocation(this.entityType, resourceKey);
+        ResourceLocation resourceLocation = getNamespacedLocation(this.entityType, resourceKey);
         this.lootTable = Optional.of(ResourceKey.create(Registries.LOOT_TABLE,
                 resourceLocation.withPrefix("entities/heads/")));
         return this;

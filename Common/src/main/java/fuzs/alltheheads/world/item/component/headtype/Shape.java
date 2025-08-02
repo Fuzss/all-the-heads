@@ -23,9 +23,9 @@ public record Shape(double width,
                     Int2ObjectMap<VoxelShape> verticalShapes,
                     Map<Direction, VoxelShape> horizontalShapes) {
     public static final Codec<Shape> CODEC = RecordCodecBuilder.create(instance -> instance.group(Codec.doubleRange(1.0,
-                            16.0).fieldOf("width").forGetter(Shape::width),
-                    Codec.doubleRange(1.0, 16.0).fieldOf("height").forGetter(Shape::height),
-                    Codec.doubleRange(1.0, 16.0).fieldOf("depth").forGetter(Shape::depth),
+                            24.0).fieldOf("width").forGetter(Shape::width),
+                    Codec.doubleRange(1.0, 24.0).fieldOf("height").forGetter(Shape::height),
+                    Codec.doubleRange(1.0, 24.0).fieldOf("depth").forGetter(Shape::depth),
                     Codec.doubleRange(0.0, Double.MAX_VALUE).optionalFieldOf("scale", 1.0).forGetter(Shape::scale))
             .apply(instance, Shape::new));
     public static final StreamCodec<ByteBuf, Shape> STREAM_CODEC = StreamCodec.composite(ByteBufCodecs.DOUBLE,
@@ -68,15 +68,27 @@ public record Shape(double width,
         return new Shape(this.width, this.height, this.depth, this.scale * scale);
     }
 
-    public double scaledWidth() {
+    private double scaledWidth() {
         return this.width * this.scale;
     }
 
-    public double scaledHeight() {
+    private double scaledHeight() {
         return this.height * this.scale;
     }
 
-    public double scaledDepth() {
+    private double scaledDepth() {
         return this.depth * this.scale;
+    }
+
+    public double sizeX(Direction direction) {
+        return direction.getAxis() != Direction.Axis.Z ? this.scaledDepth() : this.scaledWidth();
+    }
+
+    public double sizeY() {
+        return this.scaledHeight();
+    }
+
+    public double sizeZ(Direction direction) {
+        return direction.getAxis() == Direction.Axis.Z ? this.scaledDepth() : this.scaledWidth();
     }
 }

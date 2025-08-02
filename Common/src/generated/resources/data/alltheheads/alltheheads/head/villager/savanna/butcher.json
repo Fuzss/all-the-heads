@@ -6,8 +6,8 @@
       "is_baby": false
     },
     "type_specific": {
-      "type": "alltheheads:villager",
-      "profession": "minecraft:butcher",
+      "type": "alltheheads:villager_data",
+      "villager_profession": "minecraft:butcher",
       "villager_type": "minecraft:savanna"
     }
   },
@@ -30,6 +30,7 @@
   "shape": {
     "depth": 8.0,
     "height": 10.0,
+    "scale": 0.9375,
     "width": 8.0
   }
 }

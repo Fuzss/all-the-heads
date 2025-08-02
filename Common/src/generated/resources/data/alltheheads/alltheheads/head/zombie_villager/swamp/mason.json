@@ -1,0 +1,36 @@
+{
+  "custom_name": "minecraft.zombie_villager_swamp_mason",
+  "entity_predicate": {
+    "type": "minecraft:zombie_villager",
+    "flags": {
+      "is_baby": false
+    },
+    "type_specific": {
+      "type": "alltheheads:villager_data",
+      "villager_profession": "minecraft:mason",
+      "villager_type": "minecraft:swamp"
+    }
+  },
+  "loot_table": "minecraft:entities/heads/zombie_villager/swamp/mason",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/zombie_villager/zombie_villager",
+      "model": "alltheheads:villager_head"
+    },
+    {
+      "asset_id": "minecraft:entity/zombie_villager/type/swamp",
+      "model": "alltheheads:villager_head"
+    },
+    {
+      "asset_id": "minecraft:entity/zombie_villager/profession/mason",
+      "model": "alltheheads:villager_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.zombie_villager.ambient",
+  "shape": {
+    "depth": 8.0,
+    "height": 10.0,
+    "scale": 0.9375,
+    "width": 8.0
+  }
+}

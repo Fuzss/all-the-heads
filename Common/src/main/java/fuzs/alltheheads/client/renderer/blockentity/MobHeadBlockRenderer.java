@@ -54,8 +54,12 @@ public class MobHeadBlockRenderer implements BlockEntityRenderer<MobHeadBlockEnt
             }));
     private static final Map<ModelType, Function<ResourceLocation, RenderType>> RENDER_TYPES = Collections.unmodifiableMap(
             Util.make(new IdentityHashMap<>(), (Map<ModelType, Function<ResourceLocation, RenderType>> map) -> {
+                map.put(ModelType.ALLAY, RenderType::entityTranslucent);
+                map.put(ModelType.BAT, RenderType::entityCutout);
                 map.put(ModelType.ENDERMAN_EYES, RenderType::eyes);
+                map.put(ModelType.SLIME_GEL, RenderType::entityTranslucent);
                 map.put(ModelType.SPIDER_EYES, RenderType::eyes);
+                map.put(ModelType.VEX, RenderType::entityTranslucent);
             }));
 
     private final Function<ModelType, SkullModelBase> skullModelGetter;
@@ -126,11 +130,11 @@ public class MobHeadBlockRenderer implements BlockEntityRenderer<MobHeadBlockEnt
      */
     private static void renderSkull(Shape shape, boolean guiOffset, @Nullable Direction direction, float yRot, float mouthAnimation, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, SkullModelBase model, RenderType renderType, int color) {
         poseStack.pushPose();
-        double offsetY = (16.0 - shape.scaledHeight()) / 2.0;
+        double offsetY = (16.0 - shape.sizeY()) / 2.0;
 
         if (direction != null) {
-            double offsetX = 8.0 - direction.getStepX() * (16.0 - shape.scaledWidth()) / 2.0;
-            double offsetZ = 8.0 - direction.getStepZ() * (16.0 - shape.scaledDepth()) / 2.0;
+            double offsetX = 8.0 - direction.getStepX() * (16.0 - shape.sizeX(direction)) / 2.0;
+            double offsetZ = 8.0 - direction.getStepZ() * (16.0 - shape.sizeZ(direction)) / 2.0;
             poseStack.translate(offsetX / 16.0, offsetY / 16.0, offsetZ / 16.0);
         } else {
             poseStack.translate(0.5F, guiOffset ? ((float) offsetY - 10.0F / 3.0F) / 16.0F : 0.0F, 0.5F);

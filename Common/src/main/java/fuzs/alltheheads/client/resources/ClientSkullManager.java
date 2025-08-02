@@ -54,7 +54,7 @@ public class ClientSkullManager {
         builders.add(new ClientModSkullType.Builder("zombified_piglin").textureLocation("textures/entity/piglin/zombified_piglin.png").layerDefinition(() -> SkullLayerDefinitions.createPiglinHeadLayer(true)));
         builders.add(new ClientModSkullType.Builder("piglin_brute").textureLocation("textures/entity/piglin/piglin_brute.png").layerDefinition(() -> SkullLayerDefinitions.createPiglinHeadLayer(false)));
         builders.add(new ClientModSkullType.Builder("cow").textureLocation("textures/entity/cow/cow.png").layerDefinition(
-                () -> CowHeadModel.createHeadLayer(CowModel.createBodyLayer())));
+                CowHeadModel::createTemperateHeadLayer));
         for (ResourceLocation villagerBiomeType : SkullManager.VILLAGER_BIOME_TYPES) {
             for (ResourceLocation villagerWorkerProfession : SkullManager.VILLAGER_WORKER_PROFESSIONS) {
                 String villager = String.format("villager#%s_%s", villagerBiomeType.getPath(), villagerWorkerProfession.getPath());

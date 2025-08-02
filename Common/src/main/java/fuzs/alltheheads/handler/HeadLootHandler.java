@@ -2,7 +2,7 @@ package fuzs.alltheheads.handler;
 
 import com.google.common.base.Suppliers;
 import fuzs.alltheheads.init.ModRegistry;
-import fuzs.alltheheads.world.item.ModSkullBlockItem;
+import fuzs.alltheheads.world.item.MobHeadItem;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.puzzleslib.api.event.v1.core.EventResult;
 import net.minecraft.core.Holder;
@@ -51,7 +51,7 @@ public class HeadLootHandler {
                         .forEach((Holder.Reference<HeadType> headType) -> {
                             if (headType.value().loot().chargedCreeperDrop() && headType.value()
                                     .matches(livingEntity)) {
-                                ItemStack itemStack = ModSkullBlockItem.createHead(headType);
+                                ItemStack itemStack = MobHeadItem.createHead(headType);
                                 livingEntity.spawnAtLocation(serverLevel, itemStack);
                                 creeper.increaseDroppedSkulls();
                             }
