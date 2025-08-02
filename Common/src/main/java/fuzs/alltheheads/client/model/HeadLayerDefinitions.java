@@ -9,12 +9,6 @@ import net.minecraft.client.model.geom.builders.*;
 
 public class HeadLayerDefinitions {
 
-    public static MeshTransformer scaling(float scale) {
-        return (MeshDefinition meshDefinition) -> {
-            return meshDefinition.transformed(pose -> pose.scaled(scale));
-        };
-    }
-
     public static LayerDefinition createHeadLayer(LayerDefinition layerDefinition, float originX, float originY, float originZ, float dimensionX, float dimensionY, float dimensionZ) {
         return createHeadLayer(layerDefinition,
                 originX,
