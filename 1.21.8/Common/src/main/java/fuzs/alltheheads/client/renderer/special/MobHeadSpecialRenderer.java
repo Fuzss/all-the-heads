@@ -9,7 +9,6 @@ import net.minecraft.client.model.SkullModelBase;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.special.SpecialModelRenderer;
-import net.minecraft.world.entity.variant.ModelAndTexture;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import org.joml.Vector3f;
@@ -18,7 +17,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.function.Function;
 
-public class MobHeadSpecialRenderer implements SpecialModelRenderer<List<ModelAndTexture<HeadType.ModelType>>> {
+public class MobHeadSpecialRenderer implements SpecialModelRenderer<List<HeadType.Model>> {
     private final Function<HeadType.ModelType, SkullModelBase> skullModelGetter;
 
     public MobHeadSpecialRenderer(Function<HeadType.ModelType, SkullModelBase> skullModelGetter) {
@@ -26,7 +25,7 @@ public class MobHeadSpecialRenderer implements SpecialModelRenderer<List<ModelAn
     }
 
     @Override
-    public void render(List<ModelAndTexture<HeadType.ModelType>> modelAndTextures, ItemDisplayContext displayContext, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay, boolean hasFoilType) {
+    public void render(List<HeadType.Model> modelAndTextures, ItemDisplayContext displayContext, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay, boolean hasFoilType) {
         MobHeadBlockRenderer.renderSkull(null,
                 null,
                 180.0F,
@@ -50,8 +49,8 @@ public class MobHeadSpecialRenderer implements SpecialModelRenderer<List<ModelAn
     }
 
     @Override
-    public List<ModelAndTexture<HeadType.ModelType>> extractArgument(ItemStack itemStack) {
-        return MobHeadBlockRenderer.getModelAndTextures(itemStack.get(ModRegistry.HEAD_TYPE_DATA_COMPONENT_TYPE.value()));
+    public List<HeadType.Model> extractArgument(ItemStack itemStack) {
+        return MobHeadBlockRenderer.getModels(itemStack.get(ModRegistry.HEAD_TYPE_DATA_COMPONENT_TYPE.value()));
     }
 
     public record Unbaked() implements SpecialModelRenderer.Unbaked {

@@ -11,6 +11,7 @@ import java.util.Objects;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
+@Deprecated
 public class ClientModSkullType {
     private final ModSkullType baseSkullType;
     private final ResourceLocation textureLocation;

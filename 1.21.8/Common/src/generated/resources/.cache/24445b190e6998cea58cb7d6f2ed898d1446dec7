@@ -1,7 +1,7 @@
-// 1.21.8	2025-08-01T23:32:00.815316	Mod Entity Loot Provider
-10c3ba1663556149b7c6084b35e79212b68ec8d1 data/alltheheads/loot_table/entities/heads/blaze.json
-0091a4b2936310d55bbecfd85aa9e9e87ef94967 data/alltheheads/loot_table/entities/heads/cow/cold.json
-e8e2556c59e5b4cd8bb29043431233dd0b4c32f5 data/alltheheads/loot_table/entities/heads/cow/temperate.json
-89bcd73d874d628a94c61eacbc1957f4e25e0a18 data/alltheheads/loot_table/entities/heads/cow/warm.json
-571bb2543d04ded60fda13a6e4c1b093dc01c6ca data/alltheheads/loot_table/entities/heads/enderman.json
-36e5e77f54814b3408cf6fc54023af3a894f9510 data/alltheheads/loot_table/entities/heads/ocelot.json
+// 1.21.8	2025-08-02T11:43:22.482832	Mod Entity Loot Provider
+831e0948d9b0bad8bae786e553fef14edd07900c data/minecraft/loot_table/entities/heads/blaze.json
+72ce622d8050aef1ac63ed39c75b354f0538304e data/minecraft/loot_table/entities/heads/cow/cold.json
+0a726ba729f7eae2946574f4293a57bc4f53e228 data/minecraft/loot_table/entities/heads/cow/temperate.json
+1d696b5a4982f160a449cf9bdc094624f709f5e2 data/minecraft/loot_table/entities/heads/cow/warm.json
+497b929582f1715cf111ffc557c73c0ed5c6922c data/minecraft/loot_table/entities/heads/enderman.json
+0d53634eaddf51030208a6e723551a162cfde610 data/minecraft/loot_table/entities/heads/ocelot.json

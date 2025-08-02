@@ -27,7 +27,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:ocelot"
+            "alltheheads:head_type": "alltheheads:cow/temperate"
           },
           "function": "minecraft:set_components"
         }
@@ -35,5 +35,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "alltheheads:entities/heads/ocelot"
+  "random_sequence": "minecraft:entities/heads/cow/temperate"
 }

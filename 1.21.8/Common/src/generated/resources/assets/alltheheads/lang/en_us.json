@@ -1,9 +1,9 @@
 {
   "block.alltheheads.mob_head": "Mob Head",
   "block.alltheheads.mob_head.minecraft.blaze": "Blaze Head",
-  "block.alltheheads.mob_head.minecraft.cow.cold": "Cold Cow Head",
-  "block.alltheheads.mob_head.minecraft.cow.temperate": "Temperate Cow Head",
-  "block.alltheheads.mob_head.minecraft.cow.warm": "Warm Cow Head",
+  "block.alltheheads.mob_head.minecraft.cow_cold": "Cold Cow Head",
+  "block.alltheheads.mob_head.minecraft.cow_temperate": "Temperate Cow Head",
+  "block.alltheheads.mob_head.minecraft.cow_warm": "Warm Cow Head",
   "block.alltheheads.mob_head.minecraft.enderman": "Enderman Head",
   "block.alltheheads.mob_head.minecraft.ocelot": "Ocelot Head",
   "itemGroup.alltheheads.main": "All The Heads",

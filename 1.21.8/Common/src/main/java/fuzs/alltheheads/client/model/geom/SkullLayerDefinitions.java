@@ -12,6 +12,7 @@ import net.minecraft.client.model.geom.builders.*;
  * <li>Replace any {@link PartPose} on the main head model with {@link PartPose#ZERO}</li>
  * </ul>
  */
+@Deprecated
 public class SkullLayerDefinitions {
 
     public static LayerDefinition createPiglinHeadLayer(boolean isZombified) {

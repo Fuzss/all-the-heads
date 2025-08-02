@@ -40,9 +40,9 @@ public class MobHeadBlockRenderer implements BlockEntityRenderer<MobHeadBlockEnt
      * Directly supplying both client asset resource locations is only possible as long as it is never serialised, which
      * is fine here.
      */
-    private static final List<ModelAndTexture<HeadType.ModelType>> DEFAULT_MODEL_AND_TEXTURES = List.of(new ModelAndTexture<>(
+    private static final List<HeadType.Model> DEFAULT_MODEL_AND_TEXTURES = List.of(new HeadType.Model(new ModelAndTexture<>(
             HeadType.ModelType.DEFAULT,
-            new ClientAsset(DefaultPlayerSkin.getDefaultTexture(), DefaultPlayerSkin.getDefaultTexture())));
+            new ClientAsset(DefaultPlayerSkin.getDefaultTexture(), DefaultPlayerSkin.getDefaultTexture())), -1));
     private static final Map<HeadType.ModelType, Function<EntityModelSet, SkullModelBase>> SKULL_MODELS = Collections.unmodifiableMap(
             Util.make(new IdentityHashMap<>(),
                     (Map<HeadType.ModelType, Function<EntityModelSet, SkullModelBase>> map) -> {
@@ -72,7 +72,7 @@ public class MobHeadBlockRenderer implements BlockEntityRenderer<MobHeadBlockEnt
     }
 
     public static ModelLayerLocation createModelLayer(HeadType.ModelType modelType) {
-        return new ModelLayerLocation(modelType.model(), "main");
+        return new ModelLayerLocation(modelType.model(), modelType.layer());
     }
 
     @Override
@@ -85,7 +85,7 @@ public class MobHeadBlockRenderer implements BlockEntityRenderer<MobHeadBlockEnt
                 blockState.getValue(SkullBlock.ROTATION);
         float rotationSegmentDegrees = RotationSegment.convertToDegrees(rotationSegment);
         HeadType.Shape shape = getShape(blockEntity.getHeadType());
-        List<ModelAndTexture<HeadType.ModelType>> modelAndTextures = getModelAndTextures(blockEntity.getHeadType());
+        List<HeadType.Model> modelAndTextures = getModels(blockEntity.getHeadType());
         renderSkull(shape,
                 direction,
                 rotationSegmentDegrees,
@@ -97,18 +97,18 @@ public class MobHeadBlockRenderer implements BlockEntityRenderer<MobHeadBlockEnt
                 modelAndTextures);
     }
 
-    public static List<ModelAndTexture<HeadType.ModelType>> getModelAndTextures(Holder<HeadType> headType) {
-        return headType != null ? headType.value().modelAndTextures() : DEFAULT_MODEL_AND_TEXTURES;
+    public static List<HeadType.Model> getModels(Holder<HeadType> headType) {
+        return headType != null ? headType.value().models() : DEFAULT_MODEL_AND_TEXTURES;
     }
 
     private static @Nullable HeadType.Shape getShape(Holder<HeadType> headType) {
         return headType != null ? headType.value().shape() : null;
     }
 
-    public static void renderSkull(@Nullable HeadType.Shape shape, @Nullable Direction direction, float rotationSegmentDegrees, float animation, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, Function<HeadType.ModelType, SkullModelBase> skullModelGetter, List<ModelAndTexture<HeadType.ModelType>> modelAndTextures) {
-        for (ModelAndTexture<HeadType.ModelType> modelAndTexture : modelAndTextures) {
-            SkullModelBase skullModelBase = skullModelGetter.apply(modelAndTexture.model());
-            RenderType renderType = getRenderType(modelAndTexture);
+    public static void renderSkull(@Nullable HeadType.Shape shape, @Nullable Direction direction, float rotationSegmentDegrees, float animation, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, Function<HeadType.ModelType, SkullModelBase> skullModelGetter, List<HeadType.Model> modelAndTextures) {
+        for (HeadType.Model model : modelAndTextures) {
+            SkullModelBase skullModelBase = skullModelGetter.apply(model.model().model());
+            RenderType renderType = getRenderType(model.model());
             poseStack.pushPose();
             if (shape != null && direction != null) {
                 double offsetX = -direction.getStepX() * (8.0 - shape.scaledWidth()) / 32.0;

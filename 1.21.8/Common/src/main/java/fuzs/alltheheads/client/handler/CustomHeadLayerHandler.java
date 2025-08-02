@@ -21,15 +21,14 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.variant.ModelAndTexture;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
 public class CustomHeadLayerHandler {
-    public static final RenderPropertyKey<List<ModelAndTexture<HeadType.ModelType>>> MODEL_AND_TEXTURES_RENDER_PROPERTY = new RenderPropertyKey<>(
-            AllTheHeads.id("model_and_textures"));
+    public static final RenderPropertyKey<List<HeadType.Model>> HEAD_TYPE_MODELS_RENDER_PROPERTY = new RenderPropertyKey<>(
+            AllTheHeads.id("head_type_models"));
 
     private static boolean isHeadVisible;
 
@@ -39,9 +38,8 @@ public class CustomHeadLayerHandler {
                 && livingEntityRenderState.wornHeadType == ModRegistry.MOB_SKULL_BLOCK_TYPE) {
             livingEntityRenderState.wornHeadType = null;
             ItemStack itemStack = livingEntity.getItemBySlot(EquipmentSlot.HEAD);
-            List<ModelAndTexture<HeadType.ModelType>> modelAndTextures = MobHeadBlockRenderer.getModelAndTextures(
-                    itemStack.get(ModRegistry.HEAD_TYPE_DATA_COMPONENT_TYPE.value()));
-            RenderPropertyKey.set(renderState, MODEL_AND_TEXTURES_RENDER_PROPERTY, modelAndTextures);
+            List<HeadType.Model> models = MobHeadBlockRenderer.getModels(itemStack.get(ModRegistry.HEAD_TYPE_DATA_COMPONENT_TYPE.value()));
+            RenderPropertyKey.set(renderState, HEAD_TYPE_MODELS_RENDER_PROPERTY, models);
         }
     }
 
@@ -68,7 +66,7 @@ public class CustomHeadLayerHandler {
     public static <T extends LivingEntity, S extends LivingEntityRenderState, M extends EntityModel<? super S>> EventResult onBeforeRenderEntity(S entityRenderState, LivingEntityRenderer<T, S, M> entityRenderer, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight) {
         // disable model head rendering, some mob heads are smaller than the player head and will not cover all of it
         if (entityRenderer.getModel() instanceof HeadedModel headedModel && RenderPropertyKey.has(entityRenderState,
-                MODEL_AND_TEXTURES_RENDER_PROPERTY)) {
+                HEAD_TYPE_MODELS_RENDER_PROPERTY)) {
             isHeadVisible = headedModel.getHead().visible;
             headedModel.getHead().visible = false;
         }
@@ -78,7 +76,7 @@ public class CustomHeadLayerHandler {
 
     public static <T extends LivingEntity, S extends LivingEntityRenderState, M extends EntityModel<? super S>> void onAfterRenderEntity(S entityRenderState, LivingEntityRenderer<T, S, M> entityRenderer, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight) {
         if (entityRenderer.getModel() instanceof HeadedModel headedModel && RenderPropertyKey.has(entityRenderState,
-                MODEL_AND_TEXTURES_RENDER_PROPERTY)) {
+                HEAD_TYPE_MODELS_RENDER_PROPERTY)) {
             headedModel.getHead().visible = isHeadVisible;
         }
     }

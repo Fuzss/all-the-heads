@@ -4,21 +4,15 @@ import fuzs.alltheheads.world.item.component.HeadType;
 import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
 import net.minecraft.advancements.critereon.DataComponentMatchers;
 import net.minecraft.advancements.critereon.EntityPredicate;
-import net.minecraft.core.Holder;
-import net.minecraft.core.HolderGetter;
 import net.minecraft.core.component.DataComponentExactPredicate;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.animal.CowVariant;
 import net.minecraft.world.entity.animal.CowVariants;
-import net.minecraft.world.entity.variant.ModelAndTexture;
-
-import java.util.List;
-import java.util.Optional;
 
 public class HeadTypes {
     public static final ResourceKey<HeadType> ENDERMAN = register("enderman");
@@ -33,72 +27,46 @@ public class HeadTypes {
     public static final ResourceKey<HeadType> OCELOT = register("ocelot");
 
     public static void bootstrap(BootstrapContext<HeadType> context) {
-        HolderGetter<SoundEvent> soundEventLookup = context.lookup(Registries.SOUND_EVENT);
-        context.register(ENDERMAN,
-                new HeadType(EntityType.ENDERMAN,
-                        new HeadType.Shape(8.0),
-                        List.of(new ModelAndTexture<>(HeadType.ModelType.ENDERMAN,
-                                        ResourceLocationHelper.withDefaultNamespace("entity/enderman/enderman")),
-                                new ModelAndTexture<>(HeadType.ModelType.ENDERMAN_EYES,
-                                        ResourceLocationHelper.withDefaultNamespace("entity/enderman/enderman_eyes"))),
-                        getSoundEventHolder(soundEventLookup, SoundEvents.ENDERMAN_AMBIENT)));
-        context.register(BLAZE,
-                new HeadType(EntityType.BLAZE,
-                        new HeadType.Shape(8.0),
-                        List.of(new ModelAndTexture<>(HeadType.ModelType.BLAZE,
-                                ResourceLocationHelper.withDefaultNamespace("entity/blaze"))),
-                        getSoundEventHolder(soundEventLookup, SoundEvents.BLAZE_AMBIENT)));
-        context.register(TEMPERATE_COW,
-                new HeadType(EntityType.COW,
-                        new HeadType.Shape(8.0, 8.0, 6.0),
-                        new ModelAndTexture<>(HeadType.ModelType.TEMPERATE_COW,
-                                ResourceLocationHelper.withDefaultNamespace("entity/cow/temperate_cow")),
-                        getSoundEventHolder(soundEventLookup, SoundEvents.COW_AMBIENT),
-                        EntityPredicate.Builder.entity()
-                                .components(DataComponentMatchers.Builder.components()
-                                        .exact(DataComponentExactPredicate.expect(DataComponents.COW_VARIANT,
-                                                (context.lookup(Registries.COW_VARIANT)
-                                                        .getOrThrow(CowVariants.TEMPERATE))))
-                                        .build())
-                                .build(),
-                        TEMPERATE_COW));
-        context.register(WARM_COW,
-                new HeadType(EntityType.COW,
-                        new HeadType.Shape(8.0, 8.0, 6.0),
-                        new ModelAndTexture<>(HeadType.ModelType.WARM_COW,
-                                ResourceLocationHelper.withDefaultNamespace("entity/cow/warm_cow")),
-                        getSoundEventHolder(soundEventLookup, SoundEvents.COW_AMBIENT),
-                        EntityPredicate.Builder.entity()
-                                .components(DataComponentMatchers.Builder.components()
-                                        .exact(DataComponentExactPredicate.expect(DataComponents.COW_VARIANT,
-                                                (context.lookup(Registries.COW_VARIANT).getOrThrow(CowVariants.WARM))))
-                                        .build())
-                                .build(),
-                        WARM_COW));
-        context.register(COLD_COW,
-                new HeadType(EntityType.COW,
-                        new HeadType.Shape(8.0, 8.0, 6.0),
-                        new ModelAndTexture<>(HeadType.ModelType.COLD_COW,
-                                ResourceLocationHelper.withDefaultNamespace("entity/cow/cold_cow")),
-                        getSoundEventHolder(soundEventLookup, SoundEvents.COW_AMBIENT),
-                        EntityPredicate.Builder.entity()
-                                .components(DataComponentMatchers.Builder.components()
-                                        .exact(DataComponentExactPredicate.expect(DataComponents.COW_VARIANT,
-                                                (context.lookup(Registries.COW_VARIANT).getOrThrow(CowVariants.COLD))))
-                                        .build())
-                                .build(),
-                        COLD_COW));
-        context.register(OCELOT,
-                new HeadType(EntityType.OCELOT,
-                        new HeadType.Shape(5.0, 4.0).scale(1.6F),
-                        List.of(new ModelAndTexture<>(HeadType.ModelType.OCELOT,
-                                ResourceLocationHelper.withDefaultNamespace("entity/cat/ocelot"))),
-                        getSoundEventHolder(soundEventLookup, SoundEvents.OCELOT_AMBIENT)));
+        HeadType.builder(EntityType.ENDERMAN)
+                .shape(8.0)
+                .model(HeadType.ModelType.ENDERMAN,
+                        ResourceLocationHelper.withDefaultNamespace("entity/enderman/enderman"))
+                .model(HeadType.ModelType.ENDERMAN_EYES,
+                        ResourceLocationHelper.withDefaultNamespace("entity/enderman/enderman_eyes"))
+                .noteBlockSound(SoundEvents.ENDERMAN_AMBIENT)
+                .build(context, ENDERMAN);
+        HeadType.builder(EntityType.BLAZE)
+                .shape(8.0)
+                .model(HeadType.ModelType.MOB, ResourceLocationHelper.withDefaultNamespace("entity/blaze"))
+                .noteBlockSound(SoundEvents.BLAZE_AMBIENT)
+                .build(context, BLAZE);
+        bootstrapCow(context,
+                CowVariants.TEMPERATE,
+                TEMPERATE_COW,
+                HeadType.ModelType.TEMPERATE_COW,
+                "entity/cow/temperate_cow");
+        bootstrapCow(context, CowVariants.WARM, WARM_COW, HeadType.ModelType.WARM_COW, "entity/cow/warm_cow");
+        bootstrapCow(context, CowVariants.COLD, COLD_COW, HeadType.ModelType.COLD_COW, "entity/cow/cold_cow");
+        HeadType.builder(EntityType.OCELOT)
+                .shape(5.0, 4.0)
+                .scale(1.6)
+                .model(HeadType.ModelType.OCELOT, ResourceLocationHelper.withDefaultNamespace("entity/cat/ocelot"))
+                .noteBlockSound(SoundEvents.OCELOT_AMBIENT)
+                .build(context, OCELOT);
     }
 
-    private static Optional<Holder<SoundEvent>> getSoundEventHolder(HolderGetter<SoundEvent> soundEventLookup, SoundEvent soundEvent) {
-        return Optional.of(soundEventLookup.getOrThrow(ResourceKey.create(Registries.SOUND_EVENT,
-                soundEvent.location())));
+    private static void bootstrapCow(BootstrapContext<HeadType> context, ResourceKey<CowVariant> cowVariant, ResourceKey<HeadType> resourceKey, HeadType.ModelType modelType, String textureLocation) {
+        HeadType.builder(EntityType.COW)
+                .entityPredicate((EntityPredicate.Builder builder) -> {
+                    builder.components(DataComponentMatchers.Builder.components()
+                            .exact(DataComponentExactPredicate.expect(DataComponents.COW_VARIANT,
+                                    (context.lookup(Registries.COW_VARIANT).getOrThrow(cowVariant))))
+                            .build());
+                })
+                .shape(8.0, 8.0, 6.0)
+                .model(modelType, ResourceLocationHelper.withDefaultNamespace(textureLocation))
+                .noteBlockSound(SoundEvents.COW_AMBIENT)
+                .build(context, resourceKey);
     }
 
     private static ResourceKey<HeadType> register(String path) {

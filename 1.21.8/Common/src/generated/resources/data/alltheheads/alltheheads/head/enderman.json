@@ -1,10 +1,10 @@
 {
   "custom_name": "minecraft.enderman",
-  "entity_type": "minecraft:enderman",
-  "loot": {
-    "loot_table": "minecraft:entities/heads/enderman"
+  "entity_predicate": {
+    "type": "minecraft:enderman"
   },
-  "models_and_textures": [
+  "loot_table": "minecraft:entities/heads/enderman",
+  "models": [
     {
       "asset_id": "minecraft:entity/enderman/enderman",
       "model": "alltheheads:enderman_head"

@@ -1,10 +1,10 @@
 {
   "custom_name": "minecraft.ocelot",
-  "entity_type": "minecraft:ocelot",
-  "loot": {
-    "loot_table": "minecraft:entities/heads/ocelot"
+  "entity_predicate": {
+    "type": "minecraft:ocelot"
   },
-  "models_and_textures": [
+  "loot_table": "minecraft:entities/heads/ocelot",
+  "models": [
     {
       "asset_id": "minecraft:entity/cat/ocelot",
       "model": "alltheheads:ocelot_head"
@@ -14,7 +14,7 @@
   "shape": {
     "depth": 5.0,
     "height": 4.0,
-    "scale": 1.600000023841858,
+    "scale": 1.6,
     "width": 5.0
   }
 }

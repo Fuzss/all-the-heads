@@ -19,12 +19,12 @@ public class ModLanguageProvider extends AbstractLanguageProvider {
         translationBuilder.add(ModRegistry.CREATIVE_MODE_TAB.value(), AllTheHeads.MOD_NAME);
         translationBuilder.add(ModRegistry.VILLAGER_CREATIVE_MODE_TAB.value(), "All The Villagers");
         translationBuilder.add(ModRegistry.MOB_HEAD_BLOCK.value(), "Mob Head");
-        translationBuilder.add(HeadType.createDescriptionId(EntityType.ENDERMAN, HeadTypes.ENDERMAN), "Enderman Head");
-        translationBuilder.add(HeadType.createDescriptionId(EntityType.BLAZE, HeadTypes.BLAZE), "Blaze Head");
-        translationBuilder.add(HeadType.createDescriptionId(EntityType.COW, HeadTypes.TEMPERATE_COW),
+        translationBuilder.add(HeadType.customName(EntityType.ENDERMAN, HeadTypes.ENDERMAN), "Enderman Head");
+        translationBuilder.add(HeadType.customName(EntityType.BLAZE, HeadTypes.BLAZE), "Blaze Head");
+        translationBuilder.add(HeadType.customName(EntityType.COW, HeadTypes.TEMPERATE_COW),
                 "Temperate Cow Head");
-        translationBuilder.add(HeadType.createDescriptionId(EntityType.COW, HeadTypes.WARM_COW), "Warm Cow Head");
-        translationBuilder.add(HeadType.createDescriptionId(EntityType.COW, HeadTypes.COLD_COW), "Cold Cow Head");
-        translationBuilder.add(HeadType.createDescriptionId(EntityType.OCELOT, HeadTypes.OCELOT), "Ocelot Head");
+        translationBuilder.add(HeadType.customName(EntityType.COW, HeadTypes.WARM_COW), "Warm Cow Head");
+        translationBuilder.add(HeadType.customName(EntityType.COW, HeadTypes.COLD_COW), "Cold Cow Head");
+        translationBuilder.add(HeadType.customName(EntityType.OCELOT, HeadTypes.OCELOT), "Ocelot Head");
     }
 }
