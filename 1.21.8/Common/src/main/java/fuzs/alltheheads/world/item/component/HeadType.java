@@ -6,6 +6,8 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import fuzs.alltheheads.AllTheHeads;
 import fuzs.alltheheads.init.ModRegistry;
 import io.netty.buffer.ByteBuf;
+import it.unimi.dsi.fastutil.ints.Int2ObjectArrayMap;
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.Util;
 import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.core.Direction;
@@ -26,6 +28,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.variant.ModelAndTexture;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.properties.RotationSegment;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -100,7 +103,12 @@ public record HeadType(EntityPredicate entityPredicate,
         return this.entityPredicate().matches((ServerLevel) entity.level(), entity.position(), entity);
     }
 
-    public record Shape(double width, double height, double depth, double scale, Map<Direction, VoxelShape> shapes) {
+    public record Shape(double width,
+                        double height,
+                        double depth,
+                        double scale,
+                        Int2ObjectMap<VoxelShape> verticalShapes,
+                        Map<Direction, VoxelShape> horizontalShapes) {
         public static final Codec<Shape> CODEC = RecordCodecBuilder.create(instance -> instance.group(Codec.doubleRange(
                                 1.0,
                                 16.0).fieldOf("width").forGetter(Shape::width),
@@ -125,13 +133,23 @@ public record HeadType(EntityPredicate entityPredicate,
                     height,
                     depth,
                     scale,
-                    Util.make(Shapes.rotateHorizontal(Block.boxZ(width * scale,
+                    Util.make(new Int2ObjectArrayMap<>(), (Int2ObjectArrayMap<VoxelShape> map) -> {
+                        Map<Direction, VoxelShape> rotatedShapes = Shapes.rotateHorizontal(Block.column(width * scale,
+                                depth * scale,
+                                0.0,
+                                height * scale));
+                        for (int i = 0; i < RotationSegment.getMaxSegmentIndex(); i++) {
+                            map.put(i, RotationSegment.convertToDirection(i).map(rotatedShapes::get).orElseGet(() -> {
+                                return Block.column(Math.max(width, depth) * scale, 0.0, height * scale);
+                            }));
+                        }
+
+                    }),
+                    Shapes.rotateHorizontal(Block.boxZ(width * scale,
                             8.0 - height * scale / 2.0,
                             8.0 + height * scale / 2.0,
                             16.0 - depth * scale,
-                            16.0)), (Map<Direction, VoxelShape> map) -> {
-                        map.put(Direction.UP, Block.column(Math.max(width, depth) * scale, 0.0, height * scale));
-                    }));
+                            16.0)));
         }
 
         public Shape scale(double scale) {

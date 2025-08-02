@@ -14,8 +14,9 @@ import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.CustomHeadLayer;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
+import net.minecraft.core.Holder;
 
-import java.util.List;
+import java.util.Optional;
 import java.util.function.Function;
 
 /**
@@ -33,7 +34,7 @@ public class MobHeadLayer<S extends LivingEntityRenderState, M extends EntityMod
 
     @Override
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, S renderState, float yRot, float xRot) {
-        if (RenderPropertyKey.has(renderState, CustomHeadLayerHandler.HEAD_TYPE_MODELS_RENDER_PROPERTY)) {
+        if (RenderPropertyKey.has(renderState, CustomHeadLayerHandler.HEAD_TYPE_RENDER_PROPERTY)) {
             poseStack.pushPose();
             poseStack.scale(this.transforms.horizontalScale(), 1.0F, this.transforms.horizontalScale());
             M entityModel = this.getParentModel();
@@ -42,18 +43,17 @@ public class MobHeadLayer<S extends LivingEntityRenderState, M extends EntityMod
             poseStack.translate(0.0F, this.transforms.skullYOffset(), 0.0F);
             poseStack.scale(1.1875F, -1.1875F, -1.1875F);
             poseStack.translate(-0.5, 0.0, -0.5);
-            List<HeadType.Model> modelAndTextures = RenderPropertyKey.getOrDefault(renderState,
-                    CustomHeadLayerHandler.HEAD_TYPE_MODELS_RENDER_PROPERTY,
-                    List.of());
+            Optional<Holder<HeadType>> headType = RenderPropertyKey.getOrDefault(renderState,
+                    CustomHeadLayerHandler.HEAD_TYPE_RENDER_PROPERTY,
+                    Optional.empty());
             MobHeadBlockRenderer.renderSkull(null,
-                    null,
                     180.0F,
                     renderState.wornHeadAnimationPos,
                     poseStack,
                     bufferSource,
                     packedLight,
                     this.skullModelGetter,
-                    modelAndTextures);
+                    headType.orElse(null));
             poseStack.popPose();
         }
     }

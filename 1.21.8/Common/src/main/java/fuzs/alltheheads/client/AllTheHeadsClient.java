@@ -56,7 +56,7 @@ public class AllTheHeadsClient implements ClientModConstructor {
         context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(HeadType.ModelType.COLD_COW),
                 () -> HeadLayerDefinitions.createCowHeadLayer(ColdCowModel.createBodyLayer()));
         context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(HeadType.ModelType.OCELOT),
-                () -> HeadLayerDefinitions.createOcelotHeadLayer().apply(HeadLayerDefinitions.scaling(1.6F)));
+                HeadLayerDefinitions::createOcelotHeadLayer);
         context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(HeadType.ModelType.SHEEP),
                 HeadLayerDefinitions::createSheepHeadLayer);
         context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(HeadType.ModelType.SHEEP_WOOL),

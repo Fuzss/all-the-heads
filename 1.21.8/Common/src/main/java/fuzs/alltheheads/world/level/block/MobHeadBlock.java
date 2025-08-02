@@ -3,7 +3,6 @@ package fuzs.alltheheads.world.level.block;
 import fuzs.alltheheads.init.ModRegistry;
 import fuzs.alltheheads.world.level.block.entity.MobHeadBlockEntity;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelReader;
@@ -22,7 +21,7 @@ public class MobHeadBlock extends SkullBlock {
     @Override
     protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         if (level.getBlockEntity(pos) instanceof MobHeadBlockEntity blockEntity && blockEntity.getHeadType() != null) {
-            return blockEntity.getHeadType().value().shape().shapes().get(Direction.UP);
+            return blockEntity.getHeadType().value().shape().verticalShapes().get(state.getValue(ROTATION).intValue());
         } else {
             return super.getShape(state, level, pos, context);
         }

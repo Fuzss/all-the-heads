@@ -2,7 +2,6 @@ package fuzs.alltheheads.client.handler;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import fuzs.alltheheads.AllTheHeads;
-import fuzs.alltheheads.client.renderer.blockentity.MobHeadBlockRenderer;
 import fuzs.alltheheads.client.renderer.entity.layers.MobHeadLayer;
 import fuzs.alltheheads.init.ModRegistry;
 import fuzs.alltheheads.world.item.component.HeadType;
@@ -17,6 +16,7 @@ import net.minecraft.client.renderer.entity.layers.CustomHeadLayer;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.client.renderer.entity.state.EntityRenderState;
 import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
+import net.minecraft.core.Holder;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -25,10 +25,11 @@ import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Optional;
 
 public class CustomHeadLayerHandler {
-    public static final RenderPropertyKey<List<HeadType.Model>> HEAD_TYPE_MODELS_RENDER_PROPERTY = new RenderPropertyKey<>(
-            AllTheHeads.id("head_type_models"));
+    public static final RenderPropertyKey<Optional<Holder<HeadType>>> HEAD_TYPE_RENDER_PROPERTY = new RenderPropertyKey<>(
+            AllTheHeads.id("head_type"));
 
     private static boolean isHeadVisible;
 
@@ -38,8 +39,8 @@ public class CustomHeadLayerHandler {
                 && livingEntityRenderState.wornHeadType == ModRegistry.MOB_SKULL_BLOCK_TYPE) {
             livingEntityRenderState.wornHeadType = null;
             ItemStack itemStack = livingEntity.getItemBySlot(EquipmentSlot.HEAD);
-            List<HeadType.Model> models = MobHeadBlockRenderer.getModels(itemStack.get(ModRegistry.HEAD_TYPE_DATA_COMPONENT_TYPE.value()));
-            RenderPropertyKey.set(renderState, HEAD_TYPE_MODELS_RENDER_PROPERTY, models);
+            Holder<HeadType> headType = itemStack.get(ModRegistry.HEAD_TYPE_DATA_COMPONENT_TYPE.value());
+            RenderPropertyKey.set(renderState, HEAD_TYPE_RENDER_PROPERTY, Optional.ofNullable(headType));
         }
     }
 
@@ -66,7 +67,7 @@ public class CustomHeadLayerHandler {
     public static <T extends LivingEntity, S extends LivingEntityRenderState, M extends EntityModel<? super S>> EventResult onBeforeRenderEntity(S entityRenderState, LivingEntityRenderer<T, S, M> entityRenderer, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight) {
         // disable model head rendering, some mob heads are smaller than the player head and will not cover all of it
         if (entityRenderer.getModel() instanceof HeadedModel headedModel && RenderPropertyKey.has(entityRenderState,
-                HEAD_TYPE_MODELS_RENDER_PROPERTY)) {
+                HEAD_TYPE_RENDER_PROPERTY)) {
             isHeadVisible = headedModel.getHead().visible;
             headedModel.getHead().visible = false;
         }
@@ -76,7 +77,7 @@ public class CustomHeadLayerHandler {
 
     public static <T extends LivingEntity, S extends LivingEntityRenderState, M extends EntityModel<? super S>> void onAfterRenderEntity(S entityRenderState, LivingEntityRenderer<T, S, M> entityRenderer, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight) {
         if (entityRenderer.getModel() instanceof HeadedModel headedModel && RenderPropertyKey.has(entityRenderState,
-                HEAD_TYPE_MODELS_RENDER_PROPERTY)) {
+                HEAD_TYPE_RENDER_PROPERTY)) {
             headedModel.getHead().visible = isHeadVisible;
         }
     }
