@@ -35,5 +35,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "alltheheads:entities/heads/enderman"
+  "random_sequence": "minecraft:entities/heads/enderman"
 }

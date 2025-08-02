@@ -27,7 +27,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:blaze"
+            "alltheheads:head_type": "alltheheads:cow/warm"
           },
           "function": "minecraft:set_components"
         }
@@ -35,5 +35,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "alltheheads:entities/heads/blaze"
+  "random_sequence": "minecraft:entities/heads/cow/warm"
 }

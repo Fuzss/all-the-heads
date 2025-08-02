@@ -1,10 +1,13 @@
 package fuzs.alltheheads.client.model;
 
+import net.minecraft.client.model.EndermanModel;
 import net.minecraft.client.model.OcelotModel;
+import net.minecraft.client.model.SheepFurModel;
+import net.minecraft.client.model.SheepModel;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 
-public class CowHeadModel {
+public class HeadLayerDefinitions {
 
     public static MeshTransformer scaling(float scale) {
         return (MeshDefinition meshDefinition) -> {
@@ -40,6 +43,19 @@ public class CowHeadModel {
         return new LayerDefinition(meshDefinition, layerDefinition.material);
     }
 
+    public static LayerDefinition createEndermanHeadLayer() {
+        return createHeadLayer(EndermanModel.createBodyLayer(),
+                -4.0F,
+                -8.0F,
+                -4.0F,
+                8.0F,
+                8.0F,
+                8.0F,
+                0.0F,
+                -13.0F,
+                0.0F);
+    }
+
     public static LayerDefinition createCowHeadLayer(LayerDefinition layerDefinition) {
         return createHeadLayer(layerDefinition, -4.0F, -4.0F, -6.0F, 8.0F, 8.0F, 6.0F, 0.0F, 4.0F, -8.0F);
     }
@@ -49,5 +65,22 @@ public class CowHeadModel {
                 64,
                 32);
         return createHeadLayer(layerDefinition, -2.5F, -2.0F, -3.0F, 5.0F, 4.0F, 5.0F, 0.0F, 15.0F, -9.0F);
+    }
+
+    public static LayerDefinition createSheepHeadLayer() {
+        return createHeadLayer(SheepModel.createBodyLayer(), -3.0F, -4.0F, -6.0F, 6.0F, 6.0F, 8.0F, 0.0F, 6.0F, -8.0F);
+    }
+
+    public static LayerDefinition createSheepWoolHeadLayer() {
+        return createHeadLayer(SheepFurModel.createFurLayer(),
+                -3.0F,
+                -4.0F,
+                -4.0F,
+                6.0F,
+                6.0F,
+                6.0F,
+                0.0F,
+                6.0F,
+                -8.0F);
     }
 }

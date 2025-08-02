@@ -1,15 +1,13 @@
 {
-  "custom_name": "minecraft.cow.cold",
+  "custom_name": "minecraft.cow_cold",
   "entity_predicate": {
+    "type": "minecraft:cow",
     "components": {
       "minecraft:cow/variant": "minecraft:cold"
     }
   },
-  "entity_type": "minecraft:cow",
-  "loot": {
-    "loot_table": "minecraft:entities/heads/cow/cold"
-  },
-  "models_and_textures": [
+  "loot_table": "minecraft:entities/heads/cow/cold",
+  "models": [
     {
       "asset_id": "minecraft:entity/cow/cold_cow",
       "model": "alltheheads:cold_cow_head"

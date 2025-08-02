@@ -9,12 +9,13 @@ import fuzs.alltheheads.world.level.block.MobHeadSkullBlock;
 import fuzs.alltheheads.world.level.block.entity.MobHeadBlockEntity;
 import fuzs.puzzleslib.api.init.v3.registry.ContentRegistrationHelper;
 import fuzs.puzzleslib.api.init.v3.registry.RegistryManager;
+import fuzs.puzzleslib.api.init.v3.tags.TagFactory;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
@@ -25,8 +26,6 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.waypoints.Waypoint;
-
-import java.util.function.Predicate;
 
 public class ModRegistry {
     public static final ResourceKey<Registry<HeadType>> HEAD_REGISTRY_KEY = ResourceKey.createRegistryKey(AllTheHeads.id(
@@ -74,8 +73,8 @@ public class ModRegistry {
                 output.accept(Items.DRAGON_HEAD);
                 itemDisplayParameters.holders()
                         .lookupOrThrow(HEAD_REGISTRY_KEY)
-                        .filterElements(Predicate.not(ModRegistry::isVillagerLike))
                         .listElements()
+                        .filter((Holder.Reference<HeadType> holder) -> !holder.is(ModRegistry.VILLAGER_LIKE_HEAD_TYPE_TAG))
                         .map(ModSkullBlockItem::createHead)
                         .forEach(output::accept);
             },
@@ -86,22 +85,18 @@ public class ModRegistry {
             (CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output output) -> {
                 itemDisplayParameters.holders()
                         .lookupOrThrow(HEAD_REGISTRY_KEY)
-                        .filterElements(ModRegistry::isVillagerLike)
                         .listElements()
+                        .filter((Holder.Reference<HeadType> holder) -> holder.is(ModRegistry.VILLAGER_LIKE_HEAD_TYPE_TAG))
                         .map(ModSkullBlockItem::createHead)
                         .forEach(output::accept);
             },
             true);
 
+    static final TagFactory TAGS = TagFactory.make(AllTheHeads.MOD_ID);
+    public static final TagKey<HeadType> VILLAGER_LIKE_HEAD_TYPE_TAG = TAGS.registerTagKey(HEAD_REGISTRY_KEY,
+            "villager_like");
+
     public static void bootstrap() {
         // NO-OP
-    }
-
-    private static boolean isVillagerLike(HeadType headType) {
-        return isVillagerLike(headType.entityType().value());
-    }
-
-    private static boolean isVillagerLike(EntityType<?> entityType) {
-        return entityType == EntityType.VILLAGER || entityType == EntityType.ZOMBIE_VILLAGER;
     }
 }

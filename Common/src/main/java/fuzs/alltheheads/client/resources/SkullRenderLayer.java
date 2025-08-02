@@ -24,6 +24,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
+@Deprecated
 public abstract class SkullRenderLayer {
     private static final Map<ModelLayerLocation, SkullRenderLayer> SKULL_RENDER_LAYERS = Maps.newHashMap();
     private static final Map<DyeColor, ModelLayerLocation> SHEEP_FUR_LAYER_DEFINITIONS;

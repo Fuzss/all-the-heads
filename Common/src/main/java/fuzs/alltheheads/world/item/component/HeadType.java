@@ -1,6 +1,7 @@
 package fuzs.alltheheads.world.item.component;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import fuzs.alltheheads.AllTheHeads;
 import fuzs.alltheheads.init.ModRegistry;
@@ -32,101 +33,63 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 
-public record HeadType(Holder<EntityType<?>> entityType,
+public record HeadType(EntityPredicate entityPredicate,
                        Shape shape,
                        Loot loot,
-                       Optional<EntityPredicate> entityPredicate,
                        Optional<String> customName,
                        boolean mobDisguise,
                        Optional<Holder<SoundEvent>> noteBlockSound,
-                       List<ModelAndTexture<ModelType>> modelAndTextures) {
+                       List<Model> models) {
     public static final Codec<HeadType> DIRECT_CODEC = RecordCodecBuilder.create(instance -> instance.group(
-            BuiltInRegistries.ENTITY_TYPE.holderByNameCodec().fieldOf("entity_type").forGetter(HeadType::entityType),
-            Shape.CODEC.fieldOf("shape").forGetter(HeadType::shape),
-            Loot.CODEC.optionalFieldOf("loot", Loot.DEFAULT).forGetter(HeadType::loot),
-            EntityPredicate.CODEC.optionalFieldOf("entity_predicate").forGetter(HeadType::entityPredicate),
-            Codec.STRING.optionalFieldOf("custom_name").forGetter(HeadType::customName),
-            Codec.BOOL.optionalFieldOf("mob_disguise", true).forGetter(HeadType::mobDisguise),
-            BuiltInRegistries.SOUND_EVENT.holderByNameCodec()
-                    .optionalFieldOf("note_block_sound")
-                    .forGetter(HeadType::noteBlockSound),
-            ModelAndTexture.codec(ModelType.CODEC, ModelType.DEFAULT)
-                    .codec()
-                    .listOf(1, Integer.MAX_VALUE)
-                    .fieldOf("models_and_textures")
-                    .forGetter(HeadType::modelAndTextures)).apply(instance, HeadType::new));
+                    EntityPredicate.CODEC.fieldOf("entity_predicate").forGetter(HeadType::entityPredicate),
+                    Shape.CODEC.fieldOf("shape").forGetter(HeadType::shape),
+                    Loot.CODEC.forGetter(HeadType::loot),
+                    Codec.STRING.optionalFieldOf("custom_name").forGetter(HeadType::customName),
+                    Codec.BOOL.optionalFieldOf("mob_disguise", true).forGetter(HeadType::mobDisguise),
+                    BuiltInRegistries.SOUND_EVENT.holderByNameCodec()
+                            .optionalFieldOf("note_block_sound")
+                            .forGetter(HeadType::noteBlockSound),
+                    Model.CODEC.listOf(1, Integer.MAX_VALUE).fieldOf("models").forGetter(HeadType::models))
+            .apply(instance, HeadType::new));
     public static final Codec<HeadType> DIRECT_NETWORK_CODEC = RecordCodecBuilder.create(instance -> instance.group(
-            BuiltInRegistries.ENTITY_TYPE.holderByNameCodec().fieldOf("entity_type").forGetter(HeadType::entityType),
-            Shape.CODEC.fieldOf("shape").forGetter(HeadType::shape),
-            Codec.STRING.optionalFieldOf("custom_name").forGetter(HeadType::customName),
-            BuiltInRegistries.SOUND_EVENT.holderByNameCodec()
-                    .optionalFieldOf("note_block_sound")
-                    .forGetter(HeadType::noteBlockSound),
-            ModelAndTexture.codec(ModelType.CODEC, ModelType.DEFAULT)
-                    .codec()
-                    .listOf(1, Integer.MAX_VALUE)
-                    .fieldOf("models_and_textures")
-                    .forGetter(HeadType::modelAndTextures)).apply(instance, HeadType::new));
+                    Shape.CODEC.fieldOf("shape").forGetter(HeadType::shape),
+                    Codec.STRING.optionalFieldOf("custom_name").forGetter(HeadType::customName),
+                    BuiltInRegistries.SOUND_EVENT.holderByNameCodec()
+                            .optionalFieldOf("note_block_sound")
+                            .forGetter(HeadType::noteBlockSound),
+                    Model.CODEC.listOf(1, Integer.MAX_VALUE).fieldOf("models").forGetter(HeadType::models))
+            .apply(instance, HeadType::new));
     public static final Codec<Holder<HeadType>> CODEC = RegistryFixedCodec.create(ModRegistry.HEAD_REGISTRY_KEY);
     public static final StreamCodec<RegistryFriendlyByteBuf, Holder<HeadType>> STREAM_CODEC = ByteBufCodecs.holderRegistry(
             ModRegistry.HEAD_REGISTRY_KEY);
 
-    private HeadType(Holder<EntityType<?>> entityType, Shape shape, Optional<String> customName, Optional<Holder<SoundEvent>> noteBlockSound, List<ModelAndTexture<ModelType>> modelAndTexture) {
-        this(entityType, shape, Loot.DEFAULT, Optional.empty(), customName, false, noteBlockSound, modelAndTexture);
-    }
-
-    public HeadType(EntityType<?> entityType, Shape shape, List<ModelAndTexture<ModelType>> modelAndTexture, Optional<Holder<SoundEvent>> noteBlockSound) {
-        this(entityType.builtInRegistryHolder(),
+    private HeadType(Shape shape, Optional<String> customName, Optional<Holder<SoundEvent>> noteBlockSound, List<Model> models) {
+        this(EntityPredicate.Builder.entity().build(),
                 shape,
-                modelAndTexture,
+                new Loot(Optional.empty(), true),
+                customName,
+                false,
                 noteBlockSound,
-                Optional.empty(),
-                entityType.builtInRegistryHolder().key().location());
+                models);
     }
 
-    public HeadType(EntityType<?> entityType, Shape shape, ModelAndTexture<ModelType> modelAndTexture, Optional<Holder<SoundEvent>> noteBlockSound, EntityPredicate entityPredicate, @Nullable ResourceKey<HeadType> resourceKey) {
-        this(entityType.builtInRegistryHolder(),
-                shape,
-                List.of(modelAndTexture),
-                noteBlockSound,
-                Optional.of(entityPredicate),
-                resourceKey != null ? resourceKey.location().getPath() : null);
+    public static HeadTypeBuilder builder(EntityType<?> entityType) {
+        return new HeadTypeBuilder(entityType);
     }
 
-    private HeadType(Holder.Reference<EntityType<?>> entityType, Shape shape, List<ModelAndTexture<ModelType>> modelAndTexture, Optional<Holder<SoundEvent>> noteBlockSound, Optional<EntityPredicate> entityPredicate, @Nullable String path) {
-        this(entityType,
-                shape,
-                modelAndTexture,
-                noteBlockSound,
-                entityPredicate,
-                path != null ? entityType.key().location().withPath(path) : entityType.key().location());
+    public static String customName(EntityType<?> entityType, ResourceKey<HeadType> resourceKey) {
+        return customName(entityType, resourceKey, ModRegistry.MOB_HEAD_BLOCK.value().getDescriptionId());
     }
 
-    private HeadType(Holder<EntityType<?>> entityType, Shape shape, List<ModelAndTexture<ModelType>> modelAndTexture, Optional<Holder<SoundEvent>> noteBlockSound, Optional<EntityPredicate> entityPredicate, ResourceLocation resourceLocation) {
-        this(entityType,
-                shape,
-                new Loot(resourceLocation),
-                entityPredicate,
-                Optional.of(resourceLocation.toLanguageKey().replace('/', '.')),
-                true,
-                noteBlockSound,
-                modelAndTexture);
-    }
-
-    public static ResourceKey<LootTable> createLootTable(ResourceKey<HeadType> resourceKey) {
-        return createLootTable(resourceKey.location());
-    }
-
-    public static ResourceKey<LootTable> createLootTable(ResourceLocation resourceLocation) {
-        return ResourceKey.create(Registries.LOOT_TABLE, resourceLocation.withPrefix("entities/heads/"));
-    }
-
-    public static String createDescriptionId(EntityType<?> entityType, ResourceKey<HeadType> resourceKey) {
-        ResourceLocation resourceLocation = BuiltInRegistries.ENTITY_TYPE.getKey(entityType)
-                .withPath(resourceKey.location().getPath());
-        return resourceLocation.toLanguageKey(ModRegistry.MOB_HEAD_BLOCK.value().getDescriptionId()).replace('/', '.');
+    public static String customName(EntityType<?> entityType, ResourceKey<HeadType> resourceKey, @Nullable String descriptionId) {
+        ResourceLocation resourceLocation = HeadTypeBuilder.getNamespacedLocation(entityType, resourceKey)
+                .withPath((String path) -> {
+                    return path.replace('/', '_');
+                });
+        return descriptionId != null ? resourceLocation.toLanguageKey(descriptionId) : resourceLocation.toLanguageKey();
     }
 
     public Component getName(String descriptionId) {
@@ -134,14 +97,7 @@ public record HeadType(Holder<EntityType<?>> entityType,
     }
 
     public boolean matches(Entity entity) {
-        // TODO possible turn into either for entity type or predicate and include the type in the predicate
-        if (this.entityType().value() != entity.getType()) {
-            return false;
-        } else {
-            return this.entityPredicate().isEmpty() || this.entityPredicate()
-                    .get()
-                    .matches((ServerLevel) entity.level(), entity.position(), entity);
-        }
+        return this.entityPredicate().matches((ServerLevel) entity.level(), entity.position(), entity);
     }
 
     public record Shape(double width, double height, double depth, double scale, Map<Direction, VoxelShape> shapes) {
@@ -159,14 +115,6 @@ public record HeadType(Holder<EntityType<?>> entityType,
                 ByteBufCodecs.DOUBLE,
                 Shape::scaledDepth,
                 Shape::new);
-
-        public Shape(double size) {
-            this(size, size);
-        }
-
-        public Shape(double width, double height) {
-            this(width, height, width);
-        }
 
         public Shape(double width, double height, double depth) {
             this(width, height, depth, 1.0);
@@ -186,7 +134,7 @@ public record HeadType(Holder<EntityType<?>> entityType,
                     }));
         }
 
-        public Shape scale(float scale) {
+        public Shape scale(double scale) {
             return new Shape(this.width, this.height, this.depth, this.scale * scale);
         }
 
@@ -204,8 +152,7 @@ public record HeadType(Holder<EntityType<?>> entityType,
     }
 
     public record Loot(Optional<ResourceKey<LootTable>> lootTable, boolean chargedCreeperDrop) {
-        public static final Loot DEFAULT = new Loot(Optional.empty(), true);
-        public static final Codec<Loot> CODEC = RecordCodecBuilder.create(instance -> instance.group(ResourceKey.codec(
+        public static final MapCodec<Loot> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(ResourceKey.codec(
                                 Registries.LOOT_TABLE).optionalFieldOf("loot_table").forGetter(Loot::lootTable),
                         Codec.BOOL.optionalFieldOf("charged_creeper_drop", true).forGetter(Loot::chargedCreeperDrop))
                 .apply(instance, Loot::new));
@@ -216,35 +163,54 @@ public record HeadType(Holder<EntityType<?>> entityType,
                 Loot::chargedCreeperDrop,
                 Loot::new);
 
-        public Loot(ResourceLocation resourceLocation) {
-            this(Optional.of(createLootTable(resourceLocation)), true);
+        public Loot(ResourceKey<LootTable> resourceKey) {
+            this(Optional.of(resourceKey), true);
+        }
+    }
+
+    public record Model(ModelAndTexture<ModelType> model, int color) {
+        public static final Codec<Model> CODEC = RecordCodecBuilder.create(instance -> instance.group(ModelAndTexture.codec(
+                                ModelType.CODEC,
+                                ModelType.MOB).forGetter(Model::model),
+                        ExtraCodecs.RGB_COLOR_CODEC.optionalFieldOf("color", -1).forGetter(Model::color))
+                .apply(instance, Model::new));
+
+        public Model(ModelType modelType, ResourceLocation assetId) {
+            this(new ModelAndTexture<>(modelType, assetId), -1);
         }
     }
 
     /**
      * Basically a server-side implementation of {@code ModelLayerLocation}.
      */
-    public record ModelType(ResourceLocation model) {
-        public static final ExtraCodecs.LateBoundIdMapper<ResourceLocation, ModelType> ID_MAPPER = new ExtraCodecs.LateBoundIdMapper<>();
-        public static final Codec<ModelType> CODEC = ID_MAPPER.codec(ResourceLocation.CODEC);
-        public static final ModelType DEFAULT = register("player_head");
+    public record ModelType(ResourceLocation model, String layer) {
+        public static final ExtraCodecs.LateBoundIdMapper<String, ModelType> ID_MAPPER = new ExtraCodecs.LateBoundIdMapper<>();
+        public static final Codec<ModelType> CODEC = ID_MAPPER.codec(Codec.STRING);
+        public static final ModelType MOB = register("mob_head");
+        public static final ModelType HUMANOID = register("humanoid_head");
         public static final ModelType ENDERMAN = register("enderman_head");
         public static final ModelType ENDERMAN_EYES = register("enderman_head", "eyes");
-        public static final ModelType BLAZE = register("blaze_head");
         public static final ModelType TEMPERATE_COW = register("temperate_cow_head");
         public static final ModelType WARM_COW = register("warm_cow_head");
         public static final ModelType COLD_COW = register("cold_cow_head");
         public static final ModelType OCELOT = register("ocelot_head");
+        public static final ModelType SHEEP = register("sheep_head");
+        public static final ModelType SHEEP_WOOL = register("sheep_head", "wool");
+        public static final ModelType DEFAULT = HUMANOID;
 
         private static ModelType register(String model) {
-            return register(model, null);
+            return register(model, "main");
         }
 
-        private static ModelType register(String model, @Nullable String layer) {
-            ResourceLocation resourceLocation = AllTheHeads.id(model).withSuffix(layer != null ? "/" + layer : "");
-            ModelType modelType = new ModelType(resourceLocation);
-            ID_MAPPER.put(resourceLocation, modelType);
+        private static ModelType register(String model, String layer) {
+            ModelType modelType = new ModelType(AllTheHeads.id(model), layer);
+            ID_MAPPER.put(modelType.toString(), modelType);
             return modelType;
+        }
+
+        @Override
+        public String toString() {
+            return this.model + (Objects.equals(this.layer, "main") ? "" : "/" + this.layer);
         }
     }
 }
