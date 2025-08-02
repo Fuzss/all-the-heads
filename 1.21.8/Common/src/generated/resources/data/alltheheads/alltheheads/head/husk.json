@@ -1,0 +1,22 @@
+{
+  "custom_name": "minecraft.husk",
+  "entity_predicate": {
+    "type": "minecraft:husk",
+    "flags": {
+      "is_baby": false
+    }
+  },
+  "loot_table": "minecraft:entities/heads/husk",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/zombie/husk",
+      "model": "alltheheads:humanoid_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.husk.ambient",
+  "shape": {
+    "depth": 8.0,
+    "height": 8.0,
+    "width": 8.0
+  }
+}

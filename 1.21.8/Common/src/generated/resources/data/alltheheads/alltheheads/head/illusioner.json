@@ -1,0 +1,23 @@
+{
+  "custom_name": "minecraft.illusioner",
+  "entity_predicate": {
+    "type": "minecraft:illusioner",
+    "flags": {
+      "is_baby": false
+    }
+  },
+  "loot_table": "minecraft:entities/heads/illusioner",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/illager/illusioner",
+      "model": "alltheheads:illager_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.illusioner.ambient",
+  "shape": {
+    "depth": 8.0,
+    "height": 10.0,
+    "scale": 0.9375,
+    "width": 8.0
+  }
+}

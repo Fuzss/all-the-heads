@@ -1,0 +1,25 @@
+{
+  "custom_name": "minecraft.pig_cold",
+  "entity_predicate": {
+    "type": "minecraft:pig",
+    "components": {
+      "minecraft:pig/variant": "minecraft:cold"
+    },
+    "flags": {
+      "is_baby": false
+    }
+  },
+  "loot_table": "minecraft:entities/heads/pig/cold",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/pig/cold_pig",
+      "model": "alltheheads:pig_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.pig.ambient",
+  "shape": {
+    "depth": 8.0,
+    "height": 8.0,
+    "width": 8.0
+  }
+}

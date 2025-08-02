@@ -3,8 +3,8 @@ package fuzs.alltheheads.init;
 import com.google.common.collect.ImmutableSet;
 import com.mojang.serialization.MapCodec;
 import fuzs.alltheheads.AllTheHeads;
-import fuzs.alltheheads.advancements.critereon.VillagerPredicate;
-import fuzs.alltheheads.world.item.ModSkullBlockItem;
+import fuzs.alltheheads.advancements.critereon.VillagerDataPredicate;
+import fuzs.alltheheads.world.item.MobHeadItem;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.level.block.MobHeadBlock;
 import fuzs.alltheheads.world.level.block.MobHeadSkullBlock;
@@ -12,8 +12,10 @@ import fuzs.alltheheads.world.level.block.entity.MobHeadBlockEntity;
 import fuzs.puzzleslib.api.init.v3.registry.ContentRegistrationHelper;
 import fuzs.puzzleslib.api.init.v3.registry.RegistryManager;
 import fuzs.puzzleslib.api.init.v3.tags.TagFactory;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
@@ -54,7 +56,7 @@ public class ModRegistry {
             MobHeadSkullBlock::new,
             () -> Blocks.wallVariant(MOB_HEAD_BLOCK.value(), true).strength(1.0F).pushReaction(PushReaction.DESTROY));
     public static final Holder.Reference<Item> MOB_HEAD_ITEM = REGISTRIES.registerBlockItem(MOB_HEAD_BLOCK,
-            (Block block, Item.Properties properties) -> new ModSkullBlockItem(block,
+            (Block block, Item.Properties properties) -> new MobHeadItem(block,
                     MOB_WALL_HEAD_BLOCK.value(),
                     properties),
             () -> Waypoint.addHideAttribute(new Item.Properties())
@@ -64,12 +66,12 @@ public class ModRegistry {
             "head",
             MobHeadBlockEntity::new,
             () -> ImmutableSet.of(MOB_HEAD_BLOCK.value(), MOB_WALL_HEAD_BLOCK.value()));
-    public static final Holder.Reference<MapCodec<VillagerPredicate>> VILLAGER_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
+    public static final Holder.Reference<MapCodec<VillagerDataPredicate>> VILLAGER_DATA_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
             Registries.ENTITY_SUB_PREDICATE_TYPE,
-            "villager",
-            () -> VillagerPredicate.CODEC);
+            "villager_data",
+            () -> VillagerDataPredicate.CODEC);
     public static final Holder.Reference<CreativeModeTab> CREATIVE_MODE_TAB = REGISTRIES.registerCreativeModeTab("main",
-            () -> new ItemStack(MOB_HEAD_ITEM),
+            () -> createDisplayItemStack(HeadTypes.BLAZE),
             (CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output output) -> {
                 output.accept(Items.SKELETON_SKULL);
                 output.accept(Items.WITHER_SKELETON_SKULL);
@@ -82,19 +84,19 @@ public class ModRegistry {
                         .lookupOrThrow(HEAD_REGISTRY_KEY)
                         .listElements()
                         .filter((Holder.Reference<HeadType> holder) -> !holder.is(ModRegistry.VILLAGER_LIKE_HEAD_TYPE_TAG))
-                        .map(ModSkullBlockItem::createHead)
+                        .map(MobHeadItem::createHead)
                         .forEach(output::accept);
             },
             true);
     public static final Holder.Reference<CreativeModeTab> VILLAGER_CREATIVE_MODE_TAB = REGISTRIES.registerCreativeModeTab(
             "villager",
-            () -> new ItemStack(MOB_HEAD_ITEM),
+            () -> createDisplayItemStack(VillagerHeadTypes.PLAINS_LIBRARIAN_VILLAGER),
             (CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output output) -> {
                 itemDisplayParameters.holders()
                         .lookupOrThrow(HEAD_REGISTRY_KEY)
                         .listElements()
                         .filter((Holder.Reference<HeadType> holder) -> holder.is(ModRegistry.VILLAGER_LIKE_HEAD_TYPE_TAG))
-                        .map(ModSkullBlockItem::createHead)
+                        .map(MobHeadItem::createHead)
                         .forEach(output::accept);
             },
             true);
@@ -105,5 +107,15 @@ public class ModRegistry {
 
     public static void bootstrap() {
         // NO-OP
+    }
+
+    private static ItemStack createDisplayItemStack(ResourceKey<HeadType> resourceKey) {
+        // TODO replace this with the safe method from Puzzles Lib, which can provide a null object here
+        RegistryAccess registries = Minecraft.getInstance().getConnection().registryAccess();
+        if (registries != null) {
+            return MobHeadItem.createHead(registries, resourceKey);
+        } else {
+            return new ItemStack(MOB_HEAD_ITEM);
+        }
     }
 }

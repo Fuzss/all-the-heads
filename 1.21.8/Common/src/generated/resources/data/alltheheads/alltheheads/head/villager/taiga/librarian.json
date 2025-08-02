@@ -6,8 +6,8 @@
       "is_baby": false
     },
     "type_specific": {
-      "type": "alltheheads:villager",
-      "profession": "minecraft:librarian",
+      "type": "alltheheads:villager_data",
+      "villager_profession": "minecraft:librarian",
       "villager_type": "minecraft:taiga"
     }
   },
@@ -30,6 +30,7 @@
   "shape": {
     "depth": 8.0,
     "height": 10.0,
+    "scale": 0.9375,
     "width": 8.0
   }
 }
