@@ -3,7 +3,7 @@ package fuzs.alltheheads;
 import fuzs.alltheheads.handler.HeadBehaviorHandler;
 import fuzs.alltheheads.handler.HeadLootHandler;
 import fuzs.alltheheads.init.ModRegistry;
-import fuzs.alltheheads.world.item.component.HeadType;
+import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.puzzleslib.api.core.v1.ModConstructor;
 import fuzs.puzzleslib.api.core.v1.context.DataPackRegistriesContext;
 import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;

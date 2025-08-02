@@ -4,7 +4,8 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.serialization.MapCodec;
 import fuzs.alltheheads.client.renderer.blockentity.MobHeadBlockRenderer;
 import fuzs.alltheheads.init.ModRegistry;
-import fuzs.alltheheads.world.item.component.HeadType;
+import fuzs.alltheheads.world.item.component.headtype.HeadType;
+import fuzs.alltheheads.world.item.component.headtype.ModelType;
 import net.minecraft.client.model.SkullModelBase;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -19,9 +20,9 @@ import java.util.Set;
 import java.util.function.Function;
 
 public class MobHeadSpecialRenderer implements SpecialModelRenderer<@Nullable Holder<HeadType>> {
-    private final Function<HeadType.ModelType, SkullModelBase> skullModelGetter;
+    private final Function<ModelType, SkullModelBase> skullModelGetter;
 
-    public MobHeadSpecialRenderer(Function<HeadType.ModelType, SkullModelBase> skullModelGetter) {
+    public MobHeadSpecialRenderer(Function<ModelType, SkullModelBase> skullModelGetter) {
         this.skullModelGetter = skullModelGetter;
     }
 
@@ -34,7 +35,8 @@ public class MobHeadSpecialRenderer implements SpecialModelRenderer<@Nullable Ho
                 bufferSource,
                 packedLight,
                 this.skullModelGetter,
-                headType);
+                headType,
+                true);
     }
 
     @Override
@@ -43,7 +45,7 @@ public class MobHeadSpecialRenderer implements SpecialModelRenderer<@Nullable Ho
         poseStack.translate(0.5F, 0.0F, 0.5F);
         poseStack.scale(-1.0F, -1.0F, 1.0F);
         // there seems to be no good way to get the proper model for the model type
-        SkullModelBase skullModelBase = this.skullModelGetter.apply(HeadType.ModelType.DEFAULT);
+        SkullModelBase skullModelBase = this.skullModelGetter.apply(ModelType.DEFAULT);
         skullModelBase.setupAnim(0.0F, 180.0F, 0.0F);
         skullModelBase.root().getExtentsForGui(poseStack, output);
     }

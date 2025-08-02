@@ -1,0 +1,35 @@
+{
+  "custom_name": "minecraft.villager_desert_cartographer",
+  "entity_predicate": {
+    "type": "minecraft:villager",
+    "flags": {
+      "is_baby": false
+    },
+    "type_specific": {
+      "type": "alltheheads:villager",
+      "profession": "minecraft:cartographer",
+      "villager_type": "minecraft:desert"
+    }
+  },
+  "loot_table": "minecraft:entities/heads/villager/desert/cartographer",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/villager/villager",
+      "model": "alltheheads:villager_head"
+    },
+    {
+      "asset_id": "minecraft:entity/villager/type/desert",
+      "model": "alltheheads:villager_head"
+    },
+    {
+      "asset_id": "minecraft:entity/villager/profession/cartographer",
+      "model": "alltheheads:villager_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.villager.ambient",
+  "shape": {
+    "depth": 8.0,
+    "height": 10.0,
+    "width": 8.0
+  }
+}

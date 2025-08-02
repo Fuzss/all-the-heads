@@ -1,0 +1,23 @@
+{
+  "custom_name": "minecraft.squid",
+  "entity_predicate": {
+    "type": "minecraft:squid",
+    "flags": {
+      "is_baby": false
+    }
+  },
+  "loot_table": "minecraft:entities/heads/squid",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/squid/squid",
+      "model": "alltheheads:squid_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.squid.ambient",
+  "shape": {
+    "depth": 12.0,
+    "height": 16.0,
+    "scale": 0.6666666666666666,
+    "width": 12.0
+  }
+}

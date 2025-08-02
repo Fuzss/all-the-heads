@@ -4,7 +4,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import fuzs.alltheheads.AllTheHeads;
 import fuzs.alltheheads.client.renderer.entity.layers.MobHeadLayer;
 import fuzs.alltheheads.init.ModRegistry;
-import fuzs.alltheheads.world.item.component.HeadType;
+import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.puzzleslib.api.client.renderer.v1.RenderPropertyKey;
 import fuzs.puzzleslib.api.event.v1.core.EventResult;
 import net.minecraft.client.model.EntityModel;

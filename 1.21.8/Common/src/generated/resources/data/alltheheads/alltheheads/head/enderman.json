@@ -1,7 +1,10 @@
 {
   "custom_name": "minecraft.enderman",
   "entity_predicate": {
-    "type": "minecraft:enderman"
+    "type": "minecraft:enderman",
+    "flags": {
+      "is_baby": false
+    }
   },
   "loot_table": "minecraft:entities/heads/enderman",
   "models": [

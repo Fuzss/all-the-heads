@@ -1,0 +1,35 @@
+{
+  "custom_name": "minecraft.villager_snow_toolsmith",
+  "entity_predicate": {
+    "type": "minecraft:villager",
+    "flags": {
+      "is_baby": false
+    },
+    "type_specific": {
+      "type": "alltheheads:villager",
+      "profession": "minecraft:toolsmith",
+      "villager_type": "minecraft:snow"
+    }
+  },
+  "loot_table": "minecraft:entities/heads/villager/snow/toolsmith",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/villager/villager",
+      "model": "alltheheads:villager_head"
+    },
+    {
+      "asset_id": "minecraft:entity/villager/type/snow",
+      "model": "alltheheads:villager_head"
+    },
+    {
+      "asset_id": "minecraft:entity/villager/profession/toolsmith",
+      "model": "alltheheads:villager_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.villager.ambient",
+  "shape": {
+    "depth": 8.0,
+    "height": 10.0,
+    "width": 8.0
+  }
+}

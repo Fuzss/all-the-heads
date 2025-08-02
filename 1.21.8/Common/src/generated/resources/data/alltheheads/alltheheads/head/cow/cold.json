@@ -4,6 +4,9 @@
     "type": "minecraft:cow",
     "components": {
       "minecraft:cow/variant": "minecraft:cold"
+    },
+    "flags": {
+      "is_baby": false
     }
   },
   "loot_table": "minecraft:entities/heads/cow/cold",

@@ -1,0 +1,35 @@
+{
+  "custom_name": "minecraft.villager_swamp_fletcher",
+  "entity_predicate": {
+    "type": "minecraft:villager",
+    "flags": {
+      "is_baby": false
+    },
+    "type_specific": {
+      "type": "alltheheads:villager",
+      "profession": "minecraft:fletcher",
+      "villager_type": "minecraft:swamp"
+    }
+  },
+  "loot_table": "minecraft:entities/heads/villager/swamp/fletcher",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/villager/villager",
+      "model": "alltheheads:villager_head"
+    },
+    {
+      "asset_id": "minecraft:entity/villager/type/swamp",
+      "model": "alltheheads:villager_head"
+    },
+    {
+      "asset_id": "minecraft:entity/villager/profession/fletcher",
+      "model": "alltheheads:villager_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.villager.ambient",
+  "shape": {
+    "depth": 8.0,
+    "height": 10.0,
+    "width": 8.0
+  }
+}
