@@ -4,6 +4,7 @@ import fuzs.alltheheads.AllTheHeads;
 import fuzs.alltheheads.data.loot.ModBlockLootProvider;
 import fuzs.alltheheads.data.loot.ModEntityLootProvider;
 import fuzs.alltheheads.data.tags.ModBlockTagsProvider;
+import fuzs.alltheheads.data.tags.ModHeadTypeTagsProvider;
 import fuzs.alltheheads.data.tags.ModItemTagsProvider;
 import fuzs.alltheheads.init.ModRegistry;
 import fuzs.puzzleslib.api.core.v1.ModConstructor;
@@ -20,6 +21,7 @@ public class AllTheHeadsNeoForge {
                 ModBlockLootProvider::new,
                 ModEntityLootProvider::new,
                 ModBlockTagsProvider::new,
-                ModItemTagsProvider::new);
+                ModItemTagsProvider::new,
+                ModHeadTypeTagsProvider::new);
     }
 }

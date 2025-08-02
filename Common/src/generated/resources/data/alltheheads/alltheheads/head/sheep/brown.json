@@ -1,0 +1,34 @@
+{
+  "custom_name": "minecraft.sheep_brown",
+  "entity_predicate": {
+    "type": "minecraft:sheep",
+    "components": {
+      "minecraft:sheep/color": "brown"
+    },
+    "flags": {
+      "is_baby": false
+    },
+    "type_specific": {
+      "type": "minecraft:sheep",
+      "sheared": true
+    }
+  },
+  "loot_table": "minecraft:entities/heads/sheep/brown",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/sheep/sheep",
+      "model": "alltheheads:sheep_head"
+    },
+    {
+      "asset_id": "minecraft:entity/sheep/sheep_wool_undercoat",
+      "color": -10338523,
+      "model": "alltheheads:sheep_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.sheep.ambient",
+  "shape": {
+    "depth": 8.0,
+    "height": 6.0,
+    "width": 6.0
+  }
+}

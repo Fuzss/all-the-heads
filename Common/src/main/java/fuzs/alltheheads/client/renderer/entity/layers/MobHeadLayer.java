@@ -3,7 +3,8 @@ package fuzs.alltheheads.client.renderer.entity.layers;
 import com.mojang.blaze3d.vertex.PoseStack;
 import fuzs.alltheheads.client.handler.CustomHeadLayerHandler;
 import fuzs.alltheheads.client.renderer.blockentity.MobHeadBlockRenderer;
-import fuzs.alltheheads.world.item.component.HeadType;
+import fuzs.alltheheads.world.item.component.headtype.HeadType;
+import fuzs.alltheheads.world.item.component.headtype.ModelType;
 import fuzs.puzzleslib.api.client.renderer.v1.RenderPropertyKey;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.HeadedModel;
@@ -23,7 +24,7 @@ import java.util.function.Function;
  * @see CustomHeadLayer
  */
 public class MobHeadLayer<S extends LivingEntityRenderState, M extends EntityModel<S> & HeadedModel> extends RenderLayer<S, M> {
-    private final Function<HeadType.ModelType, SkullModelBase> skullModelGetter;
+    private final Function<ModelType, SkullModelBase> skullModelGetter;
     private final CustomHeadLayer.Transforms transforms;
 
     public MobHeadLayer(RenderLayerParent<S, M> renderer, EntityRendererProvider.Context context, CustomHeadLayer.Transforms transforms) {
@@ -53,7 +54,8 @@ public class MobHeadLayer<S extends LivingEntityRenderState, M extends EntityMod
                     bufferSource,
                     packedLight,
                     this.skullModelGetter,
-                    headType.orElse(null));
+                    headType.orElse(null),
+                    false);
             poseStack.popPose();
         }
     }

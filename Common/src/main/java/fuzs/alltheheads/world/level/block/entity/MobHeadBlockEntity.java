@@ -1,7 +1,7 @@
 package fuzs.alltheheads.world.level.block.entity;
 
 import fuzs.alltheheads.init.ModRegistry;
-import fuzs.alltheheads.world.item.component.HeadType;
+import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponentGetter;

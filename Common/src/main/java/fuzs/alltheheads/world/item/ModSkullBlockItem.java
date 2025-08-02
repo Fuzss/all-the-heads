@@ -1,7 +1,7 @@
 package fuzs.alltheheads.world.item;
 
 import fuzs.alltheheads.init.ModRegistry;
-import fuzs.alltheheads.world.item.component.HeadType;
+import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;

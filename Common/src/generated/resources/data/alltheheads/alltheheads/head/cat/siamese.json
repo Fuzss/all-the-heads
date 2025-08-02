@@ -1,0 +1,26 @@
+{
+  "custom_name": "minecraft.cat_siamese",
+  "entity_predicate": {
+    "type": "minecraft:cat",
+    "components": {
+      "minecraft:cat/variant": "minecraft:siamese"
+    },
+    "flags": {
+      "is_baby": false
+    }
+  },
+  "loot_table": "minecraft:entities/heads/cat/siamese",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/cat/siamese",
+      "model": "alltheheads:feline_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.cat.ambient",
+  "shape": {
+    "depth": 5.0,
+    "height": 4.0,
+    "scale": 1.6,
+    "width": 5.0
+  }
+}
