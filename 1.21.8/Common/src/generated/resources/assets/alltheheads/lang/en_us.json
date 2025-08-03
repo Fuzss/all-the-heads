@@ -99,6 +99,7 @@
   "block.alltheheads.mob_head.minecraft.pig_cold": "Cold Pig Head",
   "block.alltheheads.mob_head.minecraft.pig_temperate": "Temperate Pig Head",
   "block.alltheheads.mob_head.minecraft.pig_warm": "Warm Pig Head",
+  "block.alltheheads.mob_head.minecraft.piglin_brute": "Piglin Brute Head",
   "block.alltheheads.mob_head.minecraft.pillager": "Pillager Head",
   "block.alltheheads.mob_head.minecraft.ravager": "Ravager Head",
   "block.alltheheads.mob_head.minecraft.sheep_black": "Black Sheep Head",
@@ -252,6 +253,7 @@
   "block.alltheheads.mob_head.minecraft.villager_taiga_toolsmith": "Taiga Toolsmith Villager Head",
   "block.alltheheads.mob_head.minecraft.villager_taiga_weaponsmith": "Taiga Weaponsmith Villager Head",
   "block.alltheheads.mob_head.minecraft.vindicator": "Vindicator Head",
+  "block.alltheheads.mob_head.minecraft.wandering_trader": "Wandering Trader Head",
   "block.alltheheads.mob_head.minecraft.witch": "Witch Head",
   "block.alltheheads.mob_head.minecraft.wolf_ashen": "Ashen Wolf Head",
   "block.alltheheads.mob_head.minecraft.wolf_ashen_angry": "Angry Ashen Wolf Head",
@@ -386,6 +388,7 @@
   "block.alltheheads.mob_head.minecraft.zombie_villager_taiga_shepherd": "Taiga Shepherd Zombie Villager Head",
   "block.alltheheads.mob_head.minecraft.zombie_villager_taiga_toolsmith": "Taiga Toolsmith Zombie Villager Head",
   "block.alltheheads.mob_head.minecraft.zombie_villager_taiga_weaponsmith": "Taiga Weaponsmith Zombie Villager Head",
+  "block.alltheheads.mob_head.minecraft.zombified_piglin": "Zombified Piglin Head",
   "itemGroup.alltheheads.main": "All The Heads",
   "itemGroup.alltheheads.villager": "All The Villagers"
 }

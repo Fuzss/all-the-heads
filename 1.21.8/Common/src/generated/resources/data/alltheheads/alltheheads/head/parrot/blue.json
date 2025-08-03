@@ -1,0 +1,23 @@
+{
+  "custom_name": "minecraft.parrot_blue",
+  "entity_predicate": {
+    "type": "minecraft:parrot",
+    "components": {
+      "minecraft:parrot/variant": "blue"
+    }
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/parrot/blue",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/parrot/parrot_blue",
+      "model": "alltheheads:parrot_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.parrot.ambient",
+  "shape": {
+    "depth": 2.0,
+    "height": 4.0,
+    "scale": 1.5,
+    "width": 2.0
+  }
+}

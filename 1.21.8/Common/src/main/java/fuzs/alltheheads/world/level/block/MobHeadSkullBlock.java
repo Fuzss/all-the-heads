@@ -2,20 +2,30 @@ package fuzs.alltheheads.world.level.block;
 
 import fuzs.alltheheads.init.ModRegistry;
 import fuzs.alltheheads.world.level.block.entity.MobHeadBlockEntity;
+import fuzs.puzzleslib.api.block.v1.entity.TickingEntityBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.WallSkullBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.Nullable;
 
-public class MobHeadSkullBlock extends WallSkullBlock {
+public class MobHeadSkullBlock extends WallSkullBlock implements TickingEntityBlock<MobHeadBlockEntity> {
 
     public MobHeadSkullBlock(Properties properties) {
         super(ModRegistry.MOB_SKULL_BLOCK_TYPE, properties);
+    }
+
+    @Override
+    public BlockEntityType<? extends MobHeadBlockEntity> getBlockEntityType() {
+        return ModRegistry.MOB_HEAD_BLOCK_ENTITY_TYPE.value();
     }
 
     @Override
@@ -29,7 +39,12 @@ public class MobHeadSkullBlock extends WallSkullBlock {
 
     @Override
     public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-        return new MobHeadBlockEntity(blockPos, blockState);
+        return TickingEntityBlock.super.newBlockEntity(blockPos, blockState);
+    }
+
+    @Override
+    public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> blockEntityType) {
+        return TickingEntityBlock.super.getTicker(level, state, blockEntityType);
     }
 
     @Override

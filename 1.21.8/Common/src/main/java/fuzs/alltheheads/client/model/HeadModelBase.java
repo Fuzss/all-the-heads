@@ -8,6 +8,11 @@ import net.minecraft.client.model.geom.builders.PartDefinition;
 
 import java.util.function.UnaryOperator;
 
+/**
+ * The passed parameters always match the model part used as a base for the voxel shape of the block.
+ * <p>
+ * They are used to reverse the model offset and set it back to the origin.
+ */
 public abstract class HeadModelBase {
     protected static LayerDefinition createHeadLayer(LayerDefinition layerDefinition, float originX, float originY, float originZ, float dimensionX, float dimensionY, float dimensionZ) {
         return createHeadLayer(layerDefinition, "head", originX, originY, originZ, dimensionX, dimensionY, dimensionZ);

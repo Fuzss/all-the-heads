@@ -1,15 +1,15 @@
 {
   "values": [
     "alltheheads:cat/all_black",
-    "alltheheads:cat/tabby",
-    "alltheheads:cat/black",
-    "alltheheads:cat/jellie",
-    "alltheheads:cat/calico",
-    "alltheheads:cat/siamese",
-    "alltheheads:cat/persian",
     "alltheheads:cat/british_shorthair",
-    "alltheheads:cat/red",
     "alltheheads:cat/ragdoll",
-    "alltheheads:cat/white"
+    "alltheheads:cat/siamese",
+    "alltheheads:cat/white",
+    "alltheheads:cat/persian",
+    "alltheheads:cat/tabby",
+    "alltheheads:cat/jellie",
+    "alltheheads:cat/red",
+    "alltheheads:cat/black",
+    "alltheheads:cat/calico"
   ]
 }

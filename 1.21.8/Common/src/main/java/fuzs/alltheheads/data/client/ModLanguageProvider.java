@@ -2,6 +2,7 @@ package fuzs.alltheheads.data.client;
 
 import fuzs.alltheheads.AllTheHeads;
 import fuzs.alltheheads.init.*;
+import fuzs.alltheheads.init.headtype.*;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.puzzleslib.api.client.data.v2.AbstractLanguageProvider;
 import fuzs.puzzleslib.api.data.v2.core.DataProviderContext;
@@ -26,6 +27,12 @@ public class ModLanguageProvider extends AbstractLanguageProvider {
         translationBuilder.add(HeadType.customName(EntityType.RAVAGER, MonsterHeadTypes.RAVAGER), "Ravager Head");
         translationBuilder.add(HeadType.customName(EntityType.PHANTOM, MonsterHeadTypes.PHANTOM), "Phantom Head");
         translationBuilder.add(HeadType.customName(EntityType.CREAKING, MonsterHeadTypes.CREAKING), "Creaking Head");
+
+        // Piglins
+        translationBuilder.add(HeadType.customName(EntityType.ZOMBIFIED_PIGLIN, MonsterHeadTypes.ZOMBIFIED_PIGLIN),
+                "Zombified Piglin Head");
+        translationBuilder.add(HeadType.customName(EntityType.PIGLIN_BRUTE, MonsterHeadTypes.PIGLIN_BRUTE),
+                "Piglin Brute Head");
 
         // Ghasts
         translationBuilder.add(HeadType.customName(EntityType.GHAST, MonsterHeadTypes.GHAST), "Ghast Head");
@@ -58,6 +65,8 @@ public class ModLanguageProvider extends AbstractLanguageProvider {
                 "Happy Ghast Head");
         translationBuilder.add(HeadType.customName(EntityType.SNOW_GOLEM, AnimalHeadTypes.SNOW_GOLEM),
                 "Snow Golem Head");
+        translationBuilder.add(HeadType.customName(EntityType.WANDERING_TRADER, AnimalHeadTypes.WANDERING_TRADER),
+                "Wandering Trader Head");
 
         // Frogs
         translationBuilder.add(HeadType.customName(EntityType.FROG, AnimalHeadTypes.TEMPERATE_FROG),

@@ -1,0 +1,20 @@
+{
+  "custom_name": "minecraft.sniffer",
+  "entity_predicate": {
+    "type": "minecraft:sniffer"
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/sniffer",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/sniffer/sniffer",
+      "model": "alltheheads:sniffer_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.sniffer.idle",
+  "shape": {
+    "depth": 20.0,
+    "height": 14.0,
+    "scale": 0.5,
+    "width": 13.0
+  }
+}

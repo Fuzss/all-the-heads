@@ -1,0 +1,27 @@
+{
+  "custom_name": "minecraft.creeper_charged",
+  "entity_predicate": {
+    "type": "minecraft:creeper",
+    "type_specific": {
+      "type": "alltheheads:creeper",
+      "powered": true
+    }
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/creeper/charged",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/creeper/creeper"
+    },
+    {
+      "asset_id": "minecraft:entity/creeper/creeper_armor",
+      "color": -8355712,
+      "model": "alltheheads:creeper_head/charge"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.creeper.primed",
+  "shape": {
+    "depth": 8.0,
+    "height": 8.0,
+    "width": 8.0
+  }
+}
