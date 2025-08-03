@@ -1,12 +1,9 @@
 {
   "custom_name": "minecraft.turtle",
   "entity_predicate": {
-    "type": "minecraft:turtle",
-    "flags": {
-      "is_baby": false
-    }
+    "type": "minecraft:turtle"
   },
-  "loot_table": "minecraft:entities/heads/turtle",
+  "loot_table": "alltheheads:entities/heads/minecraft/turtle",
   "models": [
     {
       "asset_id": "minecraft:entity/turtle/big_sea_turtle",

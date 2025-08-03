@@ -48,6 +48,20 @@ public record ModelType(ResourceLocation model, String layer) {
     public static final ModelType TURTLE = register("turtle_head");
     public static final ModelType BAT = register("bat_head");
     public static final ModelType ALLAY = register("allay_head");
+    public static final ModelType WOLF = register("wolf_head");
+    public static final ModelType PHANTOM = register("phantom_head");
+    public static final ModelType PHANTOM_EYES = register("phantom_head", "eyes");
+    public static final ModelType IRON_GOLEM = register("iron_golem_head");
+    public static final ModelType FOX = register("fox_head");
+    public static final ModelType BEE = register("bee_head");
+    public static final ModelType HORSE = register("horse_head");
+    public static final ModelType HORSE_MARKINGS = register("horse_head", "markings");
+    public static final ModelType CAMEL = register("camel_head");
+    public static final ModelType GHAST = register("ghast_head");
+    public static final ModelType HAPPY_GHAST = register("happy_ghast_head");
+    public static final ModelType CREAKING = register("creaking_head");
+    public static final ModelType CREAKING_EYES = register("creaking_head", "eyes");
+    public static final ModelType FROG = register("frog_head");
     public static final ModelType DEFAULT = HUMANOID;
 
     private static ModelType register(String model) {

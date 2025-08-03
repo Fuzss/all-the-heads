@@ -3,7 +3,7 @@ package fuzs.alltheheads.init;
 import com.google.common.collect.ImmutableSet;
 import com.mojang.serialization.MapCodec;
 import fuzs.alltheheads.AllTheHeads;
-import fuzs.alltheheads.advancements.critereon.VillagerDataPredicate;
+import fuzs.alltheheads.advancements.critereon.*;
 import fuzs.alltheheads.world.item.MobHeadItem;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.level.block.MobHeadBlock;
@@ -70,8 +70,28 @@ public class ModRegistry {
             Registries.ENTITY_SUB_PREDICATE_TYPE,
             "villager_data",
             () -> VillagerDataPredicate.CODEC);
+    public static final Holder.Reference<MapCodec<VexPredicate>> VEX_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
+            Registries.ENTITY_SUB_PREDICATE_TYPE,
+            "vex",
+            () -> VexPredicate.CODEC);
+    public static final Holder.Reference<MapCodec<WolfPredicate>> WOLF_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
+            Registries.ENTITY_SUB_PREDICATE_TYPE,
+            "wolf",
+            () -> WolfPredicate.CODEC);
+    public static final Holder.Reference<MapCodec<BeePredicate>> BEE_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
+            Registries.ENTITY_SUB_PREDICATE_TYPE,
+            "bee",
+            () -> BeePredicate.CODEC);
+    public static final Holder.Reference<MapCodec<HorsePredicate>> HORSE_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
+            Registries.ENTITY_SUB_PREDICATE_TYPE,
+            "horse",
+            () -> HorsePredicate.CODEC);
+    public static final Holder.Reference<MapCodec<GhastPredicate>> GHAST_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
+            Registries.ENTITY_SUB_PREDICATE_TYPE,
+            "ghast",
+            () -> GhastPredicate.CODEC);
     public static final Holder.Reference<CreativeModeTab> CREATIVE_MODE_TAB = REGISTRIES.registerCreativeModeTab("main",
-            () -> createDisplayItemStack(HeadTypes.BLAZE),
+            () -> createDisplayItemStack(MonsterHeadTypes.BLAZE),
             (CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output output) -> {
                 output.accept(Items.SKELETON_SKULL);
                 output.accept(Items.WITHER_SKELETON_SKULL);

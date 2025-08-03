@@ -1,0 +1,23 @@
+{
+  "custom_name": "minecraft.frog_warm",
+  "entity_predicate": {
+    "type": "minecraft:frog",
+    "components": {
+      "minecraft:frog/variant": "minecraft:warm"
+    }
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/frog/warm",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/frog/warm_frog",
+      "model": "alltheheads:frog_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.frog.ambient",
+  "shape": {
+    "depth": 5.0,
+    "height": 5.0,
+    "scale": 1.1428571428571428,
+    "width": 7.0
+  }
+}

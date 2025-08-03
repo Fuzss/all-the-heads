@@ -49,8 +49,14 @@ public class MobHeadBlockEntity extends SkullBlockEntity {
 
     @Override
     public @Nullable ResourceLocation getNoteBlockSound() {
-        return this.headType != null ?
-                this.headType.value().noteBlockSound().map(Holder::value).map(SoundEvent::location).orElse(null) : null;
+        ResourceLocation noteBlockSound = super.getNoteBlockSound();
+        if (noteBlockSound != null) {
+            return noteBlockSound;
+        } else if (this.headType != null) {
+            return this.headType.value().noteBlockSound().map(Holder::value).map(SoundEvent::location).orElse(null);
+        } else {
+            return null;
+        }
     }
 
     @Override

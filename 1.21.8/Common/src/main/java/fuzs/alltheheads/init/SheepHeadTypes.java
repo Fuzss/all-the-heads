@@ -81,10 +81,6 @@ public class SheepHeadTypes {
         bootstrapSheep(context, DyeColor.BLACK, BLACK_SHEEP, BLACK_WOOLLY_SHEEP);
     }
 
-    private static ResourceKey<HeadType> register(String path) {
-        return HeadTypes.register(path);
-    }
-
     private static void bootstrapSheep(BootstrapContext<HeadType> context, DyeColor dyeColor, ResourceKey<HeadType> sheep, ResourceKey<HeadType> woollySheep) {
         bootstrapSheep(context, dyeColor, sheep);
         bootstrapWoollySheep(context, dyeColor, woollySheep);
@@ -140,5 +136,9 @@ public class SheepHeadTypes {
                     Mth.floor(ARGB.green(textureDiffuseColor) * brightness),
                     Mth.floor(ARGB.blue(textureDiffuseColor) * brightness));
         }
+    }
+
+    private static ResourceKey<HeadType> register(String path) {
+        return HeadTypes.register(path);
     }
 }

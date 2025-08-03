@@ -1,12 +1,9 @@
 {
   "custom_name": "minecraft.allay",
   "entity_predicate": {
-    "type": "minecraft:allay",
-    "flags": {
-      "is_baby": false
-    }
+    "type": "minecraft:allay"
   },
-  "loot_table": "minecraft:entities/heads/allay",
+  "loot_table": "alltheheads:entities/heads/minecraft/allay",
   "models": [
     {
       "asset_id": "minecraft:entity/allay/allay",

@@ -1,12 +1,9 @@
 {
   "custom_name": "minecraft.vindicator",
   "entity_predicate": {
-    "type": "minecraft:vindicator",
-    "flags": {
-      "is_baby": false
-    }
+    "type": "minecraft:vindicator"
   },
-  "loot_table": "minecraft:entities/heads/vindicator",
+  "loot_table": "alltheheads:entities/heads/minecraft/vindicator",
   "models": [
     {
       "asset_id": "minecraft:entity/illager/vindicator",

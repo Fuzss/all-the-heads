@@ -1,0 +1,24 @@
+{
+  "custom_name": "minecraft.ghast",
+  "entity_predicate": {
+    "type": "minecraft:ghast",
+    "type_specific": {
+      "type": "alltheheads:ghast",
+      "charging": false
+    }
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/ghast",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/ghast/ghast",
+      "model": "alltheheads:ghast_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.ghast.ambient",
+  "shape": {
+    "depth": 16.0,
+    "height": 16.0,
+    "scale": 0.5,
+    "width": 16.0
+  }
+}

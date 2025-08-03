@@ -1,12 +1,9 @@
 {
   "custom_name": "minecraft.drowned",
   "entity_predicate": {
-    "type": "minecraft:drowned",
-    "flags": {
-      "is_baby": false
-    }
+    "type": "minecraft:drowned"
   },
-  "loot_table": "minecraft:entities/heads/drowned",
+  "loot_table": "alltheheads:entities/heads/minecraft/drowned",
   "models": [
     {
       "asset_id": "minecraft:entity/zombie/drowned",

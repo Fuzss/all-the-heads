@@ -2,16 +2,13 @@
   "custom_name": "minecraft.zombie_villager_desert_fisherman",
   "entity_predicate": {
     "type": "minecraft:zombie_villager",
-    "flags": {
-      "is_baby": false
-    },
     "type_specific": {
       "type": "alltheheads:villager_data",
       "villager_profession": "minecraft:fisherman",
       "villager_type": "minecraft:desert"
     }
   },
-  "loot_table": "minecraft:entities/heads/zombie_villager/desert/fisherman",
+  "loot_table": "alltheheads:entities/heads/minecraft/zombie_villager/desert/fisherman",
   "models": [
     {
       "asset_id": "minecraft:entity/zombie_villager/zombie_villager",

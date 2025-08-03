@@ -1,6 +1,7 @@
 package fuzs.alltheheads.handler;
 
 import com.google.common.base.Suppliers;
+import fuzs.alltheheads.data.tags.ModHeadTypeTagsProvider;
 import fuzs.alltheheads.init.ModRegistry;
 import fuzs.alltheheads.world.item.MobHeadItem;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
@@ -14,32 +15,23 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.NestedLootTable;
-import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
 
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 public class HeadLootHandler {
     private static final Supplier<Map<ResourceLocation, TagKey<HeadType>>> HEAD_TAGS = Suppliers.memoize(() -> {
-        Map<ResourceLocation, TagKey<HeadType>> map = new HashMap<>();
-        for (EntityType<?> entityType : BuiltInRegistries.ENTITY_TYPE) {
-            if (entityType.getDefaultLootTable().isPresent()) {
-                ResourceLocation resourceLocation = entityType.getDefaultLootTable().get().location();
-                map.put(resourceLocation, TagKey.create(ModRegistry.HEAD_REGISTRY_KEY, resourceLocation));
-            }
-        }
-        return map;
+        return ModHeadTypeTagsProvider.getDefaultLootTables(BuiltInRegistries.ENTITY_TYPE.stream())
+                .collect(Collectors.toMap(ResourceKey::location, ModHeadTypeTagsProvider::getHeadTypeTagKey));
     });
 
     public static EventResult onLivingDrops(LivingEntity livingEntity, DamageSource damageSource, Collection<ItemEntity> itemDrops, boolean recentlyHit) {
@@ -70,9 +62,7 @@ public class HeadLootHandler {
                         holderSet.forEach((Holder<HeadType> headType) -> {
                             headType.value().loot().lootTable().ifPresent((ResourceKey<LootTable> resourceKey) -> {
                                 lootTable.withPool(LootPool.lootPool()
-                                        .add(NestedLootTable.lootTableReference(resourceKey)
-                                                .when(LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS,
-                                                        headType.value().entityPredicate()))));
+                                        .add(NestedLootTable.lootTableReference(resourceKey)));
                             });
                         });
                     });

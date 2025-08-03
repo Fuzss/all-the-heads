@@ -263,10 +263,6 @@ public class VillagerHeadTypes {
         bootstrapVillager(context, VillagerType.TAIGA, VillagerProfession.WEAPONSMITH, TAIGA_WEAPONSMITH_VILLAGER);
     }
 
-    private static ResourceKey<HeadType> register(String path) {
-        return HeadTypes.register(path);
-    }
-
     private static void bootstrapVillager(BootstrapContext<HeadType> context, ResourceKey<VillagerType> type, ResourceKey<HeadType> resourceKey) {
         HeadType.builder(EntityType.VILLAGER)
                 .entityPredicate((EntityPredicate.Builder builder) -> {
@@ -295,5 +291,9 @@ public class VillagerHeadTypes {
                 .model(ModelType.VILLAGER, profession.location().withPrefix("entity/villager/profession/"))
                 .noteBlockSound(SoundEvents.VILLAGER_AMBIENT)
                 .build(context, resourceKey);
+    }
+
+    private static ResourceKey<HeadType> register(String path) {
+        return HeadTypes.register(path);
     }
 }

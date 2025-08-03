@@ -1,12 +1,9 @@
 {
   "custom_name": "minecraft.enderman",
   "entity_predicate": {
-    "type": "minecraft:enderman",
-    "flags": {
-      "is_baby": false
-    }
+    "type": "minecraft:enderman"
   },
-  "loot_table": "minecraft:entities/heads/enderman",
+  "loot_table": "alltheheads:entities/heads/minecraft/enderman",
   "models": [
     {
       "asset_id": "minecraft:entity/enderman/enderman",

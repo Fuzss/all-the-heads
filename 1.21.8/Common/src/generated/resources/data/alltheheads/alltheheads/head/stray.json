@@ -1,12 +1,9 @@
 {
   "custom_name": "minecraft.stray",
   "entity_predicate": {
-    "type": "minecraft:stray",
-    "flags": {
-      "is_baby": false
-    }
+    "type": "minecraft:stray"
   },
-  "loot_table": "minecraft:entities/heads/stray",
+  "loot_table": "alltheheads:entities/heads/minecraft/stray",
   "models": [
     {
       "asset_id": "minecraft:entity/skeleton/stray"

@@ -1,12 +1,9 @@
 {
   "custom_name": "minecraft.ocelot",
   "entity_predicate": {
-    "type": "minecraft:ocelot",
-    "flags": {
-      "is_baby": false
-    }
+    "type": "minecraft:ocelot"
   },
-  "loot_table": "minecraft:entities/heads/ocelot",
+  "loot_table": "alltheheads:entities/heads/minecraft/ocelot",
   "models": [
     {
       "asset_id": "minecraft:entity/cat/ocelot",

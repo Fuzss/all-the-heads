@@ -20,105 +20,240 @@ public class ModLanguageProvider extends AbstractLanguageProvider {
         translationBuilder.add(ModRegistry.MOB_HEAD_BLOCK.value(), "Mob Head");
 
         // Monsters
-        translationBuilder.add(HeadType.customName(EntityType.ENDERMAN, HeadTypes.ENDERMAN), "Enderman Head");
-        translationBuilder.add(HeadType.customName(EntityType.BLAZE, HeadTypes.BLAZE), "Blaze Head");
-        translationBuilder.add(HeadType.customName(EntityType.WITCH, HeadTypes.WITCH), "Witch Head");
-        translationBuilder.add(HeadType.customName(EntityType.RAVAGER, HeadTypes.RAVAGER), "Ravager Head");
+        translationBuilder.add(HeadType.customName(EntityType.ENDERMAN, MonsterHeadTypes.ENDERMAN), "Enderman Head");
+        translationBuilder.add(HeadType.customName(EntityType.BLAZE, MonsterHeadTypes.BLAZE), "Blaze Head");
+        translationBuilder.add(HeadType.customName(EntityType.WITCH, MonsterHeadTypes.WITCH), "Witch Head");
+        translationBuilder.add(HeadType.customName(EntityType.RAVAGER, MonsterHeadTypes.RAVAGER), "Ravager Head");
+        translationBuilder.add(HeadType.customName(EntityType.PHANTOM, MonsterHeadTypes.PHANTOM), "Phantom Head");
+        translationBuilder.add(HeadType.customName(EntityType.CREAKING, MonsterHeadTypes.CREAKING), "Creaking Head");
+
+        // Ghasts
+        translationBuilder.add(HeadType.customName(EntityType.GHAST, MonsterHeadTypes.GHAST), "Ghast Head");
+        translationBuilder.add(HeadType.customName(EntityType.GHAST, MonsterHeadTypes.CHARGING_GHAST),
+                "Charging Ghast Head");
 
         // Zombies
-        translationBuilder.add(HeadType.customName(EntityType.HUSK, HeadTypes.HUSK), "Husk Head");
-        translationBuilder.add(HeadType.customName(EntityType.DROWNED, HeadTypes.DROWNED), "Drowned Head");
+        translationBuilder.add(HeadType.customName(EntityType.HUSK, MonsterHeadTypes.HUSK), "Husk Head");
+        translationBuilder.add(HeadType.customName(EntityType.DROWNED, MonsterHeadTypes.DROWNED), "Drowned Head");
 
         // Skeletons
-        translationBuilder.add(HeadType.customName(EntityType.STRAY, HeadTypes.STRAY), "Stray Head");
-        translationBuilder.add(HeadType.customName(EntityType.BOGGED, HeadTypes.BOGGED), "Bogged Head");
+        translationBuilder.add(HeadType.customName(EntityType.STRAY, MonsterHeadTypes.STRAY), "Stray Head");
+        translationBuilder.add(HeadType.customName(EntityType.BOGGED, MonsterHeadTypes.BOGGED), "Bogged Head");
 
         // Slimes
-        translationBuilder.add(HeadType.customName(EntityType.SLIME, HeadTypes.SLIME), "Slime Head");
-        translationBuilder.add(HeadType.customName(EntityType.MAGMA_CUBE, HeadTypes.MAGMA_CUBE), "Magma Cube Head");
+        translationBuilder.add(HeadType.customName(EntityType.SLIME, MonsterHeadTypes.SLIME), "Slime Head");
+        translationBuilder.add(HeadType.customName(EntityType.MAGMA_CUBE, MonsterHeadTypes.MAGMA_CUBE),
+                "Magma Cube Head");
 
         // Animals
-        translationBuilder.add(HeadType.customName(EntityType.DOLPHIN, HeadTypes.DOLPHIN), "Dolphin Head");
-        translationBuilder.add(HeadType.customName(EntityType.GOAT, HeadTypes.GOAT), "Goat Head");
-        translationBuilder.add(HeadType.customName(EntityType.TURTLE, HeadTypes.TURTLE), "Turtle Head");
-        translationBuilder.add(HeadType.customName(EntityType.BAT, HeadTypes.BAT), "Bat Head");
-        translationBuilder.add(HeadType.customName(EntityType.ALLAY, HeadTypes.ALLAY), "Allay Head");
+        translationBuilder.add(HeadType.customName(EntityType.DOLPHIN, AnimalHeadTypes.DOLPHIN), "Dolphin Head");
+        translationBuilder.add(HeadType.customName(EntityType.GOAT, AnimalHeadTypes.GOAT), "Goat Head");
+        translationBuilder.add(HeadType.customName(EntityType.TURTLE, AnimalHeadTypes.TURTLE), "Turtle Head");
+        translationBuilder.add(HeadType.customName(EntityType.BAT, AnimalHeadTypes.BAT), "Bat Head");
+        translationBuilder.add(HeadType.customName(EntityType.ALLAY, AnimalHeadTypes.ALLAY), "Allay Head");
+        translationBuilder.add(HeadType.customName(EntityType.IRON_GOLEM, AnimalHeadTypes.IRON_GOLEM),
+                "Iron Golem Head");
+        translationBuilder.add(HeadType.customName(EntityType.CAMEL, AnimalHeadTypes.CAMEL), "Camel Head");
+        translationBuilder.add(HeadType.customName(EntityType.HAPPY_GHAST, AnimalHeadTypes.HAPPY_GHAST),
+                "Happy Ghast Head");
+        translationBuilder.add(HeadType.customName(EntityType.SNOW_GOLEM, AnimalHeadTypes.SNOW_GOLEM),
+                "Snow Golem Head");
+
+        // Frogs
+        translationBuilder.add(HeadType.customName(EntityType.FROG, AnimalHeadTypes.TEMPERATE_FROG),
+                "Temperate Frog Head");
+        translationBuilder.add(HeadType.customName(EntityType.FROG, AnimalHeadTypes.WARM_FROG), "Warm Frog Head");
+        translationBuilder.add(HeadType.customName(EntityType.FROG, AnimalHeadTypes.COLD_FROG), "Cold Frog Head");
+
+        // Horses
+        translationBuilder.add(HeadType.customName(EntityType.SKELETON_HORSE, HorseHeadTypes.SKELETON_HORSE),
+                "Skeleton Horse Head");
+        translationBuilder.add(HeadType.customName(EntityType.ZOMBIE_HORSE, HorseHeadTypes.ZOMBIE_HORSE),
+                "Zombie Horse Head");
+        translationBuilder.add(HeadType.customName(EntityType.DONKEY, HorseHeadTypes.DONKEY), "Donkey Head");
+        translationBuilder.add(HeadType.customName(EntityType.MULE, HorseHeadTypes.MULE), "Mule Head");
+
+        // White Horses
+        translationBuilder.add(HeadType.customName(EntityType.HORSE, HorseHeadTypes.WHITE_HORSE), "White Horse Head");
+        translationBuilder.add(HeadType.customName(EntityType.HORSE, HorseHeadTypes.WHITE_WHITE_HORSE),
+                "White Blaze White Horse Head");
+        translationBuilder.add(HeadType.customName(EntityType.HORSE, HorseHeadTypes.WHITE_FIELD_WHITE_HORSE),
+                "White Field White Horse Head");
+        translationBuilder.add(HeadType.customName(EntityType.HORSE, HorseHeadTypes.WHITE_DOTS_WHITE_HORSE),
+                "White Spots White Horse Head");
+        translationBuilder.add(HeadType.customName(EntityType.HORSE, HorseHeadTypes.BLACK_DOTS_WHITE_HORSE),
+                "Black Dots White Horse Head");
+
+        // Creamy Horses
+        translationBuilder.add(HeadType.customName(EntityType.HORSE, HorseHeadTypes.CREAMY_HORSE), "Creamy Horse Head");
+        translationBuilder.add(HeadType.customName(EntityType.HORSE, HorseHeadTypes.WHITE_CREAMY_HORSE),
+                "White Blaze Creamy Horse Head");
+        translationBuilder.add(HeadType.customName(EntityType.HORSE, HorseHeadTypes.WHITE_FIELD_CREAMY_HORSE),
+                "White Field Creamy Horse Head");
+        translationBuilder.add(HeadType.customName(EntityType.HORSE, HorseHeadTypes.WHITE_DOTS_CREAMY_HORSE),
+                "White Spots Creamy Horse Head");
+        translationBuilder.add(HeadType.customName(EntityType.HORSE, HorseHeadTypes.BLACK_DOTS_CREAMY_HORSE),
+                "Black Dots Creamy Horse Head");
+
+        // Chestnut Horses
+        translationBuilder.add(HeadType.customName(EntityType.HORSE, HorseHeadTypes.CHESTNUT_HORSE),
+                "Chestnut Horse Head");
+        translationBuilder.add(HeadType.customName(EntityType.HORSE, HorseHeadTypes.WHITE_CHESTNUT_HORSE),
+                "White Blaze Chestnut Horse Head");
+        translationBuilder.add(HeadType.customName(EntityType.HORSE, HorseHeadTypes.WHITE_FIELD_CHESTNUT_HORSE),
+                "White Field Chestnut Horse Head");
+        translationBuilder.add(HeadType.customName(EntityType.HORSE, HorseHeadTypes.WHITE_DOTS_CHESTNUT_HORSE),
+                "White Spots Chestnut Horse Head");
+        translationBuilder.add(HeadType.customName(EntityType.HORSE, HorseHeadTypes.BLACK_DOTS_CHESTNUT_HORSE),
+                "Black Dots Chestnut Horse Head");
+
+        // Brown Horses
+        translationBuilder.add(HeadType.customName(EntityType.HORSE, HorseHeadTypes.BROWN_HORSE), "Brown Horse Head");
+        translationBuilder.add(HeadType.customName(EntityType.HORSE, HorseHeadTypes.WHITE_BROWN_HORSE),
+                "White Blaze Brown Horse Head");
+        translationBuilder.add(HeadType.customName(EntityType.HORSE, HorseHeadTypes.WHITE_FIELD_BROWN_HORSE),
+                "White Field Brown Horse Head");
+        translationBuilder.add(HeadType.customName(EntityType.HORSE, HorseHeadTypes.WHITE_DOTS_BROWN_HORSE),
+                "White Spots Brown Horse Head");
+        translationBuilder.add(HeadType.customName(EntityType.HORSE, HorseHeadTypes.BLACK_DOTS_BROWN_HORSE),
+                "Black Dots Brown Horse Head");
+
+        // Black Horses
+        translationBuilder.add(HeadType.customName(EntityType.HORSE, HorseHeadTypes.BLACK_HORSE), "Black Horse Head");
+        translationBuilder.add(HeadType.customName(EntityType.HORSE, HorseHeadTypes.WHITE_BLACK_HORSE),
+                "White Blaze Black Horse Head");
+        translationBuilder.add(HeadType.customName(EntityType.HORSE, HorseHeadTypes.WHITE_FIELD_BLACK_HORSE),
+                "White Field Black Horse Head");
+        translationBuilder.add(HeadType.customName(EntityType.HORSE, HorseHeadTypes.WHITE_DOTS_BLACK_HORSE),
+                "White Spots Black Horse Head");
+        translationBuilder.add(HeadType.customName(EntityType.HORSE, HorseHeadTypes.BLACK_DOTS_BLACK_HORSE),
+                "Black Dots Black Horse Head");
+
+        // Gray Horses
+        translationBuilder.add(HeadType.customName(EntityType.HORSE, HorseHeadTypes.GRAY_HORSE), "Gray Horse Head");
+        translationBuilder.add(HeadType.customName(EntityType.HORSE, HorseHeadTypes.WHITE_GRAY_HORSE),
+                "White Blaze Gray Horse Head");
+        translationBuilder.add(HeadType.customName(EntityType.HORSE, HorseHeadTypes.WHITE_FIELD_GRAY_HORSE),
+                "White Field Gray Horse Head");
+        translationBuilder.add(HeadType.customName(EntityType.HORSE, HorseHeadTypes.WHITE_DOTS_GRAY_HORSE),
+                "White Spots Gray Horse Head");
+        translationBuilder.add(HeadType.customName(EntityType.HORSE, HorseHeadTypes.BLACK_DOTS_GRAY_HORSE),
+                "Black Dots Gray Horse Head");
+
+        // Dark Brown Horses
+        translationBuilder.add(HeadType.customName(EntityType.HORSE, HorseHeadTypes.DARK_BROWN_HORSE),
+                "Dark Brown Horse Head");
+        translationBuilder.add(HeadType.customName(EntityType.HORSE, HorseHeadTypes.WHITE_DARK_BROWN_HORSE),
+                "White Blaze Dark Brown Horse Head");
+        translationBuilder.add(HeadType.customName(EntityType.HORSE, HorseHeadTypes.WHITE_FIELD_DARK_BROWN_HORSE),
+                "White Field Dark Brown Horse Head");
+        translationBuilder.add(HeadType.customName(EntityType.HORSE, HorseHeadTypes.WHITE_DOTS_DARK_BROWN_HORSE),
+                "White Spots Dark Brown Horse Head");
+        translationBuilder.add(HeadType.customName(EntityType.HORSE, HorseHeadTypes.BLACK_DOTS_DARK_BROWN_HORSE),
+                "Black Dots Dark Brown Horse Head");
+
+        // Foxes
+        translationBuilder.add(HeadType.customName(EntityType.FOX, AnimalHeadTypes.FOX), "Fox Head");
+        translationBuilder.add(HeadType.customName(EntityType.FOX, AnimalHeadTypes.SNOW_FOX), "Snow Fox Head");
+
+        // Bees
+        translationBuilder.add(HeadType.customName(EntityType.BEE, AnimalHeadTypes.BEE), "Bee Head");
+        translationBuilder.add(HeadType.customName(EntityType.BEE, AnimalHeadTypes.POLLINATED_BEE),
+                "Pollinated Bee Head");
+        translationBuilder.add(HeadType.customName(EntityType.BEE, AnimalHeadTypes.ANGRY_BEE), "Angry Bee Head");
+        translationBuilder.add(HeadType.customName(EntityType.BEE, AnimalHeadTypes.POLLINATED_ANGRY_BEE),
+                "Pollinated Angry Bee Head");
 
         // Llamas
-        translationBuilder.add(HeadType.customName(EntityType.LLAMA, HeadTypes.CREAMY_LLAMA), "Creamy Llama Head");
-        translationBuilder.add(HeadType.customName(EntityType.LLAMA, HeadTypes.WHITE_LLAMA), "White Llama Head");
-        translationBuilder.add(HeadType.customName(EntityType.LLAMA, HeadTypes.BROWN_LLAMA), "Brown Llama Head");
-        translationBuilder.add(HeadType.customName(EntityType.LLAMA, HeadTypes.GRAY_LLAMA), "Gray Llama Head");
-        translationBuilder.add(HeadType.customName(EntityType.TRADER_LLAMA, HeadTypes.CREAMY_TRADER_LLAMA),
+        translationBuilder.add(HeadType.customName(EntityType.LLAMA, AnimalHeadTypes.CREAMY_LLAMA),
+                "Creamy Llama Head");
+        translationBuilder.add(HeadType.customName(EntityType.LLAMA, AnimalHeadTypes.WHITE_LLAMA), "White Llama Head");
+        translationBuilder.add(HeadType.customName(EntityType.LLAMA, AnimalHeadTypes.BROWN_LLAMA), "Brown Llama Head");
+        translationBuilder.add(HeadType.customName(EntityType.LLAMA, AnimalHeadTypes.GRAY_LLAMA), "Gray Llama Head");
+        translationBuilder.add(HeadType.customName(EntityType.TRADER_LLAMA, AnimalHeadTypes.CREAMY_TRADER_LLAMA),
                 "Creamy Trader Llama Head");
-        translationBuilder.add(HeadType.customName(EntityType.TRADER_LLAMA, HeadTypes.WHITE_TRADER_LLAMA),
+        translationBuilder.add(HeadType.customName(EntityType.TRADER_LLAMA, AnimalHeadTypes.WHITE_TRADER_LLAMA),
                 "White Trader Llama Head");
-        translationBuilder.add(HeadType.customName(EntityType.TRADER_LLAMA, HeadTypes.BROWN_TRADER_LLAMA),
+        translationBuilder.add(HeadType.customName(EntityType.TRADER_LLAMA, AnimalHeadTypes.BROWN_TRADER_LLAMA),
                 "Brown Trader Llama Head");
-        translationBuilder.add(HeadType.customName(EntityType.TRADER_LLAMA, HeadTypes.GRAY_TRADER_LLAMA),
+        translationBuilder.add(HeadType.customName(EntityType.TRADER_LLAMA, AnimalHeadTypes.GRAY_TRADER_LLAMA),
                 "Gray Trader Llama Head");
 
         // Spiders
-        translationBuilder.add(HeadType.customName(EntityType.SPIDER, HeadTypes.SPIDER), "Spider Head");
-        translationBuilder.add(HeadType.customName(EntityType.CAVE_SPIDER, HeadTypes.CAVE_SPIDER), "Cave Spider Head");
+        translationBuilder.add(HeadType.customName(EntityType.SPIDER, MonsterHeadTypes.SPIDER), "Spider Head");
+        translationBuilder.add(HeadType.customName(EntityType.CAVE_SPIDER, MonsterHeadTypes.CAVE_SPIDER),
+                "Cave Spider Head");
 
         // Vexes
-        translationBuilder.add(HeadType.customName(EntityType.VEX, HeadTypes.VEX), "Vex Head");
-        translationBuilder.add(HeadType.customName(EntityType.VEX, HeadTypes.CHARGING_VEX), "Charging Vex Head");
+        translationBuilder.add(HeadType.customName(EntityType.VEX, MonsterHeadTypes.VEX), "Vex Head");
+        translationBuilder.add(HeadType.customName(EntityType.VEX, MonsterHeadTypes.CHARGING_VEX), "Charging Vex Head");
 
         // Illagers
-        translationBuilder.add(HeadType.customName(EntityType.VINDICATOR, HeadTypes.VINDICATOR), "Vindicator Head");
-        translationBuilder.add(HeadType.customName(EntityType.EVOKER, HeadTypes.EVOKER), "Evoker Head");
-        translationBuilder.add(HeadType.customName(EntityType.PILLAGER, HeadTypes.PILLAGER), "Pillager Head");
-        translationBuilder.add(HeadType.customName(EntityType.ILLUSIONER, HeadTypes.ILLUSIONER), "Illusioner Head");
+        translationBuilder.add(HeadType.customName(EntityType.VINDICATOR, MonsterHeadTypes.VINDICATOR),
+                "Vindicator Head");
+        translationBuilder.add(HeadType.customName(EntityType.EVOKER, MonsterHeadTypes.EVOKER), "Evoker Head");
+        translationBuilder.add(HeadType.customName(EntityType.PILLAGER, MonsterHeadTypes.PILLAGER), "Pillager Head");
+        translationBuilder.add(HeadType.customName(EntityType.ILLUSIONER, MonsterHeadTypes.ILLUSIONER),
+                "Illusioner Head");
 
         // Squid
-        translationBuilder.add(HeadType.customName(EntityType.SQUID, HeadTypes.SQUID), "Squid Head");
-        translationBuilder.add(HeadType.customName(EntityType.GLOW_SQUID, HeadTypes.GLOW_SQUID), "Glow Squid Head");
+        translationBuilder.add(HeadType.customName(EntityType.SQUID, AnimalHeadTypes.SQUID), "Squid Head");
+        translationBuilder.add(HeadType.customName(EntityType.GLOW_SQUID, AnimalHeadTypes.GLOW_SQUID),
+                "Glow Squid Head");
 
         // Cows
-        translationBuilder.add(HeadType.customName(EntityType.COW, HeadTypes.TEMPERATE_COW), "Temperate Cow Head");
-        translationBuilder.add(HeadType.customName(EntityType.COW, HeadTypes.WARM_COW), "Warm Cow Head");
-        translationBuilder.add(HeadType.customName(EntityType.COW, HeadTypes.COLD_COW), "Cold Cow Head");
+        translationBuilder.add(HeadType.customName(EntityType.COW, AnimalHeadTypes.TEMPERATE_COW),
+                "Temperate Cow Head");
+        translationBuilder.add(HeadType.customName(EntityType.COW, AnimalHeadTypes.WARM_COW), "Warm Cow Head");
+        translationBuilder.add(HeadType.customName(EntityType.COW, AnimalHeadTypes.COLD_COW), "Cold Cow Head");
 
         // Mooshrooms
-        translationBuilder.add(HeadType.customName(EntityType.MOOSHROOM, HeadTypes.RED_MOOSHROOM),
+        translationBuilder.add(HeadType.customName(EntityType.MOOSHROOM, AnimalHeadTypes.RED_MOOSHROOM),
                 "Red Mooshroom Head");
-        translationBuilder.add(HeadType.customName(EntityType.MOOSHROOM, HeadTypes.BROWN_MOOSHROOM),
+        translationBuilder.add(HeadType.customName(EntityType.MOOSHROOM, AnimalHeadTypes.BROWN_MOOSHROOM),
                 "Brown Mooshroom Head");
 
         // Chickens
-        translationBuilder.add(HeadType.customName(EntityType.CHICKEN, HeadTypes.TEMPERATE_CHICKEN),
+        translationBuilder.add(HeadType.customName(EntityType.CHICKEN, AnimalHeadTypes.TEMPERATE_CHICKEN),
                 "Temperate Chicken Head");
-        translationBuilder.add(HeadType.customName(EntityType.CHICKEN, HeadTypes.WARM_CHICKEN), "Warm Chicken Head");
-        translationBuilder.add(HeadType.customName(EntityType.CHICKEN, HeadTypes.COLD_CHICKEN), "Cold Chicken Head");
+        translationBuilder.add(HeadType.customName(EntityType.CHICKEN, AnimalHeadTypes.WARM_CHICKEN),
+                "Warm Chicken Head");
+        translationBuilder.add(HeadType.customName(EntityType.CHICKEN, AnimalHeadTypes.COLD_CHICKEN),
+                "Cold Chicken Head");
 
         // Pigs
-        translationBuilder.add(HeadType.customName(EntityType.PIG, HeadTypes.TEMPERATE_PIG), "Temperate Pig Head");
-        translationBuilder.add(HeadType.customName(EntityType.PIG, HeadTypes.WARM_PIG), "Warm Pig Head");
-        translationBuilder.add(HeadType.customName(EntityType.PIG, HeadTypes.COLD_PIG), "Cold Pig Head");
+        translationBuilder.add(HeadType.customName(EntityType.PIG, AnimalHeadTypes.TEMPERATE_PIG),
+                "Temperate Pig Head");
+        translationBuilder.add(HeadType.customName(EntityType.PIG, AnimalHeadTypes.WARM_PIG), "Warm Pig Head");
+        translationBuilder.add(HeadType.customName(EntityType.PIG, AnimalHeadTypes.COLD_PIG), "Cold Pig Head");
 
         // Cats
-        translationBuilder.add(HeadType.customName(EntityType.OCELOT, HeadTypes.OCELOT), "Ocelot Head");
-        translationBuilder.add(HeadType.customName(EntityType.CAT, HeadTypes.TABBY_CAT), "Tabby Cat Head");
-        translationBuilder.add(HeadType.customName(EntityType.CAT, HeadTypes.BLACK_CAT), "Black Cat Head");
-        translationBuilder.add(HeadType.customName(EntityType.CAT, HeadTypes.RED_CAT), "Red Cat Head");
-        translationBuilder.add(HeadType.customName(EntityType.CAT, HeadTypes.SIAMESE_CAT), "Siamese Cat Head");
-        translationBuilder.add(HeadType.customName(EntityType.CAT, HeadTypes.BRITISH_SHORTHAIR_CAT),
+        translationBuilder.add(HeadType.customName(EntityType.OCELOT, AnimalHeadTypes.OCELOT), "Ocelot Head");
+        translationBuilder.add(HeadType.customName(EntityType.CAT, AnimalHeadTypes.TABBY_CAT), "Tabby Cat Head");
+        translationBuilder.add(HeadType.customName(EntityType.CAT, AnimalHeadTypes.BLACK_CAT), "Black Cat Head");
+        translationBuilder.add(HeadType.customName(EntityType.CAT, AnimalHeadTypes.RED_CAT), "Red Cat Head");
+        translationBuilder.add(HeadType.customName(EntityType.CAT, AnimalHeadTypes.SIAMESE_CAT), "Siamese Cat Head");
+        translationBuilder.add(HeadType.customName(EntityType.CAT, AnimalHeadTypes.BRITISH_SHORTHAIR_CAT),
                 "British Shorthair Cat Head");
-        translationBuilder.add(HeadType.customName(EntityType.CAT, HeadTypes.CALICO_CAT), "Calico Cat Head");
-        translationBuilder.add(HeadType.customName(EntityType.CAT, HeadTypes.PERSIAN_CAT), "Persian Cat Head");
-        translationBuilder.add(HeadType.customName(EntityType.CAT, HeadTypes.RAGDOLL_CAT), "Ragdoll Cat Head");
-        translationBuilder.add(HeadType.customName(EntityType.CAT, HeadTypes.WHITE_CAT), "White Cat Head");
-        translationBuilder.add(HeadType.customName(EntityType.CAT, HeadTypes.JELLIE_CAT), "Jellie Cat Head");
-        translationBuilder.add(HeadType.customName(EntityType.CAT, HeadTypes.ALL_BLACK_CAT), "All Black Cat Head");
+        translationBuilder.add(HeadType.customName(EntityType.CAT, AnimalHeadTypes.CALICO_CAT), "Calico Cat Head");
+        translationBuilder.add(HeadType.customName(EntityType.CAT, AnimalHeadTypes.PERSIAN_CAT), "Persian Cat Head");
+        translationBuilder.add(HeadType.customName(EntityType.CAT, AnimalHeadTypes.RAGDOLL_CAT), "Ragdoll Cat Head");
+        translationBuilder.add(HeadType.customName(EntityType.CAT, AnimalHeadTypes.WHITE_CAT), "White Cat Head");
+        translationBuilder.add(HeadType.customName(EntityType.CAT, AnimalHeadTypes.JELLIE_CAT), "Jellie Cat Head");
+        translationBuilder.add(HeadType.customName(EntityType.CAT, AnimalHeadTypes.ALL_BLACK_CAT),
+                "All Black Cat Head");
 
         // Axolotls
-        translationBuilder.add(HeadType.customName(EntityType.AXOLOTL, HeadTypes.LUCY_AXOLOTL), "Lucy Axolotl Head");
-        translationBuilder.add(HeadType.customName(EntityType.AXOLOTL, HeadTypes.WILD_AXOLOTL), "Wild Axolotl Head");
-        translationBuilder.add(HeadType.customName(EntityType.AXOLOTL, HeadTypes.GOLD_AXOLOTL), "Gold Axolotl Head");
-        translationBuilder.add(HeadType.customName(EntityType.AXOLOTL, HeadTypes.CYAN_AXOLOTL), "Cyan Axolotl Head");
-        translationBuilder.add(HeadType.customName(EntityType.AXOLOTL, HeadTypes.BLUE_AXOLOTL), "Blue Axolotl Head");
+        translationBuilder.add(HeadType.customName(EntityType.AXOLOTL, AnimalHeadTypes.LUCY_AXOLOTL),
+                "Lucy Axolotl Head");
+        translationBuilder.add(HeadType.customName(EntityType.AXOLOTL, AnimalHeadTypes.WILD_AXOLOTL),
+                "Wild Axolotl Head");
+        translationBuilder.add(HeadType.customName(EntityType.AXOLOTL, AnimalHeadTypes.GOLD_AXOLOTL),
+                "Gold Axolotl Head");
+        translationBuilder.add(HeadType.customName(EntityType.AXOLOTL, AnimalHeadTypes.CYAN_AXOLOTL),
+                "Cyan Axolotl Head");
+        translationBuilder.add(HeadType.customName(EntityType.AXOLOTL, AnimalHeadTypes.BLUE_AXOLOTL),
+                "Blue Axolotl Head");
 
         // Sheep
         translationBuilder.add(HeadType.customName(EntityType.SHEEP, SheepHeadTypes.WHITE_SHEEP), "White Sheep Head");
@@ -172,6 +307,53 @@ public class ModLanguageProvider extends AbstractLanguageProvider {
         translationBuilder.add(HeadType.customName(EntityType.SHEEP, SheepHeadTypes.BLACK_SHEEP), "Black Sheep Head");
         translationBuilder.add(HeadType.customName(EntityType.SHEEP, SheepHeadTypes.BLACK_WOOLLY_SHEEP),
                 "Black Woolly Sheep Head");
+
+        // Wolves
+        translationBuilder.add(HeadType.customName(EntityType.WOLF, WolfHeadTypes.ASHEN_WOLF), "Ashen Wolf Head");
+        translationBuilder.add(HeadType.customName(EntityType.WOLF, WolfHeadTypes.ANGRY_ASHEN_WOLF),
+                "Angry Ashen Wolf Head");
+        translationBuilder.add(HeadType.customName(EntityType.WOLF, WolfHeadTypes.TAME_ASHEN_WOLF),
+                "Tame Ashen Wolf Head");
+        translationBuilder.add(HeadType.customName(EntityType.WOLF, WolfHeadTypes.BLACK_WOLF), "Black Wolf Head");
+        translationBuilder.add(HeadType.customName(EntityType.WOLF, WolfHeadTypes.ANGRY_BLACK_WOLF),
+                "Angry Black Wolf Head");
+        translationBuilder.add(HeadType.customName(EntityType.WOLF, WolfHeadTypes.TAME_BLACK_WOLF),
+                "Tame Black Wolf Head");
+        translationBuilder.add(HeadType.customName(EntityType.WOLF, WolfHeadTypes.CHESTNUT_WOLF), "Chestnut Wolf Head");
+        translationBuilder.add(HeadType.customName(EntityType.WOLF, WolfHeadTypes.ANGRY_CHESTNUT_WOLF),
+                "Angry Chestnut Wolf Head");
+        translationBuilder.add(HeadType.customName(EntityType.WOLF, WolfHeadTypes.TAME_CHESTNUT_WOLF),
+                "Tame Chestnut Wolf Head");
+        translationBuilder.add(HeadType.customName(EntityType.WOLF, WolfHeadTypes.PALE_WOLF), "Pale Wolf Head");
+        translationBuilder.add(HeadType.customName(EntityType.WOLF, WolfHeadTypes.ANGRY_PALE_WOLF),
+                "Angry Pale Wolf Head");
+        translationBuilder.add(HeadType.customName(EntityType.WOLF, WolfHeadTypes.TAME_PALE_WOLF),
+                "Tame Pale Wolf Head");
+        translationBuilder.add(HeadType.customName(EntityType.WOLF, WolfHeadTypes.RUSTY_WOLF), "Rusty Wolf Head");
+        translationBuilder.add(HeadType.customName(EntityType.WOLF, WolfHeadTypes.ANGRY_RUSTY_WOLF),
+                "Angry Rusty Wolf Head");
+        translationBuilder.add(HeadType.customName(EntityType.WOLF, WolfHeadTypes.TAME_RUSTY_WOLF),
+                "Tame Rusty Wolf Head");
+        translationBuilder.add(HeadType.customName(EntityType.WOLF, WolfHeadTypes.SPOTTED_WOLF), "Spotted Wolf Head");
+        translationBuilder.add(HeadType.customName(EntityType.WOLF, WolfHeadTypes.ANGRY_SPOTTED_WOLF),
+                "Angry Spotted Wolf Head");
+        translationBuilder.add(HeadType.customName(EntityType.WOLF, WolfHeadTypes.TAME_SPOTTED_WOLF),
+                "Tame Spotted Wolf Head");
+        translationBuilder.add(HeadType.customName(EntityType.WOLF, WolfHeadTypes.SNOWY_WOLF), "Snowy Wolf Head");
+        translationBuilder.add(HeadType.customName(EntityType.WOLF, WolfHeadTypes.ANGRY_SNOWY_WOLF),
+                "Angry Snowy Wolf Head");
+        translationBuilder.add(HeadType.customName(EntityType.WOLF, WolfHeadTypes.TAME_SNOWY_WOLF),
+                "Tame Snowy Wolf Head");
+        translationBuilder.add(HeadType.customName(EntityType.WOLF, WolfHeadTypes.STRIPED_WOLF), "Striped Wolf Head");
+        translationBuilder.add(HeadType.customName(EntityType.WOLF, WolfHeadTypes.ANGRY_STRIPED_WOLF),
+                "Angry Striped Wolf Head");
+        translationBuilder.add(HeadType.customName(EntityType.WOLF, WolfHeadTypes.TAME_STRIPED_WOLF),
+                "Tame Striped Wolf Head");
+        translationBuilder.add(HeadType.customName(EntityType.WOLF, WolfHeadTypes.WOODS_WOLF), "Woods Wolf Head");
+        translationBuilder.add(HeadType.customName(EntityType.WOLF, WolfHeadTypes.ANGRY_WOODS_WOLF),
+                "Angry Woods Wolf Head");
+        translationBuilder.add(HeadType.customName(EntityType.WOLF, WolfHeadTypes.TAME_WOODS_WOLF),
+                "Tame Woods Wolf Head");
 
         // Desert Villagers
         translationBuilder.add(HeadType.customName(EntityType.VILLAGER, VillagerHeadTypes.DESERT_VILLAGER),

@@ -1,7 +1,6 @@
 package fuzs.alltheheads.world.item.component.headtype;
 
 import com.google.common.collect.ImmutableList;
-import net.minecraft.advancements.critereon.EntityFlagsPredicate;
 import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.advancements.critereon.EntityTypePredicate;
 import net.minecraft.core.Holder;
@@ -35,8 +34,7 @@ public final class Builder {
     Builder(EntityType<?> entityType) {
         this.entityType = entityType;
         this.entityPredicate((EntityPredicate.Builder builder) -> {
-            builder.entityType(EntityTypePredicate.of(BuiltInRegistries.ENTITY_TYPE, entityType))
-                    .flags(EntityFlagsPredicate.Builder.flags().setIsBaby(false));
+            builder.entityType(EntityTypePredicate.of(BuiltInRegistries.ENTITY_TYPE, entityType));
         });
     }
 
@@ -69,10 +67,8 @@ public final class Builder {
         return this;
     }
 
-    public Builder litModel(ModelType modelType, ResourceLocation assetId, int blockLight) {
-        this.models.add(new Model(new ModelAndTexture<>(modelType, assetId),
-                Optional.empty(),
-                Optional.of(blockLight)));
+    public Builder litModel(ModelType modelType, ResourceLocation assetId) {
+        this.models.add(new Model(new ModelAndTexture<>(modelType, assetId), Optional.empty(), Optional.of(15)));
         return this;
     }
 
@@ -89,7 +85,9 @@ public final class Builder {
     public Builder lootTable(ResourceKey<HeadType> resourceKey) {
         ResourceLocation resourceLocation = getNamespacedLocation(this.entityType, resourceKey);
         this.lootTable = Optional.of(ResourceKey.create(Registries.LOOT_TABLE,
-                resourceLocation.withPrefix("entities/heads/")));
+                resourceKey.location()
+                        .withPath(resourceLocation.toString().replace(':', '/'))
+                        .withPrefix("entities/heads/")));
         return this;
     }
 

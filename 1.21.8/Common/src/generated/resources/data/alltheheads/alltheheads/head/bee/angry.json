@@ -1,0 +1,24 @@
+{
+  "custom_name": "minecraft.bee_angry",
+  "entity_predicate": {
+    "type": "minecraft:bee",
+    "type_specific": {
+      "type": "alltheheads:bee",
+      "angry": true,
+      "has_nectar": false
+    }
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/bee/angry",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/bee/bee_angry",
+      "model": "alltheheads:bee_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.bee.loop",
+  "shape": {
+    "depth": 4.0,
+    "height": 7.0,
+    "width": 7.0
+  }
+}

@@ -21,6 +21,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 public record HeadType(EntityPredicate entityPredicate,
                        Shape shape,
@@ -78,14 +79,12 @@ public record HeadType(EntityPredicate entityPredicate,
         return descriptionId != null ? resourceLocation.toLanguageKey(descriptionId) : resourceLocation.toLanguageKey();
     }
 
+    public Stream<EntityType<?>> getEntityTypes() {
+        return this.entityPredicate.entityType().orElseThrow().types().stream().map(Holder::value);
+    }
+
     public EntityType<?> getEntityType() {
-        return this.entityPredicate.entityType()
-                .orElseThrow()
-                .types()
-                .stream()
-                .findFirst()
-                .map(Holder::value)
-                .orElseThrow();
+        return this.getEntityTypes().findFirst().orElseThrow();
     }
 
     public Component getName(String descriptionId) {

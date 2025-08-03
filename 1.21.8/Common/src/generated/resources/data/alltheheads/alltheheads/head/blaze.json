@@ -1,12 +1,9 @@
 {
   "custom_name": "minecraft.blaze",
   "entity_predicate": {
-    "type": "minecraft:blaze",
-    "flags": {
-      "is_baby": false
-    }
+    "type": "minecraft:blaze"
   },
-  "loot_table": "minecraft:entities/heads/blaze",
+  "loot_table": "alltheheads:entities/heads/minecraft/blaze",
   "models": [
     {
       "asset_id": "minecraft:entity/blaze",

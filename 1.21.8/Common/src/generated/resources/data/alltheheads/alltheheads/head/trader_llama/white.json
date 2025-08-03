@@ -4,12 +4,9 @@
     "type": "minecraft:trader_llama",
     "components": {
       "minecraft:llama/variant": "white"
-    },
-    "flags": {
-      "is_baby": false
     }
   },
-  "loot_table": "minecraft:entities/heads/trader_llama/white",
+  "loot_table": "alltheheads:entities/heads/minecraft/trader_llama/white",
   "models": [
     {
       "asset_id": "minecraft:entity/llama/white",

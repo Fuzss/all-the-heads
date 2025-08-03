@@ -1,12 +1,9 @@
 {
   "custom_name": "minecraft.dolphin",
   "entity_predicate": {
-    "type": "minecraft:dolphin",
-    "flags": {
-      "is_baby": false
-    }
+    "type": "minecraft:dolphin"
   },
-  "loot_table": "minecraft:entities/heads/dolphin",
+  "loot_table": "alltheheads:entities/heads/minecraft/dolphin",
   "models": [
     {
       "asset_id": "minecraft:entity/dolphin",

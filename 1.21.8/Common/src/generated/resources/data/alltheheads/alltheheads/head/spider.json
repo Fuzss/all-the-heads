@@ -1,12 +1,9 @@
 {
   "custom_name": "minecraft.spider",
   "entity_predicate": {
-    "type": "minecraft:spider",
-    "flags": {
-      "is_baby": false
-    }
+    "type": "minecraft:spider"
   },
-  "loot_table": "minecraft:entities/heads/spider",
+  "loot_table": "alltheheads:entities/heads/minecraft/spider",
   "models": [
     {
       "asset_id": "minecraft:entity/spider/spider",
