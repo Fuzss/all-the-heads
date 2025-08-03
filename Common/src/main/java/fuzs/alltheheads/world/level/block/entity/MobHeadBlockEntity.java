@@ -2,6 +2,7 @@ package fuzs.alltheheads.world.level.block.entity;
 
 import fuzs.alltheheads.init.ModRegistry;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
+import fuzs.puzzleslib.api.block.v1.entity.TickingBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponentGetter;
@@ -15,14 +16,21 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import org.jetbrains.annotations.Nullable;
 
-public class MobHeadBlockEntity extends SkullBlockEntity {
+public class MobHeadBlockEntity extends SkullBlockEntity implements TickingBlockEntity {
     public static final String TAG_HEAD_TYPE = "head_type";
 
     @Nullable
     private Holder<HeadType> headType;
+    public int tickCount;
 
     public MobHeadBlockEntity(BlockPos pos, BlockState blockState) {
         super(pos, blockState);
+    }
+
+    @Override
+    public void clientTick() {
+        this.tickCount++;
+        animation(this.getLevel(), this.getBlockPos(), this.getBlockState(), this);
     }
 
     @Override

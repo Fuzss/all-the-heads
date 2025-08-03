@@ -1,0 +1,29 @@
+{
+  "custom_name": "minecraft.wither_blue_shielded",
+  "entity_predicate": {
+    "type": "minecraft:wither",
+    "type_specific": {
+      "type": "alltheheads:wither",
+      "powered": true
+    }
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/wither/blue/shielded",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/wither/wither_invulnerable",
+      "block_light": 15,
+      "model": "alltheheads:humanoid_head"
+    },
+    {
+      "asset_id": "minecraft:entity/wither/wither_armor",
+      "color": -8355712,
+      "model": "alltheheads:wither_head/shield"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.wither.ambient",
+  "shape": {
+    "depth": 8.0,
+    "height": 8.0,
+    "width": 8.0
+  }
+}

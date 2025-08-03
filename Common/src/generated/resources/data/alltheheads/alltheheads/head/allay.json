@@ -7,6 +7,7 @@
   "models": [
     {
       "asset_id": "minecraft:entity/allay/allay",
+      "block_light": 15,
       "model": "alltheheads:allay_head"
     }
   ],

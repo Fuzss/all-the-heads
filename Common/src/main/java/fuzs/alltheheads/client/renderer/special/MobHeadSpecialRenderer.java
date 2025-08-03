@@ -1,7 +1,9 @@
 package fuzs.alltheheads.client.renderer.special;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import fuzs.alltheheads.client.renderer.blockentity.MobHeadBlockRenderer;
 import fuzs.alltheheads.init.ModRegistry;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
@@ -19,24 +21,30 @@ import org.joml.Vector3f;
 import java.util.Set;
 import java.util.function.Function;
 
+/**
+ * @see net.minecraft.client.renderer.special.SkullSpecialRenderer
+ */
 public class MobHeadSpecialRenderer implements SpecialModelRenderer<@Nullable Holder<HeadType>> {
     private final Function<ModelType, SkullModelBase> skullModelGetter;
+    private final float animation;
 
-    public MobHeadSpecialRenderer(Function<ModelType, SkullModelBase> skullModelGetter) {
+    public MobHeadSpecialRenderer(Function<ModelType, SkullModelBase> skullModelGetter, float animation) {
         this.skullModelGetter = skullModelGetter;
+        this.animation = animation;
     }
 
     @Override
     public void render(@Nullable Holder<HeadType> headType, ItemDisplayContext displayContext, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay, boolean hasFoilType) {
         MobHeadBlockRenderer.renderSkull(null,
                 180.0F,
-                0.0F,
+                this.animation,
                 poseStack,
                 bufferSource,
                 packedLight,
                 this.skullModelGetter,
                 headType,
-                true);
+                true,
+                0.0F);
     }
 
     @Override
@@ -46,7 +54,7 @@ public class MobHeadSpecialRenderer implements SpecialModelRenderer<@Nullable Ho
         poseStack.scale(-1.0F, -1.0F, 1.0F);
         // there seems to be no good way to get the proper model for the model type
         SkullModelBase skullModelBase = this.skullModelGetter.apply(ModelType.DEFAULT);
-        skullModelBase.setupAnim(0.0F, 180.0F, 0.0F);
+        skullModelBase.setupAnim(this.animation, 180.0F, 0.0F);
         skullModelBase.root().getExtentsForGui(poseStack, output);
     }
 
@@ -55,8 +63,14 @@ public class MobHeadSpecialRenderer implements SpecialModelRenderer<@Nullable Ho
         return itemStack.get(ModRegistry.HEAD_TYPE_DATA_COMPONENT_TYPE.value());
     }
 
-    public record Unbaked() implements SpecialModelRenderer.Unbaked {
-        public static final MapCodec<MobHeadSpecialRenderer.Unbaked> MAP_CODEC = MapCodec.unit(new Unbaked());
+    public record Unbaked(float animation) implements SpecialModelRenderer.Unbaked {
+        public static final MapCodec<MobHeadSpecialRenderer.Unbaked> MAP_CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
+                        Codec.FLOAT.optionalFieldOf("animation", 0.0F).forGetter(MobHeadSpecialRenderer.Unbaked::animation))
+                .apply(instance, MobHeadSpecialRenderer.Unbaked::new));
+
+        public Unbaked() {
+            this(0.0F);
+        }
 
         @Override
         public MapCodec<MobHeadSpecialRenderer.Unbaked> type() {
@@ -65,7 +79,7 @@ public class MobHeadSpecialRenderer implements SpecialModelRenderer<@Nullable Ho
 
         @Override
         public SpecialModelRenderer<?> bake(EntityModelSet modelSet) {
-            return new MobHeadSpecialRenderer(MobHeadBlockRenderer.createSkullModels(modelSet));
+            return new MobHeadSpecialRenderer(MobHeadBlockRenderer.createSkullModels(modelSet), this.animation);
         }
     }
 }

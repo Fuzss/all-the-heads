@@ -1,9 +1,9 @@
 {
   "values": [
-    "alltheheads:axolotl/gold",
-    "alltheheads:axolotl/lucy",
-    "alltheheads:axolotl/blue",
     "alltheheads:axolotl/wild",
-    "alltheheads:axolotl/cyan"
+    "alltheheads:axolotl/blue",
+    "alltheheads:axolotl/cyan",
+    "alltheheads:axolotl/gold",
+    "alltheheads:axolotl/lucy"
   ]
 }

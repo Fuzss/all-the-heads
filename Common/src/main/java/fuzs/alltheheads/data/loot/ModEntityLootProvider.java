@@ -1,7 +1,7 @@
 package fuzs.alltheheads.data.loot;
 
 import com.google.common.collect.ImmutableMap;
-import fuzs.alltheheads.init.AnimalHeadTypes;
+import fuzs.alltheheads.init.headtype.AnimalHeadTypes;
 import fuzs.alltheheads.init.ModRegistry;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.puzzleslib.api.data.v2.AbstractLootProvider;

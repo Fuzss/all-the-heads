@@ -1,8 +1,8 @@
 {
   "values": [
-    "alltheheads:llama/gray",
-    "alltheheads:llama/brown",
+    "alltheheads:llama/white",
     "alltheheads:llama/creamy",
-    "alltheheads:llama/white"
+    "alltheheads:llama/gray",
+    "alltheheads:llama/brown"
   ]
 }

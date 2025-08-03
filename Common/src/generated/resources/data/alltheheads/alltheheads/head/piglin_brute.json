@@ -1,0 +1,19 @@
+{
+  "custom_name": "minecraft.piglin_brute",
+  "entity_predicate": {
+    "type": "minecraft:piglin_brute"
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/piglin_brute",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/piglin/piglin_brute",
+      "model": "alltheheads:piglin_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.piglin_brute.ambient",
+  "shape": {
+    "depth": 8.0,
+    "height": 8.0,
+    "width": 10.0
+  }
+}

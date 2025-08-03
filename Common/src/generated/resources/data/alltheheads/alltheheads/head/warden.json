@@ -1,0 +1,20 @@
+{
+  "custom_name": "minecraft.warden",
+  "entity_predicate": {
+    "type": "minecraft:warden"
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/warden",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/warden/warden",
+      "model": "alltheheads:warden_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.warden.ambient",
+  "shape": {
+    "depth": 10.0,
+    "height": 16.0,
+    "scale": 0.6,
+    "width": 16.0
+  }
+}

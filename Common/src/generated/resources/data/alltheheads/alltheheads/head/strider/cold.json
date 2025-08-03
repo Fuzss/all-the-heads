@@ -1,0 +1,24 @@
+{
+  "custom_name": "minecraft.strider_cold",
+  "entity_predicate": {
+    "type": "minecraft:strider",
+    "type_specific": {
+      "type": "alltheheads:strider",
+      "cold": true
+    }
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/strider/cold",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/strider/strider_cold",
+      "model": "alltheheads:strider_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.strider.ambient",
+  "shape": {
+    "depth": 16.0,
+    "height": 14.0,
+    "scale": 0.5,
+    "width": 16.0
+  }
+}

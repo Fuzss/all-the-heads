@@ -1,7 +1,7 @@
 {
   "values": [
+    "alltheheads:frog/cold",
     "alltheheads:frog/temperate",
-    "alltheheads:frog/warm",
-    "alltheheads:frog/cold"
+    "alltheheads:frog/warm"
   ]
 }

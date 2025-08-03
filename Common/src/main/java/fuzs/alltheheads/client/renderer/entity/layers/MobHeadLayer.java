@@ -55,7 +55,8 @@ public class MobHeadLayer<S extends LivingEntityRenderState, M extends EntityMod
                     packedLight,
                     this.skullModelGetter,
                     headType.orElse(null),
-                    false);
+                    false,
+                    renderState.ageInTicks);
             poseStack.popPose();
         }
     }

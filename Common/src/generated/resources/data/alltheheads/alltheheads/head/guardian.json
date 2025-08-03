@@ -1,0 +1,20 @@
+{
+  "custom_name": "minecraft.guardian",
+  "entity_predicate": {
+    "type": "minecraft:guardian"
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/guardian",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/guardian",
+      "model": "alltheheads:guardian_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.guardian.ambient",
+  "shape": {
+    "depth": 16.0,
+    "height": 16.0,
+    "scale": 0.5,
+    "width": 16.0
+  }
+}

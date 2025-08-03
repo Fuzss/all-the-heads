@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-03T19:44:40.73762	Mod Entity Loot Provider
+// 1.21.8	2025-08-04T00:16:51.301976	Mod Entity Loot Provider
 c68313e2dc240d2b481f3673dbbd58c630b48003 data/alltheheads/loot_table/entities/heads/minecraft/allay.json
 1fc7ac5c8ca4ba14667782c90e21ad52c990155d data/alltheheads/loot_table/entities/heads/minecraft/axolotl/blue.json
 263f9d7c65136f0790da8d82057ae98583bc763c data/alltheheads/loot_table/entities/heads/minecraft/axolotl/cyan.json
@@ -12,6 +12,7 @@ d51dfb0b5415df0b82d2abf44ee524d761891bfa data/alltheheads/loot_table/entities/he
 bb8764faa6b4417b3ea1ad1361bc9ea9fe516579 data/alltheheads/loot_table/entities/heads/minecraft/bee/pollinated.json
 6fd7796b35bfb8cb77b6dafe93398067b129d1fa data/alltheheads/loot_table/entities/heads/minecraft/blaze.json
 ca4ee5f1b64d7c9090628eddf49c320e34e206a6 data/alltheheads/loot_table/entities/heads/minecraft/bogged.json
+255a7726aa9f3fb933e7b41b1616508cc80b4df6 data/alltheheads/loot_table/entities/heads/minecraft/breeze.json
 69d847c66ddb05c703a663e02846d43993cb2148 data/alltheheads/loot_table/entities/heads/minecraft/camel.json
 87a413fe7af3b4695aa682568e55e9bf6c674f39 data/alltheheads/loot_table/entities/heads/minecraft/cat/all_black.json
 d82ab563516683074d67fce5b0c8d922f4a03607 data/alltheheads/loot_table/entities/heads/minecraft/cat/black.json
@@ -28,13 +29,16 @@ fd96cde99c236b7567285f4dc0890217630c97c1 data/alltheheads/loot_table/entities/he
 e2ac7566e5d53ecbe8625652680f8373ce12bb47 data/alltheheads/loot_table/entities/heads/minecraft/chicken/cold.json
 51583c5924289b6f7950276e56b4243307584d04 data/alltheheads/loot_table/entities/heads/minecraft/chicken/temperate.json
 7a3bdf10968af72247f28628c005e0f68dfc6343 data/alltheheads/loot_table/entities/heads/minecraft/chicken/warm.json
+2e1fbc3e61000409df1a32b244eb8ffd17fd552d data/alltheheads/loot_table/entities/heads/minecraft/cod.json
 ec573643f64a3e8dec6f5e66ab13fa9069984ec4 data/alltheheads/loot_table/entities/heads/minecraft/cow/cold.json
 25b27e43958a0ab99bf4591d7e7baaee855708b2 data/alltheheads/loot_table/entities/heads/minecraft/cow/temperate.json
 d7c3ded37fb226e675971716218226ef74aa6dc3 data/alltheheads/loot_table/entities/heads/minecraft/cow/warm.json
 4d5d013d1c9c1381848e4bd873362b49de0d5101 data/alltheheads/loot_table/entities/heads/minecraft/creaking.json
+1764eb296e075f841565542c82263511db46d35d data/alltheheads/loot_table/entities/heads/minecraft/creeper/charged.json
 3ecf46e7ffe958598c97382e65b6a1260c9b7681 data/alltheheads/loot_table/entities/heads/minecraft/dolphin.json
 bba6457f82c24d3dfa706108f3da09153e1eb755 data/alltheheads/loot_table/entities/heads/minecraft/donkey.json
 519725376ebd009b7c9a4e207751b11ddbcda3c0 data/alltheheads/loot_table/entities/heads/minecraft/drowned.json
+67e1c4fd68f7450ef4d3fdab0a564bf13daf3df9 data/alltheheads/loot_table/entities/heads/minecraft/elder_guardian.json
 a4ea73bf52ded230e871c791f4547f8ab330e6cc data/alltheheads/loot_table/entities/heads/minecraft/enderman.json
 6ba075a03738c67f47f3d5ca39612d5b7d79fdab data/alltheheads/loot_table/entities/heads/minecraft/evoker.json
 ad3cc86faef29a7c39cd5b98c9cabff451893f33 data/alltheheads/loot_table/entities/heads/minecraft/fox.json
@@ -46,6 +50,7 @@ e1a03b4581ab1beb5c813dd8732a1fa1f4394b46 data/alltheheads/loot_table/entities/he
 6512bd6591bd31a1f0a48b6c08e28f0c04d411a0 data/alltheheads/loot_table/entities/heads/minecraft/ghast/charging.json
 d78685ea86d05bc8c95d4a0cbcc639a8714f57c7 data/alltheheads/loot_table/entities/heads/minecraft/glow_squid.json
 a8757cf88c3fd6127de91dcc410631bc2eae8337 data/alltheheads/loot_table/entities/heads/minecraft/goat.json
+a47172ca64b240b12b3e08b2fb0fabb3c8011a67 data/alltheheads/loot_table/entities/heads/minecraft/guardian.json
 a6fecde4fb98310d3be11d42adc3662eaf70d887 data/alltheheads/loot_table/entities/heads/minecraft/happy_ghast.json
 8346e670c50e0702c512e0970f853e443b700101 data/alltheheads/loot_table/entities/heads/minecraft/horse/black.json
 0ffd3a5475ea476b16402cf0f3103fbc04c17365 data/alltheheads/loot_table/entities/heads/minecraft/horse/black/black_dots.json
@@ -94,12 +99,28 @@ b9961b24980540737dca7ddfcebf9494d5428ccd data/alltheheads/loot_table/entities/he
 ee110ec4d8c00a23934e4e3461bc73f4ad56f72d data/alltheheads/loot_table/entities/heads/minecraft/mooshroom/red.json
 4e5aff6527be89ab6aedad66888b956680742ed0 data/alltheheads/loot_table/entities/heads/minecraft/mule.json
 3136d0b567dc9784a3ffad4137334d0e1225ad3a data/alltheheads/loot_table/entities/heads/minecraft/ocelot.json
+bc195c29f7371573f113bcc4623a3c8602716089 data/alltheheads/loot_table/entities/heads/minecraft/panda.json
+f1697c6907504ae1c57a523a18cab0340f46ec0e data/alltheheads/loot_table/entities/heads/minecraft/panda/aggressive.json
+5f8c5e2c84ca1e59b5e61734f14dcbced039d2e6 data/alltheheads/loot_table/entities/heads/minecraft/panda/brown.json
+154d7482481a48e5ded995212558bba79a63a415 data/alltheheads/loot_table/entities/heads/minecraft/panda/lazy.json
+ff27d43221ab05f8e64fb55eb7d7c5a70beebb9b data/alltheheads/loot_table/entities/heads/minecraft/panda/playful.json
+085a82ff56a503c687d7c5556a934444898d21c5 data/alltheheads/loot_table/entities/heads/minecraft/panda/weak.json
+9b6cbe608493833fe1a0228de4762c6a030c360a data/alltheheads/loot_table/entities/heads/minecraft/panda/worried.json
+c9372e141f218ff3938c99a671fc22e7ddf7db22 data/alltheheads/loot_table/entities/heads/minecraft/parrot/blue.json
+a0c20d04c52db643c041c9e7ef650acdc0973594 data/alltheheads/loot_table/entities/heads/minecraft/parrot/cyan.json
+38ef117bb277ef8bb58d67f7620a13777f86a02d data/alltheheads/loot_table/entities/heads/minecraft/parrot/gray.json
+63e1762a8bea4e524237c609080e6440fd88cc33 data/alltheheads/loot_table/entities/heads/minecraft/parrot/green.json
+de4403cd684475a93e43f6af36edfc6ee061e026 data/alltheheads/loot_table/entities/heads/minecraft/parrot/red.json
 83fb7c1d4d989935e0ef51cc97c1a0c26daaac0b data/alltheheads/loot_table/entities/heads/minecraft/phantom.json
 d511003b31258ef31f1e997cd0e7fa2b771aec09 data/alltheheads/loot_table/entities/heads/minecraft/pig/cold.json
 f3de01561fd7f6942ffb3231a47d0d985287abba data/alltheheads/loot_table/entities/heads/minecraft/pig/temperate.json
 a05eea85633b1660e92950512abdbb19d2efcd68 data/alltheheads/loot_table/entities/heads/minecraft/pig/warm.json
+7878f6c68e0ae792b9956806a2735007c088f212 data/alltheheads/loot_table/entities/heads/minecraft/piglin_brute.json
 1da00fb17887445a4be5f91612971aaf27b93130 data/alltheheads/loot_table/entities/heads/minecraft/pillager.json
+58f20673603f412e026d4c1498e6ff549fb52ecd data/alltheheads/loot_table/entities/heads/minecraft/polar_bear.json
+a850b28f8ab39b9d3c52f892828a2c979bac0619 data/alltheheads/loot_table/entities/heads/minecraft/pufferfish.json
 7e7d4b942572f6b1863c2c613a7f9a2a32bd3df0 data/alltheheads/loot_table/entities/heads/minecraft/ravager.json
+c56af28084fb7b5a63f5538a05c999cd15687341 data/alltheheads/loot_table/entities/heads/minecraft/salmon.json
 61f7241fc2bcbadc7fe9fdcdc5ea7017d181d842 data/alltheheads/loot_table/entities/heads/minecraft/sheep/black.json
 b23df6072a6bde525ad2e8b3915eb3ff9892e8a1 data/alltheheads/loot_table/entities/heads/minecraft/sheep/blue.json
 fcf480206ea1463805212c1606a2a4a015b3c0a9 data/alltheheads/loot_table/entities/heads/minecraft/sheep/brown.json
@@ -132,12 +153,17 @@ a9f251ca35bb8192067cf23db7e04b42c007302d data/alltheheads/loot_table/entities/he
 b167195387fa088f25b4e55681640781a833375e data/alltheheads/loot_table/entities/heads/minecraft/sheep/woolly/white.json
 ca4ded17eb29f73f448f2fc93b432ff28868833c data/alltheheads/loot_table/entities/heads/minecraft/sheep/woolly/yellow.json
 f2027e7f33baa7f84c84debe5fea8ca05faa30cb data/alltheheads/loot_table/entities/heads/minecraft/sheep/yellow.json
+b969728f280dad51f980e5790f44a6d5f5ff8688 data/alltheheads/loot_table/entities/heads/minecraft/shulker.json
 34565237079c6d66bd3acd29f02944819d5e6e8c data/alltheheads/loot_table/entities/heads/minecraft/skeleton_horse.json
 1a901d313f287746a137fc6529b5c892bd5ebaa4 data/alltheheads/loot_table/entities/heads/minecraft/slime.json
+6203f40e6601f4a1c9e0407c6db8afaa5eebe985 data/alltheheads/loot_table/entities/heads/minecraft/sniffer.json
 29c1265dc831fac7a502f4763434e86f956b80dd data/alltheheads/loot_table/entities/heads/minecraft/snow_golem.json
 e1d44d6e1b5c589bfb5bf59badc0fa2d96c01c0a data/alltheheads/loot_table/entities/heads/minecraft/spider.json
 3555f0d8eb0c9759ae5a51b37c77686092d59613 data/alltheheads/loot_table/entities/heads/minecraft/squid.json
 deda863a9e21efe7b571a430cbebcb4a47560bcc data/alltheheads/loot_table/entities/heads/minecraft/stray.json
+872dcd5eea0cbde0a3268a63d3456cb8a2a8fc94 data/alltheheads/loot_table/entities/heads/minecraft/strider.json
+67359f5db3a94b245fc2c7a9f7671da0cc882a13 data/alltheheads/loot_table/entities/heads/minecraft/strider/cold.json
+33ec967e040daadc59344cf1d9a015adccc95237 data/alltheheads/loot_table/entities/heads/minecraft/tadpole.json
 e93b4ff6fa2bdf5145291ed380c507ff9494320e data/alltheheads/loot_table/entities/heads/minecraft/trader_llama/brown.json
 7de24ad54b302630aae4f35c247d5e31bbe548bf data/alltheheads/loot_table/entities/heads/minecraft/trader_llama/creamy.json
 1099dc8a70e02cd6160cba2296e9ec357793f8e6 data/alltheheads/loot_table/entities/heads/minecraft/trader_llama/gray.json
@@ -251,7 +277,13 @@ b47f862249fefb271382ba450eacc57d6d487f57 data/alltheheads/loot_table/entities/he
 9841688a9798bd3640c47bfa023de64f0d19819d data/alltheheads/loot_table/entities/heads/minecraft/villager/taiga/toolsmith.json
 a99d392af423770decedc6024859dd5b436f1a34 data/alltheheads/loot_table/entities/heads/minecraft/villager/taiga/weaponsmith.json
 a60a2ab2ce2d205b38e2c61c6a9d4c9a27e34ed2 data/alltheheads/loot_table/entities/heads/minecraft/vindicator.json
+dc3013b7afbeb467b403a343cfbdbac21508901f data/alltheheads/loot_table/entities/heads/minecraft/wandering_trader.json
+d26071ab90344412e08cf1451fbebaa9e8fe8e41 data/alltheheads/loot_table/entities/heads/minecraft/warden.json
 3fb9f4856fb4ccc39d05768acce5087e073e1707 data/alltheheads/loot_table/entities/heads/minecraft/witch.json
+d9c299d07c9f63ee9c58491ae73799aafa607b96 data/alltheheads/loot_table/entities/heads/minecraft/wither.json
+be8137afd60d74d320256f985d9f51adca7a09b1 data/alltheheads/loot_table/entities/heads/minecraft/wither/blue.json
+7a9791c5aa22f56bd8fd66c0a46f30040421bd5d data/alltheheads/loot_table/entities/heads/minecraft/wither/blue/shielded.json
+053991e276d1d8fcb5b95581e5cce6496325e7d6 data/alltheheads/loot_table/entities/heads/minecraft/wither/shielded.json
 edd1378a728f05ad5b67a8bbcd46576fe9a3e67f data/alltheheads/loot_table/entities/heads/minecraft/wolf/ashen.json
 6bd521d1779335ad71e2a352bce7306f40c59e51 data/alltheheads/loot_table/entities/heads/minecraft/wolf/ashen/angry.json
 ef1ff88d7169caa9efab74a572e4a783a857de62 data/alltheheads/loot_table/entities/heads/minecraft/wolf/ashen/tame.json
@@ -385,3 +417,4 @@ d2dcdce84b89090066aacec9139a1da0dc08d0a5 data/alltheheads/loot_table/entities/he
 12628d4e551d8d685e8e804f0fd84b1d36a3d6d4 data/alltheheads/loot_table/entities/heads/minecraft/zombie_villager/taiga/shepherd.json
 e84e424c1cc407cdab981b86aff58866cfca2ee5 data/alltheheads/loot_table/entities/heads/minecraft/zombie_villager/taiga/toolsmith.json
 681906f4bc9f8ce723af48bc4fc5af7aa26e2037 data/alltheheads/loot_table/entities/heads/minecraft/zombie_villager/taiga/weaponsmith.json
+68e72760be9a9bf2c180d9254c3462e963e49325 data/alltheheads/loot_table/entities/heads/minecraft/zombified_piglin.json

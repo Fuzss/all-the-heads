@@ -1,0 +1,24 @@
+{
+  "custom_name": "minecraft.strider",
+  "entity_predicate": {
+    "type": "minecraft:strider",
+    "type_specific": {
+      "type": "alltheheads:strider",
+      "cold": false
+    }
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/strider",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/strider/strider",
+      "model": "alltheheads:strider_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.strider.happy",
+  "shape": {
+    "depth": 16.0,
+    "height": 14.0,
+    "scale": 0.5,
+    "width": 16.0
+  }
+}

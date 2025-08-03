@@ -4,6 +4,8 @@ import com.google.common.collect.ImmutableSet;
 import com.mojang.serialization.MapCodec;
 import fuzs.alltheheads.AllTheHeads;
 import fuzs.alltheheads.advancements.critereon.*;
+import fuzs.alltheheads.init.headtype.MonsterHeadTypes;
+import fuzs.alltheheads.init.headtype.VillagerHeadTypes;
 import fuzs.alltheheads.world.item.MobHeadItem;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.level.block.MobHeadBlock;
@@ -90,6 +92,22 @@ public class ModRegistry {
             Registries.ENTITY_SUB_PREDICATE_TYPE,
             "ghast",
             () -> GhastPredicate.CODEC);
+    public static final Holder.Reference<MapCodec<WitherPredicate>> WITHER_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
+            Registries.ENTITY_SUB_PREDICATE_TYPE,
+            "wither",
+            () -> WitherPredicate.CODEC);
+    public static final Holder.Reference<MapCodec<CreeperPredicate>> CREEPER_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
+            Registries.ENTITY_SUB_PREDICATE_TYPE,
+            "creeper",
+            () -> CreeperPredicate.CODEC);
+    public static final Holder.Reference<MapCodec<PandaPredicate>> PANDA_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
+            Registries.ENTITY_SUB_PREDICATE_TYPE,
+            "panda",
+            () -> PandaPredicate.CODEC);
+    public static final Holder.Reference<MapCodec<StriderPredicate>> STRIDER_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
+            Registries.ENTITY_SUB_PREDICATE_TYPE,
+            "strider",
+            () -> StriderPredicate.CODEC);
     public static final Holder.Reference<CreativeModeTab> CREATIVE_MODE_TAB = REGISTRIES.registerCreativeModeTab("main",
             () -> createDisplayItemStack(MonsterHeadTypes.BLAZE),
             (CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output output) -> {

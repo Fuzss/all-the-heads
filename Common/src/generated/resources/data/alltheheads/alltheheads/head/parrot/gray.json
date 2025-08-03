@@ -1,0 +1,23 @@
+{
+  "custom_name": "minecraft.parrot_gray",
+  "entity_predicate": {
+    "type": "minecraft:parrot",
+    "components": {
+      "minecraft:parrot/variant": "gray"
+    }
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/parrot/gray",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/parrot/parrot_grey",
+      "model": "alltheheads:parrot_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.parrot.ambient",
+  "shape": {
+    "depth": 2.0,
+    "height": 4.0,
+    "scale": 1.5,
+    "width": 2.0
+  }
+}

@@ -12,10 +12,13 @@ import fuzs.puzzleslib.api.client.core.v1.context.*;
 import fuzs.puzzleslib.api.client.event.v1.renderer.AddLivingEntityRenderLayersCallback;
 import fuzs.puzzleslib.api.client.event.v1.renderer.ExtractRenderStateCallback;
 import fuzs.puzzleslib.api.client.event.v1.renderer.RenderLivingEvents;
+import net.minecraft.client.model.PiglinHeadModel;
 import net.minecraft.client.model.SkullModel;
 import net.minecraft.client.model.geom.EntityModelSet;
+import net.minecraft.client.model.geom.LayerDefinitions;
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
+import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.resources.DefaultPlayerSkin;
 
 public class AllTheHeadsClient implements ClientModConstructor {
@@ -137,6 +140,40 @@ public class AllTheHeadsClient implements ClientModConstructor {
                 CreakingHeadModel::createHeadLayer);
         context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.FROG),
                 FrogHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.PIGLIN),
+                () -> LayerDefinition.create(PiglinHeadModel.createHeadModel(), 64, 64));
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.BREEZE),
+                BreezeHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.BREEZE_EYES),
+                BreezeHeadModel::createEyesLayer);
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.SNIFFER),
+                SnifferHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.STRIDER),
+                StriderHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.WITHER_SHIELD),
+                () -> HumanoidHeadModel.createHeadLayer(LayerDefinitions.INNER_ARMOR_DEFORMATION));
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.CREEPER_CHARGE),
+                () -> MobHeadModel.createHeadLayer(new CubeDeformation(1.0F)));
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.SHULKER),
+                ShulkerHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.TADPOLE),
+                TadpoleHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.PANDA),
+                PandaHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.POLAR_BEAR),
+                PolarBearHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.WARDEN),
+                WardenHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.GUARDIAN),
+                GuardianHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.PUFFERFISH),
+                PufferfishHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.COD),
+                CodHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.SALMON),
+                SalmonHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.PARROT),
+                ParrotHeadModel::createHeadLayer);
     }
 
     @Override

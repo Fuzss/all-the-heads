@@ -1,8 +1,8 @@
 {
   "values": [
-    "alltheheads:trader_llama/white",
-    "alltheheads:trader_llama/gray",
     "alltheheads:trader_llama/brown",
-    "alltheheads:trader_llama/creamy"
+    "alltheheads:trader_llama/creamy",
+    "alltheheads:trader_llama/gray",
+    "alltheheads:trader_llama/white"
   ]
 }

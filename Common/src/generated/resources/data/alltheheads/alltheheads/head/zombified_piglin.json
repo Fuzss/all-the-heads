@@ -1,0 +1,19 @@
+{
+  "custom_name": "minecraft.zombified_piglin",
+  "entity_predicate": {
+    "type": "minecraft:zombified_piglin"
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/zombified_piglin",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/piglin/zombified_piglin",
+      "model": "alltheheads:piglin_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.zombified_piglin.ambient",
+  "shape": {
+    "depth": 8.0,
+    "height": 8.0,
+    "width": 10.0
+  }
+}
