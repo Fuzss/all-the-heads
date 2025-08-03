@@ -1,0 +1,24 @@
+{
+  "custom_name": "minecraft.ghast_charging",
+  "entity_predicate": {
+    "type": "minecraft:ghast",
+    "type_specific": {
+      "type": "alltheheads:ghast",
+      "charging": true
+    }
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/ghast/charging",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/ghast/ghast_shooting",
+      "model": "alltheheads:ghast_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.ghast.warn",
+  "shape": {
+    "depth": 16.0,
+    "height": 16.0,
+    "scale": 0.5,
+    "width": 16.0
+  }
+}

@@ -492,10 +492,6 @@ public class ZombieVillagerHeadTypes {
                 TAIGA_WEAPONSMITH_ZOMBIE_VILLAGER);
     }
 
-    private static ResourceKey<HeadType> register(String path) {
-        return HeadTypes.register(path);
-    }
-
     private static void bootstrapZombieVillager(BootstrapContext<HeadType> context, ResourceKey<VillagerType> type, ResourceKey<HeadType> resourceKey) {
         HeadType.builder(EntityType.ZOMBIE_VILLAGER)
                 .entityPredicate((EntityPredicate.Builder builder) -> {
@@ -526,5 +522,9 @@ public class ZombieVillagerHeadTypes {
                 .model(ModelType.VILLAGER, profession.location().withPrefix("entity/zombie_villager/profession/"))
                 .noteBlockSound(SoundEvents.ZOMBIE_VILLAGER_AMBIENT)
                 .build(context, resourceKey);
+    }
+
+    private static ResourceKey<HeadType> register(String path) {
+        return HeadTypes.register(path);
     }
 }

@@ -1,12 +1,9 @@
 {
   "custom_name": "minecraft.bat",
   "entity_predicate": {
-    "type": "minecraft:bat",
-    "flags": {
-      "is_baby": false
-    }
+    "type": "minecraft:bat"
   },
-  "loot_table": "minecraft:entities/heads/bat",
+  "loot_table": "alltheheads:entities/heads/minecraft/bat",
   "models": [
     {
       "asset_id": "minecraft:entity/bat",
@@ -17,7 +14,7 @@
   "shape": {
     "depth": 2.0,
     "height": 3.0,
-    "scale": 2.0,
+    "scale": 1.5,
     "width": 4.0
   }
 }

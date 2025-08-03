@@ -2,11 +2,12 @@
   "custom_name": "minecraft.vex_charging",
   "entity_predicate": {
     "type": "minecraft:vex",
-    "flags": {
-      "is_baby": false
+    "type_specific": {
+      "type": "alltheheads:vex",
+      "charging": true
     }
   },
-  "loot_table": "minecraft:entities/heads/vex/charging",
+  "loot_table": "alltheheads:entities/heads/minecraft/vex/charging",
   "models": [
     {
       "asset_id": "minecraft:entity/illager/vex_charging",

@@ -2,16 +2,13 @@
   "custom_name": "minecraft.villager_taiga_mason",
   "entity_predicate": {
     "type": "minecraft:villager",
-    "flags": {
-      "is_baby": false
-    },
     "type_specific": {
       "type": "alltheheads:villager_data",
       "villager_profession": "minecraft:mason",
       "villager_type": "minecraft:taiga"
     }
   },
-  "loot_table": "minecraft:entities/heads/villager/taiga/mason",
+  "loot_table": "alltheheads:entities/heads/minecraft/villager/taiga/mason",
   "models": [
     {
       "asset_id": "minecraft:entity/villager/villager",

@@ -56,8 +56,16 @@ public class MobHeadBlockRenderer implements BlockEntityRenderer<MobHeadBlockEnt
             Util.make(new IdentityHashMap<>(), (Map<ModelType, Function<ResourceLocation, RenderType>> map) -> {
                 map.put(ModelType.ALLAY, RenderType::entityTranslucent);
                 map.put(ModelType.BAT, RenderType::entityCutout);
+                map.put(ModelType.CREAKING, RenderType::entityCutoutNoCull);
+                map.put(ModelType.CREAKING_EYES, RenderType::eyes);
+                map.put(ModelType.ENDERMAN, RenderType::entityCutoutNoCull);
                 map.put(ModelType.ENDERMAN_EYES, RenderType::eyes);
+                map.put(ModelType.HORSE, RenderType::entityCutoutNoCull);
+                map.put(ModelType.HORSE_MARKINGS, RenderType::entityTranslucent);
+                map.put(ModelType.PHANTOM, RenderType::entityCutoutNoCull);
+                map.put(ModelType.PHANTOM_EYES, RenderType::eyes);
                 map.put(ModelType.SLIME_GEL, RenderType::entityTranslucent);
+                map.put(ModelType.SPIDER, RenderType::entityCutoutNoCull);
                 map.put(ModelType.SPIDER_EYES, RenderType::eyes);
                 map.put(ModelType.VEX, RenderType::entityTranslucent);
             }));
@@ -157,7 +165,7 @@ public class MobHeadBlockRenderer implements BlockEntityRenderer<MobHeadBlockEnt
 
     private static RenderType getRenderType(ModelAndTexture<ModelType> modelAndTexture) {
         Function<ResourceLocation, RenderType> renderTypeGetter = RENDER_TYPES.getOrDefault(modelAndTexture.model(),
-                RenderType::entityCutoutNoCull);
+                RenderType::entityCutoutNoCullZOffset);
         return renderTypeGetter.apply(modelAndTexture.asset().texturePath());
     }
 }

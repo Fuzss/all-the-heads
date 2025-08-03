@@ -5,15 +5,12 @@
     "components": {
       "minecraft:sheep/color": "light_gray"
     },
-    "flags": {
-      "is_baby": false
-    },
     "type_specific": {
       "type": "minecraft:sheep",
       "sheared": false
     }
   },
-  "loot_table": "minecraft:entities/heads/sheep/woolly/light_gray",
+  "loot_table": "alltheheads:entities/heads/minecraft/sheep/woolly/light_gray",
   "models": [
     {
       "asset_id": "minecraft:entity/sheep/sheep",

@@ -1,12 +1,9 @@
 {
   "custom_name": "minecraft.husk",
   "entity_predicate": {
-    "type": "minecraft:husk",
-    "flags": {
-      "is_baby": false
-    }
+    "type": "minecraft:husk"
   },
-  "loot_table": "minecraft:entities/heads/husk",
+  "loot_table": "alltheheads:entities/heads/minecraft/husk",
   "models": [
     {
       "asset_id": "minecraft:entity/zombie/husk",

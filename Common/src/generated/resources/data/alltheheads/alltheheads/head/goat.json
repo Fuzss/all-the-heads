@@ -1,12 +1,9 @@
 {
   "custom_name": "minecraft.goat",
   "entity_predicate": {
-    "type": "minecraft:goat",
-    "flags": {
-      "is_baby": false
-    }
+    "type": "minecraft:goat"
   },
-  "loot_table": "minecraft:entities/heads/goat",
+  "loot_table": "alltheheads:entities/heads/minecraft/goat",
   "models": [
     {
       "asset_id": "minecraft:entity/goat/goat",
@@ -17,6 +14,7 @@
   "shape": {
     "depth": 7.0,
     "height": 10.0,
+    "scale": 0.8,
     "width": 5.0
   }
 }

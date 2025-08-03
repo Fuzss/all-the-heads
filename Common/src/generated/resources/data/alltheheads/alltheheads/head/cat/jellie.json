@@ -4,12 +4,9 @@
     "type": "minecraft:cat",
     "components": {
       "minecraft:cat/variant": "minecraft:jellie"
-    },
-    "flags": {
-      "is_baby": false
     }
   },
-  "loot_table": "minecraft:entities/heads/cat/jellie",
+  "loot_table": "alltheheads:entities/heads/minecraft/cat/jellie",
   "models": [
     {
       "asset_id": "minecraft:entity/cat/jellie",

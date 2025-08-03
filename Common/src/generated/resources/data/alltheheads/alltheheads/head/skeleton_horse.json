@@ -1,0 +1,20 @@
+{
+  "custom_name": "minecraft.skeleton_horse",
+  "entity_predicate": {
+    "type": "minecraft:skeleton_horse"
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/skeleton_horse",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/horse/horse_skeleton",
+      "model": "alltheheads:horse_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.skeleton_horse.ambient",
+  "shape": {
+    "depth": 8.0,
+    "height": 16.0,
+    "scale": 0.75,
+    "width": 4.0
+  }
+}

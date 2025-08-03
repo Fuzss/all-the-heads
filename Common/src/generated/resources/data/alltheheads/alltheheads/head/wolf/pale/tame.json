@@ -1,0 +1,27 @@
+{
+  "custom_name": "minecraft.wolf_pale_tame",
+  "entity_predicate": {
+    "type": "minecraft:wolf",
+    "components": {
+      "minecraft:wolf/variant": "minecraft:pale"
+    },
+    "type_specific": {
+      "type": "alltheheads:wolf",
+      "tame": true
+    }
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/wolf/pale/tame",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/wolf/wolf_tame",
+      "model": "alltheheads:wolf_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.wolf.pant",
+  "shape": {
+    "depth": 4.0,
+    "height": 6.0,
+    "scale": 1.3333333333333333,
+    "width": 6.0
+  }
+}

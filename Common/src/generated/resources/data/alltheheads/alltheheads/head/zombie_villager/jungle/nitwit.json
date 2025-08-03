@@ -2,16 +2,13 @@
   "custom_name": "minecraft.zombie_villager_jungle_nitwit",
   "entity_predicate": {
     "type": "minecraft:zombie_villager",
-    "flags": {
-      "is_baby": false
-    },
     "type_specific": {
       "type": "alltheheads:villager_data",
       "villager_profession": "minecraft:nitwit",
       "villager_type": "minecraft:jungle"
     }
   },
-  "loot_table": "minecraft:entities/heads/zombie_villager/jungle/nitwit",
+  "loot_table": "alltheheads:entities/heads/minecraft/zombie_villager/jungle/nitwit",
   "models": [
     {
       "asset_id": "minecraft:entity/zombie_villager/zombie_villager",

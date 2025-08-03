@@ -1,12 +1,9 @@
 {
   "custom_name": "minecraft.squid",
   "entity_predicate": {
-    "type": "minecraft:squid",
-    "flags": {
-      "is_baby": false
-    }
+    "type": "minecraft:squid"
   },
-  "loot_table": "minecraft:entities/heads/squid",
+  "loot_table": "alltheheads:entities/heads/minecraft/squid",
   "models": [
     {
       "asset_id": "minecraft:entity/squid/squid",

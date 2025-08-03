@@ -1,12 +1,9 @@
 {
   "custom_name": "minecraft.illusioner",
   "entity_predicate": {
-    "type": "minecraft:illusioner",
-    "flags": {
-      "is_baby": false
-    }
+    "type": "minecraft:illusioner"
   },
-  "loot_table": "minecraft:entities/heads/illusioner",
+  "loot_table": "alltheheads:entities/heads/minecraft/illusioner",
   "models": [
     {
       "asset_id": "minecraft:entity/illager/illusioner",

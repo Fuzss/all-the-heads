@@ -1,12 +1,9 @@
 {
   "custom_name": "minecraft.cave_spider",
   "entity_predicate": {
-    "type": "minecraft:cave_spider",
-    "flags": {
-      "is_baby": false
-    }
+    "type": "minecraft:cave_spider"
   },
-  "loot_table": "minecraft:entities/heads/cave_spider",
+  "loot_table": "alltheheads:entities/heads/minecraft/cave_spider",
   "models": [
     {
       "asset_id": "minecraft:entity/spider/cave_spider",

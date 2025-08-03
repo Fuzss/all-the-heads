@@ -4,12 +4,9 @@
     "type": "minecraft:cat",
     "components": {
       "minecraft:cat/variant": "minecraft:british_shorthair"
-    },
-    "flags": {
-      "is_baby": false
     }
   },
-  "loot_table": "minecraft:entities/heads/cat/british_shorthair",
+  "loot_table": "alltheheads:entities/heads/minecraft/cat/british_shorthair",
   "models": [
     {
       "asset_id": "minecraft:entity/cat/british_shorthair",

@@ -109,6 +109,34 @@ public class AllTheHeadsClient implements ClientModConstructor {
                 BatHeadModel::createHeadLayer);
         context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.ALLAY),
                 AllayHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.WOLF),
+                WolfHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.PHANTOM),
+                PhantomHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.PHANTOM_EYES),
+                PhantomHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.IRON_GOLEM),
+                IronGolemHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.FOX),
+                FoxHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.BEE),
+                BeeHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.HORSE),
+                HorseHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.HORSE_MARKINGS),
+                HorseHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.CAMEL),
+                CamelHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.GHAST),
+                GhastHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.HAPPY_GHAST),
+                HappyGhastHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.CREAKING),
+                CreakingHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.CREAKING_EYES),
+                CreakingHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.FROG),
+                FrogHeadModel::createHeadLayer);
     }
 
     @Override

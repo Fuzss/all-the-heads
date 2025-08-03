@@ -1,12 +1,9 @@
 {
   "custom_name": "minecraft.evoker",
   "entity_predicate": {
-    "type": "minecraft:evoker",
-    "flags": {
-      "is_baby": false
-    }
+    "type": "minecraft:evoker"
   },
-  "loot_table": "minecraft:entities/heads/evoker",
+  "loot_table": "alltheheads:entities/heads/minecraft/evoker",
   "models": [
     {
       "asset_id": "minecraft:entity/illager/evoker",

@@ -1,12 +1,9 @@
 {
   "custom_name": "minecraft.bogged",
   "entity_predicate": {
-    "type": "minecraft:bogged",
-    "flags": {
-      "is_baby": false
-    }
+    "type": "minecraft:bogged"
   },
-  "loot_table": "minecraft:entities/heads/bogged",
+  "loot_table": "alltheheads:entities/heads/minecraft/bogged",
   "models": [
     {
       "asset_id": "minecraft:entity/skeleton/bogged",
