@@ -1,8 +1,8 @@
 {
   "values": [
-    "alltheheads:wither/blue/shielded",
-    "alltheheads:wither/shielded",
+    "alltheheads:wither",
     "alltheheads:wither/blue",
-    "alltheheads:wither"
+    "alltheheads:wither/blue/shielded",
+    "alltheheads:wither/shielded"
   ]
 }

@@ -17,7 +17,7 @@
   ],
   "note_block_sound": "minecraft:entity.bee.loop",
   "shape": {
-    "depth": 4.0,
+    "depth": 6.0,
     "height": 7.0,
     "width": 7.0
   }

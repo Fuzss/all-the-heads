@@ -1,7 +1,6 @@
 package fuzs.alltheheads.init.headtype;
 
 import fuzs.alltheheads.advancements.critereon.HorsePredicate;
-import fuzs.alltheheads.init.HeadTypes;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
 import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
@@ -17,7 +16,9 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.horse.Markings;
 import net.minecraft.world.entity.animal.horse.Variant;
 
-public class HorseHeadTypes {
+import static fuzs.alltheheads.init.HeadTypes.register;
+
+public class HorseHeadType {
     // Horses
     public static final ResourceKey<HeadType> SKELETON_HORSE = register("skeleton_horse");
     public static final ResourceKey<HeadType> ZOMBIE_HORSE = register("zombie_horse");
@@ -307,9 +308,5 @@ public class HorseHeadTypes {
                 .model(ModelType.HORSE_MARKINGS, ResourceLocationHelper.withDefaultNamespace(markingsLocation))
                 .noteBlockSound(SoundEvents.HORSE_AMBIENT)
                 .build(context, resourceKey);
-    }
-
-    private static ResourceKey<HeadType> register(String path) {
-        return HeadTypes.register(path);
     }
 }

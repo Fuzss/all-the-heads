@@ -4,7 +4,6 @@ import fuzs.alltheheads.advancements.critereon.CreeperPredicate;
 import fuzs.alltheheads.advancements.critereon.GhastPredicate;
 import fuzs.alltheheads.advancements.critereon.VexPredicate;
 import fuzs.alltheheads.advancements.critereon.WitherPredicate;
-import fuzs.alltheheads.init.HeadTypes;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
 import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
@@ -15,7 +14,9 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
 
-public class MonsterHeadTypes {
+import static fuzs.alltheheads.init.HeadTypes.register;
+
+public class MonsterHeadType {
     // Monsters
     public static final ResourceKey<HeadType> ENDERMAN = register("enderman");
     public static final ResourceKey<HeadType> BLAZE = register("blaze");
@@ -27,6 +28,12 @@ public class MonsterHeadTypes {
     public static final ResourceKey<HeadType> CHARGED_CREEPER = register("creeper/charged");
     public static final ResourceKey<HeadType> SHULKER = register("shulker");
     public static final ResourceKey<HeadType> WARDEN = register("warden");
+    public static final ResourceKey<HeadType> SILVERFISH = register("silverfish");
+    public static final ResourceKey<HeadType> ENDERMITE = register("endermite");
+    public static final ResourceKey<HeadType> GIANT = register("giant");
+    // Hoglins
+    public static final ResourceKey<HeadType> HOGLIN = register("hoglin");
+    public static final ResourceKey<HeadType> ZOGLIN = register("zoglin");
     // Guardians
     public static final ResourceKey<HeadType> GUARDIAN = register("guardian");
     public static final ResourceKey<HeadType> ELDER_GUARDIAN = register("elder_guardian");
@@ -121,7 +128,6 @@ public class MonsterHeadTypes {
                 .build(context, CHARGED_CREEPER);
         HeadType.builder(EntityType.SHULKER)
                 .shape(6.0, 6.0, 6.0)
-                .scale(4.0 / 3.0)
                 .model(ModelType.SHULKER, ResourceLocationHelper.withDefaultNamespace("entity/shulker/shulker"))
                 .noteBlockSound(SoundEvents.SHULKER_AMBIENT)
                 .build(context, SHULKER);
@@ -131,6 +137,38 @@ public class MonsterHeadTypes {
                 .model(ModelType.WARDEN, ResourceLocationHelper.withDefaultNamespace("entity/warden/warden"))
                 .noteBlockSound(SoundEvents.WARDEN_AMBIENT)
                 .build(context, WARDEN);
+        HeadType.builder(EntityType.SILVERFISH)
+                .shape(6.0, 4.0, 3.0)
+                .scale(4.0 / 3.0)
+                .model(ModelType.SILVERFISH, ResourceLocationHelper.withDefaultNamespace("entity/silverfish"))
+                .noteBlockSound(SoundEvents.SILVERFISH_AMBIENT)
+                .build(context, SILVERFISH);
+        HeadType.builder(EntityType.ENDERMITE)
+                .shape(6.0, 4.0, 3.0)
+                .scale(4.0 / 3.0)
+                .model(ModelType.ENDERMITE, ResourceLocationHelper.withDefaultNamespace("entity/endermite"))
+                .noteBlockSound(SoundEvents.ENDERMITE_AMBIENT)
+                .build(context, ENDERMITE);
+        HeadType.builder(EntityType.GIANT)
+                .shape(8.0, 8.0, 8.0)
+                .scale(1.5)
+                .model(ModelType.HUMANOID, ResourceLocationHelper.withDefaultNamespace("entity/zombie/zombie"))
+                .noteBlockSound(SoundEvents.ZOMBIE_AMBIENT)
+                .build(context, GIANT);
+
+        // Hoglins
+        HeadType.builder(EntityType.HOGLIN)
+                .shape(14.0, 18.0, 8.0)
+                .scale(0.625)
+                .model(ModelType.HOGLIN, ResourceLocationHelper.withDefaultNamespace("entity/hoglin/hoglin"))
+                .noteBlockSound(SoundEvents.HOGLIN_AMBIENT)
+                .build(context, HOGLIN);
+        HeadType.builder(EntityType.ZOGLIN)
+                .shape(14.0, 18.0, 8.0)
+                .scale(0.625)
+                .model(ModelType.HOGLIN, ResourceLocationHelper.withDefaultNamespace("entity/hoglin/zoglin"))
+                .noteBlockSound(SoundEvents.ZOGLIN_AMBIENT)
+                .build(context, ZOGLIN);
 
         // Guardians
         HeadType.builder(EntityType.GUARDIAN)
@@ -298,7 +336,7 @@ public class MonsterHeadTypes {
                     builder.subPredicate(GhastPredicate.isCharging(charging));
                 })
                 .shape(16.0, 16.0, 16.0)
-                .scale(0.5)
+                .scale(0.625)
                 .model(ModelType.GHAST, ResourceLocationHelper.withDefaultNamespace(textureLocation))
                 .noteBlockSound(noteBlockSound)
                 .build(context, resourceKey);
@@ -310,13 +348,9 @@ public class MonsterHeadTypes {
                     builder.subPredicate(VexPredicate.isCharging(charging));
                 })
                 .shape(5.0, 5.0, 5.0)
-                .scale(1.6)
+                .scale(1.2)
                 .litModel(ModelType.VEX, ResourceLocationHelper.withDefaultNamespace(textureLocation))
                 .noteBlockSound(noteBlockSound)
                 .build(context, resourceKey);
-    }
-
-    private static ResourceKey<HeadType> register(String path) {
-        return HeadTypes.register(path);
     }
 }

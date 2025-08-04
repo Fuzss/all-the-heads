@@ -11,6 +11,7 @@ import net.minecraft.client.data.models.MultiVariant;
 import net.minecraft.client.data.models.model.ItemModelUtils;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SkullBlock;
 
 public class ModModelProvider extends AbstractModelProvider {
 
@@ -25,6 +26,9 @@ public class ModModelProvider extends AbstractModelProvider {
                 blockModelGenerators);
     }
 
+    /**
+     * @see fuzs.puzzleslib.api.client.data.v2.models.ItemModelGenerationHelper
+     */
     public final void generateHead(Block headBlock, Block wallHeadBlock, BlockModelGenerators blockModelGenerators) {
         this.createHead(headBlock,
                 wallHeadBlock,
@@ -32,6 +36,9 @@ public class ModModelProvider extends AbstractModelProvider {
                 blockModelGenerators);
     }
 
+    /**
+     * @see BlockModelGenerators#createHead(Block, Block, SkullBlock.Type, ResourceLocation)
+     */
     public final void createHead(Block headBlock, Block wallHeadBlock, ResourceLocation modelLocation, BlockModelGenerators blockModelGenerators) {
         MultiVariant multiVariant = BlockModelGenerators.plainVariant(ModelLocationHelper.getBlockModel(
                 ResourceLocationHelper.withDefaultNamespace("skull")));

@@ -1,7 +1,6 @@
 package fuzs.alltheheads.init.headtype;
 
 import fuzs.alltheheads.advancements.critereon.VillagerDataPredicate;
-import fuzs.alltheheads.init.HeadTypes;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
 import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
@@ -14,7 +13,9 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerType;
 
-public class VillagerHeadTypes {
+import static fuzs.alltheheads.init.HeadTypes.register;
+
+public class VillagerHeadType {
     // Desert Villagers
     public static final ResourceKey<HeadType> DESERT_VILLAGER = register("villager/desert");
     public static final ResourceKey<HeadType> DESERT_ARMORER_VILLAGER = register("villager/desert/armorer");
@@ -292,9 +293,5 @@ public class VillagerHeadTypes {
                 .model(ModelType.VILLAGER, profession.location().withPrefix("entity/villager/profession/"))
                 .noteBlockSound(SoundEvents.VILLAGER_AMBIENT)
                 .build(context, resourceKey);
-    }
-
-    private static ResourceKey<HeadType> register(String path) {
-        return HeadTypes.register(path);
     }
 }

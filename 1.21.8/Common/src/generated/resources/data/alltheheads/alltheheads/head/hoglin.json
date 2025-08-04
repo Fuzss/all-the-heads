@@ -1,0 +1,20 @@
+{
+  "custom_name": "minecraft.hoglin",
+  "entity_predicate": {
+    "type": "minecraft:hoglin"
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/hoglin",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/hoglin/hoglin",
+      "model": "alltheheads:hoglin_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.hoglin.ambient",
+  "shape": {
+    "depth": 8.0,
+    "height": 18.0,
+    "scale": 0.625,
+    "width": 14.0
+  }
+}

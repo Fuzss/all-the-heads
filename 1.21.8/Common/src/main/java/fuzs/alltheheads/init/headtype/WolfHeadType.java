@@ -1,7 +1,6 @@
 package fuzs.alltheheads.init.headtype;
 
 import fuzs.alltheheads.advancements.critereon.WolfPredicate;
-import fuzs.alltheheads.init.HeadTypes;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
 import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
@@ -20,7 +19,9 @@ import net.minecraft.world.entity.animal.wolf.WolfVariants;
 
 import java.util.Optional;
 
-public class WolfHeadTypes {
+import static fuzs.alltheheads.init.HeadTypes.register;
+
+public class WolfHeadType {
     // Ashen Wolf
     public static final ResourceKey<HeadType> ASHEN_WOLF = register("wolf/ashen");
     public static final ResourceKey<HeadType> ANGRY_ASHEN_WOLF = register("wolf/ashen/angry");
@@ -131,9 +132,5 @@ public class WolfHeadTypes {
                 .model(ModelType.WOLF, ResourceLocationHelper.withDefaultNamespace(textureLocation))
                 .noteBlockSound(SoundEvents.WOLF_SOUNDS.get(WolfSoundVariants.SoundSet.CLASSIC).pantSound())
                 .build(context, resourceKey);
-    }
-
-    private static ResourceKey<HeadType> register(String path) {
-        return HeadTypes.register(path);
     }
 }

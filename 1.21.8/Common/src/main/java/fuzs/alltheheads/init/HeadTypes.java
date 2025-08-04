@@ -8,13 +8,13 @@ import net.minecraft.resources.ResourceKey;
 public class HeadTypes {
 
     public static void bootstrap(BootstrapContext<HeadType> context) {
-        MonsterHeadTypes.bootstrap(context);
-        AnimalHeadTypes.bootstrap(context);
-        HorseHeadTypes.bootstrap(context);
-        SheepHeadTypes.bootstrap(context);
-        WolfHeadTypes.bootstrap(context);
-        VillagerHeadTypes.bootstrap(context);
-        ZombieVillagerHeadTypes.bootstrap(context);
+        MonsterHeadType.bootstrap(context);
+        AnimalHeadType.bootstrap(context);
+        HorseHeadType.bootstrap(context);
+        SheepHeadType.bootstrap(context);
+        WolfHeadType.bootstrap(context);
+        VillagerHeadType.bootstrap(context);
+        ZombieVillagerHeadType.bootstrap(context);
     }
 
     public static ResourceKey<HeadType> register(String path) {
