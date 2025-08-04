@@ -38,7 +38,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:ghast/charging"
+            "alltheheads:head_type": "alltheheads:minecraft/ghast/charging"
           },
           "function": "minecraft:set_components"
         }

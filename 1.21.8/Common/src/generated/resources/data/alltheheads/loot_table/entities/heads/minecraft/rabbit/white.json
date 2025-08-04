@@ -37,7 +37,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:rabbit/white"
+            "alltheheads:head_type": "alltheheads:minecraft/rabbit/white"
           },
           "function": "minecraft:set_components"
         }

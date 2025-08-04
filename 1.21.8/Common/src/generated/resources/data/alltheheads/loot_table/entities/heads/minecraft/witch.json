@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:witch"
+            "alltheheads:head_type": "alltheheads:minecraft/witch"
           },
           "function": "minecraft:set_components"
         }

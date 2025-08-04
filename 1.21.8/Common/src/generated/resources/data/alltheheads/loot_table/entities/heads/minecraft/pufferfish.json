@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:pufferfish"
+            "alltheheads:head_type": "alltheheads:minecraft/pufferfish"
           },
           "function": "minecraft:set_components"
         }

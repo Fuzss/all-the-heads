@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:silverfish"
+            "alltheheads:head_type": "alltheheads:minecraft/silverfish"
           },
           "function": "minecraft:set_components"
         }

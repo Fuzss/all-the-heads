@@ -37,7 +37,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:llama/gray"
+            "alltheheads:head_type": "alltheheads:minecraft/llama/gray"
           },
           "function": "minecraft:set_components"
         }

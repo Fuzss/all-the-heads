@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:ocelot"
+            "alltheheads:head_type": "alltheheads:minecraft/ocelot"
           },
           "function": "minecraft:set_components"
         }

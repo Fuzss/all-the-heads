@@ -37,7 +37,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:rabbit/toast"
+            "alltheheads:head_type": "alltheheads:minecraft/rabbit/toast"
           },
           "function": "minecraft:set_components"
         }

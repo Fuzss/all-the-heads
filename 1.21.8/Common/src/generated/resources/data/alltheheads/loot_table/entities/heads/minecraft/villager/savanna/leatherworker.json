@@ -39,7 +39,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:villager/savanna/leatherworker"
+            "alltheheads:head_type": "alltheheads:minecraft/villager/savanna/leatherworker"
           },
           "function": "minecraft:set_components"
         }

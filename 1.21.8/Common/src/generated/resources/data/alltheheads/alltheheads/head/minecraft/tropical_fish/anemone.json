@@ -1,0 +1,32 @@
+{
+  "custom_name": "minecraft.tropical_fish_anemone",
+  "entity_predicate": {
+    "type": "minecraft:tropical_fish",
+    "type_specific": {
+      "type": "alltheheads:tropical_fish",
+      "base_color": "orange",
+      "pattern": "stripey",
+      "pattern_color": "gray"
+    }
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/tropical_fish/anemone",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/fish/tropical_b",
+      "color": -425955,
+      "model": "alltheheads:tropical_fish_head/large"
+    },
+    {
+      "asset_id": "minecraft:entity/fish/tropical_b_pattern_2",
+      "color": -12103854,
+      "model": "alltheheads:tropical_fish_head/large"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.tropical_fish.ambient",
+  "shape": {
+    "depth": 4.0,
+    "height": 6.0,
+    "scale": 1.5,
+    "width": 2.0
+  }
+}

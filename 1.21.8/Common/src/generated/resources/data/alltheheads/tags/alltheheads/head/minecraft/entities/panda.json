@@ -1,11 +1,11 @@
 {
   "values": [
-    "alltheheads:panda",
-    "alltheheads:panda/aggressive",
-    "alltheheads:panda/brown",
-    "alltheheads:panda/lazy",
-    "alltheheads:panda/playful",
-    "alltheheads:panda/weak",
-    "alltheheads:panda/worried"
+    "alltheheads:minecraft/panda",
+    "alltheheads:minecraft/panda/aggressive",
+    "alltheheads:minecraft/panda/brown",
+    "alltheheads:minecraft/panda/lazy",
+    "alltheheads:minecraft/panda/playful",
+    "alltheheads:minecraft/panda/weak",
+    "alltheheads:minecraft/panda/worried"
   ]
 }

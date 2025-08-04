@@ -41,7 +41,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:horse/black"
+            "alltheheads:head_type": "alltheheads:minecraft/horse/black"
           },
           "function": "minecraft:set_components"
         }

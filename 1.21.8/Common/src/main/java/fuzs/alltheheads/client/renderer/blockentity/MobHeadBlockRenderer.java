@@ -75,6 +75,8 @@ public class MobHeadBlockRenderer implements BlockEntityRenderer<MobHeadBlockEnt
                         putRenderType(ModelType.SLIME_GEL, RenderType::entityTranslucent, map::put);
                         putRenderType(ModelType.SPIDER, RenderType::entityCutoutNoCull, map::put);
                         putRenderType(ModelType.SPIDER_EYES, RenderType::eyes, map::put);
+                        putRenderType(ModelType.TROPICAL_FISH_LARGE, RenderType::entityCutoutNoCull, map::put);
+                        putRenderType(ModelType.TROPICAL_FISH_SMALL, RenderType::entityCutoutNoCull, map::put);
                         putRenderType(ModelType.VEX, RenderType::entityTranslucent, map::put);
                         map.put(ModelType.WITHER_SHIELD, (ResourceLocation resourceLocation, Float tickCount) -> {
                             return RenderType.energySwirl(resourceLocation,

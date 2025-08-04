@@ -38,7 +38,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:wither"
+            "alltheheads:head_type": "alltheheads:minecraft/wither"
           },
           "function": "minecraft:set_components"
         }

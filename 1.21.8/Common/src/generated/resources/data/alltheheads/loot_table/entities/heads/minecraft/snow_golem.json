@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:snow_golem"
+            "alltheheads:head_type": "alltheheads:minecraft/snow_golem"
           },
           "function": "minecraft:set_components"
         }

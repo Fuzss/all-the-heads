@@ -39,7 +39,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:villager/snow"
+            "alltheheads:head_type": "alltheheads:minecraft/villager/snow"
           },
           "function": "minecraft:set_components"
         }

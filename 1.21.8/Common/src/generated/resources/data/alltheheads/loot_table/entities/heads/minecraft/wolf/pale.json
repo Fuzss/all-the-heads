@@ -42,7 +42,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:wolf/pale"
+            "alltheheads:head_type": "alltheheads:minecraft/wolf/pale"
           },
           "function": "minecraft:set_components"
         }

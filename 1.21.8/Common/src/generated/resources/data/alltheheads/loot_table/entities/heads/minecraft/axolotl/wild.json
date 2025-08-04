@@ -37,7 +37,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:axolotl/wild"
+            "alltheheads:head_type": "alltheheads:minecraft/axolotl/wild"
           },
           "function": "minecraft:set_components"
         }

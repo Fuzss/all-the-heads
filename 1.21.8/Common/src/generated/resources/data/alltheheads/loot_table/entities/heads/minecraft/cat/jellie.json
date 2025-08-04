@@ -37,7 +37,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:cat/jellie"
+            "alltheheads:head_type": "alltheheads:minecraft/cat/jellie"
           },
           "function": "minecraft:set_components"
         }

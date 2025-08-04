@@ -38,7 +38,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:panda/playful"
+            "alltheheads:head_type": "alltheheads:minecraft/panda/playful"
           },
           "function": "minecraft:set_components"
         }

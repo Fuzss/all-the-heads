@@ -37,7 +37,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:frog/temperate"
+            "alltheheads:head_type": "alltheheads:minecraft/frog/temperate"
           },
           "function": "minecraft:set_components"
         }

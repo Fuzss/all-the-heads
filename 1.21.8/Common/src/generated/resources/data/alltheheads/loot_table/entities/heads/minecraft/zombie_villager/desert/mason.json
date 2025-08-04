@@ -39,7 +39,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:zombie_villager/desert/mason"
+            "alltheheads:head_type": "alltheheads:minecraft/zombie_villager/desert/mason"
           },
           "function": "minecraft:set_components"
         }

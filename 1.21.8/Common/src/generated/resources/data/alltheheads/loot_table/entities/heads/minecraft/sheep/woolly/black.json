@@ -41,7 +41,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:sheep/woolly/black"
+            "alltheheads:head_type": "alltheheads:minecraft/sheep/woolly/black"
           },
           "function": "minecraft:set_components"
         }

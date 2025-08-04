@@ -37,7 +37,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:parrot/gray"
+            "alltheheads:head_type": "alltheheads:minecraft/parrot/gray"
           },
           "function": "minecraft:set_components"
         }

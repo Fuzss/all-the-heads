@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:enderman"
+            "alltheheads:head_type": "alltheheads:minecraft/enderman"
           },
           "function": "minecraft:set_components"
         }

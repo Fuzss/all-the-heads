@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:piglin_brute"
+            "alltheheads:head_type": "alltheheads:minecraft/piglin_brute"
           },
           "function": "minecraft:set_components"
         }

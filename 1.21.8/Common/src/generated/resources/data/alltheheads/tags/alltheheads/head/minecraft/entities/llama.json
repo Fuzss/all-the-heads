@@ -1,8 +1,8 @@
 {
   "values": [
-    "alltheheads:llama/brown",
-    "alltheheads:llama/creamy",
-    "alltheheads:llama/gray",
-    "alltheheads:llama/white"
+    "alltheheads:minecraft/llama/brown",
+    "alltheheads:minecraft/llama/creamy",
+    "alltheheads:minecraft/llama/gray",
+    "alltheheads:minecraft/llama/white"
   ]
 }

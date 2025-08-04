@@ -39,7 +39,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:villager/desert/cartographer"
+            "alltheheads:head_type": "alltheheads:minecraft/villager/desert/cartographer"
           },
           "function": "minecraft:set_components"
         }

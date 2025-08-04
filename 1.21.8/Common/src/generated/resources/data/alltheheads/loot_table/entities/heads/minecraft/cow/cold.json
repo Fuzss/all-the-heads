@@ -37,7 +37,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:cow/cold"
+            "alltheheads:head_type": "alltheheads:minecraft/cow/cold"
           },
           "function": "minecraft:set_components"
         }

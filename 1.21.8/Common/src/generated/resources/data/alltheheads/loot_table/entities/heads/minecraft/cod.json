@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:cod"
+            "alltheheads:head_type": "alltheheads:minecraft/cod"
           },
           "function": "minecraft:set_components"
         }

@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:magma_cube"
+            "alltheheads:head_type": "alltheheads:minecraft/magma_cube"
           },
           "function": "minecraft:set_components"
         }

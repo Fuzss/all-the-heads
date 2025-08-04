@@ -39,7 +39,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:villager/taiga/fletcher"
+            "alltheheads:head_type": "alltheheads:minecraft/villager/taiga/fletcher"
           },
           "function": "minecraft:set_components"
         }

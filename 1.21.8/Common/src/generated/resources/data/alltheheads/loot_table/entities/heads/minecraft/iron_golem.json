@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:iron_golem"
+            "alltheheads:head_type": "alltheheads:minecraft/iron_golem"
           },
           "function": "minecraft:set_components"
         }

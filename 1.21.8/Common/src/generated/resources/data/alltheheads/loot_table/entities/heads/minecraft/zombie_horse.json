@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:zombie_horse"
+            "alltheheads:head_type": "alltheheads:minecraft/zombie_horse"
           },
           "function": "minecraft:set_components"
         }

@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:wandering_trader"
+            "alltheheads:head_type": "alltheheads:minecraft/wandering_trader"
           },
           "function": "minecraft:set_components"
         }

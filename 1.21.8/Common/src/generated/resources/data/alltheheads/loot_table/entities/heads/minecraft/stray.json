@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:stray"
+            "alltheheads:head_type": "alltheheads:minecraft/stray"
           },
           "function": "minecraft:set_components"
         }

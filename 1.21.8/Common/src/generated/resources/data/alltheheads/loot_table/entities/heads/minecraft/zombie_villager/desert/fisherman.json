@@ -39,7 +39,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:zombie_villager/desert/fisherman"
+            "alltheheads:head_type": "alltheheads:minecraft/zombie_villager/desert/fisherman"
           },
           "function": "minecraft:set_components"
         }

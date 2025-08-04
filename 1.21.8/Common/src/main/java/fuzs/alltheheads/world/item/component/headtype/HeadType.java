@@ -3,6 +3,7 @@ package fuzs.alltheheads.world.item.component.headtype;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import fuzs.alltheheads.init.ModRegistry;
+import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
 import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -17,7 +18,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.Optional;
@@ -67,16 +67,13 @@ public record HeadType(EntityPredicate entityPredicate,
         return new Builder(entityType);
     }
 
-    public static String customName(EntityType<?> entityType, ResourceKey<HeadType> resourceKey) {
-        return customName(entityType, resourceKey, ModRegistry.MOB_HEAD_BLOCK.value().getDescriptionId());
-    }
-
-    public static String customName(EntityType<?> entityType, ResourceKey<HeadType> resourceKey, @Nullable String descriptionId) {
-        ResourceLocation resourceLocation = Builder.getNamespacedLocation(entityType, resourceKey)
+    public static ResourceLocation customName(ResourceKey<HeadType> resourceKey) {
+        String joinedPath = String.join(":", resourceKey.location().getPath().split("/", 2));
+        return Optional.ofNullable(ResourceLocationHelper.tryParse(joinedPath))
+                .orElse(resourceKey.location())
                 .withPath((String path) -> {
                     return path.replace('/', '_');
                 });
-        return descriptionId != null ? resourceLocation.toLanguageKey(descriptionId) : resourceLocation.toLanguageKey();
     }
 
     public Stream<EntityType<?>> getEntityTypes() {

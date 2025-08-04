@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:cave_spider"
+            "alltheheads:head_type": "alltheheads:minecraft/cave_spider"
           },
           "function": "minecraft:set_components"
         }

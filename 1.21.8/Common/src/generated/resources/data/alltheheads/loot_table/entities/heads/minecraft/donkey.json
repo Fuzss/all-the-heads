@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:donkey"
+            "alltheheads:head_type": "alltheheads:minecraft/donkey"
           },
           "function": "minecraft:set_components"
         }

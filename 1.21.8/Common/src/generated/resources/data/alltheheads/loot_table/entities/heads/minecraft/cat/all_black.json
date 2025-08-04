@@ -37,7 +37,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:cat/all_black"
+            "alltheheads:head_type": "alltheheads:minecraft/cat/all_black"
           },
           "function": "minecraft:set_components"
         }

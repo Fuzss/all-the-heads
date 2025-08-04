@@ -1,8 +1,8 @@
 {
   "values": [
-    "alltheheads:bee",
-    "alltheheads:bee/angry",
-    "alltheheads:bee/angry/pollinated",
-    "alltheheads:bee/pollinated"
+    "alltheheads:minecraft/bee",
+    "alltheheads:minecraft/bee/angry",
+    "alltheheads:minecraft/bee/angry/pollinated",
+    "alltheheads:minecraft/bee/pollinated"
   ]
 }

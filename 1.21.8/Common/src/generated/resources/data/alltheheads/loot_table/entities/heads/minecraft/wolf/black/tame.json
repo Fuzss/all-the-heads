@@ -41,7 +41,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:wolf/black/tame"
+            "alltheheads:head_type": "alltheheads:minecraft/wolf/black/tame"
           },
           "function": "minecraft:set_components"
         }

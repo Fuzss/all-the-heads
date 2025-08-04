@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:drowned"
+            "alltheheads:head_type": "alltheheads:minecraft/drowned"
           },
           "function": "minecraft:set_components"
         }

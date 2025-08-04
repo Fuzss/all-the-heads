@@ -39,7 +39,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:zombie_villager/taiga/nitwit"
+            "alltheheads:head_type": "alltheheads:minecraft/zombie_villager/taiga/nitwit"
           },
           "function": "minecraft:set_components"
         }

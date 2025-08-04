@@ -39,7 +39,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:zombie_villager/taiga/cartographer"
+            "alltheheads:head_type": "alltheheads:minecraft/zombie_villager/taiga/cartographer"
           },
           "function": "minecraft:set_components"
         }

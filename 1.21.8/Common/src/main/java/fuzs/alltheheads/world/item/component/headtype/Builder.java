@@ -20,7 +20,6 @@ import java.util.Optional;
 import java.util.function.Consumer;
 
 public final class Builder {
-    private final EntityType<?> entityType;
     private final List<Consumer<EntityPredicate.Builder>> entityPredicate = new ArrayList<>();
     private Shape shape = new Shape(8.0, 8.0, 8.0);
     private double scale = 1.0;
@@ -32,7 +31,6 @@ public final class Builder {
     private Optional<String> customName = Optional.empty();
 
     Builder(EntityType<?> entityType) {
-        this.entityType = entityType;
         this.entityPredicate((EntityPredicate.Builder builder) -> {
             builder.entityType(EntityTypePredicate.of(BuiltInRegistries.ENTITY_TYPE, entityType));
         });
@@ -83,11 +81,8 @@ public final class Builder {
     }
 
     public Builder lootTable(ResourceKey<HeadType> resourceKey) {
-        ResourceLocation resourceLocation = getNamespacedLocation(this.entityType, resourceKey);
         this.lootTable = Optional.of(ResourceKey.create(Registries.LOOT_TABLE,
-                resourceKey.location()
-                        .withPath(resourceLocation.toString().replace(':', '/'))
-                        .withPrefix("entities/heads/")));
+                resourceKey.location().withPrefix("entities/heads/")));
         return this;
     }
 
@@ -102,7 +97,7 @@ public final class Builder {
     }
 
     public Builder customName(ResourceKey<HeadType> resourceKey) {
-        this.customName = Optional.of(HeadType.customName(this.entityType, resourceKey, null));
+        this.customName = Optional.of(HeadType.customName(resourceKey).toLanguageKey());
         return this;
     }
 
@@ -128,9 +123,5 @@ public final class Builder {
 
     private Loot buildLoot() {
         return new Loot(this.lootTable, this.chargedCreeperDrop);
-    }
-
-    static ResourceLocation getNamespacedLocation(EntityType<?> entityType, ResourceKey<HeadType> resourceKey) {
-        return BuiltInRegistries.ENTITY_TYPE.getKey(entityType).withPath(resourceKey.location().getPath());
     }
 }

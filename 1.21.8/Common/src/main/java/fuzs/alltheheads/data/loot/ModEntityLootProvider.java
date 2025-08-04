@@ -1,8 +1,8 @@
 package fuzs.alltheheads.data.loot;
 
 import com.google.common.collect.ImmutableMap;
-import fuzs.alltheheads.init.headtype.AnimalHeadType;
 import fuzs.alltheheads.init.ModRegistry;
+import fuzs.alltheheads.init.headtype.AxolotlHeadType;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.puzzleslib.api.data.v2.AbstractLootProvider;
 import fuzs.puzzleslib.api.data.v2.core.DataProviderContext;
@@ -27,11 +27,11 @@ public class ModEntityLootProvider extends AbstractLootProvider.Simple {
 
     static {
         ImmutableMap.Builder<ResourceKey<HeadType>, RandomChanceWithLooting> builder = ImmutableMap.builder();
-        registerDropChance(AnimalHeadType.LUCY_AXOLOTL, 0.2F, 0.05F, builder::put);
-        registerDropChance(AnimalHeadType.WILD_AXOLOTL, 0.2F, 0.05F, builder::put);
-        registerDropChance(AnimalHeadType.GOLD_AXOLOTL, 0.2F, 0.05F, builder::put);
-        registerDropChance(AnimalHeadType.CYAN_AXOLOTL, 0.2F, 0.05F, builder::put);
-        registerDropChance(AnimalHeadType.BLUE_AXOLOTL, 1.0F, 0.0F, builder::put);
+        registerDropChance(AxolotlHeadType.LUCY_AXOLOTL, 0.2F, 0.05F, builder::put);
+        registerDropChance(AxolotlHeadType.WILD_AXOLOTL, 0.2F, 0.05F, builder::put);
+        registerDropChance(AxolotlHeadType.GOLD_AXOLOTL, 0.2F, 0.05F, builder::put);
+        registerDropChance(AxolotlHeadType.CYAN_AXOLOTL, 0.2F, 0.05F, builder::put);
+        registerDropChance(AxolotlHeadType.BLUE_AXOLOTL, 1.0F, 0.0F, builder::put);
         HEAD_TYPE_LOOT_DROP_CHANCES = builder.build();
     }
 

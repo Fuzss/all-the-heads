@@ -37,7 +37,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:cat/british_shorthair"
+            "alltheheads:head_type": "alltheheads:minecraft/cat/british_shorthair"
           },
           "function": "minecraft:set_components"
         }

@@ -41,7 +41,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:wolf/woods/angry"
+            "alltheheads:head_type": "alltheheads:minecraft/wolf/woods/angry"
           },
           "function": "minecraft:set_components"
         }

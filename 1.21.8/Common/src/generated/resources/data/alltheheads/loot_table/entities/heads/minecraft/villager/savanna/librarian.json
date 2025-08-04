@@ -39,7 +39,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:villager/savanna/librarian"
+            "alltheheads:head_type": "alltheheads:minecraft/villager/savanna/librarian"
           },
           "function": "minecraft:set_components"
         }

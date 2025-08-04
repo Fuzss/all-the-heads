@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:bogged"
+            "alltheheads:head_type": "alltheheads:minecraft/bogged"
           },
           "function": "minecraft:set_components"
         }

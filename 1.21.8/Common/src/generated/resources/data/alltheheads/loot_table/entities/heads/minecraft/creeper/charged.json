@@ -38,7 +38,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:creeper/charged"
+            "alltheheads:head_type": "alltheheads:minecraft/creeper/charged"
           },
           "function": "minecraft:set_components"
         }

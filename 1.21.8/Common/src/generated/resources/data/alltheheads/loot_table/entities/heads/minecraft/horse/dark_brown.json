@@ -41,7 +41,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:horse/dark_brown"
+            "alltheheads:head_type": "alltheheads:minecraft/horse/dark_brown"
           },
           "function": "minecraft:set_components"
         }

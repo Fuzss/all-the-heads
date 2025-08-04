@@ -42,7 +42,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:wolf/rusty"
+            "alltheheads:head_type": "alltheheads:minecraft/wolf/rusty"
           },
           "function": "minecraft:set_components"
         }

@@ -41,7 +41,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:wolf/ashen/tame"
+            "alltheheads:head_type": "alltheheads:minecraft/wolf/ashen/tame"
           },
           "function": "minecraft:set_components"
         }

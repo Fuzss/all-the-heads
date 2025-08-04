@@ -37,7 +37,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:trader_llama/brown"
+            "alltheheads:head_type": "alltheheads:minecraft/trader_llama/brown"
           },
           "function": "minecraft:set_components"
         }

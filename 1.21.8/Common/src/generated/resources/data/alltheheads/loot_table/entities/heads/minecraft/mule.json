@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:mule"
+            "alltheheads:head_type": "alltheheads:minecraft/mule"
           },
           "function": "minecraft:set_components"
         }

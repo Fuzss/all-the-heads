@@ -1,0 +1,32 @@
+{
+  "custom_name": "minecraft.tropical_fish_cotton_candy_betta",
+  "entity_predicate": {
+    "type": "minecraft:tropical_fish",
+    "type_specific": {
+      "type": "alltheheads:tropical_fish",
+      "base_color": "pink",
+      "pattern": "spotty",
+      "pattern_color": "light_blue"
+    }
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/tropical_fish/cotton_candy_betta",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/fish/tropical_a",
+      "color": -816214,
+      "model": "alltheheads:tropical_fish_head/small"
+    },
+    {
+      "asset_id": "minecraft:entity/fish/tropical_a_pattern_6",
+      "color": -12930086,
+      "model": "alltheheads:tropical_fish_head/small"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.tropical_fish.ambient",
+  "shape": {
+    "depth": 4.0,
+    "height": 3.0,
+    "scale": 1.5,
+    "width": 2.0
+  }
+}

@@ -39,7 +39,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:villager/plains/leatherworker"
+            "alltheheads:head_type": "alltheheads:minecraft/villager/plains/leatherworker"
           },
           "function": "minecraft:set_components"
         }

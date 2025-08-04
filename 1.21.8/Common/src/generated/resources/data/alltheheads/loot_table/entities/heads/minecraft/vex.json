@@ -38,7 +38,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:vex"
+            "alltheheads:head_type": "alltheheads:minecraft/vex"
           },
           "function": "minecraft:set_components"
         }

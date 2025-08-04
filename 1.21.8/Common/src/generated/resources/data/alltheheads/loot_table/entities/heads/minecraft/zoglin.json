@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:zoglin"
+            "alltheheads:head_type": "alltheheads:minecraft/zoglin"
           },
           "function": "minecraft:set_components"
         }

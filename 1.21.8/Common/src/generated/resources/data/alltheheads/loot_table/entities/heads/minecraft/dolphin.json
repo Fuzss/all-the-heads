@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:dolphin"
+            "alltheheads:head_type": "alltheheads:minecraft/dolphin"
           },
           "function": "minecraft:set_components"
         }

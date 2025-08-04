@@ -38,7 +38,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:panda/brown"
+            "alltheheads:head_type": "alltheheads:minecraft/panda/brown"
           },
           "function": "minecraft:set_components"
         }

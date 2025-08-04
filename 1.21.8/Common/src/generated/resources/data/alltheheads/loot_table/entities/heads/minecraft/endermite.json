@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:endermite"
+            "alltheheads:head_type": "alltheheads:minecraft/endermite"
           },
           "function": "minecraft:set_components"
         }

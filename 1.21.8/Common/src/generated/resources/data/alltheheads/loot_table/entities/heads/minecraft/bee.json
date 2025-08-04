@@ -39,7 +39,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:bee"
+            "alltheheads:head_type": "alltheheads:minecraft/bee"
           },
           "function": "minecraft:set_components"
         }

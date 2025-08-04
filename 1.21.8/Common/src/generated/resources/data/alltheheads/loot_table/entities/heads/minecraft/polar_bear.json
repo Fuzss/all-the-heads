@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:polar_bear"
+            "alltheheads:head_type": "alltheheads:minecraft/polar_bear"
           },
           "function": "minecraft:set_components"
         }

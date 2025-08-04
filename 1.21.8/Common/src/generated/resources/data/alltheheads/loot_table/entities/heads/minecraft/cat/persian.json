@@ -37,7 +37,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:cat/persian"
+            "alltheheads:head_type": "alltheheads:minecraft/cat/persian"
           },
           "function": "minecraft:set_components"
         }

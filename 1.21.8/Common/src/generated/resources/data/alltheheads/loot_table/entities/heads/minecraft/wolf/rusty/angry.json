@@ -41,7 +41,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:wolf/rusty/angry"
+            "alltheheads:head_type": "alltheheads:minecraft/wolf/rusty/angry"
           },
           "function": "minecraft:set_components"
         }
