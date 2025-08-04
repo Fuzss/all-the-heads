@@ -1,10 +1,13 @@
 package fuzs.alltheheads;
 
 import com.google.common.collect.Sets;
+import fuzs.alltheheads.config.CommonConfig;
 import fuzs.alltheheads.handler.HeadBehaviorHandler;
 import fuzs.alltheheads.handler.HeadLootHandler;
+import fuzs.alltheheads.init.ModLootTables;
 import fuzs.alltheheads.init.ModRegistry;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
+import fuzs.puzzleslib.api.config.v3.ConfigHolder;
 import fuzs.puzzleslib.api.core.v1.ModConstructor;
 import fuzs.puzzleslib.api.core.v1.ModLoaderEnvironment;
 import fuzs.puzzleslib.api.core.v1.context.DataPackRegistriesContext;
@@ -32,6 +35,8 @@ public class AllTheHeads implements ModConstructor {
     public static final String MOD_NAME = "All The Heads";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_NAME);
 
+    public static final ConfigHolder CONFIG = ConfigHolder.builder(MOD_ID).common(CommonConfig.class);
+
     @Override
     public void onConstructMod() {
         ModRegistry.bootstrap();
@@ -40,6 +45,7 @@ public class AllTheHeads implements ModConstructor {
     }
 
     private static void registerEventHandlers() {
+        LootTableLoadCallback.EVENT.register(ModLootTables::onLootTableLoad);
         LootTableLoadCallback.EVENT.register(HeadLootHandler::onLootTableLoad);
         LivingDropsCallback.EVENT.register(HeadLootHandler::onLivingDrops);
         LivingVisibilityCallback.EVENT.register(HeadBehaviorHandler::onLivingVisibility);

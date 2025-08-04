@@ -13,7 +13,7 @@
       "model": "alltheheads:rabbit_head"
     }
   ],
-  "note_block_sound": "minecraft:entity.rabbit.ambient",
+  "note_block_sound": "minecraft:entity.rabbit.attack",
   "shape": {
     "depth": 5.0,
     "height": 4.0,

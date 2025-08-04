@@ -10,7 +10,7 @@
       "model": "alltheheads:dolphin_head"
     }
   ],
-  "note_block_sound": "minecraft:entity.dolphin.ambient",
+  "note_block_sound": "minecraft:entity.dolphin.ambient_water",
   "shape": {
     "depth": 6.0,
     "height": 7.0,

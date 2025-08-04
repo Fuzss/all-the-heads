@@ -60,7 +60,7 @@ public final class Builder {
         return this;
     }
 
-    public Builder dyedModel(ModelType modelType, ResourceLocation assetId, int color) {
+    public Builder dyedModel(ModelType modelType, ResourceLocation assetId, Color color) {
         this.models.add(new Model(new ModelAndTexture<>(modelType, assetId), Optional.of(color), Optional.empty()));
         return this;
     }

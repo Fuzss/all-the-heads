@@ -1,6 +1,7 @@
 package fuzs.alltheheads.init.headtype;
 
 import fuzs.alltheheads.advancements.critereon.CreeperPredicate;
+import fuzs.alltheheads.world.item.component.headtype.Color;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
 import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
@@ -52,7 +53,7 @@ public class MonsterHeadType {
                 .shape(8.0, 8.0, 8.0)
                 .model(ModelType.BREEZE, ResourceLocationHelper.withDefaultNamespace("entity/breeze/breeze"))
                 .model(ModelType.BREEZE_EYES, ResourceLocationHelper.withDefaultNamespace("entity/breeze/breeze_eyes"))
-                .noteBlockSound(SoundEvents.BREEZE_IDLE_GROUND)
+                .noteBlockSound(SoundEvents.BREEZE_IDLE_AIR)
                 .build(context, BREEZE);
         HeadType.builder(EntityType.CREEPER)
                 .entityPredicate((EntityPredicate.Builder builder) -> {
@@ -62,7 +63,7 @@ public class MonsterHeadType {
                 .model(ModelType.MOB, ResourceLocationHelper.withDefaultNamespace("entity/creeper/creeper"))
                 .dyedModel(ModelType.CREEPER_CHARGE,
                         ResourceLocationHelper.withDefaultNamespace("entity/creeper/creeper_armor"),
-                        0XFF808080)
+                        new Color.Constant(0xFF808080))
                 .noteBlockSound(SoundEvents.CREEPER_PRIMED)
                 .build(context, CHARGED_CREEPER);
         HeadType.builder(EntityType.CREAKING)
@@ -94,7 +95,7 @@ public class MonsterHeadType {
                 .build(context, ENDERMITE);
         HeadType.builder(EntityType.GIANT)
                 .shape(8.0, 8.0, 8.0)
-                .scale(1.5)
+                .scale(1.25)
                 .model(ModelType.HUMANOID, ResourceLocationHelper.withDefaultNamespace("entity/zombie/zombie"))
                 .noteBlockSound(SoundEvents.ZOMBIE_AMBIENT)
                 .build(context, GIANT);
@@ -119,7 +120,7 @@ public class MonsterHeadType {
                 .shape(16.0, 20.0, 16.0)
                 .scale(0.5)
                 .model(ModelType.RAVAGER, ResourceLocationHelper.withDefaultNamespace("entity/illager/ravager"))
-                .noteBlockSound(SoundEvents.RAVAGER_AMBIENT)
+                .noteBlockSound(SoundEvents.RAVAGER_ROAR)
                 .build(context, RAVAGER);
         HeadType.builder(EntityType.SHULKER)
                 .shape(6.0, 6.0, 6.0)
@@ -136,7 +137,7 @@ public class MonsterHeadType {
                 .shape(8.0, 8.0, 8.0)
                 .model(ModelType.SLIME, ResourceLocationHelper.withDefaultNamespace("entity/slime/slime"))
                 .model(ModelType.SLIME_GEL, ResourceLocationHelper.withDefaultNamespace("entity/slime/slime"))
-                .noteBlockSound(SoundEvents.SLIME_SQUISH_SMALL)
+                .noteBlockSound(SoundEvents.SLIME_SQUISH)
                 .build(context, SLIME);
         HeadType.builder(EntityType.STRAY)
                 .shape(8.0, 8.0, 8.0)

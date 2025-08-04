@@ -13,16 +13,22 @@
   "models": [
     {
       "asset_id": "minecraft:entity/fish/tropical_b",
-      "color": -5231066,
+      "color": {
+        "type": "alltheheads:dye",
+        "dye": "red"
+      },
       "model": "alltheheads:tropical_fish_head/large"
     },
     {
       "asset_id": "minecraft:entity/fish/tropical_b_pattern_4",
-      "color": -393218,
+      "color": {
+        "type": "alltheheads:dye",
+        "dye": "white"
+      },
       "model": "alltheheads:tropical_fish_head/large"
     }
   ],
-  "note_block_sound": "minecraft:entity.tropical_fish.ambient",
+  "note_block_sound": "minecraft:entity.tropical_fish.flop",
   "shape": {
     "depth": 4.0,
     "height": 6.0,

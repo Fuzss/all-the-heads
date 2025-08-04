@@ -10,7 +10,7 @@
       "model": "alltheheads:cod_head"
     }
   ],
-  "note_block_sound": "minecraft:entity.cod.ambient",
+  "note_block_sound": "minecraft:entity.cod.flop",
   "shape": {
     "depth": 3.0,
     "height": 4.0,

@@ -7,7 +7,6 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.item.DyeColor;
 
 import java.util.function.BiConsumer;
 
@@ -28,12 +27,12 @@ public class AquaticHeadType {
                 .shape(2.0, 4.0, 3.0)
                 .scale(1.5)
                 .model(ModelType.COD, ResourceLocationHelper.withDefaultNamespace("entity/fish/cod"))
-                .noteBlockSound(SoundEvents.COD_AMBIENT)
+                .noteBlockSound(SoundEvents.COD_FLOP)
                 .build(context, AquaticHeadType.COD);
         HeadType.builder(EntityType.DOLPHIN)
                 .shape(8.0, 7.0, 6.0)
                 .model(ModelType.DOLPHIN, ResourceLocationHelper.withDefaultNamespace("entity/dolphin"))
-                .noteBlockSound(SoundEvents.DOLPHIN_AMBIENT)
+                .noteBlockSound(SoundEvents.DOLPHIN_AMBIENT_WATER)
                 .build(context, AquaticHeadType.DOLPHIN);
         HeadType.builder(EntityType.GLOW_SQUID)
                 .shape(12.0, 16.0, 12.0)
@@ -50,7 +49,7 @@ public class AquaticHeadType {
                 .shape(2.0, 4.0, 3.0)
                 .scale(1.5)
                 .model(ModelType.SALMON, ResourceLocationHelper.withDefaultNamespace("entity/fish/salmon"))
-                .noteBlockSound(SoundEvents.SALMON_AMBIENT)
+                .noteBlockSound(SoundEvents.SALMON_FLOP)
                 .build(context, AquaticHeadType.SALMON);
         HeadType.builder(EntityType.SQUID)
                 .shape(12.0, 16.0, 12.0)

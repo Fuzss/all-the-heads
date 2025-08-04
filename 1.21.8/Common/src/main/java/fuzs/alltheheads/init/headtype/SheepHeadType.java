@@ -1,5 +1,6 @@
 package fuzs.alltheheads.init.headtype;
 
+import fuzs.alltheheads.world.item.component.headtype.Color;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
 import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
@@ -9,10 +10,9 @@ import net.minecraft.advancements.critereon.SheepPredicate;
 import net.minecraft.core.component.DataComponentExactPredicate;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.util.ARGB;
-import net.minecraft.util.Mth;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.DyeColor;
 
@@ -54,6 +54,8 @@ public class SheepHeadType {
     public static final ResourceKey<HeadType> RED_WOOLLY_SHEEP = register("sheep/woolly/red");
     public static final ResourceKey<HeadType> BLACK_SHEEP = register("sheep/black");
     public static final ResourceKey<HeadType> BLACK_WOOLLY_SHEEP = register("sheep/woolly/black");
+    public static final ResourceKey<HeadType> RAINBOW_SHEEP = register("sheep/rainbow");
+    public static final ResourceKey<HeadType> RAINBOW_WOOLLY_SHEEP = register("sheep/woolly/rainbow");
 
     public static void bootstrap(BootstrapContext<HeadType> context) {
         bootstrapSheep(context, DyeColor.WHITE, WHITE_SHEEP, WHITE_WOOLLY_SHEEP);
@@ -72,6 +74,37 @@ public class SheepHeadType {
         bootstrapSheep(context, DyeColor.GREEN, GREEN_SHEEP, GREEN_WOOLLY_SHEEP);
         bootstrapSheep(context, DyeColor.RED, RED_SHEEP, RED_WOOLLY_SHEEP);
         bootstrapSheep(context, DyeColor.BLACK, BLACK_SHEEP, BLACK_WOOLLY_SHEEP);
+        HeadType.builder(EntityType.SHEEP)
+                .entityPredicate((EntityPredicate.Builder builder) -> {
+                    builder.components(DataComponentMatchers.Builder.components()
+                            .exact(DataComponentExactPredicate.expect(DataComponents.CUSTOM_NAME,
+                                    Component.literal("jeb_")))
+                            .build()).subPredicate(new SheepPredicate(Optional.of(true)));
+                })
+                .shape(6.0, 6.0, 8.0)
+                .model(ModelType.SHEEP, ResourceLocationHelper.withDefaultNamespace("entity/sheep/sheep"))
+                .dyedModel(ModelType.SHEEP,
+                        ResourceLocationHelper.withDefaultNamespace("entity/sheep/sheep_wool_undercoat"),
+                        new Color.Rainbow())
+                .noteBlockSound(SoundEvents.SHEEP_AMBIENT)
+                .build(context, RAINBOW_SHEEP);
+        HeadType.builder(EntityType.SHEEP)
+                .entityPredicate((EntityPredicate.Builder builder) -> {
+                    builder.components(DataComponentMatchers.Builder.components()
+                            .exact(DataComponentExactPredicate.expect(DataComponents.CUSTOM_NAME,
+                                    Component.literal("jeb_")))
+                            .build()).subPredicate(SheepPredicate.hasWool());
+                })
+                .shape(6.0, 6.0, 8.0)
+                .model(ModelType.SHEEP, ResourceLocationHelper.withDefaultNamespace("entity/sheep/sheep"))
+                .dyedModel(ModelType.SHEEP,
+                        ResourceLocationHelper.withDefaultNamespace("entity/sheep/sheep_wool_undercoat"),
+                        new Color.Rainbow())
+                .dyedModel(ModelType.SHEEP_WOOL,
+                        ResourceLocationHelper.withDefaultNamespace("entity/sheep/sheep_wool"),
+                        new Color.Rainbow())
+                .noteBlockSound(SoundEvents.SHEEP_AMBIENT)
+                .build(context, RAINBOW_WOOLLY_SHEEP);
     }
 
     private static void bootstrapSheep(BootstrapContext<HeadType> context, DyeColor dyeColor, ResourceKey<HeadType> sheep, ResourceKey<HeadType> woollySheep) {
@@ -90,7 +123,7 @@ public class SheepHeadType {
                 .model(ModelType.SHEEP, ResourceLocationHelper.withDefaultNamespace("entity/sheep/sheep"))
                 .dyedModel(ModelType.SHEEP,
                         ResourceLocationHelper.withDefaultNamespace("entity/sheep/sheep_wool_undercoat"),
-                        getModifiedColor(dyeColor, 0.75F))
+                        new Color.Sheep(dyeColor))
                 .noteBlockSound(SoundEvents.SHEEP_AMBIENT)
                 .build(context, resourceKey);
     }
@@ -106,29 +139,12 @@ public class SheepHeadType {
                 .model(ModelType.SHEEP, ResourceLocationHelper.withDefaultNamespace("entity/sheep/sheep"))
                 .dyedModel(ModelType.SHEEP,
                         ResourceLocationHelper.withDefaultNamespace("entity/sheep/sheep_wool_undercoat"),
-                        getModifiedColor(dyeColor, 0.75F))
+                        new Color.Sheep(dyeColor))
                 .dyedModel(ModelType.SHEEP_WOOL,
                         ResourceLocationHelper.withDefaultNamespace("entity/sheep/sheep_wool"),
-                        getModifiedColor(dyeColor, 0.75F))
+                        new Color.Sheep(dyeColor))
                 .noteBlockSound(SoundEvents.SHEEP_AMBIENT)
                 .build(context, resourceKey);
-    }
-
-    /**
-     * Copied from client-only class.
-     *
-     * @see net.minecraft.client.color.ColorLerper#getModifiedColor(DyeColor, float)
-     */
-    private static int getModifiedColor(DyeColor color, float brightness) {
-        if (color == DyeColor.WHITE) {
-            return -1644826;
-        } else {
-            int textureDiffuseColor = color.getTextureDiffuseColor();
-            return ARGB.color(255,
-                    Mth.floor(ARGB.red(textureDiffuseColor) * brightness),
-                    Mth.floor(ARGB.green(textureDiffuseColor) * brightness),
-                    Mth.floor(ARGB.blue(textureDiffuseColor) * brightness));
-        }
     }
 
     public static void registerTranslations(BiConsumer<ResourceKey<HeadType>, String> translationConsumer) {
@@ -164,5 +180,7 @@ public class SheepHeadType {
         translationConsumer.accept(RED_WOOLLY_SHEEP, "Red Woolly Sheep Head");
         translationConsumer.accept(BLACK_SHEEP, "Black Sheep Head");
         translationConsumer.accept(BLACK_WOOLLY_SHEEP, "Black Woolly Sheep Head");
+        translationConsumer.accept(RAINBOW_SHEEP, "Rainbow Sheep Head");
+        translationConsumer.accept(RAINBOW_WOOLLY_SHEEP, "Rainbow Woolly Sheep Head");
     }
 }

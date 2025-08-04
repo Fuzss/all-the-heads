@@ -10,6 +10,7 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.Rabbit;
@@ -50,7 +51,8 @@ public class RabbitHeadType {
         RabbitHeadType.bootstrapRabbit(context,
                 Rabbit.Variant.EVIL,
                 RabbitHeadType.EVIL_RABBIT,
-                "entity/rabbit/caerbannog");
+                "entity/rabbit/caerbannog",
+                SoundEvents.RABBIT_ATTACK);
         HeadType.builder(EntityType.RABBIT)
                 .entityPredicate((EntityPredicate.Builder builder) -> {
                     builder.components(DataComponentMatchers.Builder.components()
@@ -66,6 +68,10 @@ public class RabbitHeadType {
     }
 
     private static void bootstrapRabbit(BootstrapContext<HeadType> context, Rabbit.Variant variant, ResourceKey<HeadType> resourceKey, String textureLocation) {
+        bootstrapRabbit(context, variant, resourceKey, textureLocation, SoundEvents.RABBIT_AMBIENT);
+    }
+
+    private static void bootstrapRabbit(BootstrapContext<HeadType> context, Rabbit.Variant variant, ResourceKey<HeadType> resourceKey, String textureLocation, SoundEvent noteBlockSound) {
         HeadType.builder(EntityType.RABBIT)
                 .entityPredicate((EntityPredicate.Builder builder) -> {
                     builder.components(DataComponentMatchers.Builder.components()
@@ -75,7 +81,7 @@ public class RabbitHeadType {
                 .shape(5.0, 4.0, 5.0)
                 .scale(1.2)
                 .model(ModelType.RABBIT, ResourceLocationHelper.withDefaultNamespace(textureLocation))
-                .noteBlockSound(SoundEvents.RABBIT_AMBIENT)
+                .noteBlockSound(noteBlockSound)
                 .build(context, resourceKey);
     }
 

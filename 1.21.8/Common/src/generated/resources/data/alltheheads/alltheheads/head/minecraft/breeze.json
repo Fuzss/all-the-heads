@@ -14,7 +14,7 @@
       "model": "alltheheads:breeze_head/eyes"
     }
   ],
-  "note_block_sound": "minecraft:entity.breeze.idle_ground",
+  "note_block_sound": "minecraft:entity.breeze.idle_air",
   "shape": {
     "depth": 8.0,
     "height": 8.0,
