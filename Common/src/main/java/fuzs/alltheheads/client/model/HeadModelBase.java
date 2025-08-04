@@ -6,6 +6,7 @@ import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 
+import java.util.Objects;
 import java.util.function.UnaryOperator;
 
 /**
@@ -82,7 +83,9 @@ public abstract class HeadModelBase {
                 PartPose.offset(-originX - offsetX - dimensionX / 2.0F,
                         -originY - offsetY - dimensionY,
                         -originZ - offsetZ - dimensionZ / 2.0F));
-        partDefinition3.addOrReplaceChild("head", headPartGetter.apply(layerDefinition.mesh.getRoot()));
+        PartDefinition partDefinition4 = headPartGetter.apply(layerDefinition.mesh.getRoot());
+        Objects.requireNonNull(partDefinition4, "part definition is null");
+        partDefinition3.addOrReplaceChild("head", partDefinition4);
         return new LayerDefinition(meshDefinition, layerDefinition.material);
     }
 }

@@ -4,8 +4,8 @@ import com.google.common.collect.ImmutableSet;
 import com.mojang.serialization.MapCodec;
 import fuzs.alltheheads.AllTheHeads;
 import fuzs.alltheheads.advancements.critereon.*;
-import fuzs.alltheheads.init.headtype.MonsterHeadTypes;
-import fuzs.alltheheads.init.headtype.VillagerHeadTypes;
+import fuzs.alltheheads.init.headtype.MonsterHeadType;
+import fuzs.alltheheads.init.headtype.VillagerHeadType;
 import fuzs.alltheheads.world.item.MobHeadItem;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.level.block.MobHeadBlock;
@@ -14,7 +14,7 @@ import fuzs.alltheheads.world.level.block.entity.MobHeadBlockEntity;
 import fuzs.puzzleslib.api.init.v3.registry.ContentRegistrationHelper;
 import fuzs.puzzleslib.api.init.v3.registry.RegistryManager;
 import fuzs.puzzleslib.api.init.v3.tags.TagFactory;
-import net.minecraft.client.Minecraft;
+import fuzs.puzzleslib.api.util.v1.CommonHelper;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
@@ -109,7 +109,7 @@ public class ModRegistry {
             "strider",
             () -> StriderPredicate.CODEC);
     public static final Holder.Reference<CreativeModeTab> CREATIVE_MODE_TAB = REGISTRIES.registerCreativeModeTab("main",
-            () -> createDisplayItemStack(MonsterHeadTypes.BLAZE),
+            () -> createDisplayItemStack(MonsterHeadType.BLAZE),
             (CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output output) -> {
                 output.accept(Items.SKELETON_SKULL);
                 output.accept(Items.WITHER_SKELETON_SKULL);
@@ -128,7 +128,7 @@ public class ModRegistry {
             true);
     public static final Holder.Reference<CreativeModeTab> VILLAGER_CREATIVE_MODE_TAB = REGISTRIES.registerCreativeModeTab(
             "villager",
-            () -> createDisplayItemStack(VillagerHeadTypes.PLAINS_LIBRARIAN_VILLAGER),
+            () -> createDisplayItemStack(VillagerHeadType.PLAINS_LIBRARIAN_VILLAGER),
             (CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output output) -> {
                 itemDisplayParameters.holders()
                         .lookupOrThrow(HEAD_REGISTRY_KEY)
@@ -148,8 +148,7 @@ public class ModRegistry {
     }
 
     private static ItemStack createDisplayItemStack(ResourceKey<HeadType> resourceKey) {
-        // TODO replace this with the safe method from Puzzles Lib, which can provide a null object here
-        RegistryAccess registries = Minecraft.getInstance().getConnection().registryAccess();
+        RegistryAccess registries = CommonHelper.getRegistryAccess();
         if (registries != null) {
             return MobHeadItem.createHead(registries, resourceKey);
         } else {

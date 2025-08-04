@@ -13,6 +13,7 @@ import net.minecraft.core.component.DataComponentExactPredicate;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -26,7 +27,7 @@ import net.minecraft.world.item.EitherHolder;
 
 import java.util.Optional;
 
-public class AnimalHeadTypes {
+public class AnimalHeadType {
     // Animals
     public static final ResourceKey<HeadType> DOLPHIN = register("dolphin");
     public static final ResourceKey<HeadType> GOAT = register("goat");
@@ -44,8 +45,19 @@ public class AnimalHeadTypes {
     public static final ResourceKey<HeadType> PUFFERFISH = register("pufferfish");
     public static final ResourceKey<HeadType> COD = register("cod");
     public static final ResourceKey<HeadType> SALMON = register("salmon");
+    public static final ResourceKey<HeadType> ARMADILLO = register("armadillo");
+    // Tropical Fishes
     public static final ResourceKey<HeadType> SMALL_TROPICAL_FISH = register("tropical_fish/small");
     public static final ResourceKey<HeadType> LARGE_TROPICAL_FISH = register("tropical_fish/large");
+    // Rabbits
+    public static final ResourceKey<HeadType> BROWN_RABBIT = register("rabbit/brown");
+    public static final ResourceKey<HeadType> WHITE_RABBIT = register("rabbit/white");
+    public static final ResourceKey<HeadType> BLACK_RABBIT = register("rabbit/black");
+    public static final ResourceKey<HeadType> WHITE_SPLOTCHED_RABBIT = register("rabbit/white_splotched");
+    public static final ResourceKey<HeadType> GOLD_RABBIT = register("rabbit/gold");
+    public static final ResourceKey<HeadType> SALT_RABBIT = register("rabbit/salt");
+    public static final ResourceKey<HeadType> EVIL_RABBIT = register("rabbit/evil");
+    public static final ResourceKey<HeadType> TOAST_RABBIT = register("rabbit/toast");
     // Parrots
     public static final ResourceKey<HeadType> RED_PARROT = register("parrot/red");
     public static final ResourceKey<HeadType> BLUE_PARROT = register("parrot/blue");
@@ -60,7 +72,7 @@ public class AnimalHeadTypes {
     public static final ResourceKey<HeadType> BROWN_PANDA = register("panda/brown");
     public static final ResourceKey<HeadType> WEAK_PANDA = register("panda/weak");
     public static final ResourceKey<HeadType> AGGRESSIVE_PANDA = register("panda/aggressive");
-    // Strider
+    // Striders
     public static final ResourceKey<HeadType> STRIDER = register("strider");
     public static final ResourceKey<HeadType> COLD_STRIDER = register("strider/cold");
     // Frogs
@@ -149,7 +161,7 @@ public class AnimalHeadTypes {
                 .build(context, BAT);
         HeadType.builder(EntityType.ALLAY)
                 .shape(5.0, 5.0, 5.0)
-                .scale(1.6)
+                .scale(1.2)
                 .litModel(ModelType.ALLAY, ResourceLocationHelper.withDefaultNamespace("entity/allay/allay"))
                 .noteBlockSound(SoundEvents.ALLAY_AMBIENT_WITHOUT_ITEM)
                 .build(context, ALLAY);
@@ -168,7 +180,7 @@ public class AnimalHeadTypes {
                 .build(context, CAMEL);
         HeadType.builder(EntityType.HAPPY_GHAST)
                 .shape(16.0, 16.0, 16.0)
-                .scale(0.5)
+                .scale(0.625)
                 .model(ModelType.HAPPY_GHAST, ResourceLocationHelper.withDefaultNamespace("entity/ghast/happy_ghast"))
                 .noteBlockSound(SoundEvents.HAPPY_GHAST_AMBIENT)
                 .build(context, HAPPY_GHAST);
@@ -218,6 +230,36 @@ public class AnimalHeadTypes {
                 .model(ModelType.SALMON, ResourceLocationHelper.withDefaultNamespace("entity/fish/salmon"))
                 .noteBlockSound(SoundEvents.SALMON_AMBIENT)
                 .build(context, SALMON);
+        HeadType.builder(EntityType.ARMADILLO)
+                .shape(3.0, 5.0, 2.0)
+                .scale(1.6)
+                .model(ModelType.ARMADILLO, ResourceLocationHelper.withDefaultNamespace("entity/armadillo"))
+                .noteBlockSound(SoundEvents.ARMADILLO_AMBIENT)
+                .build(context, ARMADILLO);
+
+        // Rabbits
+        bootstrapRabbit(context, Rabbit.Variant.BROWN, BROWN_RABBIT, "entity/rabbit/brown");
+        bootstrapRabbit(context, Rabbit.Variant.WHITE, WHITE_RABBIT, "entity/rabbit/white");
+        bootstrapRabbit(context, Rabbit.Variant.BLACK, BLACK_RABBIT, "entity/rabbit/black");
+        bootstrapRabbit(context,
+                Rabbit.Variant.WHITE_SPLOTCHED,
+                WHITE_SPLOTCHED_RABBIT,
+                "entity/rabbit/white_splotched");
+        bootstrapRabbit(context, Rabbit.Variant.GOLD, GOLD_RABBIT, "entity/rabbit/gold");
+        bootstrapRabbit(context, Rabbit.Variant.SALT, SALT_RABBIT, "entity/rabbit/salt");
+        bootstrapRabbit(context, Rabbit.Variant.EVIL, EVIL_RABBIT, "entity/rabbit/caerbannog");
+        HeadType.builder(EntityType.RABBIT)
+                .entityPredicate((EntityPredicate.Builder builder) -> {
+                    builder.components(DataComponentMatchers.Builder.components()
+                            .exact(DataComponentExactPredicate.expect(DataComponents.CUSTOM_NAME,
+                                    Component.literal("Toast")))
+                            .build());
+                })
+                .shape(5.0, 4.0, 5.0)
+                .scale(1.2)
+                .model(ModelType.RABBIT, ResourceLocationHelper.withDefaultNamespace("entity/rabbit/toast"))
+                .noteBlockSound(SoundEvents.RABBIT_AMBIENT)
+                .build(context, TOAST_RABBIT);
 
         // Parrots
         bootstrapParrot(context, Parrot.Variant.RED_BLUE, RED_PARROT, "entity/parrot/parrot_red_blue");
@@ -247,7 +289,7 @@ public class AnimalHeadTypes {
                 "entity/panda/aggressive_panda",
                 SoundEvents.PANDA_AGGRESSIVE_AMBIENT);
 
-        // Strider
+        // Striders
         bootstrapStrider(context, false, STRIDER, "entity/strider/strider", SoundEvents.STRIDER_HAPPY);
         bootstrapStrider(context, true, COLD_STRIDER, "entity/strider/strider_cold", SoundEvents.STRIDER_AMBIENT);
 
@@ -348,6 +390,20 @@ public class AnimalHeadTypes {
         bootstrapAxolotl(context, Axolotl.Variant.BLUE, BLUE_AXOLOTL, "entity/axolotl/axolotl_blue");
     }
 
+    private static void bootstrapRabbit(BootstrapContext<HeadType> context, Rabbit.Variant variant, ResourceKey<HeadType> resourceKey, String textureLocation) {
+        HeadType.builder(EntityType.RABBIT)
+                .entityPredicate((EntityPredicate.Builder builder) -> {
+                    builder.components(DataComponentMatchers.Builder.components()
+                            .exact(DataComponentExactPredicate.expect(DataComponents.RABBIT_VARIANT, variant))
+                            .build());
+                })
+                .shape(5.0, 4.0, 5.0)
+                .scale(1.2)
+                .model(ModelType.RABBIT, ResourceLocationHelper.withDefaultNamespace(textureLocation))
+                .noteBlockSound(SoundEvents.RABBIT_AMBIENT)
+                .build(context, resourceKey);
+    }
+
     private static void bootstrapParrot(BootstrapContext<HeadType> context, Parrot.Variant variant, ResourceKey<HeadType> resourceKey, String textureLocation) {
         HeadType.builder(EntityType.PARROT)
                 .entityPredicate((EntityPredicate.Builder builder) -> {
@@ -356,7 +412,7 @@ public class AnimalHeadTypes {
                             .build());
                 })
                 .shape(2.0, 4.0, 2.0)
-                .scale(1.5)
+                .scale(2.0)
                 .model(ModelType.PARROT, ResourceLocationHelper.withDefaultNamespace(textureLocation))
                 .noteBlockSound(SoundEvents.PARROT_AMBIENT)
                 .build(context, resourceKey);
@@ -380,7 +436,7 @@ public class AnimalHeadTypes {
                     builder.subPredicate(StriderPredicate.isCold(isCold));
                 })
                 .shape(16.0, 14.0, 16.0)
-                .scale(0.5)
+                .scale(0.625)
                 .model(ModelType.STRIDER, ResourceLocationHelper.withDefaultNamespace(textureLocation))
                 .noteBlockSound(noteBlockSound)
                 .build(context, resourceKey);
@@ -419,7 +475,7 @@ public class AnimalHeadTypes {
                 .entityPredicate((EntityPredicate.Builder builder) -> {
                     builder.subPredicate(new BeePredicate(Optional.of(angry), Optional.of(hasPollen)));
                 })
-                .shape(7.0, 7.0, 4.0)
+                .shape(7.0, 7.0, 6.0)
                 .model(ModelType.BEE, ResourceLocationHelper.withDefaultNamespace(textureLocation))
                 .noteBlockSound(SoundEvents.BEE_LOOP)
                 .build(context, resourceKey);

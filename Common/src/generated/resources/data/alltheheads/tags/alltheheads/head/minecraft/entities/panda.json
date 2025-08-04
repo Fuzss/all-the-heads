@@ -1,11 +1,11 @@
 {
   "values": [
     "alltheheads:panda",
+    "alltheheads:panda/aggressive",
     "alltheheads:panda/brown",
     "alltheheads:panda/lazy",
-    "alltheheads:panda/worried",
-    "alltheheads:panda/aggressive",
+    "alltheheads:panda/playful",
     "alltheheads:panda/weak",
-    "alltheheads:panda/playful"
+    "alltheheads:panda/worried"
   ]
 }

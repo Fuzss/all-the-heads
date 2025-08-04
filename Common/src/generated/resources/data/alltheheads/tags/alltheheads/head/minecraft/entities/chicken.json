@@ -1,7 +1,7 @@
 {
   "values": [
-    "alltheheads:chicken/warm",
+    "alltheheads:chicken/cold",
     "alltheheads:chicken/temperate",
-    "alltheheads:chicken/cold"
+    "alltheheads:chicken/warm"
   ]
 }

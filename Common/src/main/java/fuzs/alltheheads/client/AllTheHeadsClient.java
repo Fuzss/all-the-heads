@@ -174,6 +174,16 @@ public class AllTheHeadsClient implements ClientModConstructor {
                 SalmonHeadModel::createHeadLayer);
         context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.PARROT),
                 ParrotHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.RABBIT),
+                RabbitHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.SILVERFISH),
+                SilverfishHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.ENDERMITE),
+                EndermiteHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.ARMADILLO),
+                ArmadilloHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.HOGLIN),
+                HoglinHeadModel::createHeadLayer);
     }
 
     @Override

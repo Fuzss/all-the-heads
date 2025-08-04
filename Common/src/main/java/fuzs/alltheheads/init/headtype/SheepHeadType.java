@@ -1,6 +1,5 @@
 package fuzs.alltheheads.init.headtype;
 
-import fuzs.alltheheads.init.HeadTypes;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
 import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
@@ -19,7 +18,9 @@ import net.minecraft.world.item.DyeColor;
 
 import java.util.Optional;
 
-public class SheepHeadTypes {
+import static fuzs.alltheheads.init.HeadTypes.register;
+
+public class SheepHeadType {
     public static final ResourceKey<HeadType> WHITE_SHEEP = register("sheep/white");
     public static final ResourceKey<HeadType> WHITE_WOOLLY_SHEEP = register("sheep/woolly/white");
     public static final ResourceKey<HeadType> ORANGE_SHEEP = register("sheep/orange");
@@ -127,9 +128,5 @@ public class SheepHeadTypes {
                     Mth.floor(ARGB.green(textureDiffuseColor) * brightness),
                     Mth.floor(ARGB.blue(textureDiffuseColor) * brightness));
         }
-    }
-
-    private static ResourceKey<HeadType> register(String path) {
-        return HeadTypes.register(path);
     }
 }
