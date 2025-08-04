@@ -92,10 +92,6 @@ public class ModRegistry {
             Registries.ENTITY_SUB_PREDICATE_TYPE,
             "ghast",
             () -> GhastPredicate.CODEC);
-    public static final Holder.Reference<MapCodec<WitherPredicate>> WITHER_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
-            Registries.ENTITY_SUB_PREDICATE_TYPE,
-            "wither",
-            () -> WitherPredicate.CODEC);
     public static final Holder.Reference<MapCodec<CreeperPredicate>> CREEPER_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
             Registries.ENTITY_SUB_PREDICATE_TYPE,
             "creeper",
@@ -148,7 +144,7 @@ public class ModRegistry {
             "villager_like");
 
     public static void bootstrap() {
-        // NO-OP
+        ModLootTables.bootstrap();
     }
 
     private static ItemStack createDisplayItemStack(ResourceKey<HeadType> resourceKey) {

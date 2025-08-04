@@ -14,7 +14,7 @@
       "model": "alltheheads:slime_head/gel"
     }
   ],
-  "note_block_sound": "minecraft:entity.slime.squish_small",
+  "note_block_sound": "minecraft:entity.slime.squish",
   "shape": {
     "depth": 8.0,
     "height": 8.0,

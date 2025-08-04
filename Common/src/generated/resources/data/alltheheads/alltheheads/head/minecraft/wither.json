@@ -1,11 +1,7 @@
 {
   "custom_name": "minecraft.wither",
   "entity_predicate": {
-    "type": "minecraft:wither",
-    "type_specific": {
-      "type": "alltheheads:wither",
-      "powered": false
-    }
+    "type": "minecraft:wither"
   },
   "loot_table": "alltheheads:entities/heads/minecraft/wither",
   "models": [

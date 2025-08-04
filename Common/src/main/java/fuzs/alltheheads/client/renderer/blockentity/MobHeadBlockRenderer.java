@@ -2,10 +2,7 @@ package fuzs.alltheheads.client.renderer.blockentity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import fuzs.alltheheads.world.item.component.headtype.HeadType;
-import fuzs.alltheheads.world.item.component.headtype.Model;
-import fuzs.alltheheads.world.item.component.headtype.ModelType;
-import fuzs.alltheheads.world.item.component.headtype.Shape;
+import fuzs.alltheheads.world.item.component.headtype.*;
 import fuzs.alltheheads.world.level.block.entity.MobHeadBlockEntity;
 import net.minecraft.Util;
 import net.minecraft.client.model.PiglinHeadModel;
@@ -154,7 +151,7 @@ public class MobHeadBlockRenderer implements BlockEntityRenderer<MobHeadBlockEnt
                             .orElse(packedLight),
                     skullModelBase,
                     renderType,
-                    model.color().orElse(-1));
+                    model.color().map((Color color) -> color.getColor(tickCount)).orElse(-1));
         }
     }
 

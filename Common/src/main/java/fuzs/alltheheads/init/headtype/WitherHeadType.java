@@ -1,10 +1,9 @@
 package fuzs.alltheheads.init.headtype;
 
-import fuzs.alltheheads.advancements.critereon.WitherPredicate;
+import fuzs.alltheheads.world.item.component.headtype.Color;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
 import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
-import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
@@ -29,9 +28,6 @@ public class WitherHeadType {
 
     private static void bootstrapWither(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation) {
         HeadType.builder(EntityType.WITHER)
-                .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.subPredicate(WitherPredicate.isPowered(false));
-                })
                 .shape(8.0, 8.0, 8.0)
                 .litModel(ModelType.HUMANOID, ResourceLocationHelper.withDefaultNamespace(textureLocation))
                 .noteBlockSound(SoundEvents.WITHER_AMBIENT)
@@ -40,14 +36,11 @@ public class WitherHeadType {
 
     private static void bootstrapPoweredWither(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation) {
         HeadType.builder(EntityType.WITHER)
-                .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.subPredicate(WitherPredicate.isPowered(true));
-                })
                 .shape(8.0, 8.0, 8.0)
                 .litModel(ModelType.HUMANOID, ResourceLocationHelper.withDefaultNamespace(textureLocation))
                 .dyedModel(ModelType.WITHER_SHIELD,
                         ResourceLocationHelper.withDefaultNamespace("entity/wither/wither_armor"),
-                        0XFF808080)
+                        new Color.Constant(0xFF808080))
                 .noteBlockSound(SoundEvents.WITHER_AMBIENT)
                 .build(context, resourceKey);
     }

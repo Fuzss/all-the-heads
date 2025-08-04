@@ -10,7 +10,7 @@
       "model": "alltheheads:guardian_head"
     }
   ],
-  "note_block_sound": "minecraft:entity.guardian.ambient",
+  "note_block_sound": "minecraft:entity.guardian.ambient_land",
   "shape": {
     "depth": 16.0,
     "height": 16.0,

@@ -1,11 +1,7 @@
 {
   "custom_name": "minecraft.wither_shielded",
   "entity_predicate": {
-    "type": "minecraft:wither",
-    "type_specific": {
-      "type": "alltheheads:wither",
-      "powered": true
-    }
+    "type": "minecraft:wither"
   },
   "loot_table": "alltheheads:entities/heads/minecraft/wither/shielded",
   "models": [
@@ -16,7 +12,10 @@
     },
     {
       "asset_id": "minecraft:entity/wither/wither_armor",
-      "color": -8355712,
+      "color": {
+        "type": "alltheheads:constant",
+        "value": -8355712
+      },
       "model": "alltheheads:wither_head/shield"
     }
   ],

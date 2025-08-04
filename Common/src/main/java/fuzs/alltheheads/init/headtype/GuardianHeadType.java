@@ -22,12 +22,12 @@ public class GuardianHeadType {
                 EntityType.GUARDIAN,
                 GuardianHeadType.GUARDIAN,
                 "entity/guardian",
-                SoundEvents.GUARDIAN_AMBIENT);
+                SoundEvents.GUARDIAN_AMBIENT_LAND);
         GuardianHeadType.bootstrapGuardian(context,
                 EntityType.ELDER_GUARDIAN,
                 GuardianHeadType.ELDER_GUARDIAN,
                 "entity/guardian_elder",
-                SoundEvents.ELDER_GUARDIAN_AMBIENT);
+                SoundEvents.ELDER_GUARDIAN_AMBIENT_LAND);
     }
 
     private static void bootstrapGuardian(BootstrapContext<HeadType> context, EntityType<?> entityType, ResourceKey<HeadType> resourceKey, String textureLocation, SoundEvent noteBlockSound) {

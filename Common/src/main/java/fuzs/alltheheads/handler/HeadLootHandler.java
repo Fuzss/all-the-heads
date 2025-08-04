@@ -61,6 +61,8 @@ public class HeadLootHandler {
                     .ifPresent((HolderSet.Named<HeadType> holderSet) -> {
                         holderSet.forEach((Holder<HeadType> headType) -> {
                             headType.value().loot().lootTable().ifPresent((ResourceKey<LootTable> resourceKey) -> {
+                                // adding each one in as a separate pool allows for multiple heads to drop at once when conditions apply,
+                                // which is not ideal, but wrapping all of them in an "alternatives" entry did not succeed
                                 lootTable.withPool(LootPool.lootPool()
                                         .add(NestedLootTable.lootTableReference(resourceKey)));
                             });

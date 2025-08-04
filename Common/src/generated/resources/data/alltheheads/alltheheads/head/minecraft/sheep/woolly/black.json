@@ -18,12 +18,18 @@
     },
     {
       "asset_id": "minecraft:entity/sheep/sheep_wool_undercoat",
-      "color": -15395560,
+      "color": {
+        "type": "alltheheads:sheep",
+        "dye": "black"
+      },
       "model": "alltheheads:sheep_head"
     },
     {
       "asset_id": "minecraft:entity/sheep/sheep_wool",
-      "color": -15395560,
+      "color": {
+        "type": "alltheheads:sheep",
+        "dye": "black"
+      },
       "model": "alltheheads:sheep_head/wool"
     }
   ],

@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-04T18:19:42.155155	Tags for alltheheads:head mod id vanilla
+// 1.21.8	2025-08-04T22:01:27.351585	Tags for alltheheads:head mod id vanilla
 d4507b588828543da6d8fa05fc1f8acc0d8a369d data/alltheheads/tags/alltheheads/head/minecraft/entities/allay.json
 b8bf633f131f61621677f73a49f248f10a8a229d data/alltheheads/tags/alltheheads/head/minecraft/entities/armadillo.json
 578cfb648ac3d78ee877bb62ca697223d8e034d6 data/alltheheads/tags/alltheheads/head/minecraft/entities/axolotl.json
@@ -51,7 +51,7 @@ d98fb98a09c36f0cbf96055dcf66b65a3adf09ad data/alltheheads/tags/alltheheads/head/
 6591721fa5146972f8da5f135687ef44a4dbe13c data/alltheheads/tags/alltheheads/head/minecraft/entities/rabbit.json
 6ace7a4ae4cff7153bb67d121ee05b15f36bdbc5 data/alltheheads/tags/alltheheads/head/minecraft/entities/ravager.json
 9883b0237390b20700c4b28de694dfb8d26ca0db data/alltheheads/tags/alltheheads/head/minecraft/entities/salmon.json
-960c6ecd446d8cf41c3d09c858123c34fc42e793 data/alltheheads/tags/alltheheads/head/minecraft/entities/sheep.json
+8bcbda84e57b3d4abf1b581a352e404626c63b09 data/alltheheads/tags/alltheheads/head/minecraft/entities/sheep.json
 34efd8719b3e178739b4583c21354db3529c78e7 data/alltheheads/tags/alltheheads/head/minecraft/entities/shulker.json
 47dc1f10c963d161e8ea2035c57ecc2ee67cfb59 data/alltheheads/tags/alltheheads/head/minecraft/entities/silverfish.json
 9734bd0fdf49a2dc0671b3f1add486610f48bc42 data/alltheheads/tags/alltheheads/head/minecraft/entities/skeleton_horse.json

@@ -2,6 +2,7 @@ package fuzs.alltheheads.init.headtype;
 
 import com.google.common.collect.ImmutableMap;
 import fuzs.alltheheads.advancements.critereon.TropicalFishPredicate;
+import fuzs.alltheheads.world.item.component.headtype.Color;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
 import fuzs.alltheheads.world.item.component.headtype.Shape;
@@ -124,11 +125,11 @@ public class TropicalFishHeadType {
                 .scale(1.5)
                 .dyedModel(modelType,
                         ResourceLocationHelper.withDefaultNamespace(textureLocation),
-                        variant.baseColor().getTextureDiffuseColor())
+                        new Color.Dye(variant.baseColor()))
                 .dyedModel(modelType,
                         TROPICAL_FISH_PATTERN_TEXTURES.get(variant.pattern()),
-                        variant.patternColor().getTextureDiffuseColor())
-                .noteBlockSound(SoundEvents.TROPICAL_FISH_AMBIENT)
+                        new Color.Dye(variant.patternColor()))
+                .noteBlockSound(SoundEvents.TROPICAL_FISH_FLOP)
                 .build(context, resourceKey);
     }
 

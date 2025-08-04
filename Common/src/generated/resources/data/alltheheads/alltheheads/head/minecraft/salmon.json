@@ -10,7 +10,7 @@
       "model": "alltheheads:salmon_head"
     }
   ],
-  "note_block_sound": "minecraft:entity.salmon.ambient",
+  "note_block_sound": "minecraft:entity.salmon.flop",
   "shape": {
     "depth": 3.0,
     "height": 4.0,

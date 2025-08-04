@@ -55,7 +55,7 @@ public class PandaHeadType {
                 Panda.Gene.WEAK,
                 PandaHeadType.WEAK_PANDA,
                 "entity/panda/weak_panda",
-                SoundEvents.PANDA_AMBIENT);
+                SoundEvents.PANDA_SNEEZE);
         PandaHeadType.bootstrapPanda(context,
                 Panda.Gene.WORRIED,
                 PandaHeadType.WORRIED_PANDA,

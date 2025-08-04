@@ -66,6 +66,7 @@ public class CustomHeadLayerHandler {
 
     public static <T extends LivingEntity, S extends LivingEntityRenderState, M extends EntityModel<? super S>> EventResult onBeforeRenderEntity(S entityRenderState, LivingEntityRenderer<T, S, M> entityRenderer, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight) {
         // disable model head rendering, some mob heads are smaller than the player head and will not cover all of it
+        // the idea is taken from here: https://github.com/Mrbysco/Heads
         if (entityRenderer.getModel() instanceof HeadedModel headedModel && RenderPropertyKey.has(entityRenderState,
                 HEAD_TYPE_RENDER_PROPERTY)) {
             isHeadVisible = headedModel.getHead().visible;

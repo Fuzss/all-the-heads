@@ -14,7 +14,7 @@
       "model": "alltheheads:panda_head"
     }
   ],
-  "note_block_sound": "minecraft:entity.panda.ambient",
+  "note_block_sound": "minecraft:entity.panda.sneeze",
   "shape": {
     "depth": 9.0,
     "height": 10.0,

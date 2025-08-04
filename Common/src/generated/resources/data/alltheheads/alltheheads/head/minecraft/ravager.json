@@ -10,7 +10,7 @@
       "model": "alltheheads:ravager_head"
     }
   ],
-  "note_block_sound": "minecraft:entity.ravager.ambient",
+  "note_block_sound": "minecraft:entity.ravager.roar",
   "shape": {
     "depth": 16.0,
     "height": 20.0,
