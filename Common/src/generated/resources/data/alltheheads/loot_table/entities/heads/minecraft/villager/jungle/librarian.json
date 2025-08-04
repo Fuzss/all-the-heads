@@ -39,7 +39,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:villager/jungle/librarian"
+            "alltheheads:head_type": "alltheheads:minecraft/villager/jungle/librarian"
           },
           "function": "minecraft:set_components"
         }

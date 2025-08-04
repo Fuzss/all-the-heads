@@ -41,7 +41,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:wolf/ashen/angry"
+            "alltheheads:head_type": "alltheheads:minecraft/wolf/ashen/angry"
           },
           "function": "minecraft:set_components"
         }

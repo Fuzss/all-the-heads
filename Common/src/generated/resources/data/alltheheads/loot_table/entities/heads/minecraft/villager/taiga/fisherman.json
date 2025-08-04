@@ -39,7 +39,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:villager/taiga/fisherman"
+            "alltheheads:head_type": "alltheheads:minecraft/villager/taiga/fisherman"
           },
           "function": "minecraft:set_components"
         }

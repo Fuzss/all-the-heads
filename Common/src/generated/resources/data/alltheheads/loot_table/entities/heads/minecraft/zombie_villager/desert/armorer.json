@@ -39,7 +39,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:zombie_villager/desert/armorer"
+            "alltheheads:head_type": "alltheheads:minecraft/zombie_villager/desert/armorer"
           },
           "function": "minecraft:set_components"
         }

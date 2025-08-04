@@ -1,15 +1,15 @@
 {
   "values": [
-    "alltheheads:cat/all_black",
-    "alltheheads:cat/black",
-    "alltheheads:cat/british_shorthair",
-    "alltheheads:cat/calico",
-    "alltheheads:cat/jellie",
-    "alltheheads:cat/persian",
-    "alltheheads:cat/ragdoll",
-    "alltheheads:cat/red",
-    "alltheheads:cat/siamese",
-    "alltheheads:cat/tabby",
-    "alltheheads:cat/white"
+    "alltheheads:minecraft/cat/all_black",
+    "alltheheads:minecraft/cat/black",
+    "alltheheads:minecraft/cat/british_shorthair",
+    "alltheheads:minecraft/cat/calico",
+    "alltheheads:minecraft/cat/jellie",
+    "alltheheads:minecraft/cat/persian",
+    "alltheheads:minecraft/cat/ragdoll",
+    "alltheheads:minecraft/cat/red",
+    "alltheheads:minecraft/cat/siamese",
+    "alltheheads:minecraft/cat/tabby",
+    "alltheheads:minecraft/cat/white"
   ]
 }

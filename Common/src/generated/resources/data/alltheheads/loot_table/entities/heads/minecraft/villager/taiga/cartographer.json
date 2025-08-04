@@ -39,7 +39,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:villager/taiga/cartographer"
+            "alltheheads:head_type": "alltheheads:minecraft/villager/taiga/cartographer"
           },
           "function": "minecraft:set_components"
         }

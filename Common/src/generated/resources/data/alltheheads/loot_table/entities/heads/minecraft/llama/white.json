@@ -37,7 +37,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:llama/white"
+            "alltheheads:head_type": "alltheheads:minecraft/llama/white"
           },
           "function": "minecraft:set_components"
         }

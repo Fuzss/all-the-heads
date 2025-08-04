@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:turtle"
+            "alltheheads:head_type": "alltheheads:minecraft/turtle"
           },
           "function": "minecraft:set_components"
         }

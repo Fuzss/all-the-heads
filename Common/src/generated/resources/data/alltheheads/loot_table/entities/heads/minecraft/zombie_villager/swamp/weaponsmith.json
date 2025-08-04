@@ -39,7 +39,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:zombie_villager/swamp/weaponsmith"
+            "alltheheads:head_type": "alltheheads:minecraft/zombie_villager/swamp/weaponsmith"
           },
           "function": "minecraft:set_components"
         }

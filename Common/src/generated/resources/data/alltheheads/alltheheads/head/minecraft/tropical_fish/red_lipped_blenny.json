@@ -1,0 +1,32 @@
+{
+  "custom_name": "minecraft.tropical_fish_red_lipped_blenny",
+  "entity_predicate": {
+    "type": "minecraft:tropical_fish",
+    "type_specific": {
+      "type": "alltheheads:tropical_fish",
+      "base_color": "gray",
+      "pattern": "snooper",
+      "pattern_color": "red"
+    }
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/tropical_fish/red_lipped_blenny",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/fish/tropical_a",
+      "color": -12103854,
+      "model": "alltheheads:tropical_fish_head/small"
+    },
+    {
+      "asset_id": "minecraft:entity/fish/tropical_a_pattern_3",
+      "color": -5231066,
+      "model": "alltheheads:tropical_fish_head/small"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.tropical_fish.ambient",
+  "shape": {
+    "depth": 4.0,
+    "height": 3.0,
+    "scale": 1.5,
+    "width": 2.0
+  }
+}

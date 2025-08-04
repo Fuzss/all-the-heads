@@ -39,7 +39,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:villager/snow/leatherworker"
+            "alltheheads:head_type": "alltheheads:minecraft/villager/snow/leatherworker"
           },
           "function": "minecraft:set_components"
         }

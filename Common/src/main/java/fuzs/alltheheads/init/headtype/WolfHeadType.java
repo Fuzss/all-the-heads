@@ -18,6 +18,7 @@ import net.minecraft.world.entity.animal.wolf.WolfVariant;
 import net.minecraft.world.entity.animal.wolf.WolfVariants;
 
 import java.util.Optional;
+import java.util.function.BiConsumer;
 
 import static fuzs.alltheheads.init.HeadTypes.register;
 
@@ -132,5 +133,35 @@ public class WolfHeadType {
                 .model(ModelType.WOLF, ResourceLocationHelper.withDefaultNamespace(textureLocation))
                 .noteBlockSound(SoundEvents.WOLF_SOUNDS.get(WolfSoundVariants.SoundSet.CLASSIC).pantSound())
                 .build(context, resourceKey);
+    }
+
+    public static void registerTranslations(BiConsumer<ResourceKey<HeadType>, String> translationConsumer) {
+        translationConsumer.accept(WolfHeadType.ASHEN_WOLF, "Ashen Wolf Head");
+        translationConsumer.accept(WolfHeadType.ANGRY_ASHEN_WOLF, "Angry Ashen Wolf Head");
+        translationConsumer.accept(WolfHeadType.TAME_ASHEN_WOLF, "Tame Ashen Wolf Head");
+        translationConsumer.accept(WolfHeadType.BLACK_WOLF, "Black Wolf Head");
+        translationConsumer.accept(WolfHeadType.ANGRY_BLACK_WOLF, "Angry Black Wolf Head");
+        translationConsumer.accept(WolfHeadType.TAME_BLACK_WOLF, "Tame Black Wolf Head");
+        translationConsumer.accept(WolfHeadType.CHESTNUT_WOLF, "Chestnut Wolf Head");
+        translationConsumer.accept(WolfHeadType.ANGRY_CHESTNUT_WOLF, "Angry Chestnut Wolf Head");
+        translationConsumer.accept(WolfHeadType.TAME_CHESTNUT_WOLF, "Tame Chestnut Wolf Head");
+        translationConsumer.accept(WolfHeadType.PALE_WOLF, "Pale Wolf Head");
+        translationConsumer.accept(WolfHeadType.ANGRY_PALE_WOLF, "Angry Pale Wolf Head");
+        translationConsumer.accept(WolfHeadType.TAME_PALE_WOLF, "Tame Pale Wolf Head");
+        translationConsumer.accept(WolfHeadType.RUSTY_WOLF, "Rusty Wolf Head");
+        translationConsumer.accept(WolfHeadType.ANGRY_RUSTY_WOLF, "Angry Rusty Wolf Head");
+        translationConsumer.accept(WolfHeadType.TAME_RUSTY_WOLF, "Tame Rusty Wolf Head");
+        translationConsumer.accept(WolfHeadType.SPOTTED_WOLF, "Spotted Wolf Head");
+        translationConsumer.accept(WolfHeadType.ANGRY_SPOTTED_WOLF, "Angry Spotted Wolf Head");
+        translationConsumer.accept(WolfHeadType.TAME_SPOTTED_WOLF, "Tame Spotted Wolf Head");
+        translationConsumer.accept(WolfHeadType.SNOWY_WOLF, "Snowy Wolf Head");
+        translationConsumer.accept(WolfHeadType.ANGRY_SNOWY_WOLF, "Angry Snowy Wolf Head");
+        translationConsumer.accept(WolfHeadType.TAME_SNOWY_WOLF, "Tame Snowy Wolf Head");
+        translationConsumer.accept(WolfHeadType.STRIPED_WOLF, "Striped Wolf Head");
+        translationConsumer.accept(WolfHeadType.ANGRY_STRIPED_WOLF, "Angry Striped Wolf Head");
+        translationConsumer.accept(WolfHeadType.TAME_STRIPED_WOLF, "Tame Striped Wolf Head");
+        translationConsumer.accept(WolfHeadType.WOODS_WOLF, "Woods Wolf Head");
+        translationConsumer.accept(WolfHeadType.ANGRY_WOODS_WOLF, "Angry Woods Wolf Head");
+        translationConsumer.accept(WolfHeadType.TAME_WOODS_WOLF, "Tame Woods Wolf Head");
     }
 }

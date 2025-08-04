@@ -39,7 +39,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:villager/savanna/farmer"
+            "alltheheads:head_type": "alltheheads:minecraft/villager/savanna/farmer"
           },
           "function": "minecraft:set_components"
         }

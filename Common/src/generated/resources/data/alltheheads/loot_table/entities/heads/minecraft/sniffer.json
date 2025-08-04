@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:sniffer"
+            "alltheheads:head_type": "alltheheads:minecraft/sniffer"
           },
           "function": "minecraft:set_components"
         }

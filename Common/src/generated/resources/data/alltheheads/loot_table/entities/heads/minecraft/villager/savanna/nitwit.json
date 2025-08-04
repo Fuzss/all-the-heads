@@ -39,7 +39,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:villager/savanna/nitwit"
+            "alltheheads:head_type": "alltheheads:minecraft/villager/savanna/nitwit"
           },
           "function": "minecraft:set_components"
         }

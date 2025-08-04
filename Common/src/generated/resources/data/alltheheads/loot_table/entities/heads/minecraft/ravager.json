@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:ravager"
+            "alltheheads:head_type": "alltheheads:minecraft/ravager"
           },
           "function": "minecraft:set_components"
         }

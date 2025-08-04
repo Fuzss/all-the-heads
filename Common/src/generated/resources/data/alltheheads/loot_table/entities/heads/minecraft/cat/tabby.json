@@ -37,7 +37,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:cat/tabby"
+            "alltheheads:head_type": "alltheheads:minecraft/cat/tabby"
           },
           "function": "minecraft:set_components"
         }

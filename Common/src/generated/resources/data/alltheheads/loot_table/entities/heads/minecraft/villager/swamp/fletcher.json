@@ -39,7 +39,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:villager/swamp/fletcher"
+            "alltheheads:head_type": "alltheheads:minecraft/villager/swamp/fletcher"
           },
           "function": "minecraft:set_components"
         }

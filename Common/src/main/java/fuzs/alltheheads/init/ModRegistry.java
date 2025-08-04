@@ -108,6 +108,10 @@ public class ModRegistry {
             Registries.ENTITY_SUB_PREDICATE_TYPE,
             "strider",
             () -> StriderPredicate.CODEC);
+    public static final Holder.Reference<MapCodec<TropicalFishPredicate>> TROPICAL_FISH_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
+            Registries.ENTITY_SUB_PREDICATE_TYPE,
+            "tropical_fish",
+            () -> TropicalFishPredicate.CODEC);
     public static final Holder.Reference<CreativeModeTab> CREATIVE_MODE_TAB = REGISTRIES.registerCreativeModeTab("main",
             () -> createDisplayItemStack(MonsterHeadType.BLAZE),
             (CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output output) -> {

@@ -39,7 +39,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:villager/swamp/farmer"
+            "alltheheads:head_type": "alltheheads:minecraft/villager/swamp/farmer"
           },
           "function": "minecraft:set_components"
         }

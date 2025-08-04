@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:bat"
+            "alltheheads:head_type": "alltheheads:minecraft/bat"
           },
           "function": "minecraft:set_components"
         }

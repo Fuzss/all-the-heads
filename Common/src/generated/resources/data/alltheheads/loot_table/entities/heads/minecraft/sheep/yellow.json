@@ -41,7 +41,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:sheep/yellow"
+            "alltheheads:head_type": "alltheheads:minecraft/sheep/yellow"
           },
           "function": "minecraft:set_components"
         }

@@ -39,7 +39,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:villager/swamp/cleric"
+            "alltheheads:head_type": "alltheheads:minecraft/villager/swamp/cleric"
           },
           "function": "minecraft:set_components"
         }

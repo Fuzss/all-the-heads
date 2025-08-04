@@ -37,7 +37,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:axolotl/blue"
+            "alltheheads:head_type": "alltheheads:minecraft/axolotl/blue"
           },
           "function": "minecraft:set_components"
         }

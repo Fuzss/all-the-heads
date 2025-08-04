@@ -37,7 +37,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:axolotl/lucy"
+            "alltheheads:head_type": "alltheheads:minecraft/axolotl/lucy"
           },
           "function": "minecraft:set_components"
         }

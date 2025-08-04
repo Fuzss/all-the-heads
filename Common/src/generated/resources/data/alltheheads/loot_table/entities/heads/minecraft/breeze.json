@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:breeze"
+            "alltheheads:head_type": "alltheheads:minecraft/breeze"
           },
           "function": "minecraft:set_components"
         }

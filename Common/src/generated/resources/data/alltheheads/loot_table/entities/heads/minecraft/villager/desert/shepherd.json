@@ -39,7 +39,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:villager/desert/shepherd"
+            "alltheheads:head_type": "alltheheads:minecraft/villager/desert/shepherd"
           },
           "function": "minecraft:set_components"
         }

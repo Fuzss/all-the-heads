@@ -37,7 +37,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:trader_llama/creamy"
+            "alltheheads:head_type": "alltheheads:minecraft/trader_llama/creamy"
           },
           "function": "minecraft:set_components"
         }

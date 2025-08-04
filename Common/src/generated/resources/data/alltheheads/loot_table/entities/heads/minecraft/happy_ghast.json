@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:happy_ghast"
+            "alltheheads:head_type": "alltheheads:minecraft/happy_ghast"
           },
           "function": "minecraft:set_components"
         }

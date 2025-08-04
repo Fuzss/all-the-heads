@@ -37,7 +37,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:chicken/temperate"
+            "alltheheads:head_type": "alltheheads:minecraft/chicken/temperate"
           },
           "function": "minecraft:set_components"
         }

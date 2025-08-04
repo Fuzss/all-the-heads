@@ -39,7 +39,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:zombie_villager/swamp/butcher"
+            "alltheheads:head_type": "alltheheads:minecraft/zombie_villager/swamp/butcher"
           },
           "function": "minecraft:set_components"
         }

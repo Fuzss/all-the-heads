@@ -41,7 +41,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:wolf/spotted/angry"
+            "alltheheads:head_type": "alltheheads:minecraft/wolf/spotted/angry"
           },
           "function": "minecraft:set_components"
         }

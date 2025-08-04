@@ -37,7 +37,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:cat/ragdoll"
+            "alltheheads:head_type": "alltheheads:minecraft/cat/ragdoll"
           },
           "function": "minecraft:set_components"
         }

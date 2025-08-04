@@ -39,7 +39,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:zombie_villager/savanna/shepherd"
+            "alltheheads:head_type": "alltheheads:minecraft/zombie_villager/savanna/shepherd"
           },
           "function": "minecraft:set_components"
         }

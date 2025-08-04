@@ -39,7 +39,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:zombie_villager/plains/toolsmith"
+            "alltheheads:head_type": "alltheheads:minecraft/zombie_villager/plains/toolsmith"
           },
           "function": "minecraft:set_components"
         }

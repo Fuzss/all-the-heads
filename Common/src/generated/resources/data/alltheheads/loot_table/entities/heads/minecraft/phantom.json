@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:phantom"
+            "alltheheads:head_type": "alltheheads:minecraft/phantom"
           },
           "function": "minecraft:set_components"
         }

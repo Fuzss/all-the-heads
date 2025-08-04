@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:armadillo"
+            "alltheheads:head_type": "alltheheads:minecraft/armadillo"
           },
           "function": "minecraft:set_components"
         }

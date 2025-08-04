@@ -37,7 +37,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:rabbit/evil"
+            "alltheheads:head_type": "alltheheads:minecraft/rabbit/evil"
           },
           "function": "minecraft:set_components"
         }

@@ -37,7 +37,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:chicken/warm"
+            "alltheheads:head_type": "alltheheads:minecraft/chicken/warm"
           },
           "function": "minecraft:set_components"
         }

@@ -39,7 +39,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:villager/plains/cleric"
+            "alltheheads:head_type": "alltheheads:minecraft/villager/plains/cleric"
           },
           "function": "minecraft:set_components"
         }

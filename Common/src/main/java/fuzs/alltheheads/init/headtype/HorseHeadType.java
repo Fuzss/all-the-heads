@@ -16,6 +16,8 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.horse.Markings;
 import net.minecraft.world.entity.animal.horse.Variant;
 
+import java.util.function.BiConsumer;
+
 import static fuzs.alltheheads.init.HeadTypes.register;
 
 public class HorseHeadType {
@@ -308,5 +310,62 @@ public class HorseHeadType {
                 .model(ModelType.HORSE_MARKINGS, ResourceLocationHelper.withDefaultNamespace(markingsLocation))
                 .noteBlockSound(SoundEvents.HORSE_AMBIENT)
                 .build(context, resourceKey);
+    }
+
+    public static void registerTranslations(BiConsumer<ResourceKey<HeadType>, String> translationConsumer) {
+        // Horses
+        translationConsumer.accept(SKELETON_HORSE, "Skeleton Horse Head");
+        translationConsumer.accept(ZOMBIE_HORSE, "Zombie Horse Head");
+        translationConsumer.accept(DONKEY, "Donkey Head");
+        translationConsumer.accept(MULE, "Mule Head");
+
+        // White Horses
+        translationConsumer.accept(WHITE_HORSE, "White Horse Head");
+        translationConsumer.accept(WHITE_WHITE_HORSE, "White Blaze White Horse Head");
+        translationConsumer.accept(WHITE_FIELD_WHITE_HORSE, "White Field White Horse Head");
+        translationConsumer.accept(WHITE_DOTS_WHITE_HORSE, "White Spots White Horse Head");
+        translationConsumer.accept(BLACK_DOTS_WHITE_HORSE, "Black Dots White Horse Head");
+
+        // Creamy Horses
+        translationConsumer.accept(CREAMY_HORSE, "Creamy Horse Head");
+        translationConsumer.accept(WHITE_CREAMY_HORSE, "White Blaze Creamy Horse Head");
+        translationConsumer.accept(WHITE_FIELD_CREAMY_HORSE, "White Field Creamy Horse Head");
+        translationConsumer.accept(WHITE_DOTS_CREAMY_HORSE, "White Spots Creamy Horse Head");
+        translationConsumer.accept(BLACK_DOTS_CREAMY_HORSE, "Black Dots Creamy Horse Head");
+
+        // Chestnut Horses
+        translationConsumer.accept(CHESTNUT_HORSE, "Chestnut Horse Head");
+        translationConsumer.accept(WHITE_CHESTNUT_HORSE, "White Blaze Chestnut Horse Head");
+        translationConsumer.accept(WHITE_FIELD_CHESTNUT_HORSE, "White Field Chestnut Horse Head");
+        translationConsumer.accept(WHITE_DOTS_CHESTNUT_HORSE, "White Spots Chestnut Horse Head");
+        translationConsumer.accept(BLACK_DOTS_CHESTNUT_HORSE, "Black Dots Chestnut Horse Head");
+
+        // Brown Horses
+        translationConsumer.accept(BROWN_HORSE, "Brown Horse Head");
+        translationConsumer.accept(WHITE_BROWN_HORSE, "White Blaze Brown Horse Head");
+        translationConsumer.accept(WHITE_FIELD_BROWN_HORSE, "White Field Brown Horse Head");
+        translationConsumer.accept(WHITE_DOTS_BROWN_HORSE, "White Spots Brown Horse Head");
+        translationConsumer.accept(BLACK_DOTS_BROWN_HORSE, "Black Dots Brown Horse Head");
+
+        // Black Horses
+        translationConsumer.accept(BLACK_HORSE, "Black Horse Head");
+        translationConsumer.accept(WHITE_BLACK_HORSE, "White Blaze Black Horse Head");
+        translationConsumer.accept(WHITE_FIELD_BLACK_HORSE, "White Field Black Horse Head");
+        translationConsumer.accept(WHITE_DOTS_BLACK_HORSE, "White Spots Black Horse Head");
+        translationConsumer.accept(BLACK_DOTS_BLACK_HORSE, "Black Dots Black Horse Head");
+
+        // Gray Horses
+        translationConsumer.accept(GRAY_HORSE, "Gray Horse Head");
+        translationConsumer.accept(WHITE_GRAY_HORSE, "White Blaze Gray Horse Head");
+        translationConsumer.accept(WHITE_FIELD_GRAY_HORSE, "White Field Gray Horse Head");
+        translationConsumer.accept(WHITE_DOTS_GRAY_HORSE, "White Spots Gray Horse Head");
+        translationConsumer.accept(BLACK_DOTS_GRAY_HORSE, "Black Dots Gray Horse Head");
+
+        // Dark Brown Horses
+        translationConsumer.accept(DARK_BROWN_HORSE, "Dark Brown Horse Head");
+        translationConsumer.accept(WHITE_DARK_BROWN_HORSE, "White Blaze Dark Brown Horse Head");
+        translationConsumer.accept(WHITE_FIELD_DARK_BROWN_HORSE, "White Field Dark Brown Horse Head");
+        translationConsumer.accept(WHITE_DOTS_DARK_BROWN_HORSE, "White Spots Dark Brown Horse Head");
+        translationConsumer.accept(BLACK_DOTS_DARK_BROWN_HORSE, "Black Dots Dark Brown Horse Head");
     }
 }

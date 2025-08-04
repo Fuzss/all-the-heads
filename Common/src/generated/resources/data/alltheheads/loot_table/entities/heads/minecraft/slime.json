@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:slime"
+            "alltheheads:head_type": "alltheheads:minecraft/slime"
           },
           "function": "minecraft:set_components"
         }

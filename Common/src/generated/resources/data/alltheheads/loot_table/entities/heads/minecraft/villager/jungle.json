@@ -39,7 +39,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:villager/jungle"
+            "alltheheads:head_type": "alltheheads:minecraft/villager/jungle"
           },
           "function": "minecraft:set_components"
         }

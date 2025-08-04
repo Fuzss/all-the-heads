@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:salmon"
+            "alltheheads:head_type": "alltheheads:minecraft/salmon"
           },
           "function": "minecraft:set_components"
         }

@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:squid"
+            "alltheheads:head_type": "alltheheads:minecraft/squid"
           },
           "function": "minecraft:set_components"
         }

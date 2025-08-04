@@ -42,7 +42,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:wolf/woods"
+            "alltheheads:head_type": "alltheheads:minecraft/wolf/woods"
           },
           "function": "minecraft:set_components"
         }

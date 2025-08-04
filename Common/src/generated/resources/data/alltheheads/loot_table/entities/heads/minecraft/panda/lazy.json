@@ -38,7 +38,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:panda/lazy"
+            "alltheheads:head_type": "alltheheads:minecraft/panda/lazy"
           },
           "function": "minecraft:set_components"
         }

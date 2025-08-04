@@ -37,7 +37,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:llama/creamy"
+            "alltheheads:head_type": "alltheheads:minecraft/llama/creamy"
           },
           "function": "minecraft:set_components"
         }

@@ -37,7 +37,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:frog/warm"
+            "alltheheads:head_type": "alltheheads:minecraft/frog/warm"
           },
           "function": "minecraft:set_components"
         }

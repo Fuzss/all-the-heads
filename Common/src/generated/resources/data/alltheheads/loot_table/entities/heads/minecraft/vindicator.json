@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:vindicator"
+            "alltheheads:head_type": "alltheheads:minecraft/vindicator"
           },
           "function": "minecraft:set_components"
         }

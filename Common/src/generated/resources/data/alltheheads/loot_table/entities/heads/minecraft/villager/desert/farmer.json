@@ -39,7 +39,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:villager/desert/farmer"
+            "alltheheads:head_type": "alltheheads:minecraft/villager/desert/farmer"
           },
           "function": "minecraft:set_components"
         }

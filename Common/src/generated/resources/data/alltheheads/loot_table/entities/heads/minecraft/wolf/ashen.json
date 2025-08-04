@@ -42,7 +42,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:wolf/ashen"
+            "alltheheads:head_type": "alltheheads:minecraft/wolf/ashen"
           },
           "function": "minecraft:set_components"
         }

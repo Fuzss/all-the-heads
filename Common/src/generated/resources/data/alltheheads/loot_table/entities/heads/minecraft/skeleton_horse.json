@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:skeleton_horse"
+            "alltheheads:head_type": "alltheheads:minecraft/skeleton_horse"
           },
           "function": "minecraft:set_components"
         }

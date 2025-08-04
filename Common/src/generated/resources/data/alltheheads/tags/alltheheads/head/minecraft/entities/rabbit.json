@@ -1,12 +1,12 @@
 {
   "values": [
-    "alltheheads:rabbit/black",
-    "alltheheads:rabbit/brown",
-    "alltheheads:rabbit/evil",
-    "alltheheads:rabbit/gold",
-    "alltheheads:rabbit/salt",
-    "alltheheads:rabbit/toast",
-    "alltheheads:rabbit/white",
-    "alltheheads:rabbit/white_splotched"
+    "alltheheads:minecraft/rabbit/black",
+    "alltheheads:minecraft/rabbit/brown",
+    "alltheheads:minecraft/rabbit/evil",
+    "alltheheads:minecraft/rabbit/gold",
+    "alltheheads:minecraft/rabbit/salt",
+    "alltheheads:minecraft/rabbit/toast",
+    "alltheheads:minecraft/rabbit/white",
+    "alltheheads:minecraft/rabbit/white_splotched"
   ]
 }

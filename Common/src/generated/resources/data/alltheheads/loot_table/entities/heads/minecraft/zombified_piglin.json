@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:zombified_piglin"
+            "alltheheads:head_type": "alltheheads:minecraft/zombified_piglin"
           },
           "function": "minecraft:set_components"
         }

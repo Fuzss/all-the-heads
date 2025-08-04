@@ -37,7 +37,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:cat/calico"
+            "alltheheads:head_type": "alltheheads:minecraft/cat/calico"
           },
           "function": "minecraft:set_components"
         }

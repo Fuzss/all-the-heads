@@ -39,7 +39,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:bee/angry"
+            "alltheheads:head_type": "alltheheads:minecraft/bee/angry"
           },
           "function": "minecraft:set_components"
         }

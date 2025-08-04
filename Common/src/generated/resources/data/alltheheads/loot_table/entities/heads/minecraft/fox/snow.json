@@ -37,7 +37,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:fox/snow"
+            "alltheheads:head_type": "alltheheads:minecraft/fox/snow"
           },
           "function": "minecraft:set_components"
         }

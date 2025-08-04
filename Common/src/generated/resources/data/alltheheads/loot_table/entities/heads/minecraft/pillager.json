@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:pillager"
+            "alltheheads:head_type": "alltheheads:minecraft/pillager"
           },
           "function": "minecraft:set_components"
         }

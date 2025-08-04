@@ -38,7 +38,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:strider/cold"
+            "alltheheads:head_type": "alltheheads:minecraft/strider/cold"
           },
           "function": "minecraft:set_components"
         }

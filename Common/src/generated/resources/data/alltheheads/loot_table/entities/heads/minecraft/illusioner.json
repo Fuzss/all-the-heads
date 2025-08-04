@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:illusioner"
+            "alltheheads:head_type": "alltheheads:minecraft/illusioner"
           },
           "function": "minecraft:set_components"
         }

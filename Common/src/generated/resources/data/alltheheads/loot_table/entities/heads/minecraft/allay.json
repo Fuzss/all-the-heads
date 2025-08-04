@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:allay"
+            "alltheheads:head_type": "alltheheads:minecraft/allay"
           },
           "function": "minecraft:set_components"
         }

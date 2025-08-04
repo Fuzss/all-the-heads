@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:glow_squid"
+            "alltheheads:head_type": "alltheheads:minecraft/glow_squid"
           },
           "function": "minecraft:set_components"
         }

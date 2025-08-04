@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:blaze"
+            "alltheheads:head_type": "alltheheads:minecraft/blaze"
           },
           "function": "minecraft:set_components"
         }

@@ -13,6 +13,8 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerType;
 
+import java.util.function.BiConsumer;
+
 import static fuzs.alltheheads.init.HeadTypes.register;
 
 public class VillagerHeadType {
@@ -293,5 +295,131 @@ public class VillagerHeadType {
                 .model(ModelType.VILLAGER, profession.location().withPrefix("entity/villager/profession/"))
                 .noteBlockSound(SoundEvents.VILLAGER_AMBIENT)
                 .build(context, resourceKey);
+    }
+
+    public static void registerTranslations(BiConsumer<ResourceKey<HeadType>, String> translationConsumer) {
+        // Desert Villagers
+        translationConsumer.accept(DESERT_VILLAGER, "Desert Villager Head");
+        translationConsumer.accept(DESERT_ARMORER_VILLAGER, "Desert Armorer Villager Head");
+        translationConsumer.accept(DESERT_BUTCHER_VILLAGER, "Desert Butcher Villager Head");
+        translationConsumer.accept(DESERT_CARTOGRAPHER_VILLAGER, "Desert Cartographer Villager Head");
+        translationConsumer.accept(DESERT_CLERIC_VILLAGER, "Desert Cleric Villager Head");
+        translationConsumer.accept(DESERT_FARMER_VILLAGER, "Desert Farmer Villager Head");
+        translationConsumer.accept(DESERT_FISHERMAN_VILLAGER, "Desert Fisherman Villager Head");
+        translationConsumer.accept(DESERT_FLETCHER_VILLAGER, "Desert Fletcher Villager Head");
+        translationConsumer.accept(DESERT_LEATHERWORKER_VILLAGER,
+                "Desert Leatherworker Villager Head");
+        translationConsumer.accept(DESERT_LIBRARIAN_VILLAGER, "Desert Librarian Villager Head");
+        translationConsumer.accept(DESERT_MASON_VILLAGER, "Desert Mason Villager Head");
+        translationConsumer.accept(DESERT_NITWIT_VILLAGER, "Desert Nitwit Villager Head");
+        translationConsumer.accept(DESERT_SHEPHERD_VILLAGER, "Desert Shepherd Villager Head");
+        translationConsumer.accept(DESERT_TOOLSMITH_VILLAGER, "Desert Toolsmith Villager Head");
+        translationConsumer.accept(DESERT_WEAPONSMITH_VILLAGER, "Desert Weaponsmith Villager Head");
+
+        // Jungle Villagers
+        translationConsumer.accept(JUNGLE_VILLAGER, "Jungle Villager Head");
+        translationConsumer.accept(JUNGLE_ARMORER_VILLAGER, "Jungle Armorer Villager Head");
+        translationConsumer.accept(JUNGLE_BUTCHER_VILLAGER, "Jungle Butcher Villager Head");
+        translationConsumer.accept(JUNGLE_CARTOGRAPHER_VILLAGER, "Jungle Cartographer Villager Head");
+        translationConsumer.accept(JUNGLE_CLERIC_VILLAGER, "Jungle Cleric Villager Head");
+        translationConsumer.accept(JUNGLE_FARMER_VILLAGER, "Jungle Farmer Villager Head");
+        translationConsumer.accept(JUNGLE_FISHERMAN_VILLAGER, "Jungle Fisherman Villager Head");
+        translationConsumer.accept(JUNGLE_FLETCHER_VILLAGER, "Jungle Fletcher Villager Head");
+        translationConsumer.accept(JUNGLE_LEATHERWORKER_VILLAGER,
+                "Jungle Leatherworker Villager Head");
+        translationConsumer.accept(JUNGLE_LIBRARIAN_VILLAGER, "Jungle Librarian Villager Head");
+        translationConsumer.accept(JUNGLE_MASON_VILLAGER, "Jungle Mason Villager Head");
+        translationConsumer.accept(JUNGLE_NITWIT_VILLAGER, "Jungle Nitwit Villager Head");
+        translationConsumer.accept(JUNGLE_SHEPHERD_VILLAGER, "Jungle Shepherd Villager Head");
+        translationConsumer.accept(JUNGLE_TOOLSMITH_VILLAGER, "Jungle Toolsmith Villager Head");
+        translationConsumer.accept(JUNGLE_WEAPONSMITH_VILLAGER, "Jungle Weaponsmith Villager Head");
+
+        // Plains Villagers
+        translationConsumer.accept(PLAINS_VILLAGER, "Plains Villager Head");
+        translationConsumer.accept(PLAINS_ARMORER_VILLAGER, "Plains Armorer Villager Head");
+        translationConsumer.accept(PLAINS_BUTCHER_VILLAGER, "Plains Butcher Villager Head");
+        translationConsumer.accept(PLAINS_CARTOGRAPHER_VILLAGER, "Plains Cartographer Villager Head");
+        translationConsumer.accept(PLAINS_CLERIC_VILLAGER, "Plains Cleric Villager Head");
+        translationConsumer.accept(PLAINS_FARMER_VILLAGER, "Plains Farmer Villager Head");
+        translationConsumer.accept(PLAINS_FISHERMAN_VILLAGER, "Plains Fisherman Villager Head");
+        translationConsumer.accept(PLAINS_FLETCHER_VILLAGER, "Plains Fletcher Villager Head");
+        translationConsumer.accept(PLAINS_LEATHERWORKER_VILLAGER,
+                "Plains Leatherworker Villager Head");
+        translationConsumer.accept(PLAINS_LIBRARIAN_VILLAGER, "Plains Librarian Villager Head");
+        translationConsumer.accept(PLAINS_MASON_VILLAGER, "Plains Mason Villager Head");
+        translationConsumer.accept(PLAINS_NITWIT_VILLAGER, "Plains Nitwit Villager Head");
+        translationConsumer.accept(PLAINS_SHEPHERD_VILLAGER, "Plains Shepherd Villager Head");
+        translationConsumer.accept(PLAINS_TOOLSMITH_VILLAGER, "Plains Toolsmith Villager Head");
+        translationConsumer.accept(PLAINS_WEAPONSMITH_VILLAGER, "Plains Weaponsmith Villager Head");
+
+        // Savanna Villagers
+        translationConsumer.accept(SAVANNA_VILLAGER, "Savanna Villager Head");
+        translationConsumer.accept(SAVANNA_ARMORER_VILLAGER, "Savanna Armorer Villager Head");
+        translationConsumer.accept(SAVANNA_BUTCHER_VILLAGER, "Savanna Butcher Villager Head");
+        translationConsumer.accept(SAVANNA_CARTOGRAPHER_VILLAGER,
+                "Savanna Cartographer Villager Head");
+        translationConsumer.accept(SAVANNA_CLERIC_VILLAGER, "Savanna Cleric Villager Head");
+        translationConsumer.accept(SAVANNA_FARMER_VILLAGER, "Savanna Farmer Villager Head");
+        translationConsumer.accept(SAVANNA_FISHERMAN_VILLAGER, "Savanna Fisherman Villager Head");
+        translationConsumer.accept(SAVANNA_FLETCHER_VILLAGER, "Savanna Fletcher Villager Head");
+        translationConsumer.accept(SAVANNA_LEATHERWORKER_VILLAGER,
+                "Savanna Leatherworker Villager Head");
+        translationConsumer.accept(SAVANNA_LIBRARIAN_VILLAGER, "Savanna Librarian Villager Head");
+        translationConsumer.accept(SAVANNA_MASON_VILLAGER, "Savanna Mason Villager Head");
+        translationConsumer.accept(SAVANNA_NITWIT_VILLAGER, "Savanna Nitwit Villager Head");
+        translationConsumer.accept(SAVANNA_SHEPHERD_VILLAGER, "Savanna Shepherd Villager Head");
+        translationConsumer.accept(SAVANNA_TOOLSMITH_VILLAGER, "Savanna Toolsmith Villager Head");
+        translationConsumer.accept(SAVANNA_WEAPONSMITH_VILLAGER, "Savanna Weaponsmith Villager Head");
+
+        // Snow Villagers
+        translationConsumer.accept(SNOW_VILLAGER, "Snow Villager Head");
+        translationConsumer.accept(SNOW_ARMORER_VILLAGER, "Snow Armorer Villager Head");
+        translationConsumer.accept(SNOW_BUTCHER_VILLAGER, "Snow Butcher Villager Head");
+        translationConsumer.accept(SNOW_CARTOGRAPHER_VILLAGER, "Snow Cartographer Villager Head");
+        translationConsumer.accept(SNOW_CLERIC_VILLAGER, "Snow Cleric Villager Head");
+        translationConsumer.accept(SNOW_FARMER_VILLAGER, "Snow Farmer Villager Head");
+        translationConsumer.accept(SNOW_FISHERMAN_VILLAGER, "Snow Fisherman Villager Head");
+        translationConsumer.accept(SNOW_FLETCHER_VILLAGER, "Snow Fletcher Villager Head");
+        translationConsumer.accept(SNOW_LEATHERWORKER_VILLAGER, "Snow Leatherworker Villager Head");
+        translationConsumer.accept(SNOW_LIBRARIAN_VILLAGER, "Snow Librarian Villager Head");
+        translationConsumer.accept(SNOW_MASON_VILLAGER, "Snow Mason Villager Head");
+        translationConsumer.accept(SNOW_NITWIT_VILLAGER, "Snow Nitwit Villager Head");
+        translationConsumer.accept(SNOW_SHEPHERD_VILLAGER, "Snow Shepherd Villager Head");
+        translationConsumer.accept(SNOW_TOOLSMITH_VILLAGER, "Snow Toolsmith Villager Head");
+        translationConsumer.accept(SNOW_WEAPONSMITH_VILLAGER, "Snow Weaponsmith Villager Head");
+
+        // Swamp Villagers
+        translationConsumer.accept(SWAMP_VILLAGER, "Swamp Villager Head");
+        translationConsumer.accept(SWAMP_ARMORER_VILLAGER, "Swamp Armorer Villager Head");
+        translationConsumer.accept(SWAMP_BUTCHER_VILLAGER, "Swamp Butcher Villager Head");
+        translationConsumer.accept(SWAMP_CARTOGRAPHER_VILLAGER, "Swamp Cartographer Villager Head");
+        translationConsumer.accept(SWAMP_CLERIC_VILLAGER, "Swamp Cleric Villager Head");
+        translationConsumer.accept(SWAMP_FARMER_VILLAGER, "Swamp Farmer Villager Head");
+        translationConsumer.accept(SWAMP_FISHERMAN_VILLAGER, "Swamp Fisherman Villager Head");
+        translationConsumer.accept(SWAMP_FLETCHER_VILLAGER, "Swamp Fletcher Villager Head");
+        translationConsumer.accept(SWAMP_LEATHERWORKER_VILLAGER, "Swamp Leatherworker Villager Head");
+        translationConsumer.accept(SWAMP_LIBRARIAN_VILLAGER, "Swamp Librarian Villager Head");
+        translationConsumer.accept(SWAMP_MASON_VILLAGER, "Swamp Mason Villager Head");
+        translationConsumer.accept(SWAMP_NITWIT_VILLAGER, "Swamp Nitwit Villager Head");
+        translationConsumer.accept(SWAMP_SHEPHERD_VILLAGER, "Swamp Shepherd Villager Head");
+        translationConsumer.accept(SWAMP_TOOLSMITH_VILLAGER, "Swamp Toolsmith Villager Head");
+        translationConsumer.accept(SWAMP_WEAPONSMITH_VILLAGER, "Swamp Weaponsmith Villager Head");
+
+        // Taiga Villagers
+        translationConsumer.accept(TAIGA_VILLAGER, "Taiga Villager Head");
+        translationConsumer.accept(TAIGA_ARMORER_VILLAGER, "Taiga Armorer Villager Head");
+        translationConsumer.accept(TAIGA_BUTCHER_VILLAGER, "Taiga Butcher Villager Head");
+        translationConsumer.accept(TAIGA_CARTOGRAPHER_VILLAGER, "Taiga Cartographer Villager Head");
+        translationConsumer.accept(TAIGA_CLERIC_VILLAGER, "Taiga Cleric Villager Head");
+        translationConsumer.accept(TAIGA_FARMER_VILLAGER, "Taiga Farmer Villager Head");
+        translationConsumer.accept(TAIGA_FISHERMAN_VILLAGER, "Taiga Fisherman Villager Head");
+        translationConsumer.accept(TAIGA_FLETCHER_VILLAGER, "Taiga Fletcher Villager Head");
+        translationConsumer.accept(TAIGA_LEATHERWORKER_VILLAGER, "Taiga Leatherworker Villager Head");
+        translationConsumer.accept(TAIGA_LIBRARIAN_VILLAGER, "Taiga Librarian Villager Head");
+        translationConsumer.accept(TAIGA_MASON_VILLAGER, "Taiga Mason Villager Head");
+        translationConsumer.accept(TAIGA_NITWIT_VILLAGER, "Taiga Nitwit Villager Head");
+        translationConsumer.accept(TAIGA_SHEPHERD_VILLAGER, "Taiga Shepherd Villager Head");
+        translationConsumer.accept(TAIGA_TOOLSMITH_VILLAGER, "Taiga Toolsmith Villager Head");
+        translationConsumer.accept(TAIGA_WEAPONSMITH_VILLAGER, "Taiga Weaponsmith Villager Head");
     }
 }

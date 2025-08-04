@@ -41,7 +41,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:wolf/spotted/tame"
+            "alltheheads:head_type": "alltheheads:minecraft/wolf/spotted/tame"
           },
           "function": "minecraft:set_components"
         }

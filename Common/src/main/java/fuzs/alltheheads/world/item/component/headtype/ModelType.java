@@ -76,7 +76,8 @@ public record ModelType(ResourceLocation model, String layer) {
     public static final ModelType STRIDER = register("strider_head");
     public static final ModelType TADPOLE = register("tadpole_head");
     public static final ModelType TEMPERATE_COW = register("temperate_cow_head");
-    public static final ModelType TROPICAL_FISH = register("tropical_fish_head");
+    public static final ModelType TROPICAL_FISH_LARGE = register("tropical_fish_head", "large");
+    public static final ModelType TROPICAL_FISH_SMALL = register("tropical_fish_head", "small");
     public static final ModelType TURTLE = register("turtle_head");
     public static final ModelType VEX = register("vex_head");
     public static final ModelType VILLAGER = register("villager_head");

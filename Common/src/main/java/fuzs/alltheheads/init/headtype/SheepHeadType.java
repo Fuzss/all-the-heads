@@ -17,6 +17,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.DyeColor;
 
 import java.util.Optional;
+import java.util.function.BiConsumer;
 
 import static fuzs.alltheheads.init.HeadTypes.register;
 
@@ -128,5 +129,40 @@ public class SheepHeadType {
                     Mth.floor(ARGB.green(textureDiffuseColor) * brightness),
                     Mth.floor(ARGB.blue(textureDiffuseColor) * brightness));
         }
+    }
+
+    public static void registerTranslations(BiConsumer<ResourceKey<HeadType>, String> translationConsumer) {
+        translationConsumer.accept(WHITE_SHEEP, "White Sheep Head");
+        translationConsumer.accept(WHITE_WOOLLY_SHEEP, "White Woolly Sheep Head");
+        translationConsumer.accept(ORANGE_SHEEP, "Orange Sheep Head");
+        translationConsumer.accept(ORANGE_WOOLLY_SHEEP, "Orange Woolly Sheep Head");
+        translationConsumer.accept(MAGENTA_SHEEP, "Magenta Sheep Head");
+        translationConsumer.accept(MAGENTA_WOOLLY_SHEEP, "Magenta Woolly Sheep Head");
+        translationConsumer.accept(LIGHT_BLUE_SHEEP, "Light Blue Sheep Head");
+        translationConsumer.accept(LIGHT_BLUE_WOOLLY_SHEEP, "Light Blue Woolly Sheep Head");
+        translationConsumer.accept(YELLOW_SHEEP, "Yellow Sheep Head");
+        translationConsumer.accept(YELLOW_WOOLLY_SHEEP, "Yellow Woolly Sheep Head");
+        translationConsumer.accept(LIME_SHEEP, "Lime Sheep Head");
+        translationConsumer.accept(LIME_WOOLLY_SHEEP, "Lime Woolly Sheep Head");
+        translationConsumer.accept(PINK_SHEEP, "Pink Sheep Head");
+        translationConsumer.accept(PINK_WOOLLY_SHEEP, "Pink Woolly Sheep Head");
+        translationConsumer.accept(GRAY_SHEEP, "Gray Sheep Head");
+        translationConsumer.accept(GRAY_WOOLLY_SHEEP, "Gray Woolly Sheep Head");
+        translationConsumer.accept(LIGHT_GRAY_SHEEP, "Light Gray Sheep Head");
+        translationConsumer.accept(LIGHT_GRAY_WOOLLY_SHEEP, "Light Gray Woolly Sheep Head");
+        translationConsumer.accept(CYAN_SHEEP, "Cyan Sheep Head");
+        translationConsumer.accept(CYAN_WOOLLY_SHEEP, "Cyan Woolly Sheep Head");
+        translationConsumer.accept(PURPLE_SHEEP, "Purple Sheep Head");
+        translationConsumer.accept(PURPLE_WOOLLY_SHEEP, "Purple Woolly Sheep Head");
+        translationConsumer.accept(BLUE_SHEEP, "Blue Sheep Head");
+        translationConsumer.accept(BLUE_WOOLLY_SHEEP, "Blue Woolly Sheep Head");
+        translationConsumer.accept(BROWN_SHEEP, "Brown Sheep Head");
+        translationConsumer.accept(BROWN_WOOLLY_SHEEP, "Brown Woolly Sheep Head");
+        translationConsumer.accept(GREEN_SHEEP, "Green Sheep Head");
+        translationConsumer.accept(GREEN_WOOLLY_SHEEP, "Green Woolly Sheep Head");
+        translationConsumer.accept(RED_SHEEP, "Red Sheep Head");
+        translationConsumer.accept(RED_WOOLLY_SHEEP, "Red Woolly Sheep Head");
+        translationConsumer.accept(BLACK_SHEEP, "Black Sheep Head");
+        translationConsumer.accept(BLACK_WOOLLY_SHEEP, "Black Woolly Sheep Head");
     }
 }

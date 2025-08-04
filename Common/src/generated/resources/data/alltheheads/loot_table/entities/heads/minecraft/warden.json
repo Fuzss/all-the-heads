@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:warden"
+            "alltheheads:head_type": "alltheheads:minecraft/warden"
           },
           "function": "minecraft:set_components"
         }

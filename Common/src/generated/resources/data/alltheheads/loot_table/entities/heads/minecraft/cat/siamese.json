@@ -37,7 +37,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:cat/siamese"
+            "alltheheads:head_type": "alltheheads:minecraft/cat/siamese"
           },
           "function": "minecraft:set_components"
         }

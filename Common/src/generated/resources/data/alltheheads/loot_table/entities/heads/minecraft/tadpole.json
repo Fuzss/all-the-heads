@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:tadpole"
+            "alltheheads:head_type": "alltheheads:minecraft/tadpole"
           },
           "function": "minecraft:set_components"
         }

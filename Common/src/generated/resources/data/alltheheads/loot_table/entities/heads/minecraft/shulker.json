@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:shulker"
+            "alltheheads:head_type": "alltheheads:minecraft/shulker"
           },
           "function": "minecraft:set_components"
         }

@@ -38,7 +38,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:panda/aggressive"
+            "alltheheads:head_type": "alltheheads:minecraft/panda/aggressive"
           },
           "function": "minecraft:set_components"
         }

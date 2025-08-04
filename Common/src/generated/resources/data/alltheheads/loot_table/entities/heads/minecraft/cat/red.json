@@ -37,7 +37,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:cat/red"
+            "alltheheads:head_type": "alltheheads:minecraft/cat/red"
           },
           "function": "minecraft:set_components"
         }

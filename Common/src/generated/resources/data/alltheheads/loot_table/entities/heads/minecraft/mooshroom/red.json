@@ -37,7 +37,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:mooshroom/red"
+            "alltheheads:head_type": "alltheheads:minecraft/mooshroom/red"
           },
           "function": "minecraft:set_components"
         }

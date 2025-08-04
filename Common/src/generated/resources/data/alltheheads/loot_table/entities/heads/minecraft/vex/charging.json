@@ -38,7 +38,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:vex/charging"
+            "alltheheads:head_type": "alltheheads:minecraft/vex/charging"
           },
           "function": "minecraft:set_components"
         }

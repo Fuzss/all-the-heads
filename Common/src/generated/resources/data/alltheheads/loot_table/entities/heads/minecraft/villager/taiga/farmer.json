@@ -39,7 +39,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:villager/taiga/farmer"
+            "alltheheads:head_type": "alltheheads:minecraft/villager/taiga/farmer"
           },
           "function": "minecraft:set_components"
         }

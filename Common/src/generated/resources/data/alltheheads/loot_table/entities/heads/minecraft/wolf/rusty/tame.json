@@ -41,7 +41,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:wolf/rusty/tame"
+            "alltheheads:head_type": "alltheheads:minecraft/wolf/rusty/tame"
           },
           "function": "minecraft:set_components"
         }

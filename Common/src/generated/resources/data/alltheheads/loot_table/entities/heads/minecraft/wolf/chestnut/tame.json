@@ -41,7 +41,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:wolf/chestnut/tame"
+            "alltheheads:head_type": "alltheheads:minecraft/wolf/chestnut/tame"
           },
           "function": "minecraft:set_components"
         }

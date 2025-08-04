@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:goat"
+            "alltheheads:head_type": "alltheheads:minecraft/goat"
           },
           "function": "minecraft:set_components"
         }

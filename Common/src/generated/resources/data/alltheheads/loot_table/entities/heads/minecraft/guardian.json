@@ -34,7 +34,7 @@
       "functions": [
         {
           "components": {
-            "alltheheads:head_type": "alltheheads:guardian"
+            "alltheheads:head_type": "alltheheads:minecraft/guardian"
           },
           "function": "minecraft:set_components"
         }
