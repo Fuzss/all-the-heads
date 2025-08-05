@@ -5,16 +5,6 @@
       "bonus_rolls": 0.0,
       "conditions": [
         {
-          "condition": "minecraft:entity_properties",
-          "entity": "this",
-          "predicate": {
-            "type": "minecraft:rabbit",
-            "components": {
-              "minecraft:rabbit/variant": "gold"
-            }
-          }
-        },
-        {
           "condition": "minecraft:killed_by_player"
         },
         {

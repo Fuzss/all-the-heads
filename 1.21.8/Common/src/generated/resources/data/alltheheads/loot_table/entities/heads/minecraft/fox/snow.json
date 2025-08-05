@@ -5,16 +5,6 @@
       "bonus_rolls": 0.0,
       "conditions": [
         {
-          "condition": "minecraft:entity_properties",
-          "entity": "this",
-          "predicate": {
-            "type": "minecraft:fox",
-            "components": {
-              "minecraft:fox/variant": "snow"
-            }
-          }
-        },
-        {
           "condition": "minecraft:killed_by_player"
         },
         {

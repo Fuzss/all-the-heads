@@ -33,7 +33,7 @@ public class ModLootTables {
 
     private static ResourceKey<LootTable> registerLootTableInjection(ResourceKey<LootTable> resourceKey) {
         ResourceKey<LootTable> newResourceKey = ModRegistry.REGISTRIES.makeResourceKey(Registries.LOOT_TABLE,
-                "inject/" + resourceKey.location().toString().replace(':', '/'));
+                "injections/" + resourceKey.location().toString().replace(':', '/'));
         LOOT_TABLE_INJECTIONS.put(resourceKey.location(), newResourceKey);
         return newResourceKey;
     }
@@ -42,7 +42,7 @@ public class ModLootTables {
         if (!AllTheHeads.CONFIG.get(CommonConfig.class).vanillaHeadDrops) {
             return;
         }
-        
+
         if (LOOT_TABLE_INJECTIONS.containsKey(resourceLocation)) {
             lootTable.withPool(LootPool.lootPool()
                     .setRolls(ConstantValue.exactly(1.0F))

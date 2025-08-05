@@ -5,20 +5,6 @@
       "bonus_rolls": 0.0,
       "conditions": [
         {
-          "condition": "minecraft:entity_properties",
-          "entity": "this",
-          "predicate": {
-            "type": "minecraft:horse",
-            "components": {
-              "minecraft:horse/variant": "gray"
-            },
-            "type_specific": {
-              "type": "alltheheads:horse",
-              "markings": "black_dots"
-            }
-          }
-        },
-        {
           "condition": "minecraft:killed_by_player"
         },
         {

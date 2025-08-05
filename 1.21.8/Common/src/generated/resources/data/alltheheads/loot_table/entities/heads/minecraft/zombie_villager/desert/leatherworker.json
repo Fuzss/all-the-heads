@@ -5,18 +5,6 @@
       "bonus_rolls": 0.0,
       "conditions": [
         {
-          "condition": "minecraft:entity_properties",
-          "entity": "this",
-          "predicate": {
-            "type": "minecraft:zombie_villager",
-            "type_specific": {
-              "type": "alltheheads:villager_data",
-              "villager_profession": "minecraft:leatherworker",
-              "villager_type": "minecraft:desert"
-            }
-          }
-        },
-        {
           "condition": "minecraft:killed_by_player"
         },
         {

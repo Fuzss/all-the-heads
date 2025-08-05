@@ -5,19 +5,6 @@
       "bonus_rolls": 0.0,
       "conditions": [
         {
-          "condition": "minecraft:entity_properties",
-          "entity": "this",
-          "predicate": {
-            "type": "minecraft:tropical_fish",
-            "type_specific": {
-              "type": "alltheheads:tropical_fish",
-              "base_color": "orange",
-              "pattern": "stripey",
-              "pattern_color": "gray"
-            }
-          }
-        },
-        {
           "condition": "minecraft:killed_by_player"
         },
         {

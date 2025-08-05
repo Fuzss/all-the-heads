@@ -21,11 +21,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:creeper_head"
+          "name": "minecraft:zombie_head"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "alltheheads:inject/minecraft/entities/creeper"
+  "random_sequence": "alltheheads:injections/minecraft/entities/zombie"
 }

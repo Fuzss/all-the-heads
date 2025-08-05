@@ -5,20 +5,6 @@
       "bonus_rolls": 0.0,
       "conditions": [
         {
-          "condition": "minecraft:entity_properties",
-          "entity": "this",
-          "predicate": {
-            "type": "minecraft:wolf",
-            "components": {
-              "minecraft:wolf/variant": "minecraft:chestnut"
-            },
-            "type_specific": {
-              "type": "alltheheads:wolf",
-              "angry": true
-            }
-          }
-        },
-        {
           "condition": "minecraft:killed_by_player"
         },
         {

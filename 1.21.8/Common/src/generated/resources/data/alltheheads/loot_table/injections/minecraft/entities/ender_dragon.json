@@ -27,5 +27,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "alltheheads:inject/minecraft/entities/ender_dragon"
+  "random_sequence": "alltheheads:injections/minecraft/entities/ender_dragon"
 }
