@@ -18,16 +18,8 @@ public class HoglinHeadType {
     public static final ResourceKey<HeadType> ZOGLIN = register("zoglin");
 
     public static void bootstrap(BootstrapContext<HeadType> context) {
-        HoglinHeadType.bootstrapHoglin(context,
-                EntityType.HOGLIN,
-                HoglinHeadType.HOGLIN,
-                "entity/hoglin/hoglin",
-                SoundEvents.HOGLIN_AMBIENT);
-        HoglinHeadType.bootstrapHoglin(context,
-                EntityType.ZOGLIN,
-                HoglinHeadType.ZOGLIN,
-                "entity/hoglin/zoglin",
-                SoundEvents.ZOGLIN_AMBIENT);
+        bootstrapHoglin(context, EntityType.HOGLIN, HOGLIN, "entity/hoglin/hoglin", SoundEvents.HOGLIN_AMBIENT);
+        bootstrapHoglin(context, EntityType.ZOGLIN, ZOGLIN, "entity/hoglin/zoglin", SoundEvents.ZOGLIN_AMBIENT);
     }
 
     private static void bootstrapHoglin(BootstrapContext<HeadType> context, EntityType<?> entityType, ResourceKey<HeadType> resourceKey, String textureLocation, SoundEvent noteBlockSound) {

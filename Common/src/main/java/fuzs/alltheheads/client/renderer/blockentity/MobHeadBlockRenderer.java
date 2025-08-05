@@ -63,6 +63,11 @@ public class MobHeadBlockRenderer implements BlockEntityRenderer<MobHeadBlockEnt
                         putRenderType(ModelType.BREEZE_EYES, RenderType::eyes, map::put);
                         putRenderType(ModelType.CREAKING, RenderType::entityCutoutNoCull, map::put);
                         putRenderType(ModelType.CREAKING_EYES, RenderType::eyes, map::put);
+                        map.put(ModelType.CREEPER_CHARGE, (ResourceLocation resourceLocation, Float tickCount) -> {
+                            return RenderType.energySwirl(resourceLocation,
+                                    tickCount * 0.01F % 1.0F,
+                                    tickCount * 0.01F % 1.0F);
+                        });
                         putRenderType(ModelType.ENDERMAN, RenderType::entityCutoutNoCull, map::put);
                         putRenderType(ModelType.ENDERMAN_EYES, RenderType::eyes, map::put);
                         putRenderType(ModelType.HORSE, RenderType::entityCutoutNoCull, map::put);
@@ -78,11 +83,6 @@ public class MobHeadBlockRenderer implements BlockEntityRenderer<MobHeadBlockEnt
                         map.put(ModelType.WITHER_SHIELD, (ResourceLocation resourceLocation, Float tickCount) -> {
                             return RenderType.energySwirl(resourceLocation,
                                     Mth.cos(tickCount * 0.02F) * 3.0F % 1.0F,
-                                    tickCount * 0.01F % 1.0F);
-                        });
-                        map.put(ModelType.CREEPER_CHARGE, (ResourceLocation resourceLocation, Float tickCount) -> {
-                            return RenderType.energySwirl(resourceLocation,
-                                    tickCount * 0.01F % 1.0F,
                                     tickCount * 0.01F % 1.0F);
                         });
                     }));

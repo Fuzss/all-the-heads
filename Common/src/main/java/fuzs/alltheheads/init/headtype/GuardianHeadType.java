@@ -18,14 +18,10 @@ public class GuardianHeadType {
     public static final ResourceKey<HeadType> ELDER_GUARDIAN = register("elder_guardian");
 
     public static void bootstrap(BootstrapContext<HeadType> context) {
-        GuardianHeadType.bootstrapGuardian(context,
-                EntityType.GUARDIAN,
-                GuardianHeadType.GUARDIAN,
-                "entity/guardian",
-                SoundEvents.GUARDIAN_AMBIENT_LAND);
-        GuardianHeadType.bootstrapGuardian(context,
+        bootstrapGuardian(context, EntityType.GUARDIAN, GUARDIAN, "entity/guardian", SoundEvents.GUARDIAN_AMBIENT_LAND);
+        bootstrapGuardian(context,
                 EntityType.ELDER_GUARDIAN,
-                GuardianHeadType.ELDER_GUARDIAN,
+                ELDER_GUARDIAN,
                 "entity/guardian_elder",
                 SoundEvents.ELDER_GUARDIAN_AMBIENT_LAND);
     }

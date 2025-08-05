@@ -22,8 +22,8 @@ public class FoxHeadType {
     public static final ResourceKey<HeadType> SNOW_FOX = register("fox/snow");
 
     public static void bootstrap(BootstrapContext<HeadType> context) {
-        FoxHeadType.bootstrapFox(context, Fox.Variant.RED, FoxHeadType.FOX, "entity/fox/fox");
-        FoxHeadType.bootstrapFox(context, Fox.Variant.SNOW, FoxHeadType.SNOW_FOX, "entity/fox/snow_fox");
+        bootstrapFox(context, Fox.Variant.RED, FOX, "entity/fox/fox");
+        bootstrapFox(context, Fox.Variant.SNOW, SNOW_FOX, "entity/fox/snow_fox");
     }
 
     private static void bootstrapFox(BootstrapContext<HeadType> context, Fox.Variant variant, ResourceKey<HeadType> resourceKey, String textureLocation) {

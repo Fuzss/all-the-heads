@@ -25,12 +25,9 @@ public class FrogHeadType {
     public static final ResourceKey<HeadType> COLD_FROG = register("frog/cold");
 
     public static void bootstrap(BootstrapContext<HeadType> context) {
-        FrogHeadType.bootstrapFrog(context,
-                FrogVariants.TEMPERATE,
-                FrogHeadType.TEMPERATE_FROG,
-                "entity/frog/temperate_frog");
-        FrogHeadType.bootstrapFrog(context, FrogVariants.WARM, FrogHeadType.WARM_FROG, "entity/frog/warm_frog");
-        FrogHeadType.bootstrapFrog(context, FrogVariants.COLD, FrogHeadType.COLD_FROG, "entity/frog/cold_frog");
+        bootstrapFrog(context, FrogVariants.TEMPERATE, TEMPERATE_FROG, "entity/frog/temperate_frog");
+        bootstrapFrog(context, FrogVariants.WARM, WARM_FROG, "entity/frog/warm_frog");
+        bootstrapFrog(context, FrogVariants.COLD, COLD_FROG, "entity/frog/cold_frog");
     }
 
     private static void bootstrapFrog(BootstrapContext<HeadType> context, ResourceKey<FrogVariant> variant, ResourceKey<HeadType> resourceKey, String textureLocation) {
