@@ -26,19 +26,15 @@ public class ChickenHeadType {
     public static final ResourceKey<HeadType> COLD_CHICKEN = register("chicken/cold");
 
     public static void bootstrap(BootstrapContext<HeadType> context) {
-        ChickenHeadType.bootstrapChicken(context,
+        bootstrapChicken(context,
                 ChickenVariants.TEMPERATE,
-                ChickenHeadType.TEMPERATE_CHICKEN,
+                TEMPERATE_CHICKEN,
                 ModelType.CHICKEN,
                 "entity/chicken/temperate_chicken");
-        ChickenHeadType.bootstrapChicken(context,
-                ChickenVariants.WARM,
-                ChickenHeadType.WARM_CHICKEN,
-                ModelType.CHICKEN,
-                "entity/chicken/warm_chicken");
-        ChickenHeadType.bootstrapChicken(context,
+        bootstrapChicken(context, ChickenVariants.WARM, WARM_CHICKEN, ModelType.CHICKEN, "entity/chicken/warm_chicken");
+        bootstrapChicken(context,
                 ChickenVariants.COLD,
-                ChickenHeadType.COLD_CHICKEN,
+                COLD_CHICKEN,
                 ModelType.COLD_CHICKEN,
                 "entity/chicken/cold_chicken");
     }

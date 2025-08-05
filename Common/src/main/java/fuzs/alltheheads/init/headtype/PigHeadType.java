@@ -25,9 +25,9 @@ public class PigHeadType {
     public static final ResourceKey<HeadType> COLD_PIG = register("pig/cold");
 
     public static void bootstrap(BootstrapContext<HeadType> context) {
-        PigHeadType.bootstrapPig(context, PigVariants.TEMPERATE, PigHeadType.TEMPERATE_PIG, "entity/pig/temperate_pig");
-        PigHeadType.bootstrapPig(context, PigVariants.WARM, PigHeadType.WARM_PIG, "entity/pig/warm_pig");
-        PigHeadType.bootstrapPig(context, PigVariants.COLD, PigHeadType.COLD_PIG, "entity/pig/cold_pig");
+        bootstrapPig(context, PigVariants.TEMPERATE, TEMPERATE_PIG, "entity/pig/temperate_pig");
+        bootstrapPig(context, PigVariants.WARM, WARM_PIG, "entity/pig/warm_pig");
+        bootstrapPig(context, PigVariants.COLD, COLD_PIG, "entity/pig/cold_pig");
     }
 
     private static void bootstrapPig(BootstrapContext<HeadType> context, ResourceKey<PigVariant> variant, ResourceKey<HeadType> resourceKey, String textureLocation) {

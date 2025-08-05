@@ -39,21 +39,18 @@ public class CatHeadType {
                 .scale(1.6)
                 .model(ModelType.FELINE, ResourceLocationHelper.withDefaultNamespace("entity/cat/ocelot"))
                 .noteBlockSound(SoundEvents.OCELOT_AMBIENT)
-                .build(context, CatHeadType.OCELOT);
-        CatHeadType.bootstrapCat(context, CatVariants.TABBY, CatHeadType.TABBY_CAT, "entity/cat/tabby");
-        CatHeadType.bootstrapCat(context, CatVariants.BLACK, CatHeadType.BLACK_CAT, "entity/cat/black");
-        CatHeadType.bootstrapCat(context, CatVariants.RED, CatHeadType.RED_CAT, "entity/cat/red");
-        CatHeadType.bootstrapCat(context, CatVariants.SIAMESE, CatHeadType.SIAMESE_CAT, "entity/cat/siamese");
-        CatHeadType.bootstrapCat(context,
-                CatVariants.BRITISH_SHORTHAIR,
-                CatHeadType.BRITISH_SHORTHAIR_CAT,
-                "entity/cat/british_shorthair");
-        CatHeadType.bootstrapCat(context, CatVariants.CALICO, CatHeadType.CALICO_CAT, "entity/cat/calico");
-        CatHeadType.bootstrapCat(context, CatVariants.PERSIAN, CatHeadType.PERSIAN_CAT, "entity/cat/persian");
-        CatHeadType.bootstrapCat(context, CatVariants.RAGDOLL, CatHeadType.RAGDOLL_CAT, "entity/cat/ragdoll");
-        CatHeadType.bootstrapCat(context, CatVariants.WHITE, CatHeadType.WHITE_CAT, "entity/cat/white");
-        CatHeadType.bootstrapCat(context, CatVariants.JELLIE, CatHeadType.JELLIE_CAT, "entity/cat/jellie");
-        CatHeadType.bootstrapCat(context, CatVariants.ALL_BLACK, CatHeadType.ALL_BLACK_CAT, "entity/cat/all_black");
+                .build(context, OCELOT);
+        bootstrapCat(context, CatVariants.TABBY, TABBY_CAT, "entity/cat/tabby");
+        bootstrapCat(context, CatVariants.BLACK, BLACK_CAT, "entity/cat/black");
+        bootstrapCat(context, CatVariants.RED, RED_CAT, "entity/cat/red");
+        bootstrapCat(context, CatVariants.SIAMESE, SIAMESE_CAT, "entity/cat/siamese");
+        bootstrapCat(context, CatVariants.BRITISH_SHORTHAIR, BRITISH_SHORTHAIR_CAT, "entity/cat/british_shorthair");
+        bootstrapCat(context, CatVariants.CALICO, CALICO_CAT, "entity/cat/calico");
+        bootstrapCat(context, CatVariants.PERSIAN, PERSIAN_CAT, "entity/cat/persian");
+        bootstrapCat(context, CatVariants.RAGDOLL, RAGDOLL_CAT, "entity/cat/ragdoll");
+        bootstrapCat(context, CatVariants.WHITE, WHITE_CAT, "entity/cat/white");
+        bootstrapCat(context, CatVariants.JELLIE, JELLIE_CAT, "entity/cat/jellie");
+        bootstrapCat(context, CatVariants.ALL_BLACK, ALL_BLACK_CAT, "entity/cat/all_black");
     }
 
     private static void bootstrapCat(BootstrapContext<HeadType> context, ResourceKey<CatVariant> variant, ResourceKey<HeadType> resourceKey, String textureLocation) {

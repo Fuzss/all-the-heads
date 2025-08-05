@@ -25,26 +25,11 @@ public class AxolotlHeadType {
     public static final ResourceKey<HeadType> BLUE_AXOLOTL = register("axolotl/blue");
 
     public static void bootstrap(BootstrapContext<HeadType> context) {
-        AxolotlHeadType.bootstrapAxolotl(context,
-                Axolotl.Variant.LUCY,
-                AxolotlHeadType.LUCY_AXOLOTL,
-                "entity/axolotl/axolotl_lucy");
-        AxolotlHeadType.bootstrapAxolotl(context,
-                Axolotl.Variant.WILD,
-                AxolotlHeadType.WILD_AXOLOTL,
-                "entity/axolotl/axolotl_wild");
-        AxolotlHeadType.bootstrapAxolotl(context,
-                Axolotl.Variant.GOLD,
-                AxolotlHeadType.GOLD_AXOLOTL,
-                "entity/axolotl/axolotl_gold");
-        AxolotlHeadType.bootstrapAxolotl(context,
-                Axolotl.Variant.CYAN,
-                AxolotlHeadType.CYAN_AXOLOTL,
-                "entity/axolotl/axolotl_cyan");
-        AxolotlHeadType.bootstrapAxolotl(context,
-                Axolotl.Variant.BLUE,
-                AxolotlHeadType.BLUE_AXOLOTL,
-                "entity/axolotl/axolotl_blue");
+        bootstrapAxolotl(context, Axolotl.Variant.LUCY, LUCY_AXOLOTL, "entity/axolotl/axolotl_lucy");
+        bootstrapAxolotl(context, Axolotl.Variant.WILD, WILD_AXOLOTL, "entity/axolotl/axolotl_wild");
+        bootstrapAxolotl(context, Axolotl.Variant.GOLD, GOLD_AXOLOTL, "entity/axolotl/axolotl_gold");
+        bootstrapAxolotl(context, Axolotl.Variant.CYAN, CYAN_AXOLOTL, "entity/axolotl/axolotl_cyan");
+        bootstrapAxolotl(context, Axolotl.Variant.BLUE, BLUE_AXOLOTL, "entity/axolotl/axolotl_blue");
     }
 
     private static void bootstrapAxolotl(BootstrapContext<HeadType> context, Axolotl.Variant variant, ResourceKey<HeadType> resourceKey, String textureLocation) {

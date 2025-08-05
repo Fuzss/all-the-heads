@@ -26,39 +26,23 @@ public class PandaHeadType {
     public static final ResourceKey<HeadType> WORRIED_PANDA = register("panda/worried");
 
     public static void bootstrap(BootstrapContext<HeadType> context) {
-        PandaHeadType.bootstrapPanda(context,
+        bootstrapPanda(context,
                 Panda.Gene.AGGRESSIVE,
-                PandaHeadType.AGGRESSIVE_PANDA,
+                AGGRESSIVE_PANDA,
                 "entity/panda/aggressive_panda",
                 SoundEvents.PANDA_AGGRESSIVE_AMBIENT);
-        PandaHeadType.bootstrapPanda(context,
-                Panda.Gene.BROWN,
-                PandaHeadType.BROWN_PANDA,
-                "entity/panda/brown_panda",
-                SoundEvents.PANDA_AMBIENT);
-        PandaHeadType.bootstrapPanda(context,
-                Panda.Gene.LAZY,
-                PandaHeadType.LAZY_PANDA,
-                "entity/panda/lazy_panda",
-                SoundEvents.PANDA_AMBIENT);
-        PandaHeadType.bootstrapPanda(context,
-                Panda.Gene.NORMAL,
-                PandaHeadType.PANDA,
-                "entity/panda/panda",
-                SoundEvents.PANDA_AMBIENT);
-        PandaHeadType.bootstrapPanda(context,
+        bootstrapPanda(context, Panda.Gene.BROWN, BROWN_PANDA, "entity/panda/brown_panda", SoundEvents.PANDA_AMBIENT);
+        bootstrapPanda(context, Panda.Gene.LAZY, LAZY_PANDA, "entity/panda/lazy_panda", SoundEvents.PANDA_AMBIENT);
+        bootstrapPanda(context, Panda.Gene.NORMAL, PANDA, "entity/panda/panda", SoundEvents.PANDA_AMBIENT);
+        bootstrapPanda(context,
                 Panda.Gene.PLAYFUL,
-                PandaHeadType.PLAYFUL_PANDA,
+                PLAYFUL_PANDA,
                 "entity/panda/playful_panda",
                 SoundEvents.PANDA_AMBIENT);
-        PandaHeadType.bootstrapPanda(context,
-                Panda.Gene.WEAK,
-                PandaHeadType.WEAK_PANDA,
-                "entity/panda/weak_panda",
-                SoundEvents.PANDA_SNEEZE);
-        PandaHeadType.bootstrapPanda(context,
+        bootstrapPanda(context, Panda.Gene.WEAK, WEAK_PANDA, "entity/panda/weak_panda", SoundEvents.PANDA_SNEEZE);
+        bootstrapPanda(context,
                 Panda.Gene.WORRIED,
-                PandaHeadType.WORRIED_PANDA,
+                WORRIED_PANDA,
                 "entity/panda/worried_panda",
                 SoundEvents.PANDA_WORRIED_AMBIENT);
     }

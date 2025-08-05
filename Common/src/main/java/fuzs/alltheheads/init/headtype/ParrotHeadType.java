@@ -25,26 +25,11 @@ public class ParrotHeadType {
     public static final ResourceKey<HeadType> RED_PARROT = register("parrot/red");
 
     public static void bootstrap(BootstrapContext<HeadType> context) {
-        ParrotHeadType.bootstrapParrot(context,
-                Parrot.Variant.BLUE,
-                ParrotHeadType.BLUE_PARROT,
-                "entity/parrot/parrot_blue");
-        ParrotHeadType.bootstrapParrot(context,
-                Parrot.Variant.YELLOW_BLUE,
-                ParrotHeadType.CYAN_PARROT,
-                "entity/parrot/parrot_yellow_blue");
-        ParrotHeadType.bootstrapParrot(context,
-                Parrot.Variant.GRAY,
-                ParrotHeadType.GRAY_PARROT,
-                "entity/parrot/parrot_grey");
-        ParrotHeadType.bootstrapParrot(context,
-                Parrot.Variant.GREEN,
-                ParrotHeadType.GREEN_PARROT,
-                "entity/parrot/parrot_green");
-        ParrotHeadType.bootstrapParrot(context,
-                Parrot.Variant.RED_BLUE,
-                ParrotHeadType.RED_PARROT,
-                "entity/parrot/parrot_red_blue");
+        bootstrapParrot(context, Parrot.Variant.BLUE, BLUE_PARROT, "entity/parrot/parrot_blue");
+        bootstrapParrot(context, Parrot.Variant.YELLOW_BLUE, CYAN_PARROT, "entity/parrot/parrot_yellow_blue");
+        bootstrapParrot(context, Parrot.Variant.GRAY, GRAY_PARROT, "entity/parrot/parrot_grey");
+        bootstrapParrot(context, Parrot.Variant.GREEN, GREEN_PARROT, "entity/parrot/parrot_green");
+        bootstrapParrot(context, Parrot.Variant.RED_BLUE, RED_PARROT, "entity/parrot/parrot_red_blue");
     }
 
     private static void bootstrapParrot(BootstrapContext<HeadType> context, Parrot.Variant variant, ResourceKey<HeadType> resourceKey, String textureLocation) {
