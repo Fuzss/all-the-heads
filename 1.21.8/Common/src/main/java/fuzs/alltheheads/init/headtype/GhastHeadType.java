@@ -21,16 +21,8 @@ public class GhastHeadType {
     public static final ResourceKey<HeadType> HAPPY_GHAST = register("happy_ghast");
 
     public static void bootstrap(BootstrapContext<HeadType> context) {
-        GhastHeadType.bootstrapGhast(context,
-                false,
-                GhastHeadType.GHAST,
-                "entity/ghast/ghast",
-                SoundEvents.GHAST_AMBIENT);
-        GhastHeadType.bootstrapGhast(context,
-                true,
-                GhastHeadType.CHARGING_GHAST,
-                "entity/ghast/ghast_shooting",
-                SoundEvents.GHAST_WARN);
+        bootstrapGhast(context, false, GHAST, "entity/ghast/ghast", SoundEvents.GHAST_AMBIENT);
+        bootstrapGhast(context, true, CHARGING_GHAST, "entity/ghast/ghast_shooting", SoundEvents.GHAST_WARN);
         HeadType.builder(EntityType.HAPPY_GHAST)
                 .shape(16.0, 16.0, 16.0)
                 .scale(0.625)

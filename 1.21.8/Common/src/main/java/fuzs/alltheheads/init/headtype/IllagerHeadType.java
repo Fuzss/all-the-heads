@@ -20,24 +20,20 @@ public class IllagerHeadType {
     public static final ResourceKey<HeadType> ILLUSIONER = register("illusioner");
 
     public static void bootstrap(BootstrapContext<HeadType> context) {
-        IllagerHeadType.bootstrapIllager(context,
+        bootstrapIllager(context,
                 EntityType.VINDICATOR,
-                IllagerHeadType.VINDICATOR,
+                VINDICATOR,
                 "entity/illager/vindicator",
                 SoundEvents.VINDICATOR_AMBIENT);
-        IllagerHeadType.bootstrapIllager(context,
-                EntityType.EVOKER,
-                IllagerHeadType.EVOKER,
-                "entity/illager/evoker",
-                SoundEvents.EVOKER_AMBIENT);
-        IllagerHeadType.bootstrapIllager(context,
+        bootstrapIllager(context, EntityType.EVOKER, EVOKER, "entity/illager/evoker", SoundEvents.EVOKER_AMBIENT);
+        bootstrapIllager(context,
                 EntityType.PILLAGER,
-                IllagerHeadType.PILLAGER,
+                PILLAGER,
                 "entity/illager/pillager",
                 SoundEvents.PILLAGER_AMBIENT);
-        IllagerHeadType.bootstrapIllager(context,
+        bootstrapIllager(context,
                 EntityType.ILLUSIONER,
-                IllagerHeadType.ILLUSIONER,
+                ILLUSIONER,
                 "entity/illager/illusioner",
                 SoundEvents.ILLUSIONER_AMBIENT);
     }

@@ -18,14 +18,10 @@ public class SpiderHeadType {
     public static final ResourceKey<HeadType> CAVE_SPIDER = register("cave_spider");
 
     public static void bootstrap(BootstrapContext<HeadType> context) {
-        SpiderHeadType.bootstrapSpider(context,
-                EntityType.SPIDER,
-                SpiderHeadType.SPIDER,
-                "entity/spider/spider",
-                SoundEvents.SPIDER_AMBIENT);
-        SpiderHeadType.bootstrapSpider(context,
+        bootstrapSpider(context, EntityType.SPIDER, SPIDER, "entity/spider/spider", SoundEvents.SPIDER_AMBIENT);
+        bootstrapSpider(context,
                 EntityType.CAVE_SPIDER,
-                SpiderHeadType.CAVE_SPIDER,
+                CAVE_SPIDER,
                 "entity/spider/cave_spider",
                 SoundEvents.SPIDER_AMBIENT);
     }

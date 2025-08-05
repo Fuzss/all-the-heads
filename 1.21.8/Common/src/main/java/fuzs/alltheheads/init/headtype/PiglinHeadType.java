@@ -18,14 +18,14 @@ public class PiglinHeadType {
     public static final ResourceKey<HeadType> PIGLIN_BRUTE = register("piglin_brute");
 
     public static void bootstrap(BootstrapContext<HeadType> context) {
-        PiglinHeadType.bootstrapPiglin(context,
+        bootstrapPiglin(context,
                 EntityType.ZOMBIFIED_PIGLIN,
-                PiglinHeadType.ZOMBIFIED_PIGLIN,
+                ZOMBIFIED_PIGLIN,
                 "entity/piglin/zombified_piglin",
                 SoundEvents.ZOMBIFIED_PIGLIN_AMBIENT);
-        PiglinHeadType.bootstrapPiglin(context,
+        bootstrapPiglin(context,
                 EntityType.PIGLIN_BRUTE,
-                PiglinHeadType.PIGLIN_BRUTE,
+                PIGLIN_BRUTE,
                 "entity/piglin/piglin_brute",
                 SoundEvents.PIGLIN_BRUTE_AMBIENT);
     }
