@@ -28,29 +28,15 @@ public class CowHeadType {
     public static final ResourceKey<HeadType> BROWN_MOOSHROOM = register("mooshroom/brown");
 
     public static void bootstrap(BootstrapContext<HeadType> context) {
-        CowHeadType.bootstrapCow(context,
+        bootstrapCow(context,
                 CowVariants.TEMPERATE,
-                CowHeadType.TEMPERATE_COW,
+                TEMPERATE_COW,
                 ModelType.TEMPERATE_COW,
                 "entity/cow/temperate_cow");
-        CowHeadType.bootstrapCow(context,
-                CowVariants.WARM,
-                CowHeadType.WARM_COW,
-                ModelType.WARM_COW,
-                "entity/cow/warm_cow");
-        CowHeadType.bootstrapCow(context,
-                CowVariants.COLD,
-                CowHeadType.COLD_COW,
-                ModelType.COLD_COW,
-                "entity/cow/cold_cow");
-        CowHeadType.bootstrapMooshroom(context,
-                MushroomCow.Variant.RED,
-                CowHeadType.RED_MOOSHROOM,
-                "entity/cow/red_mooshroom");
-        CowHeadType.bootstrapMooshroom(context,
-                MushroomCow.Variant.BROWN,
-                CowHeadType.BROWN_MOOSHROOM,
-                "entity/cow/brown_mooshroom");
+        bootstrapCow(context, CowVariants.WARM, WARM_COW, ModelType.WARM_COW, "entity/cow/warm_cow");
+        bootstrapCow(context, CowVariants.COLD, COLD_COW, ModelType.COLD_COW, "entity/cow/cold_cow");
+        bootstrapMooshroom(context, MushroomCow.Variant.RED, RED_MOOSHROOM, "entity/cow/red_mooshroom");
+        bootstrapMooshroom(context, MushroomCow.Variant.BROWN, BROWN_MOOSHROOM, "entity/cow/brown_mooshroom");
     }
 
     private static void bootstrapCow(BootstrapContext<HeadType> context, ResourceKey<CowVariant> variant, ResourceKey<HeadType> resourceKey, ModelType modelType, String textureLocation) {

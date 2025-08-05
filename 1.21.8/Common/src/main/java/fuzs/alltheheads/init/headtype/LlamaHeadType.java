@@ -28,26 +28,14 @@ public class LlamaHeadType {
     public static final ResourceKey<HeadType> GRAY_TRADER_LLAMA = register("trader_llama/gray");
 
     public static void bootstrap(BootstrapContext<HeadType> context) {
-        LlamaHeadType.bootstrapLlama(context, Llama.Variant.CREAMY, LlamaHeadType.CREAMY_LLAMA, "entity/llama/creamy");
-        LlamaHeadType.bootstrapLlama(context, Llama.Variant.WHITE, LlamaHeadType.WHITE_LLAMA, "entity/llama/white");
-        LlamaHeadType.bootstrapLlama(context, Llama.Variant.BROWN, LlamaHeadType.BROWN_LLAMA, "entity/llama/brown");
-        LlamaHeadType.bootstrapLlama(context, Llama.Variant.GRAY, LlamaHeadType.GRAY_LLAMA, "entity/llama/gray");
-        LlamaHeadType.bootstrapTraderLlama(context,
-                Llama.Variant.CREAMY,
-                LlamaHeadType.CREAMY_TRADER_LLAMA,
-                "entity/llama/creamy");
-        LlamaHeadType.bootstrapTraderLlama(context,
-                Llama.Variant.WHITE,
-                LlamaHeadType.WHITE_TRADER_LLAMA,
-                "entity/llama/white");
-        LlamaHeadType.bootstrapTraderLlama(context,
-                Llama.Variant.BROWN,
-                LlamaHeadType.BROWN_TRADER_LLAMA,
-                "entity/llama/brown");
-        LlamaHeadType.bootstrapTraderLlama(context,
-                Llama.Variant.GRAY,
-                LlamaHeadType.GRAY_TRADER_LLAMA,
-                "entity/llama/gray");
+        bootstrapLlama(context, Llama.Variant.CREAMY, CREAMY_LLAMA, "entity/llama/creamy");
+        bootstrapLlama(context, Llama.Variant.WHITE, WHITE_LLAMA, "entity/llama/white");
+        bootstrapLlama(context, Llama.Variant.BROWN, BROWN_LLAMA, "entity/llama/brown");
+        bootstrapLlama(context, Llama.Variant.GRAY, GRAY_LLAMA, "entity/llama/gray");
+        bootstrapTraderLlama(context, Llama.Variant.CREAMY, CREAMY_TRADER_LLAMA, "entity/llama/creamy");
+        bootstrapTraderLlama(context, Llama.Variant.WHITE, WHITE_TRADER_LLAMA, "entity/llama/white");
+        bootstrapTraderLlama(context, Llama.Variant.BROWN, BROWN_TRADER_LLAMA, "entity/llama/brown");
+        bootstrapTraderLlama(context, Llama.Variant.GRAY, GRAY_TRADER_LLAMA, "entity/llama/gray");
     }
 
     private static void bootstrapLlama(BootstrapContext<HeadType> context, Llama.Variant variant, ResourceKey<HeadType> resourceKey, String textureLocation) {

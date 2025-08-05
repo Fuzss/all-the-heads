@@ -20,10 +20,10 @@ public class WitherHeadType {
     public static final ResourceKey<HeadType> SHIELDED_BLUE_WITHER = register("wither/blue/shielded");
 
     public static void bootstrap(BootstrapContext<HeadType> context) {
-        bootstrapWither(context, WitherHeadType.WITHER, "entity/wither/wither");
-        bootstrapWither(context, WitherHeadType.BLUE_WITHER, "entity/wither/wither_invulnerable");
-        bootstrapPoweredWither(context, WitherHeadType.SHIELED_WITHER, "entity/wither/wither");
-        bootstrapPoweredWither(context, WitherHeadType.SHIELDED_BLUE_WITHER, "entity/wither/wither_invulnerable");
+        bootstrapWither(context, WITHER, "entity/wither/wither");
+        bootstrapWither(context, BLUE_WITHER, "entity/wither/wither_invulnerable");
+        bootstrapPoweredWither(context, SHIELED_WITHER, "entity/wither/wither");
+        bootstrapPoweredWither(context, SHIELDED_BLUE_WITHER, "entity/wither/wither_invulnerable");
     }
 
     private static void bootstrapWither(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation) {

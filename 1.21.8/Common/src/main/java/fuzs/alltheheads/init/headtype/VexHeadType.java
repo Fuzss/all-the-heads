@@ -21,18 +21,14 @@ public class VexHeadType {
     public static final ResourceKey<HeadType> ALLAY = register("allay");
 
     public static void bootstrap(BootstrapContext<HeadType> context) {
-        VexHeadType.bootstrapVex(context, false, VexHeadType.VEX, "entity/illager/vex", SoundEvents.VEX_AMBIENT);
-        VexHeadType.bootstrapVex(context,
-                true,
-                VexHeadType.CHARGING_VEX,
-                "entity/illager/vex_charging",
-                SoundEvents.VEX_CHARGE);
+        bootstrapVex(context, false, VEX, "entity/illager/vex", SoundEvents.VEX_AMBIENT);
+        bootstrapVex(context, true, CHARGING_VEX, "entity/illager/vex_charging", SoundEvents.VEX_CHARGE);
         HeadType.builder(EntityType.ALLAY)
                 .shape(5.0, 5.0, 5.0)
                 .scale(1.2)
                 .litModel(ModelType.ALLAY, ResourceLocationHelper.withDefaultNamespace("entity/allay/allay"))
                 .noteBlockSound(SoundEvents.ALLAY_AMBIENT_WITHOUT_ITEM)
-                .build(context, VexHeadType.ALLAY);
+                .build(context, ALLAY);
     }
 
     private static void bootstrapVex(BootstrapContext<HeadType> context, boolean charging, ResourceKey<HeadType> resourceKey, String textureLocation, SoundEvent noteBlockSound) {
@@ -50,6 +46,6 @@ public class VexHeadType {
     public static void registerTranslations(BiConsumer<ResourceKey<HeadType>, String> translationConsumer) {
         translationConsumer.accept(VEX, "Vex Head");
         translationConsumer.accept(CHARGING_VEX, "Charging Vex Head");
-        translationConsumer.accept(VexHeadType.ALLAY, "Allay Head");
+        translationConsumer.accept(ALLAY, "Allay Head");
     }
 }

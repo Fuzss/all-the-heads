@@ -30,27 +30,18 @@ public class RabbitHeadType {
     public static final ResourceKey<HeadType> TOAST_RABBIT = register("rabbit/toast");
 
     public static void bootstrap(BootstrapContext<HeadType> context) {
-        RabbitHeadType.bootstrapRabbit(context,
-                Rabbit.Variant.BROWN,
-                RabbitHeadType.BROWN_RABBIT,
-                "entity/rabbit/brown");
-        RabbitHeadType.bootstrapRabbit(context,
-                Rabbit.Variant.WHITE,
-                RabbitHeadType.WHITE_RABBIT,
-                "entity/rabbit/white");
-        RabbitHeadType.bootstrapRabbit(context,
-                Rabbit.Variant.BLACK,
-                RabbitHeadType.BLACK_RABBIT,
-                "entity/rabbit/black");
-        RabbitHeadType.bootstrapRabbit(context,
+        bootstrapRabbit(context, Rabbit.Variant.BROWN, BROWN_RABBIT, "entity/rabbit/brown");
+        bootstrapRabbit(context, Rabbit.Variant.WHITE, WHITE_RABBIT, "entity/rabbit/white");
+        bootstrapRabbit(context, Rabbit.Variant.BLACK, BLACK_RABBIT, "entity/rabbit/black");
+        bootstrapRabbit(context,
                 Rabbit.Variant.WHITE_SPLOTCHED,
-                RabbitHeadType.WHITE_SPLOTCHED_RABBIT,
+                WHITE_SPLOTCHED_RABBIT,
                 "entity/rabbit/white_splotched");
-        RabbitHeadType.bootstrapRabbit(context, Rabbit.Variant.GOLD, RabbitHeadType.GOLD_RABBIT, "entity/rabbit/gold");
-        RabbitHeadType.bootstrapRabbit(context, Rabbit.Variant.SALT, RabbitHeadType.SALT_RABBIT, "entity/rabbit/salt");
-        RabbitHeadType.bootstrapRabbit(context,
+        bootstrapRabbit(context, Rabbit.Variant.GOLD, GOLD_RABBIT, "entity/rabbit/gold");
+        bootstrapRabbit(context, Rabbit.Variant.SALT, SALT_RABBIT, "entity/rabbit/salt");
+        bootstrapRabbit(context,
                 Rabbit.Variant.EVIL,
-                RabbitHeadType.EVIL_RABBIT,
+                EVIL_RABBIT,
                 "entity/rabbit/caerbannog",
                 SoundEvents.RABBIT_ATTACK);
         HeadType.builder(EntityType.RABBIT)
@@ -64,7 +55,7 @@ public class RabbitHeadType {
                 .scale(1.2)
                 .model(ModelType.RABBIT, ResourceLocationHelper.withDefaultNamespace("entity/rabbit/toast"))
                 .noteBlockSound(SoundEvents.RABBIT_AMBIENT)
-                .build(context, RabbitHeadType.TOAST_RABBIT);
+                .build(context, TOAST_RABBIT);
     }
 
     private static void bootstrapRabbit(BootstrapContext<HeadType> context, Rabbit.Variant variant, ResourceKey<HeadType> resourceKey, String textureLocation) {

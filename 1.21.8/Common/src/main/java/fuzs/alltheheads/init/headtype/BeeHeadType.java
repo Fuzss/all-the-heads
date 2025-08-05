@@ -22,10 +22,10 @@ public class BeeHeadType {
     public static final ResourceKey<HeadType> POLLINATED_ANGRY_BEE = register("bee/angry/pollinated");
 
     public static void bootstrap(BootstrapContext<HeadType> context) {
-        BeeHeadType.bootstrapBee(context, false, false, BeeHeadType.BEE, "entity/bee/bee");
-        BeeHeadType.bootstrapBee(context, false, true, BeeHeadType.POLLINATED_BEE, "entity/bee/bee_nectar");
-        BeeHeadType.bootstrapBee(context, true, false, BeeHeadType.ANGRY_BEE, "entity/bee/bee_angry");
-        BeeHeadType.bootstrapBee(context, true, true, BeeHeadType.POLLINATED_ANGRY_BEE, "entity/bee/bee_angry_nectar");
+        bootstrapBee(context, false, false, BEE, "entity/bee/bee");
+        bootstrapBee(context, false, true, POLLINATED_BEE, "entity/bee/bee_nectar");
+        bootstrapBee(context, true, false, ANGRY_BEE, "entity/bee/bee_angry");
+        bootstrapBee(context, true, true, POLLINATED_ANGRY_BEE, "entity/bee/bee_angry_nectar");
     }
 
     private static void bootstrapBee(BootstrapContext<HeadType> context, boolean angry, boolean hasPollen, ResourceKey<HeadType> resourceKey, String textureLocation) {

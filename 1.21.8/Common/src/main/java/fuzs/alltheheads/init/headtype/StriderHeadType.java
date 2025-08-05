@@ -20,16 +20,8 @@ public class StriderHeadType {
     public static final ResourceKey<HeadType> COLD_STRIDER = register("strider/cold");
 
     public static void bootstrap(BootstrapContext<HeadType> context) {
-        StriderHeadType.bootstrapStrider(context,
-                false,
-                StriderHeadType.STRIDER,
-                "entity/strider/strider",
-                SoundEvents.STRIDER_HAPPY);
-        StriderHeadType.bootstrapStrider(context,
-                true,
-                StriderHeadType.COLD_STRIDER,
-                "entity/strider/strider_cold",
-                SoundEvents.STRIDER_AMBIENT);
+        bootstrapStrider(context, false, STRIDER, "entity/strider/strider", SoundEvents.STRIDER_HAPPY);
+        bootstrapStrider(context, true, COLD_STRIDER, "entity/strider/strider_cold", SoundEvents.STRIDER_AMBIENT);
     }
 
     private static void bootstrapStrider(BootstrapContext<HeadType> context, boolean isCold, ResourceKey<HeadType> resourceKey, String textureLocation, SoundEvent noteBlockSound) {
