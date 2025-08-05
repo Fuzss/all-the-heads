@@ -5,16 +5,6 @@
       "bonus_rolls": 0.0,
       "conditions": [
         {
-          "condition": "minecraft:entity_properties",
-          "entity": "this",
-          "predicate": {
-            "type": "minecraft:trader_llama",
-            "components": {
-              "minecraft:llama/variant": "brown"
-            }
-          }
-        },
-        {
           "condition": "minecraft:killed_by_player"
         },
         {

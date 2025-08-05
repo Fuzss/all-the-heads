@@ -5,13 +5,6 @@
       "bonus_rolls": 0.0,
       "conditions": [
         {
-          "condition": "minecraft:entity_properties",
-          "entity": "this",
-          "predicate": {
-            "type": "minecraft:giant"
-          }
-        },
-        {
           "condition": "minecraft:killed_by_player"
         },
         {

@@ -19,9 +19,11 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.NestedLootTable;
+import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
 
 import java.util.Collection;
 import java.util.Map;
@@ -64,7 +66,9 @@ public class HeadLootHandler {
                                 // adding each one in as a separate pool allows for multiple heads to drop at once when conditions apply,
                                 // which is not ideal, but wrapping all of them in an "alternatives" entry did not succeed
                                 lootTable.withPool(LootPool.lootPool()
-                                        .add(NestedLootTable.lootTableReference(resourceKey)));
+                                        .add(NestedLootTable.lootTableReference(resourceKey)
+                                                .when(LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS,
+                                                        headType.value().entityPredicate()))));
                             });
                         });
                     });

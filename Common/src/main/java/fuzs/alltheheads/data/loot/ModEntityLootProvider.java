@@ -12,13 +12,11 @@ import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.SetComponentsFunction;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
-import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemKilledByPlayerCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceWithEnchantedBonusCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
@@ -526,8 +524,6 @@ public class ModEntityLootProvider extends AbstractLootProvider.Simple {
                                     .add(LootItem.lootTableItem(ModRegistry.MOB_HEAD_ITEM.value()))
                                     .apply(SetComponentsFunction.setComponent(ModRegistry.HEAD_TYPE_DATA_COMPONENT_TYPE.value(),
                                             headType))
-                                    .when(LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS,
-                                            headType.value().entityPredicate()))
                                     .when(LootItemKilledByPlayerCondition.killedByPlayer())
                                     .when(LootItemRandomChanceWithEnchantedBonusCondition.randomChanceAndLootingBoost(
                                             this.registries(),

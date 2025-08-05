@@ -5,20 +5,6 @@
       "bonus_rolls": 0.0,
       "conditions": [
         {
-          "condition": "minecraft:entity_properties",
-          "entity": "this",
-          "predicate": {
-            "type": "minecraft:sheep",
-            "components": {
-              "minecraft:sheep/color": "yellow"
-            },
-            "type_specific": {
-              "type": "minecraft:sheep",
-              "sheared": true
-            }
-          }
-        },
-        {
           "condition": "minecraft:killed_by_player"
         },
         {

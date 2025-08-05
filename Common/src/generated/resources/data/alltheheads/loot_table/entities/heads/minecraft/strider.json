@@ -5,17 +5,6 @@
       "bonus_rolls": 0.0,
       "conditions": [
         {
-          "condition": "minecraft:entity_properties",
-          "entity": "this",
-          "predicate": {
-            "type": "minecraft:strider",
-            "type_specific": {
-              "type": "alltheheads:strider",
-              "cold": false
-            }
-          }
-        },
-        {
           "condition": "minecraft:killed_by_player"
         },
         {

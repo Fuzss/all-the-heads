@@ -5,17 +5,6 @@
       "bonus_rolls": 0.0,
       "conditions": [
         {
-          "condition": "minecraft:entity_properties",
-          "entity": "this",
-          "predicate": {
-            "type": "minecraft:panda",
-            "type_specific": {
-              "type": "alltheheads:panda",
-              "variant": "worried"
-            }
-          }
-        },
-        {
           "condition": "minecraft:killed_by_player"
         },
         {

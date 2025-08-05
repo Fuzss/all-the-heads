@@ -5,16 +5,6 @@
       "bonus_rolls": 0.0,
       "conditions": [
         {
-          "condition": "minecraft:entity_properties",
-          "entity": "this",
-          "predicate": {
-            "type": "minecraft:chicken",
-            "components": {
-              "minecraft:chicken/variant": "minecraft:cold"
-            }
-          }
-        },
-        {
           "condition": "minecraft:killed_by_player"
         },
         {

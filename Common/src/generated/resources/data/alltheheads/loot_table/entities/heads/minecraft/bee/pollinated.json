@@ -5,18 +5,6 @@
       "bonus_rolls": 0.0,
       "conditions": [
         {
-          "condition": "minecraft:entity_properties",
-          "entity": "this",
-          "predicate": {
-            "type": "minecraft:bee",
-            "type_specific": {
-              "type": "alltheheads:bee",
-              "angry": false,
-              "has_nectar": true
-            }
-          }
-        },
-        {
           "condition": "minecraft:killed_by_player"
         },
         {

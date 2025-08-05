@@ -27,5 +27,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "alltheheads:inject/minecraft/entities/skeleton"
+  "random_sequence": "alltheheads:injections/minecraft/entities/skeleton"
 }
