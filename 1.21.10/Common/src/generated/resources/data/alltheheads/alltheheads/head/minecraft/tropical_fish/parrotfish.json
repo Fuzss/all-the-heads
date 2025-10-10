@@ -1,0 +1,38 @@
+{
+  "custom_name": "minecraft.tropical_fish_parrotfish",
+  "entity_predicate": {
+    "type": "minecraft:tropical_fish",
+    "type_specific": {
+      "type": "alltheheads:tropical_fish",
+      "base_color": "cyan",
+      "pattern": "dasher",
+      "pattern_color": "pink"
+    }
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/tropical_fish/parrotfish",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/fish/tropical_a",
+      "color": {
+        "type": "alltheheads:dye",
+        "dye": "cyan"
+      },
+      "model": "alltheheads:tropical_fish_head/small"
+    },
+    {
+      "asset_id": "minecraft:entity/fish/tropical_a_pattern_4",
+      "color": {
+        "type": "alltheheads:dye",
+        "dye": "pink"
+      },
+      "model": "alltheheads:tropical_fish_head/small"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.tropical_fish.flop",
+  "shape": {
+    "depth": 4.0,
+    "height": 3.0,
+    "scale": 1.5,
+    "width": 2.0
+  }
+}

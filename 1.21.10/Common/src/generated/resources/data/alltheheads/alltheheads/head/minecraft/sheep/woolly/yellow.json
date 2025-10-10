@@ -1,0 +1,42 @@
+{
+  "custom_name": "minecraft.sheep_woolly_yellow",
+  "entity_predicate": {
+    "type": "minecraft:sheep",
+    "components": {
+      "minecraft:sheep/color": "yellow"
+    },
+    "type_specific": {
+      "type": "minecraft:sheep",
+      "sheared": false
+    }
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/sheep/woolly/yellow",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/sheep/sheep",
+      "model": "alltheheads:sheep_head"
+    },
+    {
+      "asset_id": "minecraft:entity/sheep/sheep_wool_undercoat",
+      "color": {
+        "type": "alltheheads:sheep",
+        "dye": "yellow"
+      },
+      "model": "alltheheads:sheep_head"
+    },
+    {
+      "asset_id": "minecraft:entity/sheep/sheep_wool",
+      "color": {
+        "type": "alltheheads:sheep",
+        "dye": "yellow"
+      },
+      "model": "alltheheads:sheep_head/wool"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.sheep.ambient",
+  "shape": {
+    "depth": 8.0,
+    "height": 6.0,
+    "width": 6.0
+  }
+}

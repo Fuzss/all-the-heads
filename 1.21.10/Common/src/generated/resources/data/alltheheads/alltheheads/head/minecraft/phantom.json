@@ -1,0 +1,24 @@
+{
+  "custom_name": "minecraft.phantom",
+  "entity_predicate": {
+    "type": "minecraft:phantom"
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/phantom",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/phantom",
+      "model": "alltheheads:phantom_head"
+    },
+    {
+      "asset_id": "minecraft:entity/phantom_eyes",
+      "model": "alltheheads:phantom_head/eyes"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.phantom.ambient",
+  "shape": {
+    "depth": 5.0,
+    "height": 3.0,
+    "scale": 1.1428571428571428,
+    "width": 7.0
+  }
+}

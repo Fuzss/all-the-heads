@@ -1,0 +1,31 @@
+{
+  "custom_name": "minecraft.horse_gray_white_dots",
+  "entity_predicate": {
+    "type": "minecraft:horse",
+    "components": {
+      "minecraft:horse/variant": "gray"
+    },
+    "type_specific": {
+      "type": "alltheheads:horse",
+      "markings": "white_dots"
+    }
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/horse/gray/white_dots",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/horse/horse_gray",
+      "model": "alltheheads:horse_head"
+    },
+    {
+      "asset_id": "minecraft:entity/horse/horse_markings_whitedots",
+      "model": "alltheheads:horse_head/markings"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.horse.ambient",
+  "shape": {
+    "depth": 8.0,
+    "height": 16.0,
+    "scale": 0.75,
+    "width": 4.0
+  }
+}

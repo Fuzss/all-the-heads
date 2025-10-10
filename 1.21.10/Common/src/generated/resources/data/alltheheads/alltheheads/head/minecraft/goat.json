@@ -1,0 +1,20 @@
+{
+  "custom_name": "minecraft.goat",
+  "entity_predicate": {
+    "type": "minecraft:goat"
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/goat",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/goat/goat",
+      "model": "alltheheads:goat_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.goat.screaming.ambient",
+  "shape": {
+    "depth": 7.0,
+    "height": 10.0,
+    "scale": 0.8,
+    "width": 5.0
+  }
+}

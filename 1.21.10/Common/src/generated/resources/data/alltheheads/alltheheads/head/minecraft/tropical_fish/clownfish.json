@@ -1,0 +1,38 @@
+{
+  "custom_name": "minecraft.tropical_fish_clownfish",
+  "entity_predicate": {
+    "type": "minecraft:tropical_fish",
+    "type_specific": {
+      "type": "alltheheads:tropical_fish",
+      "base_color": "orange",
+      "pattern": "kob",
+      "pattern_color": "white"
+    }
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/tropical_fish/clownfish",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/fish/tropical_a",
+      "color": {
+        "type": "alltheheads:dye",
+        "dye": "orange"
+      },
+      "model": "alltheheads:tropical_fish_head/small"
+    },
+    {
+      "asset_id": "minecraft:entity/fish/tropical_a_pattern_1",
+      "color": {
+        "type": "alltheheads:dye",
+        "dye": "white"
+      },
+      "model": "alltheheads:tropical_fish_head/small"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.tropical_fish.flop",
+  "shape": {
+    "depth": 4.0,
+    "height": 3.0,
+    "scale": 1.5,
+    "width": 2.0
+  }
+}

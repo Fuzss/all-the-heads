@@ -1,0 +1,20 @@
+{
+  "custom_name": "minecraft.witch",
+  "entity_predicate": {
+    "type": "minecraft:witch"
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/witch",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/witch",
+      "model": "alltheheads:witch_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.witch.ambient",
+  "shape": {
+    "depth": 8.0,
+    "height": 10.0,
+    "scale": 0.9375,
+    "width": 8.0
+  }
+}

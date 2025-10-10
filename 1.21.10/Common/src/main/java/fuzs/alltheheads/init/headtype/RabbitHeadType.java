@@ -1,0 +1,89 @@
+package fuzs.alltheheads.init.headtype;
+
+import fuzs.alltheheads.world.item.component.headtype.HeadType;
+import fuzs.alltheheads.world.item.component.headtype.ModelType;
+import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
+import net.minecraft.advancements.critereon.DataComponentMatchers;
+import net.minecraft.advancements.critereon.EntityPredicate;
+import net.minecraft.core.component.DataComponentExactPredicate;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.animal.Rabbit;
+
+import java.util.function.BiConsumer;
+
+import static fuzs.alltheheads.init.HeadTypes.register;
+
+public class RabbitHeadType {
+    public static final ResourceKey<HeadType> BROWN_RABBIT = register("rabbit/brown");
+    public static final ResourceKey<HeadType> WHITE_RABBIT = register("rabbit/white");
+    public static final ResourceKey<HeadType> BLACK_RABBIT = register("rabbit/black");
+    public static final ResourceKey<HeadType> WHITE_SPLOTCHED_RABBIT = register("rabbit/white_splotched");
+    public static final ResourceKey<HeadType> GOLD_RABBIT = register("rabbit/gold");
+    public static final ResourceKey<HeadType> SALT_RABBIT = register("rabbit/salt");
+    public static final ResourceKey<HeadType> EVIL_RABBIT = register("rabbit/evil");
+    public static final ResourceKey<HeadType> TOAST_RABBIT = register("rabbit/toast");
+
+    public static void bootstrap(BootstrapContext<HeadType> context) {
+        bootstrapRabbit(context, Rabbit.Variant.BROWN, BROWN_RABBIT, "entity/rabbit/brown");
+        bootstrapRabbit(context, Rabbit.Variant.WHITE, WHITE_RABBIT, "entity/rabbit/white");
+        bootstrapRabbit(context, Rabbit.Variant.BLACK, BLACK_RABBIT, "entity/rabbit/black");
+        bootstrapRabbit(context,
+                Rabbit.Variant.WHITE_SPLOTCHED,
+                WHITE_SPLOTCHED_RABBIT,
+                "entity/rabbit/white_splotched");
+        bootstrapRabbit(context, Rabbit.Variant.GOLD, GOLD_RABBIT, "entity/rabbit/gold");
+        bootstrapRabbit(context, Rabbit.Variant.SALT, SALT_RABBIT, "entity/rabbit/salt");
+        bootstrapRabbit(context,
+                Rabbit.Variant.EVIL,
+                EVIL_RABBIT,
+                "entity/rabbit/caerbannog",
+                SoundEvents.RABBIT_ATTACK);
+        HeadType.builder(EntityType.RABBIT)
+                .entityPredicate((EntityPredicate.Builder builder) -> {
+                    builder.components(DataComponentMatchers.Builder.components()
+                            .exact(DataComponentExactPredicate.expect(DataComponents.CUSTOM_NAME,
+                                    Component.literal("Toast")))
+                            .build());
+                })
+                .shape(5.0, 4.0, 5.0)
+                .scale(1.2)
+                .model(ModelType.RABBIT, ResourceLocationHelper.withDefaultNamespace("entity/rabbit/toast"))
+                .noteBlockSound(SoundEvents.RABBIT_AMBIENT)
+                .build(context, TOAST_RABBIT);
+    }
+
+    private static void bootstrapRabbit(BootstrapContext<HeadType> context, Rabbit.Variant variant, ResourceKey<HeadType> resourceKey, String textureLocation) {
+        bootstrapRabbit(context, variant, resourceKey, textureLocation, SoundEvents.RABBIT_AMBIENT);
+    }
+
+    private static void bootstrapRabbit(BootstrapContext<HeadType> context, Rabbit.Variant variant, ResourceKey<HeadType> resourceKey, String textureLocation, SoundEvent noteBlockSound) {
+        HeadType.builder(EntityType.RABBIT)
+                .entityPredicate((EntityPredicate.Builder builder) -> {
+                    builder.components(DataComponentMatchers.Builder.components()
+                            .exact(DataComponentExactPredicate.expect(DataComponents.RABBIT_VARIANT, variant))
+                            .build());
+                })
+                .shape(5.0, 4.0, 5.0)
+                .scale(1.2)
+                .model(ModelType.RABBIT, ResourceLocationHelper.withDefaultNamespace(textureLocation))
+                .noteBlockSound(noteBlockSound)
+                .build(context, resourceKey);
+    }
+
+    public static void registerTranslations(BiConsumer<ResourceKey<HeadType>, String> translationConsumer) {
+        translationConsumer.accept(BLACK_RABBIT, "Black Rabbit Head");
+        translationConsumer.accept(BROWN_RABBIT, "Brown Rabbit Head");
+        translationConsumer.accept(EVIL_RABBIT, "Evil Rabbit Head");
+        translationConsumer.accept(GOLD_RABBIT, "Gold Rabbit Head");
+        translationConsumer.accept(SALT_RABBIT, "Salt Rabbit Head");
+        translationConsumer.accept(TOAST_RABBIT, "Toast Rabbit Head");
+        translationConsumer.accept(WHITE_RABBIT, "White Rabbit Head");
+        translationConsumer.accept(WHITE_SPLOTCHED_RABBIT, "White Splotched Rabbit Head");
+    }
+}

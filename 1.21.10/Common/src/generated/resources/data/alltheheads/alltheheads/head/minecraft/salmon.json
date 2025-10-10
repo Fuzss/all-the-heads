@@ -1,0 +1,20 @@
+{
+  "custom_name": "minecraft.salmon",
+  "entity_predicate": {
+    "type": "minecraft:salmon"
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/salmon",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/fish/salmon",
+      "model": "alltheheads:salmon_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.salmon.flop",
+  "shape": {
+    "depth": 3.0,
+    "height": 4.0,
+    "scale": 1.5,
+    "width": 2.0
+  }
+}

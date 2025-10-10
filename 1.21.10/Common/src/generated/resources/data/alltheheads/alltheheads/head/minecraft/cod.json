@@ -1,0 +1,20 @@
+{
+  "custom_name": "minecraft.cod",
+  "entity_predicate": {
+    "type": "minecraft:cod"
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/cod",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/fish/cod",
+      "model": "alltheheads:cod_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.cod.flop",
+  "shape": {
+    "depth": 3.0,
+    "height": 4.0,
+    "scale": 1.5,
+    "width": 2.0
+  }
+}

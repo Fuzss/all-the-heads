@@ -1,0 +1,24 @@
+{
+  "custom_name": "minecraft.panda_weak",
+  "entity_predicate": {
+    "type": "minecraft:panda",
+    "type_specific": {
+      "type": "alltheheads:panda",
+      "variant": "weak"
+    }
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/panda/weak",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/panda/weak_panda",
+      "model": "alltheheads:panda_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.panda.sneeze",
+  "shape": {
+    "depth": 9.0,
+    "height": 10.0,
+    "scale": 0.7692307692307693,
+    "width": 13.0
+  }
+}

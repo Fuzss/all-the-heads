@@ -1,0 +1,23 @@
+{
+  "custom_name": "minecraft.slime",
+  "entity_predicate": {
+    "type": "minecraft:slime"
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/slime",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/slime/slime",
+      "model": "alltheheads:slime_head"
+    },
+    {
+      "asset_id": "minecraft:entity/slime/slime",
+      "model": "alltheheads:slime_head/gel"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.slime.squish",
+  "shape": {
+    "depth": 8.0,
+    "height": 8.0,
+    "width": 8.0
+  }
+}

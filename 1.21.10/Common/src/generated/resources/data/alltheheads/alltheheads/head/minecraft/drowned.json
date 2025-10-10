@@ -1,0 +1,23 @@
+{
+  "custom_name": "minecraft.drowned",
+  "entity_predicate": {
+    "type": "minecraft:drowned"
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/drowned",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/zombie/drowned",
+      "model": "alltheheads:humanoid_head"
+    },
+    {
+      "asset_id": "minecraft:entity/zombie/drowned_outer_layer",
+      "model": "alltheheads:humanoid_head/overlay"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.drowned.ambient",
+  "shape": {
+    "depth": 8.0,
+    "height": 8.0,
+    "width": 8.0
+  }
+}
