@@ -1,0 +1,20 @@
+{
+  "custom_name": "minecraft.happy_ghast",
+  "entity_predicate": {
+    "type": "minecraft:happy_ghast"
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/happy_ghast",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/ghast/happy_ghast",
+      "model": "alltheheads:happy_ghast_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.happy_ghast.ambient",
+  "shape": {
+    "depth": 16.0,
+    "height": 16.0,
+    "scale": 0.625,
+    "width": 16.0
+  }
+}

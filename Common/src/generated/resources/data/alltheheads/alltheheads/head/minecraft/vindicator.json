@@ -1,0 +1,20 @@
+{
+  "custom_name": "minecraft.vindicator",
+  "entity_predicate": {
+    "type": "minecraft:vindicator"
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/vindicator",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/illager/vindicator",
+      "model": "alltheheads:illager_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.vindicator.ambient",
+  "shape": {
+    "depth": 8.0,
+    "height": 10.0,
+    "scale": 0.9375,
+    "width": 8.0
+  }
+}

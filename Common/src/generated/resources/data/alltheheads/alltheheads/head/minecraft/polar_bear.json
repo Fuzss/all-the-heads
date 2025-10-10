@@ -1,0 +1,20 @@
+{
+  "custom_name": "minecraft.polar_bear",
+  "entity_predicate": {
+    "type": "minecraft:polar_bear"
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/polar_bear",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/bear/polarbear",
+      "model": "alltheheads:polar_bear_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.polar_bear.ambient",
+  "shape": {
+    "depth": 7.0,
+    "height": 7.0,
+    "scale": 1.1428571428571428,
+    "width": 7.0
+  }
+}

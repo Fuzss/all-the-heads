@@ -1,0 +1,20 @@
+{
+  "custom_name": "minecraft.silverfish",
+  "entity_predicate": {
+    "type": "minecraft:silverfish"
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/silverfish",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/silverfish",
+      "model": "alltheheads:silverfish_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.silverfish.ambient",
+  "shape": {
+    "depth": 3.0,
+    "height": 4.0,
+    "scale": 1.3333333333333333,
+    "width": 6.0
+  }
+}

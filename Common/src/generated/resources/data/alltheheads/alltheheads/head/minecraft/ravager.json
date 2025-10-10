@@ -1,0 +1,20 @@
+{
+  "custom_name": "minecraft.ravager",
+  "entity_predicate": {
+    "type": "minecraft:ravager"
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/ravager",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/illager/ravager",
+      "model": "alltheheads:ravager_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.ravager.roar",
+  "shape": {
+    "depth": 16.0,
+    "height": 20.0,
+    "scale": 0.5,
+    "width": 16.0
+  }
+}

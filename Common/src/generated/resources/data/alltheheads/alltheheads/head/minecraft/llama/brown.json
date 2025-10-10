@@ -1,0 +1,22 @@
+{
+  "custom_name": "minecraft.llama_brown",
+  "entity_predicate": {
+    "type": "minecraft:llama",
+    "components": {
+      "minecraft:llama/variant": "brown"
+    }
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/llama/brown",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/llama/brown",
+      "model": "alltheheads:llama_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.llama.ambient",
+  "shape": {
+    "depth": 6.0,
+    "height": 10.0,
+    "width": 8.0
+  }
+}

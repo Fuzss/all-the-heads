@@ -1,0 +1,20 @@
+{
+  "custom_name": "minecraft.elder_guardian",
+  "entity_predicate": {
+    "type": "minecraft:elder_guardian"
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/elder_guardian",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/guardian_elder",
+      "model": "alltheheads:guardian_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.elder_guardian.ambient_land",
+  "shape": {
+    "depth": 16.0,
+    "height": 16.0,
+    "scale": 0.5,
+    "width": 16.0
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "custom_name": "minecraft.donkey",
+  "entity_predicate": {
+    "type": "minecraft:donkey"
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/donkey",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/horse/donkey",
+      "model": "alltheheads:horse_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.donkey.ambient",
+  "shape": {
+    "depth": 8.0,
+    "height": 16.0,
+    "scale": 0.75,
+    "width": 4.0
+  }
+}

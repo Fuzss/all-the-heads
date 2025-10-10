@@ -1,0 +1,19 @@
+{
+  "custom_name": "minecraft.dolphin",
+  "entity_predicate": {
+    "type": "minecraft:dolphin"
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/dolphin",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/dolphin",
+      "model": "alltheheads:dolphin_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.dolphin.ambient_water",
+  "shape": {
+    "depth": 6.0,
+    "height": 7.0,
+    "width": 8.0
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "custom_name": "minecraft.wolf_chestnut",
+  "entity_predicate": {
+    "type": "minecraft:wolf",
+    "components": {
+      "minecraft:wolf/variant": "minecraft:chestnut"
+    },
+    "type_specific": {
+      "type": "alltheheads:wolf",
+      "angry": false,
+      "tame": false
+    }
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/wolf/chestnut",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/wolf/wolf_chestnut",
+      "model": "alltheheads:wolf_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.wolf.ambient",
+  "shape": {
+    "depth": 4.0,
+    "height": 6.0,
+    "scale": 1.3333333333333333,
+    "width": 6.0
+  }
+}
