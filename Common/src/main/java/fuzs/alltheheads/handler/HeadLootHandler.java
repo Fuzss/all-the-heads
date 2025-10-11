@@ -37,8 +37,8 @@ public class HeadLootHandler {
     });
 
     public static EventResult onLivingDrops(LivingEntity livingEntity, DamageSource damageSource, Collection<ItemEntity> itemDrops, boolean recentlyHit) {
-        if (livingEntity.level() instanceof ServerLevel serverLevel && livingEntity.shouldDropLoot()) {
-            if (damageSource.getEntity() instanceof Creeper creeper && creeper.canDropMobsSkull()) {
+        if (livingEntity.level() instanceof ServerLevel serverLevel && livingEntity.shouldDropLoot(serverLevel)) {
+            if (damageSource.getEntity() instanceof Creeper creeper && creeper.isPowered() && !creeper.droppedSkulls) {
                 livingEntity.registryAccess()
                         .lookupOrThrow(ModRegistry.HEAD_REGISTRY_KEY)
                         .listElements()
@@ -47,7 +47,7 @@ public class HeadLootHandler {
                                     .matches(livingEntity)) {
                                 ItemStack itemStack = MobHeadItem.createHead(headType);
                                 livingEntity.spawnAtLocation(serverLevel, itemStack);
-                                creeper.increaseDroppedSkulls();
+                                creeper.droppedSkulls = true;
                             }
                         });
             }

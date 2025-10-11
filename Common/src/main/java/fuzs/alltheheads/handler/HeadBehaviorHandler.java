@@ -12,7 +12,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class HeadBehaviorHandler {
 
-    public static void onLivingVisibility(LivingEntity livingEntity, @Nullable Entity lookingEntity, MutableDouble visibilityPercentage) {
+    public static void onCalculateLivingVisibility(LivingEntity livingEntity, @Nullable Entity lookingEntity, MutableDouble visibilityPercentage) {
         if (lookingEntity != null) {
             ItemStack itemStack = livingEntity.getItemBySlot(EquipmentSlot.HEAD);
             Holder<HeadType> headType = itemStack.get(ModRegistry.HEAD_TYPE_DATA_COMPONENT_TYPE.value());

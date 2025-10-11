@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-04T22:01:27.351585	Tags for alltheheads:head mod id vanilla
+// 1.21.10	2025-10-11T11:24:08.384397	Tags for alltheheads:head mod id vanilla
 d4507b588828543da6d8fa05fc1f8acc0d8a369d data/alltheheads/tags/alltheheads/head/minecraft/entities/allay.json
 b8bf633f131f61621677f73a49f248f10a8a229d data/alltheheads/tags/alltheheads/head/minecraft/entities/armadillo.json
 578cfb648ac3d78ee877bb62ca697223d8e034d6 data/alltheheads/tags/alltheheads/head/minecraft/entities/axolotl.json
@@ -12,6 +12,7 @@ e1493e663463f390006b5c1110cca31bdd0462cb data/alltheheads/tags/alltheheads/head/
 3920972687944df0a583448d8119dbda6f77aa36 data/alltheheads/tags/alltheheads/head/minecraft/entities/cave_spider.json
 f55b9b7fd9e249c352686a4fab1317283bd4aeb4 data/alltheheads/tags/alltheheads/head/minecraft/entities/chicken.json
 00affcd321b5e203c768cd84a7b23eda93dc6884 data/alltheheads/tags/alltheheads/head/minecraft/entities/cod.json
+36bff3a782a5c5274005157c9d54729b49af32cf data/alltheheads/tags/alltheheads/head/minecraft/entities/copper_golem.json
 87a41300b2078e1b21a28a04cd1fad2c4c0fb771 data/alltheheads/tags/alltheheads/head/minecraft/entities/cow.json
 d2bb98fa8f074dc7d246936c8df63a1ebcedbf83 data/alltheheads/tags/alltheheads/head/minecraft/entities/creaking.json
 6458a9d48a62531fd6ca5f868d0510b0c8f04db6 data/alltheheads/tags/alltheheads/head/minecraft/entities/creeper.json

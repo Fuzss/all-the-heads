@@ -12,8 +12,8 @@ import fuzs.puzzleslib.api.core.v1.ModConstructor;
 import fuzs.puzzleslib.api.core.v1.ModLoaderEnvironment;
 import fuzs.puzzleslib.api.core.v1.context.DataPackRegistriesContext;
 import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
+import fuzs.puzzleslib.api.event.v1.entity.living.CalculateLivingVisibilityCallback;
 import fuzs.puzzleslib.api.event.v1.entity.living.LivingDropsCallback;
-import fuzs.puzzleslib.api.event.v1.entity.living.LivingVisibilityCallback;
 import fuzs.puzzleslib.api.event.v1.server.LootTableLoadCallback;
 import fuzs.puzzleslib.api.event.v1.server.TagsUpdatedCallback;
 import net.minecraft.core.Holder;
@@ -48,7 +48,7 @@ public class AllTheHeads implements ModConstructor {
         LootTableLoadCallback.EVENT.register(ModLootTables::onLootTableLoad);
         LootTableLoadCallback.EVENT.register(HeadLootHandler::onLootTableLoad);
         LivingDropsCallback.EVENT.register(HeadLootHandler::onLivingDrops);
-        LivingVisibilityCallback.EVENT.register(HeadBehaviorHandler::onLivingVisibility);
+        CalculateLivingVisibilityCallback.EVENT.register(HeadBehaviorHandler::onCalculateLivingVisibility);
     }
 
     private static void setupDevelopmentEnvironment() {

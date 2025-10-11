@@ -68,34 +68,26 @@ public class ModRegistry {
             "head",
             MobHeadBlockEntity::new,
             () -> ImmutableSet.of(MOB_HEAD_BLOCK.value(), MOB_WALL_HEAD_BLOCK.value()));
-    public static final Holder.Reference<MapCodec<VillagerDataPredicate>> VILLAGER_DATA_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
-            Registries.ENTITY_SUB_PREDICATE_TYPE,
-            "villager_data",
-            () -> VillagerDataPredicate.CODEC);
-    public static final Holder.Reference<MapCodec<VexPredicate>> VEX_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
-            Registries.ENTITY_SUB_PREDICATE_TYPE,
-            "vex",
-            () -> VexPredicate.CODEC);
-    public static final Holder.Reference<MapCodec<WolfPredicate>> WOLF_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
-            Registries.ENTITY_SUB_PREDICATE_TYPE,
-            "wolf",
-            () -> WolfPredicate.CODEC);
     public static final Holder.Reference<MapCodec<BeePredicate>> BEE_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
             Registries.ENTITY_SUB_PREDICATE_TYPE,
             "bee",
             () -> BeePredicate.CODEC);
-    public static final Holder.Reference<MapCodec<HorsePredicate>> HORSE_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
+    public static final Holder.Reference<MapCodec<CopperGolemPredicate>> COPPER_GOLEM_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
             Registries.ENTITY_SUB_PREDICATE_TYPE,
-            "horse",
-            () -> HorsePredicate.CODEC);
-    public static final Holder.Reference<MapCodec<GhastPredicate>> GHAST_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
-            Registries.ENTITY_SUB_PREDICATE_TYPE,
-            "ghast",
-            () -> GhastPredicate.CODEC);
+            "copper_golem",
+            () -> CopperGolemPredicate.CODEC);
     public static final Holder.Reference<MapCodec<CreeperPredicate>> CREEPER_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
             Registries.ENTITY_SUB_PREDICATE_TYPE,
             "creeper",
             () -> CreeperPredicate.CODEC);
+    public static final Holder.Reference<MapCodec<GhastPredicate>> GHAST_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
+            Registries.ENTITY_SUB_PREDICATE_TYPE,
+            "ghast",
+            () -> GhastPredicate.CODEC);
+    public static final Holder.Reference<MapCodec<HorsePredicate>> HORSE_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
+            Registries.ENTITY_SUB_PREDICATE_TYPE,
+            "horse",
+            () -> HorsePredicate.CODEC);
     public static final Holder.Reference<MapCodec<PandaPredicate>> PANDA_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
             Registries.ENTITY_SUB_PREDICATE_TYPE,
             "panda",
@@ -108,6 +100,18 @@ public class ModRegistry {
             Registries.ENTITY_SUB_PREDICATE_TYPE,
             "tropical_fish",
             () -> TropicalFishPredicate.CODEC);
+    public static final Holder.Reference<MapCodec<VexPredicate>> VEX_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
+            Registries.ENTITY_SUB_PREDICATE_TYPE,
+            "vex",
+            () -> VexPredicate.CODEC);
+    public static final Holder.Reference<MapCodec<VillagerDataPredicate>> VILLAGER_DATA_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
+            Registries.ENTITY_SUB_PREDICATE_TYPE,
+            "villager_data",
+            () -> VillagerDataPredicate.CODEC);
+    public static final Holder.Reference<MapCodec<WolfPredicate>> WOLF_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
+            Registries.ENTITY_SUB_PREDICATE_TYPE,
+            "wolf",
+            () -> WolfPredicate.CODEC);
     public static final Holder.Reference<CreativeModeTab> CREATIVE_MODE_TAB = REGISTRIES.registerCreativeModeTab("main",
             () -> createDisplayItemStack(MonsterHeadType.BLAZE),
             (CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output output) -> {

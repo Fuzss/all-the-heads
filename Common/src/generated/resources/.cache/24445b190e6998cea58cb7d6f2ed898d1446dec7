@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-05T11:39:28.323569	Mod Entity Loot Provider
+// 1.21.10	2025-10-11T11:24:08.388323	Mod Entity Loot Provider
 3339143dc061056e572d1eb1602cf683dcb70218 data/alltheheads/loot_table/entities/heads/minecraft/allay.json
 a1c190007cbd881e30f673a6e81cfecfdcc56647 data/alltheheads/loot_table/entities/heads/minecraft/armadillo.json
 8d148f17e54cd28f2e9c11e28b94ebe66c457e93 data/alltheheads/loot_table/entities/heads/minecraft/axolotl/blue.json
@@ -31,6 +31,10 @@ d8213e637970e35b7a5e9e07c887860ca40acf52 data/alltheheads/loot_table/entities/he
 322db1728221350349866de8a7c9d9af070cbdec data/alltheheads/loot_table/entities/heads/minecraft/chicken/temperate.json
 002f0b8e5fdae157b9cf6f0e6ec67642ad3f6b6a data/alltheheads/loot_table/entities/heads/minecraft/chicken/warm.json
 310dc10f55b8ba87aa3818b303d7cb84ae6725ec data/alltheheads/loot_table/entities/heads/minecraft/cod.json
+2c0cd7a5a95b433767b48a7b65ea68aa47bd806a data/alltheheads/loot_table/entities/heads/minecraft/copper_golem.json
+30c769135f3eaaa91c007ebd112e7e2d5ed29a20 data/alltheheads/loot_table/entities/heads/minecraft/copper_golem/exposed.json
+f5c26b82f35f9183a805269757830df6b29982ad data/alltheheads/loot_table/entities/heads/minecraft/copper_golem/oxidized.json
+878cb339e9661e045aa37139716fa7c3013b0c91 data/alltheheads/loot_table/entities/heads/minecraft/copper_golem/weathered.json
 fb11c525813419550897fcf09dcb48ccbbe36272 data/alltheheads/loot_table/entities/heads/minecraft/cow/cold.json
 c556e15061b2acd53c2ed3e8495c4a65a946f747 data/alltheheads/loot_table/entities/heads/minecraft/cow/temperate.json
 8ccd4df2aac76c0b09bd5b15c970aac5bb3c6d66 data/alltheheads/loot_table/entities/heads/minecraft/cow/warm.json
