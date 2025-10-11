@@ -384,6 +384,10 @@ public class ModEntityLootProvider extends AbstractLootProvider.Simple {
         registerDropChance(MonsterHeadType.WARDEN, 1.0F, 0.0F, builder::put);
         registerDropChance(AnimalHeadType.CAMEL, 0.2F, 0.05F, builder::put);
         registerDropChance(MonsterHeadType.STRAY, 0.06F, 0.05F, builder::put);
+        registerDropChance(CopperGolemHeadType.COPPER_GOLEM, 0.05F, 0.015F, builder::put);
+        registerDropChance(CopperGolemHeadType.EXPOSED_COPPER_GOLEM, 0.05F, 0.015F, builder::put);
+        registerDropChance(CopperGolemHeadType.OXIDIZED_COPPER_GOLEM, 0.05F, 0.015F, builder::put);
+        registerDropChance(CopperGolemHeadType.WEATHERED_COPPER_GOLEM, 0.05F, 0.015F, builder::put);
         registerDropChance(AnimalHeadType.IRON_GOLEM, 0.05F, 0.015F, builder::put);
         registerDropChance(AnimalHeadType.ARMADILLO, 0.1F, 0.005F, builder::put);
         registerDropChance(AquaticHeadType.PUFFERFISH, 0.15F, 0.01F, builder::put);

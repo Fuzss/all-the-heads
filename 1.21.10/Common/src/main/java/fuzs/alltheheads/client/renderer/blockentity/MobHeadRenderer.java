@@ -1,7 +1,7 @@
 package fuzs.alltheheads.client.renderer.blockentity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
+import fuzs.alltheheads.client.renderer.blockentity.state.MobHeadRenderState;
 import fuzs.alltheheads.world.item.component.headtype.*;
 import fuzs.alltheheads.world.level.block.entity.MobHeadBlockEntity;
 import net.minecraft.Util;
@@ -12,11 +12,13 @@ import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.renderer.LightTexture;
-import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
+import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.blockentity.SkullBlockRenderer;
+import net.minecraft.client.renderer.blockentity.state.SkullBlockRenderState;
+import net.minecraft.client.renderer.feature.ModelFeatureRenderer;
+import net.minecraft.client.renderer.state.CameraRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.resources.DefaultPlayerSkin;
 import net.minecraft.core.ClientAsset;
@@ -25,10 +27,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.variant.ModelAndTexture;
-import net.minecraft.world.level.block.SkullBlock;
-import net.minecraft.world.level.block.WallSkullBlock;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.RotationSegment;
+import net.minecraft.world.level.block.entity.SkullBlockEntity;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 
@@ -40,15 +39,14 @@ import java.util.function.Function;
 /**
  * @see SkullBlockRenderer
  */
-public class MobHeadBlockRenderer implements BlockEntityRenderer<MobHeadBlockEntity> {
+public class MobHeadRenderer extends SkullBlockRenderer {
     /**
      * Directly supplying both client asset resource locations is only possible as long as it is never serialised, which
      * is fine here.
      */
     private static final List<Model> DEFAULT_MODELS = List.of(new Model(new ModelAndTexture<>(ModelType.DEFAULT,
-            new ClientAsset(DefaultPlayerSkin.getDefaultTexture(), DefaultPlayerSkin.getDefaultTexture())),
-            Optional.empty(),
-            Optional.empty()));
+            new ClientAsset.ResourceTexture(DefaultPlayerSkin.getDefaultTexture(),
+                    DefaultPlayerSkin.getDefaultTexture())), Optional.empty(), Optional.empty()));
     private static final Shape DEFAULT_SHAPE = new Shape(8.0, 8.0, 8.0);
     private static final Map<ModelType, Function<ModelPart, SkullModelBase>> SKULL_MODELS = Collections.unmodifiableMap(
             Util.make(new IdentityHashMap<>(), (Map<ModelType, Function<ModelPart, SkullModelBase>> map) -> {
@@ -59,24 +57,20 @@ public class MobHeadBlockRenderer implements BlockEntityRenderer<MobHeadBlockEnt
                     (Map<ModelType, BiFunction<ResourceLocation, Float, RenderType>> map) -> {
                         putRenderType(ModelType.ALLAY, RenderType::entityTranslucent, map::put);
                         putRenderType(ModelType.BAT, RenderType::entityCutout, map::put);
-                        putRenderType(ModelType.BREEZE, RenderType::entityCutoutNoCull, map::put);
-                        putRenderType(ModelType.BREEZE_EYES, RenderType::eyes, map::put);
-                        putRenderType(ModelType.CREAKING, RenderType::entityCutoutNoCull, map::put);
-                        putRenderType(ModelType.CREAKING_EYES, RenderType::eyes, map::put);
+                        putEyesRenderType(ModelType.BREEZE, ModelType.BREEZE_EYES, map::put);
+                        putEyesRenderType(ModelType.COPPER_GOLEM, ModelType.COPPER_GOLEM_EYES, map::put);
+                        putEyesRenderType(ModelType.CREAKING, ModelType.CREAKING_EYES, map::put);
                         map.put(ModelType.CREEPER_CHARGE, (ResourceLocation resourceLocation, Float tickCount) -> {
                             return RenderType.energySwirl(resourceLocation,
                                     tickCount * 0.01F % 1.0F,
                                     tickCount * 0.01F % 1.0F);
                         });
-                        putRenderType(ModelType.ENDERMAN, RenderType::entityCutoutNoCull, map::put);
-                        putRenderType(ModelType.ENDERMAN_EYES, RenderType::eyes, map::put);
+                        putEyesRenderType(ModelType.ENDERMAN, ModelType.ENDERMAN_EYES, map::put);
                         putRenderType(ModelType.HORSE, RenderType::entityCutoutNoCull, map::put);
                         putRenderType(ModelType.HORSE_MARKINGS, RenderType::entityTranslucent, map::put);
-                        putRenderType(ModelType.PHANTOM, RenderType::entityCutoutNoCull, map::put);
-                        putRenderType(ModelType.PHANTOM_EYES, RenderType::eyes, map::put);
+                        putEyesRenderType(ModelType.PHANTOM, ModelType.PHANTOM_EYES, map::put);
                         putRenderType(ModelType.SLIME_GEL, RenderType::entityTranslucent, map::put);
-                        putRenderType(ModelType.SPIDER, RenderType::entityCutoutNoCull, map::put);
-                        putRenderType(ModelType.SPIDER_EYES, RenderType::eyes, map::put);
+                        putEyesRenderType(ModelType.SPIDER, ModelType.SPIDER_EYES, map::put);
                         putRenderType(ModelType.TROPICAL_FISH_LARGE, RenderType::entityCutoutNoCull, map::put);
                         putRenderType(ModelType.TROPICAL_FISH_SMALL, RenderType::entityCutoutNoCull, map::put);
                         putRenderType(ModelType.VEX, RenderType::entityTranslucent, map::put);
@@ -89,8 +83,14 @@ public class MobHeadBlockRenderer implements BlockEntityRenderer<MobHeadBlockEnt
 
     private final Function<ModelType, SkullModelBase> skullModelGetter;
 
-    public MobHeadBlockRenderer(BlockEntityRendererProvider.Context context) {
-        this.skullModelGetter = createSkullModels(context.getModelSet());
+    public MobHeadRenderer(BlockEntityRendererProvider.Context context) {
+        super(context);
+        this.skullModelGetter = createSkullModels(context.entityModelSet());
+    }
+
+    private static void putEyesRenderType(ModelType modelType, ModelType eyesModelType, BiConsumer<ModelType, BiFunction<ResourceLocation, Float, RenderType>> consumer) {
+        putRenderType(modelType, RenderType::entityCutoutNoCull, consumer);
+        putRenderType(eyesModelType, RenderType::eyes, consumer);
     }
 
     private static void putRenderType(ModelType modelType, Function<ResourceLocation, RenderType> renderTypeGetter, BiConsumer<ModelType, BiFunction<ResourceLocation, Float, RenderType>> consumer) {
@@ -114,67 +114,70 @@ public class MobHeadBlockRenderer implements BlockEntityRenderer<MobHeadBlockEnt
     }
 
     @Override
-    public void render(MobHeadBlockEntity blockEntity, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay, Vec3 cameraPos) {
-        float animation = blockEntity.getAnimation(partialTick);
-        BlockState blockState = blockEntity.getBlockState();
-        boolean isWallSkullBlock = blockState.getBlock() instanceof WallSkullBlock;
-        Direction direction = isWallSkullBlock ? blockState.getValue(WallSkullBlock.FACING) : null;
-        int rotationSegment = isWallSkullBlock ? RotationSegment.convertToSegment(direction.getOpposite()) :
-                blockState.getValue(SkullBlock.ROTATION);
-        float rotationSegmentDegrees = RotationSegment.convertToDegrees(rotationSegment);
-        renderSkull(direction,
-                rotationSegmentDegrees,
-                animation,
-                poseStack,
-                bufferSource,
-                packedLight,
-                this.skullModelGetter,
-                blockEntity.getHeadType(),
-                false,
-                blockEntity.tickCount + partialTick);
+    public MobHeadRenderState createRenderState() {
+        return new MobHeadRenderState();
     }
 
-    public static void renderSkull(@Nullable Direction direction, float rotationSegmentDegrees, float animation, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, Function<ModelType, SkullModelBase> skullModelGetter, @Nullable Holder<HeadType> headType, boolean guiOffset, float tickCount) {
-        Shape shape = getShape(headType);
-        for (Model model : getModels(headType)) {
+    @Override
+    public void extractRenderState(SkullBlockEntity blockEntity, SkullBlockRenderState renderState, float partialTick, Vec3 cameraPosition, @Nullable ModelFeatureRenderer.CrumblingOverlay breakProgress) {
+        super.extractRenderState(blockEntity, renderState, partialTick, cameraPosition, breakProgress);
+        ((MobHeadRenderState) renderState).headType = ((MobHeadBlockEntity) blockEntity).getHeadType();
+        ((MobHeadRenderState) renderState).time = ((MobHeadBlockEntity) blockEntity).tickCount + partialTick;
+    }
+
+    @Override
+    public void submit(SkullBlockRenderState renderState, PoseStack poseStack, SubmitNodeCollector nodeCollector, CameraRenderState cameraRenderState) {
+        submitSkull((MobHeadRenderState) renderState, poseStack, nodeCollector, this.skullModelGetter);
+    }
+
+    public static void submitSkull(MobHeadRenderState renderState, PoseStack poseStack, SubmitNodeCollector nodeCollector, Function<ModelType, SkullModelBase> skullModelGetter) {
+        Shape shape = getShape(renderState.headType);
+        for (Model model : getModels(renderState.headType)) {
             SkullModelBase skullModelBase = skullModelGetter.apply(model.model().model());
-            RenderType renderType = getRenderType(model.model(), tickCount);
-            renderSkull(shape,
-                    guiOffset,
-                    direction,
-                    rotationSegmentDegrees,
-                    animation,
+            RenderType renderType = getRenderType(model.model(), renderState.time);
+            submitSkull(renderState,
                     poseStack,
-                    bufferSource,
-                    model.blockLight()
-                            .map((Integer blockLight) -> LightTexture.pack(blockLight, LightTexture.sky(packedLight)))
-                            .orElse(packedLight),
+                    nodeCollector,
                     skullModelBase,
                     renderType,
-                    model.color().map((Color color) -> color.getColor(tickCount)).orElse(-1));
+                    model.blockLight()
+                            .map((Integer blockLight) -> LightTexture.pack(blockLight,
+                                    LightTexture.sky(renderState.lightCoords)))
+                            .orElse(renderState.lightCoords),
+                    model.color().map((Color tintColor) -> tintColor.getColor(renderState.time)).orElse(-1),
+                    shape);
         }
     }
 
     /**
-     * @see SkullBlockRenderer#renderSkull(Direction, float, float, PoseStack, MultiBufferSource, int,
-     *         SkullModelBase, RenderType)
+     * @see SkullBlockRenderer#submitSkull(Direction, float, float, PoseStack, SubmitNodeCollector, int,
+     *         SkullModelBase, RenderType, int, ModelFeatureRenderer.CrumblingOverlay)
      */
-    private static void renderSkull(Shape shape, boolean guiOffset, @Nullable Direction direction, float yRot, float mouthAnimation, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, SkullModelBase model, RenderType renderType, int color) {
+    private static void submitSkull(MobHeadRenderState renderState, PoseStack poseStack, SubmitNodeCollector nodeCollector, SkullModelBase model, RenderType renderType, int packedLight, int tintColor, Shape shape) {
         poseStack.pushPose();
         double offsetY = (16.0 - shape.sizeY()) / 2.0;
-
-        if (direction != null) {
-            double offsetX = 8.0 - direction.getStepX() * (16.0 - shape.sizeX(direction)) / 2.0;
-            double offsetZ = 8.0 - direction.getStepZ() * (16.0 - shape.sizeZ(direction)) / 2.0;
+        if (renderState.direction != null) {
+            double offsetX = 8.0 - renderState.direction.getStepX() * (16.0 - shape.sizeX(renderState.direction)) / 2.0;
+            double offsetZ = 8.0 - renderState.direction.getStepZ() * (16.0 - shape.sizeZ(renderState.direction)) / 2.0;
             poseStack.translate(offsetX / 16.0, offsetY / 16.0, offsetZ / 16.0);
         } else {
-            poseStack.translate(0.5F, guiOffset ? ((float) offsetY - 10.0F / 3.0F) / 16.0F : 0.0F, 0.5F);
+            poseStack.translate(0.5F, renderState.guiOffset ? ((float) offsetY - 10.0F / 3.0F) / 16.0F : 0.0F, 0.5F);
         }
 
         poseStack.scale((float) -shape.scale(), (float) -shape.scale(), (float) shape.scale());
-        VertexConsumer vertexConsumer = bufferSource.getBuffer(renderType);
-        model.setupAnim(mouthAnimation, yRot, 0.0F);
-        model.renderToBuffer(poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY, color);
+        SkullModelBase.State state = new SkullModelBase.State();
+        state.animationPos = renderState.animationProgress;
+        state.yRot = renderState.rotationDegrees;
+        nodeCollector.submitModel(model,
+                state,
+                poseStack,
+                renderType,
+                packedLight,
+                OverlayTexture.NO_OVERLAY,
+                tintColor,
+                null,
+                renderState.outlineColor,
+                renderState.breakProgress);
         poseStack.popPose();
     }
 

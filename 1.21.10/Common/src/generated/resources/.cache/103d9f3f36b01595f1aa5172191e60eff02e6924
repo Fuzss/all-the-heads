@@ -1,4 +1,4 @@
-// 1.21.8	2025-08-04T22:43:33.870931	Registries
+// 1.21.10	2025-10-11T11:24:08.386085	Registries
 f87e8f839a7f5f712b324d5240dd534fb5a7a204 data/alltheheads/alltheheads/head/minecraft/allay.json
 71b76dda3a9b181e75e9c09f96c4f9452f25984c data/alltheheads/alltheheads/head/minecraft/armadillo.json
 bc00ee00fe8073be1ccaef8c5a95c77b4019569e data/alltheheads/alltheheads/head/minecraft/axolotl/blue.json
@@ -31,6 +31,10 @@ c5a0ffae9bf645993d222f4e16b92a5615f58423 data/alltheheads/alltheheads/head/minec
 ae7971de4bcebc5a02dcebd1608ddd9277d1351b data/alltheheads/alltheheads/head/minecraft/chicken/temperate.json
 75ee363e0258e817577c1cc5bbfacecaa325e21c data/alltheheads/alltheheads/head/minecraft/chicken/warm.json
 e56564d61d46172d2b5557bea911ff1707ecc6e6 data/alltheheads/alltheheads/head/minecraft/cod.json
+7b3f8873de421dc05d136f52e63ba568a9a5b57f data/alltheheads/alltheheads/head/minecraft/copper_golem.json
+3dcd0986e8d2b89d4eed6eefc44a4f76de1523ba data/alltheheads/alltheheads/head/minecraft/copper_golem/exposed.json
+7450ebf176b929d645205dff8b7ce5666ab242ce data/alltheheads/alltheheads/head/minecraft/copper_golem/oxidized.json
+9fdc7ddd6102649436410f307c7ea45d3b037d93 data/alltheheads/alltheheads/head/minecraft/copper_golem/weathered.json
 ca40d884135cc6ac93a69034f422857faf8c2caf data/alltheheads/alltheheads/head/minecraft/cow/cold.json
 bf9411b3620ba2e0d3be39fc62ddd83d36b831f9 data/alltheheads/alltheheads/head/minecraft/cow/temperate.json
 14b615bb9dd002ef73362eef85525f0885ca0027 data/alltheheads/alltheheads/head/minecraft/cow/warm.json

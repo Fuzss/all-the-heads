@@ -1,0 +1,27 @@
+{
+  "custom_name": "minecraft.copper_golem_exposed",
+  "entity_predicate": {
+    "type": "minecraft:copper_golem",
+    "type_specific": {
+      "type": "alltheheads:copper_golem",
+      "state": "exposed"
+    }
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/copper_golem/exposed",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/copper_golem/exposed_copper_golem",
+      "model": "alltheheads:copper_golem_head"
+    },
+    {
+      "asset_id": "minecraft:entity/copper_golem/exposed_copper_golem_eyes",
+      "model": "alltheheads:copper_golem_head/eyes"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.copper_golem.spin",
+  "shape": {
+    "depth": 10.0,
+    "height": 5.0,
+    "width": 8.0
+  }
+}

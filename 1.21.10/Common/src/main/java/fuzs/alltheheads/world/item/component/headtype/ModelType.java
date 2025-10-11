@@ -26,6 +26,8 @@ public record ModelType(ResourceLocation model, String layer) {
     public static final ModelType COLD_CHICKEN = register("cold_chicken_head");
     public static final ModelType COLD_COW = register("cold_cow_head");
     public static final ModelType COD = register("cod_head");
+    public static final ModelType COPPER_GOLEM = register("copper_golem_head");
+    public static final ModelType COPPER_GOLEM_EYES = register("copper_golem_head", "eyes");
     public static final ModelType CREAKING = register("creaking_head");
     public static final ModelType CREAKING_EYES = register("creaking_head", "eyes");
     public static final ModelType CREEPER_CHARGE = register("creeper_head", "charge");

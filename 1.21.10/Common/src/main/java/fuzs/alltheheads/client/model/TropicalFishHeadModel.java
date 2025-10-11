@@ -1,6 +1,5 @@
 package fuzs.alltheheads.client.model;
 
-import fuzs.alltheheads.client.util.PartDefinitionHelper;
 import net.minecraft.client.model.TropicalFishModelA;
 import net.minecraft.client.model.TropicalFishModelB;
 import net.minecraft.client.model.geom.PartPose;
@@ -22,7 +21,7 @@ public final class TropicalFishHeadModel extends HeadModelBase {
                         .texOffs(shortenedSize, shortenedSize)
                         .addBox(-1.0F, -1.5F, -3.0F, 2.0F, 3.0F, 6.0F - shortenedSize),
                 PartPose.offset(0.0F, 22.0F, 0.0F));
-        PartDefinitionHelper.retainExactParts(partDefinition, Set.of("body", "right_fin", "left_fin"));
+        partDefinition.retainExactParts(Set.of("body", "right_fin", "left_fin"));
         return createHeadLayer(layerDefinition,
                 UnaryOperator.identity(),
                 -1.0F,
@@ -45,7 +44,7 @@ public final class TropicalFishHeadModel extends HeadModelBase {
                         .texOffs(shortenedSize, 20 + shortenedSize)
                         .addBox(-1.0F, -3.0F, -3.0F, 2.0F, 6.0F, 6.0F - shortenedSize),
                 PartPose.offset(0.0F, 19.0F, 0.0F));
-        PartDefinitionHelper.retainExactParts(partDefinition, Set.of("body", "right_fin", "left_fin"));
+        partDefinition.retainExactParts(Set.of("body", "right_fin", "left_fin"));
         return createHeadLayer(layerDefinition,
                 UnaryOperator.identity(),
                 -1.0F,

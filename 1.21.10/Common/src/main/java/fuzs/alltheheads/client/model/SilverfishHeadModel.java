@@ -1,6 +1,5 @@
 package fuzs.alltheheads.client.model;
 
-import fuzs.alltheheads.client.util.PartDefinitionHelper;
 import net.minecraft.client.model.SilverfishModel;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
@@ -12,8 +11,7 @@ public final class SilverfishHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {
         LayerDefinition layerDefinition = SilverfishModel.createBodyLayer();
         PartDefinition partDefinition = layerDefinition.mesh.getRoot();
-        PartDefinitionHelper.retainExactParts(partDefinition,
-                Set.of("segment0", "segment1", "segment2", "layer0", "layer2"));
+        partDefinition.retainExactParts(Set.of("segment0", "segment1", "segment2", "layer0", "layer2"));
         return createHeadLayer(layerDefinition,
                 UnaryOperator.identity(),
                 -3.0F,
