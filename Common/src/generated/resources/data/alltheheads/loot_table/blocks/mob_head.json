@@ -10,14 +10,9 @@
             {
               "function": "minecraft:copy_components",
               "include": [
-                "minecraft:custom_name"
-              ],
-              "source": "block_entity"
-            },
-            {
-              "function": "minecraft:copy_components",
-              "include": [
-                "minecraft:note_block_sound"
+                "minecraft:custom_name",
+                "minecraft:note_block_sound",
+                "alltheheads:head_type"
               ],
               "source": "block_entity"
             }
