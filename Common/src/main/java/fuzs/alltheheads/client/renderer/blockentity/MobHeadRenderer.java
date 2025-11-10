@@ -48,6 +48,9 @@ public class MobHeadRenderer extends SkullBlockRenderer {
             new ClientAsset.ResourceTexture(DefaultPlayerSkin.getDefaultTexture(),
                     DefaultPlayerSkin.getDefaultTexture())), Optional.empty(), Optional.empty()));
     private static final Shape DEFAULT_SHAPE = new Shape(8.0, 8.0, 8.0);
+    private static final BiFunction<ResourceLocation, Float, RenderType> DEFAULT_RENDER_TYPE_GETTER = (ResourceLocation resourceLocation, Float tickCount) -> {
+        return RenderType.entityCutoutNoCullZOffset(resourceLocation);
+    };
     private static final Map<ModelType, Function<ModelPart, SkullModelBase>> SKULL_MODELS = Collections.unmodifiableMap(
             Util.make(new IdentityHashMap<>(), (Map<ModelType, Function<ModelPart, SkullModelBase>> map) -> {
                 map.put(ModelType.PIGLIN, PiglinHeadModel::new);
@@ -69,6 +72,7 @@ public class MobHeadRenderer extends SkullBlockRenderer {
                         putRenderType(ModelType.HORSE, RenderType::entityCutoutNoCull, map::put);
                         putRenderType(ModelType.HORSE_MARKINGS, RenderType::entityTranslucent, map::put);
                         putEyesRenderType(ModelType.PHANTOM, ModelType.PHANTOM_EYES, map::put);
+                        putRenderType(ModelType.SHEEP, RenderType::entityCutoutNoCull, map::put);
                         putRenderType(ModelType.SLIME_GEL, RenderType::entityTranslucent, map::put);
                         putEyesRenderType(ModelType.SPIDER, ModelType.SPIDER_EYES, map::put);
                         putRenderType(ModelType.TROPICAL_FISH_LARGE, RenderType::entityCutoutNoCull, map::put);
@@ -191,9 +195,7 @@ public class MobHeadRenderer extends SkullBlockRenderer {
 
     private static RenderType getRenderType(ModelAndTexture<ModelType> modelAndTexture, float tickCount) {
         BiFunction<ResourceLocation, Float, RenderType> renderTypeGetter = RENDER_TYPES.getOrDefault(modelAndTexture.model(),
-                (ResourceLocation resourceLocation, Float tickCountX) -> {
-                    return RenderType.entityCutoutNoCullZOffset(resourceLocation);
-                });
+                DEFAULT_RENDER_TYPE_GETTER);
         return renderTypeGetter.apply(modelAndTexture.asset().texturePath(), tickCount);
     }
 }
