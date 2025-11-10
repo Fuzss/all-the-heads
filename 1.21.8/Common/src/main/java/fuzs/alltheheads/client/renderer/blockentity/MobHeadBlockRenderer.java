@@ -74,6 +74,7 @@ public class MobHeadBlockRenderer implements BlockEntityRenderer<MobHeadBlockEnt
                         putRenderType(ModelType.HORSE_MARKINGS, RenderType::entityTranslucent, map::put);
                         putRenderType(ModelType.PHANTOM, RenderType::entityCutoutNoCull, map::put);
                         putRenderType(ModelType.PHANTOM_EYES, RenderType::eyes, map::put);
+                        putRenderType(ModelType.SHEEP, RenderType::entityCutoutNoCull, map::put);
                         putRenderType(ModelType.SLIME_GEL, RenderType::entityTranslucent, map::put);
                         putRenderType(ModelType.SPIDER, RenderType::entityCutoutNoCull, map::put);
                         putRenderType(ModelType.SPIDER_EYES, RenderType::eyes, map::put);
