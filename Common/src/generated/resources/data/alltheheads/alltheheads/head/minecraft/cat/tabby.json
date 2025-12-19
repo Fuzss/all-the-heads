@@ -1,0 +1,23 @@
+{
+  "custom_name": "minecraft.cat_tabby",
+  "entity_predicate": {
+    "type": "minecraft:cat",
+    "components": {
+      "minecraft:cat/variant": "minecraft:tabby"
+    }
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/cat/tabby",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/cat/tabby",
+      "model": "alltheheads:feline_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.cat.ambient",
+  "shape": {
+    "depth": 5.0,
+    "height": 4.0,
+    "scale": 1.6,
+    "width": 5.0
+  }
+}

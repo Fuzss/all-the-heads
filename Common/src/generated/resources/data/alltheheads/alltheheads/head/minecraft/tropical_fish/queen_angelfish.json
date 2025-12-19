@@ -1,0 +1,38 @@
+{
+  "custom_name": "minecraft.tropical_fish_queen_angelfish",
+  "entity_predicate": {
+    "type": "minecraft:tropical_fish",
+    "type_specific": {
+      "type": "alltheheads:tropical_fish",
+      "base_color": "lime",
+      "pattern": "brinely",
+      "pattern_color": "light_blue"
+    }
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/tropical_fish/queen_angelfish",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/fish/tropical_a",
+      "color": {
+        "type": "alltheheads:dye",
+        "dye": "lime"
+      },
+      "model": "alltheheads:tropical_fish_head/small"
+    },
+    {
+      "asset_id": "minecraft:entity/fish/tropical_a_pattern_5",
+      "color": {
+        "type": "alltheheads:dye",
+        "dye": "light_blue"
+      },
+      "model": "alltheheads:tropical_fish_head/small"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.tropical_fish.flop",
+  "shape": {
+    "depth": 4.0,
+    "height": 3.0,
+    "scale": 1.5,
+    "width": 2.0
+  }
+}

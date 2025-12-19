@@ -1,0 +1,27 @@
+{
+  "custom_name": "minecraft.wolf_pale_angry",
+  "entity_predicate": {
+    "type": "minecraft:wolf",
+    "components": {
+      "minecraft:wolf/variant": "minecraft:pale"
+    },
+    "type_specific": {
+      "type": "alltheheads:wolf",
+      "angry": true
+    }
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/wolf/pale/angry",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/wolf/wolf_angry",
+      "model": "alltheheads:wolf_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.wolf.growl",
+  "shape": {
+    "depth": 4.0,
+    "height": 6.0,
+    "scale": 1.3333333333333333,
+    "width": 6.0
+  }
+}

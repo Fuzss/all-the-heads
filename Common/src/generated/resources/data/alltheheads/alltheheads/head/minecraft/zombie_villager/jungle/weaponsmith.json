@@ -1,0 +1,33 @@
+{
+  "custom_name": "minecraft.zombie_villager_jungle_weaponsmith",
+  "entity_predicate": {
+    "type": "minecraft:zombie_villager",
+    "type_specific": {
+      "type": "alltheheads:villager_data",
+      "villager_profession": "minecraft:weaponsmith",
+      "villager_type": "minecraft:jungle"
+    }
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/zombie_villager/jungle/weaponsmith",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/zombie_villager/zombie_villager",
+      "model": "alltheheads:villager_head"
+    },
+    {
+      "asset_id": "minecraft:entity/zombie_villager/type/jungle",
+      "model": "alltheheads:villager_head"
+    },
+    {
+      "asset_id": "minecraft:entity/zombie_villager/profession/weaponsmith",
+      "model": "alltheheads:villager_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.zombie_villager.ambient",
+  "shape": {
+    "depth": 8.0,
+    "height": 10.0,
+    "scale": 0.9375,
+    "width": 8.0
+  }
+}

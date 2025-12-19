@@ -1,0 +1,23 @@
+{
+  "custom_name": "minecraft.parrot_cyan",
+  "entity_predicate": {
+    "type": "minecraft:parrot",
+    "components": {
+      "minecraft:parrot/variant": "yellow_blue"
+    }
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/parrot/cyan",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/parrot/parrot_yellow_blue",
+      "model": "alltheheads:parrot_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.parrot.ambient",
+  "shape": {
+    "depth": 2.0,
+    "height": 4.0,
+    "scale": 2.0,
+    "width": 2.0
+  }
+}

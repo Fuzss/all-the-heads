@@ -1,0 +1,22 @@
+{
+  "custom_name": "minecraft.fox",
+  "entity_predicate": {
+    "type": "minecraft:fox",
+    "components": {
+      "minecraft:fox/variant": "red"
+    }
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/fox",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/fox/fox",
+      "model": "alltheheads:fox_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.fox.ambient",
+  "shape": {
+    "depth": 6.0,
+    "height": 6.0,
+    "width": 8.0
+  }
+}

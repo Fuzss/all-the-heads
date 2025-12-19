@@ -1,0 +1,21 @@
+{
+  "custom_name": "minecraft.allay",
+  "entity_predicate": {
+    "type": "minecraft:allay"
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/allay",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/allay/allay",
+      "block_light": 15,
+      "model": "alltheheads:allay_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.allay.ambient_without_item",
+  "shape": {
+    "depth": 5.0,
+    "height": 5.0,
+    "scale": 1.2,
+    "width": 5.0
+  }
+}

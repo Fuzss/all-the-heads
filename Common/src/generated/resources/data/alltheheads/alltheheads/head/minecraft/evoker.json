@@ -1,0 +1,20 @@
+{
+  "custom_name": "minecraft.evoker",
+  "entity_predicate": {
+    "type": "minecraft:evoker"
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/evoker",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/illager/evoker",
+      "model": "alltheheads:illager_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.evoker.ambient",
+  "shape": {
+    "depth": 8.0,
+    "height": 10.0,
+    "scale": 0.9375,
+    "width": 8.0
+  }
+}

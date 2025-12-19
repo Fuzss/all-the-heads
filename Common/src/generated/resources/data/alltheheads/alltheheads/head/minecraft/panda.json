@@ -1,0 +1,24 @@
+{
+  "custom_name": "minecraft.panda",
+  "entity_predicate": {
+    "type": "minecraft:panda",
+    "type_specific": {
+      "type": "alltheheads:panda",
+      "variant": "normal"
+    }
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/panda",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/panda/panda",
+      "model": "alltheheads:panda_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.panda.ambient",
+  "shape": {
+    "depth": 9.0,
+    "height": 10.0,
+    "scale": 0.7692307692307693,
+    "width": 13.0
+  }
+}

@@ -1,0 +1,5 @@
+accessWidener   v2  named
+accessible  field   net/minecraft/util/ExtraCodecs$LateBoundIdMapper    idToValue   Lcom/google/common/collect/BiMap;
+accessible  field   net/minecraft/client/renderer/entity/layers/CustomHeadLayer transforms  Lnet/minecraft/client/renderer/entity/layers/CustomHeadLayer$Transforms;
+accessible  method  net/minecraft/client/model/geom/builders/LayerDefinition    <init>  (Lnet/minecraft/client/model/geom/builders/MeshDefinition;Lnet/minecraft/client/model/geom/builders/MaterialDefinition;)V
+accessible  field   net/minecraft/world/entity/monster/Creeper  droppedSkulls   Z
