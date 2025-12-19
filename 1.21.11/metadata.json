@@ -1,0 +1,61 @@
+{
+    "mod": {
+        "id": "alltheheads",
+        "group": "fuzs.alltheheads",
+        "name": "All The Heads",
+        "version": "21.11.0",
+        "authors": [
+            "Fuzs"
+        ],
+        "description": "Heads up! Every mob, every head, all in one, proudly displayed.",
+        "license": "MPL-2.0"
+    },
+    "dependencies": [
+        {
+            "name": "fabricapi",
+            "type": "required",
+            "platforms": [
+                "fabric"
+            ]
+        },
+        {
+            "name": "forgeconfigapiport",
+            "type": "required",
+            "platforms": [
+                "fabric"
+            ]
+        },
+        {
+            "name": "puzzleslib",
+            "type": "required",
+            "platforms": [
+                "fabric",
+                "neoforge"
+            ]
+        }
+    ],
+    "links": [
+        {
+            "name": "github",
+            "slug": "alltheheads"
+        },
+        {
+            "name": "curseforge",
+            "slug": "all-the-heads",
+            "id": "1369265"
+        },
+        {
+            "name": "modrinth",
+            "slug": "all-the-heads",
+            "id": "Ax17wp3L"
+        }
+    ],
+    "environments": {
+        "client": "required",
+        "server": "required"
+    },
+    "platforms": [
+        "fabric",
+        "neoforge"
+    ]
+}

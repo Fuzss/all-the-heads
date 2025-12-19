@@ -2,7 +2,7 @@ package fuzs.alltheheads.init.headtype;
 
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
-import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
+import net.minecraft.resources.Identifier;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
@@ -33,7 +33,7 @@ public class PiglinHeadType {
     private static void bootstrapPiglin(BootstrapContext<HeadType> context, EntityType<?> entityType, ResourceKey<HeadType> resourceKey, String textureLocation, SoundEvent noteBlockSound) {
         HeadType.builder(entityType)
                 .shape(10.0, 8.0, 8.0)
-                .model(ModelType.PIGLIN, ResourceLocationHelper.withDefaultNamespace(textureLocation))
+                .model(ModelType.PIGLIN, Identifier.withDefaultNamespace(textureLocation))
                 .noteBlockSound(noteBlockSound)
                 .build(context, resourceKey);
     }

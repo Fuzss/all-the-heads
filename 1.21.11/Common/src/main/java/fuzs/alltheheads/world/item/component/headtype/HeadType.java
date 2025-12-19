@@ -3,17 +3,16 @@ package fuzs.alltheheads.world.item.component.headtype;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import fuzs.alltheheads.init.ModRegistry;
-import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
-import net.minecraft.advancements.critereon.EntityPredicate;
+import net.minecraft.advancements.criterion.EntityPredicate;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.RegistryFixedCodec;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.Entity;
@@ -67,10 +66,10 @@ public record HeadType(EntityPredicate entityPredicate,
         return new Builder(entityType);
     }
 
-    public static ResourceLocation customName(ResourceKey<HeadType> resourceKey) {
-        String joinedPath = String.join(":", resourceKey.location().getPath().split("/", 2));
-        return Optional.ofNullable(ResourceLocationHelper.tryParse(joinedPath))
-                .orElse(resourceKey.location())
+    public static Identifier customName(ResourceKey<HeadType> resourceKey) {
+        String joinedPath = String.join(":", resourceKey.identifier().getPath().split("/", 2));
+        return Optional.ofNullable(Identifier.tryParse(joinedPath))
+                .orElse(resourceKey.identifier())
                 .withPath((String path) -> {
                     return path.replace('/', '_');
                 });

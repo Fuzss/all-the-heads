@@ -9,7 +9,7 @@ import fuzs.alltheheads.world.item.component.headtype.ModelType;
 import fuzs.puzzleslib.api.client.renderer.v1.RenderStateExtraData;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.HeadedModel;
-import net.minecraft.client.model.SkullModelBase;
+import net.minecraft.client.model.object.skull.SkullModelBase;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.RenderLayerParent;

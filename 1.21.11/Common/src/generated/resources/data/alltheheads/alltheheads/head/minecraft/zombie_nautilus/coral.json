@@ -1,0 +1,23 @@
+{
+  "custom_name": "minecraft.zombie_nautilus_coral",
+  "entity_predicate": {
+    "type": "minecraft:zombie_nautilus",
+    "components": {
+      "minecraft:zombie_nautilus/variant": "minecraft:warm"
+    }
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/zombie_nautilus/coral",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/nautilus/zombie_nautilus_coral",
+      "model": "alltheheads:nautilus_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.zombie_nautilus.ambient",
+  "shape": {
+    "depth": 12.0,
+    "height": 8.0,
+    "scale": 0.75,
+    "width": 10.0
+  }
+}

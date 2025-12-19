@@ -3,15 +3,15 @@ package fuzs.alltheheads.init.headtype;
 import fuzs.alltheheads.advancements.critereon.VillagerDataPredicate;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
-import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
-import net.minecraft.advancements.critereon.EntityPredicate;
+import net.minecraft.advancements.criterion.EntityPredicate;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.npc.VillagerProfession;
-import net.minecraft.world.entity.npc.VillagerType;
+import net.minecraft.world.entity.npc.villager.VillagerProfession;
+import net.minecraft.world.entity.npc.villager.VillagerType;
 
 import java.util.function.BiConsumer;
 
@@ -276,8 +276,8 @@ public class VillagerHeadType {
                 })
                 .shape(8.0, 10.0, 8.0)
                 .scale(0.9375)
-                .model(ModelType.VILLAGER, ResourceLocationHelper.withDefaultNamespace("entity/villager/villager"))
-                .model(ModelType.VILLAGER, type.location().withPrefix("entity/villager/type/"))
+                .model(ModelType.VILLAGER, Identifier.withDefaultNamespace("entity/villager/villager"))
+                .model(ModelType.VILLAGER, type.identifier().withPrefix("entity/villager/type/"))
                 .noteBlockSound(SoundEvents.VILLAGER_AMBIENT)
                 .build(context, resourceKey);
     }
@@ -290,9 +290,9 @@ public class VillagerHeadType {
                 })
                 .shape(8.0, 10.0, 8.0)
                 .scale(0.9375)
-                .model(ModelType.VILLAGER, ResourceLocationHelper.withDefaultNamespace("entity/villager/villager"))
-                .model(ModelType.VILLAGER, type.location().withPrefix("entity/villager/type/"))
-                .model(ModelType.VILLAGER, profession.location().withPrefix("entity/villager/profession/"))
+                .model(ModelType.VILLAGER, Identifier.withDefaultNamespace("entity/villager/villager"))
+                .model(ModelType.VILLAGER, type.identifier().withPrefix("entity/villager/type/"))
+                .model(ModelType.VILLAGER, profession.identifier().withPrefix("entity/villager/profession/"))
                 .noteBlockSound(SoundEvents.VILLAGER_AMBIENT)
                 .build(context, resourceKey);
     }
@@ -307,8 +307,7 @@ public class VillagerHeadType {
         translationConsumer.accept(DESERT_FARMER_VILLAGER, "Desert Farmer Villager Head");
         translationConsumer.accept(DESERT_FISHERMAN_VILLAGER, "Desert Fisherman Villager Head");
         translationConsumer.accept(DESERT_FLETCHER_VILLAGER, "Desert Fletcher Villager Head");
-        translationConsumer.accept(DESERT_LEATHERWORKER_VILLAGER,
-                "Desert Leatherworker Villager Head");
+        translationConsumer.accept(DESERT_LEATHERWORKER_VILLAGER, "Desert Leatherworker Villager Head");
         translationConsumer.accept(DESERT_LIBRARIAN_VILLAGER, "Desert Librarian Villager Head");
         translationConsumer.accept(DESERT_MASON_VILLAGER, "Desert Mason Villager Head");
         translationConsumer.accept(DESERT_NITWIT_VILLAGER, "Desert Nitwit Villager Head");
@@ -325,8 +324,7 @@ public class VillagerHeadType {
         translationConsumer.accept(JUNGLE_FARMER_VILLAGER, "Jungle Farmer Villager Head");
         translationConsumer.accept(JUNGLE_FISHERMAN_VILLAGER, "Jungle Fisherman Villager Head");
         translationConsumer.accept(JUNGLE_FLETCHER_VILLAGER, "Jungle Fletcher Villager Head");
-        translationConsumer.accept(JUNGLE_LEATHERWORKER_VILLAGER,
-                "Jungle Leatherworker Villager Head");
+        translationConsumer.accept(JUNGLE_LEATHERWORKER_VILLAGER, "Jungle Leatherworker Villager Head");
         translationConsumer.accept(JUNGLE_LIBRARIAN_VILLAGER, "Jungle Librarian Villager Head");
         translationConsumer.accept(JUNGLE_MASON_VILLAGER, "Jungle Mason Villager Head");
         translationConsumer.accept(JUNGLE_NITWIT_VILLAGER, "Jungle Nitwit Villager Head");
@@ -343,8 +341,7 @@ public class VillagerHeadType {
         translationConsumer.accept(PLAINS_FARMER_VILLAGER, "Plains Farmer Villager Head");
         translationConsumer.accept(PLAINS_FISHERMAN_VILLAGER, "Plains Fisherman Villager Head");
         translationConsumer.accept(PLAINS_FLETCHER_VILLAGER, "Plains Fletcher Villager Head");
-        translationConsumer.accept(PLAINS_LEATHERWORKER_VILLAGER,
-                "Plains Leatherworker Villager Head");
+        translationConsumer.accept(PLAINS_LEATHERWORKER_VILLAGER, "Plains Leatherworker Villager Head");
         translationConsumer.accept(PLAINS_LIBRARIAN_VILLAGER, "Plains Librarian Villager Head");
         translationConsumer.accept(PLAINS_MASON_VILLAGER, "Plains Mason Villager Head");
         translationConsumer.accept(PLAINS_NITWIT_VILLAGER, "Plains Nitwit Villager Head");
@@ -356,14 +353,12 @@ public class VillagerHeadType {
         translationConsumer.accept(SAVANNA_VILLAGER, "Savanna Villager Head");
         translationConsumer.accept(SAVANNA_ARMORER_VILLAGER, "Savanna Armorer Villager Head");
         translationConsumer.accept(SAVANNA_BUTCHER_VILLAGER, "Savanna Butcher Villager Head");
-        translationConsumer.accept(SAVANNA_CARTOGRAPHER_VILLAGER,
-                "Savanna Cartographer Villager Head");
+        translationConsumer.accept(SAVANNA_CARTOGRAPHER_VILLAGER, "Savanna Cartographer Villager Head");
         translationConsumer.accept(SAVANNA_CLERIC_VILLAGER, "Savanna Cleric Villager Head");
         translationConsumer.accept(SAVANNA_FARMER_VILLAGER, "Savanna Farmer Villager Head");
         translationConsumer.accept(SAVANNA_FISHERMAN_VILLAGER, "Savanna Fisherman Villager Head");
         translationConsumer.accept(SAVANNA_FLETCHER_VILLAGER, "Savanna Fletcher Villager Head");
-        translationConsumer.accept(SAVANNA_LEATHERWORKER_VILLAGER,
-                "Savanna Leatherworker Villager Head");
+        translationConsumer.accept(SAVANNA_LEATHERWORKER_VILLAGER, "Savanna Leatherworker Villager Head");
         translationConsumer.accept(SAVANNA_LIBRARIAN_VILLAGER, "Savanna Librarian Villager Head");
         translationConsumer.accept(SAVANNA_MASON_VILLAGER, "Savanna Mason Villager Head");
         translationConsumer.accept(SAVANNA_NITWIT_VILLAGER, "Savanna Nitwit Villager Head");

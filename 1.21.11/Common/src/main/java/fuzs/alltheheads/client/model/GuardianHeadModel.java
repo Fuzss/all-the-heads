@@ -1,7 +1,7 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.GuardianModel;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.monster.guardian.GuardianModel;
 
 public final class GuardianHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {

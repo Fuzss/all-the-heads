@@ -1,6 +1,6 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.TurtleModel;
+import net.minecraft.client.model.animal.turtle.TurtleModel;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 
 public final class TurtleHeadModel extends HeadModelBase {

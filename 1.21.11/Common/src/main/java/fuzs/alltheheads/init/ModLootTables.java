@@ -4,8 +4,8 @@ import fuzs.alltheheads.AllTheHeads;
 import fuzs.alltheheads.config.CommonConfig;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ModLootTables {
-    private static final Map<ResourceLocation, ResourceKey<LootTable>> LOOT_TABLE_INJECTIONS = new HashMap<>();
+    private static final Map<Identifier, ResourceKey<LootTable>> LOOT_TABLE_INJECTIONS = new HashMap<>();
     public static final ResourceKey<LootTable> ZOMBIE_INJECTION = registerLootTableInjection(EntityType.ZOMBIE);
     public static final ResourceKey<LootTable> SKELETON_INJECTION = registerLootTableInjection(EntityType.SKELETON);
     public static final ResourceKey<LootTable> CREEPER_INJECTION = registerLootTableInjection(EntityType.CREEPER);
@@ -33,20 +33,20 @@ public class ModLootTables {
 
     private static ResourceKey<LootTable> registerLootTableInjection(ResourceKey<LootTable> resourceKey) {
         ResourceKey<LootTable> newResourceKey = ModRegistry.REGISTRIES.makeResourceKey(Registries.LOOT_TABLE,
-                "injections/" + resourceKey.location().toString().replace(':', '/'));
-        LOOT_TABLE_INJECTIONS.put(resourceKey.location(), newResourceKey);
+                "injections/" + resourceKey.identifier().toString().replace(':', '/'));
+        LOOT_TABLE_INJECTIONS.put(resourceKey.identifier(), newResourceKey);
         return newResourceKey;
     }
 
-    public static void onLootTableLoad(ResourceLocation resourceLocation, LootTable.Builder lootTable, HolderLookup.Provider registries) {
+    public static void onLootTableLoad(Identifier identifier, LootTable.Builder lootTable, HolderLookup.Provider registries) {
         if (!AllTheHeads.CONFIG.get(CommonConfig.class).vanillaHeadDrops) {
             return;
         }
 
-        if (LOOT_TABLE_INJECTIONS.containsKey(resourceLocation)) {
+        if (LOOT_TABLE_INJECTIONS.containsKey(identifier)) {
             lootTable.withPool(LootPool.lootPool()
                     .setRolls(ConstantValue.exactly(1.0F))
-                    .add(NestedLootTable.lootTableReference(LOOT_TABLE_INJECTIONS.get(resourceLocation))));
+                    .add(NestedLootTable.lootTableReference(LOOT_TABLE_INJECTIONS.get(identifier))));
         }
     }
 }

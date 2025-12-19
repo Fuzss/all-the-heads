@@ -1,7 +1,7 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.TropicalFishModelA;
-import net.minecraft.client.model.TropicalFishModelB;
+import net.minecraft.client.model.animal.fish.TropicalFishLargeModel;
+import net.minecraft.client.model.animal.fish.TropicalFishSmallModel;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
 import net.minecraft.client.model.geom.builders.CubeListBuilder;
@@ -14,7 +14,7 @@ import java.util.function.UnaryOperator;
 public final class TropicalFishHeadModel extends HeadModelBase {
     public static LayerDefinition createSmallHeadLayer() {
         int shortenedSize = 2;
-        LayerDefinition layerDefinition = TropicalFishModelA.createBodyLayer(CubeDeformation.NONE);
+        LayerDefinition layerDefinition = TropicalFishSmallModel.createBodyLayer(CubeDeformation.NONE);
         PartDefinition partDefinition = layerDefinition.mesh.getRoot();
         partDefinition.addOrReplaceChild("body",
                 CubeListBuilder.create()
@@ -37,7 +37,7 @@ public final class TropicalFishHeadModel extends HeadModelBase {
 
     public static LayerDefinition createLargeHeadLayer() {
         int shortenedSize = 2;
-        LayerDefinition layerDefinition = TropicalFishModelB.createBodyLayer(CubeDeformation.NONE);
+        LayerDefinition layerDefinition = TropicalFishLargeModel.createBodyLayer(CubeDeformation.NONE);
         PartDefinition partDefinition = layerDefinition.mesh.getRoot();
         partDefinition.addOrReplaceChild("body",
                 CubeListBuilder.create()

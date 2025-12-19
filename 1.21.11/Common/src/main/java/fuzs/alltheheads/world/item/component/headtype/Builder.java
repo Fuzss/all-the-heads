@@ -1,14 +1,14 @@
 package fuzs.alltheheads.world.item.component.headtype;
 
 import com.google.common.collect.ImmutableList;
-import net.minecraft.advancements.critereon.EntityPredicate;
-import net.minecraft.advancements.critereon.EntityTypePredicate;
+import net.minecraft.advancements.criterion.EntityPredicate;
+import net.minecraft.advancements.criterion.EntityTypePredicate;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.variant.ModelAndTexture;
@@ -55,17 +55,17 @@ public final class Builder {
         return this;
     }
 
-    public Builder model(ModelType modelType, ResourceLocation assetId) {
+    public Builder model(ModelType modelType, Identifier assetId) {
         this.models.add(new Model(modelType, assetId));
         return this;
     }
 
-    public Builder dyedModel(ModelType modelType, ResourceLocation assetId, Color color) {
+    public Builder dyedModel(ModelType modelType, Identifier assetId, Color color) {
         this.models.add(new Model(new ModelAndTexture<>(modelType, assetId), Optional.of(color), Optional.empty()));
         return this;
     }
 
-    public Builder litModel(ModelType modelType, ResourceLocation assetId) {
+    public Builder litModel(ModelType modelType, Identifier assetId) {
         this.models.add(new Model(new ModelAndTexture<>(modelType, assetId), Optional.empty(), Optional.of(15)));
         return this;
     }
@@ -82,7 +82,7 @@ public final class Builder {
 
     public Builder lootTable(ResourceKey<HeadType> resourceKey) {
         this.lootTable = Optional.of(ResourceKey.create(Registries.LOOT_TABLE,
-                resourceKey.location().withPrefix("entities/heads/")));
+                resourceKey.identifier().withPrefix("entities/heads/")));
         return this;
     }
 

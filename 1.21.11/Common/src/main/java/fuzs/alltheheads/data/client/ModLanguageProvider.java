@@ -32,7 +32,8 @@ public class ModLanguageProvider extends AbstractLanguageProvider {
         AquaticHeadType.registerTranslations(translationConsumer);
         AxolotlHeadType.registerTranslations(translationConsumer);
         BeeHeadType.registerTranslations(translationConsumer);
-        CatHeadType.registerTranslations(translationConsumer);
+        CamelHeadType.registerTranslations(translationConsumer);
+        FelineHeadType.registerTranslations(translationConsumer);
         ChickenHeadType.registerTranslations(translationConsumer);
         CopperGolemHeadType.registerTranslations(translationConsumer);
         CowHeadType.registerTranslations(translationConsumer);
@@ -41,10 +42,11 @@ public class ModLanguageProvider extends AbstractLanguageProvider {
         GhastHeadType.registerTranslations(translationConsumer);
         GuardianHeadType.registerTranslations(translationConsumer);
         HoglinHeadType.registerTranslations(translationConsumer);
-        HorseHeadType.registerTranslations(translationConsumer);
+        EquineHeadType.registerTranslations(translationConsumer);
         IllagerHeadType.registerTranslations(translationConsumer);
         LlamaHeadType.registerTranslations(translationConsumer);
         MonsterHeadType.registerTranslations(translationConsumer);
+        NautilusHeadType.registerTranslations(translationConsumer);
         PandaHeadType.registerTranslations(translationConsumer);
         ParrotHeadType.registerTranslations(translationConsumer);
         PigHeadType.registerTranslations(translationConsumer);

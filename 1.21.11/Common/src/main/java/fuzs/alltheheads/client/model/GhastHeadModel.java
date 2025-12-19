@@ -1,7 +1,7 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.GhastModel;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.monster.ghast.GhastModel;
 
 public final class GhastHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {

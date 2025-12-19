@@ -3,8 +3,8 @@ package fuzs.alltheheads.init.headtype;
 import fuzs.alltheheads.advancements.critereon.CopperGolemPredicate;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
-import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
-import net.minecraft.advancements.critereon.EntityPredicate;
+import net.minecraft.resources.Identifier;
+import net.minecraft.advancements.criterion.EntityPredicate;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
@@ -55,8 +55,8 @@ public class CopperGolemHeadType {
                     builder.subPredicate(CopperGolemPredicate.hasState(state));
                 })
                 .shape(8.0, 5.0, 10.0)
-                .model(ModelType.COPPER_GOLEM, ResourceLocationHelper.withDefaultNamespace(textureLocation))
-                .model(ModelType.COPPER_GOLEM_EYES, ResourceLocationHelper.withDefaultNamespace(eyesLocation))
+                .model(ModelType.COPPER_GOLEM, Identifier.withDefaultNamespace(textureLocation))
+                .model(ModelType.COPPER_GOLEM_EYES, Identifier.withDefaultNamespace(eyesLocation))
                 .noteBlockSound(noteBlockSound)
                 .build(context, resourceKey);
     }

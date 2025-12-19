@@ -7,14 +7,14 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponentGetter;
 import net.minecraft.core.component.DataComponentMap;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.SkullBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.Nullable;
 
 public class MobHeadBlockEntity extends SkullBlockEntity implements TickingBlockEntity {
     public static final String TAG_HEAD_TYPE = "head_type";
@@ -56,8 +56,8 @@ public class MobHeadBlockEntity extends SkullBlockEntity implements TickingBlock
     }
 
     @Override
-    public @Nullable ResourceLocation getNoteBlockSound() {
-        ResourceLocation noteBlockSound = super.getNoteBlockSound();
+    public @Nullable Identifier getNoteBlockSound() {
+        Identifier noteBlockSound = super.getNoteBlockSound();
         if (noteBlockSound != null) {
             return noteBlockSound;
         } else if (this.headType != null) {

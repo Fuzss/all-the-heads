@@ -2,7 +2,7 @@ package fuzs.alltheheads.init.headtype;
 
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
-import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
+import net.minecraft.resources.Identifier;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
@@ -30,7 +30,7 @@ public class GuardianHeadType {
         HeadType.builder(entityType)
                 .shape(16.0, 16.0, 16.0)
                 .scale(0.5)
-                .model(ModelType.GUARDIAN, ResourceLocationHelper.withDefaultNamespace(textureLocation))
+                .model(ModelType.GUARDIAN, Identifier.withDefaultNamespace(textureLocation))
                 .noteBlockSound(noteBlockSound)
                 .build(context, resourceKey);
     }

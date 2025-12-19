@@ -1,6 +1,6 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.GoatModel;
+import net.minecraft.client.model.animal.goat.GoatModel;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 
 public final class GoatHeadModel extends HeadModelBase {

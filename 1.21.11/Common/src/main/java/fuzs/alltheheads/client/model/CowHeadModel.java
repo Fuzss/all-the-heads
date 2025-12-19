@@ -1,8 +1,8 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.ColdCowModel;
-import net.minecraft.client.model.CowModel;
-import net.minecraft.client.model.WarmCowModel;
+import net.minecraft.client.model.animal.cow.ColdCowModel;
+import net.minecraft.client.model.animal.cow.CowModel;
+import net.minecraft.client.model.animal.cow.WarmCowModel;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 
 public final class CowHeadModel extends HeadModelBase {

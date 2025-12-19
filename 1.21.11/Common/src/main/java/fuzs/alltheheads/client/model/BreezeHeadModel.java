@@ -1,8 +1,8 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.BreezeModel;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
+import net.minecraft.client.model.monster.breeze.BreezeModel;
 
 public final class BreezeHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {

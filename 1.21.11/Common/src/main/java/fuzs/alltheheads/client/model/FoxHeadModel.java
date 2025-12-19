@@ -1,6 +1,6 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.FoxModel;
+import net.minecraft.client.model.animal.fox.FoxModel;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 
 public final class FoxHeadModel extends HeadModelBase {

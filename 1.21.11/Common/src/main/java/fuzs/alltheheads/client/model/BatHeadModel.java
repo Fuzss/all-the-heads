@@ -1,6 +1,6 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.BatModel;
+import net.minecraft.client.model.ambient.BatModel;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 
 public final class BatHeadModel extends HeadModelBase {

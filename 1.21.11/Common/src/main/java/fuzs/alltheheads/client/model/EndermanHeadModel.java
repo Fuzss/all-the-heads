@@ -1,7 +1,7 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.EndermanModel;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.monster.enderman.EndermanModel;
 
 public final class EndermanHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {

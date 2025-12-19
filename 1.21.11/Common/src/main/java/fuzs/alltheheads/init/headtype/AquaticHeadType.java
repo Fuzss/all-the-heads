@@ -2,7 +2,7 @@ package fuzs.alltheheads.init.headtype;
 
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
-import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
+import net.minecraft.resources.Identifier;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
@@ -26,47 +26,47 @@ public class AquaticHeadType {
         HeadType.builder(EntityType.COD)
                 .shape(2.0, 4.0, 3.0)
                 .scale(1.5)
-                .model(ModelType.COD, ResourceLocationHelper.withDefaultNamespace("entity/fish/cod"))
+                .model(ModelType.COD, Identifier.withDefaultNamespace("entity/fish/cod"))
                 .noteBlockSound(SoundEvents.COD_FLOP)
                 .build(context, COD);
         HeadType.builder(EntityType.DOLPHIN)
                 .shape(8.0, 7.0, 6.0)
-                .model(ModelType.DOLPHIN, ResourceLocationHelper.withDefaultNamespace("entity/dolphin"))
+                .model(ModelType.DOLPHIN, Identifier.withDefaultNamespace("entity/dolphin"))
                 .noteBlockSound(SoundEvents.DOLPHIN_AMBIENT_WATER)
                 .build(context, DOLPHIN);
         HeadType.builder(EntityType.GLOW_SQUID)
                 .shape(12.0, 16.0, 12.0)
                 .scale(2.0 / 3.0)
-                .litModel(ModelType.SQUID, ResourceLocationHelper.withDefaultNamespace("entity/squid/glow_squid"))
+                .litModel(ModelType.SQUID, Identifier.withDefaultNamespace("entity/squid/glow_squid"))
                 .noteBlockSound(SoundEvents.GLOW_SQUID_AMBIENT)
                 .build(context, GLOW_SQUID);
         HeadType.builder(EntityType.PUFFERFISH)
                 .shape(8.0, 8.0, 8.0)
-                .model(ModelType.PUFFERFISH, ResourceLocationHelper.withDefaultNamespace("entity/fish/pufferfish"))
+                .model(ModelType.PUFFERFISH, Identifier.withDefaultNamespace("entity/fish/pufferfish"))
                 .noteBlockSound(SoundEvents.PUFFER_FISH_STING)
                 .build(context, PUFFERFISH);
         HeadType.builder(EntityType.SALMON)
                 .shape(2.0, 4.0, 3.0)
                 .scale(1.5)
-                .model(ModelType.SALMON, ResourceLocationHelper.withDefaultNamespace("entity/fish/salmon"))
+                .model(ModelType.SALMON, Identifier.withDefaultNamespace("entity/fish/salmon"))
                 .noteBlockSound(SoundEvents.SALMON_FLOP)
                 .build(context, SALMON);
         HeadType.builder(EntityType.SQUID)
                 .shape(12.0, 16.0, 12.0)
                 .scale(2.0 / 3.0)
-                .model(ModelType.SQUID, ResourceLocationHelper.withDefaultNamespace("entity/squid/squid"))
+                .model(ModelType.SQUID, Identifier.withDefaultNamespace("entity/squid/squid"))
                 .noteBlockSound(SoundEvents.SQUID_AMBIENT)
                 .build(context, SQUID);
         HeadType.builder(EntityType.TADPOLE)
                 .shape(3.0, 2.0, 3.0)
                 .scale(2.0)
-                .model(ModelType.TADPOLE, ResourceLocationHelper.withDefaultNamespace("entity/tadpole/tadpole"))
+                .model(ModelType.TADPOLE, Identifier.withDefaultNamespace("entity/tadpole/tadpole"))
                 .noteBlockSound(SoundEvents.TADPOLE_FLOP)
                 .build(context, TADPOLE);
         HeadType.builder(EntityType.TURTLE)
                 .shape(6.0, 5.0, 6.0)
                 .scale(4.0 / 3.0)
-                .model(ModelType.TURTLE, ResourceLocationHelper.withDefaultNamespace("entity/turtle/big_sea_turtle"))
+                .model(ModelType.TURTLE, Identifier.withDefaultNamespace("entity/turtle/big_sea_turtle"))
                 .noteBlockSound(SoundEvents.TURTLE_AMBIENT_LAND)
                 .build(context, TURTLE);
     }

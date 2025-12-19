@@ -1,0 +1,20 @@
+{
+  "custom_name": "minecraft.nautilus",
+  "entity_predicate": {
+    "type": "minecraft:nautilus"
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/nautilus",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/nautilus/nautilus",
+      "model": "alltheheads:nautilus_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.nautilus.ambient",
+  "shape": {
+    "depth": 12.0,
+    "height": 8.0,
+    "scale": 0.75,
+    "width": 10.0
+  }
+}

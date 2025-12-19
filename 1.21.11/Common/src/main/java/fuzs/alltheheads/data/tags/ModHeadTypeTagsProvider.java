@@ -47,7 +47,7 @@ public class ModHeadTypeTagsProvider extends AbstractTagProvider<HeadType> {
     }
 
     public static TagKey<HeadType> getHeadTypeTagKey(ResourceKey<LootTable> resourceKey) {
-        String path = resourceKey.location().toString().replace(':', '/');
+        String path = resourceKey.identifier().toString().replace(':', '/');
         return TagKey.create(ModRegistry.HEAD_REGISTRY_KEY, AllTheHeads.id(path));
     }
 }
