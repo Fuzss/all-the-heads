@@ -1,0 +1,38 @@
+{
+  "custom_name": "minecraft.tropical_fish_red_cichlid",
+  "entity_predicate": {
+    "type": "minecraft:tropical_fish",
+    "type_specific": {
+      "type": "alltheheads:tropical_fish",
+      "base_color": "red",
+      "pattern": "betty",
+      "pattern_color": "white"
+    }
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/tropical_fish/red_cichlid",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/fish/tropical_b",
+      "color": {
+        "type": "alltheheads:dye",
+        "dye": "red"
+      },
+      "model": "alltheheads:tropical_fish_head/large"
+    },
+    {
+      "asset_id": "minecraft:entity/fish/tropical_b_pattern_5",
+      "color": {
+        "type": "alltheheads:dye",
+        "dye": "white"
+      },
+      "model": "alltheheads:tropical_fish_head/large"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.tropical_fish.flop",
+  "shape": {
+    "depth": 4.0,
+    "height": 6.0,
+    "scale": 1.5,
+    "width": 2.0
+  }
+}

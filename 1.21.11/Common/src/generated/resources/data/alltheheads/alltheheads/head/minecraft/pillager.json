@@ -1,0 +1,20 @@
+{
+  "custom_name": "minecraft.pillager",
+  "entity_predicate": {
+    "type": "minecraft:pillager"
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/pillager",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/illager/pillager",
+      "model": "alltheheads:illager_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.pillager.ambient",
+  "shape": {
+    "depth": 8.0,
+    "height": 10.0,
+    "scale": 0.9375,
+    "width": 8.0
+  }
+}

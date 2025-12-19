@@ -1,0 +1,25 @@
+{
+  "custom_name": "minecraft.vex",
+  "entity_predicate": {
+    "type": "minecraft:vex",
+    "type_specific": {
+      "type": "alltheheads:vex",
+      "charging": false
+    }
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/vex",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/illager/vex",
+      "block_light": 15,
+      "model": "alltheheads:vex_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.vex.ambient",
+  "shape": {
+    "depth": 5.0,
+    "height": 5.0,
+    "scale": 1.2,
+    "width": 5.0
+  }
+}

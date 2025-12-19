@@ -1,0 +1,20 @@
+{
+  "custom_name": "minecraft.tadpole",
+  "entity_predicate": {
+    "type": "minecraft:tadpole"
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/tadpole",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/tadpole/tadpole",
+      "model": "alltheheads:tadpole_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.tadpole.flop",
+  "shape": {
+    "depth": 3.0,
+    "height": 2.0,
+    "scale": 2.0,
+    "width": 3.0
+  }
+}

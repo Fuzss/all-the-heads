@@ -1,0 +1,19 @@
+{
+  "custom_name": "minecraft.pufferfish",
+  "entity_predicate": {
+    "type": "minecraft:pufferfish"
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/pufferfish",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/fish/pufferfish",
+      "model": "alltheheads:pufferfish_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.puffer_fish.sting",
+  "shape": {
+    "depth": 8.0,
+    "height": 8.0,
+    "width": 8.0
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "custom_name": "minecraft.snow_golem",
+  "entity_predicate": {
+    "type": "minecraft:snow_golem"
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/snow_golem",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/snow_golem",
+      "model": "alltheheads:humanoid_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.snow_golem.shoot",
+  "shape": {
+    "depth": 8.0,
+    "height": 8.0,
+    "width": 8.0
+  }
+}

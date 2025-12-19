@@ -1,0 +1,23 @@
+{
+  "custom_name": "minecraft.cave_spider",
+  "entity_predicate": {
+    "type": "minecraft:cave_spider"
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/cave_spider",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/spider/cave_spider",
+      "model": "alltheheads:spider_head"
+    },
+    {
+      "asset_id": "minecraft:entity/spider_eyes",
+      "model": "alltheheads:spider_head/eyes"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.spider.ambient",
+  "shape": {
+    "depth": 8.0,
+    "height": 8.0,
+    "width": 8.0
+  }
+}

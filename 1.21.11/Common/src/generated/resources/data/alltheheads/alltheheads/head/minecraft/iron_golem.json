@@ -1,0 +1,20 @@
+{
+  "custom_name": "minecraft.iron_golem",
+  "entity_predicate": {
+    "type": "minecraft:iron_golem"
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/iron_golem",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/iron_golem/iron_golem",
+      "model": "alltheheads:iron_golem_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.iron_golem.repair",
+  "shape": {
+    "depth": 8.0,
+    "height": 10.0,
+    "scale": 0.9375,
+    "width": 8.0
+  }
+}

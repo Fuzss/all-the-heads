@@ -1,0 +1,19 @@
+{
+  "custom_name": "minecraft.shulker",
+  "entity_predicate": {
+    "type": "minecraft:shulker"
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/shulker",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/shulker/shulker",
+      "model": "alltheheads:shulker_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.shulker.ambient",
+  "shape": {
+    "depth": 6.0,
+    "height": 6.0,
+    "width": 6.0
+  }
+}

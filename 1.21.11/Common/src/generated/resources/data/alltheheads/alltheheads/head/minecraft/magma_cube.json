@@ -1,0 +1,20 @@
+{
+  "custom_name": "minecraft.magma_cube",
+  "entity_predicate": {
+    "type": "minecraft:magma_cube"
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/magma_cube",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/slime/magmacube",
+      "block_light": 15,
+      "model": "alltheheads:magma_cube_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.magma_cube.squish_small",
+  "shape": {
+    "depth": 8.0,
+    "height": 8.0,
+    "width": 8.0
+  }
+}

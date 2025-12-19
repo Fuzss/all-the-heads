@@ -1,0 +1,23 @@
+{
+  "custom_name": "minecraft.cat_white",
+  "entity_predicate": {
+    "type": "minecraft:cat",
+    "components": {
+      "minecraft:cat/variant": "minecraft:white"
+    }
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/cat/white",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/cat/white",
+      "model": "alltheheads:feline_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.cat.ambient",
+  "shape": {
+    "depth": 5.0,
+    "height": 4.0,
+    "scale": 1.6,
+    "width": 5.0
+  }
+}

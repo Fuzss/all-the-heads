@@ -1,0 +1,23 @@
+{
+  "custom_name": "minecraft.breeze",
+  "entity_predicate": {
+    "type": "minecraft:breeze"
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/breeze",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/breeze/breeze",
+      "model": "alltheheads:breeze_head"
+    },
+    {
+      "asset_id": "minecraft:entity/breeze/breeze_eyes",
+      "model": "alltheheads:breeze_head/eyes"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.breeze.idle_air",
+  "shape": {
+    "depth": 8.0,
+    "height": 8.0,
+    "width": 8.0
+  }
+}

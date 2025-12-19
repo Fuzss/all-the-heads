@@ -1,0 +1,20 @@
+{
+  "custom_name": "minecraft.zombie_horse",
+  "entity_predicate": {
+    "type": "minecraft:zombie_horse"
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/zombie_horse",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/horse/horse_zombie",
+      "model": "alltheheads:horse_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.zombie_horse.ambient",
+  "shape": {
+    "depth": 8.0,
+    "height": 16.0,
+    "scale": 0.75,
+    "width": 4.0
+  }
+}

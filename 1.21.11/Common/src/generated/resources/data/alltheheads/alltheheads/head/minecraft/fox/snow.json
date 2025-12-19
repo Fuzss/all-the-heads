@@ -1,0 +1,22 @@
+{
+  "custom_name": "minecraft.fox_snow",
+  "entity_predicate": {
+    "type": "minecraft:fox",
+    "components": {
+      "minecraft:fox/variant": "snow"
+    }
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/fox/snow",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/fox/snow_fox",
+      "model": "alltheheads:fox_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.fox.ambient",
+  "shape": {
+    "depth": 6.0,
+    "height": 6.0,
+    "width": 8.0
+  }
+}
