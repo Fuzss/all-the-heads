@@ -10,8 +10,8 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageSource;
@@ -31,9 +31,9 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 public class HeadLootHandler {
-    private static final Supplier<Map<ResourceLocation, TagKey<HeadType>>> HEAD_TAGS = Suppliers.memoize(() -> {
+    private static final Supplier<Map<Identifier, TagKey<HeadType>>> HEAD_TAGS = Suppliers.memoize(() -> {
         return ModHeadTypeTagsProvider.getDefaultLootTables(BuiltInRegistries.ENTITY_TYPE.stream())
-                .collect(Collectors.toMap(ResourceKey::location, ModHeadTypeTagsProvider::getHeadTypeTagKey));
+                .collect(Collectors.toMap(ResourceKey::identifier, ModHeadTypeTagsProvider::getHeadTypeTagKey));
     });
 
     public static EventResult onLivingDrops(LivingEntity livingEntity, DamageSource damageSource, Collection<ItemEntity> itemDrops, boolean recentlyHit) {
@@ -56,10 +56,10 @@ public class HeadLootHandler {
         return EventResult.PASS;
     }
 
-    public static void onLootTableLoad(ResourceLocation resourceLocation, LootTable.Builder lootTable, HolderLookup.Provider registries) {
-        if (HEAD_TAGS.get().containsKey(resourceLocation)) {
+    public static void onLootTableLoad(Identifier identifier, LootTable.Builder lootTable, HolderLookup.Provider registries) {
+        if (HEAD_TAGS.get().containsKey(identifier)) {
             registries.lookupOrThrow(ModRegistry.HEAD_REGISTRY_KEY)
-                    .get(HEAD_TAGS.get().get(resourceLocation))
+                    .get(HEAD_TAGS.get().get(identifier))
                     .ifPresent((HolderSet.Named<HeadType> holderSet) -> {
                         holderSet.forEach((Holder<HeadType> headType) -> {
                             headType.value().loot().lootTable().ifPresent((ResourceKey<LootTable> resourceKey) -> {

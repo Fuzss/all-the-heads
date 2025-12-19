@@ -1,7 +1,7 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.ChickenModel;
-import net.minecraft.client.model.ColdChickenModel;
+import net.minecraft.client.model.animal.chicken.ChickenModel;
+import net.minecraft.client.model.animal.chicken.ColdChickenModel;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 
 public final class ChickenHeadModel extends HeadModelBase {

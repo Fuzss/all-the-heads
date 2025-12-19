@@ -1,10 +1,10 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.PhantomModel;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.CubeListBuilder;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
+import net.minecraft.client.model.monster.phantom.PhantomModel;
 
 public final class PhantomHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {

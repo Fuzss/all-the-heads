@@ -3,24 +3,24 @@ package fuzs.alltheheads.init.headtype;
 import fuzs.alltheheads.advancements.critereon.HorsePredicate;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
-import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
-import net.minecraft.advancements.critereon.DataComponentMatchers;
-import net.minecraft.advancements.critereon.EntityPredicate;
+import net.minecraft.advancements.criterion.DataComponentMatchers;
+import net.minecraft.advancements.criterion.EntityPredicate;
 import net.minecraft.core.component.DataComponentExactPredicate;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.animal.horse.Markings;
-import net.minecraft.world.entity.animal.horse.Variant;
+import net.minecraft.world.entity.animal.equine.Markings;
+import net.minecraft.world.entity.animal.equine.Variant;
 
 import java.util.function.BiConsumer;
 
 import static fuzs.alltheheads.init.HeadTypes.register;
 
-public class HorseHeadType {
+public class EquineHeadType {
     // Horses
     public static final ResourceKey<HeadType> SKELETON_HORSE = register("skeleton_horse");
     public static final ResourceKey<HeadType> ZOMBIE_HORSE = register("zombie_horse");
@@ -278,7 +278,7 @@ public class HorseHeadType {
         HeadType.builder(entityType)
                 .shape(4.0, 16.0, 8.0)
                 .scale(0.75)
-                .model(ModelType.HORSE, ResourceLocationHelper.withDefaultNamespace(textureLocation))
+                .model(ModelType.HORSE, Identifier.withDefaultNamespace(textureLocation))
                 .noteBlockSound(noteBlockSound)
                 .build(context, resourceKey);
     }
@@ -292,7 +292,7 @@ public class HorseHeadType {
                 })
                 .shape(4.0, 16.0, 8.0)
                 .scale(0.75)
-                .model(ModelType.HORSE, ResourceLocationHelper.withDefaultNamespace(textureLocation))
+                .model(ModelType.HORSE, Identifier.withDefaultNamespace(textureLocation))
                 .noteBlockSound(SoundEvents.HORSE_AMBIENT)
                 .build(context, resourceKey);
     }
@@ -306,8 +306,8 @@ public class HorseHeadType {
                 })
                 .shape(4.0, 16.0, 8.0)
                 .scale(0.75)
-                .model(ModelType.HORSE, ResourceLocationHelper.withDefaultNamespace(textureLocation))
-                .model(ModelType.HORSE_MARKINGS, ResourceLocationHelper.withDefaultNamespace(markingsLocation))
+                .model(ModelType.HORSE, Identifier.withDefaultNamespace(textureLocation))
+                .model(ModelType.HORSE_MARKINGS, Identifier.withDefaultNamespace(markingsLocation))
                 .noteBlockSound(SoundEvents.HORSE_AMBIENT)
                 .build(context, resourceKey);
     }

@@ -2,24 +2,24 @@ package fuzs.alltheheads.init.headtype;
 
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
-import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
-import net.minecraft.advancements.critereon.DataComponentMatchers;
-import net.minecraft.advancements.critereon.EntityPredicate;
+import net.minecraft.advancements.criterion.DataComponentMatchers;
+import net.minecraft.advancements.criterion.EntityPredicate;
 import net.minecraft.core.component.DataComponentExactPredicate;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.animal.CatVariant;
-import net.minecraft.world.entity.animal.CatVariants;
+import net.minecraft.world.entity.animal.feline.CatVariant;
+import net.minecraft.world.entity.animal.feline.CatVariants;
 
 import java.util.function.BiConsumer;
 
 import static fuzs.alltheheads.init.HeadTypes.register;
 
-public class CatHeadType {
+public class FelineHeadType {
     public static final ResourceKey<HeadType> OCELOT = register("ocelot");
     public static final ResourceKey<HeadType> TABBY_CAT = register("cat/tabby");
     public static final ResourceKey<HeadType> BLACK_CAT = register("cat/black");
@@ -37,7 +37,7 @@ public class CatHeadType {
         HeadType.builder(EntityType.OCELOT)
                 .shape(5.0, 4.0, 5.0)
                 .scale(1.6)
-                .model(ModelType.FELINE, ResourceLocationHelper.withDefaultNamespace("entity/cat/ocelot"))
+                .model(ModelType.FELINE, Identifier.withDefaultNamespace("entity/cat/ocelot"))
                 .noteBlockSound(SoundEvents.OCELOT_AMBIENT)
                 .build(context, OCELOT);
         bootstrapCat(context, CatVariants.TABBY, TABBY_CAT, "entity/cat/tabby");
@@ -63,7 +63,7 @@ public class CatHeadType {
                 })
                 .shape(5.0, 4.0, 5.0)
                 .scale(1.6)
-                .model(ModelType.FELINE, ResourceLocationHelper.withDefaultNamespace(textureLocation))
+                .model(ModelType.FELINE, Identifier.withDefaultNamespace(textureLocation))
                 .noteBlockSound(SoundEvents.CAT_AMBIENT)
                 .build(context, resourceKey);
     }

@@ -4,12 +4,12 @@ import fuzs.alltheheads.client.renderer.special.MobHeadSpecialRenderer;
 import fuzs.alltheheads.init.ModRegistry;
 import fuzs.puzzleslib.api.client.data.v2.AbstractModelProvider;
 import fuzs.puzzleslib.api.client.data.v2.models.ModelLocationHelper;
-import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
+import net.minecraft.resources.Identifier;
 import fuzs.puzzleslib.api.data.v2.core.DataProviderContext;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.MultiVariant;
 import net.minecraft.client.data.models.model.ItemModelUtils;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SkullBlock;
 
@@ -32,16 +32,16 @@ public class ModModelProvider extends AbstractModelProvider {
     public final void generateHead(Block headBlock, Block wallHeadBlock, BlockModelGenerators blockModelGenerators) {
         this.createHead(headBlock,
                 wallHeadBlock,
-                ModelLocationHelper.getItemModel(ResourceLocationHelper.withDefaultNamespace("template_skull")),
+                ModelLocationHelper.getItemModel(Identifier.withDefaultNamespace("template_skull")),
                 blockModelGenerators);
     }
 
     /**
-     * @see BlockModelGenerators#createHead(Block, Block, SkullBlock.Type, ResourceLocation)
+     * @see BlockModelGenerators#createHead(Block, Block, SkullBlock.Type, Identifier)
      */
-    public final void createHead(Block headBlock, Block wallHeadBlock, ResourceLocation modelLocation, BlockModelGenerators blockModelGenerators) {
+    public final void createHead(Block headBlock, Block wallHeadBlock, Identifier modelLocation, BlockModelGenerators blockModelGenerators) {
         MultiVariant multiVariant = BlockModelGenerators.plainVariant(ModelLocationHelper.getBlockModel(
-                ResourceLocationHelper.withDefaultNamespace("skull")));
+                Identifier.withDefaultNamespace("skull")));
         blockModelGenerators.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(headBlock, multiVariant));
         blockModelGenerators.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(wallHeadBlock,
                 multiVariant));

@@ -1,6 +1,6 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.RabbitModel;
+import net.minecraft.client.model.animal.rabbit.RabbitModel;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 
 public final class RabbitHeadModel extends HeadModelBase {

@@ -1,6 +1,6 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.AllayModel;
+import net.minecraft.client.model.animal.allay.AllayModel;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 

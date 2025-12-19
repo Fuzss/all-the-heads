@@ -1,7 +1,7 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.IllagerModel;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.monster.illager.IllagerModel;
 
 public final class IllagerHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {

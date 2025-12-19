@@ -1,6 +1,6 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.BeeModel;
+import net.minecraft.client.model.animal.bee.BeeModel;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.CubeListBuilder;
 import net.minecraft.client.model.geom.builders.LayerDefinition;

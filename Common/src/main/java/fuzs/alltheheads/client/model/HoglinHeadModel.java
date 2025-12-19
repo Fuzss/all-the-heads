@@ -1,7 +1,7 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.HoglinModel;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.monster.hoglin.HoglinModel;
 
 public final class HoglinHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {

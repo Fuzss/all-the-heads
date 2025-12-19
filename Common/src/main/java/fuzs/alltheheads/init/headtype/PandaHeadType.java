@@ -3,14 +3,14 @@ package fuzs.alltheheads.init.headtype;
 import fuzs.alltheheads.advancements.critereon.PandaPredicate;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
-import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
-import net.minecraft.advancements.critereon.EntityPredicate;
+import net.minecraft.advancements.criterion.EntityPredicate;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.animal.Panda;
+import net.minecraft.world.entity.animal.panda.Panda;
 
 import java.util.function.BiConsumer;
 
@@ -54,7 +54,7 @@ public class PandaHeadType {
                 })
                 .shape(13.0, 10.0, 9.0)
                 .scale(10.0 / 13.0)
-                .model(ModelType.PANDA, ResourceLocationHelper.withDefaultNamespace(textureLocation))
+                .model(ModelType.PANDA, Identifier.withDefaultNamespace(textureLocation))
                 .noteBlockSound(noteBlockSound)
                 .build(context, resourceKey);
     }

@@ -1,7 +1,7 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.ShulkerModel;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.monster.shulker.ShulkerModel;
 
 public final class ShulkerHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {

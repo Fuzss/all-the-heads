@@ -2,7 +2,7 @@ package fuzs.alltheheads.world.item.component.headtype;
 
 import com.mojang.serialization.Codec;
 import fuzs.alltheheads.AllTheHeads;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.ExtraCodecs;
 
 import java.util.Objects;
@@ -10,7 +10,7 @@ import java.util.Objects;
 /**
  * Basically a server-side implementation of {@code ModelLayerLocation}.
  */
-public record ModelType(ResourceLocation model, String layer) {
+public record ModelType(Identifier model, String layer) {
     static final ExtraCodecs.LateBoundIdMapper<String, ModelType> ID_MAPPER = new ExtraCodecs.LateBoundIdMapper<>();
     public static final Codec<ModelType> CODEC = ID_MAPPER.codec(Codec.STRING);
     public static final ModelType ALLAY = register("allay_head");
@@ -54,7 +54,9 @@ public record ModelType(ResourceLocation model, String layer) {
     public static final ModelType MAGMA_CUBE = register("magma_cube_head");
     public static final ModelType MOB = register("mob_head");
     public static final ModelType MOB_OVERLAY = register("mob_head", "overlay");
+    public static final ModelType NAUTILUS = register("nautilus_head");
     public static final ModelType PANDA = register("panda_head");
+    public static final ModelType PARCHED = register("parched_head");
     public static final ModelType PARROT = register("parrot_head");
     public static final ModelType PHANTOM = register("phantom_head");
     public static final ModelType PHANTOM_EYES = register("phantom_head", "eyes");

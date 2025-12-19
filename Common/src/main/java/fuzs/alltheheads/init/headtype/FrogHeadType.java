@@ -2,9 +2,9 @@ package fuzs.alltheheads.init.headtype;
 
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
-import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
-import net.minecraft.advancements.critereon.DataComponentMatchers;
-import net.minecraft.advancements.critereon.EntityPredicate;
+import net.minecraft.resources.Identifier;
+import net.minecraft.advancements.criterion.DataComponentMatchers;
+import net.minecraft.advancements.criterion.EntityPredicate;
 import net.minecraft.core.component.DataComponentExactPredicate;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
@@ -40,7 +40,7 @@ public class FrogHeadType {
                 })
                 .shape(7.0, 5.0, 5.0)
                 .scale(8.0 / 7.0)
-                .model(ModelType.FROG, ResourceLocationHelper.withDefaultNamespace(textureLocation))
+                .model(ModelType.FROG, Identifier.withDefaultNamespace(textureLocation))
                 .noteBlockSound(SoundEvents.FROG_AMBIENT)
                 .build(context, resourceKey);
     }

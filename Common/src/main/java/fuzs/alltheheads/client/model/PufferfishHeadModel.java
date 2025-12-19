@@ -1,6 +1,6 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.PufferfishBigModel;
+import net.minecraft.client.model.animal.fish.PufferfishBigModel;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 
 import java.util.function.UnaryOperator;

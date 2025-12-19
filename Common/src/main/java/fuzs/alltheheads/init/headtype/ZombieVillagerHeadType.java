@@ -3,15 +3,15 @@ package fuzs.alltheheads.init.headtype;
 import fuzs.alltheheads.advancements.critereon.VillagerDataPredicate;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
-import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
-import net.minecraft.advancements.critereon.EntityPredicate;
+import net.minecraft.advancements.criterion.EntityPredicate;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.npc.VillagerProfession;
-import net.minecraft.world.entity.npc.VillagerType;
+import net.minecraft.world.entity.npc.villager.VillagerProfession;
+import net.minecraft.world.entity.npc.villager.VillagerType;
 
 import java.util.function.BiConsumer;
 
@@ -505,9 +505,8 @@ public class ZombieVillagerHeadType {
                 })
                 .shape(8.0, 10.0, 8.0)
                 .scale(0.9375)
-                .model(ModelType.VILLAGER,
-                        ResourceLocationHelper.withDefaultNamespace("entity/zombie_villager/zombie_villager"))
-                .model(ModelType.VILLAGER, type.location().withPrefix("entity/zombie_villager/type/"))
+                .model(ModelType.VILLAGER, Identifier.withDefaultNamespace("entity/zombie_villager/zombie_villager"))
+                .model(ModelType.VILLAGER, type.identifier().withPrefix("entity/zombie_villager/type/"))
                 .noteBlockSound(SoundEvents.ZOMBIE_VILLAGER_AMBIENT)
                 .build(context, resourceKey);
     }
@@ -520,10 +519,9 @@ public class ZombieVillagerHeadType {
                 })
                 .shape(8.0, 10.0, 8.0)
                 .scale(0.9375)
-                .model(ModelType.VILLAGER,
-                        ResourceLocationHelper.withDefaultNamespace("entity/zombie_villager/zombie_villager"))
-                .model(ModelType.VILLAGER, type.location().withPrefix("entity/zombie_villager/type/"))
-                .model(ModelType.VILLAGER, profession.location().withPrefix("entity/zombie_villager/profession/"))
+                .model(ModelType.VILLAGER, Identifier.withDefaultNamespace("entity/zombie_villager/zombie_villager"))
+                .model(ModelType.VILLAGER, type.identifier().withPrefix("entity/zombie_villager/type/"))
+                .model(ModelType.VILLAGER, profession.identifier().withPrefix("entity/zombie_villager/profession/"))
                 .noteBlockSound(SoundEvents.ZOMBIE_VILLAGER_AMBIENT)
                 .build(context, resourceKey);
     }
@@ -531,219 +529,121 @@ public class ZombieVillagerHeadType {
     public static void registerTranslations(BiConsumer<ResourceKey<HeadType>, String> translationConsumer) {
         // Desert Zombie Villagers
         translationConsumer.accept(DESERT_ZOMBIE_VILLAGER, "Desert Zombie Villager Head");
-        translationConsumer.accept(DESERT_ARMORER_ZOMBIE_VILLAGER,
-                "Desert Armorer Zombie Villager Head");
-        translationConsumer.accept(DESERT_BUTCHER_ZOMBIE_VILLAGER,
-                "Desert Butcher Zombie Villager Head");
-        translationConsumer.accept(DESERT_CARTOGRAPHER_ZOMBIE_VILLAGER,
-                "Desert Cartographer Zombie Villager Head");
-        translationConsumer.accept(DESERT_CLERIC_ZOMBIE_VILLAGER,
-                "Desert Cleric Zombie Villager Head");
-        translationConsumer.accept(DESERT_FARMER_ZOMBIE_VILLAGER,
-                "Desert Farmer Zombie Villager Head");
-        translationConsumer.accept(DESERT_FISHERMAN_ZOMBIE_VILLAGER,
-                "Desert Fisherman Zombie Villager Head");
-        translationConsumer.accept(DESERT_FLETCHER_ZOMBIE_VILLAGER,
-                "Desert Fletcher Zombie Villager Head");
-        translationConsumer.accept(DESERT_LEATHERWORKER_ZOMBIE_VILLAGER,
-                "Desert Leatherworker Zombie Villager Head");
-        translationConsumer.accept(DESERT_LIBRARIAN_ZOMBIE_VILLAGER,
-                "Desert Librarian Zombie Villager Head");
-        translationConsumer.accept(DESERT_MASON_ZOMBIE_VILLAGER,
-                "Desert Mason Zombie Villager Head");
-        translationConsumer.accept(DESERT_NITWIT_ZOMBIE_VILLAGER,
-                "Desert Nitwit Zombie Villager Head");
-        translationConsumer.accept(DESERT_SHEPHERD_ZOMBIE_VILLAGER,
-                "Desert Shepherd Zombie Villager Head");
-        translationConsumer.accept(DESERT_TOOLSMITH_ZOMBIE_VILLAGER,
-                "Desert Toolsmith Zombie Villager Head");
-        translationConsumer.accept(DESERT_WEAPONSMITH_ZOMBIE_VILLAGER,
-                "Desert Weaponsmith Zombie Villager Head");
+        translationConsumer.accept(DESERT_ARMORER_ZOMBIE_VILLAGER, "Desert Armorer Zombie Villager Head");
+        translationConsumer.accept(DESERT_BUTCHER_ZOMBIE_VILLAGER, "Desert Butcher Zombie Villager Head");
+        translationConsumer.accept(DESERT_CARTOGRAPHER_ZOMBIE_VILLAGER, "Desert Cartographer Zombie Villager Head");
+        translationConsumer.accept(DESERT_CLERIC_ZOMBIE_VILLAGER, "Desert Cleric Zombie Villager Head");
+        translationConsumer.accept(DESERT_FARMER_ZOMBIE_VILLAGER, "Desert Farmer Zombie Villager Head");
+        translationConsumer.accept(DESERT_FISHERMAN_ZOMBIE_VILLAGER, "Desert Fisherman Zombie Villager Head");
+        translationConsumer.accept(DESERT_FLETCHER_ZOMBIE_VILLAGER, "Desert Fletcher Zombie Villager Head");
+        translationConsumer.accept(DESERT_LEATHERWORKER_ZOMBIE_VILLAGER, "Desert Leatherworker Zombie Villager Head");
+        translationConsumer.accept(DESERT_LIBRARIAN_ZOMBIE_VILLAGER, "Desert Librarian Zombie Villager Head");
+        translationConsumer.accept(DESERT_MASON_ZOMBIE_VILLAGER, "Desert Mason Zombie Villager Head");
+        translationConsumer.accept(DESERT_NITWIT_ZOMBIE_VILLAGER, "Desert Nitwit Zombie Villager Head");
+        translationConsumer.accept(DESERT_SHEPHERD_ZOMBIE_VILLAGER, "Desert Shepherd Zombie Villager Head");
+        translationConsumer.accept(DESERT_TOOLSMITH_ZOMBIE_VILLAGER, "Desert Toolsmith Zombie Villager Head");
+        translationConsumer.accept(DESERT_WEAPONSMITH_ZOMBIE_VILLAGER, "Desert Weaponsmith Zombie Villager Head");
 
         // Jungle Zombie Villagers
         translationConsumer.accept(JUNGLE_ZOMBIE_VILLAGER, "Jungle Zombie Villager Head");
-        translationConsumer.accept(JUNGLE_ARMORER_ZOMBIE_VILLAGER,
-                "Jungle Armorer Zombie Villager Head");
-        translationConsumer.accept(JUNGLE_BUTCHER_ZOMBIE_VILLAGER,
-                "Jungle Butcher Zombie Villager Head");
-        translationConsumer.accept(JUNGLE_CARTOGRAPHER_ZOMBIE_VILLAGER,
-                "Jungle Cartographer Zombie Villager Head");
-        translationConsumer.accept(JUNGLE_CLERIC_ZOMBIE_VILLAGER,
-                "Jungle Cleric Zombie Villager Head");
-        translationConsumer.accept(JUNGLE_FARMER_ZOMBIE_VILLAGER,
-                "Jungle Farmer Zombie Villager Head");
-        translationConsumer.accept(JUNGLE_FISHERMAN_ZOMBIE_VILLAGER,
-                "Jungle Fisherman Zombie Villager Head");
-        translationConsumer.accept(JUNGLE_FLETCHER_ZOMBIE_VILLAGER,
-                "Jungle Fletcher Zombie Villager Head");
-        translationConsumer.accept(JUNGLE_LEATHERWORKER_ZOMBIE_VILLAGER,
-                "Jungle Leatherworker Zombie Villager Head");
-        translationConsumer.accept(JUNGLE_LIBRARIAN_ZOMBIE_VILLAGER,
-                "Jungle Librarian Zombie Villager Head");
-        translationConsumer.accept(JUNGLE_MASON_ZOMBIE_VILLAGER,
-                "Jungle Mason Zombie Villager Head");
-        translationConsumer.accept(JUNGLE_NITWIT_ZOMBIE_VILLAGER,
-                "Jungle Nitwit Zombie Villager Head");
-        translationConsumer.accept(JUNGLE_SHEPHERD_ZOMBIE_VILLAGER,
-                "Jungle Shepherd Zombie Villager Head");
-        translationConsumer.accept(JUNGLE_TOOLSMITH_ZOMBIE_VILLAGER,
-                "Jungle Toolsmith Zombie Villager Head");
-        translationConsumer.accept(JUNGLE_WEAPONSMITH_ZOMBIE_VILLAGER,
-                "Jungle Weaponsmith Zombie Villager Head");
+        translationConsumer.accept(JUNGLE_ARMORER_ZOMBIE_VILLAGER, "Jungle Armorer Zombie Villager Head");
+        translationConsumer.accept(JUNGLE_BUTCHER_ZOMBIE_VILLAGER, "Jungle Butcher Zombie Villager Head");
+        translationConsumer.accept(JUNGLE_CARTOGRAPHER_ZOMBIE_VILLAGER, "Jungle Cartographer Zombie Villager Head");
+        translationConsumer.accept(JUNGLE_CLERIC_ZOMBIE_VILLAGER, "Jungle Cleric Zombie Villager Head");
+        translationConsumer.accept(JUNGLE_FARMER_ZOMBIE_VILLAGER, "Jungle Farmer Zombie Villager Head");
+        translationConsumer.accept(JUNGLE_FISHERMAN_ZOMBIE_VILLAGER, "Jungle Fisherman Zombie Villager Head");
+        translationConsumer.accept(JUNGLE_FLETCHER_ZOMBIE_VILLAGER, "Jungle Fletcher Zombie Villager Head");
+        translationConsumer.accept(JUNGLE_LEATHERWORKER_ZOMBIE_VILLAGER, "Jungle Leatherworker Zombie Villager Head");
+        translationConsumer.accept(JUNGLE_LIBRARIAN_ZOMBIE_VILLAGER, "Jungle Librarian Zombie Villager Head");
+        translationConsumer.accept(JUNGLE_MASON_ZOMBIE_VILLAGER, "Jungle Mason Zombie Villager Head");
+        translationConsumer.accept(JUNGLE_NITWIT_ZOMBIE_VILLAGER, "Jungle Nitwit Zombie Villager Head");
+        translationConsumer.accept(JUNGLE_SHEPHERD_ZOMBIE_VILLAGER, "Jungle Shepherd Zombie Villager Head");
+        translationConsumer.accept(JUNGLE_TOOLSMITH_ZOMBIE_VILLAGER, "Jungle Toolsmith Zombie Villager Head");
+        translationConsumer.accept(JUNGLE_WEAPONSMITH_ZOMBIE_VILLAGER, "Jungle Weaponsmith Zombie Villager Head");
 
         // Plains Zombie Villagers
         translationConsumer.accept(PLAINS_ZOMBIE_VILLAGER, "Plains Zombie Villager Head");
-        translationConsumer.accept(PLAINS_ARMORER_ZOMBIE_VILLAGER,
-                "Plains Armorer Zombie Villager Head");
-        translationConsumer.accept(PLAINS_BUTCHER_ZOMBIE_VILLAGER,
-                "Plains Butcher Zombie Villager Head");
-        translationConsumer.accept(PLAINS_CARTOGRAPHER_ZOMBIE_VILLAGER,
-                "Plains Cartographer Zombie Villager Head");
-        translationConsumer.accept(PLAINS_CLERIC_ZOMBIE_VILLAGER,
-                "Plains Cleric Zombie Villager Head");
-        translationConsumer.accept(PLAINS_FARMER_ZOMBIE_VILLAGER,
-                "Plains Farmer Zombie Villager Head");
-        translationConsumer.accept(PLAINS_FISHERMAN_ZOMBIE_VILLAGER,
-                "Plains Fisherman Zombie Villager Head");
-        translationConsumer.accept(PLAINS_FLETCHER_ZOMBIE_VILLAGER,
-                "Plains Fletcher Zombie Villager Head");
-        translationConsumer.accept(PLAINS_LEATHERWORKER_ZOMBIE_VILLAGER,
-                "Plains Leatherworker Zombie Villager Head");
-        translationConsumer.accept(PLAINS_LIBRARIAN_ZOMBIE_VILLAGER,
-                "Plains Librarian Zombie Villager Head");
-        translationConsumer.accept(PLAINS_MASON_ZOMBIE_VILLAGER,
-                "Plains Mason Zombie Villager Head");
-        translationConsumer.accept(PLAINS_NITWIT_ZOMBIE_VILLAGER,
-                "Plains Nitwit Zombie Villager Head");
-        translationConsumer.accept(PLAINS_SHEPHERD_ZOMBIE_VILLAGER,
-                "Plains Shepherd Zombie Villager Head");
-        translationConsumer.accept(PLAINS_TOOLSMITH_ZOMBIE_VILLAGER,
-                "Plains Toolsmith Zombie Villager Head");
-        translationConsumer.accept(PLAINS_WEAPONSMITH_ZOMBIE_VILLAGER,
-                "Plains Weaponsmith Zombie Villager Head");
+        translationConsumer.accept(PLAINS_ARMORER_ZOMBIE_VILLAGER, "Plains Armorer Zombie Villager Head");
+        translationConsumer.accept(PLAINS_BUTCHER_ZOMBIE_VILLAGER, "Plains Butcher Zombie Villager Head");
+        translationConsumer.accept(PLAINS_CARTOGRAPHER_ZOMBIE_VILLAGER, "Plains Cartographer Zombie Villager Head");
+        translationConsumer.accept(PLAINS_CLERIC_ZOMBIE_VILLAGER, "Plains Cleric Zombie Villager Head");
+        translationConsumer.accept(PLAINS_FARMER_ZOMBIE_VILLAGER, "Plains Farmer Zombie Villager Head");
+        translationConsumer.accept(PLAINS_FISHERMAN_ZOMBIE_VILLAGER, "Plains Fisherman Zombie Villager Head");
+        translationConsumer.accept(PLAINS_FLETCHER_ZOMBIE_VILLAGER, "Plains Fletcher Zombie Villager Head");
+        translationConsumer.accept(PLAINS_LEATHERWORKER_ZOMBIE_VILLAGER, "Plains Leatherworker Zombie Villager Head");
+        translationConsumer.accept(PLAINS_LIBRARIAN_ZOMBIE_VILLAGER, "Plains Librarian Zombie Villager Head");
+        translationConsumer.accept(PLAINS_MASON_ZOMBIE_VILLAGER, "Plains Mason Zombie Villager Head");
+        translationConsumer.accept(PLAINS_NITWIT_ZOMBIE_VILLAGER, "Plains Nitwit Zombie Villager Head");
+        translationConsumer.accept(PLAINS_SHEPHERD_ZOMBIE_VILLAGER, "Plains Shepherd Zombie Villager Head");
+        translationConsumer.accept(PLAINS_TOOLSMITH_ZOMBIE_VILLAGER, "Plains Toolsmith Zombie Villager Head");
+        translationConsumer.accept(PLAINS_WEAPONSMITH_ZOMBIE_VILLAGER, "Plains Weaponsmith Zombie Villager Head");
 
         // Savanna Zombie Villagers
         translationConsumer.accept(SAVANNA_ZOMBIE_VILLAGER, "Savanna Zombie Villager Head");
-        translationConsumer.accept(SAVANNA_ARMORER_ZOMBIE_VILLAGER,
-                "Savanna Armorer Zombie Villager Head");
-        translationConsumer.accept(SAVANNA_BUTCHER_ZOMBIE_VILLAGER,
-                "Savanna Butcher Zombie Villager Head");
-        translationConsumer.accept(SAVANNA_CARTOGRAPHER_ZOMBIE_VILLAGER,
-                "Savanna Cartographer Zombie Villager Head");
-        translationConsumer.accept(SAVANNA_CLERIC_ZOMBIE_VILLAGER,
-                "Savanna Cleric Zombie Villager Head");
-        translationConsumer.accept(SAVANNA_FARMER_ZOMBIE_VILLAGER,
-                "Savanna Farmer Zombie Villager Head");
-        translationConsumer.accept(SAVANNA_FISHERMAN_ZOMBIE_VILLAGER,
-                "Savanna Fisherman Zombie Villager Head");
-        translationConsumer.accept(SAVANNA_FLETCHER_ZOMBIE_VILLAGER,
-                "Savanna Fletcher Zombie Villager Head");
-        translationConsumer.accept(SAVANNA_LEATHERWORKER_ZOMBIE_VILLAGER,
-                "Savanna Leatherworker Zombie Villager Head");
-        translationConsumer.accept(SAVANNA_LIBRARIAN_ZOMBIE_VILLAGER,
-                "Savanna Librarian Zombie Villager Head");
-        translationConsumer.accept(SAVANNA_MASON_ZOMBIE_VILLAGER,
-                "Savanna Mason Zombie Villager Head");
-        translationConsumer.accept(SAVANNA_NITWIT_ZOMBIE_VILLAGER,
-                "Savanna Nitwit Zombie Villager Head");
-        translationConsumer.accept(SAVANNA_SHEPHERD_ZOMBIE_VILLAGER,
-                "Savanna Shepherd Zombie Villager Head");
-        translationConsumer.accept(SAVANNA_TOOLSMITH_ZOMBIE_VILLAGER,
-                "Savanna Toolsmith Zombie Villager Head");
-        translationConsumer.accept(SAVANNA_WEAPONSMITH_ZOMBIE_VILLAGER,
-                "Savanna Weaponsmith Zombie Villager Head");
+        translationConsumer.accept(SAVANNA_ARMORER_ZOMBIE_VILLAGER, "Savanna Armorer Zombie Villager Head");
+        translationConsumer.accept(SAVANNA_BUTCHER_ZOMBIE_VILLAGER, "Savanna Butcher Zombie Villager Head");
+        translationConsumer.accept(SAVANNA_CARTOGRAPHER_ZOMBIE_VILLAGER, "Savanna Cartographer Zombie Villager Head");
+        translationConsumer.accept(SAVANNA_CLERIC_ZOMBIE_VILLAGER, "Savanna Cleric Zombie Villager Head");
+        translationConsumer.accept(SAVANNA_FARMER_ZOMBIE_VILLAGER, "Savanna Farmer Zombie Villager Head");
+        translationConsumer.accept(SAVANNA_FISHERMAN_ZOMBIE_VILLAGER, "Savanna Fisherman Zombie Villager Head");
+        translationConsumer.accept(SAVANNA_FLETCHER_ZOMBIE_VILLAGER, "Savanna Fletcher Zombie Villager Head");
+        translationConsumer.accept(SAVANNA_LEATHERWORKER_ZOMBIE_VILLAGER, "Savanna Leatherworker Zombie Villager Head");
+        translationConsumer.accept(SAVANNA_LIBRARIAN_ZOMBIE_VILLAGER, "Savanna Librarian Zombie Villager Head");
+        translationConsumer.accept(SAVANNA_MASON_ZOMBIE_VILLAGER, "Savanna Mason Zombie Villager Head");
+        translationConsumer.accept(SAVANNA_NITWIT_ZOMBIE_VILLAGER, "Savanna Nitwit Zombie Villager Head");
+        translationConsumer.accept(SAVANNA_SHEPHERD_ZOMBIE_VILLAGER, "Savanna Shepherd Zombie Villager Head");
+        translationConsumer.accept(SAVANNA_TOOLSMITH_ZOMBIE_VILLAGER, "Savanna Toolsmith Zombie Villager Head");
+        translationConsumer.accept(SAVANNA_WEAPONSMITH_ZOMBIE_VILLAGER, "Savanna Weaponsmith Zombie Villager Head");
 
         // Snow Zombie Villagers
         translationConsumer.accept(SNOW_ZOMBIE_VILLAGER, "Snow Zombie Villager Head");
-        translationConsumer.accept(SNOW_ARMORER_ZOMBIE_VILLAGER,
-                "Snow Armorer Zombie Villager Head");
-        translationConsumer.accept(SNOW_BUTCHER_ZOMBIE_VILLAGER,
-                "Snow Butcher Zombie Villager Head");
-        translationConsumer.accept(SNOW_CARTOGRAPHER_ZOMBIE_VILLAGER,
-                "Snow Cartographer Zombie Villager Head");
-        translationConsumer.accept(SNOW_CLERIC_ZOMBIE_VILLAGER,
-                "Snow Cleric Zombie Villager Head");
-        translationConsumer.accept(SNOW_FARMER_ZOMBIE_VILLAGER,
-                "Snow Farmer Zombie Villager Head");
-        translationConsumer.accept(SNOW_FISHERMAN_ZOMBIE_VILLAGER,
-                "Snow Fisherman Zombie Villager Head");
-        translationConsumer.accept(SNOW_FLETCHER_ZOMBIE_VILLAGER,
-                "Snow Fletcher Zombie Villager Head");
-        translationConsumer.accept(SNOW_LEATHERWORKER_ZOMBIE_VILLAGER,
-                "Snow Leatherworker Zombie Villager Head");
-        translationConsumer.accept(SNOW_LIBRARIAN_ZOMBIE_VILLAGER,
-                "Snow Librarian Zombie Villager Head");
-        translationConsumer.accept(SNOW_MASON_ZOMBIE_VILLAGER,
-                "Snow Mason Zombie Villager Head");
-        translationConsumer.accept(SNOW_NITWIT_ZOMBIE_VILLAGER,
-                "Snow Nitwit Zombie Villager Head");
-        translationConsumer.accept(SNOW_SHEPHERD_ZOMBIE_VILLAGER,
-                "Snow Shepherd Zombie Villager Head");
-        translationConsumer.accept(SNOW_TOOLSMITH_ZOMBIE_VILLAGER,
-                "Snow Toolsmith Zombie Villager Head");
-        translationConsumer.accept(SNOW_WEAPONSMITH_ZOMBIE_VILLAGER,
-                "Snow Weaponsmith Zombie Villager Head");
+        translationConsumer.accept(SNOW_ARMORER_ZOMBIE_VILLAGER, "Snow Armorer Zombie Villager Head");
+        translationConsumer.accept(SNOW_BUTCHER_ZOMBIE_VILLAGER, "Snow Butcher Zombie Villager Head");
+        translationConsumer.accept(SNOW_CARTOGRAPHER_ZOMBIE_VILLAGER, "Snow Cartographer Zombie Villager Head");
+        translationConsumer.accept(SNOW_CLERIC_ZOMBIE_VILLAGER, "Snow Cleric Zombie Villager Head");
+        translationConsumer.accept(SNOW_FARMER_ZOMBIE_VILLAGER, "Snow Farmer Zombie Villager Head");
+        translationConsumer.accept(SNOW_FISHERMAN_ZOMBIE_VILLAGER, "Snow Fisherman Zombie Villager Head");
+        translationConsumer.accept(SNOW_FLETCHER_ZOMBIE_VILLAGER, "Snow Fletcher Zombie Villager Head");
+        translationConsumer.accept(SNOW_LEATHERWORKER_ZOMBIE_VILLAGER, "Snow Leatherworker Zombie Villager Head");
+        translationConsumer.accept(SNOW_LIBRARIAN_ZOMBIE_VILLAGER, "Snow Librarian Zombie Villager Head");
+        translationConsumer.accept(SNOW_MASON_ZOMBIE_VILLAGER, "Snow Mason Zombie Villager Head");
+        translationConsumer.accept(SNOW_NITWIT_ZOMBIE_VILLAGER, "Snow Nitwit Zombie Villager Head");
+        translationConsumer.accept(SNOW_SHEPHERD_ZOMBIE_VILLAGER, "Snow Shepherd Zombie Villager Head");
+        translationConsumer.accept(SNOW_TOOLSMITH_ZOMBIE_VILLAGER, "Snow Toolsmith Zombie Villager Head");
+        translationConsumer.accept(SNOW_WEAPONSMITH_ZOMBIE_VILLAGER, "Snow Weaponsmith Zombie Villager Head");
 
         // Swamp Zombie Villagers
         translationConsumer.accept(SWAMP_ZOMBIE_VILLAGER, "Swamp Zombie Villager Head");
-        translationConsumer.accept(SWAMP_ARMORER_ZOMBIE_VILLAGER,
-                "Swamp Armorer Zombie Villager Head");
-        translationConsumer.accept(SWAMP_BUTCHER_ZOMBIE_VILLAGER,
-                "Swamp Butcher Zombie Villager Head");
-        translationConsumer.accept(SWAMP_CARTOGRAPHER_ZOMBIE_VILLAGER,
-                "Swamp Cartographer Zombie Villager Head");
-        translationConsumer.accept(SWAMP_CLERIC_ZOMBIE_VILLAGER,
-                "Swamp Cleric Zombie Villager Head");
-        translationConsumer.accept(SWAMP_FARMER_ZOMBIE_VILLAGER,
-                "Swamp Farmer Zombie Villager Head");
-        translationConsumer.accept(SWAMP_FISHERMAN_ZOMBIE_VILLAGER,
-                "Swamp Fisherman Zombie Villager Head");
-        translationConsumer.accept(SWAMP_FLETCHER_ZOMBIE_VILLAGER,
-                "Swamp Fletcher Zombie Villager Head");
-        translationConsumer.accept(SWAMP_LEATHERWORKER_ZOMBIE_VILLAGER,
-                "Swamp Leatherworker Zombie Villager Head");
-        translationConsumer.accept(SWAMP_LIBRARIAN_ZOMBIE_VILLAGER,
-                "Swamp Librarian Zombie Villager Head");
-        translationConsumer.accept(SWAMP_MASON_ZOMBIE_VILLAGER,
-                "Swamp Mason Zombie Villager Head");
-        translationConsumer.accept(SWAMP_NITWIT_ZOMBIE_VILLAGER,
-                "Swamp Nitwit Zombie Villager Head");
-        translationConsumer.accept(SWAMP_SHEPHERD_ZOMBIE_VILLAGER,
-                "Swamp Shepherd Zombie Villager Head");
-        translationConsumer.accept(SWAMP_TOOLSMITH_ZOMBIE_VILLAGER,
-                "Swamp Toolsmith Zombie Villager Head");
-        translationConsumer.accept(SWAMP_WEAPONSMITH_ZOMBIE_VILLAGER,
-                "Swamp Weaponsmith Zombie Villager Head");
+        translationConsumer.accept(SWAMP_ARMORER_ZOMBIE_VILLAGER, "Swamp Armorer Zombie Villager Head");
+        translationConsumer.accept(SWAMP_BUTCHER_ZOMBIE_VILLAGER, "Swamp Butcher Zombie Villager Head");
+        translationConsumer.accept(SWAMP_CARTOGRAPHER_ZOMBIE_VILLAGER, "Swamp Cartographer Zombie Villager Head");
+        translationConsumer.accept(SWAMP_CLERIC_ZOMBIE_VILLAGER, "Swamp Cleric Zombie Villager Head");
+        translationConsumer.accept(SWAMP_FARMER_ZOMBIE_VILLAGER, "Swamp Farmer Zombie Villager Head");
+        translationConsumer.accept(SWAMP_FISHERMAN_ZOMBIE_VILLAGER, "Swamp Fisherman Zombie Villager Head");
+        translationConsumer.accept(SWAMP_FLETCHER_ZOMBIE_VILLAGER, "Swamp Fletcher Zombie Villager Head");
+        translationConsumer.accept(SWAMP_LEATHERWORKER_ZOMBIE_VILLAGER, "Swamp Leatherworker Zombie Villager Head");
+        translationConsumer.accept(SWAMP_LIBRARIAN_ZOMBIE_VILLAGER, "Swamp Librarian Zombie Villager Head");
+        translationConsumer.accept(SWAMP_MASON_ZOMBIE_VILLAGER, "Swamp Mason Zombie Villager Head");
+        translationConsumer.accept(SWAMP_NITWIT_ZOMBIE_VILLAGER, "Swamp Nitwit Zombie Villager Head");
+        translationConsumer.accept(SWAMP_SHEPHERD_ZOMBIE_VILLAGER, "Swamp Shepherd Zombie Villager Head");
+        translationConsumer.accept(SWAMP_TOOLSMITH_ZOMBIE_VILLAGER, "Swamp Toolsmith Zombie Villager Head");
+        translationConsumer.accept(SWAMP_WEAPONSMITH_ZOMBIE_VILLAGER, "Swamp Weaponsmith Zombie Villager Head");
 
         // Taiga Zombie Villagers
         translationConsumer.accept(TAIGA_ZOMBIE_VILLAGER, "Taiga Zombie Villager Head");
-        translationConsumer.accept(TAIGA_ARMORER_ZOMBIE_VILLAGER,
-                "Taiga Armorer Zombie Villager Head");
-        translationConsumer.accept(TAIGA_BUTCHER_ZOMBIE_VILLAGER,
-                "Taiga Butcher Zombie Villager Head");
-        translationConsumer.accept(TAIGA_CARTOGRAPHER_ZOMBIE_VILLAGER,
-                "Taiga Cartographer Zombie Villager Head");
-        translationConsumer.accept(TAIGA_CLERIC_ZOMBIE_VILLAGER,
-                "Taiga Cleric Zombie Villager Head");
-        translationConsumer.accept(TAIGA_FARMER_ZOMBIE_VILLAGER,
-                "Taiga Farmer Zombie Villager Head");
-        translationConsumer.accept(TAIGA_FISHERMAN_ZOMBIE_VILLAGER,
-                "Taiga Fisherman Zombie Villager Head");
-        translationConsumer.accept(TAIGA_FLETCHER_ZOMBIE_VILLAGER,
-                "Taiga Fletcher Zombie Villager Head");
-        translationConsumer.accept(TAIGA_LEATHERWORKER_ZOMBIE_VILLAGER,
-                "Taiga Leatherworker Zombie Villager Head");
-        translationConsumer.accept(TAIGA_LIBRARIAN_ZOMBIE_VILLAGER,
-                "Taiga Librarian Zombie Villager Head");
-        translationConsumer.accept(TAIGA_MASON_ZOMBIE_VILLAGER,
-                "Taiga Mason Zombie Villager Head");
-        translationConsumer.accept(TAIGA_NITWIT_ZOMBIE_VILLAGER,
-                "Taiga Nitwit Zombie Villager Head");
-        translationConsumer.accept(TAIGA_SHEPHERD_ZOMBIE_VILLAGER,
-                "Taiga Shepherd Zombie Villager Head");
-        translationConsumer.accept(TAIGA_TOOLSMITH_ZOMBIE_VILLAGER,
-                "Taiga Toolsmith Zombie Villager Head");
-        translationConsumer.accept(TAIGA_WEAPONSMITH_ZOMBIE_VILLAGER,
-                "Taiga Weaponsmith Zombie Villager Head");
+        translationConsumer.accept(TAIGA_ARMORER_ZOMBIE_VILLAGER, "Taiga Armorer Zombie Villager Head");
+        translationConsumer.accept(TAIGA_BUTCHER_ZOMBIE_VILLAGER, "Taiga Butcher Zombie Villager Head");
+        translationConsumer.accept(TAIGA_CARTOGRAPHER_ZOMBIE_VILLAGER, "Taiga Cartographer Zombie Villager Head");
+        translationConsumer.accept(TAIGA_CLERIC_ZOMBIE_VILLAGER, "Taiga Cleric Zombie Villager Head");
+        translationConsumer.accept(TAIGA_FARMER_ZOMBIE_VILLAGER, "Taiga Farmer Zombie Villager Head");
+        translationConsumer.accept(TAIGA_FISHERMAN_ZOMBIE_VILLAGER, "Taiga Fisherman Zombie Villager Head");
+        translationConsumer.accept(TAIGA_FLETCHER_ZOMBIE_VILLAGER, "Taiga Fletcher Zombie Villager Head");
+        translationConsumer.accept(TAIGA_LEATHERWORKER_ZOMBIE_VILLAGER, "Taiga Leatherworker Zombie Villager Head");
+        translationConsumer.accept(TAIGA_LIBRARIAN_ZOMBIE_VILLAGER, "Taiga Librarian Zombie Villager Head");
+        translationConsumer.accept(TAIGA_MASON_ZOMBIE_VILLAGER, "Taiga Mason Zombie Villager Head");
+        translationConsumer.accept(TAIGA_NITWIT_ZOMBIE_VILLAGER, "Taiga Nitwit Zombie Villager Head");
+        translationConsumer.accept(TAIGA_SHEPHERD_ZOMBIE_VILLAGER, "Taiga Shepherd Zombie Villager Head");
+        translationConsumer.accept(TAIGA_TOOLSMITH_ZOMBIE_VILLAGER, "Taiga Toolsmith Zombie Villager Head");
+        translationConsumer.accept(TAIGA_WEAPONSMITH_ZOMBIE_VILLAGER, "Taiga Weaponsmith Zombie Villager Head");
     }
 }

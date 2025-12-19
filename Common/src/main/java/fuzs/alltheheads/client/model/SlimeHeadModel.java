@@ -1,7 +1,7 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.SlimeModel;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.monster.slime.SlimeModel;
 
 import java.util.function.UnaryOperator;
 

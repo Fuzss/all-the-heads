@@ -1,6 +1,6 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.SalmonModel;
+import net.minecraft.client.model.animal.fish.SalmonModel;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 
 public final class SalmonHeadModel extends HeadModelBase {

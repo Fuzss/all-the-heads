@@ -1,6 +1,6 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.TadpoleModel;
+import net.minecraft.client.model.animal.frog.TadpoleModel;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 
 public final class TadpoleHeadModel extends HeadModelBase {

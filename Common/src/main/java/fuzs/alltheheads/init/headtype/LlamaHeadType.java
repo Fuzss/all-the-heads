@@ -2,16 +2,16 @@ package fuzs.alltheheads.init.headtype;
 
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
-import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
-import net.minecraft.advancements.critereon.DataComponentMatchers;
-import net.minecraft.advancements.critereon.EntityPredicate;
+import net.minecraft.advancements.criterion.DataComponentMatchers;
+import net.minecraft.advancements.criterion.EntityPredicate;
 import net.minecraft.core.component.DataComponentExactPredicate;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.animal.horse.Llama;
+import net.minecraft.world.entity.animal.equine.Llama;
 
 import java.util.function.BiConsumer;
 
@@ -46,7 +46,7 @@ public class LlamaHeadType {
                             .build());
                 })
                 .shape(8.0, 10.0, 6.0)
-                .model(ModelType.LLAMA, ResourceLocationHelper.withDefaultNamespace(textureLocation))
+                .model(ModelType.LLAMA, Identifier.withDefaultNamespace(textureLocation))
                 .noteBlockSound(SoundEvents.LLAMA_AMBIENT)
                 .build(context, resourceKey);
     }
@@ -59,9 +59,9 @@ public class LlamaHeadType {
                             .build());
                 })
                 .shape(8.0, 10.0, 6.0)
-                .model(ModelType.LLAMA, ResourceLocationHelper.withDefaultNamespace(textureLocation))
+                .model(ModelType.LLAMA, Identifier.withDefaultNamespace(textureLocation))
                 .model(ModelType.LLAMA_DECOR,
-                        ResourceLocationHelper.withDefaultNamespace("entity/equipment/llama_body/trader_llama"))
+                        Identifier.withDefaultNamespace("entity/equipment/llama_body/trader_llama"))
                 .noteBlockSound(SoundEvents.LLAMA_AMBIENT)
                 .build(context, resourceKey);
     }

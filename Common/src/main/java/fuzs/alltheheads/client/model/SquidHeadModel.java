@@ -1,6 +1,6 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.SquidModel;
+import net.minecraft.client.model.animal.squid.SquidModel;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 
 public final class SquidHeadModel extends HeadModelBase {

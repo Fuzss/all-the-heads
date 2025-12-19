@@ -1,6 +1,6 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.IronGolemModel;
+import net.minecraft.client.model.animal.golem.IronGolemModel;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 
 public final class IronGolemHeadModel extends HeadModelBase {

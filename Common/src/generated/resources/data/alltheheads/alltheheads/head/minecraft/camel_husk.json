@@ -1,0 +1,20 @@
+{
+  "custom_name": "minecraft.camel_husk",
+  "entity_predicate": {
+    "type": "minecraft:camel_husk"
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/camel_husk",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/camel/camel_husk",
+      "model": "alltheheads:camel_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.camel_husk.ambient",
+  "shape": {
+    "depth": 7.0,
+    "height": 14.0,
+    "scale": 0.8571428571428571,
+    "width": 7.0
+  }
+}

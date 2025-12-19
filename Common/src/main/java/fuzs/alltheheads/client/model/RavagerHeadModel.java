@@ -1,8 +1,8 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.RavagerModel;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
+import net.minecraft.client.model.monster.ravager.RavagerModel;
 
 public final class RavagerHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {

@@ -1,4 +1,4 @@
-// 1.21.10	2025-10-11T11:24:08.384397	Tags for alltheheads:head mod id vanilla
+// 1.21.11	2025-12-19T19:33:30.648354	Tags for alltheheads:head mod id vanilla
 d4507b588828543da6d8fa05fc1f8acc0d8a369d data/alltheheads/tags/alltheheads/head/minecraft/entities/allay.json
 b8bf633f131f61621677f73a49f248f10a8a229d data/alltheheads/tags/alltheheads/head/minecraft/entities/armadillo.json
 578cfb648ac3d78ee877bb62ca697223d8e034d6 data/alltheheads/tags/alltheheads/head/minecraft/entities/axolotl.json
@@ -8,6 +8,7 @@ becb596eb870b2c45c39597b79fdeffa17466a2e data/alltheheads/tags/alltheheads/head/
 0acb79c61924fc0c71f0f9f710908dfc74745d63 data/alltheheads/tags/alltheheads/head/minecraft/entities/bogged.json
 6b0203d37dd5cdd7e6e101d8befda5a4027b7daa data/alltheheads/tags/alltheheads/head/minecraft/entities/breeze.json
 5b5f3840d8892eff8ac0e8b6d447cfbf0e42def9 data/alltheheads/tags/alltheheads/head/minecraft/entities/camel.json
+378bc8832617cf21f7e6339de1a6dd4312193f1d data/alltheheads/tags/alltheheads/head/minecraft/entities/camel_husk.json
 e1493e663463f390006b5c1110cca31bdd0462cb data/alltheheads/tags/alltheheads/head/minecraft/entities/cat.json
 3920972687944df0a583448d8119dbda6f77aa36 data/alltheheads/tags/alltheheads/head/minecraft/entities/cave_spider.json
 f55b9b7fd9e249c352686a4fab1317283bd4aeb4 data/alltheheads/tags/alltheheads/head/minecraft/entities/chicken.json
@@ -40,8 +41,10 @@ bf941ac9830198fbedd9751ffc3d0cc7ff656ba0 data/alltheheads/tags/alltheheads/head/
 ac2774d50cd1d342b0388393c8d5c4763946e30e data/alltheheads/tags/alltheheads/head/minecraft/entities/magma_cube.json
 4f1a9f0438d7d80d17b4c914ed428c7ace4e33d9 data/alltheheads/tags/alltheheads/head/minecraft/entities/mooshroom.json
 ba03bf795d7b62eba6281a8f41c8d1794c5a8b16 data/alltheheads/tags/alltheheads/head/minecraft/entities/mule.json
+1ed87239d927993f4b943de87e654ab91b7c931a data/alltheheads/tags/alltheheads/head/minecraft/entities/nautilus.json
 3610a1dd2e63103a1f95892066637f25252ff011 data/alltheheads/tags/alltheheads/head/minecraft/entities/ocelot.json
 022b788f38ec988cb6d0b529dfa8702f0a90f06a data/alltheheads/tags/alltheheads/head/minecraft/entities/panda.json
+18acb3e0b93489ab2a7a2be6fa62080749cb30e5 data/alltheheads/tags/alltheheads/head/minecraft/entities/parched.json
 99d3b7d1e963f62cd027295a25655edc5b62a298 data/alltheheads/tags/alltheheads/head/minecraft/entities/parrot.json
 d98fb98a09c36f0cbf96055dcf66b65a3adf09ad data/alltheheads/tags/alltheheads/head/minecraft/entities/phantom.json
 0e68c44cf99ad6fe4caf3171df6b802497ecb346 data/alltheheads/tags/alltheheads/head/minecraft/entities/pig.json
@@ -77,6 +80,7 @@ d1e1e9637eeec48bffa13dfb8737d765dc4c4c83 data/alltheheads/tags/alltheheads/head/
 81795eb816085f42263c7d51d160850c53052ab9 data/alltheheads/tags/alltheheads/head/minecraft/entities/wolf.json
 4ac37c3bad4935858e2f082ce10fc7e0c99d4034 data/alltheheads/tags/alltheheads/head/minecraft/entities/zoglin.json
 9f42e0e8aa403c4c371be434529625db5854431c data/alltheheads/tags/alltheheads/head/minecraft/entities/zombie_horse.json
+aca8aa1f3a9674ae51ea455748ec2d850be78afe data/alltheheads/tags/alltheheads/head/minecraft/entities/zombie_nautilus.json
 3fcab5c0991878152a696cd40f3373fbfd34b1af data/alltheheads/tags/alltheheads/head/minecraft/entities/zombie_villager.json
 b23cb93fdb6335c5e332dc35cbe841a326a6fb50 data/alltheheads/tags/alltheheads/head/minecraft/entities/zombified_piglin.json
 2199825b5366f8edf7639277b2f13226756f0394 data/alltheheads/tags/alltheheads/head/villager_like.json

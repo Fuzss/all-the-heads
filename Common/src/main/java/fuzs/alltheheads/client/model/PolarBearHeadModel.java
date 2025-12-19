@@ -1,6 +1,6 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.PolarBearModel;
+import net.minecraft.client.model.animal.polarbear.PolarBearModel;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 
 public final class PolarBearHeadModel extends HeadModelBase {

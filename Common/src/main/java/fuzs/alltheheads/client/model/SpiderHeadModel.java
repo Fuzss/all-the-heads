@@ -1,7 +1,7 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.SpiderModel;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.monster.spider.SpiderModel;
 
 public final class SpiderHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {

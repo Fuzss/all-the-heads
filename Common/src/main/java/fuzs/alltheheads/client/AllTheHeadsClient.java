@@ -11,13 +11,13 @@ import fuzs.puzzleslib.api.client.core.v1.ClientModConstructor;
 import fuzs.puzzleslib.api.client.core.v1.context.*;
 import fuzs.puzzleslib.api.client.event.v1.renderer.AddLivingEntityRenderLayersCallback;
 import fuzs.puzzleslib.api.client.event.v1.renderer.ExtractRenderStateCallback;
-import net.minecraft.client.model.PiglinHeadModel;
-import net.minecraft.client.model.SkullModel;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.model.geom.LayerDefinitions;
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.object.skull.PiglinHeadModel;
+import net.minecraft.client.model.object.skull.SkullModel;
 import net.minecraft.client.resources.DefaultPlayerSkin;
 
 public class AllTheHeadsClient implements ClientModConstructor {
@@ -117,8 +117,12 @@ public class AllTheHeadsClient implements ClientModConstructor {
                 () -> MobHeadModel.createHeadLayer(CubeDeformation.NONE));
         context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.MOB_OVERLAY),
                 () -> MobHeadModel.createHeadLayer(new CubeDeformation(0.25F)));
+        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.NAUTILUS),
+                NautilusHeadModel::createHeadLayer);
         context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.PANDA),
                 PandaHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.PARCHED),
+                ParchedHeadModel::createHeadLayer);
         context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.PARROT),
                 ParrotHeadModel::createHeadLayer);
         context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.PHANTOM),

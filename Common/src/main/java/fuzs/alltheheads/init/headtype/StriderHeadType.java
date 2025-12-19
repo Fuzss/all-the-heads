@@ -3,8 +3,8 @@ package fuzs.alltheheads.init.headtype;
 import fuzs.alltheheads.advancements.critereon.StriderPredicate;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
-import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
-import net.minecraft.advancements.critereon.EntityPredicate;
+import net.minecraft.resources.Identifier;
+import net.minecraft.advancements.criterion.EntityPredicate;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
@@ -31,7 +31,7 @@ public class StriderHeadType {
                 })
                 .shape(16.0, 14.0, 16.0)
                 .scale(0.625)
-                .model(ModelType.STRIDER, ResourceLocationHelper.withDefaultNamespace(textureLocation))
+                .model(ModelType.STRIDER, Identifier.withDefaultNamespace(textureLocation))
                 .noteBlockSound(noteBlockSound)
                 .build(context, resourceKey);
     }

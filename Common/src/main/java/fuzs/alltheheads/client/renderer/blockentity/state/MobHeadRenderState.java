@@ -3,7 +3,7 @@ package fuzs.alltheheads.client.renderer.blockentity.state;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import net.minecraft.client.renderer.blockentity.state.SkullBlockRenderState;
 import net.minecraft.core.Holder;
-import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.Nullable;
 
 public class MobHeadRenderState extends SkullBlockRenderState {
     @Nullable

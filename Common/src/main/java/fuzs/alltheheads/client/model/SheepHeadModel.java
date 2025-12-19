@@ -1,7 +1,7 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.SheepFurModel;
-import net.minecraft.client.model.SheepModel;
+import net.minecraft.client.model.animal.sheep.SheepFurModel;
+import net.minecraft.client.model.animal.sheep.SheepModel;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 
 public final class SheepHeadModel extends HeadModelBase {

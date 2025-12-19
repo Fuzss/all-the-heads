@@ -3,10 +3,10 @@ package fuzs.alltheheads.init.headtype;
 import fuzs.alltheheads.world.item.component.headtype.Color;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
-import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
-import net.minecraft.advancements.critereon.DataComponentMatchers;
-import net.minecraft.advancements.critereon.EntityPredicate;
-import net.minecraft.advancements.critereon.SheepPredicate;
+import net.minecraft.resources.Identifier;
+import net.minecraft.advancements.criterion.DataComponentMatchers;
+import net.minecraft.advancements.criterion.EntityPredicate;
+import net.minecraft.advancements.criterion.SheepPredicate;
 import net.minecraft.core.component.DataComponentExactPredicate;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -82,9 +82,9 @@ public class SheepHeadType {
                             .build()).subPredicate(new SheepPredicate(Optional.of(true)));
                 })
                 .shape(6.0, 6.0, 8.0)
-                .model(ModelType.SHEEP, ResourceLocationHelper.withDefaultNamespace("entity/sheep/sheep"))
+                .model(ModelType.SHEEP, Identifier.withDefaultNamespace("entity/sheep/sheep"))
                 .dyedModel(ModelType.SHEEP,
-                        ResourceLocationHelper.withDefaultNamespace("entity/sheep/sheep_wool_undercoat"),
+                        Identifier.withDefaultNamespace("entity/sheep/sheep_wool_undercoat"),
                         new Color.Rainbow())
                 .noteBlockSound(SoundEvents.SHEEP_AMBIENT)
                 .build(context, RAINBOW_SHEEP);
@@ -96,12 +96,12 @@ public class SheepHeadType {
                             .build()).subPredicate(SheepPredicate.hasWool());
                 })
                 .shape(6.0, 6.0, 8.0)
-                .model(ModelType.SHEEP, ResourceLocationHelper.withDefaultNamespace("entity/sheep/sheep"))
+                .model(ModelType.SHEEP, Identifier.withDefaultNamespace("entity/sheep/sheep"))
                 .dyedModel(ModelType.SHEEP,
-                        ResourceLocationHelper.withDefaultNamespace("entity/sheep/sheep_wool_undercoat"),
+                        Identifier.withDefaultNamespace("entity/sheep/sheep_wool_undercoat"),
                         new Color.Rainbow())
                 .dyedModel(ModelType.SHEEP_WOOL,
-                        ResourceLocationHelper.withDefaultNamespace("entity/sheep/sheep_wool"),
+                        Identifier.withDefaultNamespace("entity/sheep/sheep_wool"),
                         new Color.Rainbow())
                 .noteBlockSound(SoundEvents.SHEEP_AMBIENT)
                 .build(context, RAINBOW_WOOLLY_SHEEP);
@@ -120,9 +120,9 @@ public class SheepHeadType {
                             .build()).subPredicate(new SheepPredicate(Optional.of(true)));
                 })
                 .shape(6.0, 6.0, 8.0)
-                .model(ModelType.SHEEP, ResourceLocationHelper.withDefaultNamespace("entity/sheep/sheep"))
+                .model(ModelType.SHEEP, Identifier.withDefaultNamespace("entity/sheep/sheep"))
                 .dyedModel(ModelType.SHEEP,
-                        ResourceLocationHelper.withDefaultNamespace("entity/sheep/sheep_wool_undercoat"),
+                        Identifier.withDefaultNamespace("entity/sheep/sheep_wool_undercoat"),
                         new Color.Sheep(dyeColor))
                 .noteBlockSound(SoundEvents.SHEEP_AMBIENT)
                 .build(context, resourceKey);
@@ -136,12 +136,12 @@ public class SheepHeadType {
                             .build()).subPredicate(SheepPredicate.hasWool());
                 })
                 .shape(6.0, 6.0, 8.0)
-                .model(ModelType.SHEEP, ResourceLocationHelper.withDefaultNamespace("entity/sheep/sheep"))
+                .model(ModelType.SHEEP, Identifier.withDefaultNamespace("entity/sheep/sheep"))
                 .dyedModel(ModelType.SHEEP,
-                        ResourceLocationHelper.withDefaultNamespace("entity/sheep/sheep_wool_undercoat"),
+                        Identifier.withDefaultNamespace("entity/sheep/sheep_wool_undercoat"),
                         new Color.Sheep(dyeColor))
                 .dyedModel(ModelType.SHEEP_WOOL,
-                        ResourceLocationHelper.withDefaultNamespace("entity/sheep/sheep_wool"),
+                        Identifier.withDefaultNamespace("entity/sheep/sheep_wool"),
                         new Color.Sheep(dyeColor))
                 .noteBlockSound(SoundEvents.SHEEP_AMBIENT)
                 .build(context, resourceKey);

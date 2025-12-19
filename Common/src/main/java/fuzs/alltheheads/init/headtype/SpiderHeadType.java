@@ -2,7 +2,7 @@ package fuzs.alltheheads.init.headtype;
 
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
-import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
+import net.minecraft.resources.Identifier;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
@@ -29,8 +29,8 @@ public class SpiderHeadType {
     private static void bootstrapSpider(BootstrapContext<HeadType> context, EntityType<?> entityType, ResourceKey<HeadType> resourceKey, String textureLocation, SoundEvent noteBlockSound) {
         HeadType.builder(entityType)
                 .shape(8.0, 8.0, 8.0)
-                .model(ModelType.SPIDER, ResourceLocationHelper.withDefaultNamespace(textureLocation))
-                .model(ModelType.SPIDER_EYES, ResourceLocationHelper.withDefaultNamespace("entity/spider_eyes"))
+                .model(ModelType.SPIDER, Identifier.withDefaultNamespace(textureLocation))
+                .model(ModelType.SPIDER_EYES, Identifier.withDefaultNamespace("entity/spider_eyes"))
                 .noteBlockSound(noteBlockSound)
                 .build(context, resourceKey);
     }

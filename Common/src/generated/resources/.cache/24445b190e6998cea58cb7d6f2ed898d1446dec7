@@ -1,4 +1,4 @@
-// 1.21.10	2025-10-11T11:24:08.388323	Mod Entity Loot Provider
+// 1.21.11	2025-12-19T19:33:30.652346	Mod Entity Loot Provider
 3339143dc061056e572d1eb1602cf683dcb70218 data/alltheheads/loot_table/entities/heads/minecraft/allay.json
 a1c190007cbd881e30f673a6e81cfecfdcc56647 data/alltheheads/loot_table/entities/heads/minecraft/armadillo.json
 8d148f17e54cd28f2e9c11e28b94ebe66c457e93 data/alltheheads/loot_table/entities/heads/minecraft/axolotl/blue.json
@@ -15,6 +15,7 @@ d13fcc5ea287a3650c17685bfed56574a904024d data/alltheheads/loot_table/entities/he
 417cfc68d90d48fd7ae5e26ba2cffd9f0160991d data/alltheheads/loot_table/entities/heads/minecraft/bogged.json
 40475367236d3cb22c9bb5e718c5b96da70c70a1 data/alltheheads/loot_table/entities/heads/minecraft/breeze.json
 20f5518eeec3944454ee0f8a0b0b7b0b8d61e373 data/alltheheads/loot_table/entities/heads/minecraft/camel.json
+a8bf1dafd874368155a9e83c404f9c6630749331 data/alltheheads/loot_table/entities/heads/minecraft/camel_husk.json
 6d0f143338d11d3fbb1b0f9e41a029d253d6ee7e data/alltheheads/loot_table/entities/heads/minecraft/cat/all_black.json
 cf09313224601d1b5a87faa527319b179024f571 data/alltheheads/loot_table/entities/heads/minecraft/cat/black.json
 e6192e3c153193d0ee2d316a2225d5e5b2ba0f55 data/alltheheads/loot_table/entities/heads/minecraft/cat/british_shorthair.json
@@ -106,6 +107,7 @@ df9fa8cb7186e896eda32321751ab3e260861f61 data/alltheheads/loot_table/entities/he
 2e00c5ee4606b6f43bc88eb24f967077bef77acf data/alltheheads/loot_table/entities/heads/minecraft/mooshroom/brown.json
 80a13e0cc5d37e0fe0ba5c5df173818da0de8e51 data/alltheheads/loot_table/entities/heads/minecraft/mooshroom/red.json
 a72ad81c87971d27a09c4530993e968000335b62 data/alltheheads/loot_table/entities/heads/minecraft/mule.json
+774d8aa78f9b4b5d9011dd657da36d064508d812 data/alltheheads/loot_table/entities/heads/minecraft/nautilus.json
 dc3a263c60b8cf27c9d22fb0f4f7a6ef4dab4ced data/alltheheads/loot_table/entities/heads/minecraft/ocelot.json
 1934be3f84a9dc9ccb05291d944d0f2bd10c34ff data/alltheheads/loot_table/entities/heads/minecraft/panda.json
 fb9f2b08b24e7d26ec46a3c453f161bc584cda35 data/alltheheads/loot_table/entities/heads/minecraft/panda/aggressive.json
@@ -114,6 +116,7 @@ efb862226da094eb91ae5ddf46aeb2106f0e76de data/alltheheads/loot_table/entities/he
 ee5560b0e54a13da70aeba219780c21abcfc36ab data/alltheheads/loot_table/entities/heads/minecraft/panda/playful.json
 65f18dd548ccb726bb4d856347b4e5b7937ede2f data/alltheheads/loot_table/entities/heads/minecraft/panda/weak.json
 a68e9abb71144a8522e40164fa4f86e34fce5127 data/alltheheads/loot_table/entities/heads/minecraft/panda/worried.json
+e7f4a4782bc96b2e7855e4be178905c89f35930f data/alltheheads/loot_table/entities/heads/minecraft/parched.json
 c099e33acc6c3e4ebda103a723434f92ed65e84c data/alltheheads/loot_table/entities/heads/minecraft/parrot/blue.json
 16326a98ed0e26beda24e5f2f2c0688a3c9d4d23 data/alltheheads/loot_table/entities/heads/minecraft/parrot/cyan.json
 a92ff96243ef8b0e2695a1b18fa421ca3cf77070 data/alltheheads/loot_table/entities/heads/minecraft/parrot/gray.json
@@ -354,6 +357,8 @@ a6d0e0d6fc52c3282d05e9da27e66a960ac9f800 data/alltheheads/loot_table/entities/he
 6f83cb13a437f56650830d7bfd9836326502813d data/alltheheads/loot_table/entities/heads/minecraft/wolf/woods/tame.json
 7637a473f78b18c826c731cf8af776c020db446e data/alltheheads/loot_table/entities/heads/minecraft/zoglin.json
 3b73ff100721e6ac97636d4b4311435d2a669a2d data/alltheheads/loot_table/entities/heads/minecraft/zombie_horse.json
+d0464be39407e1dfe6afbe1392d506a947e427c4 data/alltheheads/loot_table/entities/heads/minecraft/zombie_nautilus.json
+6ba7c02a72c94b8968b226536a7e2c891131bd15 data/alltheheads/loot_table/entities/heads/minecraft/zombie_nautilus/coral.json
 1764cba873f53d789db139cbd565fe9c24123387 data/alltheheads/loot_table/entities/heads/minecraft/zombie_villager/desert.json
 a24fb9ff86810a8b44eeea5c51c17593c25fa92c data/alltheheads/loot_table/entities/heads/minecraft/zombie_villager/desert/armorer.json
 e0cd032cea7742c6fb7dc4b61b1cc23bb0356235 data/alltheheads/loot_table/entities/heads/minecraft/zombie_villager/desert/butcher.json

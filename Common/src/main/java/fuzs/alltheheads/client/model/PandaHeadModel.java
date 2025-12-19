@@ -1,6 +1,6 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.PandaModel;
+import net.minecraft.client.model.animal.panda.PandaModel;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 
 public final class PandaHeadModel extends HeadModelBase {

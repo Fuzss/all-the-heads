@@ -1,7 +1,7 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.WitchModel;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.monster.witch.WitchModel;
 
 public final class WitchHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {

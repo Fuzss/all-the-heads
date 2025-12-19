@@ -73,6 +73,23 @@ public abstract class HeadModelBase {
     }
 
     protected static LayerDefinition createHeadLayer(LayerDefinition layerDefinition, UnaryOperator<PartDefinition> headPartGetter, float originX, float originY, float originZ, float dimensionX, float dimensionY, float dimensionZ, float offsetX, float offsetY, float offsetZ) {
+        return createHeadLayer(layerDefinition,
+                headPartGetter,
+                originX,
+                originY,
+                originZ,
+                dimensionX,
+                dimensionY,
+                dimensionZ,
+                offsetX,
+                offsetY,
+                offsetZ,
+                0.0F,
+                0.0F,
+                0.0F);
+    }
+
+    protected static LayerDefinition createHeadLayer(LayerDefinition layerDefinition, UnaryOperator<PartDefinition> headPartGetter, float originX, float originY, float originZ, float dimensionX, float dimensionY, float dimensionZ, float offsetX, float offsetY, float offsetZ, float rotationX, float rotationY, float rotationZ) {
         MeshDefinition meshDefinition = new MeshDefinition();
         PartDefinition partDefinition = meshDefinition.getRoot();
         PartDefinition partDefinition2 = partDefinition.addOrReplaceChild("head",
@@ -80,9 +97,12 @@ public abstract class HeadModelBase {
                 PartPose.ZERO);
         PartDefinition partDefinition3 = partDefinition2.addOrReplaceChild("head",
                 CubeListBuilder.create(),
-                PartPose.offset(-originX - offsetX - dimensionX / 2.0F,
+                PartPose.offsetAndRotation(-originX - offsetX - dimensionX / 2.0F,
                         -originY - offsetY - dimensionY,
-                        -originZ - offsetZ - dimensionZ / 2.0F));
+                        -originZ - offsetZ - dimensionZ / 2.0F,
+                        rotationX,
+                        rotationY,
+                        rotationZ));
         PartDefinition partDefinition4 = headPartGetter.apply(layerDefinition.mesh.getRoot());
         Objects.requireNonNull(partDefinition4, "part definition is null");
         partDefinition3.addOrReplaceChild("head", partDefinition4);

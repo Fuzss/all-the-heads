@@ -2,18 +2,18 @@ package fuzs.alltheheads.init.headtype;
 
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
-import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
-import net.minecraft.advancements.critereon.DataComponentMatchers;
-import net.minecraft.advancements.critereon.EntityPredicate;
+import net.minecraft.advancements.criterion.DataComponentMatchers;
+import net.minecraft.advancements.criterion.EntityPredicate;
 import net.minecraft.core.component.DataComponentExactPredicate;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.animal.ChickenVariant;
-import net.minecraft.world.entity.animal.ChickenVariants;
+import net.minecraft.world.entity.animal.chicken.ChickenVariant;
+import net.minecraft.world.entity.animal.chicken.ChickenVariants;
 import net.minecraft.world.item.EitherHolder;
 
 import java.util.function.BiConsumer;
@@ -49,7 +49,7 @@ public class ChickenHeadType {
                 })
                 .shape(4.0, 6.0, 3.0)
                 .scale(1.5)
-                .model(modelType, ResourceLocationHelper.withDefaultNamespace(textureLocation))
+                .model(modelType, Identifier.withDefaultNamespace(textureLocation))
                 .noteBlockSound(SoundEvents.CHICKEN_AMBIENT)
                 .build(context, resourceKey);
     }

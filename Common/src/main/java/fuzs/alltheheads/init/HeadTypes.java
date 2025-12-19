@@ -2,10 +2,9 @@ package fuzs.alltheheads.init;
 
 import fuzs.alltheheads.init.headtype.*;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
-import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 
 public class HeadTypes {
 
@@ -14,7 +13,8 @@ public class HeadTypes {
         AquaticHeadType.bootstrap(context);
         AxolotlHeadType.bootstrap(context);
         BeeHeadType.bootstrap(context);
-        CatHeadType.bootstrap(context);
+        CamelHeadType.bootstrap(context);
+        FelineHeadType.bootstrap(context);
         ChickenHeadType.bootstrap(context);
         CopperGolemHeadType.bootstrap(context);
         CowHeadType.bootstrap(context);
@@ -23,10 +23,11 @@ public class HeadTypes {
         GhastHeadType.bootstrap(context);
         GuardianHeadType.bootstrap(context);
         HoglinHeadType.bootstrap(context);
-        HorseHeadType.bootstrap(context);
+        EquineHeadType.bootstrap(context);
         IllagerHeadType.bootstrap(context);
         LlamaHeadType.bootstrap(context);
         MonsterHeadType.bootstrap(context);
+        NautilusHeadType.bootstrap(context);
         PandaHeadType.bootstrap(context);
         ParrotHeadType.bootstrap(context);
         PigHeadType.bootstrap(context);
@@ -44,11 +45,11 @@ public class HeadTypes {
     }
 
     public static ResourceKey<HeadType> register(String path) {
-        return register(ResourceLocationHelper.withDefaultNamespace(path));
+        return register(Identifier.withDefaultNamespace(path));
     }
 
-    public static ResourceKey<HeadType> register(ResourceLocation resourceLocation) {
+    public static ResourceKey<HeadType> register(Identifier identifier) {
         return ModRegistry.REGISTRIES.makeResourceKey(ModRegistry.HEAD_REGISTRY_KEY,
-                resourceLocation.toString().replace(':', '/'));
+                identifier.toString().replace(':', '/'));
     }
 }

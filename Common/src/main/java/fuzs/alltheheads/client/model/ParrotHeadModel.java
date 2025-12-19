@@ -1,6 +1,6 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.ParrotModel;
+import net.minecraft.client.model.animal.parrot.ParrotModel;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 
 public final class ParrotHeadModel extends HeadModelBase {

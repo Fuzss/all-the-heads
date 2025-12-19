@@ -3,8 +3,8 @@ package fuzs.alltheheads.init.headtype;
 import fuzs.alltheheads.advancements.critereon.GhastPredicate;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
-import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
-import net.minecraft.advancements.critereon.EntityPredicate;
+import net.minecraft.resources.Identifier;
+import net.minecraft.advancements.criterion.EntityPredicate;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
@@ -26,7 +26,7 @@ public class GhastHeadType {
         HeadType.builder(EntityType.HAPPY_GHAST)
                 .shape(16.0, 16.0, 16.0)
                 .scale(0.625)
-                .model(ModelType.HAPPY_GHAST, ResourceLocationHelper.withDefaultNamespace("entity/ghast/happy_ghast"))
+                .model(ModelType.HAPPY_GHAST, Identifier.withDefaultNamespace("entity/ghast/happy_ghast"))
                 .noteBlockSound(SoundEvents.HAPPY_GHAST_AMBIENT)
                 .build(context, HAPPY_GHAST);
     }
@@ -38,7 +38,7 @@ public class GhastHeadType {
                 })
                 .shape(16.0, 16.0, 16.0)
                 .scale(0.625)
-                .model(ModelType.GHAST, ResourceLocationHelper.withDefaultNamespace(textureLocation))
+                .model(ModelType.GHAST, Identifier.withDefaultNamespace(textureLocation))
                 .noteBlockSound(noteBlockSound)
                 .build(context, resourceKey);
     }

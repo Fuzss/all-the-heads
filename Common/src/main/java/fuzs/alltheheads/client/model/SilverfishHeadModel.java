@@ -1,8 +1,8 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.SilverfishModel;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
+import net.minecraft.client.model.monster.silverfish.SilverfishModel;
 
 import java.util.Set;
 import java.util.function.UnaryOperator;
