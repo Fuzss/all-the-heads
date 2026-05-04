@@ -9,7 +9,7 @@
   "loot_table": "alltheheads:entities/heads/minecraft/cat/siamese",
   "models": [
     {
-      "asset_id": "minecraft:entity/cat/siamese",
+      "asset_id": "minecraft:entity/cat/cat_siamese",
       "model": "alltheheads:feline_head"
     }
   ],

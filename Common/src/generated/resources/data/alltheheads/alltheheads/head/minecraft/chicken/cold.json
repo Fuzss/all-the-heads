@@ -9,7 +9,7 @@
   "loot_table": "alltheheads:entities/heads/minecraft/chicken/cold",
   "models": [
     {
-      "asset_id": "minecraft:entity/chicken/cold_chicken",
+      "asset_id": "minecraft:entity/chicken/chicken_cold",
       "model": "alltheheads:cold_chicken_head"
     }
   ],

@@ -9,7 +9,7 @@
   "loot_table": "alltheheads:entities/heads/minecraft/cat/calico",
   "models": [
     {
-      "asset_id": "minecraft:entity/cat/calico",
+      "asset_id": "minecraft:entity/cat/cat_calico",
       "model": "alltheheads:feline_head"
     }
   ],

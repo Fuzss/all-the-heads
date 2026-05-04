@@ -9,7 +9,7 @@
   "loot_table": "alltheheads:entities/heads/minecraft/llama/gray",
   "models": [
     {
-      "asset_id": "minecraft:entity/llama/gray",
+      "asset_id": "minecraft:entity/llama/llama_gray",
       "model": "alltheheads:llama_head"
     }
   ],

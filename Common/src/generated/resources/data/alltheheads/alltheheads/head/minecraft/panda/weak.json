@@ -10,7 +10,7 @@
   "loot_table": "alltheheads:entities/heads/minecraft/panda/weak",
   "models": [
     {
-      "asset_id": "minecraft:entity/panda/weak_panda",
+      "asset_id": "minecraft:entity/panda/panda_weak",
       "model": "alltheheads:panda_head"
     }
   ],

@@ -9,7 +9,7 @@
   "loot_table": "alltheheads:entities/heads/minecraft/cat/persian",
   "models": [
     {
-      "asset_id": "minecraft:entity/cat/persian",
+      "asset_id": "minecraft:entity/cat/cat_persian",
       "model": "alltheheads:feline_head"
     }
   ],

@@ -6,7 +6,7 @@
   "loot_table": "alltheheads:entities/heads/minecraft/blaze",
   "models": [
     {
-      "asset_id": "minecraft:entity/blaze",
+      "asset_id": "minecraft:entity/blaze/blaze",
       "block_light": 15
     }
   ],

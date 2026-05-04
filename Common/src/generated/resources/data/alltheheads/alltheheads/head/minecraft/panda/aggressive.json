@@ -10,7 +10,7 @@
   "loot_table": "alltheheads:entities/heads/minecraft/panda/aggressive",
   "models": [
     {
-      "asset_id": "minecraft:entity/panda/aggressive_panda",
+      "asset_id": "minecraft:entity/panda/panda_aggressive",
       "model": "alltheheads:panda_head"
     }
   ],

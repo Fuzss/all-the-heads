@@ -9,7 +9,7 @@
   "loot_table": "alltheheads:entities/heads/minecraft/pig/warm",
   "models": [
     {
-      "asset_id": "minecraft:entity/pig/warm_pig",
+      "asset_id": "minecraft:entity/pig/pig_warm",
       "model": "alltheheads:pig_head"
     }
   ],

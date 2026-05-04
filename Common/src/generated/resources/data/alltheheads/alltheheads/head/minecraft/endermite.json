@@ -6,7 +6,7 @@
   "loot_table": "alltheheads:entities/heads/minecraft/endermite",
   "models": [
     {
-      "asset_id": "minecraft:entity/endermite",
+      "asset_id": "minecraft:entity/endermite/endermite",
       "model": "alltheheads:endermite_head"
     }
   ],

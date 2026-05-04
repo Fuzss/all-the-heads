@@ -6,7 +6,7 @@
   "loot_table": "alltheheads:entities/heads/minecraft/silverfish",
   "models": [
     {
-      "asset_id": "minecraft:entity/silverfish",
+      "asset_id": "minecraft:entity/silverfish/silverfish",
       "model": "alltheheads:silverfish_head"
     }
   ],

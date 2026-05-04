@@ -6,7 +6,7 @@
   "loot_table": "alltheheads:entities/heads/minecraft/snow_golem",
   "models": [
     {
-      "asset_id": "minecraft:entity/snow_golem",
+      "asset_id": "minecraft:entity/snow_golem/snow_golem",
       "model": "alltheheads:humanoid_head"
     }
   ],

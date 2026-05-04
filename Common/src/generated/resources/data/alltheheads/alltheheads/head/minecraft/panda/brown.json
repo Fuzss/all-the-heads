@@ -10,7 +10,7 @@
   "loot_table": "alltheheads:entities/heads/minecraft/panda/brown",
   "models": [
     {
-      "asset_id": "minecraft:entity/panda/brown_panda",
+      "asset_id": "minecraft:entity/panda/panda_brown",
       "model": "alltheheads:panda_head"
     }
   ],

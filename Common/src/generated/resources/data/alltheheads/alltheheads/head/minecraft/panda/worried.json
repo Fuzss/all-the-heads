@@ -10,7 +10,7 @@
   "loot_table": "alltheheads:entities/heads/minecraft/panda/worried",
   "models": [
     {
-      "asset_id": "minecraft:entity/panda/worried_panda",
+      "asset_id": "minecraft:entity/panda/panda_worried",
       "model": "alltheheads:panda_head"
     }
   ],

@@ -9,7 +9,7 @@
   "loot_table": "alltheheads:entities/heads/minecraft/cat/british_shorthair",
   "models": [
     {
-      "asset_id": "minecraft:entity/cat/british_shorthair",
+      "asset_id": "minecraft:entity/cat/cat_british_shorthair",
       "model": "alltheheads:feline_head"
     }
   ],

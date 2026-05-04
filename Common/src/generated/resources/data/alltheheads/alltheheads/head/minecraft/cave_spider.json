@@ -10,7 +10,7 @@
       "model": "alltheheads:spider_head"
     },
     {
-      "asset_id": "minecraft:entity/spider_eyes",
+      "asset_id": "minecraft:entity/spider/spider_eyes",
       "model": "alltheheads:spider_head/eyes"
     }
   ],

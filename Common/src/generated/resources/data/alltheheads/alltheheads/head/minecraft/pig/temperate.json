@@ -9,7 +9,7 @@
   "loot_table": "alltheheads:entities/heads/minecraft/pig/temperate",
   "models": [
     {
-      "asset_id": "minecraft:entity/pig/temperate_pig",
+      "asset_id": "minecraft:entity/pig/pig_temperate",
       "model": "alltheheads:pig_head"
     }
   ],

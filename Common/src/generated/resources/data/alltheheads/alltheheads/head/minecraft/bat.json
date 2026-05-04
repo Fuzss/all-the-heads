@@ -6,7 +6,7 @@
   "loot_table": "alltheheads:entities/heads/minecraft/bat",
   "models": [
     {
-      "asset_id": "minecraft:entity/bat",
+      "asset_id": "minecraft:entity/bat/bat",
       "model": "alltheheads:bat_head"
     }
   ],

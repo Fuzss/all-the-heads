@@ -9,7 +9,7 @@
   "loot_table": "alltheheads:entities/heads/minecraft/frog/cold",
   "models": [
     {
-      "asset_id": "minecraft:entity/frog/cold_frog",
+      "asset_id": "minecraft:entity/frog/frog_cold",
       "model": "alltheheads:frog_head"
     }
   ],

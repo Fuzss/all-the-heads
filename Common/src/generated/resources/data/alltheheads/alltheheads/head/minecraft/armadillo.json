@@ -6,7 +6,7 @@
   "loot_table": "alltheheads:entities/heads/minecraft/armadillo",
   "models": [
     {
-      "asset_id": "minecraft:entity/armadillo",
+      "asset_id": "minecraft:entity/armadillo/armadillo",
       "model": "alltheheads:armadillo_head"
     }
   ],

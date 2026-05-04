@@ -1,6 +1,6 @@
 package fuzs.alltheheads.fabric;
 
-import fuzs.alltheheads.AllTheHeads;
+import fuzs.alltheheads.common.AllTheHeads;
 import fuzs.puzzleslib.common.api.core.v1.ModConstructor;
 import net.fabricmc.api.ModInitializer;
 

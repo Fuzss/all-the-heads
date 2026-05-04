@@ -10,7 +10,7 @@
   "loot_table": "alltheheads:entities/heads/minecraft/panda/lazy",
   "models": [
     {
-      "asset_id": "minecraft:entity/panda/lazy_panda",
+      "asset_id": "minecraft:entity/panda/panda_lazy",
       "model": "alltheheads:panda_head"
     }
   ],

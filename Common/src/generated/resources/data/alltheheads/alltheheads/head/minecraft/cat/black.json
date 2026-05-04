@@ -9,7 +9,7 @@
   "loot_table": "alltheheads:entities/heads/minecraft/cat/black",
   "models": [
     {
-      "asset_id": "minecraft:entity/cat/black",
+      "asset_id": "minecraft:entity/cat/cat_black",
       "model": "alltheheads:feline_head"
     }
   ],

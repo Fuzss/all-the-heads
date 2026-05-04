@@ -9,7 +9,7 @@
   "loot_table": "alltheheads:entities/heads/minecraft/fox/snow",
   "models": [
     {
-      "asset_id": "minecraft:entity/fox/snow_fox",
+      "asset_id": "minecraft:entity/fox/fox_snow",
       "model": "alltheheads:fox_head"
     }
   ],

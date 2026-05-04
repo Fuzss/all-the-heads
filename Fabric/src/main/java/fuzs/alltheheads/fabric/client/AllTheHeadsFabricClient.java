@@ -1,7 +1,7 @@
 package fuzs.alltheheads.fabric.client;
 
-import fuzs.alltheheads.AllTheHeads;
-import fuzs.alltheheads.client.AllTheHeadsClient;
+import fuzs.alltheheads.common.AllTheHeads;
+import fuzs.alltheheads.common.client.AllTheHeadsClient;
 import fuzs.puzzleslib.common.api.client.core.v1.ClientModConstructor;
 import net.fabricmc.api.ClientModInitializer;
 

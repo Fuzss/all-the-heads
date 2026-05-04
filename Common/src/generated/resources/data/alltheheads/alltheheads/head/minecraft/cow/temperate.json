@@ -9,7 +9,7 @@
   "loot_table": "alltheheads:entities/heads/minecraft/cow/temperate",
   "models": [
     {
-      "asset_id": "minecraft:entity/cow/temperate_cow",
+      "asset_id": "minecraft:entity/cow/cow_temperate",
       "model": "alltheheads:temperate_cow_head"
     }
   ],

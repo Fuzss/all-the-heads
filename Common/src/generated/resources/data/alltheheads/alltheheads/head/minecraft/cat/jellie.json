@@ -9,7 +9,7 @@
   "loot_table": "alltheheads:entities/heads/minecraft/cat/jellie",
   "models": [
     {
-      "asset_id": "minecraft:entity/cat/jellie",
+      "asset_id": "minecraft:entity/cat/cat_jellie",
       "model": "alltheheads:feline_head"
     }
   ],

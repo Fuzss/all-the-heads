@@ -1,12 +1,12 @@
 package fuzs.alltheheads.neoforge;
 
-import fuzs.alltheheads.AllTheHeads;
-import fuzs.alltheheads.data.loot.ModBlockLootProvider;
-import fuzs.alltheheads.data.loot.ModEntityLootProvider;
-import fuzs.alltheheads.data.tags.ModBlockTagsProvider;
-import fuzs.alltheheads.data.tags.ModHeadTypeTagsProvider;
-import fuzs.alltheheads.data.tags.ModItemTagsProvider;
-import fuzs.alltheheads.init.ModRegistry;
+import fuzs.alltheheads.common.AllTheHeads;
+import fuzs.alltheheads.common.data.loot.ModBlockLootProvider;
+import fuzs.alltheheads.common.data.loot.ModEntityLootProvider;
+import fuzs.alltheheads.common.data.tags.ModBlockTagsProvider;
+import fuzs.alltheheads.common.data.tags.ModHeadTypeTagsProvider;
+import fuzs.alltheheads.common.data.tags.ModItemTagsProvider;
+import fuzs.alltheheads.common.init.ModRegistry;
 import fuzs.puzzleslib.common.api.core.v1.ModConstructor;
 import fuzs.puzzleslib.neoforge.api.data.v2.core.DataProviderHelper;
 import net.neoforged.fml.common.Mod;

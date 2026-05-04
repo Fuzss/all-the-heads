@@ -9,7 +9,7 @@
   "loot_table": "alltheheads:entities/heads/minecraft/frog/temperate",
   "models": [
     {
-      "asset_id": "minecraft:entity/frog/temperate_frog",
+      "asset_id": "minecraft:entity/frog/frog_temperate",
       "model": "alltheheads:frog_head"
     }
   ],

@@ -9,7 +9,7 @@
   "loot_table": "alltheheads:entities/heads/minecraft/mooshroom/red",
   "models": [
     {
-      "asset_id": "minecraft:entity/cow/red_mooshroom",
+      "asset_id": "minecraft:entity/cow/mooshroom_red",
       "model": "alltheheads:temperate_cow_head"
     }
   ],

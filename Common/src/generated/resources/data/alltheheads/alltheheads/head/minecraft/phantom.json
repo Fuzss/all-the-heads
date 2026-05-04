@@ -6,11 +6,11 @@
   "loot_table": "alltheheads:entities/heads/minecraft/phantom",
   "models": [
     {
-      "asset_id": "minecraft:entity/phantom",
+      "asset_id": "minecraft:entity/phantom/phantom",
       "model": "alltheheads:phantom_head"
     },
     {
-      "asset_id": "minecraft:entity/phantom_eyes",
+      "asset_id": "minecraft:entity/phantom/phantom_eyes",
       "model": "alltheheads:phantom_head/eyes"
     }
   ],
