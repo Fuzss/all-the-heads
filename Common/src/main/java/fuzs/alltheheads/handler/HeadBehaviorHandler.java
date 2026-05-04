@@ -2,7 +2,7 @@ package fuzs.alltheheads.handler;
 
 import fuzs.alltheheads.init.ModRegistry;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
-import fuzs.puzzleslib.api.event.v1.data.MutableDouble;
+import fuzs.puzzleslib.common.api.event.v1.data.MutableDouble;
 import net.minecraft.core.Holder;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;

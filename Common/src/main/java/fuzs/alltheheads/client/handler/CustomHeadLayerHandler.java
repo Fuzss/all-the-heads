@@ -4,7 +4,7 @@ import fuzs.alltheheads.AllTheHeads;
 import fuzs.alltheheads.client.renderer.entity.layers.MobHeadLayer;
 import fuzs.alltheheads.init.ModRegistry;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
-import fuzs.puzzleslib.api.client.renderer.v1.RenderStateExtraData;
+import fuzs.puzzleslib.common.api.client.renderer.v1.RenderStateExtraData;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.HeadedModel;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -29,7 +29,7 @@ public class CustomHeadLayerHandler {
     public static final ContextKey<Optional<Holder<HeadType>>> HEAD_TYPE_RENDER_PROPERTY = new ContextKey<>(AllTheHeads.id(
             "head_type"));
 
-    public static void onExtractRenderState(Entity entity, EntityRenderState renderState, float partialTick) {
+    public static void onExtractEntityRenderState(Entity entity, EntityRenderState renderState, float partialTick) {
         if (entity instanceof LivingEntity livingEntity
                 && renderState instanceof LivingEntityRenderState livingEntityRenderState
                 && livingEntityRenderState.wornHeadType == ModRegistry.MOB_SKULL_BLOCK_TYPE) {

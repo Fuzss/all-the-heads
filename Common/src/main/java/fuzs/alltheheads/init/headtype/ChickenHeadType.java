@@ -12,9 +12,9 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.animal.chicken.ChickenSoundVariants;
 import net.minecraft.world.entity.animal.chicken.ChickenVariant;
 import net.minecraft.world.entity.animal.chicken.ChickenVariants;
-import net.minecraft.world.item.EitherHolder;
 
 import java.util.function.BiConsumer;
 
@@ -44,13 +44,15 @@ public class ChickenHeadType {
                 .entityPredicate((EntityPredicate.Builder builder) -> {
                     builder.components(DataComponentMatchers.Builder.components()
                             .exact(DataComponentExactPredicate.expect(DataComponents.CHICKEN_VARIANT,
-                                    new EitherHolder<>(context.lookup(Registries.CHICKEN_VARIANT).getOrThrow(variant))))
+                                    context.lookup(Registries.CHICKEN_VARIANT).getOrThrow(variant)))
                             .build());
                 })
                 .shape(4.0, 6.0, 3.0)
                 .scale(1.5)
                 .model(modelType, Identifier.withDefaultNamespace(textureLocation))
-                .noteBlockSound(SoundEvents.CHICKEN_AMBIENT)
+                .noteBlockSound(SoundEvents.CHICKEN_SOUNDS.get(ChickenSoundVariants.SoundSet.CLASSIC)
+                        .adultSounds()
+                        .ambientSound())
                 .build(context, resourceKey);
     }
 

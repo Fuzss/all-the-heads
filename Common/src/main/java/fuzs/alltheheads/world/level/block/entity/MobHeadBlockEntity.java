@@ -2,13 +2,14 @@ package fuzs.alltheheads.world.level.block.entity;
 
 import fuzs.alltheheads.init.ModRegistry;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
-import fuzs.puzzleslib.api.block.v1.entity.TickingBlockEntity;
+import fuzs.puzzleslib.common.api.block.v1.entity.TickingBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponentGetter;
 import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.SkullBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -28,9 +29,9 @@ public class MobHeadBlockEntity extends SkullBlockEntity implements TickingBlock
     }
 
     @Override
-    public void clientTick() {
+    public void clientTick(Level level, BlockPos blockPos, BlockState blockState) {
         this.tickCount++;
-        animation(this.getLevel(), this.getBlockPos(), this.getBlockState(), this);
+        animation(level, blockPos, blockState, this);
     }
 
     @Override

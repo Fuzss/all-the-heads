@@ -1,11 +1,11 @@
 package fuzs.alltheheads.client.model;
 
 import net.minecraft.client.model.geom.builders.LayerDefinition;
-import net.minecraft.client.model.monster.strider.StriderModel;
+import net.minecraft.client.model.monster.strider.AdultStriderModel;
 
 public final class StriderHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {
-        return createHeadLayer(StriderModel.createBodyLayer(),
+        return createHeadLayer(AdultStriderModel.createBodyLayer(),
                 "body",
                 -8.0F,
                 -6.0F,

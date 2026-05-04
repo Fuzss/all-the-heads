@@ -6,7 +6,7 @@ import fuzs.alltheheads.client.renderer.blockentity.MobHeadRenderer;
 import fuzs.alltheheads.client.renderer.blockentity.state.MobHeadRenderState;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
-import fuzs.puzzleslib.api.client.renderer.v1.RenderStateExtraData;
+import fuzs.puzzleslib.common.api.client.renderer.v1.RenderStateExtraData;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.HeadedModel;
 import net.minecraft.client.model.object.skull.SkullModelBase;

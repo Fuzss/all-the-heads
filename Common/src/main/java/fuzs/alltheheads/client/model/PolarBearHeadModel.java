@@ -5,7 +5,7 @@ import net.minecraft.client.model.geom.builders.LayerDefinition;
 
 public final class PolarBearHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {
-        return createHeadLayer(PolarBearModel.createBodyLayer(false),
+        return createHeadLayer(PolarBearModel.createBodyLayer(),
                 -3.5F,
                 -3.0F,
                 -3.0F,

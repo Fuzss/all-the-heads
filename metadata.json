@@ -1,9 +1,10 @@
 {
+    "minecraft": "26.1.2",
     "mod": {
         "id": "alltheheads",
         "group": "fuzs.alltheheads",
         "name": "All The Heads",
-        "version": "21.11.0",
+        "version": "26.1.0",
         "authors": [
             "Fuzs"
         ],
@@ -36,13 +37,13 @@
     ],
     "links": [
         {
-            "name": "github",
-            "slug": "alltheheads"
-        },
-        {
             "name": "curseforge",
             "slug": "all-the-heads",
             "id": "1369265"
+        },
+        {
+            "name": "github",
+            "slug": "all-the-heads"
         },
         {
             "name": "modrinth",

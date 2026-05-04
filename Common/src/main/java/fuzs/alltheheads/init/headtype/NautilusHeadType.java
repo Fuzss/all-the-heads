@@ -16,7 +16,6 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.nautilus.ZombieNautilusVariant;
 import net.minecraft.world.entity.animal.nautilus.ZombieNautilusVariants;
-import net.minecraft.world.item.EitherHolder;
 
 import java.util.function.BiConsumer;
 
@@ -46,7 +45,7 @@ public class NautilusHeadType {
                 SoundEvents.ZOMBIE_NAUTILUS_AMBIENT).entityPredicate((EntityPredicate.Builder builder) -> {
             builder.components(DataComponentMatchers.Builder.components()
                     .exact(DataComponentExactPredicate.expect(DataComponents.ZOMBIE_NAUTILUS_VARIANT,
-                            new EitherHolder<>(context.lookup(Registries.ZOMBIE_NAUTILUS_VARIANT).getOrThrow(variant))))
+                            context.lookup(Registries.ZOMBIE_NAUTILUS_VARIANT).getOrThrow(variant)))
                     .build());
         }).build(context, resourceKey);
     }

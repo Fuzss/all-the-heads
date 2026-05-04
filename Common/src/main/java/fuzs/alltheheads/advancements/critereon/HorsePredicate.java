@@ -3,7 +3,7 @@ package fuzs.alltheheads.advancements.critereon;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import fuzs.alltheheads.init.ModRegistry;
-import fuzs.puzzleslib.api.util.v1.CodecExtras;
+import fuzs.puzzleslib.common.api.util.v1.CodecExtras;
 import net.minecraft.advancements.criterion.EntitySubPredicate;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;

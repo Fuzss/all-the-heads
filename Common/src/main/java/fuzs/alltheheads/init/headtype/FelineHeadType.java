@@ -12,6 +12,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.animal.feline.CatSoundVariants;
 import net.minecraft.world.entity.animal.feline.CatVariant;
 import net.minecraft.world.entity.animal.feline.CatVariants;
 
@@ -64,7 +65,9 @@ public class FelineHeadType {
                 .shape(5.0, 4.0, 5.0)
                 .scale(1.6)
                 .model(ModelType.FELINE, Identifier.withDefaultNamespace(textureLocation))
-                .noteBlockSound(SoundEvents.CAT_AMBIENT)
+                .noteBlockSound(SoundEvents.CAT_SOUNDS.get(CatSoundVariants.SoundSet.CLASSIC)
+                        .adultSounds()
+                        .ambientSound())
                 .build(context, resourceKey);
     }
 

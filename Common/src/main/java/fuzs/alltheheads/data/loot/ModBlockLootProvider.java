@@ -1,8 +1,8 @@
 package fuzs.alltheheads.data.loot;
 
 import fuzs.alltheheads.init.ModRegistry;
-import fuzs.puzzleslib.api.data.v2.AbstractLootProvider;
-import fuzs.puzzleslib.api.data.v2.core.DataProviderContext;
+import fuzs.puzzleslib.common.api.data.v2.AbstractLootProvider;
+import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.LootPool;

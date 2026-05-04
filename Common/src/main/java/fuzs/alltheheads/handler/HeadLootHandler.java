@@ -5,7 +5,7 @@ import fuzs.alltheheads.data.tags.ModHeadTypeTagsProvider;
 import fuzs.alltheheads.init.ModRegistry;
 import fuzs.alltheheads.world.item.MobHeadItem;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
-import fuzs.puzzleslib.api.event.v1.core.EventResult;
+import fuzs.puzzleslib.common.api.event.v1.core.EventResult;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderSet;

@@ -2,10 +2,10 @@ package fuzs.alltheheads.data.client;
 
 import fuzs.alltheheads.client.renderer.special.MobHeadSpecialRenderer;
 import fuzs.alltheheads.init.ModRegistry;
-import fuzs.puzzleslib.api.client.data.v2.AbstractModelProvider;
-import fuzs.puzzleslib.api.client.data.v2.models.ModelLocationHelper;
+import fuzs.puzzleslib.common.api.client.data.v2.AbstractModelProvider;
+import fuzs.puzzleslib.common.api.client.data.v2.models.ModelLocationHelper;
 import net.minecraft.resources.Identifier;
-import fuzs.puzzleslib.api.data.v2.core.DataProviderContext;
+import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.MultiVariant;
 import net.minecraft.client.data.models.model.ItemModelUtils;

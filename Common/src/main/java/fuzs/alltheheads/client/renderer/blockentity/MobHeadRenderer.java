@@ -10,7 +10,6 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.object.skull.PiglinHeadModel;
 import net.minecraft.client.model.object.skull.SkullModel;
 import net.minecraft.client.model.object.skull.SkullModelBase;
-import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.blockentity.SkullBlockRenderer;
@@ -18,13 +17,14 @@ import net.minecraft.client.renderer.blockentity.state.SkullBlockRenderState;
 import net.minecraft.client.renderer.feature.ModelFeatureRenderer;
 import net.minecraft.client.renderer.rendertype.RenderType;
 import net.minecraft.client.renderer.rendertype.RenderTypes;
-import net.minecraft.client.renderer.state.CameraRenderState;
+import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.resources.DefaultPlayerSkin;
 import net.minecraft.core.ClientAsset;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.Identifier;
+import net.minecraft.util.LightCoordsUtil;
 import net.minecraft.util.Mth;
 import net.minecraft.util.Util;
 import net.minecraft.world.entity.variant.ModelAndTexture;
@@ -50,7 +50,7 @@ public class MobHeadRenderer extends SkullBlockRenderer {
                     DefaultPlayerSkin.getDefaultTexture())), Optional.empty(), Optional.empty()));
     private static final Shape DEFAULT_SHAPE = new Shape(8.0, 8.0, 8.0);
     private static final BiFunction<Identifier, Float, RenderType> DEFAULT_RENDER_TYPE_GETTER = (Identifier identifier, Float tickCount) -> {
-        return RenderTypes.entityCutoutNoCullZOffset(identifier);
+        return RenderTypes.entityCutoutZOffset(identifier);
     };
     private static final Map<ModelType, Function<ModelPart, SkullModelBase>> SKULL_MODELS = Collections.unmodifiableMap(
             Util.make(new IdentityHashMap<>(), (Map<ModelType, Function<ModelPart, SkullModelBase>> map) -> {
@@ -67,14 +67,14 @@ public class MobHeadRenderer extends SkullBlockRenderer {
                     return RenderTypes.energySwirl(identifier, tickCount * 0.01F % 1.0F, tickCount * 0.01F % 1.0F);
                 });
                 putEyesRenderType(ModelType.ENDERMAN, ModelType.ENDERMAN_EYES, map::put);
-                putRenderType(ModelType.HORSE, RenderTypes::entityCutoutNoCull, map::put);
+                putRenderType(ModelType.HORSE, RenderTypes::entityCutout, map::put);
                 putRenderType(ModelType.HORSE_MARKINGS, RenderTypes::entityTranslucent, map::put);
                 putEyesRenderType(ModelType.PHANTOM, ModelType.PHANTOM_EYES, map::put);
-                putRenderType(ModelType.SHEEP, RenderTypes::entityCutoutNoCull, map::put);
+                putRenderType(ModelType.SHEEP, RenderTypes::entityCutout, map::put);
                 putRenderType(ModelType.SLIME_GEL, RenderTypes::entityTranslucent, map::put);
                 putEyesRenderType(ModelType.SPIDER, ModelType.SPIDER_EYES, map::put);
-                putRenderType(ModelType.TROPICAL_FISH_LARGE, RenderTypes::entityCutoutNoCull, map::put);
-                putRenderType(ModelType.TROPICAL_FISH_SMALL, RenderTypes::entityCutoutNoCull, map::put);
+                putRenderType(ModelType.TROPICAL_FISH_LARGE, RenderTypes::entityCutout, map::put);
+                putRenderType(ModelType.TROPICAL_FISH_SMALL, RenderTypes::entityCutout, map::put);
                 putRenderType(ModelType.VEX, RenderTypes::entityTranslucent, map::put);
                 map.put(ModelType.WITHER_SHIELD, (Identifier identifier, Float tickCount) -> {
                     return RenderTypes.energySwirl(identifier,
@@ -91,7 +91,7 @@ public class MobHeadRenderer extends SkullBlockRenderer {
     }
 
     private static void putEyesRenderType(ModelType modelType, ModelType eyesModelType, BiConsumer<ModelType, BiFunction<Identifier, Float, RenderType>> consumer) {
-        putRenderType(modelType, RenderTypes::entityCutoutNoCull, consumer);
+        putRenderType(modelType, RenderTypes::entityCutout, consumer);
         putRenderType(eyesModelType, RenderTypes::eyes, consumer);
     }
 
@@ -121,32 +121,32 @@ public class MobHeadRenderer extends SkullBlockRenderer {
     }
 
     @Override
-    public void extractRenderState(SkullBlockEntity blockEntity, SkullBlockRenderState renderState, float partialTick, Vec3 cameraPosition, ModelFeatureRenderer.@Nullable CrumblingOverlay breakProgress) {
-        super.extractRenderState(blockEntity, renderState, partialTick, cameraPosition, breakProgress);
-        ((MobHeadRenderState) renderState).headType = ((MobHeadBlockEntity) blockEntity).getHeadType();
-        ((MobHeadRenderState) renderState).time = ((MobHeadBlockEntity) blockEntity).tickCount + partialTick;
+    public void extractRenderState(SkullBlockEntity blockEntity, SkullBlockRenderState state, float partialTick, Vec3 cameraPosition, ModelFeatureRenderer.@Nullable CrumblingOverlay breakProgress) {
+        super.extractRenderState(blockEntity, state, partialTick, cameraPosition, breakProgress);
+        ((MobHeadRenderState) state).headType = ((MobHeadBlockEntity) blockEntity).getHeadType();
+        ((MobHeadRenderState) state).time = ((MobHeadBlockEntity) blockEntity).tickCount + partialTick;
     }
 
     @Override
-    public void submit(SkullBlockRenderState renderState, PoseStack poseStack, SubmitNodeCollector nodeCollector, CameraRenderState cameraRenderState) {
-        submitSkull((MobHeadRenderState) renderState, poseStack, nodeCollector, this.skullModelGetter);
+    public void submit(SkullBlockRenderState state, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, CameraRenderState camera) {
+        submitSkull((MobHeadRenderState) state, poseStack, submitNodeCollector, this.skullModelGetter);
     }
 
-    public static void submitSkull(MobHeadRenderState renderState, PoseStack poseStack, SubmitNodeCollector nodeCollector, Function<ModelType, SkullModelBase> skullModelGetter) {
-        Shape shape = getShape(renderState.headType);
-        for (Model model : getModels(renderState.headType)) {
+    public static void submitSkull(MobHeadRenderState state, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, Function<ModelType, SkullModelBase> skullModelGetter) {
+        Shape shape = getShape(state.headType);
+        for (Model model : getModels(state.headType)) {
             SkullModelBase skullModelBase = skullModelGetter.apply(model.model().model());
-            RenderType renderType = getRenderType(model.model(), renderState.time);
-            submitSkull(renderState,
+            RenderType renderType = getRenderType(model.model(), state.time);
+            submitSkull(state,
                     poseStack,
-                    nodeCollector,
+                    submitNodeCollector,
                     skullModelBase,
                     renderType,
                     model.blockLight()
-                            .map((Integer blockLight) -> LightTexture.pack(blockLight,
-                                    LightTexture.sky(renderState.lightCoords)))
-                            .orElse(renderState.lightCoords),
-                    model.color().map((Color tintColor) -> tintColor.getColor(renderState.time)).orElse(-1),
+                            .map((Integer blockLight) -> LightCoordsUtil.pack(blockLight,
+                                    LightCoordsUtil.sky(state.lightCoords)))
+                            .orElse(state.lightCoords),
+                    model.color().map((Color tintColor) -> tintColor.getColor(state.time)).orElse(-1),
                     shape);
         }
     }
@@ -155,31 +155,31 @@ public class MobHeadRenderer extends SkullBlockRenderer {
      * @see SkullBlockRenderer#submitSkull(Direction, float, float, PoseStack, SubmitNodeCollector, int,
      *         SkullModelBase, RenderType, int, ModelFeatureRenderer.CrumblingOverlay)
      */
-    private static void submitSkull(MobHeadRenderState renderState, PoseStack poseStack, SubmitNodeCollector nodeCollector, SkullModelBase model, RenderType renderType, int packedLight, int tintColor, Shape shape) {
+    private static void submitSkull(MobHeadRenderState state, PoseStack poseStack, SubmitNodeCollector nodeCollector, SkullModelBase model, RenderType renderType, int packedLight, int tintColor, Shape shape) {
         poseStack.pushPose();
         double offsetY = (16.0 - shape.sizeY()) / 2.0;
-        if (renderState.direction != null) {
-            double offsetX = 8.0 - renderState.direction.getStepX() * (16.0 - shape.sizeX(renderState.direction)) / 2.0;
-            double offsetZ = 8.0 - renderState.direction.getStepZ() * (16.0 - shape.sizeZ(renderState.direction)) / 2.0;
+        if (state.direction != null) {
+            double offsetX = 8.0 - state.direction.getStepX() * (16.0 - shape.sizeX(state.direction)) / 2.0;
+            double offsetZ = 8.0 - state.direction.getStepZ() * (16.0 - shape.sizeZ(state.direction)) / 2.0;
             poseStack.translate(offsetX / 16.0, offsetY / 16.0, offsetZ / 16.0);
         } else {
-            poseStack.translate(0.5F, renderState.guiOffset ? ((float) offsetY - 10.0F / 3.0F) / 16.0F : 0.0F, 0.5F);
+            poseStack.translate(0.5F, state.guiOffset ? ((float) offsetY - 10.0F / 3.0F) / 16.0F : 0.0F, 0.5F);
         }
 
         poseStack.scale((float) -shape.scale(), (float) -shape.scale(), (float) shape.scale());
-        SkullModelBase.State state = new SkullModelBase.State();
-        state.animationPos = renderState.animationProgress;
-        state.yRot = renderState.rotationDegrees;
+        SkullModelBase.State modelState = new SkullModelBase.State();
+        modelState.animationPos = state.animationProgress;
+        modelState.yRot = state.rotationDegrees;
         nodeCollector.submitModel(model,
-                state,
+                modelState,
                 poseStack,
                 renderType,
                 packedLight,
                 OverlayTexture.NO_OVERLAY,
                 tintColor,
                 null,
-                renderState.outlineColor,
-                renderState.breakProgress);
+                state.outlineColor,
+                state.breakProgress);
         poseStack.popPose();
     }
 

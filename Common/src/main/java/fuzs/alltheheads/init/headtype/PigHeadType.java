@@ -12,6 +12,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.animal.pig.PigSoundVariants;
 import net.minecraft.world.entity.animal.pig.PigVariant;
 import net.minecraft.world.entity.animal.pig.PigVariants;
 
@@ -40,7 +41,9 @@ public class PigHeadType {
                 })
                 .shape(8.0, 8.0, 8.0)
                 .model(ModelType.PIG, Identifier.withDefaultNamespace(textureLocation))
-                .noteBlockSound(SoundEvents.PIG_AMBIENT)
+                .noteBlockSound(SoundEvents.PIG_SOUNDS.get(PigSoundVariants.SoundSet.CLASSIC)
+                        .adultSounds()
+                        .ambientSound())
                 .build(context, resourceKey);
     }
 

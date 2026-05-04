@@ -12,6 +12,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.animal.cow.CowSoundVariants;
 import net.minecraft.world.entity.animal.cow.CowVariant;
 import net.minecraft.world.entity.animal.cow.CowVariants;
 import net.minecraft.world.entity.animal.cow.MushroomCow;
@@ -49,7 +50,7 @@ public class CowHeadType {
                 })
                 .shape(8.0, 8.0, 6.0)
                 .model(modelType, Identifier.withDefaultNamespace(textureLocation))
-                .noteBlockSound(SoundEvents.COW_AMBIENT)
+                .noteBlockSound(SoundEvents.COW_SOUNDS.get(CowSoundVariants.SoundSet.CLASSIC).ambientSound())
                 .build(context, resourceKey);
     }
 
@@ -62,7 +63,7 @@ public class CowHeadType {
                 })
                 .shape(8.0, 8.0, 6.0)
                 .model(ModelType.TEMPERATE_COW, Identifier.withDefaultNamespace(textureLocation))
-                .noteBlockSound(SoundEvents.COW_AMBIENT)
+                .noteBlockSound(SoundEvents.COW_SOUNDS.get(CowSoundVariants.SoundSet.CLASSIC).ambientSound())
                 .build(context, resourceKey);
     }
 

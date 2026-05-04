@@ -4,8 +4,8 @@ import fuzs.alltheheads.AllTheHeads;
 import fuzs.alltheheads.init.ModRegistry;
 import fuzs.alltheheads.init.headtype.*;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
-import fuzs.puzzleslib.api.client.data.v2.AbstractLanguageProvider;
-import fuzs.puzzleslib.api.data.v2.core.DataProviderContext;
+import fuzs.puzzleslib.common.api.client.data.v2.AbstractLanguageProvider;
+import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
 import net.minecraft.resources.ResourceKey;
 
 import java.util.function.BiConsumer;

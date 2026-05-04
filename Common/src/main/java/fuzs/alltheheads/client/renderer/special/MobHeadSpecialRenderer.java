@@ -11,10 +11,13 @@ import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
 import net.minecraft.client.model.object.skull.SkullModelBase;
 import net.minecraft.client.renderer.SubmitNodeCollector;
+import net.minecraft.client.renderer.block.BuiltInBlockModels;
+import net.minecraft.client.renderer.blockentity.SkullBlockRenderer;
 import net.minecraft.client.renderer.special.SpecialModelRenderer;
 import net.minecraft.core.Holder;
-import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.SkullBlock;
+import net.minecraft.world.level.block.WallSkullBlock;
 import org.joml.Vector3fc;
 import org.jspecify.annotations.Nullable;
 
@@ -34,7 +37,7 @@ public class MobHeadSpecialRenderer implements SpecialModelRenderer<@Nullable Ho
     }
 
     @Override
-    public void submit(@Nullable Holder<HeadType> headType, ItemDisplayContext displayContext, PoseStack poseStack, SubmitNodeCollector nodeCollector, int packedLight, int packedOverlay, boolean hasFoil, int outlineColor) {
+    public void submit(@Nullable Holder<HeadType> headType, PoseStack poseStack, SubmitNodeCollector nodeCollector, int packedLight, int packedOverlay, boolean hasFoil, int outlineColor) {
         MobHeadRenderState mobHeadRenderState = MobHeadRenderState.create(packedLight,
                 180.0F,
                 this.animation,
@@ -64,7 +67,7 @@ public class MobHeadSpecialRenderer implements SpecialModelRenderer<@Nullable Ho
         return itemStack.get(ModRegistry.HEAD_TYPE_DATA_COMPONENT_TYPE.value());
     }
 
-    public record Unbaked(float animation) implements SpecialModelRenderer.Unbaked {
+    public record Unbaked(float animation) implements SpecialModelRenderer.Unbaked<@Nullable Holder<HeadType>> {
         public static final MapCodec<MobHeadSpecialRenderer.Unbaked> MAP_CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
                         Codec.FLOAT.optionalFieldOf("animation", 0.0F).forGetter(MobHeadSpecialRenderer.Unbaked::animation))
                 .apply(instance, MobHeadSpecialRenderer.Unbaked::new));
@@ -73,13 +76,31 @@ public class MobHeadSpecialRenderer implements SpecialModelRenderer<@Nullable Ho
             this(0.0F);
         }
 
+        /**
+         * @see BuiltInBlockModels#createMobHead(SkullBlock.Types)
+         */
+        public static BuiltInBlockModels.SpecialModelFactory createMobHead() {
+            return BuiltInBlockModels.specialModelWithPropertyDispatch(SkullBlock.ROTATION,
+                    rotation -> BuiltInBlockModels.special(new Unbaked(),
+                            SkullBlockRenderer.TRANSFORMATIONS.freeTransformations(rotation)));
+        }
+
+        /**
+         * @see BuiltInBlockModels#createMobWallHead(SkullBlock.Types)
+         */
+        public static BuiltInBlockModels.SpecialModelFactory createMobWallHead() {
+            return BuiltInBlockModels.specialModelWithPropertyDispatch(WallSkullBlock.FACING,
+                    facing -> BuiltInBlockModels.special(new Unbaked(),
+                            SkullBlockRenderer.TRANSFORMATIONS.wallTransformation(facing)));
+        }
+
         @Override
         public MapCodec<MobHeadSpecialRenderer.Unbaked> type() {
             return MAP_CODEC;
         }
 
         @Override
-        public SpecialModelRenderer<?> bake(BakingContext context) {
+        public MobHeadSpecialRenderer bake(BakingContext context) {
             return new MobHeadSpecialRenderer(MobHeadRenderer.createSkullModels(context.entityModelSet()),
                     this.animation);
         }

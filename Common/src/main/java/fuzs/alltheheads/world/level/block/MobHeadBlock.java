@@ -2,7 +2,7 @@ package fuzs.alltheheads.world.level.block;
 
 import fuzs.alltheheads.init.ModRegistry;
 import fuzs.alltheheads.world.level.block.entity.MobHeadBlockEntity;
-import fuzs.puzzleslib.api.block.v1.entity.TickingEntityBlock;
+import fuzs.puzzleslib.common.api.block.v1.entity.TickingEntityBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;

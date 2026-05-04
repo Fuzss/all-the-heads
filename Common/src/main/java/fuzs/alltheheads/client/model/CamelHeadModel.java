@@ -1,6 +1,6 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.animal.camel.CamelModel;
+import net.minecraft.client.model.animal.camel.AdultCamelModel;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.CubeListBuilder;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
@@ -8,7 +8,7 @@ import net.minecraft.client.model.geom.builders.PartDefinition;
 
 public final class CamelHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {
-        LayerDefinition layerDefinition = CamelModel.createBodyLayer();
+        LayerDefinition layerDefinition = AdultCamelModel.createBodyLayer();
         PartDefinition partDefinition2 = layerDefinition.mesh.getRoot().getChild("body");
         partDefinition2.addOrReplaceChild("head", CubeListBuilder.create()
 //                        .texOffs(60, 24)

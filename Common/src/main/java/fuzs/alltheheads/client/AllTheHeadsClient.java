@@ -7,10 +7,10 @@ import fuzs.alltheheads.client.renderer.blockentity.MobHeadRenderer;
 import fuzs.alltheheads.client.renderer.special.MobHeadSpecialRenderer;
 import fuzs.alltheheads.init.ModRegistry;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
-import fuzs.puzzleslib.api.client.core.v1.ClientModConstructor;
-import fuzs.puzzleslib.api.client.core.v1.context.*;
-import fuzs.puzzleslib.api.client.event.v1.renderer.AddLivingEntityRenderLayersCallback;
-import fuzs.puzzleslib.api.client.event.v1.renderer.ExtractRenderStateCallback;
+import fuzs.puzzleslib.common.api.client.core.v1.ClientModConstructor;
+import fuzs.puzzleslib.common.api.client.core.v1.context.*;
+import fuzs.puzzleslib.common.api.client.event.v1.renderer.AddLivingEntityRenderLayersCallback;
+import fuzs.puzzleslib.common.api.client.event.v1.renderer.ExtractEntityRenderStateCallback;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.model.geom.LayerDefinitions;
 import net.minecraft.client.model.geom.ModelLayers;
@@ -28,7 +28,7 @@ public class AllTheHeadsClient implements ClientModConstructor {
     }
 
     private static void registerEventHandlers() {
-        ExtractRenderStateCallback.EVENT.register(CustomHeadLayerHandler::onExtractRenderState);
+        ExtractEntityRenderStateCallback.EVENT.register(CustomHeadLayerHandler::onExtractEntityRenderState);
         AddLivingEntityRenderLayersCallback.EVENT.register(CustomHeadLayerHandler::addLivingEntityRenderLayers);
     }
 
@@ -202,10 +202,10 @@ public class AllTheHeadsClient implements ClientModConstructor {
     }
 
     @Override
-    public void onRegisterSpecialBlockModelRenderers(SpecialBlockModelRenderersContext context) {
-        context.registerSpecialBlockModelRenderer(ModRegistry.MOB_HEAD_BLOCK.value(),
-                new MobHeadSpecialRenderer.Unbaked());
-        context.registerSpecialBlockModelRenderer(ModRegistry.MOB_WALL_HEAD_BLOCK.value(),
-                new MobHeadSpecialRenderer.Unbaked());
+    public void onRegisterBuiltInBlockModels(BuiltInBlockModelsContext context) {
+        context.registerModelFactory(ModRegistry.MOB_HEAD_BLOCK.value(),
+                MobHeadSpecialRenderer.Unbaked.createMobHead());
+        context.registerModelFactory(ModRegistry.MOB_WALL_HEAD_BLOCK.value(),
+                MobHeadSpecialRenderer.Unbaked.createMobWallHead());
     }
 }
