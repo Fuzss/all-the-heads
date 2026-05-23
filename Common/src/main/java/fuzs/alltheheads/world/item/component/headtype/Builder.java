@@ -1,7 +1,7 @@
 package fuzs.alltheheads.world.item.component.headtype;
 
 import com.google.common.collect.ImmutableList;
-import fuzs.alltheheads.core.ModelAndTexture;
+import fuzs.puzzleslib.api.entity.v1.ModelAndTexture;
 import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.advancements.critereon.EntityTypePredicate;
 import net.minecraft.core.Holder;

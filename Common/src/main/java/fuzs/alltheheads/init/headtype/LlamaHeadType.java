@@ -55,7 +55,7 @@ public class LlamaHeadType {
                 .shape(8.0, 10.0, 6.0)
                 .model(ModelType.LLAMA, ResourceLocationHelper.withDefaultNamespace(textureLocation))
                 .model(ModelType.LLAMA_DECOR,
-                        ResourceLocationHelper.withDefaultNamespace("entity/equipment/llama_body/trader_llama"))
+                        ResourceLocationHelper.withDefaultNamespace("entity/llama/decor/trader_llama"))
                 .noteBlockSound(SoundEvents.LLAMA_AMBIENT)
                 .build(context, resourceKey);
     }

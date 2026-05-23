@@ -52,7 +52,10 @@ public class AllTheHeads implements ModConstructor {
     }
 
     private static void setupDevelopmentEnvironment() {
-        if (!ModLoaderEnvironment.INSTANCE.isDevelopmentEnvironment(MOD_ID)) return;
+        if (!ModLoaderEnvironment.INSTANCE.isDevelopmentEnvironment(MOD_ID)) {
+            return;
+        }
+
         TagsUpdatedCallback.EVENT.register((RegistryAccess registries, boolean isClientUpdate) -> {
             if (!isClientUpdate) {
                 Set<ResourceKey<EntityType<?>>> mobEntities = BuiltInRegistries.ENTITY_TYPE.stream()

@@ -10,7 +10,7 @@ import java.util.function.UnaryOperator;
 public final class SilverfishHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {
         LayerDefinition layerDefinition = new LayerDefinition(SilverfishModel.createBodyLayer());
-        PartDefinition partDefinition = new PartDefinition(layerDefinition.mesh.getRoot());
+        PartDefinition partDefinition = layerDefinition.mesh.getRoot();
         partDefinition.retainExactParts(Set.of("segment0", "segment1", "segment2", "layer0", "layer2"));
         return createHeadLayer(layerDefinition,
                 UnaryOperator.identity(),

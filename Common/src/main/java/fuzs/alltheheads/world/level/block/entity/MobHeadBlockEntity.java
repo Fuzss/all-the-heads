@@ -9,6 +9,9 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtOps;
+import net.minecraft.nbt.Tag;
+import net.minecraft.resources.RegistryOps;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -42,13 +45,15 @@ public class MobHeadBlockEntity extends SkullBlockEntity implements TickingBlock
     @Override
     protected void saveAdditional(CompoundTag valueOutput, HolderLookup.Provider registries) {
         super.saveAdditional(valueOutput, registries);
-        CompoundTagHelper.storeNullable(valueOutput, TAG_HEAD_TYPE, HeadType.CODEC, this.headType);
+        RegistryOps<Tag> registryOps = registries.createSerializationContext(NbtOps.INSTANCE);
+        CompoundTagHelper.storeNullable(valueOutput, TAG_HEAD_TYPE, HeadType.CODEC, registryOps, this.headType);
     }
 
     @Override
     protected void loadAdditional(CompoundTag valueInput, HolderLookup.Provider registries) {
         super.loadAdditional(valueInput, registries);
-        this.headType = CompoundTagHelper.read(valueInput, TAG_HEAD_TYPE, HeadType.CODEC).orElse(null);
+        RegistryOps<Tag> registryOps = registries.createSerializationContext(NbtOps.INSTANCE);
+        this.headType = CompoundTagHelper.read(valueInput, TAG_HEAD_TYPE, HeadType.CODEC, registryOps).orElse(null);
     }
 
     @Nullable

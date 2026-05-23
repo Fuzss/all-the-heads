@@ -13,7 +13,7 @@ public final class EndermiteHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {
         int shortenedSize = 2;
         LayerDefinition layerDefinition = new LayerDefinition(EndermiteModel.createBodyLayer());
-        PartDefinition partDefinition = new PartDefinition(layerDefinition.mesh.getRoot());
+        PartDefinition partDefinition = layerDefinition.mesh.getRoot();
         partDefinition.addOrReplaceChild("segment1",
                 CubeListBuilder.create()
                         .texOffs(shortenedSize, 5 + shortenedSize)

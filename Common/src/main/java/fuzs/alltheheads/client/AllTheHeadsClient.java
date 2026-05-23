@@ -1,11 +1,9 @@
 package fuzs.alltheheads.client;
 
-import com.mojang.blaze3d.vertex.PoseStack;
 import fuzs.alltheheads.client.handler.CustomHeadLayerHandler;
 import fuzs.alltheheads.client.model.*;
 import fuzs.alltheheads.client.renderer.blockentity.MobHeadBlockRenderer;
 import fuzs.alltheheads.client.renderer.special.MobHeadSpecialRenderer;
-import fuzs.alltheheads.core.SpecialModelRenderer;
 import fuzs.alltheheads.init.ModRegistry;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
 import fuzs.puzzleslib.api.client.core.v1.ClientModConstructor;
@@ -15,23 +13,15 @@ import fuzs.puzzleslib.api.client.core.v1.context.LayerDefinitionsContext;
 import fuzs.puzzleslib.api.client.core.v1.context.SkullRenderersContext;
 import fuzs.puzzleslib.api.client.event.v1.renderer.AddLivingEntityRenderLayersCallback;
 import fuzs.puzzleslib.api.client.event.v1.renderer.RenderLivingEvents;
-import fuzs.puzzleslib.api.client.init.v1.ReloadingBuiltInItemRenderer;
-import net.minecraft.client.Minecraft;
+import fuzs.puzzleslib.api.core.v1.ContentRegistrationFlags;
 import net.minecraft.client.model.PiglinHeadModel;
 import net.minecraft.client.model.SkullModel;
-import net.minecraft.client.model.SkullModelBase;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.model.geom.LayerDefinitions;
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
-import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.server.packs.resources.ResourceManager;
-import net.minecraft.world.item.ItemDisplayContext;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.SkullBlock;
-
-import java.util.function.BiConsumer;
+import net.minecraft.client.resources.DefaultPlayerSkin;
 
 public class AllTheHeadsClient implements ClientModConstructor {
 
@@ -191,40 +181,18 @@ public class AllTheHeadsClient implements ClientModConstructor {
 
     @Override
     public void onRegisterSkullRenderers(SkullRenderersContext context) {
-        context.registerSkullRenderer((EntityModelSet entityModels, BiConsumer<SkullBlock.Type, SkullModelBase> registrar) -> {
-            registrar.accept(ModRegistry.MOB_SKULL_BLOCK_TYPE,
-                    new SkullModel(entityModels.bakeLayer(ModelLayers.PLAYER_HEAD)));
-        });
+        context.registerSkullRenderer(ModRegistry.MOB_SKULL_BLOCK_TYPE,
+                DefaultPlayerSkin.getDefaultTexture(),
+                (EntityModelSet entityModelSet) -> new SkullModel(entityModelSet.bakeLayer(ModelLayers.PLAYER_HEAD)));
     }
 
     @Override
     public void onRegisterBuiltinModelItemRenderers(BuiltinModelItemRendererContext context) {
-        context.registerItemRenderer(new SpecialBuiltInItemRenderer<>(new MobHeadSpecialRenderer.Unbaked()),
-                ModRegistry.MOB_HEAD_BLOCK.value());
+        context.registerItemRenderer(ModRegistry.MOB_HEAD_ITEM.value(), new MobHeadSpecialRenderer.Unbaked());
     }
 
-    private static class SpecialBuiltInItemRenderer<T> implements ReloadingBuiltInItemRenderer {
-        private final SpecialModelRenderer.Unbaked<T> unbaked;
-        private SpecialModelRenderer<T> modelRenderer;
-
-        public SpecialBuiltInItemRenderer(SpecialModelRenderer.Unbaked<T> unbaked) {
-            this.unbaked = unbaked;
-        }
-
-        @Override
-        public void renderByItem(ItemStack itemStack, ItemDisplayContext context, PoseStack poseStack, MultiBufferSource bufferSource, int lightCoords, int overlayCoords) {
-            this.modelRenderer.render(this.modelRenderer.extractArgument(itemStack),
-                    context,
-                    poseStack,
-                    bufferSource,
-                    lightCoords,
-                    overlayCoords,
-                    itemStack.hasFoil());
-        }
-
-        @Override
-        public void onResourceManagerReload(ResourceManager resourceManager) {
-            this.modelRenderer = this.unbaked.bake(Minecraft.getInstance().getEntityModels());
-        }
+    @Override
+    public ContentRegistrationFlags[] getContentRegistrationFlags() {
+        return new ContentRegistrationFlags[]{ContentRegistrationFlags.DYNAMIC_RENDERERS};
     }
 }

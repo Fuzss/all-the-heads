@@ -9,7 +9,7 @@ import net.minecraft.client.model.geom.builders.CubeListBuilder;
 public final class CodHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {
         LayerDefinition layerDefinition = new LayerDefinition(CodModel.createBodyLayer());
-        PartDefinition partDefinition = new PartDefinition(layerDefinition.mesh.getRoot()).getChild("head");
+        PartDefinition partDefinition = layerDefinition.mesh.getRoot().getChild("head");
         partDefinition.addOrReplaceChild("nose",
                 CubeListBuilder.create().texOffs(0, 0).addBox(-1.0F, -2.0F, -1.0F, 2.0F, 3.0F, 1.0F),
                 PartPose.offset(0.0F, 0.0F, -3.0F));

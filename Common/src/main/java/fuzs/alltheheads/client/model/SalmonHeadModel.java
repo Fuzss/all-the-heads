@@ -14,6 +14,6 @@ public final class SalmonHeadModel extends HeadModelBase {
                 3.0F,
                 0.0F,
                 20.0F,
-                -7.2F);
+                0.0F);
     }
 }

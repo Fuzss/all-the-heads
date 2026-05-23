@@ -2,7 +2,7 @@ package fuzs.alltheheads.world.item.component.headtype;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import fuzs.alltheheads.core.ModelAndTexture;
+import fuzs.puzzleslib.api.entity.v1.ModelAndTexture;
 import net.minecraft.resources.ResourceLocation;
 
 import java.util.Optional;

@@ -14,7 +14,7 @@
       "model": "alltheheads:llama_head"
     },
     {
-      "asset_id": "minecraft:entity/equipment/llama_body/trader_llama",
+      "asset_id": "minecraft:entity/llama/decor/trader_llama",
       "model": "alltheheads:llama_head/decor"
     }
   ],

@@ -1,26 +1,17 @@
 {
-  "custom_name": "minecraft.sheep_cyan",
+  "custom_name": "minecraft.sheep",
   "entity_predicate": {
     "type": "minecraft:sheep",
     "type_specific": {
       "type": "alltheheads:sheep",
-      "color": "cyan",
-      "sheared": false
+      "sheared": true
     }
   },
-  "loot_table": "alltheheads:entities/heads/minecraft/sheep/cyan",
+  "loot_table": "alltheheads:entities/heads/minecraft/sheep",
   "models": [
     {
       "asset_id": "minecraft:entity/sheep/sheep",
       "model": "alltheheads:sheep_head"
-    },
-    {
-      "asset_id": "minecraft:entity/sheep/sheep_fur",
-      "color": {
-        "type": "alltheheads:sheep",
-        "dye": "cyan"
-      },
-      "model": "alltheheads:sheep_head/wool"
     }
   ],
   "note_block_sound": "minecraft:entity.sheep.ambient",

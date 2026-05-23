@@ -1,5 +1,6 @@
 {
   "values": [
+    "alltheheads:minecraft/sheep",
     "alltheheads:minecraft/sheep/black",
     "alltheheads:minecraft/sheep/blue",
     "alltheheads:minecraft/sheep/brown",
@@ -16,23 +17,6 @@
     "alltheheads:minecraft/sheep/rainbow",
     "alltheheads:minecraft/sheep/red",
     "alltheheads:minecraft/sheep/white",
-    "alltheheads:minecraft/sheep/woolly/black",
-    "alltheheads:minecraft/sheep/woolly/blue",
-    "alltheheads:minecraft/sheep/woolly/brown",
-    "alltheheads:minecraft/sheep/woolly/cyan",
-    "alltheheads:minecraft/sheep/woolly/gray",
-    "alltheheads:minecraft/sheep/woolly/green",
-    "alltheheads:minecraft/sheep/woolly/light_blue",
-    "alltheheads:minecraft/sheep/woolly/light_gray",
-    "alltheheads:minecraft/sheep/woolly/lime",
-    "alltheheads:minecraft/sheep/woolly/magenta",
-    "alltheheads:minecraft/sheep/woolly/orange",
-    "alltheheads:minecraft/sheep/woolly/pink",
-    "alltheheads:minecraft/sheep/woolly/purple",
-    "alltheheads:minecraft/sheep/woolly/rainbow",
-    "alltheheads:minecraft/sheep/woolly/red",
-    "alltheheads:minecraft/sheep/woolly/white",
-    "alltheheads:minecraft/sheep/woolly/yellow",
     "alltheheads:minecraft/sheep/yellow"
   ]
 }

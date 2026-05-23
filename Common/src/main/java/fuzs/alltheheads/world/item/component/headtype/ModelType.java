@@ -2,7 +2,7 @@ package fuzs.alltheheads.world.item.component.headtype;
 
 import com.mojang.serialization.Codec;
 import fuzs.alltheheads.AllTheHeads;
-import fuzs.alltheheads.core.LateBoundIdMapper;
+import fuzs.puzzleslib.api.codec.v1.LateBoundIdMapper;
 import net.minecraft.resources.ResourceLocation;
 
 import java.util.Objects;

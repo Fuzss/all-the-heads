@@ -2,10 +2,10 @@ package fuzs.alltheheads.client.renderer.blockentity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import fuzs.alltheheads.core.ClientAsset;
-import fuzs.alltheheads.core.ModelAndTexture;
 import fuzs.alltheheads.world.item.component.headtype.*;
 import fuzs.alltheheads.world.level.block.entity.MobHeadBlockEntity;
+import fuzs.puzzleslib.api.core.v2.ClientAsset;
+import fuzs.puzzleslib.api.entity.v1.ModelAndTexture;
 import net.minecraft.Util;
 import net.minecraft.client.model.PiglinHeadModel;
 import net.minecraft.client.model.SkullModel;

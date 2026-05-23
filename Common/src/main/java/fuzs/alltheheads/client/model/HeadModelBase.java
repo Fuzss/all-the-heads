@@ -83,7 +83,7 @@ public abstract class HeadModelBase {
                 PartPose.offset(-originX - offsetX - dimensionX / 2.0F,
                         -originY - offsetY - dimensionY,
                         -originZ - offsetZ - dimensionZ / 2.0F));
-        PartDefinition partDefinition4 = headPartGetter.apply(new PartDefinition(layerDefinition.mesh.getRoot()));
+        PartDefinition partDefinition4 = headPartGetter.apply(layerDefinition.mesh.getRoot());
         Objects.requireNonNull(partDefinition4, "part definition is null");
         partDefinition3.addOrReplaceChild("head", partDefinition4);
         return new LayerDefinition(meshDefinition, layerDefinition.material);

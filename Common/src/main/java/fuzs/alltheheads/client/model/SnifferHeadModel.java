@@ -7,7 +7,10 @@ import net.minecraft.client.model.SnifferModel;
 public final class SnifferHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {
         return createHeadLayer(new LayerDefinition(SnifferModel.createBodyLayer()),
-                (PartDefinition partDefinition) -> partDefinition.getChild("bone").getChild("body").getChild("head"),
+                (PartDefinition partDefinition) -> partDefinition.getChild("root")
+                        .getChild("bone")
+                        .getChild("body")
+                        .getChild("head"),
                 -6.5F,
                 -7.5F,
                 -11.5F,

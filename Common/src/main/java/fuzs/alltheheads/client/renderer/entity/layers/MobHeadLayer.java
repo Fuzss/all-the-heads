@@ -48,14 +48,18 @@ public class MobHeadLayer<T extends LivingEntity, M extends EntityModel<T> & Hea
             poseStack.pushPose();
             poseStack.scale(this.scaleX, this.scaleY, this.scaleZ);
             boolean isVillagerLike = livingEntity instanceof Villager || livingEntity instanceof ZombieVillager;
-            M entityModel = this.getParentModel();
-//            entityModel.root().translateAndRotate(poseStack);
-            entityModel.getHead().translateAndRotate(poseStack);
+            if (livingEntity.isBaby() && !(livingEntity instanceof Villager)) {
+                poseStack.translate(0.0F, 0.03125F, 0.0F);
+                poseStack.scale(0.7F, 0.7F, 0.7F);
+                poseStack.translate(0.0F, 1.0F, 0.0F);
+            }
+
+            this.getParentModel().getHead().translateAndRotate(poseStack);
+            poseStack.scale(1.1875F, -1.1875F, -1.1875F);
             if (isVillagerLike) {
                 poseStack.translate(0.0F, 0.0625F, 0.0F);
             }
 
-            poseStack.scale(1.1875F, -1.1875F, -1.1875F);
             poseStack.translate(-0.5, 0.0, -0.5);
             WalkAnimationState walkAnimationState;
             if (livingEntity.getVehicle() instanceof LivingEntity livingEntity2) {

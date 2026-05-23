@@ -5,15 +5,14 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import fuzs.alltheheads.client.renderer.blockentity.MobHeadBlockRenderer;
-import fuzs.alltheheads.core.SpecialModelRenderer;
 import fuzs.alltheheads.init.ModRegistry;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
+import fuzs.puzzleslib.api.client.renderer.v1.special.SpecialModelRenderer;
 import net.minecraft.client.model.SkullModelBase;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.core.Holder;
-import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.Nullable;
 
@@ -32,7 +31,7 @@ public class MobHeadSpecialRenderer implements SpecialModelRenderer<@Nullable Ho
     }
 
     @Override
-    public void render(@Nullable Holder<HeadType> headType, ItemDisplayContext displayContext, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay, boolean hasFoilType) {
+    public void render(@Nullable Holder<HeadType> headType, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay, boolean hasFoilType) {
         MobHeadBlockRenderer.renderSkull(null,
                 180.0F,
                 this.animation,

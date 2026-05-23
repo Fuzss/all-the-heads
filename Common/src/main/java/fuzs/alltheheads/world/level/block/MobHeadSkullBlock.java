@@ -31,7 +31,11 @@ public class MobHeadSkullBlock extends WallSkullBlock implements TickingEntityBl
     @Override
     protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         if (level.getBlockEntity(pos) instanceof MobHeadBlockEntity blockEntity && blockEntity.getHeadType() != null) {
-            return blockEntity.getHeadType().value().shape().horizontalShapes().get(state.getValue(FACING));
+            return blockEntity.getHeadType()
+                    .value()
+                    .shape()
+                    .horizontalShapes()
+                    .get(state.getValue(FACING).getOpposite());
         } else {
             return super.getShape(state, level, pos, context);
         }

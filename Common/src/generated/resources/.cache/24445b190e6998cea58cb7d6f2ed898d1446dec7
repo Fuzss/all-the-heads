@@ -1,4 +1,4 @@
-// 1.21.1	2026-05-23T08:57:36.950111	Mod Entity Loot Provider
+// 1.21.1	2026-05-23T19:34:51.655316	Mod Entity Loot Provider
 3339143dc061056e572d1eb1602cf683dcb70218 data/alltheheads/loot_table/entities/heads/minecraft/allay.json
 a1c190007cbd881e30f673a6e81cfecfdcc56647 data/alltheheads/loot_table/entities/heads/minecraft/armadillo.json
 8d148f17e54cd28f2e9c11e28b94ebe66c457e93 data/alltheheads/loot_table/entities/heads/minecraft/axolotl/blue.json
@@ -125,6 +125,7 @@ d6c9bb75ff539bb2af057e858fd5b789a064d683 data/alltheheads/loot_table/entities/he
 fcf17d43e8ff8ca9cc806a489621276e53566fdc data/alltheheads/loot_table/entities/heads/minecraft/rabbit/white_splotched.json
 af14b0a06f63fcb4c1777d8b1318da100dfff809 data/alltheheads/loot_table/entities/heads/minecraft/ravager.json
 e5afbde4080e2d9b0713878db0d75e1f955828f3 data/alltheheads/loot_table/entities/heads/minecraft/salmon.json
+a294b6257e2d3969a89a5afe51356241d9c1dc08 data/alltheheads/loot_table/entities/heads/minecraft/sheep.json
 c63d406820da26b6407a85cc4d562dac849db735 data/alltheheads/loot_table/entities/heads/minecraft/sheep/black.json
 186eebff88d1847cb34a63f250c5b84473e89f50 data/alltheheads/loot_table/entities/heads/minecraft/sheep/blue.json
 c91e8b2fb720a31fecad7fc449d1d48dbff446e9 data/alltheheads/loot_table/entities/heads/minecraft/sheep/brown.json
@@ -141,23 +142,6 @@ f0836d694abb4763baed8c071e6c7713af862a95 data/alltheheads/loot_table/entities/he
 3a758e8714b5773625753ef53d3a170c2ac6b5f0 data/alltheheads/loot_table/entities/heads/minecraft/sheep/rainbow.json
 f1c4e2f8aad12c1275e862aa82efdabe27ebfbf6 data/alltheheads/loot_table/entities/heads/minecraft/sheep/red.json
 a4f4862106772dd5f11fe8ee729088d8941243e6 data/alltheheads/loot_table/entities/heads/minecraft/sheep/white.json
-2c2e5a5e2a008b71251f03bc23a60823df39781c data/alltheheads/loot_table/entities/heads/minecraft/sheep/woolly/black.json
-3ab27823f050b597f6d52818a19b30e3a46fdc7a data/alltheheads/loot_table/entities/heads/minecraft/sheep/woolly/blue.json
-ebe102f981ec0ce82af1b72c3e9b137ace4f00de data/alltheheads/loot_table/entities/heads/minecraft/sheep/woolly/brown.json
-09327775e3551ae7daef6709ec46b1170dc0d73b data/alltheheads/loot_table/entities/heads/minecraft/sheep/woolly/cyan.json
-263c0f41ceaaa6a71449995613af7a579665cd77 data/alltheheads/loot_table/entities/heads/minecraft/sheep/woolly/gray.json
-8bb0eb22cbb8ad480b3999489b4ccb6f1b06934e data/alltheheads/loot_table/entities/heads/minecraft/sheep/woolly/green.json
-64dc634684ecaa99b9125d0338aadf9ddb3bbf70 data/alltheheads/loot_table/entities/heads/minecraft/sheep/woolly/light_blue.json
-afec6e2762f26fba09d7eaab135a94f63fb3d28c data/alltheheads/loot_table/entities/heads/minecraft/sheep/woolly/light_gray.json
-725919d61079b66747de2533067c4f3cf6cb6c1c data/alltheheads/loot_table/entities/heads/minecraft/sheep/woolly/lime.json
-ffed087d413bb8a2c0fb4c92ac5969092ec07cd5 data/alltheheads/loot_table/entities/heads/minecraft/sheep/woolly/magenta.json
-6bea6be70e3ee5dba69aa5e5ade1b9ee360cf8e8 data/alltheheads/loot_table/entities/heads/minecraft/sheep/woolly/orange.json
-1fa990206ce9a9bfa5a6393c5a9e5dc94dcadb41 data/alltheheads/loot_table/entities/heads/minecraft/sheep/woolly/pink.json
-1624542158c62ae53a39a86d3fd2fc8dc0e4c88b data/alltheheads/loot_table/entities/heads/minecraft/sheep/woolly/purple.json
-d095f08586c4fffb633de5949e833e5f3508e717 data/alltheheads/loot_table/entities/heads/minecraft/sheep/woolly/rainbow.json
-01ca2e4b8a28e52789716d1c33d463f27f530e61 data/alltheheads/loot_table/entities/heads/minecraft/sheep/woolly/red.json
-5beff33786461fd8db5d9601611b4a0ad3aad308 data/alltheheads/loot_table/entities/heads/minecraft/sheep/woolly/white.json
-69628a51faf9a810a548672100eb65f7b3aeaa01 data/alltheheads/loot_table/entities/heads/minecraft/sheep/woolly/yellow.json
 d1af01baf56fb893e466193282d0a0f80981ead0 data/alltheheads/loot_table/entities/heads/minecraft/sheep/yellow.json
 372ae40e4c4e602b1b19df229d0ea69b46ab5b3e data/alltheheads/loot_table/entities/heads/minecraft/shulker.json
 d13be4d732b70b79f0a10fe1043301443b64a2b6 data/alltheheads/loot_table/entities/heads/minecraft/silverfish.json

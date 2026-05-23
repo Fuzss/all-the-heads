@@ -5,7 +5,7 @@
     "nbt": "{CustomName:'\"jeb_\"'}",
     "type_specific": {
       "type": "alltheheads:sheep",
-      "sheared": true
+      "sheared": false
     }
   },
   "loot_table": "alltheheads:entities/heads/minecraft/sheep/rainbow",
@@ -15,11 +15,11 @@
       "model": "alltheheads:sheep_head"
     },
     {
-      "asset_id": "minecraft:entity/sheep/sheep_wool_undercoat",
+      "asset_id": "minecraft:entity/sheep/sheep_fur",
       "color": {
         "type": "alltheheads:rainbow"
       },
-      "model": "alltheheads:sheep_head"
+      "model": "alltheheads:sheep_head/wool"
     }
   ],
   "note_block_sound": "minecraft:entity.sheep.ambient",

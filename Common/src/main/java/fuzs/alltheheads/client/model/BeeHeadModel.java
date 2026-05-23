@@ -10,7 +10,7 @@ public final class BeeHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {
         int shortenedSize = 4;
         LayerDefinition layerDefinition = new LayerDefinition(BeeModel.createBodyLayer());
-        PartDefinition partDefinition1 = new PartDefinition(layerDefinition.mesh.getRoot()).getChild("bone");
+        PartDefinition partDefinition1 = layerDefinition.mesh.getRoot().getChild("bone");
         PartDefinition partDefinition2 = partDefinition1.addOrReplaceChild("body",
                 CubeListBuilder.create()
                         .texOffs(shortenedSize, shortenedSize)

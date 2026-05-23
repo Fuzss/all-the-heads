@@ -4,11 +4,16 @@ import fuzs.puzzleslib.api.client.renderer.v1.model.geom.builders.LayerDefinitio
 import net.minecraft.client.model.HorseModel;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
 
+import java.util.Set;
+
 public final class HorseHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {
         LayerDefinition layerDefinition = LayerDefinition.create(HorseModel.createBodyMesh(CubeDeformation.NONE),
                 64,
                 64);
+        layerDefinition.mesh.getRoot()
+                .getChild("head_parts")
+                .retainPartsAndChildren(Set.of("head", "mane", "upper_mouth"));
         return createHeadLayer(layerDefinition,
                 "head_parts",
                 -2.05F,

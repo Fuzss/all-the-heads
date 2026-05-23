@@ -15,7 +15,7 @@ public final class TropicalFishHeadModel extends HeadModelBase {
     public static LayerDefinition createSmallHeadLayer() {
         int shortenedSize = 2;
         LayerDefinition layerDefinition = new LayerDefinition(TropicalFishModelA.createBodyLayer(CubeDeformation.NONE));
-        PartDefinition partDefinition = new PartDefinition(layerDefinition.mesh.getRoot());
+        PartDefinition partDefinition = layerDefinition.mesh.getRoot();
         partDefinition.addOrReplaceChild("body",
                 CubeListBuilder.create()
                         .texOffs(shortenedSize, shortenedSize)
@@ -38,7 +38,7 @@ public final class TropicalFishHeadModel extends HeadModelBase {
     public static LayerDefinition createLargeHeadLayer() {
         int shortenedSize = 2;
         LayerDefinition layerDefinition = new LayerDefinition(TropicalFishModelB.createBodyLayer(CubeDeformation.NONE));
-        PartDefinition partDefinition = new PartDefinition(layerDefinition.mesh.getRoot());
+        PartDefinition partDefinition = layerDefinition.mesh.getRoot();
         partDefinition.addOrReplaceChild("body",
                 CubeListBuilder.create()
                         .texOffs(shortenedSize, 20 + shortenedSize)
