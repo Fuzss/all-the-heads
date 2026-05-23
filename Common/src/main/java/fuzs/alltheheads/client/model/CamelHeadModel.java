@@ -1,15 +1,15 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.animal.camel.CamelModel;
+import fuzs.puzzleslib.api.client.renderer.v1.model.geom.builders.LayerDefinition;
+import fuzs.puzzleslib.api.client.renderer.v1.model.geom.builders.PartDefinition;
+import net.minecraft.client.model.CamelModel;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.CubeListBuilder;
-import net.minecraft.client.model.geom.builders.LayerDefinition;
-import net.minecraft.client.model.geom.builders.PartDefinition;
 
 public final class CamelHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {
-        LayerDefinition layerDefinition = CamelModel.createBodyLayer();
-        PartDefinition partDefinition2 = layerDefinition.mesh.getRoot().getChild("body");
+        LayerDefinition layerDefinition = new LayerDefinition(CamelModel.createBodyLayer());
+        PartDefinition partDefinition2 = new PartDefinition(layerDefinition.mesh.getRoot()).getChild("body");
         partDefinition2.addOrReplaceChild("head", CubeListBuilder.create()
 //                        .texOffs(60, 24)
 //                        .addBox(-3.5F, -7.0F, -15.0F, 7.0F, 8.0F, 19.0F)

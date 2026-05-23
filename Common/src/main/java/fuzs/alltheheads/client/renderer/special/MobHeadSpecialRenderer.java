@@ -4,21 +4,19 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import fuzs.alltheheads.client.renderer.blockentity.MobHeadRenderer;
-import fuzs.alltheheads.client.renderer.blockentity.state.MobHeadRenderState;
+import fuzs.alltheheads.client.renderer.blockentity.MobHeadBlockRenderer;
+import fuzs.alltheheads.core.SpecialModelRenderer;
 import fuzs.alltheheads.init.ModRegistry;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
-import net.minecraft.client.model.object.skull.SkullModelBase;
-import net.minecraft.client.renderer.SubmitNodeCollector;
-import net.minecraft.client.renderer.special.SpecialModelRenderer;
+import net.minecraft.client.model.SkullModelBase;
+import net.minecraft.client.model.geom.EntityModelSet;
+import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.core.Holder;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
-import org.joml.Vector3fc;
-import org.jspecify.annotations.Nullable;
+import org.jetbrains.annotations.Nullable;
 
-import java.util.function.Consumer;
 import java.util.function.Function;
 
 /**
@@ -34,29 +32,17 @@ public class MobHeadSpecialRenderer implements SpecialModelRenderer<@Nullable Ho
     }
 
     @Override
-    public void submit(@Nullable Holder<HeadType> headType, ItemDisplayContext displayContext, PoseStack poseStack, SubmitNodeCollector nodeCollector, int packedLight, int packedOverlay, boolean hasFoil, int outlineColor) {
-        MobHeadRenderState mobHeadRenderState = MobHeadRenderState.create(packedLight,
+    public void render(@Nullable Holder<HeadType> headType, ItemDisplayContext displayContext, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay, boolean hasFoilType) {
+        MobHeadBlockRenderer.renderSkull(null,
                 180.0F,
                 this.animation,
+                poseStack,
+                bufferSource,
+                packedLight,
+                this.skullModelGetter,
                 headType,
-                0.0F,
-                outlineColor,
-                true);
-        MobHeadRenderer.submitSkull(mobHeadRenderState, poseStack, nodeCollector, this.skullModelGetter);
-    }
-
-    @Override
-    public void getExtents(Consumer<Vector3fc> output) {
-        PoseStack poseStack = new PoseStack();
-        poseStack.translate(0.5F, 0.0F, 0.5F);
-        poseStack.scale(-1.0F, -1.0F, 1.0F);
-        // there seems to be no good way to get the proper model for the model type
-        SkullModelBase skullModelBase = this.skullModelGetter.apply(ModelType.DEFAULT);
-        SkullModelBase.State state = new SkullModelBase.State();
-        state.animationPos = this.animation;
-        state.yRot = 180.0F;
-        skullModelBase.setupAnim(state);
-        skullModelBase.root().getExtentsForGui(poseStack, output);
+                true,
+                0.0F);
     }
 
     @Override
@@ -64,7 +50,7 @@ public class MobHeadSpecialRenderer implements SpecialModelRenderer<@Nullable Ho
         return itemStack.get(ModRegistry.HEAD_TYPE_DATA_COMPONENT_TYPE.value());
     }
 
-    public record Unbaked(float animation) implements SpecialModelRenderer.Unbaked {
+    public record Unbaked(float animation) implements SpecialModelRenderer.Unbaked<@Nullable Holder<HeadType>> {
         public static final MapCodec<MobHeadSpecialRenderer.Unbaked> MAP_CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
                         Codec.FLOAT.optionalFieldOf("animation", 0.0F).forGetter(MobHeadSpecialRenderer.Unbaked::animation))
                 .apply(instance, MobHeadSpecialRenderer.Unbaked::new));
@@ -79,9 +65,8 @@ public class MobHeadSpecialRenderer implements SpecialModelRenderer<@Nullable Ho
         }
 
         @Override
-        public SpecialModelRenderer<?> bake(BakingContext context) {
-            return new MobHeadSpecialRenderer(MobHeadRenderer.createSkullModels(context.entityModelSet()),
-                    this.animation);
+        public MobHeadSpecialRenderer bake(EntityModelSet modelSet) {
+            return new MobHeadSpecialRenderer(MobHeadBlockRenderer.createSkullModels(modelSet), this.animation);
         }
     }
 }

@@ -2,8 +2,9 @@
   "custom_name": "minecraft.llama_brown",
   "entity_predicate": {
     "type": "minecraft:llama",
-    "components": {
-      "minecraft:llama/variant": "brown"
+    "type_specific": {
+      "type": "minecraft:llama",
+      "variant": "brown"
     }
   },
   "loot_table": "alltheheads:entities/heads/minecraft/llama/brown",

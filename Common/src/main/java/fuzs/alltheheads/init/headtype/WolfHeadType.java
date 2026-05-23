@@ -3,19 +3,17 @@ package fuzs.alltheheads.init.headtype;
 import fuzs.alltheheads.advancements.critereon.WolfPredicate;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
-import net.minecraft.resources.Identifier;
-import net.minecraft.advancements.criterion.DataComponentMatchers;
-import net.minecraft.advancements.criterion.EntityPredicate;
-import net.minecraft.core.component.DataComponentExactPredicate;
-import net.minecraft.core.component.DataComponents;
+import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
+import net.minecraft.advancements.critereon.EntityPredicate;
+import net.minecraft.advancements.critereon.EntitySubPredicates;
+import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.animal.wolf.WolfSoundVariants;
-import net.minecraft.world.entity.animal.wolf.WolfVariant;
-import net.minecraft.world.entity.animal.wolf.WolfVariants;
+import net.minecraft.world.entity.animal.WolfVariant;
+import net.minecraft.world.entity.animal.WolfVariants;
 
 import java.util.Optional;
 import java.util.function.BiConsumer;
@@ -93,45 +91,40 @@ public class WolfHeadType {
     private static void bootstrapWolf(BootstrapContext<HeadType> context, ResourceKey<WolfVariant> variant, ResourceKey<HeadType> resourceKey, String textureLocation) {
         HeadType.builder(EntityType.WOLF)
                 .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.components(DataComponentMatchers.Builder.components()
-                            .exact(DataComponentExactPredicate.expect(DataComponents.WOLF_VARIANT,
-                                    context.lookup(Registries.WOLF_VARIANT).getOrThrow(variant)))
-                            .build()).subPredicate(new WolfPredicate(Optional.of(false), Optional.of(false)));
+                    builder.subPredicate(EntitySubPredicates.wolfVariant(HolderSet.direct(context.lookup(Registries.WOLF_VARIANT)
+                                    .getOrThrow(variant))))
+                            .subPredicate(new WolfPredicate(Optional.of(false), Optional.of(false)));
                 })
                 .shape(6.0, 6.0, 4.0)
                 .scale(4.0 / 3.0)
-                .model(ModelType.WOLF, Identifier.withDefaultNamespace(textureLocation))
-                .noteBlockSound(SoundEvents.WOLF_SOUNDS.get(WolfSoundVariants.SoundSet.CLASSIC).ambientSound())
+                .model(ModelType.WOLF, ResourceLocationHelper.withDefaultNamespace(textureLocation))
+                .noteBlockSound(SoundEvents.WOLF_AMBIENT)
                 .build(context, resourceKey);
     }
 
     private static void bootstrapAngryWolf(BootstrapContext<HeadType> context, ResourceKey<WolfVariant> variant, ResourceKey<HeadType> resourceKey, String textureLocation) {
         HeadType.builder(EntityType.WOLF)
                 .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.components(DataComponentMatchers.Builder.components()
-                            .exact(DataComponentExactPredicate.expect(DataComponents.WOLF_VARIANT,
-                                    context.lookup(Registries.WOLF_VARIANT).getOrThrow(variant)))
-                            .build()).subPredicate(WolfPredicate.isAngry());
+                    builder.subPredicate(EntitySubPredicates.wolfVariant(HolderSet.direct(context.lookup(Registries.WOLF_VARIANT)
+                            .getOrThrow(variant)))).subPredicate(WolfPredicate.isAngry());
                 })
                 .shape(6.0, 6.0, 4.0)
                 .scale(4.0 / 3.0)
-                .model(ModelType.WOLF, Identifier.withDefaultNamespace(textureLocation))
-                .noteBlockSound(SoundEvents.WOLF_SOUNDS.get(WolfSoundVariants.SoundSet.CLASSIC).growlSound())
+                .model(ModelType.WOLF, ResourceLocationHelper.withDefaultNamespace(textureLocation))
+                .noteBlockSound(SoundEvents.WOLF_GROWL)
                 .build(context, resourceKey);
     }
 
     private static void bootstrapTameWolf(BootstrapContext<HeadType> context, ResourceKey<WolfVariant> variant, ResourceKey<HeadType> resourceKey, String textureLocation) {
         HeadType.builder(EntityType.WOLF)
                 .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.components(DataComponentMatchers.Builder.components()
-                            .exact(DataComponentExactPredicate.expect(DataComponents.WOLF_VARIANT,
-                                    context.lookup(Registries.WOLF_VARIANT).getOrThrow(variant)))
-                            .build()).subPredicate(WolfPredicate.isTame());
+                    builder.subPredicate(EntitySubPredicates.wolfVariant(HolderSet.direct(context.lookup(Registries.WOLF_VARIANT)
+                            .getOrThrow(variant)))).subPredicate(WolfPredicate.isTame());
                 })
                 .shape(6.0, 6.0, 4.0)
                 .scale(4.0 / 3.0)
-                .model(ModelType.WOLF, Identifier.withDefaultNamespace(textureLocation))
-                .noteBlockSound(SoundEvents.WOLF_SOUNDS.get(WolfSoundVariants.SoundSet.CLASSIC).pantSound())
+                .model(ModelType.WOLF, ResourceLocationHelper.withDefaultNamespace(textureLocation))
+                .noteBlockSound(SoundEvents.WOLF_PANT)
                 .build(context, resourceKey);
     }
 

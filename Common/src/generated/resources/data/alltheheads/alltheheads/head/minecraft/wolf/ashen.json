@@ -2,9 +2,6 @@
   "custom_name": "minecraft.wolf_ashen",
   "entity_predicate": {
     "type": "minecraft:wolf",
-    "components": {
-      "minecraft:wolf/variant": "minecraft:ashen"
-    },
     "type_specific": {
       "type": "alltheheads:wolf",
       "angry": false,

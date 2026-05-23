@@ -1,10 +1,16 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.geom.builders.LayerDefinition;
-import net.minecraft.client.model.monster.skeleton.BoggedModel;
+import fuzs.puzzleslib.api.client.renderer.v1.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.BoggedModel;
 
 public final class BoggedHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {
-        return createHeadLayer(BoggedModel.createBodyLayer(), -4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F);
+        return createHeadLayer(new LayerDefinition(BoggedModel.createBodyLayer()),
+                -4.0F,
+                -8.0F,
+                -4.0F,
+                8.0F,
+                8.0F,
+                8.0F);
     }
 }

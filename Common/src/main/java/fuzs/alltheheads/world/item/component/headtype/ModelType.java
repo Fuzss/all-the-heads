@@ -2,16 +2,16 @@ package fuzs.alltheheads.world.item.component.headtype;
 
 import com.mojang.serialization.Codec;
 import fuzs.alltheheads.AllTheHeads;
-import net.minecraft.resources.Identifier;
-import net.minecraft.util.ExtraCodecs;
+import fuzs.alltheheads.core.LateBoundIdMapper;
+import net.minecraft.resources.ResourceLocation;
 
 import java.util.Objects;
 
 /**
  * Basically a server-side implementation of {@code ModelLayerLocation}.
  */
-public record ModelType(Identifier model, String layer) {
-    static final ExtraCodecs.LateBoundIdMapper<String, ModelType> ID_MAPPER = new ExtraCodecs.LateBoundIdMapper<>();
+public record ModelType(ResourceLocation model, String layer) {
+    static final LateBoundIdMapper<String, ModelType> ID_MAPPER = new LateBoundIdMapper<>();
     public static final Codec<ModelType> CODEC = ID_MAPPER.codec(Codec.STRING);
     public static final ModelType ALLAY = register("allay_head");
     public static final ModelType ARMADILLO = register("armadillo_head");
@@ -23,13 +23,7 @@ public record ModelType(Identifier model, String layer) {
     public static final ModelType BREEZE_EYES = register("breeze_head", "eyes");
     public static final ModelType CAMEL = register("camel_head");
     public static final ModelType CHICKEN = register("chicken_head");
-    public static final ModelType COLD_CHICKEN = register("cold_chicken_head");
-    public static final ModelType COLD_COW = register("cold_cow_head");
     public static final ModelType COD = register("cod_head");
-    public static final ModelType COPPER_GOLEM = register("copper_golem_head");
-    public static final ModelType COPPER_GOLEM_EYES = register("copper_golem_head", "eyes");
-    public static final ModelType CREAKING = register("creaking_head");
-    public static final ModelType CREAKING_EYES = register("creaking_head", "eyes");
     public static final ModelType CREEPER_CHARGE = register("creeper_head", "charge");
     public static final ModelType DOLPHIN = register("dolphin_head");
     public static final ModelType ENDERMAN = register("enderman_head");
@@ -54,9 +48,7 @@ public record ModelType(Identifier model, String layer) {
     public static final ModelType MAGMA_CUBE = register("magma_cube_head");
     public static final ModelType MOB = register("mob_head");
     public static final ModelType MOB_OVERLAY = register("mob_head", "overlay");
-    public static final ModelType NAUTILUS = register("nautilus_head");
     public static final ModelType PANDA = register("panda_head");
-    public static final ModelType PARCHED = register("parched_head");
     public static final ModelType PARROT = register("parrot_head");
     public static final ModelType PHANTOM = register("phantom_head");
     public static final ModelType PHANTOM_EYES = register("phantom_head", "eyes");
@@ -86,7 +78,6 @@ public record ModelType(Identifier model, String layer) {
     public static final ModelType VEX = register("vex_head");
     public static final ModelType VILLAGER = register("villager_head");
     public static final ModelType WARDEN = register("warden_head");
-    public static final ModelType WARM_COW = register("warm_cow_head");
     public static final ModelType WITCH = register("witch_head");
     public static final ModelType WITHER_SHIELD = register("wither_head", "shield");
     public static final ModelType WOLF = register("wolf_head");

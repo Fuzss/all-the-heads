@@ -1,13 +1,13 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.geom.builders.LayerDefinition;
-import net.minecraft.client.model.monster.slime.MagmaCubeModel;
+import fuzs.puzzleslib.api.client.renderer.v1.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.LavaSlimeModel;
 
 import java.util.function.UnaryOperator;
 
 public final class MagmaCubeHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {
-        return createHeadLayer(MagmaCubeModel.createBodyLayer(),
+        return createHeadLayer(new LayerDefinition(LavaSlimeModel.createBodyLayer()),
                 UnaryOperator.identity(),
                 -4.0F,
                 16.0F,

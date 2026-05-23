@@ -1,5 +1,10 @@
 accessWidener   v2  named
-accessible  field   net/minecraft/util/ExtraCodecs$LateBoundIdMapper    idToValue   Lcom/google/common/collect/BiMap;
-accessible  field   net/minecraft/client/renderer/entity/layers/CustomHeadLayer transforms  Lnet/minecraft/client/renderer/entity/layers/CustomHeadLayer$Transforms;
+accessible  field   net/minecraft/client/renderer/entity/layers/CustomHeadLayer scaleX  F
+accessible  field   net/minecraft/client/renderer/entity/layers/CustomHeadLayer scaleY  F
+accessible  field   net/minecraft/client/renderer/entity/layers/CustomHeadLayer scaleZ  F
 accessible  method  net/minecraft/client/model/geom/builders/LayerDefinition    <init>  (Lnet/minecraft/client/model/geom/builders/MeshDefinition;Lnet/minecraft/client/model/geom/builders/MaterialDefinition;)V
-accessible  field   net/minecraft/world/entity/monster/Creeper  droppedSkulls   Z
+accessible  method  net/minecraft/world/entity/LivingEntity shouldDropLoot  ()Z
+accessible	field	net/minecraft/world/phys/shapes/VoxelShape	shape	Lnet/minecraft/world/phys/shapes/DiscreteVoxelShape;
+accessible	method	net/minecraft/world/phys/shapes/CubeVoxelShape	<init>	(Lnet/minecraft/world/phys/shapes/DiscreteVoxelShape;)V
+accessible	method	net/minecraft/world/phys/shapes/ArrayVoxelShape	<init>	(Lnet/minecraft/world/phys/shapes/DiscreteVoxelShape;Lit/unimi/dsi/fastutil/doubles/DoubleList;Lit/unimi/dsi/fastutil/doubles/DoubleList;Lit/unimi/dsi/fastutil/doubles/DoubleList;)V
+accessible	field	com/mojang/math/OctahedralGroup	permutation	Lcom/mojang/math/SymmetricGroup3;

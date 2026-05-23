@@ -2,11 +2,9 @@
   "custom_name": "minecraft.sheep_brown",
   "entity_predicate": {
     "type": "minecraft:sheep",
-    "components": {
-      "minecraft:sheep/color": "brown"
-    },
     "type_specific": {
-      "type": "minecraft:sheep",
+      "type": "alltheheads:sheep",
+      "color": "brown",
       "sheared": true
     }
   },

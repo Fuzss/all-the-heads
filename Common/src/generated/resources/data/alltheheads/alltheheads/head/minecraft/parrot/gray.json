@@ -2,8 +2,9 @@
   "custom_name": "minecraft.parrot_gray",
   "entity_predicate": {
     "type": "minecraft:parrot",
-    "components": {
-      "minecraft:parrot/variant": "gray"
+    "type_specific": {
+      "type": "minecraft:parrot",
+      "variant": "gray"
     }
   },
   "loot_table": "alltheheads:entities/heads/minecraft/parrot/gray",

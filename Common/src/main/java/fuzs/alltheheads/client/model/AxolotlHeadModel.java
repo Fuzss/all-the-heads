@@ -1,12 +1,12 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.animal.axolotl.AxolotlModel;
-import net.minecraft.client.model.geom.builders.LayerDefinition;
-import net.minecraft.client.model.geom.builders.PartDefinition;
+import fuzs.puzzleslib.api.client.renderer.v1.model.geom.builders.LayerDefinition;
+import fuzs.puzzleslib.api.client.renderer.v1.model.geom.builders.PartDefinition;
+import net.minecraft.client.model.AxolotlModel;
 
 public final class AxolotlHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {
-        return createHeadLayer(AxolotlModel.createBodyLayer(),
+        return createHeadLayer(new LayerDefinition(AxolotlModel.createBodyLayer()),
                 (PartDefinition partDefinition) -> partDefinition.getChild("body").getChild("head"),
                 -4.0F,
                 -3.0F,

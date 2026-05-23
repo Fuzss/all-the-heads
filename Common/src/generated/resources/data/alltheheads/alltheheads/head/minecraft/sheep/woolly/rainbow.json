@@ -2,11 +2,9 @@
   "custom_name": "minecraft.sheep_woolly_rainbow",
   "entity_predicate": {
     "type": "minecraft:sheep",
-    "components": {
-      "minecraft:custom_name": "jeb_"
-    },
+    "nbt": "{CustomName:'\"jeb_\"'}",
     "type_specific": {
-      "type": "minecraft:sheep",
+      "type": "alltheheads:sheep",
       "sheared": false
     }
   },

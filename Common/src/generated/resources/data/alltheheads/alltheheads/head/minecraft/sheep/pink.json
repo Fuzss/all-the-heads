@@ -2,11 +2,9 @@
   "custom_name": "minecraft.sheep_pink",
   "entity_predicate": {
     "type": "minecraft:sheep",
-    "components": {
-      "minecraft:sheep/color": "pink"
-    },
     "type_specific": {
-      "type": "minecraft:sheep",
+      "type": "alltheheads:sheep",
+      "color": "pink",
       "sheared": true
     }
   },

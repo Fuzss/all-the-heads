@@ -1,7 +1,11 @@
 package fuzs.alltheheads.client.model;
 
+import fuzs.puzzleslib.api.client.renderer.v1.model.geom.builders.LayerDefinition;
+import fuzs.puzzleslib.api.client.renderer.v1.model.geom.builders.MeshDefinition;
+import fuzs.puzzleslib.api.client.renderer.v1.model.geom.builders.PartDefinition;
 import net.minecraft.client.model.geom.PartPose;
-import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.model.geom.builders.CubeDeformation;
+import net.minecraft.client.model.geom.builders.CubeListBuilder;
 
 public final class LlamaHeadModel extends HeadModelBase {
     /**

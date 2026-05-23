@@ -2,8 +2,9 @@
   "custom_name": "minecraft.trader_llama_gray",
   "entity_predicate": {
     "type": "minecraft:trader_llama",
-    "components": {
-      "minecraft:llama/variant": "gray"
+    "type_specific": {
+      "type": "minecraft:llama",
+      "variant": "gray"
     }
   },
   "loot_table": "alltheheads:entities/heads/minecraft/trader_llama/gray",

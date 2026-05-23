@@ -3,18 +3,19 @@ package fuzs.alltheheads.world.level.block.entity;
 import fuzs.alltheheads.init.ModRegistry;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.puzzleslib.api.block.v1.entity.TickingBlockEntity;
+import fuzs.puzzleslib.api.util.v1.CompoundTagHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
-import net.minecraft.core.component.DataComponentGetter;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponentMap;
-import net.minecraft.resources.Identifier;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.SkullBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.storage.ValueInput;
-import net.minecraft.world.level.storage.ValueOutput;
-import org.jspecify.annotations.Nullable;
+import org.jetbrains.annotations.Nullable;
 
 public class MobHeadBlockEntity extends SkullBlockEntity implements TickingBlockEntity {
     public static final String TAG_HEAD_TYPE = "head_type";
@@ -39,15 +40,15 @@ public class MobHeadBlockEntity extends SkullBlockEntity implements TickingBlock
     }
 
     @Override
-    protected void saveAdditional(ValueOutput valueOutput) {
-        super.saveAdditional(valueOutput);
-        valueOutput.storeNullable(TAG_HEAD_TYPE, HeadType.CODEC, this.headType);
+    protected void saveAdditional(CompoundTag valueOutput, HolderLookup.Provider registries) {
+        super.saveAdditional(valueOutput, registries);
+        CompoundTagHelper.storeNullable(valueOutput, TAG_HEAD_TYPE, HeadType.CODEC, this.headType);
     }
 
     @Override
-    protected void loadAdditional(ValueInput valueInput) {
-        super.loadAdditional(valueInput);
-        this.headType = valueInput.read(TAG_HEAD_TYPE, HeadType.CODEC).orElse(null);
+    protected void loadAdditional(CompoundTag valueInput, HolderLookup.Provider registries) {
+        super.loadAdditional(valueInput, registries);
+        this.headType = CompoundTagHelper.read(valueInput, TAG_HEAD_TYPE, HeadType.CODEC).orElse(null);
     }
 
     @Nullable
@@ -56,19 +57,19 @@ public class MobHeadBlockEntity extends SkullBlockEntity implements TickingBlock
     }
 
     @Override
-    public @Nullable Identifier getNoteBlockSound() {
-        Identifier noteBlockSound = super.getNoteBlockSound();
+    public @Nullable ResourceLocation getNoteBlockSound() {
+        ResourceLocation noteBlockSound = super.getNoteBlockSound();
         if (noteBlockSound != null) {
             return noteBlockSound;
         } else if (this.headType != null) {
-            return this.headType.value().noteBlockSound().map(Holder::value).map(SoundEvent::location).orElse(null);
+            return this.headType.value().noteBlockSound().map(Holder::value).map(SoundEvent::getLocation).orElse(null);
         } else {
             return null;
         }
     }
 
     @Override
-    protected void applyImplicitComponents(DataComponentGetter componentGetter) {
+    protected void applyImplicitComponents(BlockEntity.DataComponentInput componentGetter) {
         super.applyImplicitComponents(componentGetter);
         this.headType = componentGetter.get(ModRegistry.HEAD_TYPE_DATA_COMPONENT_TYPE.value());
     }
@@ -80,8 +81,8 @@ public class MobHeadBlockEntity extends SkullBlockEntity implements TickingBlock
     }
 
     @Override
-    public void removeComponentsFromTag(ValueOutput output) {
+    public void removeComponentsFromTag(CompoundTag output) {
         super.removeComponentsFromTag(output);
-        output.discard(TAG_HEAD_TYPE);
+        output.remove(TAG_HEAD_TYPE);
     }
 }

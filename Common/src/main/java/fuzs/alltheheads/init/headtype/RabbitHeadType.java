@@ -2,18 +2,20 @@ package fuzs.alltheheads.init.headtype;
 
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
-import net.minecraft.advancements.criterion.DataComponentMatchers;
-import net.minecraft.advancements.criterion.EntityPredicate;
-import net.minecraft.core.component.DataComponentExactPredicate;
-import net.minecraft.core.component.DataComponents;
+import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
+import net.minecraft.Util;
+import net.minecraft.advancements.critereon.EntityPredicate;
+import net.minecraft.advancements.critereon.EntitySubPredicates;
+import net.minecraft.advancements.critereon.NbtPredicate;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.animal.rabbit.Rabbit;
+import net.minecraft.world.entity.animal.Rabbit;
 
 import java.util.function.BiConsumer;
 
@@ -46,14 +48,13 @@ public class RabbitHeadType {
                 SoundEvents.RABBIT_ATTACK);
         HeadType.builder(EntityType.RABBIT)
                 .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.components(DataComponentMatchers.Builder.components()
-                            .exact(DataComponentExactPredicate.expect(DataComponents.CUSTOM_NAME,
-                                    Component.literal("Toast")))
-                            .build());
+                    builder.nbt(new NbtPredicate(Util.make(new CompoundTag(),
+                            (CompoundTag tag) -> tag.putString("CustomName",
+                                    Component.Serializer.toJson(Component.literal("Toast"), RegistryAccess.EMPTY)))));
                 })
                 .shape(5.0, 4.0, 5.0)
                 .scale(1.2)
-                .model(ModelType.RABBIT, Identifier.withDefaultNamespace("entity/rabbit/toast"))
+                .model(ModelType.RABBIT, ResourceLocationHelper.withDefaultNamespace("entity/rabbit/toast"))
                 .noteBlockSound(SoundEvents.RABBIT_AMBIENT)
                 .build(context, TOAST_RABBIT);
     }
@@ -65,13 +66,11 @@ public class RabbitHeadType {
     private static void bootstrapRabbit(BootstrapContext<HeadType> context, Rabbit.Variant variant, ResourceKey<HeadType> resourceKey, String textureLocation, SoundEvent noteBlockSound) {
         HeadType.builder(EntityType.RABBIT)
                 .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.components(DataComponentMatchers.Builder.components()
-                            .exact(DataComponentExactPredicate.expect(DataComponents.RABBIT_VARIANT, variant))
-                            .build());
+                    builder.subPredicate(EntitySubPredicates.RABBIT.createPredicate(variant));
                 })
                 .shape(5.0, 4.0, 5.0)
                 .scale(1.2)
-                .model(ModelType.RABBIT, Identifier.withDefaultNamespace(textureLocation))
+                .model(ModelType.RABBIT, ResourceLocationHelper.withDefaultNamespace(textureLocation))
                 .noteBlockSound(noteBlockSound)
                 .build(context, resourceKey);
     }

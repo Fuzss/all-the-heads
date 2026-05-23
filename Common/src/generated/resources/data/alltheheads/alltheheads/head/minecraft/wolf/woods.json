@@ -2,9 +2,6 @@
   "custom_name": "minecraft.wolf_woods",
   "entity_predicate": {
     "type": "minecraft:wolf",
-    "components": {
-      "minecraft:wolf/variant": "minecraft:woods"
-    },
     "type_specific": {
       "type": "alltheheads:wolf",
       "angry": false,

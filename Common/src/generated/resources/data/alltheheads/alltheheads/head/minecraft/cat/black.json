@@ -2,8 +2,9 @@
   "custom_name": "minecraft.cat_black",
   "entity_predicate": {
     "type": "minecraft:cat",
-    "components": {
-      "minecraft:cat/variant": "minecraft:black"
+    "type_specific": {
+      "type": "minecraft:cat",
+      "variant": "minecraft:black"
     }
   },
   "loot_table": "alltheheads:entities/heads/minecraft/cat/black",

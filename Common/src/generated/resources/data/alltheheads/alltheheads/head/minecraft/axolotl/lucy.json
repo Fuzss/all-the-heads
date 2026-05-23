@@ -2,8 +2,9 @@
   "custom_name": "minecraft.axolotl_lucy",
   "entity_predicate": {
     "type": "minecraft:axolotl",
-    "components": {
-      "minecraft:axolotl/variant": "lucy"
+    "type_specific": {
+      "type": "minecraft:axolotl",
+      "variant": "lucy"
     }
   },
   "loot_table": "alltheheads:entities/heads/minecraft/axolotl/lucy",

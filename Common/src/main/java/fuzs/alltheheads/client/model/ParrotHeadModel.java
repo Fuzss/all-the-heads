@@ -1,11 +1,11 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.animal.parrot.ParrotModel;
-import net.minecraft.client.model.geom.builders.LayerDefinition;
+import fuzs.puzzleslib.api.client.renderer.v1.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.ParrotModel;
 
 public final class ParrotHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {
-        return createHeadLayer(ParrotModel.createBodyLayer(),
+        return createHeadLayer(new LayerDefinition(ParrotModel.createBodyLayer()),
                 -1.0F,
                 -1.5F,
                 -1.0F,

@@ -1,30 +1,11 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.animal.cow.ColdCowModel;
-import net.minecraft.client.model.animal.cow.CowModel;
-import net.minecraft.client.model.animal.cow.WarmCowModel;
-import net.minecraft.client.model.geom.builders.LayerDefinition;
+import fuzs.puzzleslib.api.client.renderer.v1.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.CowModel;
 
 public final class CowHeadModel extends HeadModelBase {
     public static LayerDefinition createTemperateHeadLayer() {
-        return createHeadLayer(CowModel.createBodyLayer(), -4.0F, -4.0F, -6.0F, 8.0F, 8.0F, 6.0F, 0.0F, 4.0F, -8.0F);
-    }
-
-    public static LayerDefinition createWarmHeadLayer() {
-        return createHeadLayer(WarmCowModel.createBodyLayer(),
-                -4.0F,
-                -4.0F,
-                -6.0F,
-                8.0F,
-                8.0F,
-                6.0F,
-                0.0F,
-                4.0F,
-                -8.0F);
-    }
-
-    public static LayerDefinition createColdHeadLayer() {
-        return createHeadLayer(ColdCowModel.createBodyLayer(),
+        return createHeadLayer(new LayerDefinition(CowModel.createBodyLayer()),
                 -4.0F,
                 -4.0F,
                 -6.0F,

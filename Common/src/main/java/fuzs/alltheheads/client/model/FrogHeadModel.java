@@ -1,10 +1,10 @@
 package fuzs.alltheheads.client.model;
 
+import fuzs.puzzleslib.api.client.renderer.v1.model.geom.builders.LayerDefinition;
+import fuzs.puzzleslib.api.client.renderer.v1.model.geom.builders.MeshDefinition;
+import fuzs.puzzleslib.api.client.renderer.v1.model.geom.builders.PartDefinition;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.CubeListBuilder;
-import net.minecraft.client.model.geom.builders.LayerDefinition;
-import net.minecraft.client.model.geom.builders.MeshDefinition;
-import net.minecraft.client.model.geom.builders.PartDefinition;
 
 public final class FrogHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {

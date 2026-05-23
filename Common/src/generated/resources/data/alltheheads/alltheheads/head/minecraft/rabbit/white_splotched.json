@@ -2,8 +2,9 @@
   "custom_name": "minecraft.rabbit_white_splotched",
   "entity_predicate": {
     "type": "minecraft:rabbit",
-    "components": {
-      "minecraft:rabbit/variant": "white_splotched"
+    "type_specific": {
+      "type": "minecraft:rabbit",
+      "variant": "white_splotched"
     }
   },
   "loot_table": "alltheheads:entities/heads/minecraft/rabbit/white_splotched",

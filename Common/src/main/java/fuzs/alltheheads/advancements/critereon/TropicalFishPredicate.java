@@ -3,13 +3,13 @@ package fuzs.alltheheads.advancements.critereon;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import fuzs.alltheheads.init.ModRegistry;
-import net.minecraft.advancements.criterion.EntitySubPredicate;
+import net.minecraft.advancements.critereon.EntitySubPredicate;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.animal.fish.TropicalFish;
+import net.minecraft.world.entity.animal.TropicalFish;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 
@@ -31,7 +31,7 @@ public record TropicalFishPredicate(Optional<TropicalFish.Pattern> pattern,
     public boolean matches(Entity entity, ServerLevel level, @Nullable Vec3 position) {
         if (!(entity instanceof TropicalFish tropicalFish)) {
             return false;
-        } else if (this.pattern.isPresent() && tropicalFish.getPattern() != this.pattern.get()) {
+        } else if (this.pattern.isPresent() && tropicalFish.getVariant() != this.pattern.get()) {
             return false;
         } else if (this.baseColor.isPresent() && tropicalFish.getBaseColor() != this.baseColor.get()) {
             return false;

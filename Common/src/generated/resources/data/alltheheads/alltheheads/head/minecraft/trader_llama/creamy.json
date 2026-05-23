@@ -2,8 +2,9 @@
   "custom_name": "minecraft.trader_llama_creamy",
   "entity_predicate": {
     "type": "minecraft:trader_llama",
-    "components": {
-      "minecraft:llama/variant": "creamy"
+    "type_specific": {
+      "type": "minecraft:llama",
+      "variant": "creamy"
     }
   },
   "loot_table": "alltheheads:entities/heads/minecraft/trader_llama/creamy",

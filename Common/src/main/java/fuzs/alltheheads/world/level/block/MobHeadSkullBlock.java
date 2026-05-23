@@ -15,7 +15,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jspecify.annotations.Nullable;
+import org.jetbrains.annotations.Nullable;
 
 public class MobHeadSkullBlock extends WallSkullBlock implements TickingEntityBlock<MobHeadBlockEntity> {
 
@@ -48,8 +48,8 @@ public class MobHeadSkullBlock extends WallSkullBlock implements TickingEntityBl
     }
 
     @Override
-    protected ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state, boolean includeData) {
-        ItemStack itemStack = super.getCloneItemStack(level, pos, state, includeData);
+    public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) {
+        ItemStack itemStack = super.getCloneItemStack(level, pos, state);
         if (level.getBlockEntity(pos) instanceof MobHeadBlockEntity blockEntity) {
             itemStack.applyComponents(blockEntity.collectComponents());
         }

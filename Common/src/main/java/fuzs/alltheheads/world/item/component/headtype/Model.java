@@ -2,8 +2,8 @@ package fuzs.alltheheads.world.item.component.headtype;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.resources.Identifier;
-import net.minecraft.world.entity.variant.ModelAndTexture;
+import fuzs.alltheheads.core.ModelAndTexture;
+import net.minecraft.resources.ResourceLocation;
 
 import java.util.Optional;
 
@@ -15,7 +15,7 @@ public record Model(ModelAndTexture<ModelType> model, Optional<Color> color, Opt
                     Codec.intRange(0, 15).optionalFieldOf("block_light").forGetter(Model::blockLight))
             .apply(instance, Model::new));
 
-    public Model(ModelType modelType, Identifier assetId) {
+    public Model(ModelType modelType, ResourceLocation assetId) {
         this(new ModelAndTexture<>(modelType, assetId), Optional.empty(), Optional.empty());
     }
 }

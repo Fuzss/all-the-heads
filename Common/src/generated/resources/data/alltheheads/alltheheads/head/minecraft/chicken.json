@@ -1,0 +1,20 @@
+{
+  "custom_name": "minecraft.chicken",
+  "entity_predicate": {
+    "type": "minecraft:chicken"
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/chicken",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/chicken",
+      "model": "alltheheads:chicken_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.chicken.ambient",
+  "shape": {
+    "depth": 3.0,
+    "height": 6.0,
+    "scale": 1.5,
+    "width": 4.0
+  }
+}

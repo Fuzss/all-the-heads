@@ -2,8 +2,9 @@
   "custom_name": "minecraft.rabbit_white",
   "entity_predicate": {
     "type": "minecraft:rabbit",
-    "components": {
-      "minecraft:rabbit/variant": "white"
+    "type_specific": {
+      "type": "minecraft:rabbit",
+      "variant": "white"
     }
   },
   "loot_table": "alltheheads:entities/heads/minecraft/rabbit/white",

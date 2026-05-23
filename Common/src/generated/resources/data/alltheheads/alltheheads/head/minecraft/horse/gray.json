@@ -2,9 +2,6 @@
   "custom_name": "minecraft.horse_gray",
   "entity_predicate": {
     "type": "minecraft:horse",
-    "components": {
-      "minecraft:horse/variant": "gray"
-    },
     "type_specific": {
       "type": "alltheheads:horse",
       "markings": "none"

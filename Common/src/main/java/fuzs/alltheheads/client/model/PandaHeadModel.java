@@ -1,11 +1,11 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.animal.panda.PandaModel;
-import net.minecraft.client.model.geom.builders.LayerDefinition;
+import fuzs.puzzleslib.api.client.renderer.v1.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.PandaModel;
 
 public final class PandaHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {
-        return createHeadLayer(PandaModel.createBodyLayer(),
+        return createHeadLayer(new LayerDefinition(PandaModel.createBodyLayer()),
                 -6.5F,
                 -5.0F,
                 -4.0F,

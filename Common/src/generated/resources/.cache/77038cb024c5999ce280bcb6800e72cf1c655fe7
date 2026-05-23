@@ -1,4 +1,5 @@
-// 1.21.11	2025-12-19T18:09:05.432096	Model Definitions
+// 1.21.1	2026-05-23T08:57:36.946976	Model Definitions
 94ee00eebd82061338b6db439a84b3fdf98f3942 assets/alltheheads/blockstates/mob_head.json
 94ee00eebd82061338b6db439a84b3fdf98f3942 assets/alltheheads/blockstates/mob_wall_head.json
-201bb8feb6d8571a16f813997b4b33c64ffb77d0 assets/alltheheads/items/mob_head.json
+43d32e7d031485f83a1b4eb56ecb3cc40a456163 assets/alltheheads/models/item/mob_head.json
+a5137f381146466da673bf43fda6967800cc6703 assets/minecraft/models/block/skull.json

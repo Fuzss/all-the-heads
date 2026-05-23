@@ -1,12 +1,12 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.animal.equine.AbstractEquineModel;
+import fuzs.puzzleslib.api.client.renderer.v1.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.HorseModel;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
-import net.minecraft.client.model.geom.builders.LayerDefinition;
 
 public final class HorseHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {
-        LayerDefinition layerDefinition = LayerDefinition.create(AbstractEquineModel.createBodyMesh(CubeDeformation.NONE),
+        LayerDefinition layerDefinition = LayerDefinition.create(HorseModel.createBodyMesh(CubeDeformation.NONE),
                 64,
                 64);
         return createHeadLayer(layerDefinition,

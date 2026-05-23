@@ -2,8 +2,9 @@
   "custom_name": "minecraft.rabbit_evil",
   "entity_predicate": {
     "type": "minecraft:rabbit",
-    "components": {
-      "minecraft:rabbit/variant": "evil"
+    "type_specific": {
+      "type": "minecraft:rabbit",
+      "variant": "evil"
     }
   },
   "loot_table": "alltheheads:entities/heads/minecraft/rabbit/evil",

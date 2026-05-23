@@ -1,12 +1,12 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.animal.pig.PigModel;
+import fuzs.puzzleslib.api.client.renderer.v1.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.PigModel;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
-import net.minecraft.client.model.geom.builders.LayerDefinition;
 
 public final class PigHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {
-        return createHeadLayer(PigModel.createBodyLayer(CubeDeformation.NONE),
+        return createHeadLayer(new LayerDefinition(PigModel.createBodyLayer(CubeDeformation.NONE)),
                 -4.0F,
                 -4.0F,
                 -8.0F,

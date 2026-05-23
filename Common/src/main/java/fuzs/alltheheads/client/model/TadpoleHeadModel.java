@@ -1,11 +1,11 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.animal.frog.TadpoleModel;
-import net.minecraft.client.model.geom.builders.LayerDefinition;
+import fuzs.puzzleslib.api.client.renderer.v1.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.TadpoleModel;
 
 public final class TadpoleHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {
-        return createHeadLayer(TadpoleModel.createBodyLayer(),
+        return createHeadLayer(new LayerDefinition(TadpoleModel.createBodyLayer()),
                 "body",
                 -1.5F,
                 -1.0F,

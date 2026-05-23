@@ -2,8 +2,9 @@
   "custom_name": "minecraft.cat_white",
   "entity_predicate": {
     "type": "minecraft:cat",
-    "components": {
-      "minecraft:cat/variant": "minecraft:white"
+    "type_specific": {
+      "type": "minecraft:cat",
+      "variant": "minecraft:white"
     }
   },
   "loot_table": "alltheheads:entities/heads/minecraft/cat/white",

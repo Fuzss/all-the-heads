@@ -2,10 +2,11 @@ package fuzs.alltheheads.world.item.component.headtype;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import fuzs.puzzleslib.api.util.v1.ShapesHelper;
 import io.netty.buffer.ByteBuf;
 import it.unimi.dsi.fastutil.ints.Int2ObjectArrayMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
-import net.minecraft.util.Util;
+import net.minecraft.Util;
 import net.minecraft.core.Direction;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
@@ -46,18 +47,18 @@ public record Shape(double width,
                 depth,
                 scale,
                 Util.make(new Int2ObjectArrayMap<>(), (Int2ObjectArrayMap<VoxelShape> map) -> {
-                    Map<Direction, VoxelShape> rotatedShapes = Shapes.rotateHorizontal(Block.column(width * scale,
+                    Map<Direction, VoxelShape> rotatedShapes = ShapesHelper.rotateHorizontally(ShapesHelper.column(width * scale,
                             depth * scale,
                             0.0,
                             height * scale));
                     for (int i = 0; i <= RotationSegment.getMaxSegmentIndex(); i++) {
                         map.put(i, RotationSegment.convertToDirection(i).map(rotatedShapes::get).orElseGet(() -> {
-                            return Block.column(Math.max(width, depth) * scale, 0.0, height * scale);
+                            return ShapesHelper.column(Math.max(width, depth) * scale, 0.0, height * scale);
                         }));
                     }
 
                 }),
-                Shapes.rotateHorizontal(Block.boxZ(width * scale,
+                ShapesHelper.rotateHorizontally(ShapesHelper.boxZ(width * scale,
                         8.0 - height * scale / 2.0,
                         8.0 + height * scale / 2.0,
                         16.0 - depth * scale,

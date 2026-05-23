@@ -2,9 +2,7 @@
   "custom_name": "minecraft.rabbit_toast",
   "entity_predicate": {
     "type": "minecraft:rabbit",
-    "components": {
-      "minecraft:custom_name": "Toast"
-    }
+    "nbt": "{CustomName:'\"Toast\"'}"
   },
   "loot_table": "alltheheads:entities/heads/minecraft/rabbit/toast",
   "models": [

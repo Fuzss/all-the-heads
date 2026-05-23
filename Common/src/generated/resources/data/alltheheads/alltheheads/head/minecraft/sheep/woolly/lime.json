@@ -2,11 +2,9 @@
   "custom_name": "minecraft.sheep_woolly_lime",
   "entity_predicate": {
     "type": "minecraft:sheep",
-    "components": {
-      "minecraft:sheep/color": "lime"
-    },
     "type_specific": {
-      "type": "minecraft:sheep",
+      "type": "alltheheads:sheep",
+      "color": "lime",
       "sheared": false
     }
   },

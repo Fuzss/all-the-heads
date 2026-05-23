@@ -1,11 +1,11 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.geom.builders.LayerDefinition;
-import net.minecraft.client.model.monster.ghast.GhastModel;
+import fuzs.puzzleslib.api.client.renderer.v1.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.GhastModel;
 
 public final class GhastHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {
-        return createHeadLayer(GhastModel.createBodyLayer(),
+        return createHeadLayer(new LayerDefinition(GhastModel.createBodyLayer()),
                 "body",
                 -8.0F,
                 -8.0F,

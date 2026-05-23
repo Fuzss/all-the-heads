@@ -1,11 +1,11 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.geom.builders.LayerDefinition;
-import net.minecraft.client.model.monster.hoglin.HoglinModel;
+import fuzs.puzzleslib.api.client.renderer.v1.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.HoglinModel;
 
 public final class HoglinHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {
-        return createHeadLayer(HoglinModel.createBodyLayer(),
+        return createHeadLayer(new LayerDefinition(HoglinModel.createBodyLayer()),
                 -7.0F,
                 -3.0F,
                 -19.0F,

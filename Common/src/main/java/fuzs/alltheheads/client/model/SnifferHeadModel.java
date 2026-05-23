@@ -1,12 +1,12 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.animal.sniffer.SnifferModel;
-import net.minecraft.client.model.geom.builders.LayerDefinition;
-import net.minecraft.client.model.geom.builders.PartDefinition;
+import fuzs.puzzleslib.api.client.renderer.v1.model.geom.builders.LayerDefinition;
+import fuzs.puzzleslib.api.client.renderer.v1.model.geom.builders.PartDefinition;
+import net.minecraft.client.model.SnifferModel;
 
 public final class SnifferHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {
-        return createHeadLayer(SnifferModel.createBodyLayer(),
+        return createHeadLayer(new LayerDefinition(SnifferModel.createBodyLayer()),
                 (PartDefinition partDefinition) -> partDefinition.getChild("bone").getChild("body").getChild("head"),
                 -6.5F,
                 -7.5F,

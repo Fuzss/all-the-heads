@@ -2,8 +2,9 @@
   "custom_name": "minecraft.cat_calico",
   "entity_predicate": {
     "type": "minecraft:cat",
-    "components": {
-      "minecraft:cat/variant": "minecraft:calico"
+    "type_specific": {
+      "type": "minecraft:cat",
+      "variant": "minecraft:calico"
     }
   },
   "loot_table": "alltheheads:entities/heads/minecraft/cat/calico",

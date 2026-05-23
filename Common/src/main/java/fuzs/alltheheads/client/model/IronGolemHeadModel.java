@@ -1,11 +1,11 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.animal.golem.IronGolemModel;
-import net.minecraft.client.model.geom.builders.LayerDefinition;
+import fuzs.puzzleslib.api.client.renderer.v1.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.IronGolemModel;
 
 public final class IronGolemHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {
-        return createHeadLayer(IronGolemModel.createBodyLayer(),
+        return createHeadLayer(new LayerDefinition(IronGolemModel.createBodyLayer()),
                 -4.0F,
                 -12.0F,
                 -5.5F,

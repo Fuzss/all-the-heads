@@ -2,9 +2,6 @@
   "custom_name": "minecraft.horse_dark_brown_white_field",
   "entity_predicate": {
     "type": "minecraft:horse",
-    "components": {
-      "minecraft:horse/variant": "dark_brown"
-    },
     "type_specific": {
       "type": "alltheheads:horse",
       "markings": "white_field"

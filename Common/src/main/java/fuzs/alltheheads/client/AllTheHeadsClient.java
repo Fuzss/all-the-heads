@@ -1,24 +1,37 @@
 package fuzs.alltheheads.client;
 
-import fuzs.alltheheads.AllTheHeads;
+import com.mojang.blaze3d.vertex.PoseStack;
 import fuzs.alltheheads.client.handler.CustomHeadLayerHandler;
 import fuzs.alltheheads.client.model.*;
-import fuzs.alltheheads.client.renderer.blockentity.MobHeadRenderer;
+import fuzs.alltheheads.client.renderer.blockentity.MobHeadBlockRenderer;
 import fuzs.alltheheads.client.renderer.special.MobHeadSpecialRenderer;
+import fuzs.alltheheads.core.SpecialModelRenderer;
 import fuzs.alltheheads.init.ModRegistry;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
 import fuzs.puzzleslib.api.client.core.v1.ClientModConstructor;
-import fuzs.puzzleslib.api.client.core.v1.context.*;
+import fuzs.puzzleslib.api.client.core.v1.context.BlockEntityRenderersContext;
+import fuzs.puzzleslib.api.client.core.v1.context.BuiltinModelItemRendererContext;
+import fuzs.puzzleslib.api.client.core.v1.context.LayerDefinitionsContext;
+import fuzs.puzzleslib.api.client.core.v1.context.SkullRenderersContext;
 import fuzs.puzzleslib.api.client.event.v1.renderer.AddLivingEntityRenderLayersCallback;
-import fuzs.puzzleslib.api.client.event.v1.renderer.ExtractRenderStateCallback;
+import fuzs.puzzleslib.api.client.event.v1.renderer.RenderLivingEvents;
+import fuzs.puzzleslib.api.client.init.v1.ReloadingBuiltInItemRenderer;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.model.PiglinHeadModel;
+import net.minecraft.client.model.SkullModel;
+import net.minecraft.client.model.SkullModelBase;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.model.geom.LayerDefinitions;
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
-import net.minecraft.client.model.object.skull.PiglinHeadModel;
-import net.minecraft.client.model.object.skull.SkullModel;
-import net.minecraft.client.resources.DefaultPlayerSkin;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.server.packs.resources.ResourceManager;
+import net.minecraft.world.item.ItemDisplayContext;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.SkullBlock;
+
+import java.util.function.BiConsumer;
 
 public class AllTheHeadsClient implements ClientModConstructor {
 
@@ -28,184 +41,190 @@ public class AllTheHeadsClient implements ClientModConstructor {
     }
 
     private static void registerEventHandlers() {
-        ExtractRenderStateCallback.EVENT.register(CustomHeadLayerHandler::onExtractRenderState);
         AddLivingEntityRenderLayersCallback.EVENT.register(CustomHeadLayerHandler::addLivingEntityRenderLayers);
+        RenderLivingEvents.BEFORE.register(CustomHeadLayerHandler::onBeforeRenderEntity);
+        RenderLivingEvents.AFTER.register(CustomHeadLayerHandler::onAfterRenderEntity);
     }
 
     @Override
     public void onRegisterBlockEntityRenderers(BlockEntityRenderersContext context) {
-        context.registerBlockEntityRenderer(ModRegistry.MOB_HEAD_BLOCK_ENTITY_TYPE.value(), MobHeadRenderer::new);
+        context.registerBlockEntityRenderer(ModRegistry.MOB_HEAD_BLOCK_ENTITY_TYPE.value(), MobHeadBlockRenderer::new);
     }
 
     @Override
     public void onRegisterLayerDefinitions(LayerDefinitionsContext context) {
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.ALLAY),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.ALLAY),
                 AllayHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.ARMADILLO),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.ARMADILLO),
                 ArmadilloHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.AXOLOTL),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.AXOLOTL),
                 AxolotlHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.BAT), BatHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.BEE), BeeHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.BOGGED),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.BAT),
+                BatHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.BEE),
+                BeeHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.BOGGED),
                 BoggedHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.BREEZE),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.BREEZE),
                 BreezeHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.BREEZE_EYES),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.BREEZE_EYES),
                 BreezeHeadModel::createEyesLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.CAMEL),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.CAMEL),
                 CamelHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.CHICKEN),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.CHICKEN),
                 ChickenHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.COLD_CHICKEN),
-                ChickenHeadModel::createColdHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.COLD_COW),
-                CowHeadModel::createColdHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.COD), CodHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.COPPER_GOLEM),
-                CopperGolemHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.COPPER_GOLEM_EYES),
-                CopperGolemHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.CREAKING),
-                CreakingHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.CREAKING_EYES),
-                CreakingHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.CREEPER_CHARGE),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.COD),
+                CodHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.CREEPER_CHARGE),
                 () -> MobHeadModel.createHeadLayer(new CubeDeformation(1.0F)));
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.DOLPHIN),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.DOLPHIN),
                 DolphinHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.ENDERMAN),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.ENDERMAN),
                 EndermanHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.ENDERMAN_EYES),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.ENDERMAN_EYES),
                 EndermanHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.ENDERMITE),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.ENDERMITE),
                 EndermiteHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.FELINE),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.FELINE),
                 FelineHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.FOX), FoxHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.FROG),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.FOX),
+                FoxHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.FROG),
                 FrogHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.GHAST),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.GHAST),
                 GhastHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.GOAT),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.GOAT),
                 GoatHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.GUARDIAN),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.GUARDIAN),
                 GuardianHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.HAPPY_GHAST),
-                HappyGhastHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.HOGLIN),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.HOGLIN),
                 HoglinHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.HORSE),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.HORSE),
                 HorseHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.HORSE_MARKINGS),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.HORSE_MARKINGS),
                 HorseHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.HUMANOID),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.HUMANOID),
                 () -> HumanoidHeadModel.createHeadLayer(CubeDeformation.NONE));
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.HUMANOID_OVERLAY),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.HUMANOID_OVERLAY),
                 () -> HumanoidHeadModel.createHeadLayer(new CubeDeformation(0.25F)));
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.ILLAGER),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.ILLAGER),
                 IllagerHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.IRON_GOLEM),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.IRON_GOLEM),
                 IronGolemHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.LLAMA),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.LLAMA),
                 () -> LlamaHeadModel.createHeadLayer(CubeDeformation.NONE));
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.LLAMA_DECOR),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.LLAMA_DECOR),
                 () -> LlamaHeadModel.createHeadLayer(new CubeDeformation(0.5F)));
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.MAGMA_CUBE),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.MAGMA_CUBE),
                 MagmaCubeHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.MOB),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.MOB),
                 () -> MobHeadModel.createHeadLayer(CubeDeformation.NONE));
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.MOB_OVERLAY),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.MOB_OVERLAY),
                 () -> MobHeadModel.createHeadLayer(new CubeDeformation(0.25F)));
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.NAUTILUS),
-                NautilusHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.PANDA),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.PANDA),
                 PandaHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.PARCHED),
-                ParchedHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.PARROT),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.PARROT),
                 ParrotHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.PHANTOM),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.PHANTOM),
                 PhantomHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.PHANTOM_EYES),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.PHANTOM_EYES),
                 PhantomHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.PIG), PigHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.PIGLIN),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.PIG),
+                PigHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.PIGLIN),
                 () -> LayerDefinition.create(PiglinHeadModel.createHeadModel(), 64, 64));
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.POLAR_BEAR),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.POLAR_BEAR),
                 PolarBearHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.PUFFERFISH),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.PUFFERFISH),
                 PufferfishHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.RABBIT),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.RABBIT),
                 RabbitHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.RAVAGER),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.RAVAGER),
                 RavagerHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.SALMON),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.SALMON),
                 SalmonHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.SHEEP),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.SHEEP),
                 SheepHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.SHEEP_WOOL),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.SHEEP_WOOL),
                 SheepHeadModel::createWoolHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.SHULKER),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.SHULKER),
                 ShulkerHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.SILVERFISH),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.SILVERFISH),
                 SilverfishHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.SLIME),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.SLIME),
                 SlimeHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.SLIME_GEL),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.SLIME_GEL),
                 SlimeHeadModel::createGelHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.SNIFFER),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.SNIFFER),
                 SnifferHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.SPIDER),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.SPIDER),
                 SpiderHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.SPIDER_EYES),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.SPIDER_EYES),
                 SpiderHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.SQUID),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.SQUID),
                 SquidHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.STRIDER),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.STRIDER),
                 StriderHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.TADPOLE),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.TADPOLE),
                 TadpoleHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.TEMPERATE_COW),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.TEMPERATE_COW),
                 CowHeadModel::createTemperateHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.TROPICAL_FISH_LARGE),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.TROPICAL_FISH_LARGE),
                 TropicalFishHeadModel::createLargeHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.TROPICAL_FISH_SMALL),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.TROPICAL_FISH_SMALL),
                 TropicalFishHeadModel::createSmallHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.TURTLE),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.TURTLE),
                 TurtleHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.VEX), VexHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.VILLAGER),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.VEX),
+                VexHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.VILLAGER),
                 VillagerHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.WARDEN),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.WARDEN),
                 WardenHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.WARM_COW),
-                CowHeadModel::createWarmHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.WITCH),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.WITCH),
                 WitchHeadModel::createHeadLayer);
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.WITHER_SHIELD),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.WITHER_SHIELD),
                 () -> HumanoidHeadModel.createHeadLayer(LayerDefinitions.INNER_ARMOR_DEFORMATION));
-        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.WOLF),
+        context.registerLayerDefinition(MobHeadBlockRenderer.createModelLayer(ModelType.WOLF),
                 WolfHeadModel::createHeadLayer);
     }
 
     @Override
     public void onRegisterSkullRenderers(SkullRenderersContext context) {
-        context.registerSkullRenderer(ModRegistry.MOB_SKULL_BLOCK_TYPE,
-                DefaultPlayerSkin.getDefaultTexture(),
-                (EntityModelSet entityModelSet) -> new SkullModel(entityModelSet.bakeLayer(ModelLayers.PLAYER_HEAD)));
+        context.registerSkullRenderer((EntityModelSet entityModels, BiConsumer<SkullBlock.Type, SkullModelBase> registrar) -> {
+            registrar.accept(ModRegistry.MOB_SKULL_BLOCK_TYPE,
+                    new SkullModel(entityModels.bakeLayer(ModelLayers.PLAYER_HEAD)));
+        });
     }
 
     @Override
-    public void onRegisterItemModels(ItemModelsContext context) {
-        context.registerSpecialModelRenderer(AllTheHeads.id("mob_head"), MobHeadSpecialRenderer.Unbaked.MAP_CODEC);
+    public void onRegisterBuiltinModelItemRenderers(BuiltinModelItemRendererContext context) {
+        context.registerItemRenderer(new SpecialBuiltInItemRenderer<>(new MobHeadSpecialRenderer.Unbaked()),
+                ModRegistry.MOB_HEAD_BLOCK.value());
     }
 
-    @Override
-    public void onRegisterSpecialBlockModelRenderers(SpecialBlockModelRenderersContext context) {
-        context.registerSpecialBlockModelRenderer(ModRegistry.MOB_HEAD_BLOCK.value(),
-                new MobHeadSpecialRenderer.Unbaked());
-        context.registerSpecialBlockModelRenderer(ModRegistry.MOB_WALL_HEAD_BLOCK.value(),
-                new MobHeadSpecialRenderer.Unbaked());
+    private static class SpecialBuiltInItemRenderer<T> implements ReloadingBuiltInItemRenderer {
+        private final SpecialModelRenderer.Unbaked<T> unbaked;
+        private SpecialModelRenderer<T> modelRenderer;
+
+        public SpecialBuiltInItemRenderer(SpecialModelRenderer.Unbaked<T> unbaked) {
+            this.unbaked = unbaked;
+        }
+
+        @Override
+        public void renderByItem(ItemStack itemStack, ItemDisplayContext context, PoseStack poseStack, MultiBufferSource bufferSource, int lightCoords, int overlayCoords) {
+            this.modelRenderer.render(this.modelRenderer.extractArgument(itemStack),
+                    context,
+                    poseStack,
+                    bufferSource,
+                    lightCoords,
+                    overlayCoords,
+                    itemStack.hasFoil());
+        }
+
+        @Override
+        public void onResourceManagerReload(ResourceManager resourceManager) {
+            this.modelRenderer = this.unbaked.bake(Minecraft.getInstance().getEntityModels());
+        }
     }
 }

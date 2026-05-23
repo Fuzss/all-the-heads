@@ -2,61 +2,33 @@ package fuzs.alltheheads.init.headtype;
 
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
-import net.minecraft.advancements.criterion.DataComponentMatchers;
-import net.minecraft.advancements.criterion.EntityPredicate;
-import net.minecraft.core.component.DataComponentExactPredicate;
-import net.minecraft.core.component.DataComponents;
-import net.minecraft.core.registries.Registries;
+import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
 import net.minecraft.data.worldgen.BootstrapContext;
-import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.animal.chicken.ChickenVariant;
-import net.minecraft.world.entity.animal.chicken.ChickenVariants;
-import net.minecraft.world.item.EitherHolder;
 
 import java.util.function.BiConsumer;
 
 import static fuzs.alltheheads.init.HeadTypes.register;
 
 public class ChickenHeadType {
-    public static final ResourceKey<HeadType> TEMPERATE_CHICKEN = register("chicken/temperate");
-    public static final ResourceKey<HeadType> WARM_CHICKEN = register("chicken/warm");
-    public static final ResourceKey<HeadType> COLD_CHICKEN = register("chicken/cold");
+    public static final ResourceKey<HeadType> CHICKEN = register("chicken");
 
     public static void bootstrap(BootstrapContext<HeadType> context) {
-        bootstrapChicken(context,
-                ChickenVariants.TEMPERATE,
-                TEMPERATE_CHICKEN,
-                ModelType.CHICKEN,
-                "entity/chicken/temperate_chicken");
-        bootstrapChicken(context, ChickenVariants.WARM, WARM_CHICKEN, ModelType.CHICKEN, "entity/chicken/warm_chicken");
-        bootstrapChicken(context,
-                ChickenVariants.COLD,
-                COLD_CHICKEN,
-                ModelType.COLD_CHICKEN,
-                "entity/chicken/cold_chicken");
+        bootstrapChicken(context, CHICKEN, ModelType.CHICKEN, "entity/chicken");
     }
 
-    private static void bootstrapChicken(BootstrapContext<HeadType> context, ResourceKey<ChickenVariant> variant, ResourceKey<HeadType> resourceKey, ModelType modelType, String textureLocation) {
+    private static void bootstrapChicken(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, ModelType modelType, String textureLocation) {
         HeadType.builder(EntityType.CHICKEN)
-                .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.components(DataComponentMatchers.Builder.components()
-                            .exact(DataComponentExactPredicate.expect(DataComponents.CHICKEN_VARIANT,
-                                    new EitherHolder<>(context.lookup(Registries.CHICKEN_VARIANT).getOrThrow(variant))))
-                            .build());
-                })
                 .shape(4.0, 6.0, 3.0)
                 .scale(1.5)
-                .model(modelType, Identifier.withDefaultNamespace(textureLocation))
+                .model(modelType, ResourceLocationHelper.withDefaultNamespace(textureLocation))
                 .noteBlockSound(SoundEvents.CHICKEN_AMBIENT)
                 .build(context, resourceKey);
     }
 
     public static void registerTranslations(BiConsumer<ResourceKey<HeadType>, String> translationConsumer) {
-        translationConsumer.accept(TEMPERATE_CHICKEN, "Temperate Chicken Head");
-        translationConsumer.accept(WARM_CHICKEN, "Warm Chicken Head");
-        translationConsumer.accept(COLD_CHICKEN, "Cold Chicken Head");
+        translationConsumer.accept(CHICKEN, "Chicken Head");
     }
 }

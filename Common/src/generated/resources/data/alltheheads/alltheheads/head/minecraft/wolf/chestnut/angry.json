@@ -2,9 +2,6 @@
   "custom_name": "minecraft.wolf_chestnut_angry",
   "entity_predicate": {
     "type": "minecraft:wolf",
-    "components": {
-      "minecraft:wolf/variant": "minecraft:chestnut"
-    },
     "type_specific": {
       "type": "alltheheads:wolf",
       "angry": true

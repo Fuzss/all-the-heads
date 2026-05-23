@@ -1,11 +1,11 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.animal.polarbear.PolarBearModel;
-import net.minecraft.client.model.geom.builders.LayerDefinition;
+import fuzs.puzzleslib.api.client.renderer.v1.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.PolarBearModel;
 
 public final class PolarBearHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {
-        return createHeadLayer(PolarBearModel.createBodyLayer(false),
+        return createHeadLayer(new LayerDefinition(PolarBearModel.createBodyLayer()),
                 -3.5F,
                 -3.0F,
                 -3.0F,

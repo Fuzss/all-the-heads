@@ -6,13 +6,14 @@ import fuzs.alltheheads.world.item.component.headtype.Color;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
 import fuzs.alltheheads.world.item.component.headtype.Shape;
-import net.minecraft.advancements.criterion.EntityPredicate;
+import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
+import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.data.worldgen.BootstrapContext;
-import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.animal.fish.TropicalFish;
+import net.minecraft.world.entity.animal.TropicalFish;
 
 import java.util.List;
 import java.util.Map;
@@ -65,19 +66,27 @@ public class TropicalFishHeadType {
             TRIGGERFISH,
             YELLOWTAIL_PARROTFISH,
             YELLOW_TANG);
-    private static final Map<TropicalFish.Pattern, Identifier> TROPICAL_FISH_PATTERN_TEXTURES = ImmutableMap.<TropicalFish.Pattern, Identifier>builder()
-            .put(TropicalFish.Pattern.KOB, Identifier.withDefaultNamespace("entity/fish/tropical_a_pattern_1"))
-            .put(TropicalFish.Pattern.SUNSTREAK, Identifier.withDefaultNamespace("entity/fish/tropical_a_pattern_2"))
-            .put(TropicalFish.Pattern.SNOOPER, Identifier.withDefaultNamespace("entity/fish/tropical_a_pattern_3"))
-            .put(TropicalFish.Pattern.DASHER, Identifier.withDefaultNamespace("entity/fish/tropical_a_pattern_4"))
-            .put(TropicalFish.Pattern.BRINELY, Identifier.withDefaultNamespace("entity/fish/tropical_a_pattern_5"))
-            .put(TropicalFish.Pattern.SPOTTY, Identifier.withDefaultNamespace("entity/fish/tropical_a_pattern_6"))
-            .put(TropicalFish.Pattern.FLOPPER, Identifier.withDefaultNamespace("entity/fish/tropical_b_pattern_1"))
-            .put(TropicalFish.Pattern.STRIPEY, Identifier.withDefaultNamespace("entity/fish/tropical_b_pattern_2"))
-            .put(TropicalFish.Pattern.GLITTER, Identifier.withDefaultNamespace("entity/fish/tropical_b_pattern_3"))
-            .put(TropicalFish.Pattern.BLOCKFISH, Identifier.withDefaultNamespace("entity/fish/tropical_b_pattern_4"))
-            .put(TropicalFish.Pattern.BETTY, Identifier.withDefaultNamespace("entity/fish/tropical_b_pattern_5"))
-            .put(TropicalFish.Pattern.CLAYFISH, Identifier.withDefaultNamespace("entity/fish/tropical_b_pattern_6"))
+    private static final Map<TropicalFish.Pattern, ResourceLocation> TROPICAL_FISH_PATTERN_TEXTURES = ImmutableMap.<TropicalFish.Pattern, ResourceLocation>builder()
+            .put(TropicalFish.Pattern.KOB, ResourceLocation.withDefaultNamespace("entity/fish/tropical_a_pattern_1"))
+            .put(TropicalFish.Pattern.SUNSTREAK,
+                    ResourceLocation.withDefaultNamespace("entity/fish/tropical_a_pattern_2"))
+            .put(TropicalFish.Pattern.SNOOPER,
+                    ResourceLocation.withDefaultNamespace("entity/fish/tropical_a_pattern_3"))
+            .put(TropicalFish.Pattern.DASHER, ResourceLocation.withDefaultNamespace("entity/fish/tropical_a_pattern_4"))
+            .put(TropicalFish.Pattern.BRINELY,
+                    ResourceLocation.withDefaultNamespace("entity/fish/tropical_a_pattern_5"))
+            .put(TropicalFish.Pattern.SPOTTY, ResourceLocation.withDefaultNamespace("entity/fish/tropical_a_pattern_6"))
+            .put(TropicalFish.Pattern.FLOPPER,
+                    ResourceLocation.withDefaultNamespace("entity/fish/tropical_b_pattern_1"))
+            .put(TropicalFish.Pattern.STRIPEY,
+                    ResourceLocation.withDefaultNamespace("entity/fish/tropical_b_pattern_2"))
+            .put(TropicalFish.Pattern.GLITTER,
+                    ResourceLocation.withDefaultNamespace("entity/fish/tropical_b_pattern_3"))
+            .put(TropicalFish.Pattern.BLOCKFISH,
+                    ResourceLocation.withDefaultNamespace("entity/fish/tropical_b_pattern_4"))
+            .put(TropicalFish.Pattern.BETTY, ResourceLocation.withDefaultNamespace("entity/fish/tropical_b_pattern_5"))
+            .put(TropicalFish.Pattern.CLAYFISH,
+                    ResourceLocation.withDefaultNamespace("entity/fish/tropical_b_pattern_6"))
             .build();
 
     public static void bootstrap(BootstrapContext<HeadType> context) {
@@ -115,7 +124,7 @@ public class TropicalFishHeadType {
                 .shape(shape)
                 .scale(1.5)
                 .dyedModel(modelType,
-                        Identifier.withDefaultNamespace(textureLocation),
+                        ResourceLocationHelper.withDefaultNamespace(textureLocation),
                         new Color.Dye(variant.baseColor()))
                 .dyedModel(modelType,
                         TROPICAL_FISH_PATTERN_TEXTURES.get(variant.pattern()),

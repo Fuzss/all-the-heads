@@ -2,9 +2,10 @@ package fuzs.alltheheads.init;
 
 import fuzs.alltheheads.init.headtype.*;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
+import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
 import net.minecraft.data.worldgen.BootstrapContext;
-import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 
 public class HeadTypes {
 
@@ -13,21 +14,18 @@ public class HeadTypes {
         AquaticHeadType.bootstrap(context);
         AxolotlHeadType.bootstrap(context);
         BeeHeadType.bootstrap(context);
-        CamelHeadType.bootstrap(context);
-        FelineHeadType.bootstrap(context);
+        CatHeadType.bootstrap(context);
         ChickenHeadType.bootstrap(context);
-        CopperGolemHeadType.bootstrap(context);
         CowHeadType.bootstrap(context);
         FoxHeadType.bootstrap(context);
         FrogHeadType.bootstrap(context);
         GhastHeadType.bootstrap(context);
         GuardianHeadType.bootstrap(context);
         HoglinHeadType.bootstrap(context);
-        EquineHeadType.bootstrap(context);
+        HorseHeadType.bootstrap(context);
         IllagerHeadType.bootstrap(context);
         LlamaHeadType.bootstrap(context);
         MonsterHeadType.bootstrap(context);
-        NautilusHeadType.bootstrap(context);
         PandaHeadType.bootstrap(context);
         ParrotHeadType.bootstrap(context);
         PigHeadType.bootstrap(context);
@@ -45,11 +43,11 @@ public class HeadTypes {
     }
 
     public static ResourceKey<HeadType> register(String path) {
-        return register(Identifier.withDefaultNamespace(path));
+        return register(ResourceLocationHelper.withDefaultNamespace(path));
     }
 
-    public static ResourceKey<HeadType> register(Identifier identifier) {
+    public static ResourceKey<HeadType> register(ResourceLocation resourceLocation) {
         return ModRegistry.REGISTRIES.makeResourceKey(ModRegistry.HEAD_REGISTRY_KEY,
-                identifier.toString().replace(':', '/'));
+                resourceLocation.toString().replace(':', '/'));
     }
 }

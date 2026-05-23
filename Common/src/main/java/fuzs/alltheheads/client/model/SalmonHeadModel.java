@@ -1,11 +1,11 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.animal.fish.SalmonModel;
-import net.minecraft.client.model.geom.builders.LayerDefinition;
+import fuzs.puzzleslib.api.client.renderer.v1.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.SalmonModel;
 
 public final class SalmonHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {
-        return createHeadLayer(SalmonModel.createBodyLayer(),
+        return createHeadLayer(new LayerDefinition(SalmonModel.createBodyLayer()),
                 -1.0F,
                 -2.0F,
                 -3.0F,

@@ -2,8 +2,9 @@
   "custom_name": "minecraft.fox",
   "entity_predicate": {
     "type": "minecraft:fox",
-    "components": {
-      "minecraft:fox/variant": "red"
+    "type_specific": {
+      "type": "minecraft:fox",
+      "variant": "red"
     }
   },
   "loot_table": "alltheheads:entities/heads/minecraft/fox",

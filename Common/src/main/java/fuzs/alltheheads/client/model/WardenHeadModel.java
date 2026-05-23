@@ -1,12 +1,12 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.geom.builders.LayerDefinition;
-import net.minecraft.client.model.geom.builders.PartDefinition;
-import net.minecraft.client.model.monster.warden.WardenModel;
+import fuzs.puzzleslib.api.client.renderer.v1.model.geom.builders.LayerDefinition;
+import fuzs.puzzleslib.api.client.renderer.v1.model.geom.builders.PartDefinition;
+import net.minecraft.client.model.WardenModel;
 
 public final class WardenHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {
-        return createHeadLayer(WardenModel.createBodyLayer(),
+        return createHeadLayer(new LayerDefinition(WardenModel.createBodyLayer()),
                 (PartDefinition partDefinition) -> partDefinition.getChild("bone").getChild("body").getChild("head"),
                 -8.0F,
                 -16.0F,

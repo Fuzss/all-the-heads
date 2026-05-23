@@ -4,8 +4,8 @@ import fuzs.alltheheads.AllTheHeads;
 import fuzs.alltheheads.init.ModRegistry;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.puzzleslib.api.data.v2.core.DataProviderContext;
-import fuzs.puzzleslib.api.data.v2.tags.AbstractTagAppender;
 import fuzs.puzzleslib.api.data.v2.tags.AbstractTagProvider;
+import fuzs.puzzleslib.api.data.v3.tags.AbstractTagAppender;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.resources.ResourceKey;
@@ -13,7 +13,6 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.storage.loot.LootTable;
 
-import java.util.Optional;
 import java.util.stream.Stream;
 
 public class ModHeadTypeTagsProvider extends AbstractTagProvider<HeadType> {
@@ -43,11 +42,11 @@ public class ModHeadTypeTagsProvider extends AbstractTagProvider<HeadType> {
     }
 
     public static Stream<ResourceKey<LootTable>> getDefaultLootTables(Stream<EntityType<?>> stream) {
-        return stream.map(EntityType::getDefaultLootTable).mapMulti(Optional::ifPresent);
+        return stream.map(EntityType::getDefaultLootTable);
     }
 
     public static TagKey<HeadType> getHeadTypeTagKey(ResourceKey<LootTable> resourceKey) {
-        String path = resourceKey.identifier().toString().replace(':', '/');
+        String path = resourceKey.location().toString().replace(':', '/');
         return TagKey.create(ModRegistry.HEAD_REGISTRY_KEY, AllTheHeads.id(path));
     }
 }

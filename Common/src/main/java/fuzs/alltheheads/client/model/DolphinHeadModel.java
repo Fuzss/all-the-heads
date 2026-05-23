@@ -1,12 +1,12 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.animal.dolphin.DolphinModel;
-import net.minecraft.client.model.geom.builders.LayerDefinition;
-import net.minecraft.client.model.geom.builders.PartDefinition;
+import fuzs.puzzleslib.api.client.renderer.v1.model.geom.builders.LayerDefinition;
+import fuzs.puzzleslib.api.client.renderer.v1.model.geom.builders.PartDefinition;
+import net.minecraft.client.model.DolphinModel;
 
 public final class DolphinHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {
-        return createHeadLayer(DolphinModel.createBodyLayer(),
+        return createHeadLayer(new LayerDefinition(DolphinModel.createBodyLayer()),
                 (PartDefinition partDefinition) -> partDefinition.getChild("body").getChild("head"),
                 -4.0F,
                 -3.0F,

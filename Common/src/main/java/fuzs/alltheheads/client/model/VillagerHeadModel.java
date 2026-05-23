@@ -1,7 +1,7 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.geom.builders.LayerDefinition;
-import net.minecraft.client.model.npc.VillagerModel;
+import fuzs.puzzleslib.api.client.renderer.v1.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.VillagerModel;
 
 public final class VillagerHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {

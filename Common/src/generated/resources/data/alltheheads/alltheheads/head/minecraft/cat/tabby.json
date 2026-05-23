@@ -2,8 +2,9 @@
   "custom_name": "minecraft.cat_tabby",
   "entity_predicate": {
     "type": "minecraft:cat",
-    "components": {
-      "minecraft:cat/variant": "minecraft:tabby"
+    "type_specific": {
+      "type": "minecraft:cat",
+      "variant": "minecraft:tabby"
     }
   },
   "loot_table": "alltheheads:entities/heads/minecraft/cat/tabby",

@@ -2,16 +2,14 @@ package fuzs.alltheheads.init.headtype;
 
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
-import net.minecraft.advancements.criterion.DataComponentMatchers;
-import net.minecraft.advancements.criterion.EntityPredicate;
-import net.minecraft.core.component.DataComponentExactPredicate;
-import net.minecraft.core.component.DataComponents;
+import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
+import net.minecraft.advancements.critereon.EntityPredicate;
+import net.minecraft.advancements.critereon.EntitySubPredicates;
 import net.minecraft.data.worldgen.BootstrapContext;
-import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.animal.parrot.Parrot;
+import net.minecraft.world.entity.animal.Parrot;
 
 import java.util.function.BiConsumer;
 
@@ -35,13 +33,11 @@ public class ParrotHeadType {
     private static void bootstrapParrot(BootstrapContext<HeadType> context, Parrot.Variant variant, ResourceKey<HeadType> resourceKey, String textureLocation) {
         HeadType.builder(EntityType.PARROT)
                 .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.components(DataComponentMatchers.Builder.components()
-                            .exact(DataComponentExactPredicate.expect(DataComponents.PARROT_VARIANT, variant))
-                            .build());
+                    builder.subPredicate(EntitySubPredicates.PARROT.createPredicate(variant));
                 })
                 .shape(2.0, 4.0, 2.0)
                 .scale(2.0)
-                .model(ModelType.PARROT, Identifier.withDefaultNamespace(textureLocation))
+                .model(ModelType.PARROT, ResourceLocationHelper.withDefaultNamespace(textureLocation))
                 .noteBlockSound(SoundEvents.PARROT_AMBIENT)
                 .build(context, resourceKey);
     }

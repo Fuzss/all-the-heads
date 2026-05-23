@@ -3,9 +3,9 @@ package fuzs.alltheheads.init.headtype;
 import fuzs.alltheheads.advancements.critereon.BeePredicate;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
-import net.minecraft.advancements.criterion.EntityPredicate;
+import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
+import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.data.worldgen.BootstrapContext;
-import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
@@ -34,7 +34,7 @@ public class BeeHeadType {
                     builder.subPredicate(new BeePredicate(Optional.of(angry), Optional.of(hasPollen)));
                 })
                 .shape(7.0, 7.0, 6.0)
-                .model(ModelType.BEE, Identifier.withDefaultNamespace(textureLocation))
+                .model(ModelType.BEE, ResourceLocationHelper.withDefaultNamespace(textureLocation))
                 .noteBlockSound(SoundEvents.BEE_LOOP)
                 .build(context, resourceKey);
     }

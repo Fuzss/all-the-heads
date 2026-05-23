@@ -2,8 +2,9 @@
   "custom_name": "minecraft.mooshroom_red",
   "entity_predicate": {
     "type": "minecraft:mooshroom",
-    "components": {
-      "minecraft:mooshroom/variant": "red"
+    "type_specific": {
+      "type": "minecraft:mooshroom",
+      "variant": "red"
     }
   },
   "loot_table": "alltheheads:entities/heads/minecraft/mooshroom/red",

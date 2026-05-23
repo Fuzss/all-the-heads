@@ -1,0 +1,19 @@
+{
+  "custom_name": "minecraft.cow",
+  "entity_predicate": {
+    "type": "minecraft:cow"
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/cow",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/cow/cow",
+      "model": "alltheheads:temperate_cow_head"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.cow.ambient",
+  "shape": {
+    "depth": 6.0,
+    "height": 8.0,
+    "width": 8.0
+  }
+}

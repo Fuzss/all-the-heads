@@ -1,7 +1,5 @@
 {
   "values": [
-    "alltheheads:minecraft/cow/cold",
-    "alltheheads:minecraft/cow/temperate",
-    "alltheheads:minecraft/cow/warm"
+    "alltheheads:minecraft/cow"
   ]
 }

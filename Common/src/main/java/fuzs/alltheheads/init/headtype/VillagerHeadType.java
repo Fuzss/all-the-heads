@@ -3,15 +3,15 @@ package fuzs.alltheheads.init.headtype;
 import fuzs.alltheheads.advancements.critereon.VillagerDataPredicate;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
-import net.minecraft.advancements.criterion.EntityPredicate;
-import net.minecraft.core.registries.Registries;
+import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
+import net.minecraft.advancements.critereon.EntityPredicate;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.worldgen.BootstrapContext;
-import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.npc.villager.VillagerProfession;
-import net.minecraft.world.entity.npc.villager.VillagerType;
+import net.minecraft.world.entity.npc.VillagerProfession;
+import net.minecraft.world.entity.npc.VillagerType;
 
 import java.util.function.BiConsumer;
 
@@ -267,32 +267,41 @@ public class VillagerHeadType {
         bootstrapVillager(context, VillagerType.TAIGA, VillagerProfession.WEAPONSMITH, TAIGA_WEAPONSMITH_VILLAGER);
     }
 
-    private static void bootstrapVillager(BootstrapContext<HeadType> context, ResourceKey<VillagerType> type, ResourceKey<HeadType> resourceKey) {
+    private static void bootstrapVillager(BootstrapContext<HeadType> context, VillagerType type, ResourceKey<HeadType> resourceKey) {
         HeadType.builder(EntityType.VILLAGER)
                 .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.subPredicate(VillagerDataPredicate.hasData(context.lookup(Registries.VILLAGER_TYPE)
-                                    .getOrThrow(type),
-                            context.lookup(Registries.VILLAGER_PROFESSION).getOrThrow(VillagerProfession.NONE)));
+                    builder.subPredicate(VillagerDataPredicate.hasData(type, VillagerProfession.NONE));
                 })
                 .shape(8.0, 10.0, 8.0)
                 .scale(0.9375)
-                .model(ModelType.VILLAGER, Identifier.withDefaultNamespace("entity/villager/villager"))
-                .model(ModelType.VILLAGER, type.identifier().withPrefix("entity/villager/type/"))
+                .model(ModelType.VILLAGER, ResourceLocationHelper.withDefaultNamespace("entity/villager/villager"))
+                .model(ModelType.VILLAGER,
+                        BuiltInRegistries.VILLAGER_TYPE.getResourceKey(type)
+                                .orElseThrow()
+                                .location()
+                                .withPrefix("entity/villager/type/"))
                 .noteBlockSound(SoundEvents.VILLAGER_AMBIENT)
                 .build(context, resourceKey);
     }
 
-    private static void bootstrapVillager(BootstrapContext<HeadType> context, ResourceKey<VillagerType> type, ResourceKey<VillagerProfession> profession, ResourceKey<HeadType> resourceKey) {
+    private static void bootstrapVillager(BootstrapContext<HeadType> context, VillagerType type, VillagerProfession profession, ResourceKey<HeadType> resourceKey) {
         HeadType.builder(EntityType.VILLAGER)
                 .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.subPredicate(VillagerDataPredicate.hasData(context.lookup(Registries.VILLAGER_TYPE)
-                            .getOrThrow(type), context.lookup(Registries.VILLAGER_PROFESSION).getOrThrow(profession)));
+                    builder.subPredicate(VillagerDataPredicate.hasData(type, profession));
                 })
                 .shape(8.0, 10.0, 8.0)
                 .scale(0.9375)
-                .model(ModelType.VILLAGER, Identifier.withDefaultNamespace("entity/villager/villager"))
-                .model(ModelType.VILLAGER, type.identifier().withPrefix("entity/villager/type/"))
-                .model(ModelType.VILLAGER, profession.identifier().withPrefix("entity/villager/profession/"))
+                .model(ModelType.VILLAGER, ResourceLocationHelper.withDefaultNamespace("entity/villager/villager"))
+                .model(ModelType.VILLAGER,
+                        BuiltInRegistries.VILLAGER_TYPE.getResourceKey(type)
+                                .orElseThrow()
+                                .location()
+                                .withPrefix("entity/villager/type/"))
+                .model(ModelType.VILLAGER,
+                        BuiltInRegistries.VILLAGER_PROFESSION.getResourceKey(profession)
+                                .orElseThrow()
+                                .location()
+                                .withPrefix("entity/villager/profession/"))
                 .noteBlockSound(SoundEvents.VILLAGER_AMBIENT)
                 .build(context, resourceKey);
     }

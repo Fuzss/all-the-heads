@@ -2,9 +2,6 @@
   "custom_name": "minecraft.wolf_striped_tame",
   "entity_predicate": {
     "type": "minecraft:wolf",
-    "components": {
-      "minecraft:wolf/variant": "minecraft:striped"
-    },
     "type_specific": {
       "type": "alltheheads:wolf",
       "tame": true

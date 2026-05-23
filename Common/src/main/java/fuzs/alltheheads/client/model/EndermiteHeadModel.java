@@ -1,10 +1,10 @@
 package fuzs.alltheheads.client.model;
 
+import fuzs.puzzleslib.api.client.renderer.v1.model.geom.builders.LayerDefinition;
+import fuzs.puzzleslib.api.client.renderer.v1.model.geom.builders.PartDefinition;
+import net.minecraft.client.model.EndermiteModel;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.CubeListBuilder;
-import net.minecraft.client.model.geom.builders.LayerDefinition;
-import net.minecraft.client.model.geom.builders.PartDefinition;
-import net.minecraft.client.model.monster.endermite.EndermiteModel;
 
 import java.util.Set;
 import java.util.function.UnaryOperator;
@@ -12,8 +12,8 @@ import java.util.function.UnaryOperator;
 public final class EndermiteHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {
         int shortenedSize = 2;
-        LayerDefinition layerDefinition = EndermiteModel.createBodyLayer();
-        PartDefinition partDefinition = layerDefinition.mesh.getRoot();
+        LayerDefinition layerDefinition = new LayerDefinition(EndermiteModel.createBodyLayer());
+        PartDefinition partDefinition = new PartDefinition(layerDefinition.mesh.getRoot());
         partDefinition.addOrReplaceChild("segment1",
                 CubeListBuilder.create()
                         .texOffs(shortenedSize, 5 + shortenedSize)

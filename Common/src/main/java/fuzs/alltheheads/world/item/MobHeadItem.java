@@ -14,7 +14,7 @@ import net.minecraft.world.level.block.Block;
 public class MobHeadItem extends StandingAndWallBlockItem {
 
     public MobHeadItem(Block block, Block wallBlock, Properties properties) {
-        super(block, wallBlock, Direction.DOWN, properties);
+        super(block, wallBlock, properties, Direction.DOWN);
     }
 
     public static ItemStack createHead(HolderLookup.Provider registries, ResourceKey<HeadType> resourceKey) {
@@ -30,6 +30,6 @@ public class MobHeadItem extends StandingAndWallBlockItem {
     @Override
     public Component getName(ItemStack itemStack) {
         Holder<HeadType> headType = itemStack.get(ModRegistry.HEAD_TYPE_DATA_COMPONENT_TYPE.value());
-        return headType != null ? headType.value().getName(this.descriptionId) : super.getName(itemStack);
+        return headType != null ? headType.value().getName(this.getDescriptionId()) : super.getName(itemStack);
     }
 }

@@ -2,9 +2,6 @@
   "custom_name": "minecraft.horse_chestnut_black_dots",
   "entity_predicate": {
     "type": "minecraft:horse",
-    "components": {
-      "minecraft:horse/variant": "chestnut"
-    },
     "type_specific": {
       "type": "alltheheads:horse",
       "markings": "black_dots"

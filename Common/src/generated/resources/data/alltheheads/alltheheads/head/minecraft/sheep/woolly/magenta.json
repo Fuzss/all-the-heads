@@ -2,11 +2,9 @@
   "custom_name": "minecraft.sheep_woolly_magenta",
   "entity_predicate": {
     "type": "minecraft:sheep",
-    "components": {
-      "minecraft:sheep/color": "magenta"
-    },
     "type_specific": {
-      "type": "minecraft:sheep",
+      "type": "alltheheads:sheep",
+      "color": "magenta",
       "sheared": false
     }
   },

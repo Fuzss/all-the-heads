@@ -1,11 +1,11 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.animal.turtle.TurtleModel;
-import net.minecraft.client.model.geom.builders.LayerDefinition;
+import fuzs.puzzleslib.api.client.renderer.v1.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.TurtleModel;
 
 public final class TurtleHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {
-        return createHeadLayer(TurtleModel.createBodyLayer(),
+        return createHeadLayer(new LayerDefinition(TurtleModel.createBodyLayer()),
                 -3.0F,
                 -1.0F,
                 -3.0F,

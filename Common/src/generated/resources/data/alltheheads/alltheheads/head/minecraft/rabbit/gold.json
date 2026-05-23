@@ -2,8 +2,9 @@
   "custom_name": "minecraft.rabbit_gold",
   "entity_predicate": {
     "type": "minecraft:rabbit",
-    "components": {
-      "minecraft:rabbit/variant": "gold"
+    "type_specific": {
+      "type": "minecraft:rabbit",
+      "variant": "gold"
     }
   },
   "loot_table": "alltheheads:entities/heads/minecraft/rabbit/gold",

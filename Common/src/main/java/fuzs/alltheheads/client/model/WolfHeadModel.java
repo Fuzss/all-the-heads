@@ -1,8 +1,8 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.animal.wolf.WolfModel;
+import fuzs.puzzleslib.api.client.renderer.v1.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.WolfModel;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
-import net.minecraft.client.model.geom.builders.LayerDefinition;
 
 public final class WolfHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {

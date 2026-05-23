@@ -2,8 +2,9 @@
   "custom_name": "minecraft.parrot_red",
   "entity_predicate": {
     "type": "minecraft:parrot",
-    "components": {
-      "minecraft:parrot/variant": "red_blue"
+    "type_specific": {
+      "type": "minecraft:parrot",
+      "variant": "red_blue"
     }
   },
   "loot_table": "alltheheads:entities/heads/minecraft/parrot/red",

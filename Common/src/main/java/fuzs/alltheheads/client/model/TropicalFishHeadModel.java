@@ -1,12 +1,12 @@
 package fuzs.alltheheads.client.model;
 
-import net.minecraft.client.model.animal.fish.TropicalFishLargeModel;
-import net.minecraft.client.model.animal.fish.TropicalFishSmallModel;
+import fuzs.puzzleslib.api.client.renderer.v1.model.geom.builders.LayerDefinition;
+import fuzs.puzzleslib.api.client.renderer.v1.model.geom.builders.PartDefinition;
+import net.minecraft.client.model.TropicalFishModelA;
+import net.minecraft.client.model.TropicalFishModelB;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
 import net.minecraft.client.model.geom.builders.CubeListBuilder;
-import net.minecraft.client.model.geom.builders.LayerDefinition;
-import net.minecraft.client.model.geom.builders.PartDefinition;
 
 import java.util.Set;
 import java.util.function.UnaryOperator;
@@ -14,8 +14,8 @@ import java.util.function.UnaryOperator;
 public final class TropicalFishHeadModel extends HeadModelBase {
     public static LayerDefinition createSmallHeadLayer() {
         int shortenedSize = 2;
-        LayerDefinition layerDefinition = TropicalFishSmallModel.createBodyLayer(CubeDeformation.NONE);
-        PartDefinition partDefinition = layerDefinition.mesh.getRoot();
+        LayerDefinition layerDefinition = new LayerDefinition(TropicalFishModelA.createBodyLayer(CubeDeformation.NONE));
+        PartDefinition partDefinition = new PartDefinition(layerDefinition.mesh.getRoot());
         partDefinition.addOrReplaceChild("body",
                 CubeListBuilder.create()
                         .texOffs(shortenedSize, shortenedSize)
@@ -37,8 +37,8 @@ public final class TropicalFishHeadModel extends HeadModelBase {
 
     public static LayerDefinition createLargeHeadLayer() {
         int shortenedSize = 2;
-        LayerDefinition layerDefinition = TropicalFishLargeModel.createBodyLayer(CubeDeformation.NONE);
-        PartDefinition partDefinition = layerDefinition.mesh.getRoot();
+        LayerDefinition layerDefinition = new LayerDefinition(TropicalFishModelB.createBodyLayer(CubeDeformation.NONE));
+        PartDefinition partDefinition = new PartDefinition(layerDefinition.mesh.getRoot());
         partDefinition.addOrReplaceChild("body",
                 CubeListBuilder.create()
                         .texOffs(shortenedSize, 20 + shortenedSize)

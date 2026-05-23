@@ -23,16 +23,13 @@ import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SkullBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.PushReaction;
-import net.minecraft.world.waypoints.Waypoint;
 
 public class ModRegistry {
     public static final ResourceKey<Registry<HeadType>> HEAD_REGISTRY_KEY = ResourceKey.createRegistryKey(AllTheHeads.id(
@@ -56,42 +53,55 @@ public class ModRegistry {
                     .pushReaction(PushReaction.DESTROY));
     public static final Holder.Reference<Block> MOB_WALL_HEAD_BLOCK = REGISTRIES.registerBlock("mob_wall_head",
             MobHeadSkullBlock::new,
-            () -> Blocks.wallVariant(MOB_HEAD_BLOCK.value(), true).strength(1.0F).pushReaction(PushReaction.DESTROY));
+            () -> BlockBehaviour.Properties.of()
+                    .strength(1.0F)
+                    .dropsLike(MOB_HEAD_BLOCK.value())
+                    .pushReaction(PushReaction.DESTROY));
     public static final Holder.Reference<Item> MOB_HEAD_ITEM = REGISTRIES.registerBlockItem(MOB_HEAD_BLOCK,
             (Block block, Item.Properties properties) -> new MobHeadItem(block,
                     MOB_WALL_HEAD_BLOCK.value(),
                     properties),
-            () -> Waypoint.addHideAttribute(new Item.Properties())
-                    .rarity(Rarity.UNCOMMON)
-                    .equippableUnswappable(EquipmentSlot.HEAD));
+            () -> new Item.Properties().rarity(Rarity.UNCOMMON));
     public static final Holder.Reference<BlockEntityType<MobHeadBlockEntity>> MOB_HEAD_BLOCK_ENTITY_TYPE = REGISTRIES.registerBlockEntityType(
             "head",
             MobHeadBlockEntity::new,
             () -> ImmutableSet.of(MOB_HEAD_BLOCK.value(), MOB_WALL_HEAD_BLOCK.value()));
+    public static final Holder.Reference<MapCodec<VillagerDataPredicate>> VILLAGER_DATA_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
+            Registries.ENTITY_SUB_PREDICATE_TYPE,
+            "villager_data",
+            () -> VillagerDataPredicate.CODEC);
+    public static final Holder.Reference<MapCodec<VexPredicate>> VEX_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
+            Registries.ENTITY_SUB_PREDICATE_TYPE,
+            "vex",
+            () -> VexPredicate.CODEC);
+    public static final Holder.Reference<MapCodec<WolfPredicate>> WOLF_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
+            Registries.ENTITY_SUB_PREDICATE_TYPE,
+            "wolf",
+            () -> WolfPredicate.CODEC);
     public static final Holder.Reference<MapCodec<BeePredicate>> BEE_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
             Registries.ENTITY_SUB_PREDICATE_TYPE,
             "bee",
             () -> BeePredicate.CODEC);
-    public static final Holder.Reference<MapCodec<CopperGolemPredicate>> COPPER_GOLEM_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
-            Registries.ENTITY_SUB_PREDICATE_TYPE,
-            "copper_golem",
-            () -> CopperGolemPredicate.CODEC);
-    public static final Holder.Reference<MapCodec<CreeperPredicate>> CREEPER_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
-            Registries.ENTITY_SUB_PREDICATE_TYPE,
-            "creeper",
-            () -> CreeperPredicate.CODEC);
-    public static final Holder.Reference<MapCodec<GhastPredicate>> GHAST_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
-            Registries.ENTITY_SUB_PREDICATE_TYPE,
-            "ghast",
-            () -> GhastPredicate.CODEC);
     public static final Holder.Reference<MapCodec<HorsePredicate>> HORSE_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
             Registries.ENTITY_SUB_PREDICATE_TYPE,
             "horse",
             () -> HorsePredicate.CODEC);
+    public static final Holder.Reference<MapCodec<GhastPredicate>> GHAST_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
+            Registries.ENTITY_SUB_PREDICATE_TYPE,
+            "ghast",
+            () -> GhastPredicate.CODEC);
+    public static final Holder.Reference<MapCodec<CreeperPredicate>> CREEPER_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
+            Registries.ENTITY_SUB_PREDICATE_TYPE,
+            "creeper",
+            () -> CreeperPredicate.CODEC);
     public static final Holder.Reference<MapCodec<PandaPredicate>> PANDA_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
             Registries.ENTITY_SUB_PREDICATE_TYPE,
             "panda",
             () -> PandaPredicate.CODEC);
+    public static final Holder.Reference<MapCodec<SheepPredicate>> SHEEP_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
+            Registries.ENTITY_SUB_PREDICATE_TYPE,
+            "sheep",
+            () -> SheepPredicate.CODEC);
     public static final Holder.Reference<MapCodec<StriderPredicate>> STRIDER_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
             Registries.ENTITY_SUB_PREDICATE_TYPE,
             "strider",
@@ -100,18 +110,6 @@ public class ModRegistry {
             Registries.ENTITY_SUB_PREDICATE_TYPE,
             "tropical_fish",
             () -> TropicalFishPredicate.CODEC);
-    public static final Holder.Reference<MapCodec<VexPredicate>> VEX_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
-            Registries.ENTITY_SUB_PREDICATE_TYPE,
-            "vex",
-            () -> VexPredicate.CODEC);
-    public static final Holder.Reference<MapCodec<VillagerDataPredicate>> VILLAGER_DATA_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
-            Registries.ENTITY_SUB_PREDICATE_TYPE,
-            "villager_data",
-            () -> VillagerDataPredicate.CODEC);
-    public static final Holder.Reference<MapCodec<WolfPredicate>> WOLF_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
-            Registries.ENTITY_SUB_PREDICATE_TYPE,
-            "wolf",
-            () -> WolfPredicate.CODEC);
     public static final Holder.Reference<CreativeModeTab> CREATIVE_MODE_TAB = REGISTRIES.registerCreativeModeTab("main",
             () -> createDisplayItemStack(MonsterHeadType.BLAZE),
             (CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output output) -> {
