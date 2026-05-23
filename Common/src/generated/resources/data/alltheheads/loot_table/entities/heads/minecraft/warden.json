@@ -16,6 +16,13 @@
           },
           "enchantment": "minecraft:looting",
           "unenchanted_chance": 1.0
+        },
+        {
+          "condition": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "type": "minecraft:warden"
+          }
         }
       ],
       "entries": [

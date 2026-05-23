@@ -16,6 +16,13 @@
           },
           "enchantment": "minecraft:looting",
           "unenchanted_chance": 0.2
+        },
+        {
+          "condition": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "type": "minecraft:allay"
+          }
         }
       ],
       "entries": [

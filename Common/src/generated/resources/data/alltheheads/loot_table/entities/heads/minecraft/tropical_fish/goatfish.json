@@ -16,6 +16,19 @@
           },
           "enchantment": "minecraft:looting",
           "unenchanted_chance": 0.1
+        },
+        {
+          "condition": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "type": "minecraft:tropical_fish",
+            "type_specific": {
+              "type": "alltheheads:tropical_fish",
+              "base_color": "white",
+              "pattern": "spotty",
+              "pattern_color": "yellow"
+            }
+          }
         }
       ],
       "entries": [

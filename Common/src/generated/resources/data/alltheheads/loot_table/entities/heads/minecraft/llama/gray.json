@@ -16,6 +16,17 @@
           },
           "enchantment": "minecraft:looting",
           "unenchanted_chance": 0.24
+        },
+        {
+          "condition": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "type": "minecraft:llama",
+            "type_specific": {
+              "type": "minecraft:llama",
+              "variant": "gray"
+            }
+          }
         }
       ],
       "entries": [

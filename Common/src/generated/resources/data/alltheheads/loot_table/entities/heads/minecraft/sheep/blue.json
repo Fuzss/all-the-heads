@@ -16,6 +16,18 @@
           },
           "enchantment": "minecraft:looting",
           "unenchanted_chance": 0.0175
+        },
+        {
+          "condition": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "type": "minecraft:sheep",
+            "type_specific": {
+              "type": "alltheheads:sheep",
+              "color": "blue",
+              "sheared": false
+            }
+          }
         }
       ],
       "entries": [

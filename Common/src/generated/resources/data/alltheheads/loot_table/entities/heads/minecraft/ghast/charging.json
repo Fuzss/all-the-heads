@@ -16,6 +16,17 @@
           },
           "enchantment": "minecraft:looting",
           "unenchanted_chance": 0.0625
+        },
+        {
+          "condition": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "type": "minecraft:ghast",
+            "type_specific": {
+              "type": "alltheheads:ghast",
+              "charging": true
+            }
+          }
         }
       ],
       "entries": [

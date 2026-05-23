@@ -16,6 +16,18 @@
           },
           "enchantment": "minecraft:looting",
           "unenchanted_chance": 0.2
+        },
+        {
+          "condition": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "type": "minecraft:bee",
+            "type_specific": {
+              "type": "alltheheads:bee",
+              "angry": true,
+              "has_nectar": true
+            }
+          }
         }
       ],
       "entries": [

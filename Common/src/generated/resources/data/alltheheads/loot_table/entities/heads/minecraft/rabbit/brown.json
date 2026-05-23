@@ -16,6 +16,17 @@
           },
           "enchantment": "minecraft:looting",
           "unenchanted_chance": 0.26
+        },
+        {
+          "condition": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "type": "minecraft:rabbit",
+            "type_specific": {
+              "type": "minecraft:rabbit",
+              "variant": "brown"
+            }
+          }
         }
       ],
       "entries": [

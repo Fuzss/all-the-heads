@@ -16,6 +16,17 @@
           },
           "enchantment": "minecraft:looting",
           "unenchanted_chance": 1.0
+        },
+        {
+          "condition": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "type": "minecraft:axolotl",
+            "type_specific": {
+              "type": "minecraft:axolotl",
+              "variant": "blue"
+            }
+          }
         }
       ],
       "entries": [

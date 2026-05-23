@@ -16,6 +16,17 @@
           },
           "enchantment": "minecraft:looting",
           "unenchanted_chance": 0.27
+        },
+        {
+          "condition": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "type": "minecraft:horse",
+            "type_specific": {
+              "type": "alltheheads:horse",
+              "markings": "white"
+            }
+          }
         }
       ],
       "entries": [

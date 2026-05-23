@@ -16,6 +16,13 @@
           },
           "enchantment": "minecraft:looting",
           "unenchanted_chance": 0.25
+        },
+        {
+          "condition": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "type": "minecraft:ravager"
+          }
         }
       ],
       "entries": [

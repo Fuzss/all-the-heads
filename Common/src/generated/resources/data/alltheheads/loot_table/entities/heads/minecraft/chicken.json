@@ -16,6 +16,13 @@
           },
           "enchantment": "minecraft:looting",
           "unenchanted_chance": 0.01
+        },
+        {
+          "condition": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "type": "minecraft:chicken"
+          }
         }
       ],
       "entries": [

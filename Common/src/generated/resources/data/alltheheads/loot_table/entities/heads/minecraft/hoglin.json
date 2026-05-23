@@ -16,6 +16,13 @@
           },
           "enchantment": "minecraft:looting",
           "unenchanted_chance": 0.03
+        },
+        {
+          "condition": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "type": "minecraft:hoglin"
+          }
         }
       ],
       "entries": [

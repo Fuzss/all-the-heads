@@ -46,7 +46,6 @@ public class AllTheHeads implements ModConstructor {
 
     private static void registerEventHandlers() {
         LootTableLoadCallback.EVENT.register(ModLootTables::onLootTableLoad);
-        LootTableLoadCallback.EVENT.register(HeadLootHandler::onLootTableLoad);
         LivingDropsCallback.EVENT.register(HeadLootHandler::onLivingDrops);
         CalculateLivingVisibilityCallback.EVENT.register(HeadBehaviorHandler::onCalculateLivingVisibility);
     }

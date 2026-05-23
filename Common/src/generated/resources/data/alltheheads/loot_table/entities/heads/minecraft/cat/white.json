@@ -16,6 +16,17 @@
           },
           "enchantment": "minecraft:looting",
           "unenchanted_chance": 0.33
+        },
+        {
+          "condition": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "type": "minecraft:cat",
+            "type_specific": {
+              "type": "minecraft:cat",
+              "variant": "minecraft:white"
+            }
+          }
         }
       ],
       "entries": [

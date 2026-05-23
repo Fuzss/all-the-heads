@@ -16,6 +16,17 @@
           },
           "enchantment": "minecraft:looting",
           "unenchanted_chance": 0.1
+        },
+        {
+          "condition": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "type": "minecraft:mooshroom",
+            "type_specific": {
+              "type": "minecraft:mooshroom",
+              "variant": "brown"
+            }
+          }
         }
       ],
       "entries": [
