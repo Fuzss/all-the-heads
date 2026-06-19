@@ -3,8 +3,8 @@ package fuzs.alltheheads.common.init.headtype;
 import fuzs.alltheheads.common.advancements.critereon.HorsePredicate;
 import fuzs.alltheheads.common.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.common.world.item.component.headtype.ModelType;
-import net.minecraft.advancements.criterion.DataComponentMatchers;
-import net.minecraft.advancements.criterion.EntityPredicate;
+import net.minecraft.advancements.predicates.DataComponentMatchers;
+import net.minecraft.advancements.predicates.entity.EntityPredicate;
 import net.minecraft.core.component.DataComponentExactPredicate;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -13,6 +13,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.animal.equine.Markings;
 import net.minecraft.world.entity.animal.equine.Variant;
 
@@ -72,17 +73,17 @@ public class EquineHeadType {
     public static void bootstrap(BootstrapContext<HeadType> context) {
         // Horses
         bootstrapHorse(context,
-                EntityType.SKELETON_HORSE,
+                EntityTypes.SKELETON_HORSE,
                 SKELETON_HORSE,
                 "entity/horse/horse_skeleton",
                 SoundEvents.SKELETON_HORSE_AMBIENT);
         bootstrapHorse(context,
-                EntityType.ZOMBIE_HORSE,
+                EntityTypes.ZOMBIE_HORSE,
                 ZOMBIE_HORSE,
                 "entity/horse/horse_zombie",
                 SoundEvents.ZOMBIE_HORSE_AMBIENT);
-        bootstrapHorse(context, EntityType.DONKEY, DONKEY, "entity/horse/donkey", SoundEvents.DONKEY_AMBIENT);
-        bootstrapHorse(context, EntityType.MULE, MULE, "entity/horse/mule", SoundEvents.MULE_AMBIENT);
+        bootstrapHorse(context, EntityTypes.DONKEY, DONKEY, "entity/horse/donkey", SoundEvents.DONKEY_AMBIENT);
+        bootstrapHorse(context, EntityTypes.MULE, MULE, "entity/horse/mule", SoundEvents.MULE_AMBIENT);
 
         // White Horses
         bootstrapHorse(context, Variant.WHITE, WHITE_HORSE, "entity/horse/horse_white");
@@ -284,11 +285,11 @@ public class EquineHeadType {
     }
 
     private static void bootstrapHorse(BootstrapContext<HeadType> context, Variant variant, ResourceKey<HeadType> resourceKey, String textureLocation) {
-        HeadType.builder(EntityType.HORSE)
+        HeadType.builder(EntityTypes.HORSE)
                 .entityPredicate((EntityPredicate.Builder builder) -> {
                     builder.components(DataComponentMatchers.Builder.components()
                             .exact(DataComponentExactPredicate.expect(DataComponents.HORSE_VARIANT, variant))
-                            .build()).subPredicate(HorsePredicate.forMarkings(Markings.NONE));
+                            .build()).put(HorsePredicate.CODEC, HorsePredicate.forMarkings(Markings.NONE));
                 })
                 .shape(4.0, 16.0, 8.0)
                 .scale(0.75)
@@ -298,11 +299,11 @@ public class EquineHeadType {
     }
 
     private static void bootstrapHorse(BootstrapContext<HeadType> context, Variant variant, Markings markings, ResourceKey<HeadType> resourceKey, String textureLocation, String markingsLocation) {
-        HeadType.builder(EntityType.HORSE)
+        HeadType.builder(EntityTypes.HORSE)
                 .entityPredicate((EntityPredicate.Builder builder) -> {
                     builder.components(DataComponentMatchers.Builder.components()
                             .exact(DataComponentExactPredicate.expect(DataComponents.HORSE_VARIANT, variant))
-                            .build()).subPredicate(HorsePredicate.forMarkings(markings));
+                            .build()).put(HorsePredicate.CODEC, HorsePredicate.forMarkings(markings));
                 })
                 .shape(4.0, 16.0, 8.0)
                 .scale(0.75)

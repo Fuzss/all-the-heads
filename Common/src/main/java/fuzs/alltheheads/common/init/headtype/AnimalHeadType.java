@@ -6,7 +6,7 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 
 import java.util.function.BiConsumer;
 
@@ -23,48 +23,48 @@ public class AnimalHeadType {
     public static final ResourceKey<HeadType> WANDERING_TRADER = register("wandering_trader");
 
     public static void bootstrap(BootstrapContext<HeadType> context) {
-        HeadType.builder(EntityType.ARMADILLO)
+        HeadType.builder(EntityTypes.ARMADILLO)
                 .shape(3.0, 5.0, 2.0)
                 .scale(1.6)
                 .model(ModelType.ARMADILLO, Identifier.withDefaultNamespace("entity/armadillo/armadillo"))
                 .noteBlockSound(SoundEvents.ARMADILLO_AMBIENT)
                 .build(context, ARMADILLO);
-        HeadType.builder(EntityType.BAT)
+        HeadType.builder(EntityTypes.BAT)
                 .shape(4.0, 3.0, 2.0)
                 .scale(1.5)
                 .model(ModelType.BAT, Identifier.withDefaultNamespace("entity/bat/bat"))
                 .noteBlockSound(SoundEvents.BAT_AMBIENT)
                 .build(context, BAT);
-        HeadType.builder(EntityType.GOAT)
+        HeadType.builder(EntityTypes.GOAT)
                 .shape(5.0, 10.0, 7.0)
                 .scale(0.8)
                 .model(ModelType.GOAT, Identifier.withDefaultNamespace("entity/goat/goat"))
                 .noteBlockSound(SoundEvents.GOAT_SCREAMING_AMBIENT)
                 .build(context, GOAT);
-        HeadType.builder(EntityType.IRON_GOLEM)
+        HeadType.builder(EntityTypes.IRON_GOLEM)
                 .shape(8.0, 10.0, 8.0)
                 .scale(0.9375)
                 .model(ModelType.IRON_GOLEM, Identifier.withDefaultNamespace("entity/iron_golem/iron_golem"))
                 .noteBlockSound(SoundEvents.IRON_GOLEM_REPAIR)
                 .build(context, IRON_GOLEM);
-        HeadType.builder(EntityType.POLAR_BEAR)
+        HeadType.builder(EntityTypes.POLAR_BEAR)
                 .shape(7.0, 7.0, 7.0)
                 .scale(8.0 / 7.0)
                 .model(ModelType.POLAR_BEAR, Identifier.withDefaultNamespace("entity/bear/polarbear"))
                 .noteBlockSound(SoundEvents.POLAR_BEAR_AMBIENT)
                 .build(context, POLAR_BEAR);
-        HeadType.builder(EntityType.SNIFFER)
+        HeadType.builder(EntityTypes.SNIFFER)
                 .shape(13.0, 14.0, 20.0)
                 .scale(0.5)
                 .model(ModelType.SNIFFER, Identifier.withDefaultNamespace("entity/sniffer/sniffer"))
                 .noteBlockSound(SoundEvents.SNIFFER_IDLE)
                 .build(context, SNIFFER);
-        HeadType.builder(EntityType.SNOW_GOLEM)
+        HeadType.builder(EntityTypes.SNOW_GOLEM)
                 .shape(8.0, 8.0, 8.0)
                 .model(ModelType.HUMANOID, Identifier.withDefaultNamespace("entity/snow_golem/snow_golem"))
                 .noteBlockSound(SoundEvents.SNOW_GOLEM_SHOOT)
                 .build(context, SNOW_GOLEM);
-        HeadType.builder(EntityType.WANDERING_TRADER)
+        HeadType.builder(EntityTypes.WANDERING_TRADER)
                 .shape(8.0, 10.0, 8.0)
                 .scale(0.9375)
                 .model(ModelType.VILLAGER, Identifier.withDefaultNamespace("entity/wandering_trader/wandering_trader"))

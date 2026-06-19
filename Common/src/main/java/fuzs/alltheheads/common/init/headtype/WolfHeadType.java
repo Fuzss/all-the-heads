@@ -3,8 +3,8 @@ package fuzs.alltheheads.common.init.headtype;
 import fuzs.alltheheads.common.advancements.critereon.WolfPredicate;
 import fuzs.alltheheads.common.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.common.world.item.component.headtype.ModelType;
-import net.minecraft.advancements.criterion.DataComponentMatchers;
-import net.minecraft.advancements.criterion.EntityPredicate;
+import net.minecraft.advancements.predicates.DataComponentMatchers;
+import net.minecraft.advancements.predicates.entity.EntityPredicate;
 import net.minecraft.core.component.DataComponentExactPredicate;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
@@ -12,7 +12,7 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.animal.wolf.WolfSoundVariants;
 import net.minecraft.world.entity.animal.wolf.WolfVariant;
 import net.minecraft.world.entity.animal.wolf.WolfVariants;
@@ -91,12 +91,13 @@ public class WolfHeadType {
     }
 
     private static void bootstrapWolf(BootstrapContext<HeadType> context, ResourceKey<WolfVariant> variant, ResourceKey<HeadType> resourceKey, String textureLocation) {
-        HeadType.builder(EntityType.WOLF)
+        HeadType.builder(EntityTypes.WOLF)
                 .entityPredicate((EntityPredicate.Builder builder) -> {
                     builder.components(DataComponentMatchers.Builder.components()
-                            .exact(DataComponentExactPredicate.expect(DataComponents.WOLF_VARIANT,
-                                    context.lookup(Registries.WOLF_VARIANT).getOrThrow(variant)))
-                            .build()).subPredicate(new WolfPredicate(Optional.of(false), Optional.of(false)));
+                                    .exact(DataComponentExactPredicate.expect(DataComponents.WOLF_VARIANT,
+                                            context.lookup(Registries.WOLF_VARIANT).getOrThrow(variant)))
+                                    .build())
+                            .put(WolfPredicate.CODEC, new WolfPredicate(Optional.of(false), Optional.of(false)));
                 })
                 .shape(6.0, 6.0, 4.0)
                 .scale(4.0 / 3.0)
@@ -108,12 +109,12 @@ public class WolfHeadType {
     }
 
     private static void bootstrapAngryWolf(BootstrapContext<HeadType> context, ResourceKey<WolfVariant> variant, ResourceKey<HeadType> resourceKey, String textureLocation) {
-        HeadType.builder(EntityType.WOLF)
+        HeadType.builder(EntityTypes.WOLF)
                 .entityPredicate((EntityPredicate.Builder builder) -> {
                     builder.components(DataComponentMatchers.Builder.components()
                             .exact(DataComponentExactPredicate.expect(DataComponents.WOLF_VARIANT,
                                     context.lookup(Registries.WOLF_VARIANT).getOrThrow(variant)))
-                            .build()).subPredicate(WolfPredicate.isAngry());
+                            .build()).put(WolfPredicate.CODEC, WolfPredicate.isAngry());
                 })
                 .shape(6.0, 6.0, 4.0)
                 .scale(4.0 / 3.0)
@@ -125,12 +126,12 @@ public class WolfHeadType {
     }
 
     private static void bootstrapTameWolf(BootstrapContext<HeadType> context, ResourceKey<WolfVariant> variant, ResourceKey<HeadType> resourceKey, String textureLocation) {
-        HeadType.builder(EntityType.WOLF)
+        HeadType.builder(EntityTypes.WOLF)
                 .entityPredicate((EntityPredicate.Builder builder) -> {
                     builder.components(DataComponentMatchers.Builder.components()
                             .exact(DataComponentExactPredicate.expect(DataComponents.WOLF_VARIANT,
                                     context.lookup(Registries.WOLF_VARIANT).getOrThrow(variant)))
-                            .build()).subPredicate(WolfPredicate.isTame());
+                            .build()).put(WolfPredicate.CODEC, WolfPredicate.isTame());
                 })
                 .shape(6.0, 6.0, 4.0)
                 .scale(4.0 / 3.0)

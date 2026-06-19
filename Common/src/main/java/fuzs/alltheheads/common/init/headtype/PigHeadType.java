@@ -2,8 +2,8 @@ package fuzs.alltheheads.common.init.headtype;
 
 import fuzs.alltheheads.common.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.common.world.item.component.headtype.ModelType;
-import net.minecraft.advancements.criterion.DataComponentMatchers;
-import net.minecraft.advancements.criterion.EntityPredicate;
+import net.minecraft.advancements.predicates.DataComponentMatchers;
+import net.minecraft.advancements.predicates.entity.EntityPredicate;
 import net.minecraft.core.component.DataComponentExactPredicate;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
@@ -11,7 +11,7 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.animal.pig.PigSoundVariants;
 import net.minecraft.world.entity.animal.pig.PigVariant;
 import net.minecraft.world.entity.animal.pig.PigVariants;
@@ -32,7 +32,7 @@ public class PigHeadType {
     }
 
     private static void bootstrapPig(BootstrapContext<HeadType> context, ResourceKey<PigVariant> variant, ResourceKey<HeadType> resourceKey, String textureLocation) {
-        HeadType.builder(EntityType.PIG)
+        HeadType.builder(EntityTypes.PIG)
                 .entityPredicate((EntityPredicate.Builder builder) -> {
                     builder.components(DataComponentMatchers.Builder.components()
                             .exact(DataComponentExactPredicate.expect(DataComponents.PIG_VARIANT,

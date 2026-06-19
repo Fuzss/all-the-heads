@@ -3,13 +3,13 @@ package fuzs.alltheheads.common.init.headtype;
 import fuzs.alltheheads.common.advancements.critereon.GhastPredicate;
 import fuzs.alltheheads.common.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.common.world.item.component.headtype.ModelType;
-import net.minecraft.resources.Identifier;
-import net.minecraft.advancements.criterion.EntityPredicate;
+import net.minecraft.advancements.predicates.entity.EntityPredicate;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 
 import java.util.function.BiConsumer;
 
@@ -23,7 +23,7 @@ public class GhastHeadType {
     public static void bootstrap(BootstrapContext<HeadType> context) {
         bootstrapGhast(context, false, GHAST, "entity/ghast/ghast", SoundEvents.GHAST_AMBIENT);
         bootstrapGhast(context, true, CHARGING_GHAST, "entity/ghast/ghast_shooting", SoundEvents.GHAST_WARN);
-        HeadType.builder(EntityType.HAPPY_GHAST)
+        HeadType.builder(EntityTypes.HAPPY_GHAST)
                 .shape(16.0, 16.0, 16.0)
                 .scale(0.625)
                 .model(ModelType.HAPPY_GHAST, Identifier.withDefaultNamespace("entity/ghast/happy_ghast"))
@@ -32,9 +32,9 @@ public class GhastHeadType {
     }
 
     private static void bootstrapGhast(BootstrapContext<HeadType> context, boolean charging, ResourceKey<HeadType> resourceKey, String textureLocation, SoundEvent noteBlockSound) {
-        HeadType.builder(EntityType.GHAST)
+        HeadType.builder(EntityTypes.GHAST)
                 .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.subPredicate(GhastPredicate.isCharging(charging));
+                    builder.put(GhastPredicate.CODEC, GhastPredicate.isCharging(charging));
                 })
                 .shape(16.0, 16.0, 16.0)
                 .scale(0.625)

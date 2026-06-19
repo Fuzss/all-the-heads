@@ -2,12 +2,13 @@ package fuzs.alltheheads.common.init.headtype;
 
 import fuzs.alltheheads.common.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.common.world.item.component.headtype.ModelType;
-import net.minecraft.resources.Identifier;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 
 import java.util.function.BiConsumer;
 
@@ -18,8 +19,8 @@ public class HoglinHeadType {
     public static final ResourceKey<HeadType> ZOGLIN = register("zoglin");
 
     public static void bootstrap(BootstrapContext<HeadType> context) {
-        bootstrapHoglin(context, EntityType.HOGLIN, HOGLIN, "entity/hoglin/hoglin", SoundEvents.HOGLIN_AMBIENT);
-        bootstrapHoglin(context, EntityType.ZOGLIN, ZOGLIN, "entity/hoglin/zoglin", SoundEvents.ZOGLIN_AMBIENT);
+        bootstrapHoglin(context, EntityTypes.HOGLIN, HOGLIN, "entity/hoglin/hoglin", SoundEvents.HOGLIN_AMBIENT);
+        bootstrapHoglin(context, EntityTypes.ZOGLIN, ZOGLIN, "entity/hoglin/zoglin", SoundEvents.ZOGLIN_AMBIENT);
     }
 
     private static void bootstrapHoglin(BootstrapContext<HeadType> context, EntityType<?> entityType, ResourceKey<HeadType> resourceKey, String textureLocation, SoundEvent noteBlockSound) {

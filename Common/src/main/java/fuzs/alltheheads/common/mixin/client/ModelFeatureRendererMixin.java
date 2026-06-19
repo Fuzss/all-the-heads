@@ -1,12 +1,10 @@
 package fuzs.alltheheads.common.mixin.client;
 
-import com.llamalad7.mixinextras.sugar.Local;
 import com.llamalad7.mixinextras.sugar.Share;
 import com.llamalad7.mixinextras.sugar.ref.LocalBooleanRef;
 import fuzs.alltheheads.common.client.handler.CustomHeadLayerHandler;
 import fuzs.puzzleslib.common.api.client.renderer.v1.RenderStateExtraData;
 import net.minecraft.client.model.HeadedModel;
-import net.minecraft.client.renderer.SubmitNodeStorage;
 import net.minecraft.client.renderer.entity.state.EntityRenderState;
 import net.minecraft.client.renderer.feature.ModelFeatureRenderer;
 import org.spongepowered.asm.mixin.Mixin;
@@ -17,8 +15,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(ModelFeatureRenderer.class)
 abstract class ModelFeatureRendererMixin {
 
-    @Inject(method = "renderModel", at = @At("HEAD"))
-    private <S> void renderModel$0(CallbackInfo callback, @Local(argsOnly = true) SubmitNodeStorage.ModelSubmit<S> submit, @Share(
+    @Inject(method = "prepareModel", at = @At("HEAD"))
+    private <S> void prepareModel$0(ModelFeatureRenderer.Submit<S> submit, CallbackInfo callback, @Share(
             "is_head_visible") LocalBooleanRef isHeadVisibleRef) {
         // Disable model head rendering, some mob heads are smaller than the player head and will not cover all of it.
         // The idea is taken from here: https://github.com/Mrbysco/Heads
@@ -30,8 +28,8 @@ abstract class ModelFeatureRendererMixin {
         }
     }
 
-    @Inject(method = "renderModel", at = @At("TAIL"))
-    private <S> void renderModel$1(CallbackInfo callback, @Local(argsOnly = true) SubmitNodeStorage.ModelSubmit<S> submit, @Share(
+    @Inject(method = "prepareModel", at = @At("TAIL"))
+    private <S> void prepareModel$1(ModelFeatureRenderer.Submit<S> submit, CallbackInfo callback, @Share(
             "is_head_visible") LocalBooleanRef isHeadVisibleRef) {
         if (submit.state() instanceof EntityRenderState entityRenderState
                 && submit.model() instanceof HeadedModel headedModel && RenderStateExtraData.has(entityRenderState,

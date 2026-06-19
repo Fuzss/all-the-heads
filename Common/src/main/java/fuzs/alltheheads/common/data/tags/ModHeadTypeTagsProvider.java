@@ -11,6 +11,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.level.storage.loot.LootTable;
 
 import java.util.Optional;
@@ -28,8 +29,8 @@ public class ModHeadTypeTagsProvider extends AbstractTagProvider<HeadType> {
         registries.lookupOrThrow(ModRegistry.HEAD_REGISTRY_KEY)
                 .listElements()
                 .forEach((Holder.Reference<HeadType> headType) -> {
-                    if (headType.value().getEntityType() == EntityType.VILLAGER
-                            || headType.value().getEntityType() == EntityType.ZOMBIE_VILLAGER) {
+                    if (headType.value().getEntityType() == EntityTypes.VILLAGER
+                            || headType.value().getEntityType() == EntityTypes.ZOMBIE_VILLAGER) {
                         villagerLikeTagAppender.add(headType);
                     }
                 });

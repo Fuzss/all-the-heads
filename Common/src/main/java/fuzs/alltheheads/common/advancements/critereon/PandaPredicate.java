@@ -1,9 +1,8 @@
 package fuzs.alltheheads.common.advancements.critereon;
 
-import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import fuzs.alltheheads.common.init.ModRegistry;
-import net.minecraft.advancements.criterion.EntitySubPredicate;
+import net.minecraft.advancements.predicates.entity.EntitySubPredicate;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.animal.panda.Panda;
@@ -13,13 +12,8 @@ import org.jspecify.annotations.Nullable;
 import java.util.Optional;
 
 public record PandaPredicate(Optional<Panda.Gene> variant) implements EntitySubPredicate {
-    public static final MapCodec<PandaPredicate> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(Panda.Gene.CODEC.optionalFieldOf(
+    public static final Codec<PandaPredicate> CODEC = RecordCodecBuilder.create(instance -> instance.group(Panda.Gene.CODEC.optionalFieldOf(
             "variant").forGetter(PandaPredicate::variant)).apply(instance, PandaPredicate::new));
-
-    @Override
-    public MapCodec<PandaPredicate> codec() {
-        return ModRegistry.PANDA_ENTITY_SUB_PREDICATE_TYPE.value();
-    }
 
     @Override
     public boolean matches(Entity entity, ServerLevel level, @Nullable Vec3 position) {

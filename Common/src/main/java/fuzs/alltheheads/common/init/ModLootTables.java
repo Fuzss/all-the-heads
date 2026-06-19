@@ -7,6 +7,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.NestedLootTable;
@@ -17,11 +18,11 @@ import java.util.Map;
 
 public class ModLootTables {
     private static final Map<Identifier, ResourceKey<LootTable>> LOOT_TABLE_INJECTIONS = new HashMap<>();
-    public static final ResourceKey<LootTable> ZOMBIE_INJECTION = registerLootTableInjection(EntityType.ZOMBIE);
-    public static final ResourceKey<LootTable> SKELETON_INJECTION = registerLootTableInjection(EntityType.SKELETON);
-    public static final ResourceKey<LootTable> CREEPER_INJECTION = registerLootTableInjection(EntityType.CREEPER);
-    public static final ResourceKey<LootTable> PIGLIN_INJECTION = registerLootTableInjection(EntityType.PIGLIN);
-    public static final ResourceKey<LootTable> ENDER_DRAGON_INJECTION = registerLootTableInjection(EntityType.ENDER_DRAGON);
+    public static final ResourceKey<LootTable> ZOMBIE_INJECTION = registerLootTableInjection(EntityTypes.ZOMBIE);
+    public static final ResourceKey<LootTable> SKELETON_INJECTION = registerLootTableInjection(EntityTypes.SKELETON);
+    public static final ResourceKey<LootTable> CREEPER_INJECTION = registerLootTableInjection(EntityTypes.CREEPER);
+    public static final ResourceKey<LootTable> PIGLIN_INJECTION = registerLootTableInjection(EntityTypes.PIGLIN);
+    public static final ResourceKey<LootTable> ENDER_DRAGON_INJECTION = registerLootTableInjection(EntityTypes.ENDER_DRAGON);
 
     public static void bootstrap() {
         // NO-OP

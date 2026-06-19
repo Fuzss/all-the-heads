@@ -4,12 +4,12 @@ import fuzs.alltheheads.common.advancements.critereon.CreeperPredicate;
 import fuzs.alltheheads.common.world.item.component.headtype.Color;
 import fuzs.alltheheads.common.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.common.world.item.component.headtype.ModelType;
-import net.minecraft.advancements.criterion.EntityPredicate;
+import net.minecraft.advancements.predicates.entity.EntityPredicate;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 
 import java.util.function.BiConsumer;
 
@@ -38,26 +38,26 @@ public class MonsterHeadType {
     public static final ResourceKey<HeadType> WITCH = register("witch");
 
     public static void bootstrap(BootstrapContext<HeadType> context) {
-        HeadType.builder(EntityType.BLAZE)
+        HeadType.builder(EntityTypes.BLAZE)
                 .shape(8.0, 8.0, 8.0)
                 .litModel(ModelType.MOB, Identifier.withDefaultNamespace("entity/blaze/blaze"))
                 .noteBlockSound(SoundEvents.BLAZE_AMBIENT)
                 .build(context, BLAZE);
-        HeadType.builder(EntityType.BOGGED)
+        HeadType.builder(EntityTypes.BOGGED)
                 .shape(8.0, 8.0, 8.0)
                 .model(ModelType.BOGGED, Identifier.withDefaultNamespace("entity/skeleton/bogged"))
                 .model(ModelType.MOB_OVERLAY, Identifier.withDefaultNamespace("entity/skeleton/bogged_overlay"))
                 .noteBlockSound(SoundEvents.BOGGED_AMBIENT)
                 .build(context, BOGGED);
-        HeadType.builder(EntityType.BREEZE)
+        HeadType.builder(EntityTypes.BREEZE)
                 .shape(8.0, 8.0, 8.0)
                 .model(ModelType.BREEZE, Identifier.withDefaultNamespace("entity/breeze/breeze"))
                 .model(ModelType.BREEZE_EYES, Identifier.withDefaultNamespace("entity/breeze/breeze_eyes"))
                 .noteBlockSound(SoundEvents.BREEZE_IDLE_AIR)
                 .build(context, BREEZE);
-        HeadType.builder(EntityType.CREEPER)
+        HeadType.builder(EntityTypes.CREEPER)
                 .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.subPredicate(CreeperPredicate.isPowered(true));
+                    builder.put(CreeperPredicate.CODEC, CreeperPredicate.isPowered(true));
                 })
                 .shape(8.0, 8.0, 8.0)
                 .model(ModelType.MOB, Identifier.withDefaultNamespace("entity/creeper/creeper"))
@@ -66,94 +66,94 @@ public class MonsterHeadType {
                         new Color.Constant(0xFF808080))
                 .noteBlockSound(SoundEvents.CREEPER_PRIMED)
                 .build(context, CHARGED_CREEPER);
-        HeadType.builder(EntityType.CREAKING)
+        HeadType.builder(EntityTypes.CREAKING)
                 .shape(6.0, 10.0, 6.0)
                 .model(ModelType.CREAKING, Identifier.withDefaultNamespace("entity/creaking/creaking"))
                 .model(ModelType.CREAKING_EYES, Identifier.withDefaultNamespace("entity/creaking/creaking_eyes"))
                 .noteBlockSound(SoundEvents.CREAKING_AMBIENT)
                 .build(context, CREAKING);
-        HeadType.builder(EntityType.DROWNED)
+        HeadType.builder(EntityTypes.DROWNED)
                 .shape(8.0, 8.0, 8.0)
                 .model(ModelType.HUMANOID, Identifier.withDefaultNamespace("entity/zombie/drowned"))
                 .model(ModelType.HUMANOID_OVERLAY, Identifier.withDefaultNamespace("entity/zombie/drowned_outer_layer"))
                 .noteBlockSound(SoundEvents.DROWNED_AMBIENT)
                 .build(context, DROWNED);
-        HeadType.builder(EntityType.ENDERMAN)
+        HeadType.builder(EntityTypes.ENDERMAN)
                 .shape(8.0, 8.0, 8.0)
                 .model(ModelType.ENDERMAN, Identifier.withDefaultNamespace("entity/enderman/enderman"))
                 .model(ModelType.ENDERMAN_EYES, Identifier.withDefaultNamespace("entity/enderman/enderman_eyes"))
                 .noteBlockSound(SoundEvents.ENDERMAN_AMBIENT)
                 .build(context, ENDERMAN);
-        HeadType.builder(EntityType.ENDERMITE)
+        HeadType.builder(EntityTypes.ENDERMITE)
                 .shape(6.0, 4.0, 3.0)
                 .scale(4.0 / 3.0)
                 .model(ModelType.ENDERMITE, Identifier.withDefaultNamespace("entity/endermite/endermite"))
                 .noteBlockSound(SoundEvents.ENDERMITE_AMBIENT)
                 .build(context, ENDERMITE);
-        HeadType.builder(EntityType.GIANT)
+        HeadType.builder(EntityTypes.GIANT)
                 .shape(8.0, 8.0, 8.0)
                 .scale(1.25)
                 .model(ModelType.HUMANOID, Identifier.withDefaultNamespace("entity/zombie/zombie"))
                 .noteBlockSound(SoundEvents.ZOMBIE_AMBIENT)
                 .build(context, GIANT);
-        HeadType.builder(EntityType.HUSK)
+        HeadType.builder(EntityTypes.HUSK)
                 .shape(8.0, 8.0, 8.0)
                 .model(ModelType.HUMANOID, Identifier.withDefaultNamespace("entity/zombie/husk"))
                 .noteBlockSound(SoundEvents.HUSK_AMBIENT)
                 .build(context, HUSK);
-        HeadType.builder(EntityType.MAGMA_CUBE)
+        HeadType.builder(EntityTypes.MAGMA_CUBE)
                 .shape(8.0, 8.0, 8.0)
                 .litModel(ModelType.MAGMA_CUBE, Identifier.withDefaultNamespace("entity/slime/magmacube"))
                 .noteBlockSound(SoundEvents.MAGMA_CUBE_SQUISH_SMALL)
                 .build(context, MAGMA_CUBE);
-        HeadType.builder(EntityType.PARCHED)
+        HeadType.builder(EntityTypes.PARCHED)
                 .shape(8.0, 8.0, 8.0)
                 .model(ModelType.PARCHED, Identifier.withDefaultNamespace("entity/skeleton/parched"))
                 .noteBlockSound(SoundEvents.PARCHED_AMBIENT)
                 .build(context, PARCHED);
-        HeadType.builder(EntityType.PHANTOM)
+        HeadType.builder(EntityTypes.PHANTOM)
                 .shape(7.0, 3.0, 5.0)
                 .scale(8.0 / 7.0)
                 .model(ModelType.PHANTOM, Identifier.withDefaultNamespace("entity/phantom/phantom"))
                 .model(ModelType.PHANTOM_EYES, Identifier.withDefaultNamespace("entity/phantom/phantom_eyes"))
                 .noteBlockSound(SoundEvents.PHANTOM_AMBIENT)
                 .build(context, PHANTOM);
-        HeadType.builder(EntityType.RAVAGER)
+        HeadType.builder(EntityTypes.RAVAGER)
                 .shape(16.0, 20.0, 16.0)
                 .scale(0.5)
                 .model(ModelType.RAVAGER, Identifier.withDefaultNamespace("entity/illager/ravager"))
                 .noteBlockSound(SoundEvents.RAVAGER_ROAR)
                 .build(context, RAVAGER);
-        HeadType.builder(EntityType.SHULKER)
+        HeadType.builder(EntityTypes.SHULKER)
                 .shape(6.0, 6.0, 6.0)
                 .model(ModelType.SHULKER, Identifier.withDefaultNamespace("entity/shulker/shulker"))
                 .noteBlockSound(SoundEvents.SHULKER_AMBIENT)
                 .build(context, SHULKER);
-        HeadType.builder(EntityType.SILVERFISH)
+        HeadType.builder(EntityTypes.SILVERFISH)
                 .shape(6.0, 4.0, 3.0)
                 .scale(4.0 / 3.0)
                 .model(ModelType.SILVERFISH, Identifier.withDefaultNamespace("entity/silverfish/silverfish"))
                 .noteBlockSound(SoundEvents.SILVERFISH_AMBIENT)
                 .build(context, SILVERFISH);
-        HeadType.builder(EntityType.SLIME)
+        HeadType.builder(EntityTypes.SLIME)
                 .shape(8.0, 8.0, 8.0)
                 .model(ModelType.SLIME, Identifier.withDefaultNamespace("entity/slime/slime"))
                 .model(ModelType.SLIME_GEL, Identifier.withDefaultNamespace("entity/slime/slime"))
                 .noteBlockSound(SoundEvents.SLIME_SQUISH)
                 .build(context, SLIME);
-        HeadType.builder(EntityType.STRAY)
+        HeadType.builder(EntityTypes.STRAY)
                 .shape(8.0, 8.0, 8.0)
                 .model(ModelType.MOB, Identifier.withDefaultNamespace("entity/skeleton/stray"))
                 .model(ModelType.MOB_OVERLAY, Identifier.withDefaultNamespace("entity/skeleton/stray_overlay"))
                 .noteBlockSound(SoundEvents.STRAY_AMBIENT)
                 .build(context, STRAY);
-        HeadType.builder(EntityType.WARDEN)
+        HeadType.builder(EntityTypes.WARDEN)
                 .shape(16.0, 16.0, 10.0)
                 .scale(0.6)
                 .model(ModelType.WARDEN, Identifier.withDefaultNamespace("entity/warden/warden"))
                 .noteBlockSound(SoundEvents.WARDEN_AMBIENT)
                 .build(context, WARDEN);
-        HeadType.builder(EntityType.WITCH)
+        HeadType.builder(EntityTypes.WITCH)
                 .shape(8.0, 10.0, 8.0)
                 .scale(0.9375)
                 .model(ModelType.WITCH, Identifier.withDefaultNamespace("entity/witch/witch"))

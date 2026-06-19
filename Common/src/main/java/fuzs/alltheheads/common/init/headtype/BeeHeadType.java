@@ -3,12 +3,12 @@ package fuzs.alltheheads.common.init.headtype;
 import fuzs.alltheheads.common.advancements.critereon.BeePredicate;
 import fuzs.alltheheads.common.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.common.world.item.component.headtype.ModelType;
-import net.minecraft.advancements.criterion.EntityPredicate;
+import net.minecraft.advancements.predicates.entity.EntityPredicate;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 
 import java.util.Optional;
 import java.util.function.BiConsumer;
@@ -29,9 +29,9 @@ public class BeeHeadType {
     }
 
     private static void bootstrapBee(BootstrapContext<HeadType> context, boolean angry, boolean hasPollen, ResourceKey<HeadType> resourceKey, String textureLocation) {
-        HeadType.builder(EntityType.BEE)
+        HeadType.builder(EntityTypes.BEE)
                 .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.subPredicate(new BeePredicate(Optional.of(angry), Optional.of(hasPollen)));
+                    builder.put(BeePredicate.CODEC, new BeePredicate(Optional.of(angry), Optional.of(hasPollen)));
                 })
                 .shape(7.0, 7.0, 6.0)
                 .model(ModelType.BEE, Identifier.withDefaultNamespace(textureLocation))

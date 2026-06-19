@@ -2,12 +2,13 @@ package fuzs.alltheheads.common.init.headtype;
 
 import fuzs.alltheheads.common.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.common.world.item.component.headtype.ModelType;
-import net.minecraft.resources.Identifier;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 
 import java.util.function.BiConsumer;
 
@@ -21,18 +22,18 @@ public class IllagerHeadType {
 
     public static void bootstrap(BootstrapContext<HeadType> context) {
         bootstrapIllager(context,
-                EntityType.VINDICATOR,
+                EntityTypes.VINDICATOR,
                 VINDICATOR,
                 "entity/illager/vindicator",
                 SoundEvents.VINDICATOR_AMBIENT);
-        bootstrapIllager(context, EntityType.EVOKER, EVOKER, "entity/illager/evoker", SoundEvents.EVOKER_AMBIENT);
+        bootstrapIllager(context, EntityTypes.EVOKER, EVOKER, "entity/illager/evoker", SoundEvents.EVOKER_AMBIENT);
         bootstrapIllager(context,
-                EntityType.PILLAGER,
+                EntityTypes.PILLAGER,
                 PILLAGER,
                 "entity/illager/pillager",
                 SoundEvents.PILLAGER_AMBIENT);
         bootstrapIllager(context,
-                EntityType.ILLUSIONER,
+                EntityTypes.ILLUSIONER,
                 ILLUSIONER,
                 "entity/illager/illusioner",
                 SoundEvents.ILLUSIONER_AMBIENT);

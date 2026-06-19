@@ -6,12 +6,12 @@ import fuzs.alltheheads.common.world.item.component.headtype.Color;
 import fuzs.alltheheads.common.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.common.world.item.component.headtype.ModelType;
 import fuzs.alltheheads.common.world.item.component.headtype.Shape;
-import net.minecraft.advancements.criterion.EntityPredicate;
+import net.minecraft.advancements.predicates.entity.EntityPredicate;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.animal.fish.TropicalFish;
 
 import java.util.List;
@@ -106,11 +106,11 @@ public class TropicalFishHeadType {
     }
 
     private static void boostrapTropicalFish(BootstrapContext<HeadType> context, TropicalFish.Variant variant, ResourceKey<HeadType> resourceKey, String textureLocation, Shape shape, ModelType modelType) {
-        HeadType.builder(EntityType.TROPICAL_FISH)
+        HeadType.builder(EntityTypes.TROPICAL_FISH)
                 .entityPredicate((EntityPredicate.Builder builder) -> {
                     // we cannot check all three tropical fish components in a single entity predicate,
                     // so use this custom subpredicate instead
-                    builder.subPredicate(TropicalFishPredicate.hasVariant(variant));
+                    builder.put(TropicalFishPredicate.CODEC, TropicalFishPredicate.hasVariant(variant));
                 })
                 .shape(shape)
                 .scale(1.5)

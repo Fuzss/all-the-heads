@@ -2,8 +2,8 @@ package fuzs.alltheheads.common.init.headtype;
 
 import fuzs.alltheheads.common.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.common.world.item.component.headtype.ModelType;
-import net.minecraft.advancements.criterion.DataComponentMatchers;
-import net.minecraft.advancements.criterion.EntityPredicate;
+import net.minecraft.advancements.predicates.DataComponentMatchers;
+import net.minecraft.advancements.predicates.entity.EntityPredicate;
 import net.minecraft.core.component.DataComponentExactPredicate;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
@@ -11,7 +11,7 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.animal.feline.CatSoundVariants;
 import net.minecraft.world.entity.animal.feline.CatVariant;
 import net.minecraft.world.entity.animal.feline.CatVariants;
@@ -35,7 +35,7 @@ public class FelineHeadType {
     public static final ResourceKey<HeadType> ALL_BLACK_CAT = register("cat/all_black");
 
     public static void bootstrap(BootstrapContext<HeadType> context) {
-        HeadType.builder(EntityType.OCELOT)
+        HeadType.builder(EntityTypes.OCELOT)
                 .shape(5.0, 4.0, 5.0)
                 .scale(1.6)
                 .model(ModelType.FELINE, Identifier.withDefaultNamespace("entity/cat/ocelot"))
@@ -55,7 +55,7 @@ public class FelineHeadType {
     }
 
     private static void bootstrapCat(BootstrapContext<HeadType> context, ResourceKey<CatVariant> variant, ResourceKey<HeadType> resourceKey, String textureLocation) {
-        HeadType.builder(EntityType.CAT)
+        HeadType.builder(EntityTypes.CAT)
                 .entityPredicate((EntityPredicate.Builder builder) -> {
                     builder.components(DataComponentMatchers.Builder.components()
                             .exact(DataComponentExactPredicate.expect(DataComponents.CAT_VARIANT,

@@ -3,13 +3,13 @@ package fuzs.alltheheads.common.init.headtype;
 import fuzs.alltheheads.common.advancements.critereon.CopperGolemPredicate;
 import fuzs.alltheheads.common.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.common.world.item.component.headtype.ModelType;
-import net.minecraft.advancements.criterion.EntityPredicate;
+import net.minecraft.advancements.predicates.entity.EntityPredicate;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.level.block.WeatheringCopper;
 
 import java.util.function.BiConsumer;
@@ -50,9 +50,9 @@ public class CopperGolemHeadType {
     }
 
     private static void bootstrapCopperGolem(BootstrapContext<HeadType> context, WeatheringCopper.WeatherState state, ResourceKey<HeadType> resourceKey, String textureLocation, String eyesLocation, SoundEvent noteBlockSound) {
-        HeadType.builder(EntityType.COPPER_GOLEM)
+        HeadType.builder(EntityTypes.COPPER_GOLEM)
                 .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.subPredicate(CopperGolemPredicate.hasState(state));
+                    builder.put(CopperGolemPredicate.CODEC, CopperGolemPredicate.hasState(state));
                 })
                 .shape(8.0, 5.0, 10.0)
                 .model(ModelType.COPPER_GOLEM, Identifier.withDefaultNamespace(textureLocation))

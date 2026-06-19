@@ -3,13 +3,13 @@ package fuzs.alltheheads.common.init.headtype;
 import fuzs.alltheheads.common.advancements.critereon.VexPredicate;
 import fuzs.alltheheads.common.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.common.world.item.component.headtype.ModelType;
-import net.minecraft.advancements.criterion.EntityPredicate;
+import net.minecraft.advancements.predicates.entity.EntityPredicate;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 
 import java.util.function.BiConsumer;
 
@@ -23,7 +23,7 @@ public class VexHeadType {
     public static void bootstrap(BootstrapContext<HeadType> context) {
         bootstrapVex(context, false, VEX, "entity/illager/vex", SoundEvents.VEX_AMBIENT);
         bootstrapVex(context, true, CHARGING_VEX, "entity/illager/vex_charging", SoundEvents.VEX_CHARGE);
-        HeadType.builder(EntityType.ALLAY)
+        HeadType.builder(EntityTypes.ALLAY)
                 .shape(5.0, 5.0, 5.0)
                 .scale(1.2)
                 .litModel(ModelType.ALLAY, Identifier.withDefaultNamespace("entity/allay/allay"))
@@ -32,9 +32,9 @@ public class VexHeadType {
     }
 
     private static void bootstrapVex(BootstrapContext<HeadType> context, boolean charging, ResourceKey<HeadType> resourceKey, String textureLocation, SoundEvent noteBlockSound) {
-        HeadType.builder(EntityType.VEX)
+        HeadType.builder(EntityTypes.VEX)
                 .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.subPredicate(VexPredicate.isCharging(charging));
+                    builder.put(VexPredicate.CODEC, VexPredicate.isCharging(charging));
                 })
                 .shape(5.0, 5.0, 5.0)
                 .scale(1.2)

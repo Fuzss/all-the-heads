@@ -1,10 +1,8 @@
 package fuzs.alltheheads.common.advancements.critereon;
 
 import com.mojang.serialization.Codec;
-import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import fuzs.alltheheads.common.init.ModRegistry;
-import net.minecraft.advancements.criterion.EntitySubPredicate;
+import net.minecraft.advancements.predicates.entity.EntitySubPredicate;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.level.ServerLevel;
@@ -21,7 +19,7 @@ import java.util.Optional;
 public record VillagerDataPredicate(Optional<Holder<VillagerType>> type,
                                     Optional<Holder<VillagerProfession>> profession,
                                     Optional<Integer> level) implements EntitySubPredicate {
-    public static final MapCodec<VillagerDataPredicate> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
+    public static final Codec<VillagerDataPredicate> CODEC = RecordCodecBuilder.create(instance -> instance.group(
             BuiltInRegistries.VILLAGER_TYPE.holderByNameCodec()
                     .optionalFieldOf("villager_type")
                     .forGetter(VillagerDataPredicate::type),
@@ -31,11 +29,6 @@ public record VillagerDataPredicate(Optional<Holder<VillagerType>> type,
             Codec.intRange(VillagerData.MIN_VILLAGER_LEVEL, VillagerData.MAX_VILLAGER_LEVEL)
                     .optionalFieldOf("level")
                     .forGetter(VillagerDataPredicate::level)).apply(instance, VillagerDataPredicate::new));
-
-    @Override
-    public MapCodec<VillagerDataPredicate> codec() {
-        return ModRegistry.VILLAGER_DATA_ENTITY_SUB_PREDICATE_TYPE.value();
-    }
 
     @Override
     public boolean matches(Entity entity, ServerLevel level, @Nullable Vec3 position) {

@@ -2,12 +2,13 @@ package fuzs.alltheheads.common.init.headtype;
 
 import fuzs.alltheheads.common.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.common.world.item.component.headtype.ModelType;
-import net.minecraft.resources.Identifier;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 
 import java.util.function.BiConsumer;
 
@@ -18,9 +19,9 @@ public class SpiderHeadType {
     public static final ResourceKey<HeadType> CAVE_SPIDER = register("cave_spider");
 
     public static void bootstrap(BootstrapContext<HeadType> context) {
-        bootstrapSpider(context, EntityType.SPIDER, SPIDER, "entity/spider/spider", SoundEvents.SPIDER_AMBIENT);
+        bootstrapSpider(context, EntityTypes.SPIDER, SPIDER, "entity/spider/spider", SoundEvents.SPIDER_AMBIENT);
         bootstrapSpider(context,
-                EntityType.CAVE_SPIDER,
+                EntityTypes.CAVE_SPIDER,
                 CAVE_SPIDER,
                 "entity/spider/cave_spider",
                 SoundEvents.SPIDER_AMBIENT);

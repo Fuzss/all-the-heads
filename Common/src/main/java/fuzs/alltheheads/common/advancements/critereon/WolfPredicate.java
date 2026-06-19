@@ -1,10 +1,8 @@
 package fuzs.alltheheads.common.advancements.critereon;
 
 import com.mojang.serialization.Codec;
-import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import fuzs.alltheheads.common.init.ModRegistry;
-import net.minecraft.advancements.criterion.EntitySubPredicate;
+import net.minecraft.advancements.predicates.entity.EntitySubPredicate;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.animal.wolf.Wolf;
@@ -14,14 +12,9 @@ import org.jspecify.annotations.Nullable;
 import java.util.Optional;
 
 public record WolfPredicate(Optional<Boolean> angry, Optional<Boolean> tame) implements EntitySubPredicate {
-    public static final MapCodec<WolfPredicate> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(Codec.BOOL.optionalFieldOf(
+    public static final Codec<WolfPredicate> CODEC = RecordCodecBuilder.create(instance -> instance.group(Codec.BOOL.optionalFieldOf(
                     "angry").forGetter(WolfPredicate::angry), Codec.BOOL.optionalFieldOf("tame").forGetter(WolfPredicate::tame))
             .apply(instance, WolfPredicate::new));
-
-    @Override
-    public MapCodec<WolfPredicate> codec() {
-        return ModRegistry.WOLF_ENTITY_SUB_PREDICATE_TYPE.value();
-    }
 
     @Override
     public boolean matches(Entity entity, ServerLevel level, @Nullable Vec3 position) {

@@ -3,13 +3,13 @@ package fuzs.alltheheads.common.init.headtype;
 import fuzs.alltheheads.common.advancements.critereon.PandaPredicate;
 import fuzs.alltheheads.common.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.common.world.item.component.headtype.ModelType;
-import net.minecraft.advancements.criterion.EntityPredicate;
+import net.minecraft.advancements.predicates.entity.EntityPredicate;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.animal.panda.Panda;
 
 import java.util.function.BiConsumer;
@@ -48,9 +48,9 @@ public class PandaHeadType {
     }
 
     private static void bootstrapPanda(BootstrapContext<HeadType> context, Panda.Gene variant, ResourceKey<HeadType> resourceKey, String textureLocation, SoundEvent noteBlockSound) {
-        HeadType.builder(EntityType.PANDA)
+        HeadType.builder(EntityTypes.PANDA)
                 .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.subPredicate(PandaPredicate.hasVariant(variant));
+                    builder.put(PandaPredicate.CODEC, PandaPredicate.hasVariant(variant));
                 })
                 .shape(13.0, 10.0, 9.0)
                 .scale(10.0 / 13.0)

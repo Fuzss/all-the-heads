@@ -2,12 +2,13 @@ package fuzs.alltheheads.common.init.headtype;
 
 import fuzs.alltheheads.common.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.common.world.item.component.headtype.ModelType;
-import net.minecraft.resources.Identifier;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 
 import java.util.function.BiConsumer;
 
@@ -18,9 +19,13 @@ public class GuardianHeadType {
     public static final ResourceKey<HeadType> ELDER_GUARDIAN = register("elder_guardian");
 
     public static void bootstrap(BootstrapContext<HeadType> context) {
-        bootstrapGuardian(context, EntityType.GUARDIAN, GUARDIAN, "entity/guardian/guardian", SoundEvents.GUARDIAN_AMBIENT_LAND);
         bootstrapGuardian(context,
-                EntityType.ELDER_GUARDIAN,
+                EntityTypes.GUARDIAN,
+                GUARDIAN,
+                "entity/guardian/guardian",
+                SoundEvents.GUARDIAN_AMBIENT_LAND);
+        bootstrapGuardian(context,
+                EntityTypes.ELDER_GUARDIAN,
                 ELDER_GUARDIAN,
                 "entity/guardian/guardian_elder",
                 SoundEvents.ELDER_GUARDIAN_AMBIENT_LAND);

@@ -2,12 +2,13 @@ package fuzs.alltheheads.common.init.headtype;
 
 import fuzs.alltheheads.common.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.common.world.item.component.headtype.ModelType;
-import net.minecraft.resources.Identifier;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 
 import java.util.function.BiConsumer;
 
@@ -19,12 +20,12 @@ public class PiglinHeadType {
 
     public static void bootstrap(BootstrapContext<HeadType> context) {
         bootstrapPiglin(context,
-                EntityType.ZOMBIFIED_PIGLIN,
+                EntityTypes.ZOMBIFIED_PIGLIN,
                 ZOMBIFIED_PIGLIN,
                 "entity/piglin/zombified_piglin",
                 SoundEvents.ZOMBIFIED_PIGLIN_AMBIENT);
         bootstrapPiglin(context,
-                EntityType.PIGLIN_BRUTE,
+                EntityTypes.PIGLIN_BRUTE,
                 PIGLIN_BRUTE,
                 "entity/piglin/piglin_brute",
                 SoundEvents.PIGLIN_BRUTE_AMBIENT);

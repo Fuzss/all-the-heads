@@ -3,13 +3,13 @@ package fuzs.alltheheads.common.init.headtype;
 import fuzs.alltheheads.common.advancements.critereon.VillagerDataPredicate;
 import fuzs.alltheheads.common.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.common.world.item.component.headtype.ModelType;
-import net.minecraft.advancements.criterion.EntityPredicate;
+import net.minecraft.advancements.predicates.entity.EntityPredicate;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.npc.villager.VillagerProfession;
 import net.minecraft.world.entity.npc.villager.VillagerType;
 
@@ -497,11 +497,12 @@ public class ZombieVillagerHeadType {
     }
 
     private static void bootstrapZombieVillager(BootstrapContext<HeadType> context, ResourceKey<VillagerType> type, ResourceKey<HeadType> resourceKey) {
-        HeadType.builder(EntityType.ZOMBIE_VILLAGER)
+        HeadType.builder(EntityTypes.ZOMBIE_VILLAGER)
                 .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.subPredicate(VillagerDataPredicate.hasData(context.lookup(Registries.VILLAGER_TYPE)
-                                    .getOrThrow(type),
-                            context.lookup(Registries.VILLAGER_PROFESSION).getOrThrow(VillagerProfession.NONE)));
+                    builder.put(VillagerDataPredicate.CODEC,
+                            VillagerDataPredicate.hasData(context.lookup(Registries.VILLAGER_TYPE).getOrThrow(type),
+                                    context.lookup(Registries.VILLAGER_PROFESSION)
+                                            .getOrThrow(VillagerProfession.NONE)));
                 })
                 .shape(8.0, 10.0, 8.0)
                 .scale(0.9375)
@@ -512,10 +513,11 @@ public class ZombieVillagerHeadType {
     }
 
     private static void bootstrapZombieVillager(BootstrapContext<HeadType> context, ResourceKey<VillagerType> type, ResourceKey<VillagerProfession> profession, ResourceKey<HeadType> resourceKey) {
-        HeadType.builder(EntityType.ZOMBIE_VILLAGER)
+        HeadType.builder(EntityTypes.ZOMBIE_VILLAGER)
                 .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.subPredicate(VillagerDataPredicate.hasData(context.lookup(Registries.VILLAGER_TYPE)
-                            .getOrThrow(type), context.lookup(Registries.VILLAGER_PROFESSION).getOrThrow(profession)));
+                    builder.put(VillagerDataPredicate.CODEC,
+                            VillagerDataPredicate.hasData(context.lookup(Registries.VILLAGER_TYPE).getOrThrow(type),
+                                    context.lookup(Registries.VILLAGER_PROFESSION).getOrThrow(profession)));
                 })
                 .shape(8.0, 10.0, 8.0)
                 .scale(0.9375)

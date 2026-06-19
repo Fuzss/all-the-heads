@@ -3,7 +3,7 @@ package fuzs.alltheheads.common.world.item.component.headtype;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import fuzs.alltheheads.common.init.ModRegistry;
-import net.minecraft.advancements.criterion.EntityPredicate;
+import net.minecraft.advancements.predicates.entity.EntityPredicate;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.RegistryFriendlyByteBuf;
@@ -76,7 +76,7 @@ public record HeadType(EntityPredicate entityPredicate,
     }
 
     public Stream<EntityType<?>> getEntityTypes() {
-        return this.entityPredicate.entityType().orElseThrow().types().stream().map(Holder::value);
+        return this.entityPredicate().entityType().orElseThrow().types().stream().map(Holder::value);
     }
 
     public EntityType<?> getEntityType() {

@@ -1,9 +1,8 @@
 package fuzs.alltheheads.common.advancements.critereon;
 
-import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import fuzs.alltheheads.common.init.ModRegistry;
-import net.minecraft.advancements.criterion.EntitySubPredicate;
+import net.minecraft.advancements.predicates.entity.EntitySubPredicate;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.animal.fish.TropicalFish;
@@ -16,16 +15,11 @@ import java.util.Optional;
 public record TropicalFishPredicate(Optional<TropicalFish.Pattern> pattern,
                                     Optional<DyeColor> baseColor,
                                     Optional<DyeColor> patternColor) implements EntitySubPredicate {
-    public static final MapCodec<TropicalFishPredicate> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
+    public static final Codec<TropicalFishPredicate> CODEC = RecordCodecBuilder.create(instance -> instance.group(
                     TropicalFish.Pattern.CODEC.optionalFieldOf("pattern").forGetter(TropicalFishPredicate::pattern),
                     DyeColor.CODEC.optionalFieldOf("base_color").forGetter(TropicalFishPredicate::baseColor),
                     DyeColor.CODEC.optionalFieldOf("pattern_color").forGetter(TropicalFishPredicate::patternColor))
             .apply(instance, TropicalFishPredicate::new));
-
-    @Override
-    public MapCodec<TropicalFishPredicate> codec() {
-        return ModRegistry.TROPICAL_FISH_ENTITY_SUB_PREDICATE_TYPE.value();
-    }
 
     @Override
     public boolean matches(Entity entity, ServerLevel level, @Nullable Vec3 position) {

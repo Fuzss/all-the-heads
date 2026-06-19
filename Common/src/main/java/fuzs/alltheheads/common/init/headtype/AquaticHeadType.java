@@ -6,7 +6,7 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 
 import java.util.function.BiConsumer;
 
@@ -23,47 +23,47 @@ public class AquaticHeadType {
     public static final ResourceKey<HeadType> TURTLE = register("turtle");
 
     public static void bootstrap(BootstrapContext<HeadType> context) {
-        HeadType.builder(EntityType.COD)
+        HeadType.builder(EntityTypes.COD)
                 .shape(2.0, 4.0, 3.0)
                 .scale(1.5)
                 .model(ModelType.COD, Identifier.withDefaultNamespace("entity/fish/cod"))
                 .noteBlockSound(SoundEvents.COD_FLOP)
                 .build(context, COD);
-        HeadType.builder(EntityType.DOLPHIN)
+        HeadType.builder(EntityTypes.DOLPHIN)
                 .shape(8.0, 7.0, 6.0)
                 .model(ModelType.DOLPHIN, Identifier.withDefaultNamespace("entity/dolphin/dolphin"))
                 .noteBlockSound(SoundEvents.DOLPHIN_AMBIENT_WATER)
                 .build(context, DOLPHIN);
-        HeadType.builder(EntityType.GLOW_SQUID)
+        HeadType.builder(EntityTypes.GLOW_SQUID)
                 .shape(12.0, 16.0, 12.0)
                 .scale(2.0 / 3.0)
                 .litModel(ModelType.SQUID, Identifier.withDefaultNamespace("entity/squid/glow_squid"))
                 .noteBlockSound(SoundEvents.GLOW_SQUID_AMBIENT)
                 .build(context, GLOW_SQUID);
-        HeadType.builder(EntityType.PUFFERFISH)
+        HeadType.builder(EntityTypes.PUFFERFISH)
                 .shape(8.0, 8.0, 8.0)
                 .model(ModelType.PUFFERFISH, Identifier.withDefaultNamespace("entity/fish/pufferfish"))
                 .noteBlockSound(SoundEvents.PUFFER_FISH_STING)
                 .build(context, PUFFERFISH);
-        HeadType.builder(EntityType.SALMON)
+        HeadType.builder(EntityTypes.SALMON)
                 .shape(2.0, 4.0, 3.0)
                 .scale(1.5)
                 .model(ModelType.SALMON, Identifier.withDefaultNamespace("entity/fish/salmon"))
                 .noteBlockSound(SoundEvents.SALMON_FLOP)
                 .build(context, SALMON);
-        HeadType.builder(EntityType.SQUID)
+        HeadType.builder(EntityTypes.SQUID)
                 .shape(12.0, 16.0, 12.0)
                 .scale(2.0 / 3.0)
                 .model(ModelType.SQUID, Identifier.withDefaultNamespace("entity/squid/squid"))
                 .noteBlockSound(SoundEvents.SQUID_AMBIENT)
                 .build(context, SQUID);
-        HeadType.builder(EntityType.TADPOLE)
+        HeadType.builder(EntityTypes.TADPOLE)
                 .shape(3.0, 2.0, 3.0)
                 .scale(2.0)
                 .model(ModelType.TADPOLE, Identifier.withDefaultNamespace("entity/tadpole/tadpole"))
                 .noteBlockSound(SoundEvents.TADPOLE_FLOP)
                 .build(context, TADPOLE);
-        HeadType.builder(EntityType.TURTLE)
+        HeadType.builder(EntityTypes.TURTLE)
                 .shape(6.0, 5.0, 6.0)
                 .scale(4.0 / 3.0)
                 .model(ModelType.TURTLE, Identifier.withDefaultNamespace("entity/turtle/turtle"))

@@ -3,11 +3,11 @@ package fuzs.alltheheads.common.init.headtype;
 import fuzs.alltheheads.common.world.item.component.headtype.Color;
 import fuzs.alltheheads.common.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.common.world.item.component.headtype.ModelType;
-import net.minecraft.resources.Identifier;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 
 import java.util.function.BiConsumer;
 
@@ -27,7 +27,7 @@ public class WitherHeadType {
     }
 
     private static void bootstrapWither(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation) {
-        HeadType.builder(EntityType.WITHER)
+        HeadType.builder(EntityTypes.WITHER)
                 .shape(8.0, 8.0, 8.0)
                 .litModel(ModelType.HUMANOID, Identifier.withDefaultNamespace(textureLocation))
                 .noteBlockSound(SoundEvents.WITHER_AMBIENT)
@@ -35,7 +35,7 @@ public class WitherHeadType {
     }
 
     private static void bootstrapPoweredWither(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation) {
-        HeadType.builder(EntityType.WITHER)
+        HeadType.builder(EntityTypes.WITHER)
                 .shape(8.0, 8.0, 8.0)
                 .litModel(ModelType.HUMANOID, Identifier.withDefaultNamespace(textureLocation))
                 .dyedModel(ModelType.WITHER_SHIELD,

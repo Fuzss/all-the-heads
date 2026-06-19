@@ -1,10 +1,8 @@
 package fuzs.alltheheads.common.advancements.critereon;
 
 import com.mojang.serialization.Codec;
-import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import fuzs.alltheheads.common.init.ModRegistry;
-import net.minecraft.advancements.criterion.EntitySubPredicate;
+import net.minecraft.advancements.predicates.entity.EntitySubPredicate;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.monster.Strider;
@@ -14,14 +12,8 @@ import org.jspecify.annotations.Nullable;
 import java.util.Optional;
 
 public record StriderPredicate(Optional<Boolean> cold) implements EntitySubPredicate {
-    public static final MapCodec<StriderPredicate> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
-            Codec.BOOL.optionalFieldOf("cold").forGetter(StriderPredicate::cold)
-    ).apply(instance, StriderPredicate::new));
-
-    @Override
-    public MapCodec<StriderPredicate> codec() {
-        return ModRegistry.STRIDER_ENTITY_SUB_PREDICATE_TYPE.value();
-    }
+    public static final Codec<StriderPredicate> CODEC = RecordCodecBuilder.create(instance -> instance.group(Codec.BOOL.optionalFieldOf(
+            "cold").forGetter(StriderPredicate::cold)).apply(instance, StriderPredicate::new));
 
     @Override
     public boolean matches(Entity entity, ServerLevel level, @Nullable Vec3 position) {

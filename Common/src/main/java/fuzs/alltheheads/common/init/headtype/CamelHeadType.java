@@ -8,6 +8,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 
 import java.util.function.BiConsumer;
 
@@ -18,9 +19,9 @@ public class CamelHeadType {
     public static final ResourceKey<HeadType> CAMEL_HUSK = register("camel_husk");
 
     public static void bootstrap(BootstrapContext<HeadType> context) {
-        bootstrapCamel(context, EntityType.CAMEL, CAMEL, "entity/camel/camel", SoundEvents.CAMEL_AMBIENT);
+        bootstrapCamel(context, EntityTypes.CAMEL, CAMEL, "entity/camel/camel", SoundEvents.CAMEL_AMBIENT);
         bootstrapCamel(context,
-                EntityType.CAMEL_HUSK,
+                EntityTypes.CAMEL_HUSK,
                 CAMEL_HUSK,
                 "entity/camel/camel_husk",
                 SoundEvents.CAMEL_HUSK_AMBIENT);

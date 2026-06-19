@@ -16,7 +16,7 @@ public class ModItemTagsProvider extends AbstractTagProvider<Item> {
 
     @Override
     public void addTags(HolderLookup.Provider registries) {
-        this.tag(ItemTags.SKULLS).add(ModRegistry.MOB_HEAD_ITEM.value());
-        this.tag(ItemTags.NOTE_BLOCK_TOP_INSTRUMENTS).add(ModRegistry.MOB_HEAD_ITEM.value());
+        this.tag(ItemTags.SKULLS).add(ModRegistry.MOB_HEAD_ITEM);
+        this.tag(ItemTags.NOTE_BLOCK_TOP_INSTRUMENTS).add(ModRegistry.MOB_HEAD_ITEM);
     }
 }
