@@ -1,7 +1,7 @@
 {
   "custom_name": "minecraft.bogged",
   "entity_predicate": {
-    "type": "minecraft:bogged"
+    "minecraft:entity_type": "minecraft:bogged"
   },
   "loot_table": "alltheheads:entities/heads/minecraft/bogged",
   "models": [
@@ -19,5 +19,6 @@
     "depth": 8.0,
     "height": 8.0,
     "width": 8.0
-  }
+  },
+  "types": "minecraft:bogged"
 }

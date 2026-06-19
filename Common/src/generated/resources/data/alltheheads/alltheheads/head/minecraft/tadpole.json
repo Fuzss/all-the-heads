@@ -1,7 +1,7 @@
 {
   "custom_name": "minecraft.tadpole",
   "entity_predicate": {
-    "type": "minecraft:tadpole"
+    "minecraft:entity_type": "minecraft:tadpole"
   },
   "loot_table": "alltheheads:entities/heads/minecraft/tadpole",
   "models": [
@@ -16,5 +16,6 @@
     "height": 2.0,
     "scale": 2.0,
     "width": 3.0
-  }
+  },
+  "types": "minecraft:tadpole"
 }

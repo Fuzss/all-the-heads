@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import net.minecraft.advancements.predicates.entity.EntityPredicate;
 import net.minecraft.advancements.predicates.entity.EntityTypePredicate;
 import net.minecraft.core.Holder;
+import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -20,6 +21,7 @@ import java.util.Optional;
 import java.util.function.Consumer;
 
 public final class Builder {
+    private final HolderSet<EntityType<?>> types;
     private final List<Consumer<EntityPredicate.Builder>> entityPredicate = new ArrayList<>();
     private Shape shape = new Shape(8.0, 8.0, 8.0);
     private double scale = 1.0;
@@ -30,10 +32,8 @@ public final class Builder {
     private boolean mobDisguise = true;
     private Optional<String> customName = Optional.empty();
 
-    Builder(EntityType<?> entityType) {
-        this.entityPredicate((EntityPredicate.Builder builder) -> {
-            builder.entityType(EntityTypePredicate.of(BuiltInRegistries.ENTITY_TYPE, entityType));
-        });
+    Builder(HolderSet<EntityType<?>> types) {
+        this.types = types;
     }
 
     public Builder entityPredicate(Consumer<EntityPredicate.Builder> entityPredicate) {
@@ -104,7 +104,8 @@ public final class Builder {
     public void build(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey) {
         this.lootTable(resourceKey).customName(resourceKey);
         context.register(resourceKey,
-                new HeadType(this.buildEntityPredicate(),
+                new HeadType(this.types,
+                        this.entityPredicate(),
                         this.shape.scale(this.scale),
                         this.buildLoot(),
                         this.customName,
@@ -113,8 +114,9 @@ public final class Builder {
                         ImmutableList.copyOf(this.models)));
     }
 
-    private EntityPredicate buildEntityPredicate() {
+    private EntityPredicate entityPredicate() {
         EntityPredicate.Builder builder = EntityPredicate.Builder.entity();
+        builder.entityType(new EntityTypePredicate(this.types));
         this.entityPredicate.forEach((Consumer<EntityPredicate.Builder> builderConsumer) -> {
             builderConsumer.accept(builder);
         });

@@ -1,10 +1,10 @@
 {
   "custom_name": "minecraft.llama_gray",
   "entity_predicate": {
-    "type": "minecraft:llama",
-    "components": {
+    "minecraft:components": {
       "minecraft:llama/variant": "gray"
-    }
+    },
+    "minecraft:entity_type": "minecraft:llama"
   },
   "loot_table": "alltheheads:entities/heads/minecraft/llama/gray",
   "models": [
@@ -18,5 +18,6 @@
     "depth": 6.0,
     "height": 10.0,
     "width": 8.0
-  }
+  },
+  "types": "minecraft:llama"
 }

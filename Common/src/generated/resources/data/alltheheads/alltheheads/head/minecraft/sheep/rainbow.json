@@ -1,12 +1,11 @@
 {
   "custom_name": "minecraft.sheep_rainbow",
   "entity_predicate": {
-    "type": "minecraft:sheep",
-    "components": {
+    "minecraft:components": {
       "minecraft:custom_name": "jeb_"
     },
-    "type_specific": {
-      "type": "minecraft:sheep",
+    "minecraft:entity_type": "minecraft:sheep",
+    "minecraft:type_specific/sheep": {
       "sheared": true
     }
   },
@@ -29,5 +28,6 @@
     "depth": 8.0,
     "height": 6.0,
     "width": 6.0
-  }
+  },
+  "types": "minecraft:sheep"
 }

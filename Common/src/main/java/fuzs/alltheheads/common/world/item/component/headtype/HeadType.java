@@ -5,7 +5,11 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import fuzs.alltheheads.common.init.ModRegistry;
 import net.minecraft.advancements.predicates.entity.EntityPredicate;
 import net.minecraft.core.Holder;
+import net.minecraft.core.HolderGetter;
+import net.minecraft.core.HolderSet;
+import net.minecraft.core.RegistryCodecs;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.ByteBufCodecs;
@@ -15,6 +19,7 @@ import net.minecraft.resources.RegistryFixedCodec;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 
@@ -22,7 +27,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Stream;
 
-public record HeadType(EntityPredicate entityPredicate,
+public record HeadType(HolderSet<EntityType<?>> types,
+                       EntityPredicate entityPredicate,
                        Shape shape,
                        Loot loot,
                        Optional<String> customName,
@@ -30,6 +36,7 @@ public record HeadType(EntityPredicate entityPredicate,
                        Optional<Holder<SoundEvent>> noteBlockSound,
                        List<Model> models) {
     public static final Codec<HeadType> DIRECT_CODEC = RecordCodecBuilder.create(instance -> instance.group(
+                    RegistryCodecs.homogeneousList(Registries.ENTITY_TYPE).fieldOf("types").forGetter(HeadType::types),
                     EntityPredicate.CODEC.fieldOf("entity_predicate").forGetter(HeadType::entityPredicate),
                     Shape.CODEC.fieldOf("shape").forGetter(HeadType::shape),
                     Loot.CODEC.forGetter(HeadType::loot),
@@ -53,7 +60,8 @@ public record HeadType(EntityPredicate entityPredicate,
             ModRegistry.HEAD_REGISTRY_KEY);
 
     private HeadType(Shape shape, Optional<String> customName, Optional<Holder<SoundEvent>> noteBlockSound, List<Model> models) {
-        this(EntityPredicate.Builder.entity().build(),
+        this(HolderSet.empty(),
+                EntityPredicate.Builder.entity().build(),
                 shape,
                 new Loot(Optional.empty(), true),
                 customName,
@@ -62,8 +70,12 @@ public record HeadType(EntityPredicate entityPredicate,
                 models);
     }
 
-    public static Builder builder(EntityType<?> entityType) {
-        return new Builder(entityType);
+    public static Builder builder(EntityType<?> type) {
+        return new Builder(HolderSet.direct(type.builtInRegistryHolder()));
+    }
+
+    public static Builder builder(HolderGetter<EntityType<?>> lookup, TagKey<EntityType<?>> tag) {
+        return new Builder(lookup.getOrThrow(tag));
     }
 
     public static Identifier customName(ResourceKey<HeadType> resourceKey) {
@@ -75,11 +87,11 @@ public record HeadType(EntityPredicate entityPredicate,
                 });
     }
 
-    public Stream<EntityType<?>> getEntityTypes() {
-        return this.entityPredicate().entityType().orElseThrow().types().stream().map(Holder::value);
+    public Stream<Holder<EntityType<?>>> getEntityTypes() {
+        return this.types().stream();
     }
 
-    public EntityType<?> getEntityType() {
+    public Holder<EntityType<?>> getEntityType() {
         return this.getEntityTypes().findFirst().orElseThrow();
     }
 

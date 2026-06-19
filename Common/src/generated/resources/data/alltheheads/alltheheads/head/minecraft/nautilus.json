@@ -1,7 +1,7 @@
 {
   "custom_name": "minecraft.nautilus",
   "entity_predicate": {
-    "type": "minecraft:nautilus"
+    "minecraft:entity_type": "minecraft:nautilus"
   },
   "loot_table": "alltheheads:entities/heads/minecraft/nautilus",
   "models": [
@@ -16,5 +16,6 @@
     "height": 8.0,
     "scale": 0.75,
     "width": 10.0
-  }
+  },
+  "types": "minecraft:nautilus"
 }

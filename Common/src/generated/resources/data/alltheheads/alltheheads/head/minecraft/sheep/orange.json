@@ -1,12 +1,11 @@
 {
   "custom_name": "minecraft.sheep_orange",
   "entity_predicate": {
-    "type": "minecraft:sheep",
-    "components": {
+    "minecraft:components": {
       "minecraft:sheep/color": "orange"
     },
-    "type_specific": {
-      "type": "minecraft:sheep",
+    "minecraft:entity_type": "minecraft:sheep",
+    "minecraft:type_specific/sheep": {
       "sheared": true
     }
   },
@@ -30,5 +29,6 @@
     "depth": 8.0,
     "height": 6.0,
     "width": 6.0
-  }
+  },
+  "types": "minecraft:sheep"
 }

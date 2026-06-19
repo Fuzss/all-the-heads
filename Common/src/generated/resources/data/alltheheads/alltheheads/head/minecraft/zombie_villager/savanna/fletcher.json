@@ -1,12 +1,11 @@
 {
   "custom_name": "minecraft.zombie_villager_savanna_fletcher",
   "entity_predicate": {
-    "type": "minecraft:zombie_villager",
-    "type_specific": {
-      "type": "alltheheads:villager_data",
+    "alltheheads:villager_data": {
       "villager_profession": "minecraft:fletcher",
       "villager_type": "minecraft:savanna"
-    }
+    },
+    "minecraft:entity_type": "minecraft:zombie_villager"
   },
   "loot_table": "alltheheads:entities/heads/minecraft/zombie_villager/savanna/fletcher",
   "models": [
@@ -29,5 +28,6 @@
     "height": 10.0,
     "scale": 0.9375,
     "width": 8.0
-  }
+  },
+  "types": "minecraft:zombie_villager"
 }

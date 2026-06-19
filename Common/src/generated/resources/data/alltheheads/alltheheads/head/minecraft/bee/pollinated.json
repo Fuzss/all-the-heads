@@ -1,12 +1,11 @@
 {
   "custom_name": "minecraft.bee_pollinated",
   "entity_predicate": {
-    "type": "minecraft:bee",
-    "type_specific": {
-      "type": "alltheheads:bee",
+    "alltheheads:bee": {
       "angry": false,
       "has_nectar": true
-    }
+    },
+    "minecraft:entity_type": "minecraft:bee"
   },
   "loot_table": "alltheheads:entities/heads/minecraft/bee/pollinated",
   "models": [
@@ -20,5 +19,6 @@
     "depth": 6.0,
     "height": 7.0,
     "width": 7.0
-  }
+  },
+  "types": "minecraft:bee"
 }

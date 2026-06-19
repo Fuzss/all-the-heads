@@ -1,7 +1,7 @@
 {
   "custom_name": "minecraft.shulker",
   "entity_predicate": {
-    "type": "minecraft:shulker"
+    "minecraft:entity_type": "minecraft:shulker"
   },
   "loot_table": "alltheheads:entities/heads/minecraft/shulker",
   "models": [
@@ -15,5 +15,6 @@
     "depth": 6.0,
     "height": 6.0,
     "width": 6.0
-  }
+  },
+  "types": "minecraft:shulker"
 }

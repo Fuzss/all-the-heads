@@ -1,14 +1,13 @@
 {
   "custom_name": "minecraft.horse_white",
   "entity_predicate": {
-    "type": "minecraft:horse",
-    "components": {
+    "alltheheads:horse": {
+      "markings": "none"
+    },
+    "minecraft:components": {
       "minecraft:horse/variant": "white"
     },
-    "type_specific": {
-      "type": "alltheheads:horse",
-      "markings": "none"
-    }
+    "minecraft:entity_type": "minecraft:horse"
   },
   "loot_table": "alltheheads:entities/heads/minecraft/horse/white",
   "models": [
@@ -23,5 +22,6 @@
     "height": 16.0,
     "scale": 0.75,
     "width": 4.0
-  }
+  },
+  "types": "minecraft:horse"
 }

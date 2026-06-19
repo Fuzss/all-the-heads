@@ -1,12 +1,11 @@
 {
   "custom_name": "minecraft.sheep_woolly_blue",
   "entity_predicate": {
-    "type": "minecraft:sheep",
-    "components": {
+    "minecraft:components": {
       "minecraft:sheep/color": "blue"
     },
-    "type_specific": {
-      "type": "minecraft:sheep",
+    "minecraft:entity_type": "minecraft:sheep",
+    "minecraft:type_specific/sheep": {
       "sheared": false
     }
   },
@@ -38,5 +37,6 @@
     "depth": 8.0,
     "height": 6.0,
     "width": 6.0
-  }
+  },
+  "types": "minecraft:sheep"
 }

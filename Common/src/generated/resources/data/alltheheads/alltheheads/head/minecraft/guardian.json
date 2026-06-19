@@ -1,7 +1,7 @@
 {
   "custom_name": "minecraft.guardian",
   "entity_predicate": {
-    "type": "minecraft:guardian"
+    "minecraft:entity_type": "minecraft:guardian"
   },
   "loot_table": "alltheheads:entities/heads/minecraft/guardian",
   "models": [
@@ -16,5 +16,6 @@
     "height": 16.0,
     "scale": 0.5,
     "width": 16.0
-  }
+  },
+  "types": "minecraft:guardian"
 }

@@ -1,10 +1,10 @@
 {
   "custom_name": "minecraft.frog_temperate",
   "entity_predicate": {
-    "type": "minecraft:frog",
-    "components": {
+    "minecraft:components": {
       "minecraft:frog/variant": "minecraft:temperate"
-    }
+    },
+    "minecraft:entity_type": "minecraft:frog"
   },
   "loot_table": "alltheheads:entities/heads/minecraft/frog/temperate",
   "models": [
@@ -19,5 +19,6 @@
     "height": 5.0,
     "scale": 1.1428571428571428,
     "width": 7.0
-  }
+  },
+  "types": "minecraft:frog"
 }

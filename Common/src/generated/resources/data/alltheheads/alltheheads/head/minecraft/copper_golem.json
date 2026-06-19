@@ -1,11 +1,10 @@
 {
   "custom_name": "minecraft.copper_golem",
   "entity_predicate": {
-    "type": "minecraft:copper_golem",
-    "type_specific": {
-      "type": "alltheheads:copper_golem",
+    "alltheheads:copper_golem": {
       "state": "unaffected"
-    }
+    },
+    "minecraft:entity_type": "minecraft:copper_golem"
   },
   "loot_table": "alltheheads:entities/heads/minecraft/copper_golem",
   "models": [
@@ -23,5 +22,6 @@
     "depth": 10.0,
     "height": 5.0,
     "width": 8.0
-  }
+  },
+  "types": "minecraft:copper_golem"
 }

@@ -11,7 +11,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.EntityTypes;
+import net.minecraft.world.entity.EntityTypeIds;
 import net.minecraft.world.level.storage.loot.LootTable;
 
 import java.util.Optional;
@@ -29,18 +29,22 @@ public class ModHeadTypeTagsProvider extends AbstractTagProvider<HeadType> {
         registries.lookupOrThrow(ModRegistry.HEAD_REGISTRY_KEY)
                 .listElements()
                 .forEach((Holder.Reference<HeadType> headType) -> {
-                    if (headType.value().getEntityType() == EntityTypes.VILLAGER
-                            || headType.value().getEntityType() == EntityTypes.ZOMBIE_VILLAGER) {
+                    if (headType.value().getEntityType().is(EntityTypeIds.VILLAGER) || headType.value()
+                            .getEntityType()
+                            .is(EntityTypeIds.ZOMBIE_VILLAGER)) {
                         villagerLikeTagAppender.add(headType);
                     }
                 });
-        registries.lookupOrThrow(ModRegistry.HEAD_REGISTRY_KEY).listElements().forEach(headType -> {
-            getDefaultLootTables(headType.value().getEntityTypes()).map(ModHeadTypeTagsProvider::getHeadTypeTagKey)
-                    .map(this::tag)
-                    .forEach((AbstractTagAppender<HeadType> tagAppender) -> {
-                        tagAppender.add(headType);
-                    });
-        });
+        registries.lookupOrThrow(ModRegistry.HEAD_REGISTRY_KEY)
+                .listElements()
+                .forEach((Holder.Reference<HeadType> headType) -> {
+                    getDefaultLootTables(headType.value().getEntityTypes().map(Holder::value)).map(
+                                    ModHeadTypeTagsProvider::getHeadTypeTagKey)
+                            .map(this::tag)
+                            .forEach((AbstractTagAppender<HeadType> tagAppender) -> {
+                                tagAppender.add(headType);
+                            });
+                });
     }
 
     public static Stream<ResourceKey<LootTable>> getDefaultLootTables(Stream<EntityType<?>> stream) {

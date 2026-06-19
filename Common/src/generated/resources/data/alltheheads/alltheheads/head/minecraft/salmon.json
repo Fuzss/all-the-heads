@@ -1,7 +1,7 @@
 {
   "custom_name": "minecraft.salmon",
   "entity_predicate": {
-    "type": "minecraft:salmon"
+    "minecraft:entity_type": "minecraft:salmon"
   },
   "loot_table": "alltheheads:entities/heads/minecraft/salmon",
   "models": [
@@ -16,5 +16,6 @@
     "height": 4.0,
     "scale": 1.5,
     "width": 2.0
-  }
+  },
+  "types": "minecraft:salmon"
 }

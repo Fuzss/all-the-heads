@@ -1,11 +1,10 @@
 {
   "custom_name": "minecraft.strider",
   "entity_predicate": {
-    "type": "minecraft:strider",
-    "type_specific": {
-      "type": "alltheheads:strider",
+    "alltheheads:strider": {
       "cold": false
-    }
+    },
+    "minecraft:entity_type": "minecraft:strider"
   },
   "loot_table": "alltheheads:entities/heads/minecraft/strider",
   "models": [
@@ -20,5 +19,6 @@
     "height": 14.0,
     "scale": 0.625,
     "width": 16.0
-  }
+  },
+  "types": "minecraft:strider"
 }

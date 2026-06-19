@@ -1,7 +1,7 @@
 {
   "custom_name": "minecraft.polar_bear",
   "entity_predicate": {
-    "type": "minecraft:polar_bear"
+    "minecraft:entity_type": "minecraft:polar_bear"
   },
   "loot_table": "alltheheads:entities/heads/minecraft/polar_bear",
   "models": [
@@ -16,5 +16,6 @@
     "height": 7.0,
     "scale": 1.1428571428571428,
     "width": 7.0
-  }
+  },
+  "types": "minecraft:polar_bear"
 }

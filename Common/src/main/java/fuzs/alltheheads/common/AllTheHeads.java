@@ -66,6 +66,7 @@ public class AllTheHeads implements ModConstructor {
                     .listElements()
                     .map(Holder.Reference::value)
                     .map(HeadType::getEntityType)
+                    .map(Holder::value)
                     .distinct()
                     .map(BuiltInRegistries.ENTITY_TYPE::getResourceKey)
                     .<ResourceKey<EntityType<?>>>mapMulti(Optional::ifPresent)

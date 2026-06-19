@@ -1,7 +1,7 @@
 {
   "custom_name": "minecraft.zombified_piglin",
   "entity_predicate": {
-    "type": "minecraft:zombified_piglin"
+    "minecraft:entity_type": "minecraft:zombified_piglin"
   },
   "loot_table": "alltheheads:entities/heads/minecraft/zombified_piglin",
   "models": [
@@ -15,5 +15,6 @@
     "depth": 8.0,
     "height": 8.0,
     "width": 10.0
-  }
+  },
+  "types": "minecraft:zombified_piglin"
 }

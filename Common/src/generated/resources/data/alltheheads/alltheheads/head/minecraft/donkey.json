@@ -1,7 +1,7 @@
 {
   "custom_name": "minecraft.donkey",
   "entity_predicate": {
-    "type": "minecraft:donkey"
+    "minecraft:entity_type": "minecraft:donkey"
   },
   "loot_table": "alltheheads:entities/heads/minecraft/donkey",
   "models": [
@@ -16,5 +16,6 @@
     "height": 16.0,
     "scale": 0.75,
     "width": 4.0
-  }
+  },
+  "types": "minecraft:donkey"
 }

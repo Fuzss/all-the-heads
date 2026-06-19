@@ -1,7 +1,7 @@
 {
   "custom_name": "minecraft.spider",
   "entity_predicate": {
-    "type": "minecraft:spider"
+    "minecraft:entity_type": "minecraft:spider"
   },
   "loot_table": "alltheheads:entities/heads/minecraft/spider",
   "models": [
@@ -19,5 +19,6 @@
     "depth": 8.0,
     "height": 8.0,
     "width": 8.0
-  }
+  },
+  "types": "minecraft:spider"
 }
