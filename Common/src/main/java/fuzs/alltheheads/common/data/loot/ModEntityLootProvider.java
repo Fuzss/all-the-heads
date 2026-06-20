@@ -375,6 +375,18 @@ public class ModEntityLootProvider extends AbstractLootProvider.Simple {
         registerDropChance(PiglinHeadType.ZOMBIFIED_PIGLIN, 0.005F, 0.001F, builder::put);
         registerDropChance(CubeMobHeadType.SLIME, 0.005F, 0.001F, builder::put);
         registerDropChance(CubeMobHeadType.SULFUR_CUBE, 0.005F, 0.001F, builder::put);
+        registerDropChance(CubeMobHeadType.REGULAR_SULFUR_CUBE, 0.005F, 0.001F, builder::put);
+        registerDropChance(CubeMobHeadType.BOUNCY_SULFUR_CUBE, 0.005F, 0.001F, builder::put);
+        registerDropChance(CubeMobHeadType.SLOW_BOUNCY_SULFUR_CUBE, 0.005F, 0.001F, builder::put);
+        registerDropChance(CubeMobHeadType.SLOW_FLAT_SULFUR_CUBE, 0.005F, 0.001F, builder::put);
+        registerDropChance(CubeMobHeadType.FAST_FLAT_SULFUR_CUBE, 0.005F, 0.001F, builder::put);
+        registerDropChance(CubeMobHeadType.LIGHT_SULFUR_CUBE, 0.005F, 0.001F, builder::put);
+        registerDropChance(CubeMobHeadType.FAST_SLIDING_SULFUR_CUBE, 0.005F, 0.001F, builder::put);
+        registerDropChance(CubeMobHeadType.SLOW_SLIDING_SULFUR_CUBE, 0.005F, 0.001F, builder::put);
+        registerDropChance(CubeMobHeadType.HIGH_RESISTANCE_SULFUR_CUBE, 0.005F, 0.001F, builder::put);
+        registerDropChance(CubeMobHeadType.STICKY_SULFUR_CUBE, 0.005F, 0.001F, builder::put);
+        registerDropChance(CubeMobHeadType.EXPLOSIVE_SULFUR_CUBE, 0.005F, 0.001F, builder::put);
+        registerDropChance(CubeMobHeadType.HOT_SULFUR_CUBE, 0.005F, 0.001F, builder::put);
         registerDropChance(HoglinHeadType.HOGLIN, 0.03F, 0.02F, builder::put);
         registerDropChance(MonsterHeadType.ENDERMITE, 0.1F, 0.01F, builder::put);
         registerDropChance(MonsterHeadType.BOGGED, 0.06F, 0.05F, builder::put);
@@ -527,6 +539,7 @@ public class ModEntityLootProvider extends AbstractLootProvider.Simple {
             if (randomChanceWithLooting == RandomChanceWithLooting.DEFAULT) {
                 AllTheHeads.LOGGER.warn("Missing head type loot drop chance for {}", headType.key());
             }
+
             this.add(resourceKey,
                     LootTable.lootTable()
                             .withPool(LootPool.lootPool()

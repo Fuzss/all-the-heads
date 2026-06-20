@@ -1,4 +1,4 @@
-// 26.2	2026-06-20T11:17:56.947855	Mod Entity Loot Provider
+// 26.2	2026-06-20T13:24:40.208742	Mod Entity Loot Provider
 0b991976dbfa950ed3d05249f3e51120880c7445 data/alltheheads/loot_table/entities/heads/minecraft/allay.json
 f1b24017b235d02c8e3b38b32ff5b63f7dbf228b data/alltheheads/loot_table/entities/heads/minecraft/armadillo.json
 8562d02ddf7fbc9824c6cd78ae10789f51a19060 data/alltheheads/loot_table/entities/heads/minecraft/axolotl/blue.json
@@ -186,6 +186,18 @@ b206c8281b26f330dd69b3dab441ea7d4ced7401 data/alltheheads/loot_table/entities/he
 e32a50a3b697ee1adfb3d9ab7b2b00ec3a4ecfa0 data/alltheheads/loot_table/entities/heads/minecraft/strider.json
 567e78fb3d4f6cf3a8f3b8f74dbad533bcbeab70 data/alltheheads/loot_table/entities/heads/minecraft/strider/cold.json
 6f46d5de1f80e3e71518b9a8317283994d7fc415 data/alltheheads/loot_table/entities/heads/minecraft/sulfur_cube.json
+11ccf5ee83f7ee8975a3541687500e4b89ffe3d2 data/alltheheads/loot_table/entities/heads/minecraft/sulfur_cube/bouncy.json
+591da5df7d20830d77e82d391e882f619cbf9122 data/alltheheads/loot_table/entities/heads/minecraft/sulfur_cube/explosive.json
+a9b6afe19960ea3d1baaad19e5a7c2e517d009fd data/alltheheads/loot_table/entities/heads/minecraft/sulfur_cube/fast_flat.json
+6850a86a01e0d6d2f43b5102284a07d0f845d140 data/alltheheads/loot_table/entities/heads/minecraft/sulfur_cube/fast_sliding.json
+e00465d3201b84200497c72698fe1b2a525032c4 data/alltheheads/loot_table/entities/heads/minecraft/sulfur_cube/high_resistance.json
+b632fc4b9cb90a13f3d58ce838719fdd10e4c6a7 data/alltheheads/loot_table/entities/heads/minecraft/sulfur_cube/hot.json
+1fd80b76f574c77e509130bfbbd4ff37b1f5b7c2 data/alltheheads/loot_table/entities/heads/minecraft/sulfur_cube/light.json
+adefb129fe6b94b74decb18949a049dd3f5adb00 data/alltheheads/loot_table/entities/heads/minecraft/sulfur_cube/regular.json
+4aee3822eb8007093a3106a3c9536f711bcddd58 data/alltheheads/loot_table/entities/heads/minecraft/sulfur_cube/slow_bouncy.json
+1fecfdb3448f278ca49118942658d10750968f7c data/alltheheads/loot_table/entities/heads/minecraft/sulfur_cube/slow_flat.json
+0c2d2b890b2fd7b3f2d428baacbdb197174a1330 data/alltheheads/loot_table/entities/heads/minecraft/sulfur_cube/slow_sliding.json
+cc8c4cd8d6fecc0a7325538b37f7e00df61e62fa data/alltheheads/loot_table/entities/heads/minecraft/sulfur_cube/sticky.json
 c0557b4280f515f4b94914217f0576eeb6f67d4c data/alltheheads/loot_table/entities/heads/minecraft/tadpole.json
 a440b83156f70fdf9a72123e6818eadda3de763f data/alltheheads/loot_table/entities/heads/minecraft/trader_llama/brown.json
 1c258b616f13bcff452e190344f5b9d1c0d9f1b0 data/alltheheads/loot_table/entities/heads/minecraft/trader_llama/creamy.json

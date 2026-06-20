@@ -1,4 +1,4 @@
-// 26.2	2026-06-20T11:35:32.893362	Registries
+// 26.2	2026-06-20T13:24:40.205821	Registries
 5b45f045356eb6003a5f992d0166539e27434e78 data/alltheheads/alltheheads/head/minecraft/allay.json
 278bcc61cdcc3099a678bd10d636e89d5715c38e data/alltheheads/alltheheads/head/minecraft/armadillo.json
 d2d2ba5fc9d1e3999c24aa30b1c6fabb4e32244a data/alltheheads/alltheheads/head/minecraft/axolotl/blue.json
@@ -186,6 +186,18 @@ c479a3d8a9a641bd2ace8dc551e49fe6ab7713ca data/alltheheads/alltheheads/head/minec
 15438e8fb74b5807cc9e49a64965f14f5a7ded5c data/alltheheads/alltheheads/head/minecraft/strider.json
 cff57d75a6fa228a9db3e44eefe7c56a1dc56bd3 data/alltheheads/alltheheads/head/minecraft/strider/cold.json
 bc1872475a8b38c145d56823ca938d7ccb01d4eb data/alltheheads/alltheheads/head/minecraft/sulfur_cube.json
+c0fed44d795b2fb236c5184f25addc0f0a29fd68 data/alltheheads/alltheheads/head/minecraft/sulfur_cube/bouncy.json
+5fa62c21fd4d07c30f9afde5a34d1bda558e6866 data/alltheheads/alltheheads/head/minecraft/sulfur_cube/explosive.json
+3220f435a614ea4ff6ffee796c902a1284f9bb6f data/alltheheads/alltheheads/head/minecraft/sulfur_cube/fast_flat.json
+1db0dc7cd1f6225a6f8bbbb695d8865c9d9eb5ac data/alltheheads/alltheheads/head/minecraft/sulfur_cube/fast_sliding.json
+a6ccd0c686ff8b87c47d5d31c73fc83c9664f268 data/alltheheads/alltheheads/head/minecraft/sulfur_cube/high_resistance.json
+b314056f24ac448e9f72e9aeeaed061046216fc8 data/alltheheads/alltheheads/head/minecraft/sulfur_cube/hot.json
+f5da6cb2100603fde941a08af359e352712cc7c3 data/alltheheads/alltheheads/head/minecraft/sulfur_cube/light.json
+2008e6c7ef8394aa5cead2bbaf95189c7674bace data/alltheheads/alltheheads/head/minecraft/sulfur_cube/regular.json
+0809c82c023d5d4a31a96b69d1a48e95e8705996 data/alltheheads/alltheheads/head/minecraft/sulfur_cube/slow_bouncy.json
+1bc3541f491da4189e61bc06c3b4a269ab5e016f data/alltheheads/alltheheads/head/minecraft/sulfur_cube/slow_flat.json
+3dd86534a0b45ab1096252b7d06f4f50adbd82fa data/alltheheads/alltheheads/head/minecraft/sulfur_cube/slow_sliding.json
+d0b985182bd352a0d2b4737860d784e62b678555 data/alltheheads/alltheheads/head/minecraft/sulfur_cube/sticky.json
 d323fe70af5d7cb843ddd3823597c93f19c173c7 data/alltheheads/alltheheads/head/minecraft/tadpole.json
 074d0a383ea951aa183c772ef35f1b340c6ce7c6 data/alltheheads/alltheheads/head/minecraft/trader_llama/brown.json
 9c87e6d204f485019553d2c5ff5a19a8576c708f data/alltheheads/alltheheads/head/minecraft/trader_llama/creamy.json

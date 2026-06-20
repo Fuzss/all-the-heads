@@ -1,0 +1,28 @@
+{
+  "custom_name": "minecraft.sulfur_cube_explosive",
+  "entity_predicate": {
+    "minecraft:entity_type": "minecraft:sulfur_cube",
+    "minecraft:equipment": {
+      "body": {
+        "items": "#minecraft:sulfur_cube_archetype/explosive"
+      }
+    }
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/sulfur_cube/explosive",
+  "models": [
+    {
+      "model": "alltheheads:sulfur_cube_head/explosive"
+    },
+    {
+      "asset_id": "minecraft:entity/sulfur_cube/sulfur_cube_outer",
+      "model": "alltheheads:sulfur_cube_head/gel"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.sulfur_cube.bounce",
+  "shape": {
+    "depth": 18.0,
+    "height": 18.0,
+    "scale": 0.4444444444444444,
+    "width": 18.0
+  }
+}

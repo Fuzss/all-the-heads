@@ -22,6 +22,7 @@ import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
@@ -153,6 +154,18 @@ public class ModRegistry {
 
     public static void bootstrap() {
         ModLootTables.bootstrap();
+        REGISTRIES.prepareTag(Registries.ITEM, ItemTags.SULFUR_CUBE_ARCHETYPE_REGULAR);
+        REGISTRIES.prepareTag(Registries.ITEM, ItemTags.SULFUR_CUBE_ARCHETYPE_BOUNCY);
+        REGISTRIES.prepareTag(Registries.ITEM, ItemTags.SULFUR_CUBE_ARCHETYPE_SLOW_BOUNCY);
+        REGISTRIES.prepareTag(Registries.ITEM, ItemTags.SULFUR_CUBE_ARCHETYPE_SLOW_FLAT);
+        REGISTRIES.prepareTag(Registries.ITEM, ItemTags.SULFUR_CUBE_ARCHETYPE_FAST_FLAT);
+        REGISTRIES.prepareTag(Registries.ITEM, ItemTags.SULFUR_CUBE_ARCHETYPE_LIGHT);
+        REGISTRIES.prepareTag(Registries.ITEM, ItemTags.SULFUR_CUBE_ARCHETYPE_FAST_SLIDING);
+        REGISTRIES.prepareTag(Registries.ITEM, ItemTags.SULFUR_CUBE_ARCHETYPE_SLOW_SLIDING);
+        REGISTRIES.prepareTag(Registries.ITEM, ItemTags.SULFUR_CUBE_ARCHETYPE_HIGH_RESISTANCE);
+        REGISTRIES.prepareTag(Registries.ITEM, ItemTags.SULFUR_CUBE_ARCHETYPE_STICKY);
+        REGISTRIES.prepareTag(Registries.ITEM, ItemTags.SULFUR_CUBE_ARCHETYPE_EXPLOSIVE);
+        REGISTRIES.prepareTag(Registries.ITEM, ItemTags.SULFUR_CUBE_ARCHETYPE_HOT);
     }
 
     private static ItemStack createDisplayItemStack(ResourceKey<HeadType> resourceKey) {

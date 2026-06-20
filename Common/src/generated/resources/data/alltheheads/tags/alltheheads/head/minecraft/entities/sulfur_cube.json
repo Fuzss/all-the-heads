@@ -1,5 +1,17 @@
 {
   "values": [
-    "alltheheads:minecraft/sulfur_cube"
+    "alltheheads:minecraft/sulfur_cube",
+    "alltheheads:minecraft/sulfur_cube/bouncy",
+    "alltheheads:minecraft/sulfur_cube/explosive",
+    "alltheheads:minecraft/sulfur_cube/fast_flat",
+    "alltheheads:minecraft/sulfur_cube/fast_sliding",
+    "alltheheads:minecraft/sulfur_cube/high_resistance",
+    "alltheheads:minecraft/sulfur_cube/hot",
+    "alltheheads:minecraft/sulfur_cube/light",
+    "alltheheads:minecraft/sulfur_cube/regular",
+    "alltheheads:minecraft/sulfur_cube/slow_bouncy",
+    "alltheheads:minecraft/sulfur_cube/slow_flat",
+    "alltheheads:minecraft/sulfur_cube/slow_sliding",
+    "alltheheads:minecraft/sulfur_cube/sticky"
   ]
 }
