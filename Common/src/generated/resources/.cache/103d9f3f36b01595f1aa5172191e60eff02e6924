@@ -1,4 +1,4 @@
-// 26.2	2026-06-19T22:52:56.461087	Registries
+// 26.2	2026-06-20T11:21:55.353573	Registries
 79f13e93b78eebc8921e4f1d0de289bb0744d70c data/alltheheads/alltheheads/head/minecraft/allay.json
 298cbce81824615a49fc32eb511f1462d5beacaf data/alltheheads/alltheheads/head/minecraft/armadillo.json
 13d8710819a6acdcba3b9d90e1f3a0255e1630cb data/alltheheads/alltheheads/head/minecraft/axolotl/blue.json
@@ -185,6 +185,7 @@ ad4b3a04e8dee10ef751d0257f5261e15e8a2a06 data/alltheheads/alltheheads/head/minec
 6f286ca55d640efebd9937bb75e231e8cff5aaa4 data/alltheheads/alltheheads/head/minecraft/stray.json
 6f67871b852a8f32e9801a641ef8b874b67e6255 data/alltheheads/alltheheads/head/minecraft/strider.json
 51ae3a81c3738488e76d3a45a4339d735e33433a data/alltheheads/alltheheads/head/minecraft/strider/cold.json
+05679fdfc6677fd542cedf63b55d2e72cdb186d8 data/alltheheads/alltheheads/head/minecraft/sulfur_cube.json
 3de11163b1d6b7512fa1387b0625208a9a75e9c5 data/alltheheads/alltheheads/head/minecraft/tadpole.json
 4032a134044f7b77b35c2ebd2757a19d30931319 data/alltheheads/alltheheads/head/minecraft/trader_llama/brown.json
 3310cca576c30dfa1f079f359acc7390fb39269e data/alltheheads/alltheheads/head/minecraft/trader_llama/creamy.json

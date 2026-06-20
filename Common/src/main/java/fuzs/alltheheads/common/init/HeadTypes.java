@@ -18,6 +18,7 @@ public class HeadTypes {
         ChickenHeadType.bootstrap(context);
         CopperGolemHeadType.bootstrap(context);
         CowHeadType.bootstrap(context);
+        CubeMobHeadType.bootstrap(context);
         FoxHeadType.bootstrap(context);
         FrogHeadType.bootstrap(context);
         GhastHeadType.bootstrap(context);

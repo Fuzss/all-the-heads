@@ -373,7 +373,8 @@ public class ModEntityLootProvider extends AbstractLootProvider.Simple {
         registerDropChance(FrogHeadType.TEMPERATE_FROG, 0.2F, 0.01F, builder::put);
         registerDropChance(FrogHeadType.WARM_FROG, 0.2F, 0.01F, builder::put);
         registerDropChance(PiglinHeadType.ZOMBIFIED_PIGLIN, 0.005F, 0.001F, builder::put);
-        registerDropChance(MonsterHeadType.SLIME, 0.005F, 0.001F, builder::put);
+        registerDropChance(CubeMobHeadType.SLIME, 0.005F, 0.001F, builder::put);
+        registerDropChance(CubeMobHeadType.SULFUR_CUBE, 0.005F, 0.001F, builder::put);
         registerDropChance(HoglinHeadType.HOGLIN, 0.03F, 0.02F, builder::put);
         registerDropChance(MonsterHeadType.ENDERMITE, 0.1F, 0.01F, builder::put);
         registerDropChance(MonsterHeadType.BOGGED, 0.06F, 0.05F, builder::put);
@@ -394,7 +395,7 @@ public class ModEntityLootProvider extends AbstractLootProvider.Simple {
         registerDropChance(AnimalHeadType.ARMADILLO, 0.1F, 0.005F, builder::put);
         registerDropChance(AquaticHeadType.PUFFERFISH, 0.15F, 0.01F, builder::put);
         registerDropChance(MonsterHeadType.PHANTOM, 0.1F, 0.01F, builder::put);
-        registerDropChance(MonsterHeadType.MAGMA_CUBE, 0.005F, 0.001F, builder::put);
+        registerDropChance(CubeMobHeadType.MAGMA_CUBE, 0.005F, 0.001F, builder::put);
         registerDropChance(AquaticHeadType.TURTLE, 0.1F, 0.01F, builder::put);
         registerDropChance(SpiderHeadType.SPIDER, 0.005F, 0.001F, builder::put);
         registerDropChance(StriderHeadType.STRIDER, 0.1F, 0.05F, builder::put);

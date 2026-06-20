@@ -71,6 +71,7 @@ public class MobHeadRenderer extends SkullBlockRenderer {
                 putRenderType(ModelType.SHEEP, RenderTypes::entityCutout, map::put);
                 putRenderType(ModelType.SLIME_GEL, RenderTypes::entityTranslucent, map::put);
                 putEyesRenderType(ModelType.SPIDER, ModelType.SPIDER_EYES, map::put);
+                putRenderType(ModelType.SULFUR_CUBE_GEL, RenderTypes::entityTranslucent, map::put);
                 putRenderType(ModelType.TROPICAL_FISH_LARGE, RenderTypes::entityCutout, map::put);
                 putRenderType(ModelType.TROPICAL_FISH_SMALL, RenderTypes::entityCutout, map::put);
                 putRenderType(ModelType.VEX, RenderTypes::entityTranslucent, map::put);

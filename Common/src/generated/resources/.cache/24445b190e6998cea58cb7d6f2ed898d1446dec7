@@ -1,4 +1,4 @@
-// 26.2	2026-06-19T22:52:56.4635	Mod Entity Loot Provider
+// 26.2	2026-06-20T11:17:56.947855	Mod Entity Loot Provider
 0b991976dbfa950ed3d05249f3e51120880c7445 data/alltheheads/loot_table/entities/heads/minecraft/allay.json
 f1b24017b235d02c8e3b38b32ff5b63f7dbf228b data/alltheheads/loot_table/entities/heads/minecraft/armadillo.json
 8562d02ddf7fbc9824c6cd78ae10789f51a19060 data/alltheheads/loot_table/entities/heads/minecraft/axolotl/blue.json
@@ -185,6 +185,7 @@ b69057b45c629cba04612c0aec7e3fc3eb4f76e8 data/alltheheads/loot_table/entities/he
 b206c8281b26f330dd69b3dab441ea7d4ced7401 data/alltheheads/loot_table/entities/heads/minecraft/stray.json
 e32a50a3b697ee1adfb3d9ab7b2b00ec3a4ecfa0 data/alltheheads/loot_table/entities/heads/minecraft/strider.json
 567e78fb3d4f6cf3a8f3b8f74dbad533bcbeab70 data/alltheheads/loot_table/entities/heads/minecraft/strider/cold.json
+6f46d5de1f80e3e71518b9a8317283994d7fc415 data/alltheheads/loot_table/entities/heads/minecraft/sulfur_cube.json
 c0557b4280f515f4b94914217f0576eeb6f67d4c data/alltheheads/loot_table/entities/heads/minecraft/tadpole.json
 a440b83156f70fdf9a72123e6818eadda3de763f data/alltheheads/loot_table/entities/heads/minecraft/trader_llama/brown.json
 1c258b616f13bcff452e190344f5b9d1c0d9f1b0 data/alltheheads/loot_table/entities/heads/minecraft/trader_llama/creamy.json

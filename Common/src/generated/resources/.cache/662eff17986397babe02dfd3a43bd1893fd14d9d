@@ -1,4 +1,4 @@
-// 26.2	2026-06-19T22:52:56.459841	Tags for alltheheads:head mod id vanilla
+// 26.2	2026-06-20T11:17:56.943214	Tags for alltheheads:head mod id vanilla
 d4507b588828543da6d8fa05fc1f8acc0d8a369d data/alltheheads/tags/alltheheads/head/minecraft/entities/allay.json
 b8bf633f131f61621677f73a49f248f10a8a229d data/alltheheads/tags/alltheheads/head/minecraft/entities/armadillo.json
 578cfb648ac3d78ee877bb62ca697223d8e034d6 data/alltheheads/tags/alltheheads/head/minecraft/entities/axolotl.json
@@ -66,6 +66,7 @@ d1e1e9637eeec48bffa13dfb8737d765dc4c4c83 data/alltheheads/tags/alltheheads/head/
 09c1c131e828d2cc7ec2c5e6401793eed89a2956 data/alltheheads/tags/alltheheads/head/minecraft/entities/squid.json
 0f252c629bc4a5e4c40189bc95d3f5f4626701e0 data/alltheheads/tags/alltheheads/head/minecraft/entities/stray.json
 2df77d2d4712d1406a4b7249148a2b8e6b622d3b data/alltheheads/tags/alltheheads/head/minecraft/entities/strider.json
+becc31248cbf334d9082bb9e16e6e62201289d77 data/alltheheads/tags/alltheheads/head/minecraft/entities/sulfur_cube.json
 8c61051d3b53418221b8e57ae0c29f3d3e6b373a data/alltheheads/tags/alltheheads/head/minecraft/entities/tadpole.json
 0924fd6c531f6b23fb5ab5c1d512da07c0cbe0e0 data/alltheheads/tags/alltheheads/head/minecraft/entities/trader_llama.json
 62feed23847f9fb253bc6c8baf98338acfda37b3 data/alltheheads/tags/alltheheads/head/minecraft/entities/tropical_fish.json

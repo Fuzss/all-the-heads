@@ -166,6 +166,10 @@ public class AllTheHeadsClient implements ClientModConstructor {
                 SquidHeadModel::createHeadLayer);
         context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.STRIDER),
                 StriderHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.SULFUR_CUBE),
+                SulfurCubeHeadModel::createHeadLayer);
+        context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.SULFUR_CUBE_GEL),
+                SulfurCubeHeadModel::createGelHeadLayer);
         context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.TADPOLE),
                 TadpoleHeadModel::createHeadLayer);
         context.registerLayerDefinition(MobHeadRenderer.createModelLayer(ModelType.TEMPERATE_COW),

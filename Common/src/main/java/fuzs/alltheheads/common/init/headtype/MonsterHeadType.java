@@ -26,13 +26,11 @@ public class MonsterHeadType {
     public static final ResourceKey<HeadType> ENDERMITE = register("endermite");
     public static final ResourceKey<HeadType> GIANT = register("giant");
     public static final ResourceKey<HeadType> HUSK = register("husk");
-    public static final ResourceKey<HeadType> MAGMA_CUBE = register("magma_cube");
     public static final ResourceKey<HeadType> PARCHED = register("parched");
     public static final ResourceKey<HeadType> PHANTOM = register("phantom");
     public static final ResourceKey<HeadType> RAVAGER = register("ravager");
     public static final ResourceKey<HeadType> SHULKER = register("shulker");
     public static final ResourceKey<HeadType> SILVERFISH = register("silverfish");
-    public static final ResourceKey<HeadType> SLIME = register("slime");
     public static final ResourceKey<HeadType> STRAY = register("stray");
     public static final ResourceKey<HeadType> WARDEN = register("warden");
     public static final ResourceKey<HeadType> WITCH = register("witch");
@@ -101,11 +99,6 @@ public class MonsterHeadType {
                 .model(ModelType.HUMANOID, Identifier.withDefaultNamespace("entity/zombie/husk"))
                 .noteBlockSound(SoundEvents.HUSK_AMBIENT)
                 .build(context, HUSK);
-        HeadType.builder(EntityTypes.MAGMA_CUBE)
-                .shape(8.0, 8.0, 8.0)
-                .litModel(ModelType.MAGMA_CUBE, Identifier.withDefaultNamespace("entity/slime/magmacube"))
-                .noteBlockSound(SoundEvents.MAGMA_CUBE_SQUISH_SMALL)
-                .build(context, MAGMA_CUBE);
         HeadType.builder(EntityTypes.PARCHED)
                 .shape(8.0, 8.0, 8.0)
                 .model(ModelType.PARCHED, Identifier.withDefaultNamespace("entity/skeleton/parched"))
@@ -135,12 +128,6 @@ public class MonsterHeadType {
                 .model(ModelType.SILVERFISH, Identifier.withDefaultNamespace("entity/silverfish/silverfish"))
                 .noteBlockSound(SoundEvents.SILVERFISH_AMBIENT)
                 .build(context, SILVERFISH);
-        HeadType.builder(EntityTypes.SLIME)
-                .shape(8.0, 8.0, 8.0)
-                .model(ModelType.SLIME, Identifier.withDefaultNamespace("entity/slime/slime"))
-                .model(ModelType.SLIME_GEL, Identifier.withDefaultNamespace("entity/slime/slime"))
-                .noteBlockSound(SoundEvents.SLIME_SQUISH)
-                .build(context, SLIME);
         HeadType.builder(EntityTypes.STRAY)
                 .shape(8.0, 8.0, 8.0)
                 .model(ModelType.MOB, Identifier.withDefaultNamespace("entity/skeleton/stray"))
@@ -172,13 +159,11 @@ public class MonsterHeadType {
         translationConsumer.accept(ENDERMITE, "Endermite Head");
         translationConsumer.accept(GIANT, "Giant Head");
         translationConsumer.accept(HUSK, "Husk Head");
-        translationConsumer.accept(MAGMA_CUBE, "Magma Cube Head");
         translationConsumer.accept(PARCHED, "Parched Head");
         translationConsumer.accept(PHANTOM, "Phantom Head");
         translationConsumer.accept(RAVAGER, "Ravager Head");
         translationConsumer.accept(SHULKER, "Shulker Head");
         translationConsumer.accept(SILVERFISH, "Silverfish Head");
-        translationConsumer.accept(SLIME, "Slime Head");
         translationConsumer.accept(STRAY, "Stray Head");
         translationConsumer.accept(WARDEN, "Warden Head");
         translationConsumer.accept(WITCH, "Witch Head");

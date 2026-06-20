@@ -78,6 +78,8 @@ public record ModelType(Identifier model, String layer) {
     public static final ModelType SPIDER_EYES = register("spider_head", "eyes");
     public static final ModelType SQUID = register("squid_head");
     public static final ModelType STRIDER = register("strider_head");
+    public static final ModelType SULFUR_CUBE = register("sulfur_cube_head");
+    public static final ModelType SULFUR_CUBE_GEL = register("sulfur_cube_head", "gel");
     public static final ModelType TADPOLE = register("tadpole_head");
     public static final ModelType TEMPERATE_COW = register("temperate_cow_head");
     public static final ModelType TROPICAL_FISH_LARGE = register("tropical_fish_head", "large");

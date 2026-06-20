@@ -37,6 +37,7 @@ public class ModLanguageProvider extends AbstractLanguageProvider {
         ChickenHeadType.registerTranslations(translationConsumer);
         CopperGolemHeadType.registerTranslations(translationConsumer);
         CowHeadType.registerTranslations(translationConsumer);
+        CubeMobHeadType.registerTranslations(translationConsumer);
         FoxHeadType.registerTranslations(translationConsumer);
         FrogHeadType.registerTranslations(translationConsumer);
         GhastHeadType.registerTranslations(translationConsumer);

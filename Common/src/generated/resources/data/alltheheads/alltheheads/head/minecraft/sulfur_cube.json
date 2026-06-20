@@ -1,0 +1,25 @@
+{
+  "custom_name": "minecraft.sulfur_cube",
+  "entity_predicate": {
+    "minecraft:entity_type": "minecraft:sulfur_cube"
+  },
+  "loot_table": "alltheheads:entities/heads/minecraft/sulfur_cube",
+  "models": [
+    {
+      "asset_id": "minecraft:entity/sulfur_cube/sulfur_cube_inner",
+      "model": "alltheheads:sulfur_cube_head"
+    },
+    {
+      "asset_id": "minecraft:entity/sulfur_cube/sulfur_cube_outer",
+      "model": "alltheheads:sulfur_cube_head/gel"
+    }
+  ],
+  "note_block_sound": "minecraft:entity.sulfur_cube.squish",
+  "shape": {
+    "depth": 18.0,
+    "height": 18.0,
+    "scale": 0.4444444444444444,
+    "width": 18.0
+  },
+  "types": "minecraft:sulfur_cube"
+}
