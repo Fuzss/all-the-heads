@@ -7,7 +7,7 @@ import java.util.function.UnaryOperator;
 
 public final class SulfurCubeHeadModel extends HeadModelBase {
     public static LayerDefinition createHeadLayer() {
-        // The y-offset is needed to make the cube centered for some reason.
+        // The y-offset adjustment is needed to make the cube centered; which it is otherwise not for some reason.
         return createHeadLayer(SulfurCubeModel.createInnerBodyLayer(),
                 UnaryOperator.identity(),
                 -8.0F,

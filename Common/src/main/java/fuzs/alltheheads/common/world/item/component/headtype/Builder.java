@@ -21,7 +21,6 @@ import java.util.Optional;
 import java.util.function.Consumer;
 
 public final class Builder {
-    private final HolderSet<EntityType<?>> types;
     private final List<Consumer<EntityPredicate.Builder>> entityPredicate = new ArrayList<>();
     private Shape shape = new Shape(8.0, 8.0, 8.0);
     private double scale = 1.0;
@@ -33,7 +32,9 @@ public final class Builder {
     private Optional<String> customName = Optional.empty();
 
     Builder(HolderSet<EntityType<?>> types) {
-        this.types = types;
+        this.entityPredicate.add((EntityPredicate.Builder builder) -> {
+            builder.entityType(new EntityTypePredicate(types));
+        });
     }
 
     public Builder entityPredicate(Consumer<EntityPredicate.Builder> entityPredicate) {
@@ -104,8 +105,7 @@ public final class Builder {
     public void build(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey) {
         this.lootTable(resourceKey).customName(resourceKey);
         context.register(resourceKey,
-                new HeadType(this.types,
-                        this.entityPredicate(),
+                new HeadType(this.entityPredicate(),
                         this.shape.scale(this.scale),
                         this.buildLoot(),
                         this.customName,
@@ -116,7 +116,6 @@ public final class Builder {
 
     private EntityPredicate entityPredicate() {
         EntityPredicate.Builder builder = EntityPredicate.Builder.entity();
-        builder.entityType(new EntityTypePredicate(this.types));
         this.entityPredicate.forEach((Consumer<EntityPredicate.Builder> builderConsumer) -> {
             builderConsumer.accept(builder);
         });
