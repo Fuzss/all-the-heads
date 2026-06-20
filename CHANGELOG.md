@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [v26.2.0-mc26.2.x] - 2026-06-19
 
+### Added
+
+- Add heads for sulfur cubes (default and all archetypes)
+
 ### Changed
 
 - Update to Minecraft 26.2.x
