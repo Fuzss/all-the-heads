@@ -12,7 +12,6 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.variant.ModelAndTexture;
 import net.minecraft.world.level.storage.loot.LootTable;
 
 import java.util.ArrayList;
@@ -62,12 +61,17 @@ public final class Builder {
     }
 
     public Builder dyedModel(ModelType modelType, Identifier assetId, Color color) {
-        this.models.add(new Model(new ModelAndTexture<>(modelType, assetId), Optional.of(color), Optional.empty()));
+        this.models.add(new Model(modelType, assetId, Optional.of(color), Optional.empty()));
         return this;
     }
 
     public Builder litModel(ModelType modelType, Identifier assetId) {
-        this.models.add(new Model(new ModelAndTexture<>(modelType, assetId), Optional.empty(), Optional.of(15)));
+        this.models.add(new Model(modelType, assetId, Optional.empty(), Optional.of(15)));
+        return this;
+    }
+
+    public Builder specialModel(ModelType modelType) {
+        this.models.add(new Model(modelType, Optional.empty(), Optional.empty(), Optional.empty()));
         return this;
     }
 

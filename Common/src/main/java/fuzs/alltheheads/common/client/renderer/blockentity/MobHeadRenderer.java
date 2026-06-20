@@ -1,12 +1,14 @@
 package fuzs.alltheheads.common.client.renderer.blockentity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.math.Axis;
 import fuzs.alltheheads.common.client.renderer.blockentity.state.MobHeadRenderState;
 import fuzs.alltheheads.common.world.item.component.headtype.Color;
 import fuzs.alltheheads.common.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.common.world.item.component.headtype.Model;
 import fuzs.alltheheads.common.world.item.component.headtype.ModelType;
 import fuzs.alltheheads.common.world.level.block.entity.MobHeadBlockEntity;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
@@ -14,21 +16,25 @@ import net.minecraft.client.model.object.skull.PiglinHeadModel;
 import net.minecraft.client.model.object.skull.SkullModel;
 import net.minecraft.client.model.object.skull.SkullModelBase;
 import net.minecraft.client.renderer.SubmitNodeCollector;
+import net.minecraft.client.renderer.block.BlockModelRenderState;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.blockentity.SkullBlockRenderer;
 import net.minecraft.client.renderer.blockentity.state.SkullBlockRenderState;
+import net.minecraft.client.renderer.entity.SulfurCubeRenderer;
 import net.minecraft.client.renderer.feature.ModelFeatureRenderer;
 import net.minecraft.client.renderer.rendertype.RenderType;
 import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.state.level.CameraRenderState;
+import net.minecraft.client.renderer.texture.MissingTextureAtlasSprite;
 import net.minecraft.client.renderer.texture.OverlayTexture;
+import net.minecraft.core.ClientAsset;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.LightCoordsUtil;
 import net.minecraft.util.Mth;
 import net.minecraft.util.Util;
-import net.minecraft.world.entity.variant.ModelAndTexture;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SkullBlock;
 import net.minecraft.world.level.block.WallSkullBlock;
 import net.minecraft.world.level.block.entity.SkullBlockEntity;
@@ -146,14 +152,34 @@ public class MobHeadRenderer extends SkullBlockRenderer {
 
     public static void submitSkull(MobHeadRenderState state, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, Function<ModelType, SkullModelBase> skullModelGetter) {
         for (Model model : state.models) {
-            SkullModelBase skullModel = skullModelGetter.apply(model.model().model());
-            RenderType renderType = getRenderType(model.model(), state.time);
+            SkullModelBase skullModel = skullModelGetter.apply(model.model());
+            Identifier textureLocation = model.asset()
+                    .map(ClientAsset.ResourceTexture::texturePath)
+                    .orElse(MissingTextureAtlasSprite.getLocation());
+            RenderType renderType = getRenderType(model.model(), textureLocation, state.time);
             int lightCoords = model.blockLight()
                     .map((Integer blockLight) -> LightCoordsUtil.pack(blockLight,
                             LightCoordsUtil.sky(state.lightCoords)))
                     .orElse(state.lightCoords);
             int tintColor = model.color().map((Color color) -> color.getColor(state.time)).orElse(-1);
-            submitSkull(state, poseStack, submitNodeCollector, skullModel, renderType, lightCoords, tintColor);
+            if (model.model() == ModelType.SULFUR_CUBE) {
+                // TODO just a test for rendering blocks, make this proper with separate render state extraction
+                poseStack.pushPose();
+                poseStack.mulPose(Axis.XP.rotationDegrees(180.0F));
+                poseStack.translate(-0.5F, 0.0625F, -0.5F);
+                BlockModelRenderState containedBlock = new BlockModelRenderState();
+                Minecraft.getInstance().getEntityRenderDispatcher().blockModelResolver.update(containedBlock,
+                        Blocks.GRASS_BLOCK.defaultBlockState(),
+                        SulfurCubeRenderer.BLOCK_DISPLAY_CONTEXT);
+                containedBlock.submit(poseStack,
+                        submitNodeCollector,
+                        lightCoords,
+                        OverlayTexture.NO_OVERLAY,
+                        state.outlineColor);
+                poseStack.popPose();
+            } else {
+                submitSkull(state, poseStack, submitNodeCollector, skullModel, renderType, lightCoords, tintColor);
+            }
         }
     }
 
@@ -176,9 +202,9 @@ public class MobHeadRenderer extends SkullBlockRenderer {
                 state.breakProgress);
     }
 
-    private static RenderType getRenderType(ModelAndTexture<ModelType> modelAndTexture, float tickCount) {
-        BiFunction<Identifier, Float, RenderType> renderTypeGetter = RENDER_TYPES.getOrDefault(modelAndTexture.model(),
+    private static RenderType getRenderType(ModelType model, Identifier textureLocation, float tickCount) {
+        BiFunction<Identifier, Float, RenderType> renderTypeGetter = RENDER_TYPES.getOrDefault(model,
                 DEFAULT_RENDER_TYPE_GETTER);
-        return renderTypeGetter.apply(modelAndTexture.asset().texturePath(), tickCount);
+        return renderTypeGetter.apply(textureLocation, tickCount);
     }
 }

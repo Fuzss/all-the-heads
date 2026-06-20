@@ -11,7 +11,6 @@ import net.minecraft.client.resources.DefaultPlayerSkin;
 import net.minecraft.core.ClientAsset;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
-import net.minecraft.world.entity.variant.ModelAndTexture;
 import net.minecraft.world.level.block.state.properties.RotationSegment;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
@@ -25,9 +24,12 @@ public class MobHeadRenderState extends SkullBlockRenderState {
      * Directly supplying both client asset resource locations is only possible as long as it is never serialized, which
      * never happens here.
      */
-    public static final List<Model> DEFAULT_MODELS = List.of(new Model(new ModelAndTexture<>(ModelType.DEFAULT,
-            new ClientAsset.ResourceTexture(DefaultPlayerSkin.getDefaultTexture(),
-                    DefaultPlayerSkin.getDefaultTexture())), Optional.empty(), Optional.empty()));
+    private static final ClientAsset.ResourceTexture DEFAULT_TEXTURE = new ClientAsset.ResourceTexture(DefaultPlayerSkin.getDefaultTexture(),
+            DefaultPlayerSkin.getDefaultTexture());
+    public static final List<Model> DEFAULT_MODELS = List.of(new Model(ModelType.DEFAULT,
+            Optional.of(DEFAULT_TEXTURE),
+            Optional.empty(),
+            Optional.empty()));
     public static final Shape DEFAULT_SHAPE = new Shape(8.0, 8.0, 8.0);
 
     public List<Model> models = DEFAULT_MODELS;
