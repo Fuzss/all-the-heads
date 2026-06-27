@@ -42,7 +42,7 @@ public class ModHeadTypeTagsProvider extends AbstractTagProvider<HeadType> {
     }
 
     public static Stream<ResourceKey<LootTable>> getDefaultLootTables(Stream<EntityType<?>> stream) {
-        return stream.map(EntityType::getDefaultLootTable);
+        return stream.map(EntityType::getDefaultLootTable).distinct();
     }
 
     public static TagKey<HeadType> getHeadTypeTagKey(ResourceKey<LootTable> resourceKey) {
