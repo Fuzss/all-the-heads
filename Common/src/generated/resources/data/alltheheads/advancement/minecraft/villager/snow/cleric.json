@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/villager/snow/cartographer",
+  "criteria": {
+    "minecraft/villager/snow/cleric": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/villager/snow/cleric"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.villager_snow_cleric"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/villager/snow/cleric"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.villager_snow_cleric"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/villager/snow/cleric"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

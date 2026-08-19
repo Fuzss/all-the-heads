@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:root/minecraft/spider",
+  "criteria": {
+    "minecraft/spider": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/spider"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.spider"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/spider"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.spider"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/spider"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

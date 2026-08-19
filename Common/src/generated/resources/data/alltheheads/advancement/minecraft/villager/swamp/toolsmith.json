@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/villager/swamp/shepherd",
+  "criteria": {
+    "minecraft/villager/swamp/toolsmith": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/villager/swamp/toolsmith"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.villager_swamp_toolsmith"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/villager/swamp/toolsmith"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.villager_swamp_toolsmith"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/villager/swamp/toolsmith"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:root/minecraft/piglin_brute",
+  "criteria": {
+    "minecraft/piglin_brute": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/piglin_brute"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.piglin_brute"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/piglin_brute"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.piglin_brute"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/piglin_brute"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

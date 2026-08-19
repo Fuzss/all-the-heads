@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/villager/snow/weaponsmith",
+  "criteria": {
+    "minecraft/villager/swamp": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/villager/swamp"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.villager_swamp"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/villager/swamp"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.villager_swamp"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/villager/swamp"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

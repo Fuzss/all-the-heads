@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/tropical_fish/butterflyfish",
+  "criteria": {
+    "minecraft/tropical_fish/cichlid": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/tropical_fish/cichlid"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.tropical_fish_cichlid"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/tropical_fish/cichlid"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.tropical_fish_cichlid"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/tropical_fish/cichlid"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

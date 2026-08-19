@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:root/minecraft/wither",
+  "criteria": {
+    "minecraft/wither": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/wither"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.wither"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/wither"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.wither"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/wither"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

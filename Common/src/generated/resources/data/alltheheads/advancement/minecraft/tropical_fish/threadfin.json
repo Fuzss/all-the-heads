@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/tropical_fish/red_snapper",
+  "criteria": {
+    "minecraft/tropical_fish/threadfin": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/tropical_fish/threadfin"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.tropical_fish_threadfin"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/tropical_fish/threadfin"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.tropical_fish_threadfin"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/tropical_fish/threadfin"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

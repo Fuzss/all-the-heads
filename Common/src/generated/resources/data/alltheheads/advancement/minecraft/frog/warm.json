@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/frog/temperate",
+  "criteria": {
+    "minecraft/frog/warm": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/frog/warm"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.frog_warm"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/frog/warm"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.frog_warm"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/frog/warm"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

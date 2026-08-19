@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/tropical_fish/goatfish",
+  "criteria": {
+    "minecraft/tropical_fish/moorish_idol": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/tropical_fish/moorish_idol"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.tropical_fish_moorish_idol"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/tropical_fish/moorish_idol"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.tropical_fish_moorish_idol"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/tropical_fish/moorish_idol"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

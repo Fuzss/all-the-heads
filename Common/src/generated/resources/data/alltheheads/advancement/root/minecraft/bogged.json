@@ -1,0 +1,40 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/bogged": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/bogged"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.bogged"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:bogged_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.bogged"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/bogged"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

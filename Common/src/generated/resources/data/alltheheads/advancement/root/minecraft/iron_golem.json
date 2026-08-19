@@ -1,0 +1,40 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/iron_golem": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/iron_golem"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.iron_golem"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:iron_golem_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.iron_golem"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/iron_golem"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

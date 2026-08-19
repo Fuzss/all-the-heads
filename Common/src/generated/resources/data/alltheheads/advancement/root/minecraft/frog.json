@@ -1,0 +1,72 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/frog/cold": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/frog/cold"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/frog/temperate": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/frog/temperate"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/frog/warm": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/frog/warm"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.frog"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:frog_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.frog"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/frog/cold"
+    ],
+    [
+      "minecraft/frog/temperate"
+    ],
+    [
+      "minecraft/frog/warm"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

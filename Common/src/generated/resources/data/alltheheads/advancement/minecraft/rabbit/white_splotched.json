@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/rabbit/white",
+  "criteria": {
+    "minecraft/rabbit/white_splotched": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/rabbit/white_splotched"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.rabbit_white_splotched"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/rabbit/white_splotched"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.rabbit_white_splotched"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/rabbit/white_splotched"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

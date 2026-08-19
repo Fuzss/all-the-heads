@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/sulfur_cube/slow_bouncy",
+  "criteria": {
+    "minecraft/sulfur_cube/slow_flat": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/sulfur_cube/slow_flat"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.sulfur_cube_slow_flat"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/sulfur_cube/slow_flat"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.sulfur_cube_slow_flat"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/sulfur_cube/slow_flat"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

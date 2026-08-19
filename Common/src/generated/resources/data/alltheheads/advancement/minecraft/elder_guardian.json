@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:root/minecraft/elder_guardian",
+  "criteria": {
+    "minecraft/elder_guardian": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/elder_guardian"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.elder_guardian"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/elder_guardian"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.elder_guardian"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/elder_guardian"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

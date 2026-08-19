@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/horse/dark_brown/black_dots",
+  "criteria": {
+    "minecraft/horse/dark_brown/white": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/horse/dark_brown/white"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.horse_dark_brown_white"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/horse/dark_brown/white"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.horse_dark_brown_white"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/horse/dark_brown/white"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

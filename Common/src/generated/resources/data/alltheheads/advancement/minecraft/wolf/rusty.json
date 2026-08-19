@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/wolf/pale/tame",
+  "criteria": {
+    "minecraft/wolf/rusty": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/wolf/rusty"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.wolf_rusty"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/wolf/rusty"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.wolf_rusty"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/wolf/rusty"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

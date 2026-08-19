@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/zombie_villager/savanna/fisherman",
+  "criteria": {
+    "minecraft/zombie_villager/savanna/fletcher": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/zombie_villager/savanna/fletcher"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.zombie_villager_savanna_fletcher"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/zombie_villager/savanna/fletcher"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.zombie_villager_savanna_fletcher"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/zombie_villager/savanna/fletcher"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

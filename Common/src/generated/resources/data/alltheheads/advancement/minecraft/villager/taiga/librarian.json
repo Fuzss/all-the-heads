@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/villager/taiga/leatherworker",
+  "criteria": {
+    "minecraft/villager/taiga/librarian": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/villager/taiga/librarian"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.villager_taiga_librarian"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/villager/taiga/librarian"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.villager_taiga_librarian"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/villager/taiga/librarian"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

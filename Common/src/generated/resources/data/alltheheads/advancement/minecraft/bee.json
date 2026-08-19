@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:root/minecraft/bee",
+  "criteria": {
+    "minecraft/bee": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/bee"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.bee"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/bee"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.bee"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/bee"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

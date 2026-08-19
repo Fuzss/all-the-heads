@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/villager/jungle/fletcher",
+  "criteria": {
+    "minecraft/villager/jungle/leatherworker": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/villager/jungle/leatherworker"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.villager_jungle_leatherworker"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/villager/jungle/leatherworker"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.villager_jungle_leatherworker"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/villager/jungle/leatherworker"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

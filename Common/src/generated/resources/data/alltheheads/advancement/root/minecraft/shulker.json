@@ -1,0 +1,40 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/shulker": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/shulker"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.shulker"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:shulker_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.shulker"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/shulker"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

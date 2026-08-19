@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/sulfur_cube/fast_flat",
+  "criteria": {
+    "minecraft/sulfur_cube/fast_sliding": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/sulfur_cube/fast_sliding"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.sulfur_cube_fast_sliding"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/sulfur_cube/fast_sliding"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.sulfur_cube_fast_sliding"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/sulfur_cube/fast_sliding"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

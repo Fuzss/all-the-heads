@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:root/minecraft/cod",
+  "criteria": {
+    "minecraft/cod": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/cod"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.cod"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/cod"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.cod"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/cod"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/copper_golem",
+  "criteria": {
+    "minecraft/copper_golem/exposed": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/copper_golem/exposed"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.copper_golem_exposed"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/copper_golem/exposed"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.copper_golem_exposed"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/copper_golem/exposed"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

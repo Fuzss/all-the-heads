@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/sheep/woolly/rainbow",
+  "criteria": {
+    "minecraft/sheep/woolly/red": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/sheep/woolly/red"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.sheep_woolly_red"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/sheep/woolly/red"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.sheep_woolly_red"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/sheep/woolly/red"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/horse/chestnut/white_field",
+  "criteria": {
+    "minecraft/horse/creamy": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/horse/creamy"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.horse_creamy"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/horse/creamy"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.horse_creamy"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/horse/creamy"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

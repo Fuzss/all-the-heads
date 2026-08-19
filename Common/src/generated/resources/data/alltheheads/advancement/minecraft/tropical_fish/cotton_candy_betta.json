@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/tropical_fish/clownfish",
+  "criteria": {
+    "minecraft/tropical_fish/cotton_candy_betta": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/tropical_fish/cotton_candy_betta"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.tropical_fish_cotton_candy_betta"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/tropical_fish/cotton_candy_betta"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.tropical_fish_cotton_candy_betta"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/tropical_fish/cotton_candy_betta"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

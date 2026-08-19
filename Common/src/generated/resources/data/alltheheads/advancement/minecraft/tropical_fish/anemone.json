@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:root/minecraft/tropical_fish",
+  "criteria": {
+    "minecraft/tropical_fish/anemone": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/tropical_fish/anemone"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.tropical_fish_anemone"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/tropical_fish/anemone"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.tropical_fish_anemone"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/tropical_fish/anemone"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

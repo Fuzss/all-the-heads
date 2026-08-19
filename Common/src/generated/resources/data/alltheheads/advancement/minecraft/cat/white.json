@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/cat/tabby",
+  "criteria": {
+    "minecraft/cat/white": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/cat/white"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.cat_white"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/cat/white"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.cat_white"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/cat/white"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

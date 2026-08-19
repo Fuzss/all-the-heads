@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/zombie_villager/desert/cartographer",
+  "criteria": {
+    "minecraft/zombie_villager/desert/cleric": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/zombie_villager/desert/cleric"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.zombie_villager_desert_cleric"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/zombie_villager/desert/cleric"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.zombie_villager_desert_cleric"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/zombie_villager/desert/cleric"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:root/minecraft/llama",
+  "criteria": {
+    "minecraft/llama/brown": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/llama/brown"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.llama_brown"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/llama/brown"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.llama_brown"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/llama/brown"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

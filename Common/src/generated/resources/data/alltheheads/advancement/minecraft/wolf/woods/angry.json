@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/wolf/woods",
+  "criteria": {
+    "minecraft/wolf/woods/angry": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/wolf/woods/angry"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.wolf_woods_angry"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/wolf/woods/angry"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.wolf_woods_angry"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/wolf/woods/angry"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

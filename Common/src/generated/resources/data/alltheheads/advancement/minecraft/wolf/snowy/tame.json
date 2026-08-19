@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/wolf/snowy/angry",
+  "criteria": {
+    "minecraft/wolf/snowy/tame": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/wolf/snowy/tame"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.wolf_snowy_tame"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/wolf/snowy/tame"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.wolf_snowy_tame"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/wolf/snowy/tame"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

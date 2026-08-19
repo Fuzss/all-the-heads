@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:root/minecraft/turtle",
+  "criteria": {
+    "minecraft/turtle": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/turtle"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.turtle"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/turtle"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.turtle"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/turtle"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

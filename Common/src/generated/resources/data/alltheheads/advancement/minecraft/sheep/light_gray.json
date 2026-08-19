@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/sheep/light_blue",
+  "criteria": {
+    "minecraft/sheep/light_gray": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/sheep/light_gray"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.sheep_light_gray"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/sheep/light_gray"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.sheep_light_gray"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/sheep/light_gray"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

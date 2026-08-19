@@ -1,0 +1,40 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/cave_spider": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/cave_spider"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.cave_spider"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:cave_spider_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.cave_spider"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/cave_spider"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/villager/snow/butcher",
+  "criteria": {
+    "minecraft/villager/snow/cartographer": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/villager/snow/cartographer"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.villager_snow_cartographer"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/villager/snow/cartographer"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.villager_snow_cartographer"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/villager/snow/cartographer"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

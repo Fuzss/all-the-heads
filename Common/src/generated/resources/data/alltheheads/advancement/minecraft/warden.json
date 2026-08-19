@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:root/minecraft/warden",
+  "criteria": {
+    "minecraft/warden": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/warden"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.warden"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/warden"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.warden"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/warden"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,40 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/dolphin": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/dolphin"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.dolphin"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:dolphin_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.dolphin"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/dolphin"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

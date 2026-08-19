@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/zombie_villager/swamp/weaponsmith",
+  "criteria": {
+    "minecraft/zombie_villager/taiga": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/zombie_villager/taiga"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.zombie_villager_taiga"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/zombie_villager/taiga"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.zombie_villager_taiga"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/zombie_villager/taiga"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

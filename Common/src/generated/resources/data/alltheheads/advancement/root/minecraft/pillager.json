@@ -1,0 +1,40 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/pillager": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/pillager"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.pillager"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:pillager_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.pillager"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/pillager"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

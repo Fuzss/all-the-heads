@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/villager/snow",
+  "criteria": {
+    "minecraft/villager/snow/armorer": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/villager/snow/armorer"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.villager_snow_armorer"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/villager/snow/armorer"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.villager_snow_armorer"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/villager/snow/armorer"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/villager/swamp/nitwit",
+  "criteria": {
+    "minecraft/villager/swamp/shepherd": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/villager/swamp/shepherd"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.villager_swamp_shepherd"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/villager/swamp/shepherd"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.villager_swamp_shepherd"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/villager/swamp/shepherd"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

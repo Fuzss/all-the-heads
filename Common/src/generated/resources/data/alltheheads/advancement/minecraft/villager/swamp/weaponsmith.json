@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/villager/swamp/toolsmith",
+  "criteria": {
+    "minecraft/villager/swamp/weaponsmith": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/villager/swamp/weaponsmith"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.villager_swamp_weaponsmith"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/villager/swamp/weaponsmith"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.villager_swamp_weaponsmith"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/villager/swamp/weaponsmith"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

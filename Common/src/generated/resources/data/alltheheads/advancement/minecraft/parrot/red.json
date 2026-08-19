@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/parrot/green",
+  "criteria": {
+    "minecraft/parrot/red": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/parrot/red"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.parrot_red"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/parrot/red"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.parrot_red"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/parrot/red"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

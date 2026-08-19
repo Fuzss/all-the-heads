@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:root/minecraft/nautilus",
+  "criteria": {
+    "minecraft/nautilus": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/nautilus"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.nautilus"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/nautilus"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.nautilus"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/nautilus"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

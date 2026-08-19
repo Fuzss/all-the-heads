@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:root/minecraft/guardian",
+  "criteria": {
+    "minecraft/guardian": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/guardian"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.guardian"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/guardian"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.guardian"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/guardian"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

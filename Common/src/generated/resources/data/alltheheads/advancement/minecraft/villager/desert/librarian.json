@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/villager/desert/leatherworker",
+  "criteria": {
+    "minecraft/villager/desert/librarian": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/villager/desert/librarian"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.villager_desert_librarian"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/villager/desert/librarian"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.villager_desert_librarian"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/villager/desert/librarian"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

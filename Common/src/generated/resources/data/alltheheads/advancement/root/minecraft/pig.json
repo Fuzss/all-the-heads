@@ -1,0 +1,72 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/pig/cold": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/pig/cold"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/pig/temperate": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/pig/temperate"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/pig/warm": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/pig/warm"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.pig"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:pig_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.pig"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/pig/cold"
+    ],
+    [
+      "minecraft/pig/temperate"
+    ],
+    [
+      "minecraft/pig/warm"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,56 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/mooshroom/brown": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/mooshroom/brown"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/mooshroom/red": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/mooshroom/red"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.mooshroom"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:mooshroom_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.mooshroom"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/mooshroom/brown"
+    ],
+    [
+      "minecraft/mooshroom/red"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

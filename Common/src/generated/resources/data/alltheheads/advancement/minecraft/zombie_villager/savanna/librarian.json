@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/zombie_villager/savanna/leatherworker",
+  "criteria": {
+    "minecraft/zombie_villager/savanna/librarian": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/zombie_villager/savanna/librarian"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.zombie_villager_savanna_librarian"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/zombie_villager/savanna/librarian"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.zombie_villager_savanna_librarian"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/zombie_villager/savanna/librarian"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

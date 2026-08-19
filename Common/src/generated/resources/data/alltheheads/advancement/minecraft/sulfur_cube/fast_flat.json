@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/sulfur_cube/explosive",
+  "criteria": {
+    "minecraft/sulfur_cube/fast_flat": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/sulfur_cube/fast_flat"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.sulfur_cube_fast_flat"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/sulfur_cube/fast_flat"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.sulfur_cube_fast_flat"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/sulfur_cube/fast_flat"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

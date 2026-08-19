@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/tropical_fish/cichlid",
+  "criteria": {
+    "minecraft/tropical_fish/clownfish": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/tropical_fish/clownfish"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.tropical_fish_clownfish"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/tropical_fish/clownfish"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.tropical_fish_clownfish"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/tropical_fish/clownfish"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

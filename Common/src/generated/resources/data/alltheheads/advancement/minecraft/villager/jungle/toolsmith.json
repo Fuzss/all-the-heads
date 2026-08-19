@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/villager/jungle/shepherd",
+  "criteria": {
+    "minecraft/villager/jungle/toolsmith": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/villager/jungle/toolsmith"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.villager_jungle_toolsmith"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/villager/jungle/toolsmith"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.villager_jungle_toolsmith"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/villager/jungle/toolsmith"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

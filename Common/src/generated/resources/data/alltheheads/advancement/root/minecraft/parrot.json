@@ -1,0 +1,104 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/parrot/blue": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/parrot/blue"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/parrot/cyan": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/parrot/cyan"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/parrot/gray": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/parrot/gray"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/parrot/green": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/parrot/green"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/parrot/red": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/parrot/red"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.parrot"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:parrot_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.parrot"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/parrot/blue"
+    ],
+    [
+      "minecraft/parrot/cyan"
+    ],
+    [
+      "minecraft/parrot/gray"
+    ],
+    [
+      "minecraft/parrot/green"
+    ],
+    [
+      "minecraft/parrot/red"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

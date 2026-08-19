@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/villager/swamp/butcher",
+  "criteria": {
+    "minecraft/villager/swamp/cartographer": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/villager/swamp/cartographer"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.villager_swamp_cartographer"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/villager/swamp/cartographer"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.villager_swamp_cartographer"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/villager/swamp/cartographer"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

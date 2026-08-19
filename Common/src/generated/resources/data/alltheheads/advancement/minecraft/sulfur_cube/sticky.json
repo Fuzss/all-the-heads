@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/sulfur_cube/slow_sliding",
+  "criteria": {
+    "minecraft/sulfur_cube/sticky": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/sulfur_cube/sticky"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.sulfur_cube_sticky"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/sulfur_cube/sticky"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.sulfur_cube_sticky"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/sulfur_cube/sticky"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

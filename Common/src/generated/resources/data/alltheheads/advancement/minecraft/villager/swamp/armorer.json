@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/villager/swamp",
+  "criteria": {
+    "minecraft/villager/swamp/armorer": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/villager/swamp/armorer"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.villager_swamp_armorer"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/villager/swamp/armorer"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.villager_swamp_armorer"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/villager/swamp/armorer"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

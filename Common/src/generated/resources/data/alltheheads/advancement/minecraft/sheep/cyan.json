@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/sheep/brown",
+  "criteria": {
+    "minecraft/sheep/cyan": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/sheep/cyan"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.sheep_cyan"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/sheep/cyan"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.sheep_cyan"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/sheep/cyan"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

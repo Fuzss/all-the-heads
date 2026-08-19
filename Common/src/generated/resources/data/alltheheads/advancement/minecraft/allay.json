@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:root/minecraft/allay",
+  "criteria": {
+    "minecraft/allay": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/allay"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.allay"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/allay"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.allay"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/allay"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

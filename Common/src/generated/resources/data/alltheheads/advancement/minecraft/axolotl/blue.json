@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:root/minecraft/axolotl",
+  "criteria": {
+    "minecraft/axolotl/blue": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/axolotl/blue"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.axolotl_blue"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/axolotl/blue"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.axolotl_blue"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/axolotl/blue"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

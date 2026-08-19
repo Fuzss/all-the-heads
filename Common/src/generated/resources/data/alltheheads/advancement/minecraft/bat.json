@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:root/minecraft/bat",
+  "criteria": {
+    "minecraft/bat": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/bat"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.bat"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/bat"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.bat"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/bat"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

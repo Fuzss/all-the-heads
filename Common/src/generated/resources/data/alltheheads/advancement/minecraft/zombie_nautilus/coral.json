@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/zombie_nautilus",
+  "criteria": {
+    "minecraft/zombie_nautilus/coral": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/zombie_nautilus/coral"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.zombie_nautilus_coral"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/zombie_nautilus/coral"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.zombie_nautilus_coral"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/zombie_nautilus/coral"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

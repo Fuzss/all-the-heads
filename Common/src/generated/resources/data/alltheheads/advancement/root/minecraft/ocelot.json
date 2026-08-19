@@ -1,0 +1,40 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/ocelot": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/ocelot"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.ocelot"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:ocelot_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.ocelot"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/ocelot"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/zombie_villager/jungle/armorer",
+  "criteria": {
+    "minecraft/zombie_villager/jungle/butcher": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/zombie_villager/jungle/butcher"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.zombie_villager_jungle_butcher"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/zombie_villager/jungle/butcher"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.zombie_villager_jungle_butcher"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/zombie_villager/jungle/butcher"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

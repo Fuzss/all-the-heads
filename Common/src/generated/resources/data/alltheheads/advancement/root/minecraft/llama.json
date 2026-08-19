@@ -1,0 +1,88 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/llama/brown": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/llama/brown"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/llama/creamy": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/llama/creamy"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/llama/gray": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/llama/gray"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/llama/white": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/llama/white"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.llama"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:llama_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.llama"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/llama/brown"
+    ],
+    [
+      "minecraft/llama/creamy"
+    ],
+    [
+      "minecraft/llama/gray"
+    ],
+    [
+      "minecraft/llama/white"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

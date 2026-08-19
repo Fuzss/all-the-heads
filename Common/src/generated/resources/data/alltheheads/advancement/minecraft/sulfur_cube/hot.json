@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/sulfur_cube/high_resistance",
+  "criteria": {
+    "minecraft/sulfur_cube/hot": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/sulfur_cube/hot"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.sulfur_cube_hot"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/sulfur_cube/hot"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.sulfur_cube_hot"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/sulfur_cube/hot"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

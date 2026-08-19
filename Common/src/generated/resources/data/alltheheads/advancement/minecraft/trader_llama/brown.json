@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:root/minecraft/trader_llama",
+  "criteria": {
+    "minecraft/trader_llama/brown": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/trader_llama/brown"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.trader_llama_brown"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/trader_llama/brown"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.trader_llama_brown"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/trader_llama/brown"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

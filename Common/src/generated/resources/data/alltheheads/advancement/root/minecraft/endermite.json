@@ -1,0 +1,40 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/endermite": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/endermite"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.endermite"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:endermite_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.endermite"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/endermite"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

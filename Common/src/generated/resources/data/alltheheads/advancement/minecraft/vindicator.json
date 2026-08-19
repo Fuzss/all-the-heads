@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:root/minecraft/vindicator",
+  "criteria": {
+    "minecraft/vindicator": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/vindicator"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.vindicator"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/vindicator"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.vindicator"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/vindicator"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

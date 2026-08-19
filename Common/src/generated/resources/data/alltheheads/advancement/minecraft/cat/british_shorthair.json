@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/cat/black",
+  "criteria": {
+    "minecraft/cat/british_shorthair": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/cat/british_shorthair"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.cat_british_shorthair"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/cat/british_shorthair"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.cat_british_shorthair"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/cat/british_shorthair"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

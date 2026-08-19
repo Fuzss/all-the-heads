@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/villager/desert/fletcher",
+  "criteria": {
+    "minecraft/villager/desert/leatherworker": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/villager/desert/leatherworker"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.villager_desert_leatherworker"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/villager/desert/leatherworker"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.villager_desert_leatherworker"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/villager/desert/leatherworker"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

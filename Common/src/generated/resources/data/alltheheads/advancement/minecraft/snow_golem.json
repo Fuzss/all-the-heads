@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:root/minecraft/snow_golem",
+  "criteria": {
+    "minecraft/snow_golem": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/snow_golem"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.snow_golem"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/snow_golem"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.snow_golem"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/snow_golem"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/bee",
+  "criteria": {
+    "minecraft/bee/angry": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/bee/angry"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.bee_angry"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/bee/angry"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.bee_angry"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/bee/angry"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

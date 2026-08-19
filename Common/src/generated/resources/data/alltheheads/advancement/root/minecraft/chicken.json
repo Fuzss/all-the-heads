@@ -1,0 +1,72 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/chicken/cold": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/chicken/cold"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/chicken/temperate": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/chicken/temperate"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/chicken/warm": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/chicken/warm"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.chicken"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:chicken_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.chicken"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/chicken/cold"
+    ],
+    [
+      "minecraft/chicken/temperate"
+    ],
+    [
+      "minecraft/chicken/warm"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

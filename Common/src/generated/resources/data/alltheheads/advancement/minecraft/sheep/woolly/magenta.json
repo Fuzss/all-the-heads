@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/sheep/woolly/lime",
+  "criteria": {
+    "minecraft/sheep/woolly/magenta": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/sheep/woolly/magenta"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.sheep_woolly_magenta"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/sheep/woolly/magenta"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.sheep_woolly_magenta"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/sheep/woolly/magenta"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

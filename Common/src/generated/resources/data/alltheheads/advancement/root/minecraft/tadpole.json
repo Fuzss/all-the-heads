@@ -1,0 +1,40 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/tadpole": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/tadpole"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.tadpole"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:tadpole_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.tadpole"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/tadpole"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

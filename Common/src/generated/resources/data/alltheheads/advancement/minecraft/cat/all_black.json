@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:root/minecraft/cat",
+  "criteria": {
+    "minecraft/cat/all_black": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/cat/all_black"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.cat_all_black"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/cat/all_black"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.cat_all_black"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/cat/all_black"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

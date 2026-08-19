@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:root/minecraft/sniffer",
+  "criteria": {
+    "minecraft/sniffer": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/sniffer"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.sniffer"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/sniffer"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.sniffer"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/sniffer"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

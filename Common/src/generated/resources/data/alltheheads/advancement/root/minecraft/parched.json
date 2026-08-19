@@ -1,0 +1,40 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/parched": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/parched"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.parched"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:parched_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.parched"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/parched"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

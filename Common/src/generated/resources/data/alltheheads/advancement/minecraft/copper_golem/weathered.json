@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/copper_golem/oxidized",
+  "criteria": {
+    "minecraft/copper_golem/weathered": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/copper_golem/weathered"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.copper_golem_weathered"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/copper_golem/weathered"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.copper_golem_weathered"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/copper_golem/weathered"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

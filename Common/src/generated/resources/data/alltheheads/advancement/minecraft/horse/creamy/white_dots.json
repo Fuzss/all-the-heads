@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/horse/creamy/white",
+  "criteria": {
+    "minecraft/horse/creamy/white_dots": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/horse/creamy/white_dots"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.horse_creamy_white_dots"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/horse/creamy/white_dots"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.horse_creamy_white_dots"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/horse/creamy/white_dots"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

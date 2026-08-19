@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/villager/desert/farmer",
+  "criteria": {
+    "minecraft/villager/desert/fisherman": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/villager/desert/fisherman"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.villager_desert_fisherman"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/villager/desert/fisherman"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.villager_desert_fisherman"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/villager/desert/fisherman"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

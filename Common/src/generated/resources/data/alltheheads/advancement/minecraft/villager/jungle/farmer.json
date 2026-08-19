@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/villager/jungle/cleric",
+  "criteria": {
+    "minecraft/villager/jungle/farmer": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/villager/jungle/farmer"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.villager_jungle_farmer"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/villager/jungle/farmer"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.villager_jungle_farmer"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/villager/jungle/farmer"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

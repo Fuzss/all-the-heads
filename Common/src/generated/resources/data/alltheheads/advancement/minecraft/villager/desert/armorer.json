@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/villager/desert",
+  "criteria": {
+    "minecraft/villager/desert/armorer": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/villager/desert/armorer"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.villager_desert_armorer"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/villager/desert/armorer"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.villager_desert_armorer"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/villager/desert/armorer"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

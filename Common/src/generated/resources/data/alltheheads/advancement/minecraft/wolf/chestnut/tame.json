@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/wolf/chestnut/angry",
+  "criteria": {
+    "minecraft/wolf/chestnut/tame": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/wolf/chestnut/tame"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.wolf_chestnut_tame"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/wolf/chestnut/tame"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.wolf_chestnut_tame"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/wolf/chestnut/tame"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

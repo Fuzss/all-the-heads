@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/wolf/black/tame",
+  "criteria": {
+    "minecraft/wolf/chestnut": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/wolf/chestnut"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.wolf_chestnut"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/wolf/chestnut"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.wolf_chestnut"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/wolf/chestnut"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

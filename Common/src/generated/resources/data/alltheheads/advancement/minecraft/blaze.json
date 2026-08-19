@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:root/minecraft/blaze",
+  "criteria": {
+    "minecraft/blaze": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/blaze"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.blaze"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/blaze"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.blaze"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/blaze"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

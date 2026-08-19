@@ -1,0 +1,72 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/cow/cold": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/cow/cold"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/cow/temperate": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/cow/temperate"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/cow/warm": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/cow/warm"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.cow"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:cow_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.cow"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/cow/cold"
+    ],
+    [
+      "minecraft/cow/temperate"
+    ],
+    [
+      "minecraft/cow/warm"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

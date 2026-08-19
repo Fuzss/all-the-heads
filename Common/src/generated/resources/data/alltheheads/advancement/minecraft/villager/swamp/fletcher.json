@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/villager/swamp/fisherman",
+  "criteria": {
+    "minecraft/villager/swamp/fletcher": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/villager/swamp/fletcher"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.villager_swamp_fletcher"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/villager/swamp/fletcher"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.villager_swamp_fletcher"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/villager/swamp/fletcher"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

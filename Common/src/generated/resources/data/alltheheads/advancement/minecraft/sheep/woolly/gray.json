@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/sheep/woolly/cyan",
+  "criteria": {
+    "minecraft/sheep/woolly/gray": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/sheep/woolly/gray"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.sheep_woolly_gray"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/sheep/woolly/gray"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.sheep_woolly_gray"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/sheep/woolly/gray"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

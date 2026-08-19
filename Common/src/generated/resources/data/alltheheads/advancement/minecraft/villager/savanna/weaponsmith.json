@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/villager/savanna/toolsmith",
+  "criteria": {
+    "minecraft/villager/savanna/weaponsmith": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/villager/savanna/weaponsmith"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.villager_savanna_weaponsmith"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/villager/savanna/weaponsmith"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.villager_savanna_weaponsmith"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/villager/savanna/weaponsmith"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:root/minecraft/creaking",
+  "criteria": {
+    "minecraft/creaking": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/creaking"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.creaking"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/creaking"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.creaking"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/creaking"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

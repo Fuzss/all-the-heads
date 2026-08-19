@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/villager/jungle/farmer",
+  "criteria": {
+    "minecraft/villager/jungle/fisherman": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/villager/jungle/fisherman"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.villager_jungle_fisherman"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/villager/jungle/fisherman"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.villager_jungle_fisherman"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/villager/jungle/fisherman"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
