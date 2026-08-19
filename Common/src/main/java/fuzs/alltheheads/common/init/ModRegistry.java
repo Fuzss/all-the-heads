@@ -3,7 +3,7 @@ package fuzs.alltheheads.common.init;
 import com.google.common.collect.ImmutableSet;
 import com.mojang.serialization.Codec;
 import fuzs.alltheheads.common.AllTheHeads;
-import fuzs.alltheheads.common.advancements.critereon.*;
+import fuzs.alltheheads.common.advancements.predicates.entity.*;
 import fuzs.alltheheads.common.init.headtype.MonsterHeadType;
 import fuzs.alltheheads.common.init.headtype.VillagerHeadType;
 import fuzs.alltheheads.common.world.item.MobHeadItem;

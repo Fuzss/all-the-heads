@@ -1,4 +1,4 @@
-package fuzs.alltheheads.common.advancements.critereon;
+package fuzs.alltheheads.common.advancements.predicates.entity;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;

@@ -1,6 +1,6 @@
 package fuzs.alltheheads.common.init.headtype;
 
-import fuzs.alltheheads.common.advancements.critereon.StriderPredicate;
+import fuzs.alltheheads.common.advancements.predicates.entity.StriderPredicate;
 import fuzs.alltheheads.common.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.common.world.item.component.headtype.ModelType;
 import net.minecraft.advancements.predicates.entity.EntityPredicate;

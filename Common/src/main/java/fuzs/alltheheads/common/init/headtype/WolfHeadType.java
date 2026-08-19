@@ -1,6 +1,6 @@
 package fuzs.alltheheads.common.init.headtype;
 
-import fuzs.alltheheads.common.advancements.critereon.WolfPredicate;
+import fuzs.alltheheads.common.advancements.predicates.entity.WolfPredicate;
 import fuzs.alltheheads.common.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.common.world.item.component.headtype.ModelType;
 import net.minecraft.advancements.predicates.DataComponentMatchers;

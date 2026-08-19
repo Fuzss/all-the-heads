@@ -1,6 +1,6 @@
 package fuzs.alltheheads.common.init.headtype;
 
-import fuzs.alltheheads.common.advancements.critereon.CreeperPredicate;
+import fuzs.alltheheads.common.advancements.predicates.entity.CreeperPredicate;
 import fuzs.alltheheads.common.world.item.component.headtype.Color;
 import fuzs.alltheheads.common.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.common.world.item.component.headtype.ModelType;

@@ -1,7 +1,7 @@
 package fuzs.alltheheads.common.init.headtype;
 
 import com.google.common.collect.ImmutableMap;
-import fuzs.alltheheads.common.advancements.critereon.TropicalFishPredicate;
+import fuzs.alltheheads.common.advancements.predicates.entity.TropicalFishPredicate;
 import fuzs.alltheheads.common.world.item.component.headtype.Color;
 import fuzs.alltheheads.common.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.common.world.item.component.headtype.ModelType;
