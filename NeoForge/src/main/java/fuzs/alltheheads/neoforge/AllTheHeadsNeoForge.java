@@ -1,6 +1,7 @@
 package fuzs.alltheheads.neoforge;
 
 import fuzs.alltheheads.common.AllTheHeads;
+import fuzs.alltheheads.common.data.ModAdvancementProvider;
 import fuzs.alltheheads.common.data.loot.ModBlockLootProvider;
 import fuzs.alltheheads.common.data.loot.ModEntityLootProvider;
 import fuzs.alltheheads.common.data.tags.ModBlockTagsProvider;
@@ -22,6 +23,7 @@ public class AllTheHeadsNeoForge {
                 ModEntityLootProvider::new,
                 ModBlockTagsProvider::new,
                 ModItemTagsProvider::new,
-                ModHeadTypeTagsProvider::new);
+                ModHeadTypeTagsProvider::new,
+                ModAdvancementProvider::new);
     }
 }

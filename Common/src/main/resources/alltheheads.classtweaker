@@ -4,3 +4,4 @@ accessible  field   net/minecraft/client/renderer/entity/layers/CustomHeadLayer 
 accessible  method  net/minecraft/client/model/geom/builders/LayerDefinition    <init>  (Lnet/minecraft/client/model/geom/builders/MeshDefinition;Lnet/minecraft/client/model/geom/builders/MaterialDefinition;)V
 accessible  field   net/minecraft/world/entity/monster/Creeper  droppedSkulls   Z
 accessible  field   net/minecraft/advancements/predicates/entity/EntityPredicate    parts   Ljava/util/Map;
+accessible  field   net/minecraft/advancements/Advancement$Builder  parent  Ljava/util/Optional;
