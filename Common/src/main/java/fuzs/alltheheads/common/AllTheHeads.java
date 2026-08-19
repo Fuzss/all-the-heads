@@ -14,12 +14,13 @@ import fuzs.puzzleslib.common.api.core.v1.context.DataPackRegistriesContext;
 import fuzs.puzzleslib.common.api.event.v1.entity.living.CalculateLivingVisibilityCallback;
 import fuzs.puzzleslib.common.api.event.v1.entity.living.LivingDropsCallback;
 import fuzs.puzzleslib.common.api.event.v1.server.LootTableLoadCallback;
-import fuzs.puzzleslib.common.api.event.v1.server.TagsUpdatedCallback;
+import fuzs.puzzleslib.common.api.event.v1.server.ServerResourcesLoadCallback;
 import net.minecraft.core.Holder;
-import net.minecraft.core.HolderLookup;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.server.ReloadableServerResources;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import org.slf4j.Logger;
@@ -55,25 +56,23 @@ public class AllTheHeads implements ModConstructor {
             return;
         }
 
-        TagsUpdatedCallback.EVENT.register((HolderLookup.Provider registries, boolean isClientUpdate) -> {
-            if (!isClientUpdate) {
-                Set<ResourceKey<EntityType<?>>> mobEntities = BuiltInRegistries.ENTITY_TYPE.stream()
-                        .filter((EntityType<?> entityType) -> entityType.getCategory() != MobCategory.MISC)
-                        .map(BuiltInRegistries.ENTITY_TYPE::getResourceKey)
-                        .<ResourceKey<EntityType<?>>>mapMulti(Optional::ifPresent)
-                        .collect(Collectors.toSet());
-                Set<ResourceKey<EntityType<?>>> headTypeEntities = registries.lookupOrThrow(ModRegistry.HEAD_REGISTRY_KEY)
-                        .listElements()
-                        .map(Holder.Reference::value)
-                        .map(HeadType::getEntityType)
-                        .distinct()
-                        .map(BuiltInRegistries.ENTITY_TYPE::getResourceKey)
-                        .<ResourceKey<EntityType<?>>>mapMulti(Optional::ifPresent)
-                        .collect(Collectors.toSet());
-                Sets.difference(mobEntities, headTypeEntities).forEach((ResourceKey<EntityType<?>> resourceKey) -> {
-                    LOGGER.warn("Missing head type for {}", resourceKey);
-                });
-            }
+        ServerResourcesLoadCallback.EVENT.register((ReloadableServerResources serverResources, RegistryAccess registries) -> {
+            Set<ResourceKey<EntityType<?>>> mobEntities = BuiltInRegistries.ENTITY_TYPE.stream()
+                    .filter((EntityType<?> entityType) -> entityType.getCategory() != MobCategory.MISC)
+                    .map(BuiltInRegistries.ENTITY_TYPE::getResourceKey)
+                    .<ResourceKey<EntityType<?>>>mapMulti(Optional::ifPresent)
+                    .collect(Collectors.toSet());
+            Set<ResourceKey<EntityType<?>>> headTypeEntities = registries.lookupOrThrow(ModRegistry.HEAD_REGISTRY_KEY)
+                    .listElements()
+                    .map(Holder.Reference::value)
+                    .map(HeadType::getEntityType)
+                    .distinct()
+                    .map(BuiltInRegistries.ENTITY_TYPE::getResourceKey)
+                    .<ResourceKey<EntityType<?>>>mapMulti(Optional::ifPresent)
+                    .collect(Collectors.toSet());
+            Sets.difference(mobEntities, headTypeEntities).forEach((ResourceKey<EntityType<?>> resourceKey) -> {
+                LOGGER.warn("Missing head type for {}", resourceKey);
+            });
         });
     }
 

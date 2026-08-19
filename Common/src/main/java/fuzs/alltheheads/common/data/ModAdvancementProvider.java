@@ -9,10 +9,10 @@ import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
 import net.minecraft.SharedConstants;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementHolder;
-import net.minecraft.advancements.predicates.DataComponentMatchers;
-import net.minecraft.advancements.predicates.ItemPredicate;
-import net.minecraft.advancements.triggers.Criterion;
-import net.minecraft.advancements.triggers.InventoryChangeTrigger;
+import net.minecraft.advancements.Criterion;
+import net.minecraft.advancements.criterion.DataComponentMatchers;
+import net.minecraft.advancements.criterion.InventoryChangeTrigger;
+import net.minecraft.advancements.criterion.ItemPredicate;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponentExactPredicate;
@@ -107,8 +107,8 @@ public class ModAdvancementProvider extends AbstractAdvancementProvider {
                 .listElements()
                 .sorted(HOLDER_COMPARATOR)
                 .mapMulti((Holder.Reference<HeadType> headType, Consumer<Map.Entry<Holder<EntityType<?>>, Holder.Reference<HeadType>>> consumer) -> {
-                    headType.value().getEntityTypes().forEach((Holder<EntityType<?>> holder) -> {
-                        consumer.accept(Map.entry(holder, headType));
+                    headType.value().getEntityTypes().forEach((EntityType<?> entityType) -> {
+                        consumer.accept(Map.entry(entityType.builtInRegistryHolder(), headType));
                     });
                 })
                 .collect(Collectors.groupingBy(Map.Entry::getKey,
