@@ -126,7 +126,7 @@ public class ModRegistry {
                         .lookupOrThrow(HEAD_REGISTRY_KEY)
                         .listElements()
                         .filter((Holder.Reference<HeadType> holder) -> !holder.is(ModRegistry.VILLAGER_LIKE_HEAD_TYPE_TAG))
-                        .map(MobHeadItem::createHead)
+                        .map(MobHeadItem::createItem)
                         .forEach(output::accept);
             },
             true);
@@ -138,7 +138,7 @@ public class ModRegistry {
                         .lookupOrThrow(HEAD_REGISTRY_KEY)
                         .listElements()
                         .filter((Holder.Reference<HeadType> holder) -> holder.is(ModRegistry.VILLAGER_LIKE_HEAD_TYPE_TAG))
-                        .map(MobHeadItem::createHead)
+                        .map(MobHeadItem::createItem)
                         .forEach(output::accept);
             },
             true);
@@ -151,10 +151,10 @@ public class ModRegistry {
         ModLootTables.bootstrap();
     }
 
-    private static ItemStack createDisplayItemStack(ResourceKey<HeadType> resourceKey) {
+    private static ItemStack createDisplayItemStack(ResourceKey<HeadType> key) {
         RegistryAccess registries = CommonHelper.getRegistryAccess();
         if (registries != null) {
-            return MobHeadItem.createHead(registries, resourceKey);
+            return MobHeadItem.createItem(registries, key);
         } else {
             return new ItemStack(MOB_HEAD_ITEM);
         }
