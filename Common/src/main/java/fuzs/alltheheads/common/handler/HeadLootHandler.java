@@ -44,7 +44,7 @@ public class HeadLootHandler {
                         .listElements()
                         .forEach((Holder.Reference<HeadType> headType) -> {
                             if (headType.value().loot().chargedCreeperDrop() && headType.value()
-                                    .matches(livingEntity)) {
+                                    .matches(serverLevel, livingEntity)) {
                                 ItemStack itemStack = MobHeadItem.createItem(headType);
                                 livingEntity.spawnAtLocation(serverLevel, itemStack);
                                 creeper.droppedSkulls = true;

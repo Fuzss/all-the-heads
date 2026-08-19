@@ -84,10 +84,11 @@ public record HeadType(EntityPredicate entityPredicate,
     }
 
     public Component getName(String descriptionId) {
-        return Component.translatable(this.customName.map((String s) -> descriptionId + "." + s).orElse(descriptionId));
+        return Component.translatable(this.customName.map((String name) -> descriptionId + "." + name)
+                .orElse(descriptionId));
     }
 
-    public boolean matches(Entity entity) {
-        return this.entityPredicate().matches((ServerLevel) entity.level(), entity.position(), entity);
+    public boolean matches(ServerLevel serverLevel, Entity entity) {
+        return this.entityPredicate().matches(serverLevel, entity.position(), entity);
     }
 }
