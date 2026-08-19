@@ -1,26 +1,21 @@
 package fuzs.alltheheads.common.world.item.component.headtype;
 
 import com.google.common.collect.ImmutableList;
-import net.minecraft.advancements.predicates.entity.EntityPredicate;
-import net.minecraft.advancements.predicates.entity.EntityTypePredicate;
+import fuzs.alltheheads.common.init.HeadTypes;
 import net.minecraft.core.Holder;
-import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.storage.loot.LootTable;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.function.Consumer;
 
 public final class Builder {
-    private final List<Consumer<EntityPredicate.Builder>> entityPredicate = new ArrayList<>();
     private Shape shape = new Shape(8.0, 8.0, 8.0);
     private double scale = 1.0;
     private final List<Model> models = new ArrayList<>();
@@ -29,17 +24,6 @@ public final class Builder {
     private boolean chargedCreeperDrop = true;
     private boolean mobDisguise = true;
     private Optional<String> customName = Optional.empty();
-
-    Builder(HolderSet<EntityType<?>> types) {
-        this.entityPredicate.add((EntityPredicate.Builder builder) -> {
-            builder.entityType(new EntityTypePredicate(types));
-        });
-    }
-
-    public Builder entityPredicate(Consumer<EntityPredicate.Builder> entityPredicate) {
-        this.entityPredicate.add(entityPredicate);
-        return this;
-    }
 
     public Builder shape(double width, double height, double depth) {
         return this.shape(new Shape(width, height, depth));
@@ -107,23 +91,22 @@ public final class Builder {
     }
 
     public void build(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey) {
-        this.lootTable(resourceKey).customName(resourceKey);
-        context.register(resourceKey,
-                new HeadType(this.entityPredicate(),
-                        this.shape.scale(this.scale),
-                        this.buildLoot(),
-                        this.customName,
-                        this.mobDisguise,
-                        this.noteBlockSound,
-                        ImmutableList.copyOf(this.models)));
-    }
+        if (this.lootTable.isEmpty()) {
+            this.lootTable(resourceKey);
+        }
 
-    private EntityPredicate entityPredicate() {
-        EntityPredicate.Builder builder = EntityPredicate.Builder.entity();
-        this.entityPredicate.forEach((Consumer<EntityPredicate.Builder> builderConsumer) -> {
-            builderConsumer.accept(builder);
-        });
-        return builder.build();
+        if (this.customName.isEmpty()) {
+            this.customName(resourceKey);
+        }
+
+        HeadType value = new HeadType(Optional.of(HeadTypes.conditionKey(resourceKey)),
+                this.shape.scale(this.scale),
+                this.buildLoot(),
+                this.customName,
+                this.mobDisguise,
+                this.noteBlockSound,
+                ImmutableList.copyOf(this.models));
+        context.register(resourceKey, value);
     }
 
     private Loot buildLoot() {

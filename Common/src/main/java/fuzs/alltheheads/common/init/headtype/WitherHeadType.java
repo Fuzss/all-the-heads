@@ -8,9 +8,11 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityTypes;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 
 import java.util.function.BiConsumer;
 
+import static fuzs.alltheheads.common.init.HeadTypes.bootstrap;
 import static fuzs.alltheheads.common.init.HeadTypes.register;
 
 public class WitherHeadType {
@@ -19,7 +21,7 @@ public class WitherHeadType {
     public static final ResourceKey<HeadType> BLUE_WITHER = register("wither/blue");
     public static final ResourceKey<HeadType> SHIELDED_BLUE_WITHER = register("wither/blue/shielded");
 
-    public static void bootstrap(BootstrapContext<HeadType> context) {
+    public static void bootstrapHeadTypes(BootstrapContext<HeadType> context) {
         bootstrapWither(context, WITHER, "entity/wither/wither");
         bootstrapWither(context, BLUE_WITHER, "entity/wither/wither_invulnerable");
         bootstrapPoweredWither(context, SHIELED_WITHER, "entity/wither/wither");
@@ -27,7 +29,7 @@ public class WitherHeadType {
     }
 
     private static void bootstrapWither(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation) {
-        HeadType.builder(EntityTypes.WITHER)
+        HeadType.builder()
                 .shape(8.0, 8.0, 8.0)
                 .litModel(ModelType.HUMANOID, Identifier.withDefaultNamespace(textureLocation))
                 .noteBlockSound(SoundEvents.WITHER_AMBIENT)
@@ -35,7 +37,7 @@ public class WitherHeadType {
     }
 
     private static void bootstrapPoweredWither(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation) {
-        HeadType.builder(EntityTypes.WITHER)
+        HeadType.builder()
                 .shape(8.0, 8.0, 8.0)
                 .litModel(ModelType.HUMANOID, Identifier.withDefaultNamespace(textureLocation))
                 .dyedModel(ModelType.WITHER_SHIELD,
@@ -43,6 +45,13 @@ public class WitherHeadType {
                         new Color.Constant(0xFF808080))
                 .noteBlockSound(SoundEvents.WITHER_AMBIENT)
                 .build(context, resourceKey);
+    }
+
+    public static void bootstrapLootItemConditions(BootstrapContext<LootItemCondition> context) {
+        bootstrap(context, WITHER, EntityTypes.WITHER);
+        bootstrap(context, BLUE_WITHER, EntityTypes.WITHER);
+        bootstrap(context, SHIELED_WITHER, EntityTypes.WITHER);
+        bootstrap(context, SHIELDED_BLUE_WITHER, EntityTypes.WITHER);
     }
 
     public static void registerTranslations(BiConsumer<ResourceKey<HeadType>, String> translationConsumer) {

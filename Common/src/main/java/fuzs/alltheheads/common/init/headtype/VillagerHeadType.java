@@ -12,9 +12,11 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.npc.villager.VillagerProfession;
 import net.minecraft.world.entity.npc.villager.VillagerType;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 
 import java.util.function.BiConsumer;
 
+import static fuzs.alltheheads.common.init.HeadTypes.bootstrap;
 import static fuzs.alltheheads.common.init.HeadTypes.register;
 
 public class VillagerHeadType {
@@ -131,7 +133,7 @@ public class VillagerHeadType {
     public static final ResourceKey<HeadType> TAIGA_TOOLSMITH_VILLAGER = register("villager/taiga/toolsmith");
     public static final ResourceKey<HeadType> TAIGA_WEAPONSMITH_VILLAGER = register("villager/taiga/weaponsmith");
 
-    public static void bootstrap(BootstrapContext<HeadType> context) {
+    public static void bootstrapHeadTypes(BootstrapContext<HeadType> context) {
         // Desert Villagers
         bootstrapVillager(context, VillagerType.DESERT, DESERT_VILLAGER);
         bootstrapVillager(context, VillagerType.DESERT, VillagerProfession.ARMORER, DESERT_ARMORER_VILLAGER);
@@ -268,13 +270,7 @@ public class VillagerHeadType {
     }
 
     private static void bootstrapVillager(BootstrapContext<HeadType> context, ResourceKey<VillagerType> type, ResourceKey<HeadType> resourceKey) {
-        HeadType.builder(EntityTypes.VILLAGER)
-                .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.put(VillagerDataPredicate.CODEC,
-                            VillagerDataPredicate.hasData(context.lookup(Registries.VILLAGER_TYPE).getOrThrow(type),
-                                    context.lookup(Registries.VILLAGER_PROFESSION)
-                                            .getOrThrow(VillagerProfession.NONE)));
-                })
+        HeadType.builder()
                 .shape(8.0, 10.0, 8.0)
                 .scale(0.9375)
                 .model(ModelType.VILLAGER, Identifier.withDefaultNamespace("entity/villager/villager"))
@@ -284,12 +280,7 @@ public class VillagerHeadType {
     }
 
     private static void bootstrapVillager(BootstrapContext<HeadType> context, ResourceKey<VillagerType> type, ResourceKey<VillagerProfession> profession, ResourceKey<HeadType> resourceKey) {
-        HeadType.builder(EntityTypes.VILLAGER)
-                .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.put(VillagerDataPredicate.CODEC,
-                            VillagerDataPredicate.hasData(context.lookup(Registries.VILLAGER_TYPE).getOrThrow(type),
-                                    context.lookup(Registries.VILLAGER_PROFESSION).getOrThrow(profession)));
-                })
+        HeadType.builder()
                 .shape(8.0, 10.0, 8.0)
                 .scale(0.9375)
                 .model(ModelType.VILLAGER, Identifier.withDefaultNamespace("entity/villager/villager"))
@@ -297,6 +288,248 @@ public class VillagerHeadType {
                 .model(ModelType.VILLAGER, profession.identifier().withPrefix("entity/villager/profession/"))
                 .noteBlockSound(SoundEvents.VILLAGER_AMBIENT)
                 .build(context, resourceKey);
+    }
+
+    public static void bootstrapLootItemConditions(BootstrapContext<LootItemCondition> context) {
+        // Desert Villagers
+        bootstrapLootItemCondition(context, VillagerType.DESERT, DESERT_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.DESERT, VillagerProfession.ARMORER, DESERT_ARMORER_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.DESERT, VillagerProfession.BUTCHER, DESERT_BUTCHER_VILLAGER);
+        bootstrapLootItemCondition(context,
+                VillagerType.DESERT,
+                VillagerProfession.CARTOGRAPHER,
+                DESERT_CARTOGRAPHER_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.DESERT, VillagerProfession.CLERIC, DESERT_CLERIC_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.DESERT, VillagerProfession.FARMER, DESERT_FARMER_VILLAGER);
+        bootstrapLootItemCondition(context,
+                VillagerType.DESERT,
+                VillagerProfession.FISHERMAN,
+                DESERT_FISHERMAN_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.DESERT, VillagerProfession.FLETCHER, DESERT_FLETCHER_VILLAGER);
+        bootstrapLootItemCondition(context,
+                VillagerType.DESERT,
+                VillagerProfession.LEATHERWORKER,
+                DESERT_LEATHERWORKER_VILLAGER);
+        bootstrapLootItemCondition(context,
+                VillagerType.DESERT,
+                VillagerProfession.LIBRARIAN,
+                DESERT_LIBRARIAN_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.DESERT, VillagerProfession.MASON, DESERT_MASON_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.DESERT, VillagerProfession.NITWIT, DESERT_NITWIT_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.DESERT, VillagerProfession.SHEPHERD, DESERT_SHEPHERD_VILLAGER);
+        bootstrapLootItemCondition(context,
+                VillagerType.DESERT,
+                VillagerProfession.TOOLSMITH,
+                DESERT_TOOLSMITH_VILLAGER);
+        bootstrapLootItemCondition(context,
+                VillagerType.DESERT,
+                VillagerProfession.WEAPONSMITH,
+                DESERT_WEAPONSMITH_VILLAGER);
+
+        // Jungle Villagers
+        bootstrapLootItemCondition(context, VillagerType.JUNGLE, JUNGLE_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.JUNGLE, VillagerProfession.ARMORER, JUNGLE_ARMORER_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.JUNGLE, VillagerProfession.BUTCHER, JUNGLE_BUTCHER_VILLAGER);
+        bootstrapLootItemCondition(context,
+                VillagerType.JUNGLE,
+                VillagerProfession.CARTOGRAPHER,
+                JUNGLE_CARTOGRAPHER_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.JUNGLE, VillagerProfession.CLERIC, JUNGLE_CLERIC_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.JUNGLE, VillagerProfession.FARMER, JUNGLE_FARMER_VILLAGER);
+        bootstrapLootItemCondition(context,
+                VillagerType.JUNGLE,
+                VillagerProfession.FISHERMAN,
+                JUNGLE_FISHERMAN_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.JUNGLE, VillagerProfession.FLETCHER, JUNGLE_FLETCHER_VILLAGER);
+        bootstrapLootItemCondition(context,
+                VillagerType.JUNGLE,
+                VillagerProfession.LEATHERWORKER,
+                JUNGLE_LEATHERWORKER_VILLAGER);
+        bootstrapLootItemCondition(context,
+                VillagerType.JUNGLE,
+                VillagerProfession.LIBRARIAN,
+                JUNGLE_LIBRARIAN_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.JUNGLE, VillagerProfession.MASON, JUNGLE_MASON_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.JUNGLE, VillagerProfession.NITWIT, JUNGLE_NITWIT_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.JUNGLE, VillagerProfession.SHEPHERD, JUNGLE_SHEPHERD_VILLAGER);
+        bootstrapLootItemCondition(context,
+                VillagerType.JUNGLE,
+                VillagerProfession.TOOLSMITH,
+                JUNGLE_TOOLSMITH_VILLAGER);
+        bootstrapLootItemCondition(context,
+                VillagerType.JUNGLE,
+                VillagerProfession.WEAPONSMITH,
+                JUNGLE_WEAPONSMITH_VILLAGER);
+
+        // Plains Villagers
+        bootstrapLootItemCondition(context, VillagerType.PLAINS, PLAINS_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.PLAINS, VillagerProfession.ARMORER, PLAINS_ARMORER_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.PLAINS, VillagerProfession.BUTCHER, PLAINS_BUTCHER_VILLAGER);
+        bootstrapLootItemCondition(context,
+                VillagerType.PLAINS,
+                VillagerProfession.CARTOGRAPHER,
+                PLAINS_CARTOGRAPHER_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.PLAINS, VillagerProfession.CLERIC, PLAINS_CLERIC_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.PLAINS, VillagerProfession.FARMER, PLAINS_FARMER_VILLAGER);
+        bootstrapLootItemCondition(context,
+                VillagerType.PLAINS,
+                VillagerProfession.FISHERMAN,
+                PLAINS_FISHERMAN_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.PLAINS, VillagerProfession.FLETCHER, PLAINS_FLETCHER_VILLAGER);
+        bootstrapLootItemCondition(context,
+                VillagerType.PLAINS,
+                VillagerProfession.LEATHERWORKER,
+                PLAINS_LEATHERWORKER_VILLAGER);
+        bootstrapLootItemCondition(context,
+                VillagerType.PLAINS,
+                VillagerProfession.LIBRARIAN,
+                PLAINS_LIBRARIAN_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.PLAINS, VillagerProfession.MASON, PLAINS_MASON_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.PLAINS, VillagerProfession.NITWIT, PLAINS_NITWIT_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.PLAINS, VillagerProfession.SHEPHERD, PLAINS_SHEPHERD_VILLAGER);
+        bootstrapLootItemCondition(context,
+                VillagerType.PLAINS,
+                VillagerProfession.TOOLSMITH,
+                PLAINS_TOOLSMITH_VILLAGER);
+        bootstrapLootItemCondition(context,
+                VillagerType.PLAINS,
+                VillagerProfession.WEAPONSMITH,
+                PLAINS_WEAPONSMITH_VILLAGER);
+
+        // Savanna Villagers
+        bootstrapLootItemCondition(context, VillagerType.SAVANNA, SAVANNA_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.SAVANNA, VillagerProfession.ARMORER, SAVANNA_ARMORER_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.SAVANNA, VillagerProfession.BUTCHER, SAVANNA_BUTCHER_VILLAGER);
+        bootstrapLootItemCondition(context,
+                VillagerType.SAVANNA,
+                VillagerProfession.CARTOGRAPHER,
+                SAVANNA_CARTOGRAPHER_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.SAVANNA, VillagerProfession.CLERIC, SAVANNA_CLERIC_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.SAVANNA, VillagerProfession.FARMER, SAVANNA_FARMER_VILLAGER);
+        bootstrapLootItemCondition(context,
+                VillagerType.SAVANNA,
+                VillagerProfession.FISHERMAN,
+                SAVANNA_FISHERMAN_VILLAGER);
+        bootstrapLootItemCondition(context,
+                VillagerType.SAVANNA,
+                VillagerProfession.FLETCHER,
+                SAVANNA_FLETCHER_VILLAGER);
+        bootstrapLootItemCondition(context,
+                VillagerType.SAVANNA,
+                VillagerProfession.LEATHERWORKER,
+                SAVANNA_LEATHERWORKER_VILLAGER);
+        bootstrapLootItemCondition(context,
+                VillagerType.SAVANNA,
+                VillagerProfession.LIBRARIAN,
+                SAVANNA_LIBRARIAN_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.SAVANNA, VillagerProfession.MASON, SAVANNA_MASON_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.SAVANNA, VillagerProfession.NITWIT, SAVANNA_NITWIT_VILLAGER);
+        bootstrapLootItemCondition(context,
+                VillagerType.SAVANNA,
+                VillagerProfession.SHEPHERD,
+                SAVANNA_SHEPHERD_VILLAGER);
+        bootstrapLootItemCondition(context,
+                VillagerType.SAVANNA,
+                VillagerProfession.TOOLSMITH,
+                SAVANNA_TOOLSMITH_VILLAGER);
+        bootstrapLootItemCondition(context,
+                VillagerType.SAVANNA,
+                VillagerProfession.WEAPONSMITH,
+                SAVANNA_WEAPONSMITH_VILLAGER);
+
+        // Snow Villagers
+        bootstrapLootItemCondition(context, VillagerType.SNOW, SNOW_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.SNOW, VillagerProfession.ARMORER, SNOW_ARMORER_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.SNOW, VillagerProfession.BUTCHER, SNOW_BUTCHER_VILLAGER);
+        bootstrapLootItemCondition(context,
+                VillagerType.SNOW,
+                VillagerProfession.CARTOGRAPHER,
+                SNOW_CARTOGRAPHER_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.SNOW, VillagerProfession.CLERIC, SNOW_CLERIC_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.SNOW, VillagerProfession.FARMER, SNOW_FARMER_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.SNOW, VillagerProfession.FISHERMAN, SNOW_FISHERMAN_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.SNOW, VillagerProfession.FLETCHER, SNOW_FLETCHER_VILLAGER);
+        bootstrapLootItemCondition(context,
+                VillagerType.SNOW,
+                VillagerProfession.LEATHERWORKER,
+                SNOW_LEATHERWORKER_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.SNOW, VillagerProfession.LIBRARIAN, SNOW_LIBRARIAN_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.SNOW, VillagerProfession.MASON, SNOW_MASON_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.SNOW, VillagerProfession.NITWIT, SNOW_NITWIT_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.SNOW, VillagerProfession.SHEPHERD, SNOW_SHEPHERD_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.SNOW, VillagerProfession.TOOLSMITH, SNOW_TOOLSMITH_VILLAGER);
+        bootstrapLootItemCondition(context,
+                VillagerType.SNOW,
+                VillagerProfession.WEAPONSMITH,
+                SNOW_WEAPONSMITH_VILLAGER);
+
+        // Swamp Villagers
+        bootstrapLootItemCondition(context, VillagerType.SWAMP, SWAMP_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.SWAMP, VillagerProfession.ARMORER, SWAMP_ARMORER_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.SWAMP, VillagerProfession.BUTCHER, SWAMP_BUTCHER_VILLAGER);
+        bootstrapLootItemCondition(context,
+                VillagerType.SWAMP,
+                VillagerProfession.CARTOGRAPHER,
+                SWAMP_CARTOGRAPHER_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.SWAMP, VillagerProfession.CLERIC, SWAMP_CLERIC_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.SWAMP, VillagerProfession.FARMER, SWAMP_FARMER_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.SWAMP, VillagerProfession.FISHERMAN, SWAMP_FISHERMAN_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.SWAMP, VillagerProfession.FLETCHER, SWAMP_FLETCHER_VILLAGER);
+        bootstrapLootItemCondition(context,
+                VillagerType.SWAMP,
+                VillagerProfession.LEATHERWORKER,
+                SWAMP_LEATHERWORKER_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.SWAMP, VillagerProfession.LIBRARIAN, SWAMP_LIBRARIAN_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.SWAMP, VillagerProfession.MASON, SWAMP_MASON_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.SWAMP, VillagerProfession.NITWIT, SWAMP_NITWIT_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.SWAMP, VillagerProfession.SHEPHERD, SWAMP_SHEPHERD_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.SWAMP, VillagerProfession.TOOLSMITH, SWAMP_TOOLSMITH_VILLAGER);
+        bootstrapLootItemCondition(context,
+                VillagerType.SWAMP,
+                VillagerProfession.WEAPONSMITH,
+                SWAMP_WEAPONSMITH_VILLAGER);
+
+        // Taiga Villagers
+        bootstrapLootItemCondition(context, VillagerType.TAIGA, TAIGA_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.TAIGA, VillagerProfession.ARMORER, TAIGA_ARMORER_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.TAIGA, VillagerProfession.BUTCHER, TAIGA_BUTCHER_VILLAGER);
+        bootstrapLootItemCondition(context,
+                VillagerType.TAIGA,
+                VillagerProfession.CARTOGRAPHER,
+                TAIGA_CARTOGRAPHER_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.TAIGA, VillagerProfession.CLERIC, TAIGA_CLERIC_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.TAIGA, VillagerProfession.FARMER, TAIGA_FARMER_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.TAIGA, VillagerProfession.FISHERMAN, TAIGA_FISHERMAN_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.TAIGA, VillagerProfession.FLETCHER, TAIGA_FLETCHER_VILLAGER);
+        bootstrapLootItemCondition(context,
+                VillagerType.TAIGA,
+                VillagerProfession.LEATHERWORKER,
+                TAIGA_LEATHERWORKER_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.TAIGA, VillagerProfession.LIBRARIAN, TAIGA_LIBRARIAN_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.TAIGA, VillagerProfession.MASON, TAIGA_MASON_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.TAIGA, VillagerProfession.NITWIT, TAIGA_NITWIT_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.TAIGA, VillagerProfession.SHEPHERD, TAIGA_SHEPHERD_VILLAGER);
+        bootstrapLootItemCondition(context, VillagerType.TAIGA, VillagerProfession.TOOLSMITH, TAIGA_TOOLSMITH_VILLAGER);
+        bootstrapLootItemCondition(context,
+                VillagerType.TAIGA,
+                VillagerProfession.WEAPONSMITH,
+                TAIGA_WEAPONSMITH_VILLAGER);
+    }
+
+    private static void bootstrapLootItemCondition(BootstrapContext<LootItemCondition> context, ResourceKey<VillagerType> type, ResourceKey<HeadType> resourceKey) {
+        bootstrap(context, resourceKey, EntityTypes.VILLAGER, (EntityPredicate.Builder builder) -> {
+            builder.put(VillagerDataPredicate.CODEC,
+                    VillagerDataPredicate.hasData(context.lookup(Registries.VILLAGER_TYPE).getOrThrow(type),
+                            context.lookup(Registries.VILLAGER_PROFESSION).getOrThrow(VillagerProfession.NONE)));
+        });
+    }
+
+    private static void bootstrapLootItemCondition(BootstrapContext<LootItemCondition> context, ResourceKey<VillagerType> type, ResourceKey<VillagerProfession> profession, ResourceKey<HeadType> resourceKey) {
+        bootstrap(context, resourceKey, EntityTypes.VILLAGER, (EntityPredicate.Builder builder) -> {
+            builder.put(VillagerDataPredicate.CODEC,
+                    VillagerDataPredicate.hasData(context.lookup(Registries.VILLAGER_TYPE).getOrThrow(type),
+                            context.lookup(Registries.VILLAGER_PROFESSION).getOrThrow(profession)));
+        });
     }
 
     public static void registerTranslations(BiConsumer<ResourceKey<HeadType>, String> translationConsumer) {

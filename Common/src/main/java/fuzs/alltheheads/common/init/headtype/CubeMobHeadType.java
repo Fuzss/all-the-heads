@@ -14,9 +14,11 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 
 import java.util.function.BiConsumer;
 
+import static fuzs.alltheheads.common.init.HeadTypes.bootstrap;
 import static fuzs.alltheheads.common.init.HeadTypes.register;
 
 public class CubeMobHeadType {
@@ -36,19 +38,19 @@ public class CubeMobHeadType {
     public static final ResourceKey<HeadType> EXPLOSIVE_SULFUR_CUBE = register("sulfur_cube/explosive");
     public static final ResourceKey<HeadType> HOT_SULFUR_CUBE = register("sulfur_cube/hot");
 
-    public static void bootstrap(BootstrapContext<HeadType> context) {
-        HeadType.builder(EntityTypes.MAGMA_CUBE)
+    public static void bootstrapHeadTypes(BootstrapContext<HeadType> context) {
+        HeadType.builder()
                 .shape(8.0, 8.0, 8.0)
                 .litModel(ModelType.MAGMA_CUBE, Identifier.withDefaultNamespace("entity/slime/magmacube"))
                 .noteBlockSound(SoundEvents.MAGMA_CUBE_SQUISH_SMALL)
                 .build(context, MAGMA_CUBE);
-        HeadType.builder(EntityTypes.SLIME)
+        HeadType.builder()
                 .shape(8.0, 8.0, 8.0)
                 .model(ModelType.SLIME, Identifier.withDefaultNamespace("entity/slime/slime"))
                 .model(ModelType.SLIME_GEL, Identifier.withDefaultNamespace("entity/slime/slime"))
                 .noteBlockSound(SoundEvents.SLIME_SQUISH)
                 .build(context, SLIME);
-        HeadType.builder(EntityTypes.SULFUR_CUBE)
+        HeadType.builder()
                 .shape(18.0, 18.0, 18.0)
                 .scale(8.0 / 18.0)
                 .model(ModelType.SULFUR_CUBE, Identifier.withDefaultNamespace("entity/sulfur_cube/sulfur_cube_inner"))
@@ -56,60 +58,23 @@ public class CubeMobHeadType {
                         Identifier.withDefaultNamespace("entity/sulfur_cube/sulfur_cube_outer"))
                 .noteBlockSound(SoundEvents.SULFUR_CUBE_SQUISH)
                 .build(context, SULFUR_CUBE);
-        bootstrapSulfurCube(context,
-                ItemTags.SULFUR_CUBE_ARCHETYPE_REGULAR,
-                REGULAR_SULFUR_CUBE,
-                ModelType.SULFUR_CUBE_REGULAR);
-        bootstrapSulfurCube(context,
-                ItemTags.SULFUR_CUBE_ARCHETYPE_BOUNCY,
-                BOUNCY_SULFUR_CUBE,
-                ModelType.SULFUR_CUBE_BOUNCY);
-        bootstrapSulfurCube(context,
-                ItemTags.SULFUR_CUBE_ARCHETYPE_SLOW_BOUNCY,
-                SLOW_BOUNCY_SULFUR_CUBE,
-                ModelType.SULFUR_CUBE_SLOW_BOUNCY);
-        bootstrapSulfurCube(context,
-                ItemTags.SULFUR_CUBE_ARCHETYPE_SLOW_FLAT,
-                SLOW_FLAT_SULFUR_CUBE,
-                ModelType.SULFUR_CUBE_SLOW_FLAT);
-        bootstrapSulfurCube(context,
-                ItemTags.SULFUR_CUBE_ARCHETYPE_FAST_FLAT,
-                FAST_FLAT_SULFUR_CUBE,
-                ModelType.SULFUR_CUBE_FAST_FLAT);
-        bootstrapSulfurCube(context,
-                ItemTags.SULFUR_CUBE_ARCHETYPE_LIGHT,
-                LIGHT_SULFUR_CUBE,
-                ModelType.SULFUR_CUBE_LIGHT);
-        bootstrapSulfurCube(context,
-                ItemTags.SULFUR_CUBE_ARCHETYPE_FAST_SLIDING,
-                FAST_SLIDING_SULFUR_CUBE,
-                ModelType.SULFUR_CUBE_FAST_SLIDING);
-        bootstrapSulfurCube(context,
-                ItemTags.SULFUR_CUBE_ARCHETYPE_SLOW_SLIDING,
-                SLOW_SLIDING_SULFUR_CUBE,
-                ModelType.SULFUR_CUBE_SLOW_SLIDING);
-        bootstrapSulfurCube(context,
-                ItemTags.SULFUR_CUBE_ARCHETYPE_HIGH_RESISTANCE,
-                HIGH_RESISTANCE_SULFUR_CUBE,
-                ModelType.SULFUR_CUBE_HIGH_RESISTANCE);
-        bootstrapSulfurCube(context,
-                ItemTags.SULFUR_CUBE_ARCHETYPE_STICKY,
-                STICKY_SULFUR_CUBE,
-                ModelType.SULFUR_CUBE_STICKY);
-        bootstrapSulfurCube(context,
-                ItemTags.SULFUR_CUBE_ARCHETYPE_EXPLOSIVE,
-                EXPLOSIVE_SULFUR_CUBE,
-                ModelType.SULFUR_CUBE_EXPLOSIVE);
-        bootstrapSulfurCube(context, ItemTags.SULFUR_CUBE_ARCHETYPE_HOT, HOT_SULFUR_CUBE, ModelType.SULFUR_CUBE_HOT);
+        bootstrapSulfurCube(context, REGULAR_SULFUR_CUBE, ModelType.SULFUR_CUBE_REGULAR);
+        bootstrapSulfurCube(context, BOUNCY_SULFUR_CUBE, ModelType.SULFUR_CUBE_BOUNCY);
+        bootstrapSulfurCube(context, SLOW_BOUNCY_SULFUR_CUBE, ModelType.SULFUR_CUBE_SLOW_BOUNCY);
+        bootstrapSulfurCube(context, SLOW_FLAT_SULFUR_CUBE, ModelType.SULFUR_CUBE_SLOW_FLAT);
+        bootstrapSulfurCube(context, FAST_FLAT_SULFUR_CUBE, ModelType.SULFUR_CUBE_FAST_FLAT);
+        bootstrapSulfurCube(context, LIGHT_SULFUR_CUBE, ModelType.SULFUR_CUBE_LIGHT);
+        bootstrapSulfurCube(context, FAST_SLIDING_SULFUR_CUBE, ModelType.SULFUR_CUBE_FAST_SLIDING);
+        bootstrapSulfurCube(context, SLOW_SLIDING_SULFUR_CUBE, ModelType.SULFUR_CUBE_SLOW_SLIDING);
+        bootstrapSulfurCube(context, HIGH_RESISTANCE_SULFUR_CUBE, ModelType.SULFUR_CUBE_HIGH_RESISTANCE);
+        bootstrapSulfurCube(context, STICKY_SULFUR_CUBE, ModelType.SULFUR_CUBE_STICKY);
+        bootstrapSulfurCube(context, EXPLOSIVE_SULFUR_CUBE, ModelType.SULFUR_CUBE_EXPLOSIVE);
+        bootstrapSulfurCube(context, HOT_SULFUR_CUBE, ModelType.SULFUR_CUBE_HOT);
     }
 
-    private static void bootstrapSulfurCube(BootstrapContext<HeadType> context, TagKey<Item> archetype, ResourceKey<HeadType> resourceKey, ModelType modelType) {
+    private static void bootstrapSulfurCube(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, ModelType modelType) {
         // The squish sound is different when there is a block inside.
-        HeadType.builder(EntityTypes.SULFUR_CUBE)
-                .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.equipment(EntityEquipmentPredicate.Builder.equipment()
-                            .body(ItemPredicate.Builder.item().of(context.lookup(Registries.ITEM), archetype)));
-                })
+        HeadType.builder()
                 .shape(18.0, 18.0, 18.0)
                 .scale(8.0 / 18.0)
                 .specialModel(modelType)
@@ -117,6 +82,31 @@ public class CubeMobHeadType {
                         Identifier.withDefaultNamespace("entity/sulfur_cube/sulfur_cube_outer"))
                 .noteBlockSound(SoundEvents.SULFUR_CUBE_BOUNCE)
                 .build(context, resourceKey);
+    }
+
+    public static void bootstrapLootItemConditions(BootstrapContext<LootItemCondition> context) {
+        bootstrap(context, MAGMA_CUBE, EntityTypes.MAGMA_CUBE);
+        bootstrap(context, SLIME, EntityTypes.SLIME);
+        bootstrap(context, SULFUR_CUBE, EntityTypes.SULFUR_CUBE);
+        bootstrapSulfurCube(context, ItemTags.SULFUR_CUBE_ARCHETYPE_REGULAR, REGULAR_SULFUR_CUBE);
+        bootstrapSulfurCube(context, ItemTags.SULFUR_CUBE_ARCHETYPE_BOUNCY, BOUNCY_SULFUR_CUBE);
+        bootstrapSulfurCube(context, ItemTags.SULFUR_CUBE_ARCHETYPE_SLOW_BOUNCY, SLOW_BOUNCY_SULFUR_CUBE);
+        bootstrapSulfurCube(context, ItemTags.SULFUR_CUBE_ARCHETYPE_SLOW_FLAT, SLOW_FLAT_SULFUR_CUBE);
+        bootstrapSulfurCube(context, ItemTags.SULFUR_CUBE_ARCHETYPE_FAST_FLAT, FAST_FLAT_SULFUR_CUBE);
+        bootstrapSulfurCube(context, ItemTags.SULFUR_CUBE_ARCHETYPE_LIGHT, LIGHT_SULFUR_CUBE);
+        bootstrapSulfurCube(context, ItemTags.SULFUR_CUBE_ARCHETYPE_FAST_SLIDING, FAST_SLIDING_SULFUR_CUBE);
+        bootstrapSulfurCube(context, ItemTags.SULFUR_CUBE_ARCHETYPE_SLOW_SLIDING, SLOW_SLIDING_SULFUR_CUBE);
+        bootstrapSulfurCube(context, ItemTags.SULFUR_CUBE_ARCHETYPE_HIGH_RESISTANCE, HIGH_RESISTANCE_SULFUR_CUBE);
+        bootstrapSulfurCube(context, ItemTags.SULFUR_CUBE_ARCHETYPE_STICKY, STICKY_SULFUR_CUBE);
+        bootstrapSulfurCube(context, ItemTags.SULFUR_CUBE_ARCHETYPE_EXPLOSIVE, EXPLOSIVE_SULFUR_CUBE);
+        bootstrapSulfurCube(context, ItemTags.SULFUR_CUBE_ARCHETYPE_HOT, HOT_SULFUR_CUBE);
+    }
+
+    private static void bootstrapSulfurCube(BootstrapContext<LootItemCondition> context, TagKey<Item> archetype, ResourceKey<HeadType> resourceKey) {
+        bootstrap(context, resourceKey, EntityTypes.SULFUR_CUBE, (EntityPredicate.Builder builder) -> {
+            builder.equipment(EntityEquipmentPredicate.Builder.equipment()
+                    .body(ItemPredicate.Builder.item().of(context.lookup(Registries.ITEM), archetype)));
+        });
     }
 
     public static void registerTranslations(BiConsumer<ResourceKey<HeadType>, String> translationConsumer) {

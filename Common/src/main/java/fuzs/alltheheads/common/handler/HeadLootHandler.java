@@ -19,11 +19,10 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.NestedLootTable;
-import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
+import net.minecraft.world.level.storage.loot.predicates.ConditionReference;
 
 import java.util.Collection;
 import java.util.Map;
@@ -56,10 +55,10 @@ public class HeadLootHandler {
         return EventResult.PASS;
     }
 
-    public static void onLootTableLoad(Identifier identifier, LootTable.Builder lootTable, HolderLookup.Provider registries) {
-        if (HEAD_TAGS.get().containsKey(identifier)) {
-            registries.lookupOrThrow(ModRegistry.HEAD_REGISTRY_KEY)
-                    .get(HEAD_TAGS.get().get(identifier))
+    public static void onLootTableLoad(Identifier id, LootTable.Builder lootTable, HolderLookup.Provider context) {
+        if (HEAD_TAGS.get().containsKey(id)) {
+            context.lookupOrThrow(ModRegistry.HEAD_REGISTRY_KEY)
+                    .get(HEAD_TAGS.get().get(id))
                     .ifPresent((HolderSet.Named<HeadType> holderSet) -> {
                         holderSet.forEach((Holder<HeadType> headType) -> {
                             headType.value().loot().lootTable().ifPresent((ResourceKey<LootTable> resourceKey) -> {
@@ -67,8 +66,9 @@ public class HeadLootHandler {
                                 // which is not ideal, but wrapping all of them in an "alternatives" entry did not succeed
                                 lootTable.withPool(LootPool.lootPool()
                                         .add(NestedLootTable.lootTableReference(resourceKey)
-                                                .when(LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS,
-                                                        headType.value().entityPredicate()))));
+                                                .when(ConditionReference.conditionReference(headType.value()
+                                                        .entityPredicate()
+                                                        .orElseThrow()))));
                             });
                         });
                     });

@@ -11,9 +11,11 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.level.block.WeatheringCopper;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 
 import java.util.function.BiConsumer;
 
+import static fuzs.alltheheads.common.init.HeadTypes.bootstrap;
 import static fuzs.alltheheads.common.init.HeadTypes.register;
 
 public class CopperGolemHeadType {
@@ -22,43 +24,49 @@ public class CopperGolemHeadType {
     public static final ResourceKey<HeadType> OXIDIZED_COPPER_GOLEM = register("copper_golem/oxidized");
     public static final ResourceKey<HeadType> WEATHERED_COPPER_GOLEM = register("copper_golem/weathered");
 
-    public static void bootstrap(BootstrapContext<HeadType> context) {
+    public static void bootstrapHeadTypes(BootstrapContext<HeadType> context) {
         bootstrapCopperGolem(context,
-                WeatheringCopper.WeatherState.UNAFFECTED,
                 COPPER_GOLEM,
                 "entity/copper_golem/copper_golem",
                 "entity/copper_golem/copper_golem_eyes",
                 SoundEvents.COPPER_GOLEM_SPIN);
         bootstrapCopperGolem(context,
-                WeatheringCopper.WeatherState.EXPOSED,
                 EXPOSED_COPPER_GOLEM,
                 "entity/copper_golem/copper_golem_exposed",
                 "entity/copper_golem/copper_golem_eyes_exposed",
                 SoundEvents.COPPER_GOLEM_SPIN);
         bootstrapCopperGolem(context,
-                WeatheringCopper.WeatherState.OXIDIZED,
                 OXIDIZED_COPPER_GOLEM,
                 "entity/copper_golem/copper_golem_oxidized",
                 "entity/copper_golem/copper_golem_eyes_oxidized",
                 SoundEvents.COPPER_GOLEM_OXIDIZED_SPIN);
         bootstrapCopperGolem(context,
-                WeatheringCopper.WeatherState.WEATHERED,
                 WEATHERED_COPPER_GOLEM,
                 "entity/copper_golem/copper_golem_weathered",
                 "entity/copper_golem/copper_golem_eyes_weathered",
                 SoundEvents.COPPER_GOLEM_WEATHERED_SPIN);
     }
 
-    private static void bootstrapCopperGolem(BootstrapContext<HeadType> context, WeatheringCopper.WeatherState state, ResourceKey<HeadType> resourceKey, String textureLocation, String eyesLocation, SoundEvent noteBlockSound) {
-        HeadType.builder(EntityTypes.COPPER_GOLEM)
-                .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.put(CopperGolemPredicate.CODEC, CopperGolemPredicate.hasState(state));
-                })
+    private static void bootstrapCopperGolem(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation, String eyesLocation, SoundEvent noteBlockSound) {
+        HeadType.builder()
                 .shape(8.0, 5.0, 10.0)
                 .model(ModelType.COPPER_GOLEM, Identifier.withDefaultNamespace(textureLocation))
                 .model(ModelType.COPPER_GOLEM_EYES, Identifier.withDefaultNamespace(eyesLocation))
                 .noteBlockSound(noteBlockSound)
                 .build(context, resourceKey);
+    }
+
+    public static void bootstrapLootItemConditions(BootstrapContext<LootItemCondition> context) {
+        bootstrapCopperGolem(context, WeatheringCopper.WeatherState.UNAFFECTED, COPPER_GOLEM);
+        bootstrapCopperGolem(context, WeatheringCopper.WeatherState.EXPOSED, EXPOSED_COPPER_GOLEM);
+        bootstrapCopperGolem(context, WeatheringCopper.WeatherState.OXIDIZED, OXIDIZED_COPPER_GOLEM);
+        bootstrapCopperGolem(context, WeatheringCopper.WeatherState.WEATHERED, WEATHERED_COPPER_GOLEM);
+    }
+
+    private static void bootstrapCopperGolem(BootstrapContext<LootItemCondition> context, WeatheringCopper.WeatherState state, ResourceKey<HeadType> resourceKey) {
+        bootstrap(context, resourceKey, EntityTypes.COPPER_GOLEM, (EntityPredicate.Builder builder) -> {
+            builder.put(CopperGolemPredicate.CODEC, CopperGolemPredicate.hasState(state));
+        });
     }
 
     public static void registerTranslations(BiConsumer<ResourceKey<HeadType>, String> translationConsumer) {

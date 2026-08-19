@@ -12,9 +12,11 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.animal.axolotl.Axolotl;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 
 import java.util.function.BiConsumer;
 
+import static fuzs.alltheheads.common.init.HeadTypes.bootstrap;
 import static fuzs.alltheheads.common.init.HeadTypes.register;
 
 public class AxolotlHeadType {
@@ -24,25 +26,36 @@ public class AxolotlHeadType {
     public static final ResourceKey<HeadType> CYAN_AXOLOTL = register("axolotl/cyan");
     public static final ResourceKey<HeadType> BLUE_AXOLOTL = register("axolotl/blue");
 
-    public static void bootstrap(BootstrapContext<HeadType> context) {
-        bootstrapAxolotl(context, Axolotl.Variant.LUCY, LUCY_AXOLOTL, "entity/axolotl/axolotl_lucy");
-        bootstrapAxolotl(context, Axolotl.Variant.WILD, WILD_AXOLOTL, "entity/axolotl/axolotl_wild");
-        bootstrapAxolotl(context, Axolotl.Variant.GOLD, GOLD_AXOLOTL, "entity/axolotl/axolotl_gold");
-        bootstrapAxolotl(context, Axolotl.Variant.CYAN, CYAN_AXOLOTL, "entity/axolotl/axolotl_cyan");
-        bootstrapAxolotl(context, Axolotl.Variant.BLUE, BLUE_AXOLOTL, "entity/axolotl/axolotl_blue");
+    public static void bootstrapHeadTypes(BootstrapContext<HeadType> context) {
+        bootstrapAxolotl(context, LUCY_AXOLOTL, "entity/axolotl/axolotl_lucy");
+        bootstrapAxolotl(context, WILD_AXOLOTL, "entity/axolotl/axolotl_wild");
+        bootstrapAxolotl(context, GOLD_AXOLOTL, "entity/axolotl/axolotl_gold");
+        bootstrapAxolotl(context, CYAN_AXOLOTL, "entity/axolotl/axolotl_cyan");
+        bootstrapAxolotl(context, BLUE_AXOLOTL, "entity/axolotl/axolotl_blue");
     }
 
-    private static void bootstrapAxolotl(BootstrapContext<HeadType> context, Axolotl.Variant variant, ResourceKey<HeadType> resourceKey, String textureLocation) {
-        HeadType.builder(EntityTypes.AXOLOTL)
-                .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.components(DataComponentMatchers.Builder.components()
-                            .exact(DataComponentExactPredicate.expect(DataComponents.AXOLOTL_VARIANT, variant))
-                            .build());
-                })
+    private static void bootstrapAxolotl(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation) {
+        HeadType.builder()
                 .shape(8.0, 5.0, 5.0)
                 .model(ModelType.AXOLOTL, Identifier.withDefaultNamespace(textureLocation))
                 .noteBlockSound(SoundEvents.AXOLOTL_IDLE_AIR)
                 .build(context, resourceKey);
+    }
+
+    public static void bootstrapLootItemConditions(BootstrapContext<LootItemCondition> context) {
+        bootstrapAxolotl(context, Axolotl.Variant.LUCY, LUCY_AXOLOTL);
+        bootstrapAxolotl(context, Axolotl.Variant.WILD, WILD_AXOLOTL);
+        bootstrapAxolotl(context, Axolotl.Variant.GOLD, GOLD_AXOLOTL);
+        bootstrapAxolotl(context, Axolotl.Variant.CYAN, CYAN_AXOLOTL);
+        bootstrapAxolotl(context, Axolotl.Variant.BLUE, BLUE_AXOLOTL);
+    }
+
+    private static void bootstrapAxolotl(BootstrapContext<LootItemCondition> context, Axolotl.Variant variant, ResourceKey<HeadType> resourceKey) {
+        bootstrap(context, resourceKey, EntityTypes.AXOLOTL, (EntityPredicate.Builder builder) -> {
+            builder.components(DataComponentMatchers.Builder.components()
+                    .exact(DataComponentExactPredicate.expect(DataComponents.AXOLOTL_VARIANT, variant))
+                    .build());
+        });
     }
 
     public static void registerTranslations(BiConsumer<ResourceKey<HeadType>, String> translationConsumer) {

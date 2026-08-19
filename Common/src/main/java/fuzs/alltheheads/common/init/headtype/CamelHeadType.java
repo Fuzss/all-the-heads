@@ -7,33 +7,37 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EntityTypes;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 
 import java.util.function.BiConsumer;
 
+import static fuzs.alltheheads.common.init.HeadTypes.bootstrap;
 import static fuzs.alltheheads.common.init.HeadTypes.register;
 
 public class CamelHeadType {
     public static final ResourceKey<HeadType> CAMEL = register("camel");
     public static final ResourceKey<HeadType> CAMEL_HUSK = register("camel_husk");
 
-    public static void bootstrap(BootstrapContext<HeadType> context) {
-        bootstrapCamel(context, EntityTypes.CAMEL, CAMEL, "entity/camel/camel", SoundEvents.CAMEL_AMBIENT);
-        bootstrapCamel(context,
-                EntityTypes.CAMEL_HUSK,
-                CAMEL_HUSK,
+    public static void bootstrapHeadTypes(BootstrapContext<HeadType> context) {
+        bootstrapCamel(context, CAMEL, "entity/camel/camel", SoundEvents.CAMEL_AMBIENT);
+        bootstrapCamel(context, CAMEL_HUSK,
                 "entity/camel/camel_husk",
                 SoundEvents.CAMEL_HUSK_AMBIENT);
     }
 
-    private static void bootstrapCamel(BootstrapContext<HeadType> context, EntityType<?> entityType, ResourceKey<HeadType> resourceKey, String textureLocation, SoundEvent noteBlockSound) {
-        HeadType.builder(entityType)
+    private static void bootstrapCamel(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation, SoundEvent noteBlockSound) {
+        HeadType.builder()
                 .shape(7.0, 14.0, 7.0)
                 .scale(6.0 / 7.0)
                 .model(ModelType.CAMEL, Identifier.withDefaultNamespace(textureLocation))
                 .noteBlockSound(noteBlockSound)
                 .build(context, resourceKey);
+    }
+
+    public static void bootstrapLootItemConditions(BootstrapContext<LootItemCondition> context) {
+        bootstrap(context, CAMEL, EntityTypes.CAMEL);
+        bootstrap(context, CAMEL_HUSK, EntityTypes.CAMEL_HUSK);
     }
 
     public static void registerTranslations(BiConsumer<ResourceKey<HeadType>, String> translationConsumer) {

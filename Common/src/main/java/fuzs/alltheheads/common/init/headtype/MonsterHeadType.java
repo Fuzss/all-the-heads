@@ -10,9 +10,11 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityTypes;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 
 import java.util.function.BiConsumer;
 
+import static fuzs.alltheheads.common.init.HeadTypes.bootstrap;
 import static fuzs.alltheheads.common.init.HeadTypes.register;
 
 public class MonsterHeadType {
@@ -35,28 +37,25 @@ public class MonsterHeadType {
     public static final ResourceKey<HeadType> WARDEN = register("warden");
     public static final ResourceKey<HeadType> WITCH = register("witch");
 
-    public static void bootstrap(BootstrapContext<HeadType> context) {
-        HeadType.builder(EntityTypes.BLAZE)
+    public static void bootstrapHeadTypes(BootstrapContext<HeadType> context) {
+        HeadType.builder()
                 .shape(8.0, 8.0, 8.0)
                 .litModel(ModelType.MOB, Identifier.withDefaultNamespace("entity/blaze/blaze"))
                 .noteBlockSound(SoundEvents.BLAZE_AMBIENT)
                 .build(context, BLAZE);
-        HeadType.builder(EntityTypes.BOGGED)
+        HeadType.builder()
                 .shape(8.0, 8.0, 8.0)
                 .model(ModelType.BOGGED, Identifier.withDefaultNamespace("entity/skeleton/bogged"))
                 .model(ModelType.MOB_OVERLAY, Identifier.withDefaultNamespace("entity/skeleton/bogged_overlay"))
                 .noteBlockSound(SoundEvents.BOGGED_AMBIENT)
                 .build(context, BOGGED);
-        HeadType.builder(EntityTypes.BREEZE)
+        HeadType.builder()
                 .shape(8.0, 8.0, 8.0)
                 .model(ModelType.BREEZE, Identifier.withDefaultNamespace("entity/breeze/breeze"))
                 .model(ModelType.BREEZE_EYES, Identifier.withDefaultNamespace("entity/breeze/breeze_eyes"))
                 .noteBlockSound(SoundEvents.BREEZE_IDLE_AIR)
                 .build(context, BREEZE);
-        HeadType.builder(EntityTypes.CREEPER)
-                .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.put(CreeperPredicate.CODEC, CreeperPredicate.isPowered(true));
-                })
+        HeadType.builder()
                 .shape(8.0, 8.0, 8.0)
                 .model(ModelType.MOB, Identifier.withDefaultNamespace("entity/creeper/creeper"))
                 .dyedModel(ModelType.CREEPER_CHARGE,
@@ -64,88 +63,111 @@ public class MonsterHeadType {
                         new Color.Constant(0xFF808080))
                 .noteBlockSound(SoundEvents.CREEPER_PRIMED)
                 .build(context, CHARGED_CREEPER);
-        HeadType.builder(EntityTypes.CREAKING)
+        HeadType.builder()
                 .shape(6.0, 10.0, 6.0)
                 .model(ModelType.CREAKING, Identifier.withDefaultNamespace("entity/creaking/creaking"))
                 .model(ModelType.CREAKING_EYES, Identifier.withDefaultNamespace("entity/creaking/creaking_eyes"))
                 .noteBlockSound(SoundEvents.CREAKING_AMBIENT)
                 .build(context, CREAKING);
-        HeadType.builder(EntityTypes.DROWNED)
+        HeadType.builder()
                 .shape(8.0, 8.0, 8.0)
                 .model(ModelType.HUMANOID, Identifier.withDefaultNamespace("entity/zombie/drowned"))
                 .model(ModelType.HUMANOID_OVERLAY, Identifier.withDefaultNamespace("entity/zombie/drowned_outer_layer"))
                 .noteBlockSound(SoundEvents.DROWNED_AMBIENT)
                 .build(context, DROWNED);
-        HeadType.builder(EntityTypes.ENDERMAN)
+        HeadType.builder()
                 .shape(8.0, 8.0, 8.0)
                 .model(ModelType.ENDERMAN, Identifier.withDefaultNamespace("entity/enderman/enderman"))
                 .model(ModelType.ENDERMAN_EYES, Identifier.withDefaultNamespace("entity/enderman/enderman_eyes"))
                 .noteBlockSound(SoundEvents.ENDERMAN_AMBIENT)
                 .build(context, ENDERMAN);
-        HeadType.builder(EntityTypes.ENDERMITE)
+        HeadType.builder()
                 .shape(6.0, 4.0, 3.0)
                 .scale(4.0 / 3.0)
                 .model(ModelType.ENDERMITE, Identifier.withDefaultNamespace("entity/endermite/endermite"))
                 .noteBlockSound(SoundEvents.ENDERMITE_AMBIENT)
                 .build(context, ENDERMITE);
-        HeadType.builder(EntityTypes.GIANT)
+        HeadType.builder()
                 .shape(8.0, 8.0, 8.0)
                 .scale(1.25)
                 .model(ModelType.HUMANOID, Identifier.withDefaultNamespace("entity/zombie/zombie"))
                 .noteBlockSound(SoundEvents.ZOMBIE_AMBIENT)
                 .build(context, GIANT);
-        HeadType.builder(EntityTypes.HUSK)
+        HeadType.builder()
                 .shape(8.0, 8.0, 8.0)
                 .model(ModelType.HUMANOID, Identifier.withDefaultNamespace("entity/zombie/husk"))
                 .noteBlockSound(SoundEvents.HUSK_AMBIENT)
                 .build(context, HUSK);
-        HeadType.builder(EntityTypes.PARCHED)
+        HeadType.builder()
                 .shape(8.0, 8.0, 8.0)
                 .model(ModelType.PARCHED, Identifier.withDefaultNamespace("entity/skeleton/parched"))
                 .noteBlockSound(SoundEvents.PARCHED_AMBIENT)
                 .build(context, PARCHED);
-        HeadType.builder(EntityTypes.PHANTOM)
+        HeadType.builder()
                 .shape(7.0, 3.0, 5.0)
                 .scale(8.0 / 7.0)
                 .model(ModelType.PHANTOM, Identifier.withDefaultNamespace("entity/phantom/phantom"))
                 .model(ModelType.PHANTOM_EYES, Identifier.withDefaultNamespace("entity/phantom/phantom_eyes"))
                 .noteBlockSound(SoundEvents.PHANTOM_AMBIENT)
                 .build(context, PHANTOM);
-        HeadType.builder(EntityTypes.RAVAGER)
+        HeadType.builder()
                 .shape(16.0, 20.0, 16.0)
                 .scale(0.5)
                 .model(ModelType.RAVAGER, Identifier.withDefaultNamespace("entity/illager/ravager"))
                 .noteBlockSound(SoundEvents.RAVAGER_ROAR)
                 .build(context, RAVAGER);
-        HeadType.builder(EntityTypes.SHULKER)
+        HeadType.builder()
                 .shape(6.0, 6.0, 6.0)
                 .model(ModelType.SHULKER, Identifier.withDefaultNamespace("entity/shulker/shulker"))
                 .noteBlockSound(SoundEvents.SHULKER_AMBIENT)
                 .build(context, SHULKER);
-        HeadType.builder(EntityTypes.SILVERFISH)
+        HeadType.builder()
                 .shape(6.0, 4.0, 3.0)
                 .scale(4.0 / 3.0)
                 .model(ModelType.SILVERFISH, Identifier.withDefaultNamespace("entity/silverfish/silverfish"))
                 .noteBlockSound(SoundEvents.SILVERFISH_AMBIENT)
                 .build(context, SILVERFISH);
-        HeadType.builder(EntityTypes.STRAY)
+        HeadType.builder()
                 .shape(8.0, 8.0, 8.0)
                 .model(ModelType.MOB, Identifier.withDefaultNamespace("entity/skeleton/stray"))
                 .model(ModelType.MOB_OVERLAY, Identifier.withDefaultNamespace("entity/skeleton/stray_overlay"))
                 .noteBlockSound(SoundEvents.STRAY_AMBIENT)
                 .build(context, STRAY);
-        HeadType.builder(EntityTypes.WARDEN)
+        HeadType.builder()
                 .shape(16.0, 16.0, 10.0)
                 .scale(0.6)
                 .model(ModelType.WARDEN, Identifier.withDefaultNamespace("entity/warden/warden"))
                 .noteBlockSound(SoundEvents.WARDEN_AMBIENT)
                 .build(context, WARDEN);
-        HeadType.builder(EntityTypes.WITCH)
+        HeadType.builder()
                 .shape(8.0, 10.0, 8.0)
                 .scale(0.9375)
                 .model(ModelType.WITCH, Identifier.withDefaultNamespace("entity/witch/witch"))
                 .noteBlockSound(SoundEvents.WITCH_AMBIENT)
                 .build(context, WITCH);
+    }
+
+    public static void bootstrapLootItemConditions(BootstrapContext<LootItemCondition> context) {
+        bootstrap(context, BLAZE, EntityTypes.BLAZE);
+        bootstrap(context, BOGGED, EntityTypes.BOGGED);
+        bootstrap(context, BREEZE, EntityTypes.BREEZE);
+        bootstrap(context, CHARGED_CREEPER, EntityTypes.CREEPER, (EntityPredicate.Builder builder) -> {
+            builder.put(CreeperPredicate.CODEC, CreeperPredicate.isPowered(true));
+        });
+        bootstrap(context, CREAKING, EntityTypes.CREAKING);
+        bootstrap(context, DROWNED, EntityTypes.DROWNED);
+        bootstrap(context, ENDERMAN, EntityTypes.ENDERMAN);
+        bootstrap(context, ENDERMITE, EntityTypes.ENDERMITE);
+        bootstrap(context, GIANT, EntityTypes.GIANT);
+        bootstrap(context, HUSK, EntityTypes.HUSK);
+        bootstrap(context, PARCHED, EntityTypes.PARCHED);
+        bootstrap(context, PHANTOM, EntityTypes.PHANTOM);
+        bootstrap(context, RAVAGER, EntityTypes.RAVAGER);
+        bootstrap(context, SHULKER, EntityTypes.SHULKER);
+        bootstrap(context, SILVERFISH, EntityTypes.SILVERFISH);
+        bootstrap(context, STRAY, EntityTypes.STRAY);
+        bootstrap(context, WARDEN, EntityTypes.WARDEN);
+        bootstrap(context, WITCH, EntityTypes.WITCH);
     }
 
     public static void registerTranslations(BiConsumer<ResourceKey<HeadType>, String> translationConsumer) {

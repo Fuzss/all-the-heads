@@ -7,9 +7,11 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityTypes;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 
 import java.util.function.BiConsumer;
 
+import static fuzs.alltheheads.common.init.HeadTypes.bootstrap;
 import static fuzs.alltheheads.common.init.HeadTypes.register;
 
 public class AquaticHeadType {
@@ -22,53 +24,64 @@ public class AquaticHeadType {
     public static final ResourceKey<HeadType> TADPOLE = register("tadpole");
     public static final ResourceKey<HeadType> TURTLE = register("turtle");
 
-    public static void bootstrap(BootstrapContext<HeadType> context) {
-        HeadType.builder(EntityTypes.COD)
+    public static void bootstrapHeadTypes(BootstrapContext<HeadType> context) {
+        HeadType.builder()
                 .shape(2.0, 4.0, 3.0)
                 .scale(1.5)
                 .model(ModelType.COD, Identifier.withDefaultNamespace("entity/fish/cod"))
                 .noteBlockSound(SoundEvents.COD_FLOP)
                 .build(context, COD);
-        HeadType.builder(EntityTypes.DOLPHIN)
+        HeadType.builder()
                 .shape(8.0, 7.0, 6.0)
                 .model(ModelType.DOLPHIN, Identifier.withDefaultNamespace("entity/dolphin/dolphin"))
                 .noteBlockSound(SoundEvents.DOLPHIN_AMBIENT_WATER)
                 .build(context, DOLPHIN);
-        HeadType.builder(EntityTypes.GLOW_SQUID)
+        HeadType.builder()
                 .shape(12.0, 16.0, 12.0)
                 .scale(2.0 / 3.0)
                 .litModel(ModelType.SQUID, Identifier.withDefaultNamespace("entity/squid/glow_squid"))
                 .noteBlockSound(SoundEvents.GLOW_SQUID_AMBIENT)
                 .build(context, GLOW_SQUID);
-        HeadType.builder(EntityTypes.PUFFERFISH)
+        HeadType.builder()
                 .shape(8.0, 8.0, 8.0)
                 .model(ModelType.PUFFERFISH, Identifier.withDefaultNamespace("entity/fish/pufferfish"))
                 .noteBlockSound(SoundEvents.PUFFER_FISH_STING)
                 .build(context, PUFFERFISH);
-        HeadType.builder(EntityTypes.SALMON)
+        HeadType.builder()
                 .shape(2.0, 4.0, 3.0)
                 .scale(1.5)
                 .model(ModelType.SALMON, Identifier.withDefaultNamespace("entity/fish/salmon"))
                 .noteBlockSound(SoundEvents.SALMON_FLOP)
                 .build(context, SALMON);
-        HeadType.builder(EntityTypes.SQUID)
+        HeadType.builder()
                 .shape(12.0, 16.0, 12.0)
                 .scale(2.0 / 3.0)
                 .model(ModelType.SQUID, Identifier.withDefaultNamespace("entity/squid/squid"))
                 .noteBlockSound(SoundEvents.SQUID_AMBIENT)
                 .build(context, SQUID);
-        HeadType.builder(EntityTypes.TADPOLE)
+        HeadType.builder()
                 .shape(3.0, 2.0, 3.0)
                 .scale(2.0)
                 .model(ModelType.TADPOLE, Identifier.withDefaultNamespace("entity/tadpole/tadpole"))
                 .noteBlockSound(SoundEvents.TADPOLE_FLOP)
                 .build(context, TADPOLE);
-        HeadType.builder(EntityTypes.TURTLE)
+        HeadType.builder()
                 .shape(6.0, 5.0, 6.0)
                 .scale(4.0 / 3.0)
                 .model(ModelType.TURTLE, Identifier.withDefaultNamespace("entity/turtle/turtle"))
                 .noteBlockSound(SoundEvents.TURTLE_AMBIENT_LAND)
                 .build(context, TURTLE);
+    }
+
+    public static void bootstrapLootItemConditions(BootstrapContext<LootItemCondition> context) {
+        bootstrap(context, COD, EntityTypes.COD);
+        bootstrap(context, DOLPHIN, EntityTypes.DOLPHIN);
+        bootstrap(context, GLOW_SQUID, EntityTypes.GLOW_SQUID);
+        bootstrap(context, PUFFERFISH, EntityTypes.PUFFERFISH);
+        bootstrap(context, SALMON, EntityTypes.SALMON);
+        bootstrap(context, SQUID, EntityTypes.SQUID);
+        bootstrap(context, TADPOLE, EntityTypes.TADPOLE);
+        bootstrap(context, TURTLE, EntityTypes.TURTLE);
     }
 
     public static void registerTranslations(BiConsumer<ResourceKey<HeadType>, String> translationConsumer) {

@@ -10,9 +10,11 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityTypes;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 
 import java.util.function.BiConsumer;
 
+import static fuzs.alltheheads.common.init.HeadTypes.bootstrap;
 import static fuzs.alltheheads.common.init.HeadTypes.register;
 
 public class VexHeadType {
@@ -20,10 +22,10 @@ public class VexHeadType {
     public static final ResourceKey<HeadType> CHARGING_VEX = register("vex/charging");
     public static final ResourceKey<HeadType> ALLAY = register("allay");
 
-    public static void bootstrap(BootstrapContext<HeadType> context) {
-        bootstrapVex(context, false, VEX, "entity/illager/vex", SoundEvents.VEX_AMBIENT);
-        bootstrapVex(context, true, CHARGING_VEX, "entity/illager/vex_charging", SoundEvents.VEX_CHARGE);
-        HeadType.builder(EntityTypes.ALLAY)
+    public static void bootstrapHeadTypes(BootstrapContext<HeadType> context) {
+        bootstrapVex(context, VEX, "entity/illager/vex", SoundEvents.VEX_AMBIENT);
+        bootstrapVex(context, CHARGING_VEX, "entity/illager/vex_charging", SoundEvents.VEX_CHARGE);
+        HeadType.builder()
                 .shape(5.0, 5.0, 5.0)
                 .scale(1.2)
                 .litModel(ModelType.ALLAY, Identifier.withDefaultNamespace("entity/allay/allay"))
@@ -31,16 +33,25 @@ public class VexHeadType {
                 .build(context, ALLAY);
     }
 
-    private static void bootstrapVex(BootstrapContext<HeadType> context, boolean charging, ResourceKey<HeadType> resourceKey, String textureLocation, SoundEvent noteBlockSound) {
-        HeadType.builder(EntityTypes.VEX)
-                .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.put(VexPredicate.CODEC, VexPredicate.isCharging(charging));
-                })
+    private static void bootstrapVex(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation, SoundEvent noteBlockSound) {
+        HeadType.builder()
                 .shape(5.0, 5.0, 5.0)
                 .scale(1.2)
                 .litModel(ModelType.VEX, Identifier.withDefaultNamespace(textureLocation))
                 .noteBlockSound(noteBlockSound)
                 .build(context, resourceKey);
+    }
+
+    public static void bootstrapLootItemConditions(BootstrapContext<LootItemCondition> context) {
+        bootstrapVex(context, false, VEX);
+        bootstrapVex(context, true, CHARGING_VEX);
+        bootstrap(context, ALLAY, EntityTypes.ALLAY);
+    }
+
+    private static void bootstrapVex(BootstrapContext<LootItemCondition> context, boolean charging, ResourceKey<HeadType> resourceKey) {
+        bootstrap(context, resourceKey, EntityTypes.VEX, (EntityPredicate.Builder builder) -> {
+            builder.put(VexPredicate.CODEC, VexPredicate.isCharging(charging));
+        });
     }
 
     public static void registerTranslations(BiConsumer<ResourceKey<HeadType>, String> translationConsumer) {

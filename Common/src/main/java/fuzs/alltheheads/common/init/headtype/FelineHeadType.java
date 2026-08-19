@@ -15,9 +15,11 @@ import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.animal.feline.CatSoundVariants;
 import net.minecraft.world.entity.animal.feline.CatVariant;
 import net.minecraft.world.entity.animal.feline.CatVariants;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 
 import java.util.function.BiConsumer;
 
+import static fuzs.alltheheads.common.init.HeadTypes.bootstrap;
 import static fuzs.alltheheads.common.init.HeadTypes.register;
 
 public class FelineHeadType {
@@ -34,34 +36,28 @@ public class FelineHeadType {
     public static final ResourceKey<HeadType> JELLIE_CAT = register("cat/jellie");
     public static final ResourceKey<HeadType> ALL_BLACK_CAT = register("cat/all_black");
 
-    public static void bootstrap(BootstrapContext<HeadType> context) {
-        HeadType.builder(EntityTypes.OCELOT)
+    public static void bootstrapHeadTypes(BootstrapContext<HeadType> context) {
+        HeadType.builder()
                 .shape(5.0, 4.0, 5.0)
                 .scale(1.6)
                 .model(ModelType.FELINE, Identifier.withDefaultNamespace("entity/cat/ocelot"))
                 .noteBlockSound(SoundEvents.OCELOT_AMBIENT)
                 .build(context, OCELOT);
-        bootstrapCat(context, CatVariants.TABBY, TABBY_CAT, "entity/cat/cat_tabby");
-        bootstrapCat(context, CatVariants.BLACK, BLACK_CAT, "entity/cat/cat_black");
-        bootstrapCat(context, CatVariants.RED, RED_CAT, "entity/cat/cat_red");
-        bootstrapCat(context, CatVariants.SIAMESE, SIAMESE_CAT, "entity/cat/cat_siamese");
-        bootstrapCat(context, CatVariants.BRITISH_SHORTHAIR, BRITISH_SHORTHAIR_CAT, "entity/cat/cat_british_shorthair");
-        bootstrapCat(context, CatVariants.CALICO, CALICO_CAT, "entity/cat/cat_calico");
-        bootstrapCat(context, CatVariants.PERSIAN, PERSIAN_CAT, "entity/cat/cat_persian");
-        bootstrapCat(context, CatVariants.RAGDOLL, RAGDOLL_CAT, "entity/cat/cat_ragdoll");
-        bootstrapCat(context, CatVariants.WHITE, WHITE_CAT, "entity/cat/cat_white");
-        bootstrapCat(context, CatVariants.JELLIE, JELLIE_CAT, "entity/cat/cat_jellie");
-        bootstrapCat(context, CatVariants.ALL_BLACK, ALL_BLACK_CAT, "entity/cat/cat_all_black");
+        bootstrapCat(context, TABBY_CAT, "entity/cat/cat_tabby");
+        bootstrapCat(context, BLACK_CAT, "entity/cat/cat_black");
+        bootstrapCat(context, RED_CAT, "entity/cat/cat_red");
+        bootstrapCat(context, SIAMESE_CAT, "entity/cat/cat_siamese");
+        bootstrapCat(context, BRITISH_SHORTHAIR_CAT, "entity/cat/cat_british_shorthair");
+        bootstrapCat(context, CALICO_CAT, "entity/cat/cat_calico");
+        bootstrapCat(context, PERSIAN_CAT, "entity/cat/cat_persian");
+        bootstrapCat(context, RAGDOLL_CAT, "entity/cat/cat_ragdoll");
+        bootstrapCat(context, WHITE_CAT, "entity/cat/cat_white");
+        bootstrapCat(context, JELLIE_CAT, "entity/cat/cat_jellie");
+        bootstrapCat(context, ALL_BLACK_CAT, "entity/cat/cat_all_black");
     }
 
-    private static void bootstrapCat(BootstrapContext<HeadType> context, ResourceKey<CatVariant> variant, ResourceKey<HeadType> resourceKey, String textureLocation) {
-        HeadType.builder(EntityTypes.CAT)
-                .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.components(DataComponentMatchers.Builder.components()
-                            .exact(DataComponentExactPredicate.expect(DataComponents.CAT_VARIANT,
-                                    context.lookup(Registries.CAT_VARIANT).getOrThrow(variant)))
-                            .build());
-                })
+    private static void bootstrapCat(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation) {
+        HeadType.builder()
                 .shape(5.0, 4.0, 5.0)
                 .scale(1.6)
                 .model(ModelType.FELINE, Identifier.withDefaultNamespace(textureLocation))
@@ -69,6 +65,30 @@ public class FelineHeadType {
                         .adultSounds()
                         .ambientSound())
                 .build(context, resourceKey);
+    }
+
+    public static void bootstrapLootItemConditions(BootstrapContext<LootItemCondition> context) {
+        bootstrap(context, OCELOT, EntityTypes.OCELOT);
+        bootstrapCat(context, CatVariants.TABBY, TABBY_CAT);
+        bootstrapCat(context, CatVariants.BLACK, BLACK_CAT);
+        bootstrapCat(context, CatVariants.RED, RED_CAT);
+        bootstrapCat(context, CatVariants.SIAMESE, SIAMESE_CAT);
+        bootstrapCat(context, CatVariants.BRITISH_SHORTHAIR, BRITISH_SHORTHAIR_CAT);
+        bootstrapCat(context, CatVariants.CALICO, CALICO_CAT);
+        bootstrapCat(context, CatVariants.PERSIAN, PERSIAN_CAT);
+        bootstrapCat(context, CatVariants.RAGDOLL, RAGDOLL_CAT);
+        bootstrapCat(context, CatVariants.WHITE, WHITE_CAT);
+        bootstrapCat(context, CatVariants.JELLIE, JELLIE_CAT);
+        bootstrapCat(context, CatVariants.ALL_BLACK, ALL_BLACK_CAT);
+    }
+
+    private static void bootstrapCat(BootstrapContext<LootItemCondition> context, ResourceKey<CatVariant> variant, ResourceKey<HeadType> resourceKey) {
+        bootstrap(context, resourceKey, EntityTypes.CAT, (EntityPredicate.Builder builder) -> {
+            builder.components(DataComponentMatchers.Builder.components()
+                    .exact(DataComponentExactPredicate.expect(DataComponents.CAT_VARIANT,
+                            context.lookup(Registries.CAT_VARIANT).getOrThrow(variant)))
+                    .build());
+        });
     }
 
     public static void registerTranslations(BiConsumer<ResourceKey<HeadType>, String> translationConsumer) {

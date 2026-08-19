@@ -12,9 +12,11 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.animal.equine.Llama;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 
 import java.util.function.BiConsumer;
 
+import static fuzs.alltheheads.common.init.HeadTypes.bootstrap;
 import static fuzs.alltheheads.common.init.HeadTypes.register;
 
 public class LlamaHeadType {
@@ -27,43 +29,60 @@ public class LlamaHeadType {
     public static final ResourceKey<HeadType> BROWN_TRADER_LLAMA = register("trader_llama/brown");
     public static final ResourceKey<HeadType> GRAY_TRADER_LLAMA = register("trader_llama/gray");
 
-    public static void bootstrap(BootstrapContext<HeadType> context) {
-        bootstrapLlama(context, Llama.Variant.CREAMY, CREAMY_LLAMA, "entity/llama/llama_creamy");
-        bootstrapLlama(context, Llama.Variant.WHITE, WHITE_LLAMA, "entity/llama/llama_white");
-        bootstrapLlama(context, Llama.Variant.BROWN, BROWN_LLAMA, "entity/llama/llama_brown");
-        bootstrapLlama(context, Llama.Variant.GRAY, GRAY_LLAMA, "entity/llama/llama_gray");
-        bootstrapTraderLlama(context, Llama.Variant.CREAMY, CREAMY_TRADER_LLAMA, "entity/llama/llama_creamy");
-        bootstrapTraderLlama(context, Llama.Variant.WHITE, WHITE_TRADER_LLAMA, "entity/llama/llama_white");
-        bootstrapTraderLlama(context, Llama.Variant.BROWN, BROWN_TRADER_LLAMA, "entity/llama/llama_brown");
-        bootstrapTraderLlama(context, Llama.Variant.GRAY, GRAY_TRADER_LLAMA, "entity/llama/llama_gray");
+    public static void bootstrapHeadTypes(BootstrapContext<HeadType> context) {
+        bootstrapLlama(context, CREAMY_LLAMA, "entity/llama/llama_creamy");
+        bootstrapLlama(context, WHITE_LLAMA, "entity/llama/llama_white");
+        bootstrapLlama(context, BROWN_LLAMA, "entity/llama/llama_brown");
+        bootstrapLlama(context, GRAY_LLAMA, "entity/llama/llama_gray");
+        bootstrapTraderLlama(context, CREAMY_TRADER_LLAMA, "entity/llama/llama_creamy");
+        bootstrapTraderLlama(context, WHITE_TRADER_LLAMA, "entity/llama/llama_white");
+        bootstrapTraderLlama(context, BROWN_TRADER_LLAMA, "entity/llama/llama_brown");
+        bootstrapTraderLlama(context, GRAY_TRADER_LLAMA, "entity/llama/llama_gray");
     }
 
-    private static void bootstrapLlama(BootstrapContext<HeadType> context, Llama.Variant variant, ResourceKey<HeadType> resourceKey, String textureLocation) {
-        HeadType.builder(EntityTypes.LLAMA)
-                .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.components(DataComponentMatchers.Builder.components()
-                            .exact(DataComponentExactPredicate.expect(DataComponents.LLAMA_VARIANT, variant))
-                            .build());
-                })
+    private static void bootstrapLlama(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation) {
+        HeadType.builder()
                 .shape(8.0, 10.0, 6.0)
                 .model(ModelType.LLAMA, Identifier.withDefaultNamespace(textureLocation))
                 .noteBlockSound(SoundEvents.LLAMA_AMBIENT)
                 .build(context, resourceKey);
     }
 
-    private static void bootstrapTraderLlama(BootstrapContext<HeadType> context, Llama.Variant variant, ResourceKey<HeadType> resourceKey, String textureLocation) {
-        HeadType.builder(EntityTypes.TRADER_LLAMA)
-                .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.components(DataComponentMatchers.Builder.components()
-                            .exact(DataComponentExactPredicate.expect(DataComponents.LLAMA_VARIANT, variant))
-                            .build());
-                })
+    private static void bootstrapTraderLlama(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation) {
+        HeadType.builder()
                 .shape(8.0, 10.0, 6.0)
                 .model(ModelType.LLAMA, Identifier.withDefaultNamespace(textureLocation))
                 .model(ModelType.LLAMA_DECOR,
                         Identifier.withDefaultNamespace("entity/equipment/llama_body/trader_llama"))
                 .noteBlockSound(SoundEvents.LLAMA_AMBIENT)
                 .build(context, resourceKey);
+    }
+
+    public static void bootstrapLootItemConditions(BootstrapContext<LootItemCondition> context) {
+        bootstrapLlama(context, Llama.Variant.CREAMY, CREAMY_LLAMA);
+        bootstrapLlama(context, Llama.Variant.WHITE, WHITE_LLAMA);
+        bootstrapLlama(context, Llama.Variant.BROWN, BROWN_LLAMA);
+        bootstrapLlama(context, Llama.Variant.GRAY, GRAY_LLAMA);
+        bootstrapTraderLlama(context, Llama.Variant.CREAMY, CREAMY_TRADER_LLAMA);
+        bootstrapTraderLlama(context, Llama.Variant.WHITE, WHITE_TRADER_LLAMA);
+        bootstrapTraderLlama(context, Llama.Variant.BROWN, BROWN_TRADER_LLAMA);
+        bootstrapTraderLlama(context, Llama.Variant.GRAY, GRAY_TRADER_LLAMA);
+    }
+
+    private static void bootstrapLlama(BootstrapContext<LootItemCondition> context, Llama.Variant variant, ResourceKey<HeadType> resourceKey) {
+        bootstrap(context, resourceKey, EntityTypes.LLAMA, (EntityPredicate.Builder builder) -> {
+            builder.components(DataComponentMatchers.Builder.components()
+                    .exact(DataComponentExactPredicate.expect(DataComponents.LLAMA_VARIANT, variant))
+                    .build());
+        });
+    }
+
+    private static void bootstrapTraderLlama(BootstrapContext<LootItemCondition> context, Llama.Variant variant, ResourceKey<HeadType> resourceKey) {
+        bootstrap(context, resourceKey, EntityTypes.TRADER_LLAMA, (EntityPredicate.Builder builder) -> {
+            builder.components(DataComponentMatchers.Builder.components()
+                    .exact(DataComponentExactPredicate.expect(DataComponents.LLAMA_VARIANT, variant))
+                    .build());
+        });
     }
 
     public static void registerTranslations(BiConsumer<ResourceKey<HeadType>, String> translationConsumer) {

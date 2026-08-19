@@ -18,11 +18,13 @@ import fuzs.puzzleslib.common.api.event.v1.server.ServerResourcesLoadCallback;
 import net.minecraft.core.Holder;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.ReloadableServerResources;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -56,16 +58,16 @@ public class AllTheHeads implements ModConstructor {
             return;
         }
 
-        ServerResourcesLoadCallback.EVENT.register((ReloadableServerResources serverResources, RegistryAccess registries) -> {
+        ServerResourcesLoadCallback.EVENT.register((ReloadableServerResources serverResources, RegistryAccess context) -> {
             Set<ResourceKey<EntityType<?>>> mobEntities = BuiltInRegistries.ENTITY_TYPE.stream()
                     .filter((EntityType<?> entityType) -> entityType.getCategory() != MobCategory.MISC)
                     .map(BuiltInRegistries.ENTITY_TYPE::getResourceKey)
                     .<ResourceKey<EntityType<?>>>mapMulti(Optional::ifPresent)
                     .collect(Collectors.toSet());
-            Set<ResourceKey<EntityType<?>>> headTypeEntities = registries.lookupOrThrow(ModRegistry.HEAD_REGISTRY_KEY)
+            Set<ResourceKey<EntityType<?>>> headTypeEntities = context.lookupOrThrow(ModRegistry.HEAD_REGISTRY_KEY)
                     .listElements()
                     .map(Holder.Reference::value)
-                    .map(HeadType::getEntityType)
+                    .map((HeadType headType) -> headType.getEntityType(context))
                     .map(Holder::value)
                     .distinct()
                     .map(BuiltInRegistries.ENTITY_TYPE::getResourceKey)
@@ -82,6 +84,10 @@ public class AllTheHeads implements ModConstructor {
         context.registerSyncedRegistry(ModRegistry.HEAD_REGISTRY_KEY,
                 HeadType.DIRECT_CODEC,
                 HeadType.DIRECT_NETWORK_CODEC);
+        // TODO remove this for 26.3
+        if (ModLoaderEnvironment.INSTANCE.isDataGeneration()) {
+            context.registerRegistry(Registries.PREDICATE, LootItemCondition.TYPED_CODEC);
+        }
     }
 
     public static Identifier id(String path) {

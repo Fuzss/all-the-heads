@@ -13,13 +13,14 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.animal.nautilus.ZombieNautilusVariant;
 import net.minecraft.world.entity.animal.nautilus.ZombieNautilusVariants;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 
 import java.util.function.BiConsumer;
 
+import static fuzs.alltheheads.common.init.HeadTypes.bootstrap;
 import static fuzs.alltheheads.common.init.HeadTypes.register;
 
 public class NautilusHeadType {
@@ -27,36 +28,39 @@ public class NautilusHeadType {
     public static final ResourceKey<HeadType> NAUTILUS = register("nautilus");
     public static final ResourceKey<HeadType> ZOMBIE_NAUTILUS = register("zombie_nautilus");
 
-    public static void bootstrap(BootstrapContext<HeadType> context) {
-        bootstrapNautilus(EntityTypes.NAUTILUS, "entity/nautilus/nautilus", SoundEvents.NAUTILUS_AMBIENT).build(context,
+    public static void bootstrapHeadTypes(BootstrapContext<HeadType> context) {
+        bootstrapNautilus("entity/nautilus/nautilus", SoundEvents.NAUTILUS_AMBIENT).build(context,
                 NAUTILUS);
-        bootstrapZombieNautilus(context,
-                ZombieNautilusVariants.TEMPERATE,
-                ZOMBIE_NAUTILUS,
-                "entity/nautilus/zombie_nautilus");
-        bootstrapZombieNautilus(context,
-                ZombieNautilusVariants.WARM,
-                CORAL_ZOMBIE_NAUTILUS,
-                "entity/nautilus/zombie_nautilus_coral");
+        bootstrapZombieNautilus(context, ZOMBIE_NAUTILUS, "entity/nautilus/zombie_nautilus");
+        bootstrapZombieNautilus(context, CORAL_ZOMBIE_NAUTILUS, "entity/nautilus/zombie_nautilus_coral");
     }
 
-    private static void bootstrapZombieNautilus(BootstrapContext<HeadType> context, ResourceKey<ZombieNautilusVariant> variant, ResourceKey<HeadType> resourceKey, String textureLocation) {
-        bootstrapNautilus(EntityTypes.ZOMBIE_NAUTILUS,
-                textureLocation,
-                SoundEvents.ZOMBIE_NAUTILUS_AMBIENT).entityPredicate((EntityPredicate.Builder builder) -> {
-            builder.components(DataComponentMatchers.Builder.components()
-                    .exact(DataComponentExactPredicate.expect(DataComponents.ZOMBIE_NAUTILUS_VARIANT,
-                            context.lookup(Registries.ZOMBIE_NAUTILUS_VARIANT).getOrThrow(variant)))
-                    .build());
-        }).build(context, resourceKey);
+    private static void bootstrapZombieNautilus(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation) {
+        bootstrapNautilus(textureLocation, SoundEvents.ZOMBIE_NAUTILUS_AMBIENT)
+                .build(context, resourceKey);
     }
 
-    private static Builder bootstrapNautilus(EntityType<?> entityType, String textureLocation, SoundEvent noteBlockSound) {
-        return HeadType.builder(entityType)
+    private static Builder bootstrapNautilus(String textureLocation, SoundEvent noteBlockSound) {
+        return HeadType.builder()
                 .shape(10.0, 8.0, 12.0)
                 .scale(6.0 / 8.0)
                 .model(ModelType.NAUTILUS, Identifier.withDefaultNamespace(textureLocation))
                 .noteBlockSound(noteBlockSound);
+    }
+
+    public static void bootstrapLootItemConditions(BootstrapContext<LootItemCondition> context) {
+        bootstrap(context, NAUTILUS, EntityTypes.NAUTILUS);
+        bootstrapZombieNautilus(context, ZombieNautilusVariants.TEMPERATE, ZOMBIE_NAUTILUS);
+        bootstrapZombieNautilus(context, ZombieNautilusVariants.WARM, CORAL_ZOMBIE_NAUTILUS);
+    }
+
+    private static void bootstrapZombieNautilus(BootstrapContext<LootItemCondition> context, ResourceKey<ZombieNautilusVariant> variant, ResourceKey<HeadType> resourceKey) {
+        bootstrap(context, resourceKey, EntityTypes.ZOMBIE_NAUTILUS, (EntityPredicate.Builder builder) -> {
+            builder.components(DataComponentMatchers.Builder.components()
+                    .exact(DataComponentExactPredicate.expect(DataComponents.ZOMBIE_NAUTILUS_VARIANT,
+                            context.lookup(Registries.ZOMBIE_NAUTILUS_VARIANT).getOrThrow(variant)))
+                    .build());
+        });
     }
 
     public static void registerTranslations(BiConsumer<ResourceKey<HeadType>, String> translationConsumer) {

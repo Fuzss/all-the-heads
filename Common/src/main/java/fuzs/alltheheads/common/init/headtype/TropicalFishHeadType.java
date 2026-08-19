@@ -13,11 +13,13 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.animal.fish.TropicalFish;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 
 import java.util.List;
 import java.util.Map;
 import java.util.function.BiConsumer;
 
+import static fuzs.alltheheads.common.init.HeadTypes.bootstrap;
 import static fuzs.alltheheads.common.init.HeadTypes.register;
 
 public class TropicalFishHeadType {
@@ -80,7 +82,7 @@ public class TropicalFishHeadType {
             .put(TropicalFish.Pattern.CLAYFISH, Identifier.withDefaultNamespace("entity/fish/tropical_b_pattern_6"))
             .build();
 
-    public static void bootstrap(BootstrapContext<HeadType> context) {
+    public static void bootstrapHeadTypes(BootstrapContext<HeadType> context) {
         for (int i = 0; i < COMMON_TROPICAL_FISH_VARIANTS.size(); i++) {
             TropicalFish.Variant variant = TropicalFish.COMMON_VARIANTS.get(i);
             ResourceKey<HeadType> resourceKey = COMMON_TROPICAL_FISH_VARIANTS.get(i);
@@ -106,12 +108,7 @@ public class TropicalFishHeadType {
     }
 
     private static void boostrapTropicalFish(BootstrapContext<HeadType> context, TropicalFish.Variant variant, ResourceKey<HeadType> resourceKey, String textureLocation, Shape shape, ModelType modelType) {
-        HeadType.builder(EntityTypes.TROPICAL_FISH)
-                .entityPredicate((EntityPredicate.Builder builder) -> {
-                    // we cannot check all three tropical fish components in a single entity predicate,
-                    // so use this custom subpredicate instead
-                    builder.put(TropicalFishPredicate.CODEC, TropicalFishPredicate.hasVariant(variant));
-                })
+        HeadType.builder()
                 .shape(shape)
                 .scale(1.5)
                 .dyedModel(modelType,
@@ -122,6 +119,18 @@ public class TropicalFishHeadType {
                         new Color.Dye(variant.patternColor()))
                 .noteBlockSound(SoundEvents.TROPICAL_FISH_FLOP)
                 .build(context, resourceKey);
+    }
+
+    public static void bootstrapLootItemConditions(BootstrapContext<LootItemCondition> context) {
+        for (int i = 0; i < COMMON_TROPICAL_FISH_VARIANTS.size(); i++) {
+            TropicalFish.Variant variant = TropicalFish.COMMON_VARIANTS.get(i);
+            ResourceKey<HeadType> resourceKey = COMMON_TROPICAL_FISH_VARIANTS.get(i);
+            // we cannot check all three tropical fish components in a single entity predicate,
+            // so use this custom subpredicate instead
+            bootstrap(context, resourceKey, EntityTypes.TROPICAL_FISH, (EntityPredicate.Builder builder) -> {
+                builder.put(TropicalFishPredicate.CODEC, TropicalFishPredicate.hasVariant(variant));
+            });
+        }
     }
 
     public static void registerTranslations(BiConsumer<ResourceKey<HeadType>, String> translationConsumer) {

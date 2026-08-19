@@ -15,10 +15,12 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 
 import java.util.Optional;
 import java.util.function.BiConsumer;
 
+import static fuzs.alltheheads.common.init.HeadTypes.bootstrap;
 import static fuzs.alltheheads.common.init.HeadTypes.register;
 
 public class SheepHeadType {
@@ -57,7 +59,7 @@ public class SheepHeadType {
     public static final ResourceKey<HeadType> RAINBOW_SHEEP = register("sheep/rainbow");
     public static final ResourceKey<HeadType> RAINBOW_WOOLLY_SHEEP = register("sheep/woolly/rainbow");
 
-    public static void bootstrap(BootstrapContext<HeadType> context) {
+    public static void bootstrapHeadTypes(BootstrapContext<HeadType> context) {
         bootstrapSheep(context, DyeColor.WHITE, WHITE_SHEEP, WHITE_WOOLLY_SHEEP);
         bootstrapSheep(context, DyeColor.ORANGE, ORANGE_SHEEP, ORANGE_WOOLLY_SHEEP);
         bootstrapSheep(context, DyeColor.MAGENTA, MAGENTA_SHEEP, MAGENTA_WOOLLY_SHEEP);
@@ -74,13 +76,7 @@ public class SheepHeadType {
         bootstrapSheep(context, DyeColor.GREEN, GREEN_SHEEP, GREEN_WOOLLY_SHEEP);
         bootstrapSheep(context, DyeColor.RED, RED_SHEEP, RED_WOOLLY_SHEEP);
         bootstrapSheep(context, DyeColor.BLACK, BLACK_SHEEP, BLACK_WOOLLY_SHEEP);
-        HeadType.builder(EntityTypes.SHEEP)
-                .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.components(DataComponentMatchers.Builder.components()
-                            .exact(DataComponentExactPredicate.expect(DataComponents.CUSTOM_NAME,
-                                    Component.literal("jeb_")))
-                            .build()).sheep(new SheepPredicate(Optional.of(true)));
-                })
+        HeadType.builder()
                 .shape(6.0, 6.0, 8.0)
                 .model(ModelType.SHEEP, Identifier.withDefaultNamespace("entity/sheep/sheep"))
                 .dyedModel(ModelType.SHEEP,
@@ -88,13 +84,7 @@ public class SheepHeadType {
                         new Color.Rainbow())
                 .noteBlockSound(SoundEvents.SHEEP_AMBIENT)
                 .build(context, RAINBOW_SHEEP);
-        HeadType.builder(EntityTypes.SHEEP)
-                .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.components(DataComponentMatchers.Builder.components()
-                            .exact(DataComponentExactPredicate.expect(DataComponents.CUSTOM_NAME,
-                                    Component.literal("jeb_")))
-                            .build()).sheep(SheepPredicate.hasWool());
-                })
+        HeadType.builder()
                 .shape(6.0, 6.0, 8.0)
                 .model(ModelType.SHEEP, Identifier.withDefaultNamespace("entity/sheep/sheep"))
                 .dyedModel(ModelType.SHEEP,
@@ -108,33 +98,15 @@ public class SheepHeadType {
     }
 
     private static void bootstrapSheep(BootstrapContext<HeadType> context, DyeColor dyeColor, ResourceKey<HeadType> sheep, ResourceKey<HeadType> woollySheep) {
-        bootstrapSheep(context, dyeColor, sheep);
-        bootstrapWoollySheep(context, dyeColor, woollySheep);
-    }
-
-    private static void bootstrapSheep(BootstrapContext<HeadType> context, DyeColor dyeColor, ResourceKey<HeadType> resourceKey) {
-        HeadType.builder(EntityTypes.SHEEP)
-                .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.components(DataComponentMatchers.Builder.components()
-                            .exact(DataComponentExactPredicate.expect(DataComponents.SHEEP_COLOR, dyeColor))
-                            .build()).sheep(new SheepPredicate(Optional.of(true)));
-                })
+        HeadType.builder()
                 .shape(6.0, 6.0, 8.0)
                 .model(ModelType.SHEEP, Identifier.withDefaultNamespace("entity/sheep/sheep"))
                 .dyedModel(ModelType.SHEEP,
                         Identifier.withDefaultNamespace("entity/sheep/sheep_wool_undercoat"),
                         new Color.Sheep(dyeColor))
                 .noteBlockSound(SoundEvents.SHEEP_AMBIENT)
-                .build(context, resourceKey);
-    }
-
-    private static void bootstrapWoollySheep(BootstrapContext<HeadType> context, DyeColor dyeColor, ResourceKey<HeadType> resourceKey) {
-        HeadType.builder(EntityTypes.SHEEP)
-                .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.components(DataComponentMatchers.Builder.components()
-                            .exact(DataComponentExactPredicate.expect(DataComponents.SHEEP_COLOR, dyeColor))
-                            .build()).sheep(SheepPredicate.hasWool());
-                })
+                .build(context, sheep);
+        HeadType.builder()
                 .shape(6.0, 6.0, 8.0)
                 .model(ModelType.SHEEP, Identifier.withDefaultNamespace("entity/sheep/sheep"))
                 .dyedModel(ModelType.SHEEP,
@@ -144,7 +116,49 @@ public class SheepHeadType {
                         Identifier.withDefaultNamespace("entity/sheep/sheep_wool"),
                         new Color.Sheep(dyeColor))
                 .noteBlockSound(SoundEvents.SHEEP_AMBIENT)
-                .build(context, resourceKey);
+                .build(context, woollySheep);
+    }
+
+    public static void bootstrapLootItemConditions(BootstrapContext<LootItemCondition> context) {
+        bootstrapLootItemConditions(context, DyeColor.WHITE, WHITE_SHEEP, WHITE_WOOLLY_SHEEP);
+        bootstrapLootItemConditions(context, DyeColor.ORANGE, ORANGE_SHEEP, ORANGE_WOOLLY_SHEEP);
+        bootstrapLootItemConditions(context, DyeColor.MAGENTA, MAGENTA_SHEEP, MAGENTA_WOOLLY_SHEEP);
+        bootstrapLootItemConditions(context, DyeColor.LIGHT_BLUE, LIGHT_BLUE_SHEEP, LIGHT_BLUE_WOOLLY_SHEEP);
+        bootstrapLootItemConditions(context, DyeColor.YELLOW, YELLOW_SHEEP, YELLOW_WOOLLY_SHEEP);
+        bootstrapLootItemConditions(context, DyeColor.LIME, LIME_SHEEP, LIME_WOOLLY_SHEEP);
+        bootstrapLootItemConditions(context, DyeColor.PINK, PINK_SHEEP, PINK_WOOLLY_SHEEP);
+        bootstrapLootItemConditions(context, DyeColor.GRAY, GRAY_SHEEP, GRAY_WOOLLY_SHEEP);
+        bootstrapLootItemConditions(context, DyeColor.LIGHT_GRAY, LIGHT_GRAY_SHEEP, LIGHT_GRAY_WOOLLY_SHEEP);
+        bootstrapLootItemConditions(context, DyeColor.CYAN, CYAN_SHEEP, CYAN_WOOLLY_SHEEP);
+        bootstrapLootItemConditions(context, DyeColor.PURPLE, PURPLE_SHEEP, PURPLE_WOOLLY_SHEEP);
+        bootstrapLootItemConditions(context, DyeColor.BLUE, BLUE_SHEEP, BLUE_WOOLLY_SHEEP);
+        bootstrapLootItemConditions(context, DyeColor.BROWN, BROWN_SHEEP, BROWN_WOOLLY_SHEEP);
+        bootstrapLootItemConditions(context, DyeColor.GREEN, GREEN_SHEEP, GREEN_WOOLLY_SHEEP);
+        bootstrapLootItemConditions(context, DyeColor.RED, RED_SHEEP, RED_WOOLLY_SHEEP);
+        bootstrapLootItemConditions(context, DyeColor.BLACK, BLACK_SHEEP, BLACK_WOOLLY_SHEEP);
+        bootstrap(context, RAINBOW_SHEEP, EntityTypes.SHEEP, (EntityPredicate.Builder builder) -> {
+            builder.components(DataComponentMatchers.Builder.components()
+                    .exact(DataComponentExactPredicate.expect(DataComponents.CUSTOM_NAME, Component.literal("jeb_")))
+                    .build()).sheep(new SheepPredicate(Optional.of(true)));
+        });
+        bootstrap(context, RAINBOW_WOOLLY_SHEEP, EntityTypes.SHEEP, (EntityPredicate.Builder builder) -> {
+            builder.components(DataComponentMatchers.Builder.components()
+                    .exact(DataComponentExactPredicate.expect(DataComponents.CUSTOM_NAME, Component.literal("jeb_")))
+                    .build()).sheep(SheepPredicate.hasWool());
+        });
+    }
+
+    private static void bootstrapLootItemConditions(BootstrapContext<LootItemCondition> context, DyeColor dyeColor, ResourceKey<HeadType> sheep, ResourceKey<HeadType> woollySheep) {
+        bootstrap(context, sheep, EntityTypes.SHEEP, (EntityPredicate.Builder builder) -> {
+            builder.components(DataComponentMatchers.Builder.components()
+                    .exact(DataComponentExactPredicate.expect(DataComponents.SHEEP_COLOR, dyeColor))
+                    .build()).sheep(new SheepPredicate(Optional.of(true)));
+        });
+        bootstrap(context, woollySheep, EntityTypes.SHEEP, (EntityPredicate.Builder builder) -> {
+            builder.components(DataComponentMatchers.Builder.components()
+                    .exact(DataComponentExactPredicate.expect(DataComponents.SHEEP_COLOR, dyeColor))
+                    .build()).sheep(SheepPredicate.hasWool());
+        });
     }
 
     public static void registerTranslations(BiConsumer<ResourceKey<HeadType>, String> translationConsumer) {

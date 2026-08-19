@@ -107,7 +107,7 @@ public class ModAdvancementProvider extends AbstractAdvancementProvider {
                 .listElements()
                 .sorted(HOLDER_COMPARATOR)
                 .mapMulti((Holder.Reference<HeadType> headType, Consumer<Map.Entry<Holder<EntityType<?>>, Holder.Reference<HeadType>>> consumer) -> {
-                    headType.value().getEntityTypes().forEach((Holder<EntityType<?>> holder) -> {
+                    headType.value().getEntityTypes(context).forEach((Holder<EntityType<?>> holder) -> {
                         consumer.accept(Map.entry(holder, headType));
                     });
                 })

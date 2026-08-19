@@ -24,6 +24,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.util.context.ContextKeySet;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
@@ -33,13 +34,14 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.PushReaction;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.waypoints.Waypoint;
 
 public class ModRegistry {
     public static final ResourceKey<Registry<HeadType>> HEAD_REGISTRY_KEY = ResourceKey.createRegistryKey(AllTheHeads.id(
             "head"));
-    public static final RegistrySetBuilder REGISTRY_SET_BUILDER = new RegistrySetBuilder().add(HEAD_REGISTRY_KEY,
-            HeadTypes::bootstrap);
+    public static final RegistrySetBuilder REGISTRY_SET_BUILDER = new RegistrySetBuilder().add(Registries.PREDICATE,
+            HeadTypes::bootstrapLootItemConditions).add(HEAD_REGISTRY_KEY, HeadTypes::bootstrapHeadTypes);
     public static final SkullBlock.Type MOB_SKULL_BLOCK_TYPE = ContentRegistrationHelper.registerSkullBlockType(
             AllTheHeads.id("mob"));
 
@@ -151,6 +153,11 @@ public class ModRegistry {
     static final TagFactory TAGS = TagFactory.make(AllTheHeads.MOD_ID);
     public static final TagKey<HeadType> VILLAGER_LIKE_HEAD_TYPE_TAG = TAGS.registerTagKey(HEAD_REGISTRY_KEY,
             "villager_like");
+
+    public static final ContextKeySet HEAD_CONTEXT_KEY_SET = ContentRegistrationHelper.registerContextKeySet(AllTheHeads.id(
+            "head"), (ContextKeySet.Builder builder) -> {
+        builder.required(LootContextParams.THIS_ENTITY);
+    });
 
     public static void bootstrap() {
         ModLootTables.bootstrap();

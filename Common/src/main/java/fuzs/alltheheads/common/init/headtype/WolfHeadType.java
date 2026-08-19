@@ -16,10 +16,12 @@ import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.animal.wolf.WolfSoundVariants;
 import net.minecraft.world.entity.animal.wolf.WolfVariant;
 import net.minecraft.world.entity.animal.wolf.WolfVariants;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 
 import java.util.Optional;
 import java.util.function.BiConsumer;
 
+import static fuzs.alltheheads.common.init.HeadTypes.bootstrap;
 import static fuzs.alltheheads.common.init.HeadTypes.register;
 
 public class WolfHeadType {
@@ -60,45 +62,38 @@ public class WolfHeadType {
     public static final ResourceKey<HeadType> ANGRY_WOODS_WOLF = register("wolf/woods/angry");
     public static final ResourceKey<HeadType> TAME_WOODS_WOLF = register("wolf/woods/tame");
 
-    public static void bootstrap(BootstrapContext<HeadType> context) {
-        bootstrapWolf(context, WolfVariants.ASHEN, ASHEN_WOLF, "entity/wolf/wolf_ashen");
-        bootstrapAngryWolf(context, WolfVariants.ASHEN, ANGRY_ASHEN_WOLF, "entity/wolf/wolf_ashen_angry");
-        bootstrapTameWolf(context, WolfVariants.ASHEN, TAME_ASHEN_WOLF, "entity/wolf/wolf_ashen_tame");
-        bootstrapWolf(context, WolfVariants.BLACK, BLACK_WOLF, "entity/wolf/wolf_black");
-        bootstrapAngryWolf(context, WolfVariants.BLACK, ANGRY_BLACK_WOLF, "entity/wolf/wolf_black_angry");
-        bootstrapTameWolf(context, WolfVariants.BLACK, TAME_BLACK_WOLF, "entity/wolf/wolf_black_tame");
-        bootstrapWolf(context, WolfVariants.CHESTNUT, CHESTNUT_WOLF, "entity/wolf/wolf_chestnut");
-        bootstrapAngryWolf(context, WolfVariants.CHESTNUT, ANGRY_CHESTNUT_WOLF, "entity/wolf/wolf_chestnut_angry");
-        bootstrapTameWolf(context, WolfVariants.CHESTNUT, TAME_CHESTNUT_WOLF, "entity/wolf/wolf_chestnut_tame");
-        bootstrapWolf(context, WolfVariants.PALE, PALE_WOLF, "entity/wolf/wolf");
-        bootstrapAngryWolf(context, WolfVariants.PALE, ANGRY_PALE_WOLF, "entity/wolf/wolf_angry");
-        bootstrapTameWolf(context, WolfVariants.PALE, TAME_PALE_WOLF, "entity/wolf/wolf_tame");
-        bootstrapWolf(context, WolfVariants.RUSTY, RUSTY_WOLF, "entity/wolf/wolf_rusty");
-        bootstrapAngryWolf(context, WolfVariants.RUSTY, ANGRY_RUSTY_WOLF, "entity/wolf/wolf_rusty_angry");
-        bootstrapTameWolf(context, WolfVariants.RUSTY, TAME_RUSTY_WOLF, "entity/wolf/wolf_rusty_tame");
-        bootstrapWolf(context, WolfVariants.SPOTTED, SPOTTED_WOLF, "entity/wolf/wolf_spotted");
-        bootstrapAngryWolf(context, WolfVariants.SPOTTED, ANGRY_SPOTTED_WOLF, "entity/wolf/wolf_spotted_angry");
-        bootstrapTameWolf(context, WolfVariants.SPOTTED, TAME_SPOTTED_WOLF, "entity/wolf/wolf_spotted_tame");
-        bootstrapWolf(context, WolfVariants.SNOWY, SNOWY_WOLF, "entity/wolf/wolf_snowy");
-        bootstrapAngryWolf(context, WolfVariants.SNOWY, ANGRY_SNOWY_WOLF, "entity/wolf/wolf_snowy_angry");
-        bootstrapTameWolf(context, WolfVariants.SNOWY, TAME_SNOWY_WOLF, "entity/wolf/wolf_snowy_tame");
-        bootstrapWolf(context, WolfVariants.STRIPED, STRIPED_WOLF, "entity/wolf/wolf_striped");
-        bootstrapAngryWolf(context, WolfVariants.STRIPED, ANGRY_STRIPED_WOLF, "entity/wolf/wolf_striped_angry");
-        bootstrapTameWolf(context, WolfVariants.STRIPED, TAME_STRIPED_WOLF, "entity/wolf/wolf_striped_tame");
-        bootstrapWolf(context, WolfVariants.WOODS, WOODS_WOLF, "entity/wolf/wolf_woods");
-        bootstrapAngryWolf(context, WolfVariants.WOODS, ANGRY_WOODS_WOLF, "entity/wolf/wolf_woods_angry");
-        bootstrapTameWolf(context, WolfVariants.WOODS, TAME_WOODS_WOLF, "entity/wolf/wolf_woods_tame");
+    public static void bootstrapHeadTypes(BootstrapContext<HeadType> context) {
+        bootstrapWolf(context, ASHEN_WOLF, "entity/wolf/wolf_ashen");
+        bootstrapAngryWolf(context, ANGRY_ASHEN_WOLF, "entity/wolf/wolf_ashen_angry");
+        bootstrapTameWolf(context, TAME_ASHEN_WOLF, "entity/wolf/wolf_ashen_tame");
+        bootstrapWolf(context, BLACK_WOLF, "entity/wolf/wolf_black");
+        bootstrapAngryWolf(context, ANGRY_BLACK_WOLF, "entity/wolf/wolf_black_angry");
+        bootstrapTameWolf(context, TAME_BLACK_WOLF, "entity/wolf/wolf_black_tame");
+        bootstrapWolf(context, CHESTNUT_WOLF, "entity/wolf/wolf_chestnut");
+        bootstrapAngryWolf(context, ANGRY_CHESTNUT_WOLF, "entity/wolf/wolf_chestnut_angry");
+        bootstrapTameWolf(context, TAME_CHESTNUT_WOLF, "entity/wolf/wolf_chestnut_tame");
+        bootstrapWolf(context, PALE_WOLF, "entity/wolf/wolf");
+        bootstrapAngryWolf(context, ANGRY_PALE_WOLF, "entity/wolf/wolf_angry");
+        bootstrapTameWolf(context, TAME_PALE_WOLF, "entity/wolf/wolf_tame");
+        bootstrapWolf(context, RUSTY_WOLF, "entity/wolf/wolf_rusty");
+        bootstrapAngryWolf(context, ANGRY_RUSTY_WOLF, "entity/wolf/wolf_rusty_angry");
+        bootstrapTameWolf(context, TAME_RUSTY_WOLF, "entity/wolf/wolf_rusty_tame");
+        bootstrapWolf(context, SPOTTED_WOLF, "entity/wolf/wolf_spotted");
+        bootstrapAngryWolf(context, ANGRY_SPOTTED_WOLF, "entity/wolf/wolf_spotted_angry");
+        bootstrapTameWolf(context, TAME_SPOTTED_WOLF, "entity/wolf/wolf_spotted_tame");
+        bootstrapWolf(context, SNOWY_WOLF, "entity/wolf/wolf_snowy");
+        bootstrapAngryWolf(context, ANGRY_SNOWY_WOLF, "entity/wolf/wolf_snowy_angry");
+        bootstrapTameWolf(context, TAME_SNOWY_WOLF, "entity/wolf/wolf_snowy_tame");
+        bootstrapWolf(context, STRIPED_WOLF, "entity/wolf/wolf_striped");
+        bootstrapAngryWolf(context, ANGRY_STRIPED_WOLF, "entity/wolf/wolf_striped_angry");
+        bootstrapTameWolf(context, TAME_STRIPED_WOLF, "entity/wolf/wolf_striped_tame");
+        bootstrapWolf(context, WOODS_WOLF, "entity/wolf/wolf_woods");
+        bootstrapAngryWolf(context, ANGRY_WOODS_WOLF, "entity/wolf/wolf_woods_angry");
+        bootstrapTameWolf(context, TAME_WOODS_WOLF, "entity/wolf/wolf_woods_tame");
     }
 
-    private static void bootstrapWolf(BootstrapContext<HeadType> context, ResourceKey<WolfVariant> variant, ResourceKey<HeadType> resourceKey, String textureLocation) {
-        HeadType.builder(EntityTypes.WOLF)
-                .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.components(DataComponentMatchers.Builder.components()
-                                    .exact(DataComponentExactPredicate.expect(DataComponents.WOLF_VARIANT,
-                                            context.lookup(Registries.WOLF_VARIANT).getOrThrow(variant)))
-                                    .build())
-                            .put(WolfPredicate.CODEC, new WolfPredicate(Optional.of(false), Optional.of(false)));
-                })
+    private static void bootstrapWolf(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation) {
+        HeadType.builder()
                 .shape(6.0, 6.0, 4.0)
                 .scale(4.0 / 3.0)
                 .model(ModelType.WOLF, Identifier.withDefaultNamespace(textureLocation))
@@ -108,14 +103,8 @@ public class WolfHeadType {
                 .build(context, resourceKey);
     }
 
-    private static void bootstrapAngryWolf(BootstrapContext<HeadType> context, ResourceKey<WolfVariant> variant, ResourceKey<HeadType> resourceKey, String textureLocation) {
-        HeadType.builder(EntityTypes.WOLF)
-                .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.components(DataComponentMatchers.Builder.components()
-                            .exact(DataComponentExactPredicate.expect(DataComponents.WOLF_VARIANT,
-                                    context.lookup(Registries.WOLF_VARIANT).getOrThrow(variant)))
-                            .build()).put(WolfPredicate.CODEC, WolfPredicate.isAngry());
-                })
+    private static void bootstrapAngryWolf(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation) {
+        HeadType.builder()
                 .shape(6.0, 6.0, 4.0)
                 .scale(4.0 / 3.0)
                 .model(ModelType.WOLF, Identifier.withDefaultNamespace(textureLocation))
@@ -125,14 +114,8 @@ public class WolfHeadType {
                 .build(context, resourceKey);
     }
 
-    private static void bootstrapTameWolf(BootstrapContext<HeadType> context, ResourceKey<WolfVariant> variant, ResourceKey<HeadType> resourceKey, String textureLocation) {
-        HeadType.builder(EntityTypes.WOLF)
-                .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.components(DataComponentMatchers.Builder.components()
-                            .exact(DataComponentExactPredicate.expect(DataComponents.WOLF_VARIANT,
-                                    context.lookup(Registries.WOLF_VARIANT).getOrThrow(variant)))
-                            .build()).put(WolfPredicate.CODEC, WolfPredicate.isTame());
-                })
+    private static void bootstrapTameWolf(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation) {
+        HeadType.builder()
                 .shape(6.0, 6.0, 4.0)
                 .scale(4.0 / 3.0)
                 .model(ModelType.WOLF, Identifier.withDefaultNamespace(textureLocation))
@@ -140,6 +123,63 @@ public class WolfHeadType {
                         .adultSounds()
                         .pantSound())
                 .build(context, resourceKey);
+    }
+
+    public static void bootstrapLootItemConditions(BootstrapContext<LootItemCondition> context) {
+        bootstrapWolf(context, WolfVariants.ASHEN, ASHEN_WOLF);
+        bootstrapAngryWolf(context, WolfVariants.ASHEN, ANGRY_ASHEN_WOLF);
+        bootstrapTameWolf(context, WolfVariants.ASHEN, TAME_ASHEN_WOLF);
+        bootstrapWolf(context, WolfVariants.BLACK, BLACK_WOLF);
+        bootstrapAngryWolf(context, WolfVariants.BLACK, ANGRY_BLACK_WOLF);
+        bootstrapTameWolf(context, WolfVariants.BLACK, TAME_BLACK_WOLF);
+        bootstrapWolf(context, WolfVariants.CHESTNUT, CHESTNUT_WOLF);
+        bootstrapAngryWolf(context, WolfVariants.CHESTNUT, ANGRY_CHESTNUT_WOLF);
+        bootstrapTameWolf(context, WolfVariants.CHESTNUT, TAME_CHESTNUT_WOLF);
+        bootstrapWolf(context, WolfVariants.PALE, PALE_WOLF);
+        bootstrapAngryWolf(context, WolfVariants.PALE, ANGRY_PALE_WOLF);
+        bootstrapTameWolf(context, WolfVariants.PALE, TAME_PALE_WOLF);
+        bootstrapWolf(context, WolfVariants.RUSTY, RUSTY_WOLF);
+        bootstrapAngryWolf(context, WolfVariants.RUSTY, ANGRY_RUSTY_WOLF);
+        bootstrapTameWolf(context, WolfVariants.RUSTY, TAME_RUSTY_WOLF);
+        bootstrapWolf(context, WolfVariants.SPOTTED, SPOTTED_WOLF);
+        bootstrapAngryWolf(context, WolfVariants.SPOTTED, ANGRY_SPOTTED_WOLF);
+        bootstrapTameWolf(context, WolfVariants.SPOTTED, TAME_SPOTTED_WOLF);
+        bootstrapWolf(context, WolfVariants.SNOWY, SNOWY_WOLF);
+        bootstrapAngryWolf(context, WolfVariants.SNOWY, ANGRY_SNOWY_WOLF);
+        bootstrapTameWolf(context, WolfVariants.SNOWY, TAME_SNOWY_WOLF);
+        bootstrapWolf(context, WolfVariants.STRIPED, STRIPED_WOLF);
+        bootstrapAngryWolf(context, WolfVariants.STRIPED, ANGRY_STRIPED_WOLF);
+        bootstrapTameWolf(context, WolfVariants.STRIPED, TAME_STRIPED_WOLF);
+        bootstrapWolf(context, WolfVariants.WOODS, WOODS_WOLF);
+        bootstrapAngryWolf(context, WolfVariants.WOODS, ANGRY_WOODS_WOLF);
+        bootstrapTameWolf(context, WolfVariants.WOODS, TAME_WOODS_WOLF);
+    }
+
+    private static void bootstrapWolf(BootstrapContext<LootItemCondition> context, ResourceKey<WolfVariant> variant, ResourceKey<HeadType> resourceKey) {
+        bootstrap(context, resourceKey, EntityTypes.WOLF, (EntityPredicate.Builder builder) -> {
+            builder.components(DataComponentMatchers.Builder.components()
+                    .exact(DataComponentExactPredicate.expect(DataComponents.WOLF_VARIANT,
+                            context.lookup(Registries.WOLF_VARIANT).getOrThrow(variant)))
+                    .build()).put(WolfPredicate.CODEC, new WolfPredicate(Optional.of(false), Optional.of(false)));
+        });
+    }
+
+    private static void bootstrapAngryWolf(BootstrapContext<LootItemCondition> context, ResourceKey<WolfVariant> variant, ResourceKey<HeadType> resourceKey) {
+        bootstrap(context, resourceKey, EntityTypes.WOLF, (EntityPredicate.Builder builder) -> {
+            builder.components(DataComponentMatchers.Builder.components()
+                    .exact(DataComponentExactPredicate.expect(DataComponents.WOLF_VARIANT,
+                            context.lookup(Registries.WOLF_VARIANT).getOrThrow(variant)))
+                    .build()).put(WolfPredicate.CODEC, WolfPredicate.isAngry());
+        });
+    }
+
+    private static void bootstrapTameWolf(BootstrapContext<LootItemCondition> context, ResourceKey<WolfVariant> variant, ResourceKey<HeadType> resourceKey) {
+        bootstrap(context, resourceKey, EntityTypes.WOLF, (EntityPredicate.Builder builder) -> {
+            builder.components(DataComponentMatchers.Builder.components()
+                    .exact(DataComponentExactPredicate.expect(DataComponents.WOLF_VARIANT,
+                            context.lookup(Registries.WOLF_VARIANT).getOrThrow(variant)))
+                    .build()).put(WolfPredicate.CODEC, WolfPredicate.isTame());
+        });
     }
 
     public static void registerTranslations(BiConsumer<ResourceKey<HeadType>, String> translationConsumer) {

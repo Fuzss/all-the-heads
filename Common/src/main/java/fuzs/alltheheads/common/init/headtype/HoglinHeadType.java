@@ -7,29 +7,35 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EntityTypes;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 
 import java.util.function.BiConsumer;
 
+import static fuzs.alltheheads.common.init.HeadTypes.bootstrap;
 import static fuzs.alltheheads.common.init.HeadTypes.register;
 
 public class HoglinHeadType {
     public static final ResourceKey<HeadType> HOGLIN = register("hoglin");
     public static final ResourceKey<HeadType> ZOGLIN = register("zoglin");
 
-    public static void bootstrap(BootstrapContext<HeadType> context) {
-        bootstrapHoglin(context, EntityTypes.HOGLIN, HOGLIN, "entity/hoglin/hoglin", SoundEvents.HOGLIN_AMBIENT);
-        bootstrapHoglin(context, EntityTypes.ZOGLIN, ZOGLIN, "entity/hoglin/zoglin", SoundEvents.ZOGLIN_AMBIENT);
+    public static void bootstrapHeadTypes(BootstrapContext<HeadType> context) {
+        bootstrapHoglin(context, HOGLIN, "entity/hoglin/hoglin", SoundEvents.HOGLIN_AMBIENT);
+        bootstrapHoglin(context, ZOGLIN, "entity/hoglin/zoglin", SoundEvents.ZOGLIN_AMBIENT);
     }
 
-    private static void bootstrapHoglin(BootstrapContext<HeadType> context, EntityType<?> entityType, ResourceKey<HeadType> resourceKey, String textureLocation, SoundEvent noteBlockSound) {
-        HeadType.builder(entityType)
+    private static void bootstrapHoglin(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation, SoundEvent noteBlockSound) {
+        HeadType.builder()
                 .shape(14.0, 18.0, 8.0)
                 .scale(0.625)
                 .model(ModelType.HOGLIN, Identifier.withDefaultNamespace(textureLocation))
                 .noteBlockSound(noteBlockSound)
                 .build(context, resourceKey);
+    }
+
+    public static void bootstrapLootItemConditions(BootstrapContext<LootItemCondition> context) {
+        bootstrap(context, HOGLIN, EntityTypes.HOGLIN);
+        bootstrap(context, ZOGLIN, EntityTypes.ZOGLIN);
     }
 
     public static void registerTranslations(BiConsumer<ResourceKey<HeadType>, String> translationConsumer) {

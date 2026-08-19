@@ -12,13 +12,14 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.animal.equine.Markings;
 import net.minecraft.world.entity.animal.equine.Variant;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 
 import java.util.function.BiConsumer;
 
+import static fuzs.alltheheads.common.init.HeadTypes.bootstrap;
 import static fuzs.alltheheads.common.init.HeadTypes.register;
 
 public class EquineHeadType {
@@ -70,213 +71,153 @@ public class EquineHeadType {
     public static final ResourceKey<HeadType> WHITE_DOTS_DARK_BROWN_HORSE = register("horse/dark_brown/white_dots");
     public static final ResourceKey<HeadType> BLACK_DOTS_DARK_BROWN_HORSE = register("horse/dark_brown/black_dots");
 
-    public static void bootstrap(BootstrapContext<HeadType> context) {
+    public static void bootstrapHeadTypes(BootstrapContext<HeadType> context) {
         // Horses
-        bootstrapHorse(context,
-                EntityTypes.SKELETON_HORSE,
-                SKELETON_HORSE,
+        bootstrapHorse(context, SKELETON_HORSE,
                 "entity/horse/horse_skeleton",
                 SoundEvents.SKELETON_HORSE_AMBIENT);
-        bootstrapHorse(context,
-                EntityTypes.ZOMBIE_HORSE,
-                ZOMBIE_HORSE,
+        bootstrapHorse(context, ZOMBIE_HORSE,
                 "entity/horse/horse_zombie",
                 SoundEvents.ZOMBIE_HORSE_AMBIENT);
-        bootstrapHorse(context, EntityTypes.DONKEY, DONKEY, "entity/horse/donkey", SoundEvents.DONKEY_AMBIENT);
-        bootstrapHorse(context, EntityTypes.MULE, MULE, "entity/horse/mule", SoundEvents.MULE_AMBIENT);
+        bootstrapHorse(context, DONKEY, "entity/horse/donkey", SoundEvents.DONKEY_AMBIENT);
+        bootstrapHorse(context, MULE, "entity/horse/mule", SoundEvents.MULE_AMBIENT);
 
         // White Horses
-        bootstrapHorse(context, Variant.WHITE, WHITE_HORSE, "entity/horse/horse_white");
+        bootstrapHorse(context, WHITE_HORSE, "entity/horse/horse_white");
         bootstrapHorse(context,
-                Variant.WHITE,
-                Markings.WHITE,
                 WHITE_WHITE_HORSE,
                 "entity/horse/horse_white",
                 "entity/horse/horse_markings_white");
         bootstrapHorse(context,
-                Variant.WHITE,
-                Markings.WHITE_FIELD,
                 WHITE_FIELD_WHITE_HORSE,
                 "entity/horse/horse_white",
                 "entity/horse/horse_markings_whitefield");
         bootstrapHorse(context,
-                Variant.WHITE,
-                Markings.WHITE_DOTS,
                 WHITE_DOTS_WHITE_HORSE,
                 "entity/horse/horse_white",
                 "entity/horse/horse_markings_whitedots");
         bootstrapHorse(context,
-                Variant.WHITE,
-                Markings.BLACK_DOTS,
                 BLACK_DOTS_WHITE_HORSE,
                 "entity/horse/horse_white",
                 "entity/horse/horse_markings_blackdots");
 
         // Creamy Horses
-        bootstrapHorse(context, Variant.CREAMY, CREAMY_HORSE, "entity/horse/horse_creamy");
+        bootstrapHorse(context, CREAMY_HORSE, "entity/horse/horse_creamy");
         bootstrapHorse(context,
-                Variant.CREAMY,
-                Markings.WHITE,
                 WHITE_CREAMY_HORSE,
                 "entity/horse/horse_creamy",
                 "entity/horse/horse_markings_white");
         bootstrapHorse(context,
-                Variant.CREAMY,
-                Markings.WHITE_FIELD,
                 WHITE_FIELD_CREAMY_HORSE,
                 "entity/horse/horse_creamy",
                 "entity/horse/horse_markings_whitefield");
         bootstrapHorse(context,
-                Variant.CREAMY,
-                Markings.WHITE_DOTS,
                 WHITE_DOTS_CREAMY_HORSE,
                 "entity/horse/horse_creamy",
                 "entity/horse/horse_markings_whitedots");
         bootstrapHorse(context,
-                Variant.CREAMY,
-                Markings.BLACK_DOTS,
                 BLACK_DOTS_CREAMY_HORSE,
                 "entity/horse/horse_creamy",
                 "entity/horse/horse_markings_blackdots");
 
         // Chestnut Horses
-        bootstrapHorse(context, Variant.CHESTNUT, CHESTNUT_HORSE, "entity/horse/horse_chestnut");
+        bootstrapHorse(context, CHESTNUT_HORSE, "entity/horse/horse_chestnut");
         bootstrapHorse(context,
-                Variant.CHESTNUT,
-                Markings.WHITE,
                 WHITE_CHESTNUT_HORSE,
                 "entity/horse/horse_chestnut",
                 "entity/horse/horse_markings_white");
         bootstrapHorse(context,
-                Variant.CHESTNUT,
-                Markings.WHITE_FIELD,
                 WHITE_FIELD_CHESTNUT_HORSE,
                 "entity/horse/horse_chestnut",
                 "entity/horse/horse_markings_whitefield");
         bootstrapHorse(context,
-                Variant.CHESTNUT,
-                Markings.WHITE_DOTS,
                 WHITE_DOTS_CHESTNUT_HORSE,
                 "entity/horse/horse_chestnut",
                 "entity/horse/horse_markings_whitedots");
         bootstrapHorse(context,
-                Variant.CHESTNUT,
-                Markings.BLACK_DOTS,
                 BLACK_DOTS_CHESTNUT_HORSE,
                 "entity/horse/horse_chestnut",
                 "entity/horse/horse_markings_blackdots");
 
         // Brown Horses
-        bootstrapHorse(context, Variant.BROWN, BROWN_HORSE, "entity/horse/horse_brown");
+        bootstrapHorse(context, BROWN_HORSE, "entity/horse/horse_brown");
         bootstrapHorse(context,
-                Variant.BROWN,
-                Markings.WHITE,
                 WHITE_BROWN_HORSE,
                 "entity/horse/horse_brown",
                 "entity/horse/horse_markings_white");
         bootstrapHorse(context,
-                Variant.BROWN,
-                Markings.WHITE_FIELD,
                 WHITE_FIELD_BROWN_HORSE,
                 "entity/horse/horse_brown",
                 "entity/horse/horse_markings_whitefield");
         bootstrapHorse(context,
-                Variant.BROWN,
-                Markings.WHITE_DOTS,
                 WHITE_DOTS_BROWN_HORSE,
                 "entity/horse/horse_brown",
                 "entity/horse/horse_markings_whitedots");
         bootstrapHorse(context,
-                Variant.BROWN,
-                Markings.BLACK_DOTS,
                 BLACK_DOTS_BROWN_HORSE,
                 "entity/horse/horse_brown",
                 "entity/horse/horse_markings_blackdots");
 
         // Black Horses
-        bootstrapHorse(context, Variant.BLACK, BLACK_HORSE, "entity/horse/horse_black");
+        bootstrapHorse(context, BLACK_HORSE, "entity/horse/horse_black");
         bootstrapHorse(context,
-                Variant.BLACK,
-                Markings.WHITE,
                 WHITE_BLACK_HORSE,
                 "entity/horse/horse_black",
                 "entity/horse/horse_markings_white");
         bootstrapHorse(context,
-                Variant.BLACK,
-                Markings.WHITE_FIELD,
                 WHITE_FIELD_BLACK_HORSE,
                 "entity/horse/horse_black",
                 "entity/horse/horse_markings_whitefield");
         bootstrapHorse(context,
-                Variant.BLACK,
-                Markings.WHITE_DOTS,
                 WHITE_DOTS_BLACK_HORSE,
                 "entity/horse/horse_black",
                 "entity/horse/horse_markings_whitedots");
         bootstrapHorse(context,
-                Variant.BLACK,
-                Markings.BLACK_DOTS,
                 BLACK_DOTS_BLACK_HORSE,
                 "entity/horse/horse_black",
                 "entity/horse/horse_markings_blackdots");
 
         // Gray Horses
-        bootstrapHorse(context, Variant.GRAY, GRAY_HORSE, "entity/horse/horse_gray");
+        bootstrapHorse(context, GRAY_HORSE, "entity/horse/horse_gray");
         bootstrapHorse(context,
-                Variant.GRAY,
-                Markings.WHITE,
                 WHITE_GRAY_HORSE,
                 "entity/horse/horse_gray",
                 "entity/horse/horse_markings_white");
         bootstrapHorse(context,
-                Variant.GRAY,
-                Markings.WHITE_FIELD,
                 WHITE_FIELD_GRAY_HORSE,
                 "entity/horse/horse_gray",
                 "entity/horse/horse_markings_whitefield");
         bootstrapHorse(context,
-                Variant.GRAY,
-                Markings.WHITE_DOTS,
                 WHITE_DOTS_GRAY_HORSE,
                 "entity/horse/horse_gray",
                 "entity/horse/horse_markings_whitedots");
         bootstrapHorse(context,
-                Variant.GRAY,
-                Markings.BLACK_DOTS,
                 BLACK_DOTS_GRAY_HORSE,
                 "entity/horse/horse_gray",
                 "entity/horse/horse_markings_blackdots");
 
         // Dark Brown Horses
-        bootstrapHorse(context, Variant.DARK_BROWN, DARK_BROWN_HORSE, "entity/horse/horse_darkbrown");
+        bootstrapHorse(context, DARK_BROWN_HORSE, "entity/horse/horse_darkbrown");
         bootstrapHorse(context,
-                Variant.DARK_BROWN,
-                Markings.WHITE,
                 WHITE_DARK_BROWN_HORSE,
                 "entity/horse/horse_darkbrown",
                 "entity/horse/horse_markings_white");
         bootstrapHorse(context,
-                Variant.DARK_BROWN,
-                Markings.WHITE_FIELD,
                 WHITE_FIELD_DARK_BROWN_HORSE,
                 "entity/horse/horse_darkbrown",
                 "entity/horse/horse_markings_whitefield");
         bootstrapHorse(context,
-                Variant.DARK_BROWN,
-                Markings.WHITE_DOTS,
                 WHITE_DOTS_DARK_BROWN_HORSE,
                 "entity/horse/horse_darkbrown",
                 "entity/horse/horse_markings_whitedots");
         bootstrapHorse(context,
-                Variant.DARK_BROWN,
-                Markings.BLACK_DOTS,
                 BLACK_DOTS_DARK_BROWN_HORSE,
                 "entity/horse/horse_darkbrown",
                 "entity/horse/horse_markings_blackdots");
     }
 
-    private static void bootstrapHorse(BootstrapContext<HeadType> context, EntityType<?> entityType, ResourceKey<HeadType> resourceKey, String textureLocation, SoundEvent noteBlockSound) {
-        HeadType.builder(entityType)
+    private static void bootstrapHorse(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation, SoundEvent noteBlockSound) {
+        HeadType.builder()
                 .shape(4.0, 16.0, 8.0)
                 .scale(0.75)
                 .model(ModelType.HORSE, Identifier.withDefaultNamespace(textureLocation))
@@ -284,13 +225,8 @@ public class EquineHeadType {
                 .build(context, resourceKey);
     }
 
-    private static void bootstrapHorse(BootstrapContext<HeadType> context, Variant variant, ResourceKey<HeadType> resourceKey, String textureLocation) {
-        HeadType.builder(EntityTypes.HORSE)
-                .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.components(DataComponentMatchers.Builder.components()
-                            .exact(DataComponentExactPredicate.expect(DataComponents.HORSE_VARIANT, variant))
-                            .build()).put(HorsePredicate.CODEC, HorsePredicate.forMarkings(Markings.NONE));
-                })
+    private static void bootstrapHorse(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation) {
+        HeadType.builder()
                 .shape(4.0, 16.0, 8.0)
                 .scale(0.75)
                 .model(ModelType.HORSE, Identifier.withDefaultNamespace(textureLocation))
@@ -298,19 +234,87 @@ public class EquineHeadType {
                 .build(context, resourceKey);
     }
 
-    private static void bootstrapHorse(BootstrapContext<HeadType> context, Variant variant, Markings markings, ResourceKey<HeadType> resourceKey, String textureLocation, String markingsLocation) {
-        HeadType.builder(EntityTypes.HORSE)
-                .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.components(DataComponentMatchers.Builder.components()
-                            .exact(DataComponentExactPredicate.expect(DataComponents.HORSE_VARIANT, variant))
-                            .build()).put(HorsePredicate.CODEC, HorsePredicate.forMarkings(markings));
-                })
+    private static void bootstrapHorse(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation, String markingsLocation) {
+        HeadType.builder()
                 .shape(4.0, 16.0, 8.0)
                 .scale(0.75)
                 .model(ModelType.HORSE, Identifier.withDefaultNamespace(textureLocation))
                 .model(ModelType.HORSE_MARKINGS, Identifier.withDefaultNamespace(markingsLocation))
                 .noteBlockSound(SoundEvents.HORSE_AMBIENT)
                 .build(context, resourceKey);
+    }
+
+    public static void bootstrapLootItemConditions(BootstrapContext<LootItemCondition> context) {
+        // Horses
+        bootstrap(context, SKELETON_HORSE, EntityTypes.SKELETON_HORSE);
+        bootstrap(context, ZOMBIE_HORSE, EntityTypes.ZOMBIE_HORSE);
+        bootstrap(context, DONKEY, EntityTypes.DONKEY);
+        bootstrap(context, MULE, EntityTypes.MULE);
+
+        // White Horses
+        bootstrapHorse(context, Variant.WHITE, WHITE_HORSE);
+        bootstrapHorse(context, Variant.WHITE, Markings.WHITE, WHITE_WHITE_HORSE);
+        bootstrapHorse(context, Variant.WHITE, Markings.WHITE_FIELD, WHITE_FIELD_WHITE_HORSE);
+        bootstrapHorse(context, Variant.WHITE, Markings.WHITE_DOTS, WHITE_DOTS_WHITE_HORSE);
+        bootstrapHorse(context, Variant.WHITE, Markings.BLACK_DOTS, BLACK_DOTS_WHITE_HORSE);
+
+        // Creamy Horses
+        bootstrapHorse(context, Variant.CREAMY, CREAMY_HORSE);
+        bootstrapHorse(context, Variant.CREAMY, Markings.WHITE, WHITE_CREAMY_HORSE);
+        bootstrapHorse(context, Variant.CREAMY, Markings.WHITE_FIELD, WHITE_FIELD_CREAMY_HORSE);
+        bootstrapHorse(context, Variant.CREAMY, Markings.WHITE_DOTS, WHITE_DOTS_CREAMY_HORSE);
+        bootstrapHorse(context, Variant.CREAMY, Markings.BLACK_DOTS, BLACK_DOTS_CREAMY_HORSE);
+
+        // Chestnut Horses
+        bootstrapHorse(context, Variant.CHESTNUT, CHESTNUT_HORSE);
+        bootstrapHorse(context, Variant.CHESTNUT, Markings.WHITE, WHITE_CHESTNUT_HORSE);
+        bootstrapHorse(context, Variant.CHESTNUT, Markings.WHITE_FIELD, WHITE_FIELD_CHESTNUT_HORSE);
+        bootstrapHorse(context, Variant.CHESTNUT, Markings.WHITE_DOTS, WHITE_DOTS_CHESTNUT_HORSE);
+        bootstrapHorse(context, Variant.CHESTNUT, Markings.BLACK_DOTS, BLACK_DOTS_CHESTNUT_HORSE);
+
+        // Brown Horses
+        bootstrapHorse(context, Variant.BROWN, BROWN_HORSE);
+        bootstrapHorse(context, Variant.BROWN, Markings.WHITE, WHITE_BROWN_HORSE);
+        bootstrapHorse(context, Variant.BROWN, Markings.WHITE_FIELD, WHITE_FIELD_BROWN_HORSE);
+        bootstrapHorse(context, Variant.BROWN, Markings.WHITE_DOTS, WHITE_DOTS_BROWN_HORSE);
+        bootstrapHorse(context, Variant.BROWN, Markings.BLACK_DOTS, BLACK_DOTS_BROWN_HORSE);
+
+        // Black Horses
+        bootstrapHorse(context, Variant.BLACK, BLACK_HORSE);
+        bootstrapHorse(context, Variant.BLACK, Markings.WHITE, WHITE_BLACK_HORSE);
+        bootstrapHorse(context, Variant.BLACK, Markings.WHITE_FIELD, WHITE_FIELD_BLACK_HORSE);
+        bootstrapHorse(context, Variant.BLACK, Markings.WHITE_DOTS, WHITE_DOTS_BLACK_HORSE);
+        bootstrapHorse(context, Variant.BLACK, Markings.BLACK_DOTS, BLACK_DOTS_BLACK_HORSE);
+
+        // Gray Horses
+        bootstrapHorse(context, Variant.GRAY, GRAY_HORSE);
+        bootstrapHorse(context, Variant.GRAY, Markings.WHITE, WHITE_GRAY_HORSE);
+        bootstrapHorse(context, Variant.GRAY, Markings.WHITE_FIELD, WHITE_FIELD_GRAY_HORSE);
+        bootstrapHorse(context, Variant.GRAY, Markings.WHITE_DOTS, WHITE_DOTS_GRAY_HORSE);
+        bootstrapHorse(context, Variant.GRAY, Markings.BLACK_DOTS, BLACK_DOTS_GRAY_HORSE);
+
+        // Dark Brown Horses
+        bootstrapHorse(context, Variant.DARK_BROWN, DARK_BROWN_HORSE);
+        bootstrapHorse(context, Variant.DARK_BROWN, Markings.WHITE, WHITE_DARK_BROWN_HORSE);
+        bootstrapHorse(context, Variant.DARK_BROWN, Markings.WHITE_FIELD, WHITE_FIELD_DARK_BROWN_HORSE);
+        bootstrapHorse(context, Variant.DARK_BROWN, Markings.WHITE_DOTS, WHITE_DOTS_DARK_BROWN_HORSE);
+        bootstrapHorse(context, Variant.DARK_BROWN, Markings.BLACK_DOTS, BLACK_DOTS_DARK_BROWN_HORSE);
+    }
+
+    private static void bootstrapHorse(BootstrapContext<LootItemCondition> context, Variant variant, ResourceKey<HeadType> resourceKey) {
+        bootstrap(context, resourceKey, EntityTypes.HORSE, (EntityPredicate.Builder builder) -> {
+            builder.components(DataComponentMatchers.Builder.components()
+                    .exact(DataComponentExactPredicate.expect(DataComponents.HORSE_VARIANT, variant))
+                    .build()).put(HorsePredicate.CODEC, HorsePredicate.forMarkings(Markings.NONE));
+        });
+    }
+
+    private static void bootstrapHorse(BootstrapContext<LootItemCondition> context, Variant variant, Markings markings, ResourceKey<HeadType> resourceKey) {
+        bootstrap(context, resourceKey, EntityTypes.HORSE, (EntityPredicate.Builder builder) -> {
+            builder.components(DataComponentMatchers.Builder.components()
+                    .exact(DataComponentExactPredicate.expect(DataComponents.HORSE_VARIANT, variant))
+                    .build()).put(HorsePredicate.CODEC, HorsePredicate.forMarkings(markings));
+        });
     }
 
     public static void registerTranslations(BiConsumer<ResourceKey<HeadType>, String> translationConsumer) {

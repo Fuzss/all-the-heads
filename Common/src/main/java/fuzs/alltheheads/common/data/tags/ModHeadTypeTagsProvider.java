@@ -24,21 +24,21 @@ public class ModHeadTypeTagsProvider extends AbstractTagProvider<HeadType> {
     }
 
     @Override
-    public void addTags(HolderLookup.Provider registries) {
+    public void addTags(HolderLookup.Provider context) {
         AbstractTagAppender<HeadType> villagerLikeTagAppender = this.tag(ModRegistry.VILLAGER_LIKE_HEAD_TYPE_TAG);
-        registries.lookupOrThrow(ModRegistry.HEAD_REGISTRY_KEY)
+        context.lookupOrThrow(ModRegistry.HEAD_REGISTRY_KEY)
                 .listElements()
                 .forEach((Holder.Reference<HeadType> headType) -> {
-                    if (headType.value().getEntityType().is(EntityTypeIds.VILLAGER) || headType.value()
-                            .getEntityType()
+                    if (headType.value().getEntityType(context).is(EntityTypeIds.VILLAGER) || headType.value()
+                            .getEntityType(context)
                             .is(EntityTypeIds.ZOMBIE_VILLAGER)) {
                         villagerLikeTagAppender.add(headType);
                     }
                 });
-        registries.lookupOrThrow(ModRegistry.HEAD_REGISTRY_KEY)
+        context.lookupOrThrow(ModRegistry.HEAD_REGISTRY_KEY)
                 .listElements()
                 .forEach((Holder.Reference<HeadType> headType) -> {
-                    getDefaultLootTables(headType.value().getEntityTypes().map(Holder::value)).map(
+                    getDefaultLootTables(headType.value().getEntityTypes(context).map(Holder::value)).map(
                                     ModHeadTypeTagsProvider::getHeadTypeTagKey)
                             .map(this::tag)
                             .forEach((AbstractTagAppender<HeadType> tagAppender) -> {
