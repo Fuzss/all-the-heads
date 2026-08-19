@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/villager/jungle/toolsmith",
+  "criteria": {
+    "minecraft/villager/jungle/weaponsmith": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/villager/jungle/weaponsmith"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.villager_jungle_weaponsmith"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/villager/jungle/weaponsmith"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.villager_jungle_weaponsmith"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/villager/jungle/weaponsmith"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,376 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/tropical_fish/anemone": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/tropical_fish/anemone"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/tropical_fish/black_tang": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/tropical_fish/black_tang"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/tropical_fish/blue_tang": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/tropical_fish/blue_tang"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/tropical_fish/butterflyfish": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/tropical_fish/butterflyfish"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/tropical_fish/cichlid": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/tropical_fish/cichlid"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/tropical_fish/clownfish": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/tropical_fish/clownfish"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/tropical_fish/cotton_candy_betta": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/tropical_fish/cotton_candy_betta"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/tropical_fish/dottyback": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/tropical_fish/dottyback"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/tropical_fish/emperor_red_snapper": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/tropical_fish/emperor_red_snapper"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/tropical_fish/goatfish": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/tropical_fish/goatfish"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/tropical_fish/moorish_idol": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/tropical_fish/moorish_idol"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/tropical_fish/ornate_butterflyfish": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/tropical_fish/ornate_butterflyfish"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/tropical_fish/parrotfish": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/tropical_fish/parrotfish"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/tropical_fish/queen_angelfish": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/tropical_fish/queen_angelfish"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/tropical_fish/red_cichlid": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/tropical_fish/red_cichlid"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/tropical_fish/red_lipped_blenny": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/tropical_fish/red_lipped_blenny"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/tropical_fish/red_snapper": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/tropical_fish/red_snapper"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/tropical_fish/threadfin": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/tropical_fish/threadfin"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/tropical_fish/tomato_clownfish": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/tropical_fish/tomato_clownfish"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/tropical_fish/triggerfish": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/tropical_fish/triggerfish"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/tropical_fish/yellow_tang": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/tropical_fish/yellow_tang"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/tropical_fish/yellowtail_parrotfish": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/tropical_fish/yellowtail_parrotfish"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.tropical_fish"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:tropical_fish_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.tropical_fish"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/tropical_fish/anemone"
+    ],
+    [
+      "minecraft/tropical_fish/black_tang"
+    ],
+    [
+      "minecraft/tropical_fish/blue_tang"
+    ],
+    [
+      "minecraft/tropical_fish/butterflyfish"
+    ],
+    [
+      "minecraft/tropical_fish/cichlid"
+    ],
+    [
+      "minecraft/tropical_fish/clownfish"
+    ],
+    [
+      "minecraft/tropical_fish/cotton_candy_betta"
+    ],
+    [
+      "minecraft/tropical_fish/dottyback"
+    ],
+    [
+      "minecraft/tropical_fish/emperor_red_snapper"
+    ],
+    [
+      "minecraft/tropical_fish/goatfish"
+    ],
+    [
+      "minecraft/tropical_fish/moorish_idol"
+    ],
+    [
+      "minecraft/tropical_fish/ornate_butterflyfish"
+    ],
+    [
+      "minecraft/tropical_fish/parrotfish"
+    ],
+    [
+      "minecraft/tropical_fish/queen_angelfish"
+    ],
+    [
+      "minecraft/tropical_fish/red_cichlid"
+    ],
+    [
+      "minecraft/tropical_fish/red_lipped_blenny"
+    ],
+    [
+      "minecraft/tropical_fish/red_snapper"
+    ],
+    [
+      "minecraft/tropical_fish/threadfin"
+    ],
+    [
+      "minecraft/tropical_fish/tomato_clownfish"
+    ],
+    [
+      "minecraft/tropical_fish/triggerfish"
+    ],
+    [
+      "minecraft/tropical_fish/yellow_tang"
+    ],
+    [
+      "minecraft/tropical_fish/yellowtail_parrotfish"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

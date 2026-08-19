@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/cat/jellie",
+  "criteria": {
+    "minecraft/cat/persian": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/cat/persian"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.cat_persian"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/cat/persian"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.cat_persian"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/cat/persian"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

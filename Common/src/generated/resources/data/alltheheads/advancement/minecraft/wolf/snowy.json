@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/wolf/rusty/tame",
+  "criteria": {
+    "minecraft/wolf/snowy": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/wolf/snowy"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.wolf_snowy"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/wolf/snowy"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.wolf_snowy"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/wolf/snowy"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

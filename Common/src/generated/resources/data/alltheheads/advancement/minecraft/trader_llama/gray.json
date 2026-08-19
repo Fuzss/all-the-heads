@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/trader_llama/creamy",
+  "criteria": {
+    "minecraft/trader_llama/gray": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/trader_llama/gray"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.trader_llama_gray"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/trader_llama/gray"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.trader_llama_gray"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/trader_llama/gray"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

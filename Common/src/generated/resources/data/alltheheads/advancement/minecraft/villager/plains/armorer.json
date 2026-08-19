@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/villager/plains",
+  "criteria": {
+    "minecraft/villager/plains/armorer": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/villager/plains/armorer"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.villager_plains_armorer"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/villager/plains/armorer"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.villager_plains_armorer"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/villager/plains/armorer"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

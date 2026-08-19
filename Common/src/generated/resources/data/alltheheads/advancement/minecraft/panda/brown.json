@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/panda/aggressive",
+  "criteria": {
+    "minecraft/panda/brown": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/panda/brown"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.panda_brown"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/panda/brown"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.panda_brown"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/panda/brown"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

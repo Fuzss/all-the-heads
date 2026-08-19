@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/villager/snow/armorer",
+  "criteria": {
+    "minecraft/villager/snow/butcher": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/villager/snow/butcher"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.villager_snow_butcher"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/villager/snow/butcher"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.villager_snow_butcher"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/villager/snow/butcher"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

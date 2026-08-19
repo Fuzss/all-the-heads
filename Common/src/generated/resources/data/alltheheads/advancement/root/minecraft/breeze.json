@@ -1,0 +1,40 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/breeze": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/breeze"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.breeze"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:breeze_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.breeze"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/breeze"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

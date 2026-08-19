@@ -1,0 +1,88 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/wither": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/wither"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/wither/blue": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/wither/blue"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/wither/blue/shielded": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/wither/blue/shielded"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/wither/shielded": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/wither/shielded"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.wither"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:wither_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.wither"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/wither"
+    ],
+    [
+      "minecraft/wither/blue"
+    ],
+    [
+      "minecraft/wither/blue/shielded"
+    ],
+    [
+      "minecraft/wither/shielded"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,40 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/drowned": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/drowned"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.drowned"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:drowned_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.drowned"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/drowned"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

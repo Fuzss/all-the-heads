@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:root/minecraft/chicken",
+  "criteria": {
+    "minecraft/chicken/cold": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/chicken/cold"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.chicken_cold"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/chicken/cold"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.chicken_cold"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/chicken/cold"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

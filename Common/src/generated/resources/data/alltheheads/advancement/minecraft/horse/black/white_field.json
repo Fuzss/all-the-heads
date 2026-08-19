@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/horse/black/white_dots",
+  "criteria": {
+    "minecraft/horse/black/white_field": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/horse/black/white_field"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.horse_black_white_field"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/horse/black/white_field"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.horse_black_white_field"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/horse/black/white_field"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/villager/snow/toolsmith",
+  "criteria": {
+    "minecraft/villager/snow/weaponsmith": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/villager/snow/weaponsmith"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.villager_snow_weaponsmith"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/villager/snow/weaponsmith"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.villager_snow_weaponsmith"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/villager/snow/weaponsmith"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

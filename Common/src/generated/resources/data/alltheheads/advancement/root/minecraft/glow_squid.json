@@ -1,0 +1,40 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/glow_squid": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/glow_squid"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.glow_squid"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:glow_squid_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.glow_squid"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/glow_squid"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

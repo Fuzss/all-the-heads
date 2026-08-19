@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/wolf/rusty",
+  "criteria": {
+    "minecraft/wolf/rusty/angry": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/wolf/rusty/angry"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.wolf_rusty_angry"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/wolf/rusty/angry"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.wolf_rusty_angry"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/wolf/rusty/angry"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

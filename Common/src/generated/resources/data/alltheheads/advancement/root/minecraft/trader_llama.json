@@ -1,0 +1,88 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/trader_llama/brown": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/trader_llama/brown"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/trader_llama/creamy": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/trader_llama/creamy"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/trader_llama/gray": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/trader_llama/gray"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/trader_llama/white": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/trader_llama/white"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.trader_llama"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:trader_llama_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.trader_llama"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/trader_llama/brown"
+    ],
+    [
+      "minecraft/trader_llama/creamy"
+    ],
+    [
+      "minecraft/trader_llama/gray"
+    ],
+    [
+      "minecraft/trader_llama/white"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

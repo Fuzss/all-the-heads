@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/llama/gray",
+  "criteria": {
+    "minecraft/llama/white": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/llama/white"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.llama_white"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/llama/white"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.llama_white"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/llama/white"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

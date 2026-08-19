@@ -1,0 +1,40 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/phantom": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/phantom"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.phantom"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:phantom_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.phantom"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/phantom"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

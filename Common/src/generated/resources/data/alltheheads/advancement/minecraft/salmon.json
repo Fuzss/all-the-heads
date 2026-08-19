@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:root/minecraft/salmon",
+  "criteria": {
+    "minecraft/salmon": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/salmon"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.salmon"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/salmon"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.salmon"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/salmon"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

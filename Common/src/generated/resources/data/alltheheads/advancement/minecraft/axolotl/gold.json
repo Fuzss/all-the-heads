@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/axolotl/cyan",
+  "criteria": {
+    "minecraft/axolotl/gold": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/axolotl/gold"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.axolotl_gold"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/axolotl/gold"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.axolotl_gold"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/axolotl/gold"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

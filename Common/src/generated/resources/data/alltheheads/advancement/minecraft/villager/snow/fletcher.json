@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/villager/snow/fisherman",
+  "criteria": {
+    "minecraft/villager/snow/fletcher": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/villager/snow/fletcher"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.villager_snow_fletcher"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/villager/snow/fletcher"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.villager_snow_fletcher"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/villager/snow/fletcher"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

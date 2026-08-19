@@ -1,0 +1,88 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/bee": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/bee"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/bee/angry": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/bee/angry"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/bee/angry/pollinated": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/bee/angry/pollinated"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/bee/pollinated": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/bee/pollinated"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.bee"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:bee_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.bee"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/bee"
+    ],
+    [
+      "minecraft/bee/angry"
+    ],
+    [
+      "minecraft/bee/angry/pollinated"
+    ],
+    [
+      "minecraft/bee/pollinated"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

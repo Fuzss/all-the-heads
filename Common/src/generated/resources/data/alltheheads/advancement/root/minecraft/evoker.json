@@ -1,0 +1,40 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/evoker": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/evoker"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.evoker"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:evoker_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.evoker"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/evoker"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/villager/taiga/farmer",
+  "criteria": {
+    "minecraft/villager/taiga/fisherman": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/villager/taiga/fisherman"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.villager_taiga_fisherman"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/villager/taiga/fisherman"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.villager_taiga_fisherman"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/villager/taiga/fisherman"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:root/minecraft/tadpole",
+  "criteria": {
+    "minecraft/tadpole": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/tadpole"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.tadpole"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/tadpole"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.tadpole"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/tadpole"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

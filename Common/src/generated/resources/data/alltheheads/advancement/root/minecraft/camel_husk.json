@@ -1,0 +1,40 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/camel_husk": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/camel_husk"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.camel_husk"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:camel_husk_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.camel_husk"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/camel_husk"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

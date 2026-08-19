@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/sheep/light_gray",
+  "criteria": {
+    "minecraft/sheep/lime": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/sheep/lime"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.sheep_lime"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/sheep/lime"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.sheep_lime"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/sheep/lime"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

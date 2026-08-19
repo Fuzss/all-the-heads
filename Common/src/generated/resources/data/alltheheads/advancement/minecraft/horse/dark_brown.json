@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/horse/creamy/white_field",
+  "criteria": {
+    "minecraft/horse/dark_brown": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/horse/dark_brown"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.horse_dark_brown"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/horse/dark_brown"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.horse_dark_brown"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/horse/dark_brown"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/tropical_fish/yellow_tang",
+  "criteria": {
+    "minecraft/tropical_fish/yellowtail_parrotfish": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/tropical_fish/yellowtail_parrotfish"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.tropical_fish_yellowtail_parrotfish"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/tropical_fish/yellowtail_parrotfish"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.tropical_fish_yellowtail_parrotfish"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/tropical_fish/yellowtail_parrotfish"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

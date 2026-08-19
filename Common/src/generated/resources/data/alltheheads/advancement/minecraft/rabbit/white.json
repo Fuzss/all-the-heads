@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/rabbit/toast",
+  "criteria": {
+    "minecraft/rabbit/white": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/rabbit/white"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.rabbit_white"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/rabbit/white"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.rabbit_white"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/rabbit/white"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

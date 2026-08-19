@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/villager/plains/nitwit",
+  "criteria": {
+    "minecraft/villager/plains/shepherd": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/villager/plains/shepherd"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.villager_plains_shepherd"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/villager/plains/shepherd"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.villager_plains_shepherd"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/villager/plains/shepherd"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

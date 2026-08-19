@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:root/minecraft/hoglin",
+  "criteria": {
+    "minecraft/hoglin": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/hoglin"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.hoglin"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/hoglin"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.hoglin"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/hoglin"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

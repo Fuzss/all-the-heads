@@ -1,0 +1,40 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/witch": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/witch"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.witch"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:witch_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.witch"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/witch"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

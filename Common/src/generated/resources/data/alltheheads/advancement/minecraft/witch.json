@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:root/minecraft/witch",
+  "criteria": {
+    "minecraft/witch": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/witch"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.witch"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/witch"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.witch"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/witch"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

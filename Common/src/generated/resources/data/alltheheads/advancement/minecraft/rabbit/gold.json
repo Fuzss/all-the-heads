@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/rabbit/evil",
+  "criteria": {
+    "minecraft/rabbit/gold": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/rabbit/gold"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.rabbit_gold"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/rabbit/gold"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.rabbit_gold"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/rabbit/gold"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

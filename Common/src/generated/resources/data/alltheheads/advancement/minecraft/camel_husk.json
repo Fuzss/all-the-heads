@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:root/minecraft/camel_husk",
+  "criteria": {
+    "minecraft/camel_husk": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/camel_husk"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.camel_husk"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/camel_husk"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.camel_husk"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/camel_husk"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:root/minecraft/zoglin",
+  "criteria": {
+    "minecraft/zoglin": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/zoglin"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.zoglin"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/zoglin"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.zoglin"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/zoglin"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

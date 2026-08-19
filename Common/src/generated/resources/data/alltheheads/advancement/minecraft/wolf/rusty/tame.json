@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/wolf/rusty/angry",
+  "criteria": {
+    "minecraft/wolf/rusty/tame": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/wolf/rusty/tame"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.wolf_rusty_tame"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/wolf/rusty/tame"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.wolf_rusty_tame"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/wolf/rusty/tame"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

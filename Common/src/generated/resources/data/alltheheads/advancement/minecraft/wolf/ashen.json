@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:root/minecraft/wolf",
+  "criteria": {
+    "minecraft/wolf/ashen": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/wolf/ashen"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.wolf_ashen"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/wolf/ashen"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.wolf_ashen"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/wolf/ashen"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

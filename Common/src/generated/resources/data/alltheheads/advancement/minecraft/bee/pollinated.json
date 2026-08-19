@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/bee/angry/pollinated",
+  "criteria": {
+    "minecraft/bee/pollinated": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/bee/pollinated"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.bee_pollinated"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/bee/pollinated"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.bee_pollinated"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/bee/pollinated"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

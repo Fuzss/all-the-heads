@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:root/minecraft/goat",
+  "criteria": {
+    "minecraft/goat": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/goat"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.goat"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/goat"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.goat"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/goat"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

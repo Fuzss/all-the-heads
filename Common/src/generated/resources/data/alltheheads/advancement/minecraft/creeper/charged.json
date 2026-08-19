@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:root/minecraft/creeper",
+  "criteria": {
+    "minecraft/creeper/charged": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/creeper/charged"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.creeper_charged"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/creeper/charged"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.creeper_charged"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/creeper/charged"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

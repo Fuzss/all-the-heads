@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/panda/playful",
+  "criteria": {
+    "minecraft/panda/weak": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/panda/weak"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.panda_weak"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/panda/weak"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.panda_weak"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/panda/weak"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,56 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/strider": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/strider"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/strider/cold": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/strider/cold"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.strider"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:strider_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.strider"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/strider"
+    ],
+    [
+      "minecraft/strider/cold"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

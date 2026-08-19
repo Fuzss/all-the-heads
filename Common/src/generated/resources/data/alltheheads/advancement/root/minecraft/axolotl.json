@@ -1,0 +1,104 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/axolotl/blue": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/axolotl/blue"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/axolotl/cyan": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/axolotl/cyan"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/axolotl/gold": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/axolotl/gold"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/axolotl/lucy": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/axolotl/lucy"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/axolotl/wild": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/axolotl/wild"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.axolotl"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:axolotl_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.axolotl"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/axolotl/blue"
+    ],
+    [
+      "minecraft/axolotl/cyan"
+    ],
+    [
+      "minecraft/axolotl/gold"
+    ],
+    [
+      "minecraft/axolotl/lucy"
+    ],
+    [
+      "minecraft/axolotl/wild"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

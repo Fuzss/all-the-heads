@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:root/minecraft/wandering_trader",
+  "criteria": {
+    "minecraft/wandering_trader": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/wandering_trader"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.wandering_trader"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/wandering_trader"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.wandering_trader"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/wandering_trader"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

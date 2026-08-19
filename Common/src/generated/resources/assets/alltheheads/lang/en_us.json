@@ -1,4 +1,8 @@
 {
+  "advancements.alltheheads.kill.description": "Kill %s",
+  "advancements.alltheheads.obtain.description": "Obtain %s",
+  "advancements.alltheheads.root.description": "Obtain all heads",
+  "advancements.alltheheads.root.title": "All The Heads",
   "block.alltheheads.mob_head": "Mob Head",
   "block.alltheheads.mob_head.minecraft.allay": "Allay Head",
   "block.alltheheads.mob_head.minecraft.armadillo": "Armadillo Head",

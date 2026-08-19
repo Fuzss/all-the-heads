@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/horse/brown/white_field",
+  "criteria": {
+    "minecraft/horse/chestnut": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/horse/chestnut"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.horse_chestnut"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/horse/chestnut"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.horse_chestnut"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/horse/chestnut"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

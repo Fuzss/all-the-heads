@@ -1,0 +1,56 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/ghast": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/ghast"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/ghast/charging": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/ghast/charging"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.ghast"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:ghast_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.ghast"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/ghast"
+    ],
+    [
+      "minecraft/ghast/charging"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

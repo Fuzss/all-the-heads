@@ -1,0 +1,40 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/polar_bear": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/polar_bear"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.polar_bear"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:polar_bear_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.polar_bear"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/polar_bear"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

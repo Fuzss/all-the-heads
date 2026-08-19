@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:root/minecraft/parrot",
+  "criteria": {
+    "minecraft/parrot/blue": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/parrot/blue"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.parrot_blue"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/parrot/blue"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.parrot_blue"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/parrot/blue"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

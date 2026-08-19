@@ -1,0 +1,40 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/pufferfish": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/pufferfish"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.pufferfish"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:pufferfish_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.pufferfish"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/pufferfish"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

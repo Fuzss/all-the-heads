@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:root/minecraft/ocelot",
+  "criteria": {
+    "minecraft/ocelot": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/ocelot"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.ocelot"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/ocelot"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.ocelot"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/ocelot"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

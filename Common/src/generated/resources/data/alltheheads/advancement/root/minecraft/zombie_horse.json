@@ -1,0 +1,40 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/zombie_horse": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/zombie_horse"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.zombie_horse"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:zombie_horse_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.zombie_horse"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/zombie_horse"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:root/minecraft/evoker",
+  "criteria": {
+    "minecraft/evoker": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/evoker"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.evoker"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/evoker"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.evoker"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/evoker"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

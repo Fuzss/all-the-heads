@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/axolotl/gold",
+  "criteria": {
+    "minecraft/axolotl/lucy": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/axolotl/lucy"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.axolotl_lucy"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/axolotl/lucy"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.axolotl_lucy"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/axolotl/lucy"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

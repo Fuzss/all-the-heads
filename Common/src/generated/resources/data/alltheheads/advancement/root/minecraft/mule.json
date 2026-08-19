@@ -1,0 +1,40 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/mule": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/mule"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.mule"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:mule_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.mule"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/mule"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

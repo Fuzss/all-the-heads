@@ -1,0 +1,40 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/squid": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/squid"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.squid"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:squid_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.squid"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/squid"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

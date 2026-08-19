@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:root/minecraft/vex",
+  "criteria": {
+    "minecraft/vex": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/vex"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.vex"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/vex"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.vex"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/vex"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

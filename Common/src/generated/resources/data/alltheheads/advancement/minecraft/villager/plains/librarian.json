@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/villager/plains/leatherworker",
+  "criteria": {
+    "minecraft/villager/plains/librarian": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/villager/plains/librarian"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.villager_plains_librarian"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/villager/plains/librarian"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.villager_plains_librarian"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/villager/plains/librarian"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

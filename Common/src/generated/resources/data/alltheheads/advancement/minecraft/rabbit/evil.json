@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/rabbit/brown",
+  "criteria": {
+    "minecraft/rabbit/evil": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/rabbit/evil"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.rabbit_evil"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/rabbit/evil"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.rabbit_evil"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/rabbit/evil"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

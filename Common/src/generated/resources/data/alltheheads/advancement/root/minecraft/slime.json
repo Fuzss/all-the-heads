@@ -1,0 +1,40 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/slime": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/slime"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.slime"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:slime_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.slime"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/slime"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

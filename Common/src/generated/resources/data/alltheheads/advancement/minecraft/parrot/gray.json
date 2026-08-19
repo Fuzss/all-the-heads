@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/parrot/cyan",
+  "criteria": {
+    "minecraft/parrot/gray": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/parrot/gray"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.parrot_gray"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/parrot/gray"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.parrot_gray"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/parrot/gray"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

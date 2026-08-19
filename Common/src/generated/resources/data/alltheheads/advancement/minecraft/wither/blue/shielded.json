@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/wither/blue",
+  "criteria": {
+    "minecraft/wither/blue/shielded": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/wither/blue/shielded"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.wither_blue_shielded"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/wither/blue/shielded"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.wither_blue_shielded"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/wither/blue/shielded"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

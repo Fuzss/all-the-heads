@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/sheep/purple",
+  "criteria": {
+    "minecraft/sheep/rainbow": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/sheep/rainbow"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.sheep_rainbow"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/sheep/rainbow"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.sheep_rainbow"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/sheep/rainbow"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

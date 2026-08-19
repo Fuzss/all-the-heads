@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/villager/desert/shepherd",
+  "criteria": {
+    "minecraft/villager/desert/toolsmith": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/villager/desert/toolsmith"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.villager_desert_toolsmith"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/villager/desert/toolsmith"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.villager_desert_toolsmith"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/villager/desert/toolsmith"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

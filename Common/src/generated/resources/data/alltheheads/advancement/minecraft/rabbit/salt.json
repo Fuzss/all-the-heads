@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/rabbit/gold",
+  "criteria": {
+    "minecraft/rabbit/salt": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/rabbit/salt"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.rabbit_salt"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/rabbit/salt"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.rabbit_salt"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/rabbit/salt"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

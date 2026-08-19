@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:root/minecraft/enderman",
+  "criteria": {
+    "minecraft/enderman": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/enderman"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.enderman"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/enderman"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.enderman"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/enderman"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

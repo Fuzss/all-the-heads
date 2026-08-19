@@ -1,0 +1,40 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/husk": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/husk"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.husk"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:husk_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.husk"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/husk"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

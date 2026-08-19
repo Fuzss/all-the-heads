@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/wolf/black/angry",
+  "criteria": {
+    "minecraft/wolf/black/tame": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/wolf/black/tame"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.wolf_black_tame"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/wolf/black/tame"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.wolf_black_tame"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/wolf/black/tame"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

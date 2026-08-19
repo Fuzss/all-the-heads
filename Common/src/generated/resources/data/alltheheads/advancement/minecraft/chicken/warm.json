@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/chicken/temperate",
+  "criteria": {
+    "minecraft/chicken/warm": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/chicken/warm"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.chicken_warm"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/chicken/warm"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.chicken_warm"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/chicken/warm"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

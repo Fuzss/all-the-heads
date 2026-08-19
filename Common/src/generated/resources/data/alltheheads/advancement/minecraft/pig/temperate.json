@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/pig/cold",
+  "criteria": {
+    "minecraft/pig/temperate": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/pig/temperate"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.pig_temperate"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/pig/temperate"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.pig_temperate"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/pig/temperate"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

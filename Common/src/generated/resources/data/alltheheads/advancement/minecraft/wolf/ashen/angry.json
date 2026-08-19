@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/wolf/ashen",
+  "criteria": {
+    "minecraft/wolf/ashen/angry": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/wolf/ashen/angry"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.wolf_ashen_angry"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/wolf/ashen/angry"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.wolf_ashen_angry"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/wolf/ashen/angry"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

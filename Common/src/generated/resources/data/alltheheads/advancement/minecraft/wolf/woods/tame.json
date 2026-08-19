@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/wolf/woods/angry",
+  "criteria": {
+    "minecraft/wolf/woods/tame": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/wolf/woods/tame"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.wolf_woods_tame"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/wolf/woods/tame"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.wolf_woods_tame"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/wolf/woods/tame"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

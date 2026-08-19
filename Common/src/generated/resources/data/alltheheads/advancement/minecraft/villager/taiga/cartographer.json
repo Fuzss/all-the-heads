@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/villager/taiga/butcher",
+  "criteria": {
+    "minecraft/villager/taiga/cartographer": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/villager/taiga/cartographer"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.villager_taiga_cartographer"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/villager/taiga/cartographer"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.villager_taiga_cartographer"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/villager/taiga/cartographer"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

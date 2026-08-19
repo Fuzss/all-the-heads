@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/villager/snow/farmer",
+  "criteria": {
+    "minecraft/villager/snow/fisherman": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/villager/snow/fisherman"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.villager_snow_fisherman"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/villager/snow/fisherman"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.villager_snow_fisherman"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/villager/snow/fisherman"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

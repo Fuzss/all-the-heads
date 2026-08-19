@@ -1,0 +1,56 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/fox": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/fox"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/fox/snow": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/fox/snow"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.fox"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:fox_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.fox"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/fox"
+    ],
+    [
+      "minecraft/fox/snow"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

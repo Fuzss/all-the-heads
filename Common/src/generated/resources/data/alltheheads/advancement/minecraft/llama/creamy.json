@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/llama/brown",
+  "criteria": {
+    "minecraft/llama/creamy": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/llama/creamy"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.llama_creamy"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/llama/creamy"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.llama_creamy"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/llama/creamy"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

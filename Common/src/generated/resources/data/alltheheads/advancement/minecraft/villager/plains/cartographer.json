@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/villager/plains/butcher",
+  "criteria": {
+    "minecraft/villager/plains/cartographer": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/villager/plains/cartographer"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.villager_plains_cartographer"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/villager/plains/cartographer"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.villager_plains_cartographer"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/villager/plains/cartographer"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

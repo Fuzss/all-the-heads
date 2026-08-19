@@ -1,0 +1,43 @@
+{
+  "parent": "alltheheads:minecraft/villager/plains/librarian",
+  "criteria": {
+    "minecraft/villager/plains/mason": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/villager/plains/mason"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.obtain.description",
+      "with": [
+        {
+          "translate": "block.alltheheads.mob_head.minecraft.villager_plains_mason"
+        }
+      ]
+    },
+    "icon": {
+      "components": {
+        "alltheheads:head_type": "alltheheads:minecraft/villager/plains/mason"
+      },
+      "id": "alltheheads:mob_head"
+    },
+    "title": {
+      "translate": "block.alltheheads.mob_head.minecraft.villager_plains_mason"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/villager/plains/mason"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

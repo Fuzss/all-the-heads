@@ -1,0 +1,56 @@
+{
+  "parent": "alltheheads:root",
+  "criteria": {
+    "minecraft/vex": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/vex"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "minecraft/vex/charging": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "alltheheads:head_type": "alltheheads:minecraft/vex/charging"
+            },
+            "items": "alltheheads:mob_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.alltheheads.kill.description",
+      "with": [
+        {
+          "translate": "entity.minecraft.vex"
+        }
+      ]
+    },
+    "icon": {
+      "id": "minecraft:vex_spawn_egg"
+    },
+    "title": {
+      "translate": "entity.minecraft.vex"
+    }
+  },
+  "requirements": [
+    [
+      "minecraft/vex"
+    ],
+    [
+      "minecraft/vex/charging"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
