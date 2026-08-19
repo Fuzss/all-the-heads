@@ -1,4 +1,4 @@
-// 26.2	2026-08-19T10:28:24.200921	Advancements
+// 26.2	2026-08-19T10:44:05.834421	Advancements
 93f33e6a81dfeffefe594a341435f5e291bd8c9a data/alltheheads/advancement/minecraft/allay.json
 7f4d109278bcb4676aab907d0dd11aecb8c8ec02 data/alltheheads/advancement/minecraft/armadillo.json
 73721c4a6e8d1628d91081a45daee3773f0eb34a data/alltheheads/advancement/minecraft/axolotl/blue.json
@@ -476,7 +476,7 @@ c04f526f42d26ab09d1eb8c23bcfa7e9bbdd9fa0 data/alltheheads/advancement/minecraft/
 fe85d94a28ed58af1d446955c7a430797d455024 data/alltheheads/advancement/minecraft/zombie_villager/taiga/toolsmith.json
 12773723f073206cdede740025db009522330046 data/alltheheads/advancement/minecraft/zombie_villager/taiga/weaponsmith.json
 7af75c3201e3fe39237f436d1dac7e8053efff60 data/alltheheads/advancement/minecraft/zombified_piglin.json
-56e7dc6e4012166bc73361bb020f8fc46dcbe017 data/alltheheads/advancement/root.json
+e22a01ab70b640504c9f6e465c3787e174a3b4b0 data/alltheheads/advancement/root.json
 e3f60582339787ad9a4c32bd5b01028127a68280 data/alltheheads/advancement/root/minecraft/allay.json
 77a90821679b5baa264a9f3683bdae7fdf497018 data/alltheheads/advancement/root/minecraft/armadillo.json
 fc316751dac22b928b42912d03c16fe7bb04354a data/alltheheads/advancement/root/minecraft/axolotl.json

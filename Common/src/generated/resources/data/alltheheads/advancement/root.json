@@ -6219,352 +6219,28 @@
   },
   "requirements": [
     [
-      "minecraft/warden"
+      "minecraft/allay"
     ],
     [
-      "minecraft/bogged"
+      "minecraft/armadillo"
     ],
     [
-      "minecraft/shulker"
+      "minecraft/axolotl/blue"
     ],
     [
-      "minecraft/zombie_villager/desert"
+      "minecraft/axolotl/cyan"
     ],
     [
-      "minecraft/zombie_villager/desert/armorer"
+      "minecraft/axolotl/gold"
     ],
     [
-      "minecraft/zombie_villager/desert/butcher"
+      "minecraft/axolotl/lucy"
     ],
     [
-      "minecraft/zombie_villager/desert/cartographer"
+      "minecraft/axolotl/wild"
     ],
     [
-      "minecraft/zombie_villager/desert/cleric"
-    ],
-    [
-      "minecraft/zombie_villager/desert/farmer"
-    ],
-    [
-      "minecraft/zombie_villager/desert/fisherman"
-    ],
-    [
-      "minecraft/zombie_villager/desert/fletcher"
-    ],
-    [
-      "minecraft/zombie_villager/desert/leatherworker"
-    ],
-    [
-      "minecraft/zombie_villager/desert/librarian"
-    ],
-    [
-      "minecraft/zombie_villager/desert/mason"
-    ],
-    [
-      "minecraft/zombie_villager/desert/nitwit"
-    ],
-    [
-      "minecraft/zombie_villager/desert/shepherd"
-    ],
-    [
-      "minecraft/zombie_villager/desert/toolsmith"
-    ],
-    [
-      "minecraft/zombie_villager/desert/weaponsmith"
-    ],
-    [
-      "minecraft/zombie_villager/jungle"
-    ],
-    [
-      "minecraft/zombie_villager/jungle/armorer"
-    ],
-    [
-      "minecraft/zombie_villager/jungle/butcher"
-    ],
-    [
-      "minecraft/zombie_villager/jungle/cartographer"
-    ],
-    [
-      "minecraft/zombie_villager/jungle/cleric"
-    ],
-    [
-      "minecraft/zombie_villager/jungle/farmer"
-    ],
-    [
-      "minecraft/zombie_villager/jungle/fisherman"
-    ],
-    [
-      "minecraft/zombie_villager/jungle/fletcher"
-    ],
-    [
-      "minecraft/zombie_villager/jungle/leatherworker"
-    ],
-    [
-      "minecraft/zombie_villager/jungle/librarian"
-    ],
-    [
-      "minecraft/zombie_villager/jungle/mason"
-    ],
-    [
-      "minecraft/zombie_villager/jungle/nitwit"
-    ],
-    [
-      "minecraft/zombie_villager/jungle/shepherd"
-    ],
-    [
-      "minecraft/zombie_villager/jungle/toolsmith"
-    ],
-    [
-      "minecraft/zombie_villager/jungle/weaponsmith"
-    ],
-    [
-      "minecraft/zombie_villager/plains"
-    ],
-    [
-      "minecraft/zombie_villager/plains/armorer"
-    ],
-    [
-      "minecraft/zombie_villager/plains/butcher"
-    ],
-    [
-      "minecraft/zombie_villager/plains/cartographer"
-    ],
-    [
-      "minecraft/zombie_villager/plains/cleric"
-    ],
-    [
-      "minecraft/zombie_villager/plains/farmer"
-    ],
-    [
-      "minecraft/zombie_villager/plains/fisherman"
-    ],
-    [
-      "minecraft/zombie_villager/plains/fletcher"
-    ],
-    [
-      "minecraft/zombie_villager/plains/leatherworker"
-    ],
-    [
-      "minecraft/zombie_villager/plains/librarian"
-    ],
-    [
-      "minecraft/zombie_villager/plains/mason"
-    ],
-    [
-      "minecraft/zombie_villager/plains/nitwit"
-    ],
-    [
-      "minecraft/zombie_villager/plains/shepherd"
-    ],
-    [
-      "minecraft/zombie_villager/plains/toolsmith"
-    ],
-    [
-      "minecraft/zombie_villager/plains/weaponsmith"
-    ],
-    [
-      "minecraft/zombie_villager/savanna"
-    ],
-    [
-      "minecraft/zombie_villager/savanna/armorer"
-    ],
-    [
-      "minecraft/zombie_villager/savanna/butcher"
-    ],
-    [
-      "minecraft/zombie_villager/savanna/cartographer"
-    ],
-    [
-      "minecraft/zombie_villager/savanna/cleric"
-    ],
-    [
-      "minecraft/zombie_villager/savanna/farmer"
-    ],
-    [
-      "minecraft/zombie_villager/savanna/fisherman"
-    ],
-    [
-      "minecraft/zombie_villager/savanna/fletcher"
-    ],
-    [
-      "minecraft/zombie_villager/savanna/leatherworker"
-    ],
-    [
-      "minecraft/zombie_villager/savanna/librarian"
-    ],
-    [
-      "minecraft/zombie_villager/savanna/mason"
-    ],
-    [
-      "minecraft/zombie_villager/savanna/nitwit"
-    ],
-    [
-      "minecraft/zombie_villager/savanna/shepherd"
-    ],
-    [
-      "minecraft/zombie_villager/savanna/toolsmith"
-    ],
-    [
-      "minecraft/zombie_villager/savanna/weaponsmith"
-    ],
-    [
-      "minecraft/zombie_villager/snow"
-    ],
-    [
-      "minecraft/zombie_villager/snow/armorer"
-    ],
-    [
-      "minecraft/zombie_villager/snow/butcher"
-    ],
-    [
-      "minecraft/zombie_villager/snow/cartographer"
-    ],
-    [
-      "minecraft/zombie_villager/snow/cleric"
-    ],
-    [
-      "minecraft/zombie_villager/snow/farmer"
-    ],
-    [
-      "minecraft/zombie_villager/snow/fisherman"
-    ],
-    [
-      "minecraft/zombie_villager/snow/fletcher"
-    ],
-    [
-      "minecraft/zombie_villager/snow/leatherworker"
-    ],
-    [
-      "minecraft/zombie_villager/snow/librarian"
-    ],
-    [
-      "minecraft/zombie_villager/snow/mason"
-    ],
-    [
-      "minecraft/zombie_villager/snow/nitwit"
-    ],
-    [
-      "minecraft/zombie_villager/snow/shepherd"
-    ],
-    [
-      "minecraft/zombie_villager/snow/toolsmith"
-    ],
-    [
-      "minecraft/zombie_villager/snow/weaponsmith"
-    ],
-    [
-      "minecraft/zombie_villager/swamp"
-    ],
-    [
-      "minecraft/zombie_villager/swamp/armorer"
-    ],
-    [
-      "minecraft/zombie_villager/swamp/butcher"
-    ],
-    [
-      "minecraft/zombie_villager/swamp/cartographer"
-    ],
-    [
-      "minecraft/zombie_villager/swamp/cleric"
-    ],
-    [
-      "minecraft/zombie_villager/swamp/farmer"
-    ],
-    [
-      "minecraft/zombie_villager/swamp/fisherman"
-    ],
-    [
-      "minecraft/zombie_villager/swamp/fletcher"
-    ],
-    [
-      "minecraft/zombie_villager/swamp/leatherworker"
-    ],
-    [
-      "minecraft/zombie_villager/swamp/librarian"
-    ],
-    [
-      "minecraft/zombie_villager/swamp/mason"
-    ],
-    [
-      "minecraft/zombie_villager/swamp/nitwit"
-    ],
-    [
-      "minecraft/zombie_villager/swamp/shepherd"
-    ],
-    [
-      "minecraft/zombie_villager/swamp/toolsmith"
-    ],
-    [
-      "minecraft/zombie_villager/swamp/weaponsmith"
-    ],
-    [
-      "minecraft/zombie_villager/taiga"
-    ],
-    [
-      "minecraft/zombie_villager/taiga/armorer"
-    ],
-    [
-      "minecraft/zombie_villager/taiga/butcher"
-    ],
-    [
-      "minecraft/zombie_villager/taiga/cartographer"
-    ],
-    [
-      "minecraft/zombie_villager/taiga/cleric"
-    ],
-    [
-      "minecraft/zombie_villager/taiga/farmer"
-    ],
-    [
-      "minecraft/zombie_villager/taiga/fisherman"
-    ],
-    [
-      "minecraft/zombie_villager/taiga/fletcher"
-    ],
-    [
-      "minecraft/zombie_villager/taiga/leatherworker"
-    ],
-    [
-      "minecraft/zombie_villager/taiga/librarian"
-    ],
-    [
-      "minecraft/zombie_villager/taiga/mason"
-    ],
-    [
-      "minecraft/zombie_villager/taiga/nitwit"
-    ],
-    [
-      "minecraft/zombie_villager/taiga/shepherd"
-    ],
-    [
-      "minecraft/zombie_villager/taiga/toolsmith"
-    ],
-    [
-      "minecraft/zombie_villager/taiga/weaponsmith"
-    ],
-    [
-      "minecraft/iron_golem"
-    ],
-    [
-      "minecraft/ocelot"
-    ],
-    [
-      "minecraft/camel"
-    ],
-    [
-      "minecraft/pufferfish"
-    ],
-    [
-      "minecraft/slime"
-    ],
-    [
-      "minecraft/glow_squid"
-    ],
-    [
-      "minecraft/wandering_trader"
-    ],
-    [
-      "minecraft/magma_cube"
+      "minecraft/bat"
     ],
     [
       "minecraft/bee"
@@ -6579,16 +6255,130 @@
       "minecraft/bee/pollinated"
     ],
     [
-      "minecraft/spider"
+      "minecraft/blaze"
     ],
     [
-      "minecraft/hoglin"
-    ],
-    [
-      "minecraft/witch"
+      "minecraft/bogged"
     ],
     [
       "minecraft/breeze"
+    ],
+    [
+      "minecraft/camel"
+    ],
+    [
+      "minecraft/camel_husk"
+    ],
+    [
+      "minecraft/cat/all_black"
+    ],
+    [
+      "minecraft/cat/black"
+    ],
+    [
+      "minecraft/cat/british_shorthair"
+    ],
+    [
+      "minecraft/cat/calico"
+    ],
+    [
+      "minecraft/cat/jellie"
+    ],
+    [
+      "minecraft/cat/persian"
+    ],
+    [
+      "minecraft/cat/ragdoll"
+    ],
+    [
+      "minecraft/cat/red"
+    ],
+    [
+      "minecraft/cat/siamese"
+    ],
+    [
+      "minecraft/cat/tabby"
+    ],
+    [
+      "minecraft/cat/white"
+    ],
+    [
+      "minecraft/cave_spider"
+    ],
+    [
+      "minecraft/chicken/cold"
+    ],
+    [
+      "minecraft/chicken/temperate"
+    ],
+    [
+      "minecraft/chicken/warm"
+    ],
+    [
+      "minecraft/cod"
+    ],
+    [
+      "minecraft/copper_golem"
+    ],
+    [
+      "minecraft/copper_golem/exposed"
+    ],
+    [
+      "minecraft/copper_golem/oxidized"
+    ],
+    [
+      "minecraft/copper_golem/weathered"
+    ],
+    [
+      "minecraft/cow/cold"
+    ],
+    [
+      "minecraft/cow/temperate"
+    ],
+    [
+      "minecraft/cow/warm"
+    ],
+    [
+      "minecraft/creaking"
+    ],
+    [
+      "minecraft/creeper/charged"
+    ],
+    [
+      "minecraft/dolphin"
+    ],
+    [
+      "minecraft/donkey"
+    ],
+    [
+      "minecraft/drowned"
+    ],
+    [
+      "minecraft/elder_guardian"
+    ],
+    [
+      "minecraft/enderman"
+    ],
+    [
+      "minecraft/endermite"
+    ],
+    [
+      "minecraft/evoker"
+    ],
+    [
+      "minecraft/fox"
+    ],
+    [
+      "minecraft/fox/snow"
+    ],
+    [
+      "minecraft/frog/cold"
+    ],
+    [
+      "minecraft/frog/temperate"
+    ],
+    [
+      "minecraft/frog/warm"
     ],
     [
       "minecraft/ghast"
@@ -6597,238 +6387,253 @@
       "minecraft/ghast/charging"
     ],
     [
-      "minecraft/skeleton_horse"
+      "minecraft/glow_squid"
     ],
     [
-      "minecraft/zoglin"
-    ],
-    [
-      "minecraft/squid"
-    ],
-    [
-      "minecraft/vex"
-    ],
-    [
-      "minecraft/vex/charging"
-    ],
-    [
-      "minecraft/sulfur_cube"
-    ],
-    [
-      "minecraft/sulfur_cube/bouncy"
-    ],
-    [
-      "minecraft/sulfur_cube/explosive"
-    ],
-    [
-      "minecraft/sulfur_cube/fast_flat"
-    ],
-    [
-      "minecraft/sulfur_cube/fast_sliding"
-    ],
-    [
-      "minecraft/sulfur_cube/high_resistance"
-    ],
-    [
-      "minecraft/sulfur_cube/hot"
-    ],
-    [
-      "minecraft/sulfur_cube/light"
-    ],
-    [
-      "minecraft/sulfur_cube/regular"
-    ],
-    [
-      "minecraft/sulfur_cube/slow_bouncy"
-    ],
-    [
-      "minecraft/sulfur_cube/slow_flat"
-    ],
-    [
-      "minecraft/sulfur_cube/slow_sliding"
-    ],
-    [
-      "minecraft/sulfur_cube/sticky"
-    ],
-    [
-      "minecraft/polar_bear"
-    ],
-    [
-      "minecraft/blaze"
-    ],
-    [
-      "minecraft/happy_ghast"
-    ],
-    [
-      "minecraft/pillager"
-    ],
-    [
-      "minecraft/turtle"
-    ],
-    [
-      "minecraft/wolf/ashen"
-    ],
-    [
-      "minecraft/wolf/ashen/angry"
-    ],
-    [
-      "minecraft/wolf/ashen/tame"
-    ],
-    [
-      "minecraft/wolf/black"
-    ],
-    [
-      "minecraft/wolf/black/angry"
-    ],
-    [
-      "minecraft/wolf/black/tame"
-    ],
-    [
-      "minecraft/wolf/chestnut"
-    ],
-    [
-      "minecraft/wolf/chestnut/angry"
-    ],
-    [
-      "minecraft/wolf/chestnut/tame"
-    ],
-    [
-      "minecraft/wolf/pale"
-    ],
-    [
-      "minecraft/wolf/pale/angry"
-    ],
-    [
-      "minecraft/wolf/pale/tame"
-    ],
-    [
-      "minecraft/wolf/rusty"
-    ],
-    [
-      "minecraft/wolf/rusty/angry"
-    ],
-    [
-      "minecraft/wolf/rusty/tame"
-    ],
-    [
-      "minecraft/wolf/snowy"
-    ],
-    [
-      "minecraft/wolf/snowy/angry"
-    ],
-    [
-      "minecraft/wolf/snowy/tame"
-    ],
-    [
-      "minecraft/wolf/spotted"
-    ],
-    [
-      "minecraft/wolf/spotted/angry"
-    ],
-    [
-      "minecraft/wolf/spotted/tame"
-    ],
-    [
-      "minecraft/wolf/striped"
-    ],
-    [
-      "minecraft/wolf/striped/angry"
-    ],
-    [
-      "minecraft/wolf/striped/tame"
-    ],
-    [
-      "minecraft/wolf/woods"
-    ],
-    [
-      "minecraft/wolf/woods/angry"
-    ],
-    [
-      "minecraft/wolf/woods/tame"
-    ],
-    [
-      "minecraft/nautilus"
+      "minecraft/goat"
     ],
     [
       "minecraft/guardian"
     ],
     [
-      "minecraft/elder_guardian"
+      "minecraft/happy_ghast"
     ],
     [
-      "minecraft/tadpole"
+      "minecraft/hoglin"
     ],
     [
-      "minecraft/enderman"
+      "minecraft/horse/black"
     ],
     [
-      "minecraft/drowned"
+      "minecraft/horse/black/black_dots"
     ],
     [
-      "minecraft/tropical_fish/anemone"
+      "minecraft/horse/black/white"
     ],
     [
-      "minecraft/tropical_fish/black_tang"
+      "minecraft/horse/black/white_dots"
     ],
     [
-      "minecraft/tropical_fish/blue_tang"
+      "minecraft/horse/black/white_field"
     ],
     [
-      "minecraft/tropical_fish/butterflyfish"
+      "minecraft/horse/brown"
     ],
     [
-      "minecraft/tropical_fish/cichlid"
+      "minecraft/horse/brown/black_dots"
     ],
     [
-      "minecraft/tropical_fish/clownfish"
+      "minecraft/horse/brown/white"
     ],
     [
-      "minecraft/tropical_fish/cotton_candy_betta"
+      "minecraft/horse/brown/white_dots"
     ],
     [
-      "minecraft/tropical_fish/dottyback"
+      "minecraft/horse/brown/white_field"
     ],
     [
-      "minecraft/tropical_fish/emperor_red_snapper"
+      "minecraft/horse/chestnut"
     ],
     [
-      "minecraft/tropical_fish/goatfish"
+      "minecraft/horse/chestnut/black_dots"
     ],
     [
-      "minecraft/tropical_fish/moorish_idol"
+      "minecraft/horse/chestnut/white"
     ],
     [
-      "minecraft/tropical_fish/ornate_butterflyfish"
+      "minecraft/horse/chestnut/white_dots"
     ],
     [
-      "minecraft/tropical_fish/parrotfish"
+      "minecraft/horse/chestnut/white_field"
     ],
     [
-      "minecraft/tropical_fish/queen_angelfish"
+      "minecraft/horse/creamy"
     ],
     [
-      "minecraft/tropical_fish/red_cichlid"
+      "minecraft/horse/creamy/black_dots"
     ],
     [
-      "minecraft/tropical_fish/red_lipped_blenny"
+      "minecraft/horse/creamy/white"
     ],
     [
-      "minecraft/tropical_fish/red_snapper"
+      "minecraft/horse/creamy/white_dots"
     ],
     [
-      "minecraft/tropical_fish/threadfin"
+      "minecraft/horse/creamy/white_field"
     ],
     [
-      "minecraft/tropical_fish/tomato_clownfish"
+      "minecraft/horse/dark_brown"
     ],
     [
-      "minecraft/tropical_fish/triggerfish"
+      "minecraft/horse/dark_brown/black_dots"
     ],
     [
-      "minecraft/tropical_fish/yellow_tang"
+      "minecraft/horse/dark_brown/white"
     ],
     [
-      "minecraft/tropical_fish/yellowtail_parrotfish"
+      "minecraft/horse/dark_brown/white_dots"
+    ],
+    [
+      "minecraft/horse/dark_brown/white_field"
+    ],
+    [
+      "minecraft/horse/gray"
+    ],
+    [
+      "minecraft/horse/gray/black_dots"
+    ],
+    [
+      "minecraft/horse/gray/white"
+    ],
+    [
+      "minecraft/horse/gray/white_dots"
+    ],
+    [
+      "minecraft/horse/gray/white_field"
+    ],
+    [
+      "minecraft/horse/white"
+    ],
+    [
+      "minecraft/horse/white/black_dots"
+    ],
+    [
+      "minecraft/horse/white/white"
+    ],
+    [
+      "minecraft/horse/white/white_dots"
+    ],
+    [
+      "minecraft/horse/white/white_field"
+    ],
+    [
+      "minecraft/husk"
+    ],
+    [
+      "minecraft/iron_golem"
+    ],
+    [
+      "minecraft/llama/brown"
+    ],
+    [
+      "minecraft/llama/creamy"
+    ],
+    [
+      "minecraft/llama/gray"
+    ],
+    [
+      "minecraft/llama/white"
+    ],
+    [
+      "minecraft/magma_cube"
+    ],
+    [
+      "minecraft/mooshroom/brown"
+    ],
+    [
+      "minecraft/mooshroom/red"
+    ],
+    [
+      "minecraft/mule"
+    ],
+    [
+      "minecraft/nautilus"
+    ],
+    [
+      "minecraft/ocelot"
+    ],
+    [
+      "minecraft/panda"
+    ],
+    [
+      "minecraft/panda/aggressive"
+    ],
+    [
+      "minecraft/panda/brown"
+    ],
+    [
+      "minecraft/panda/lazy"
+    ],
+    [
+      "minecraft/panda/playful"
+    ],
+    [
+      "minecraft/panda/weak"
+    ],
+    [
+      "minecraft/panda/worried"
+    ],
+    [
+      "minecraft/parched"
+    ],
+    [
+      "minecraft/parrot/blue"
+    ],
+    [
+      "minecraft/parrot/cyan"
+    ],
+    [
+      "minecraft/parrot/gray"
+    ],
+    [
+      "minecraft/parrot/green"
+    ],
+    [
+      "minecraft/parrot/red"
+    ],
+    [
+      "minecraft/phantom"
+    ],
+    [
+      "minecraft/pig/cold"
+    ],
+    [
+      "minecraft/pig/temperate"
+    ],
+    [
+      "minecraft/pig/warm"
+    ],
+    [
+      "minecraft/piglin_brute"
+    ],
+    [
+      "minecraft/pillager"
+    ],
+    [
+      "minecraft/polar_bear"
+    ],
+    [
+      "minecraft/pufferfish"
+    ],
+    [
+      "minecraft/rabbit/black"
+    ],
+    [
+      "minecraft/rabbit/brown"
+    ],
+    [
+      "minecraft/rabbit/evil"
+    ],
+    [
+      "minecraft/rabbit/gold"
+    ],
+    [
+      "minecraft/rabbit/salt"
+    ],
+    [
+      "minecraft/rabbit/toast"
+    ],
+    [
+      "minecraft/rabbit/white"
+    ],
+    [
+      "minecraft/rabbit/white_splotched"
+    ],
+    [
+      "minecraft/ravager"
+    ],
+    [
+      "minecraft/salmon"
     ],
     [
       "minecraft/sheep/black"
@@ -6931,6 +6736,168 @@
     ],
     [
       "minecraft/sheep/yellow"
+    ],
+    [
+      "minecraft/shulker"
+    ],
+    [
+      "minecraft/silverfish"
+    ],
+    [
+      "minecraft/skeleton_horse"
+    ],
+    [
+      "minecraft/slime"
+    ],
+    [
+      "minecraft/sniffer"
+    ],
+    [
+      "minecraft/snow_golem"
+    ],
+    [
+      "minecraft/spider"
+    ],
+    [
+      "minecraft/squid"
+    ],
+    [
+      "minecraft/stray"
+    ],
+    [
+      "minecraft/strider"
+    ],
+    [
+      "minecraft/strider/cold"
+    ],
+    [
+      "minecraft/sulfur_cube"
+    ],
+    [
+      "minecraft/sulfur_cube/bouncy"
+    ],
+    [
+      "minecraft/sulfur_cube/explosive"
+    ],
+    [
+      "minecraft/sulfur_cube/fast_flat"
+    ],
+    [
+      "minecraft/sulfur_cube/fast_sliding"
+    ],
+    [
+      "minecraft/sulfur_cube/high_resistance"
+    ],
+    [
+      "minecraft/sulfur_cube/hot"
+    ],
+    [
+      "minecraft/sulfur_cube/light"
+    ],
+    [
+      "minecraft/sulfur_cube/regular"
+    ],
+    [
+      "minecraft/sulfur_cube/slow_bouncy"
+    ],
+    [
+      "minecraft/sulfur_cube/slow_flat"
+    ],
+    [
+      "minecraft/sulfur_cube/slow_sliding"
+    ],
+    [
+      "minecraft/sulfur_cube/sticky"
+    ],
+    [
+      "minecraft/tadpole"
+    ],
+    [
+      "minecraft/trader_llama/brown"
+    ],
+    [
+      "minecraft/trader_llama/creamy"
+    ],
+    [
+      "minecraft/trader_llama/gray"
+    ],
+    [
+      "minecraft/trader_llama/white"
+    ],
+    [
+      "minecraft/tropical_fish/anemone"
+    ],
+    [
+      "minecraft/tropical_fish/black_tang"
+    ],
+    [
+      "minecraft/tropical_fish/blue_tang"
+    ],
+    [
+      "minecraft/tropical_fish/butterflyfish"
+    ],
+    [
+      "minecraft/tropical_fish/cichlid"
+    ],
+    [
+      "minecraft/tropical_fish/clownfish"
+    ],
+    [
+      "minecraft/tropical_fish/cotton_candy_betta"
+    ],
+    [
+      "minecraft/tropical_fish/dottyback"
+    ],
+    [
+      "minecraft/tropical_fish/emperor_red_snapper"
+    ],
+    [
+      "minecraft/tropical_fish/goatfish"
+    ],
+    [
+      "minecraft/tropical_fish/moorish_idol"
+    ],
+    [
+      "minecraft/tropical_fish/ornate_butterflyfish"
+    ],
+    [
+      "minecraft/tropical_fish/parrotfish"
+    ],
+    [
+      "minecraft/tropical_fish/queen_angelfish"
+    ],
+    [
+      "minecraft/tropical_fish/red_cichlid"
+    ],
+    [
+      "minecraft/tropical_fish/red_lipped_blenny"
+    ],
+    [
+      "minecraft/tropical_fish/red_snapper"
+    ],
+    [
+      "minecraft/tropical_fish/threadfin"
+    ],
+    [
+      "minecraft/tropical_fish/tomato_clownfish"
+    ],
+    [
+      "minecraft/tropical_fish/triggerfish"
+    ],
+    [
+      "minecraft/tropical_fish/yellow_tang"
+    ],
+    [
+      "minecraft/tropical_fish/yellowtail_parrotfish"
+    ],
+    [
+      "minecraft/turtle"
+    ],
+    [
+      "minecraft/vex"
+    ],
+    [
+      "minecraft/vex/charging"
     ],
     [
       "minecraft/villager/desert"
@@ -7248,187 +7215,16 @@
       "minecraft/villager/taiga/weaponsmith"
     ],
     [
-      "minecraft/cave_spider"
-    ],
-    [
-      "minecraft/mule"
-    ],
-    [
-      "minecraft/husk"
-    ],
-    [
-      "minecraft/bat"
-    ],
-    [
-      "minecraft/zombified_piglin"
-    ],
-    [
-      "minecraft/horse/black"
-    ],
-    [
-      "minecraft/horse/black/black_dots"
-    ],
-    [
-      "minecraft/horse/black/white"
-    ],
-    [
-      "minecraft/horse/black/white_dots"
-    ],
-    [
-      "minecraft/horse/black/white_field"
-    ],
-    [
-      "minecraft/horse/brown"
-    ],
-    [
-      "minecraft/horse/brown/black_dots"
-    ],
-    [
-      "minecraft/horse/brown/white"
-    ],
-    [
-      "minecraft/horse/brown/white_dots"
-    ],
-    [
-      "minecraft/horse/brown/white_field"
-    ],
-    [
-      "minecraft/horse/chestnut"
-    ],
-    [
-      "minecraft/horse/chestnut/black_dots"
-    ],
-    [
-      "minecraft/horse/chestnut/white"
-    ],
-    [
-      "minecraft/horse/chestnut/white_dots"
-    ],
-    [
-      "minecraft/horse/chestnut/white_field"
-    ],
-    [
-      "minecraft/horse/creamy"
-    ],
-    [
-      "minecraft/horse/creamy/black_dots"
-    ],
-    [
-      "minecraft/horse/creamy/white"
-    ],
-    [
-      "minecraft/horse/creamy/white_dots"
-    ],
-    [
-      "minecraft/horse/creamy/white_field"
-    ],
-    [
-      "minecraft/horse/dark_brown"
-    ],
-    [
-      "minecraft/horse/dark_brown/black_dots"
-    ],
-    [
-      "minecraft/horse/dark_brown/white"
-    ],
-    [
-      "minecraft/horse/dark_brown/white_dots"
-    ],
-    [
-      "minecraft/horse/dark_brown/white_field"
-    ],
-    [
-      "minecraft/horse/gray"
-    ],
-    [
-      "minecraft/horse/gray/black_dots"
-    ],
-    [
-      "minecraft/horse/gray/white"
-    ],
-    [
-      "minecraft/horse/gray/white_dots"
-    ],
-    [
-      "minecraft/horse/gray/white_field"
-    ],
-    [
-      "minecraft/horse/white"
-    ],
-    [
-      "minecraft/horse/white/black_dots"
-    ],
-    [
-      "minecraft/horse/white/white"
-    ],
-    [
-      "minecraft/horse/white/white_dots"
-    ],
-    [
-      "minecraft/horse/white/white_field"
-    ],
-    [
-      "minecraft/zombie_horse"
-    ],
-    [
-      "minecraft/trader_llama/brown"
-    ],
-    [
-      "minecraft/trader_llama/creamy"
-    ],
-    [
-      "minecraft/trader_llama/gray"
-    ],
-    [
-      "minecraft/trader_llama/white"
-    ],
-    [
       "minecraft/vindicator"
     ],
     [
-      "minecraft/armadillo"
+      "minecraft/wandering_trader"
     ],
     [
-      "minecraft/llama/brown"
+      "minecraft/warden"
     ],
     [
-      "minecraft/llama/creamy"
-    ],
-    [
-      "minecraft/llama/gray"
-    ],
-    [
-      "minecraft/llama/white"
-    ],
-    [
-      "minecraft/endermite"
-    ],
-    [
-      "minecraft/camel_husk"
-    ],
-    [
-      "minecraft/goat"
-    ],
-    [
-      "minecraft/frog/cold"
-    ],
-    [
-      "minecraft/frog/temperate"
-    ],
-    [
-      "minecraft/frog/warm"
-    ],
-    [
-      "minecraft/cow/cold"
-    ],
-    [
-      "minecraft/cow/temperate"
-    ],
-    [
-      "minecraft/cow/warm"
-    ],
-    [
-      "minecraft/creaking"
+      "minecraft/witch"
     ],
     [
       "minecraft/wither"
@@ -7443,118 +7239,91 @@
       "minecraft/wither/shielded"
     ],
     [
-      "minecraft/dolphin"
+      "minecraft/wolf/ashen"
     ],
     [
-      "minecraft/salmon"
+      "minecraft/wolf/ashen/angry"
     ],
     [
-      "minecraft/creeper/charged"
+      "minecraft/wolf/ashen/tame"
     ],
     [
-      "minecraft/sniffer"
+      "minecraft/wolf/black"
     ],
     [
-      "minecraft/chicken/cold"
+      "minecraft/wolf/black/angry"
     ],
     [
-      "minecraft/chicken/temperate"
+      "minecraft/wolf/black/tame"
     ],
     [
-      "minecraft/chicken/warm"
+      "minecraft/wolf/chestnut"
     ],
     [
-      "minecraft/rabbit/black"
+      "minecraft/wolf/chestnut/angry"
     ],
     [
-      "minecraft/rabbit/brown"
+      "minecraft/wolf/chestnut/tame"
     ],
     [
-      "minecraft/rabbit/evil"
+      "minecraft/wolf/pale"
     ],
     [
-      "minecraft/rabbit/gold"
+      "minecraft/wolf/pale/angry"
     ],
     [
-      "minecraft/rabbit/salt"
+      "minecraft/wolf/pale/tame"
     ],
     [
-      "minecraft/rabbit/toast"
+      "minecraft/wolf/rusty"
     ],
     [
-      "minecraft/rabbit/white"
+      "minecraft/wolf/rusty/angry"
     ],
     [
-      "minecraft/rabbit/white_splotched"
+      "minecraft/wolf/rusty/tame"
     ],
     [
-      "minecraft/allay"
+      "minecraft/wolf/snowy"
     ],
     [
-      "minecraft/phantom"
+      "minecraft/wolf/snowy/angry"
     ],
     [
-      "minecraft/mooshroom/brown"
+      "minecraft/wolf/snowy/tame"
     ],
     [
-      "minecraft/mooshroom/red"
+      "minecraft/wolf/spotted"
     ],
     [
-      "minecraft/cod"
+      "minecraft/wolf/spotted/angry"
     ],
     [
-      "minecraft/donkey"
+      "minecraft/wolf/spotted/tame"
     ],
     [
-      "minecraft/strider"
+      "minecraft/wolf/striped"
     ],
     [
-      "minecraft/strider/cold"
+      "minecraft/wolf/striped/angry"
     ],
     [
-      "minecraft/silverfish"
+      "minecraft/wolf/striped/tame"
     ],
     [
-      "minecraft/panda"
+      "minecraft/wolf/woods"
     ],
     [
-      "minecraft/panda/aggressive"
+      "minecraft/wolf/woods/angry"
     ],
     [
-      "minecraft/panda/brown"
+      "minecraft/wolf/woods/tame"
     ],
     [
-      "minecraft/panda/lazy"
+      "minecraft/zoglin"
     ],
     [
-      "minecraft/panda/playful"
-    ],
-    [
-      "minecraft/panda/weak"
-    ],
-    [
-      "minecraft/panda/worried"
-    ],
-    [
-      "minecraft/pig/cold"
-    ],
-    [
-      "minecraft/pig/temperate"
-    ],
-    [
-      "minecraft/pig/warm"
-    ],
-    [
-      "minecraft/copper_golem"
-    ],
-    [
-      "minecraft/copper_golem/exposed"
-    ],
-    [
-      "minecraft/copper_golem/oxidized"
-    ],
-    [
-      "minecraft/copper_golem/weathered"
+      "minecraft/zombie_horse"
     ],
     [
       "minecraft/zombie_nautilus"
@@ -7563,91 +7332,322 @@
       "minecraft/zombie_nautilus/coral"
     ],
     [
-      "minecraft/parrot/blue"
+      "minecraft/zombie_villager/desert"
     ],
     [
-      "minecraft/parrot/cyan"
+      "minecraft/zombie_villager/desert/armorer"
     ],
     [
-      "minecraft/parrot/gray"
+      "minecraft/zombie_villager/desert/butcher"
     ],
     [
-      "minecraft/parrot/green"
+      "minecraft/zombie_villager/desert/cartographer"
     ],
     [
-      "minecraft/parrot/red"
+      "minecraft/zombie_villager/desert/cleric"
     ],
     [
-      "minecraft/parched"
+      "minecraft/zombie_villager/desert/farmer"
     ],
     [
-      "minecraft/snow_golem"
+      "minecraft/zombie_villager/desert/fisherman"
     ],
     [
-      "minecraft/stray"
+      "minecraft/zombie_villager/desert/fletcher"
     ],
     [
-      "minecraft/piglin_brute"
+      "minecraft/zombie_villager/desert/leatherworker"
     ],
     [
-      "minecraft/axolotl/blue"
+      "minecraft/zombie_villager/desert/librarian"
     ],
     [
-      "minecraft/axolotl/cyan"
+      "minecraft/zombie_villager/desert/mason"
     ],
     [
-      "minecraft/axolotl/gold"
+      "minecraft/zombie_villager/desert/nitwit"
     ],
     [
-      "minecraft/axolotl/lucy"
+      "minecraft/zombie_villager/desert/shepherd"
     ],
     [
-      "minecraft/axolotl/wild"
+      "minecraft/zombie_villager/desert/toolsmith"
     ],
     [
-      "minecraft/evoker"
+      "minecraft/zombie_villager/desert/weaponsmith"
     ],
     [
-      "minecraft/ravager"
+      "minecraft/zombie_villager/jungle"
     ],
     [
-      "minecraft/cat/all_black"
+      "minecraft/zombie_villager/jungle/armorer"
     ],
     [
-      "minecraft/cat/black"
+      "minecraft/zombie_villager/jungle/butcher"
     ],
     [
-      "minecraft/cat/british_shorthair"
+      "minecraft/zombie_villager/jungle/cartographer"
     ],
     [
-      "minecraft/cat/calico"
+      "minecraft/zombie_villager/jungle/cleric"
     ],
     [
-      "minecraft/cat/jellie"
+      "minecraft/zombie_villager/jungle/farmer"
     ],
     [
-      "minecraft/cat/persian"
+      "minecraft/zombie_villager/jungle/fisherman"
     ],
     [
-      "minecraft/cat/ragdoll"
+      "minecraft/zombie_villager/jungle/fletcher"
     ],
     [
-      "minecraft/cat/red"
+      "minecraft/zombie_villager/jungle/leatherworker"
     ],
     [
-      "minecraft/cat/siamese"
+      "minecraft/zombie_villager/jungle/librarian"
     ],
     [
-      "minecraft/cat/tabby"
+      "minecraft/zombie_villager/jungle/mason"
     ],
     [
-      "minecraft/cat/white"
+      "minecraft/zombie_villager/jungle/nitwit"
     ],
     [
-      "minecraft/fox"
+      "minecraft/zombie_villager/jungle/shepherd"
     ],
     [
-      "minecraft/fox/snow"
+      "minecraft/zombie_villager/jungle/toolsmith"
+    ],
+    [
+      "minecraft/zombie_villager/jungle/weaponsmith"
+    ],
+    [
+      "minecraft/zombie_villager/plains"
+    ],
+    [
+      "minecraft/zombie_villager/plains/armorer"
+    ],
+    [
+      "minecraft/zombie_villager/plains/butcher"
+    ],
+    [
+      "minecraft/zombie_villager/plains/cartographer"
+    ],
+    [
+      "minecraft/zombie_villager/plains/cleric"
+    ],
+    [
+      "minecraft/zombie_villager/plains/farmer"
+    ],
+    [
+      "minecraft/zombie_villager/plains/fisherman"
+    ],
+    [
+      "minecraft/zombie_villager/plains/fletcher"
+    ],
+    [
+      "minecraft/zombie_villager/plains/leatherworker"
+    ],
+    [
+      "minecraft/zombie_villager/plains/librarian"
+    ],
+    [
+      "minecraft/zombie_villager/plains/mason"
+    ],
+    [
+      "minecraft/zombie_villager/plains/nitwit"
+    ],
+    [
+      "minecraft/zombie_villager/plains/shepherd"
+    ],
+    [
+      "minecraft/zombie_villager/plains/toolsmith"
+    ],
+    [
+      "minecraft/zombie_villager/plains/weaponsmith"
+    ],
+    [
+      "minecraft/zombie_villager/savanna"
+    ],
+    [
+      "minecraft/zombie_villager/savanna/armorer"
+    ],
+    [
+      "minecraft/zombie_villager/savanna/butcher"
+    ],
+    [
+      "minecraft/zombie_villager/savanna/cartographer"
+    ],
+    [
+      "minecraft/zombie_villager/savanna/cleric"
+    ],
+    [
+      "minecraft/zombie_villager/savanna/farmer"
+    ],
+    [
+      "minecraft/zombie_villager/savanna/fisherman"
+    ],
+    [
+      "minecraft/zombie_villager/savanna/fletcher"
+    ],
+    [
+      "minecraft/zombie_villager/savanna/leatherworker"
+    ],
+    [
+      "minecraft/zombie_villager/savanna/librarian"
+    ],
+    [
+      "minecraft/zombie_villager/savanna/mason"
+    ],
+    [
+      "minecraft/zombie_villager/savanna/nitwit"
+    ],
+    [
+      "minecraft/zombie_villager/savanna/shepherd"
+    ],
+    [
+      "minecraft/zombie_villager/savanna/toolsmith"
+    ],
+    [
+      "minecraft/zombie_villager/savanna/weaponsmith"
+    ],
+    [
+      "minecraft/zombie_villager/snow"
+    ],
+    [
+      "minecraft/zombie_villager/snow/armorer"
+    ],
+    [
+      "minecraft/zombie_villager/snow/butcher"
+    ],
+    [
+      "minecraft/zombie_villager/snow/cartographer"
+    ],
+    [
+      "minecraft/zombie_villager/snow/cleric"
+    ],
+    [
+      "minecraft/zombie_villager/snow/farmer"
+    ],
+    [
+      "minecraft/zombie_villager/snow/fisherman"
+    ],
+    [
+      "minecraft/zombie_villager/snow/fletcher"
+    ],
+    [
+      "minecraft/zombie_villager/snow/leatherworker"
+    ],
+    [
+      "minecraft/zombie_villager/snow/librarian"
+    ],
+    [
+      "minecraft/zombie_villager/snow/mason"
+    ],
+    [
+      "minecraft/zombie_villager/snow/nitwit"
+    ],
+    [
+      "minecraft/zombie_villager/snow/shepherd"
+    ],
+    [
+      "minecraft/zombie_villager/snow/toolsmith"
+    ],
+    [
+      "minecraft/zombie_villager/snow/weaponsmith"
+    ],
+    [
+      "minecraft/zombie_villager/swamp"
+    ],
+    [
+      "minecraft/zombie_villager/swamp/armorer"
+    ],
+    [
+      "minecraft/zombie_villager/swamp/butcher"
+    ],
+    [
+      "minecraft/zombie_villager/swamp/cartographer"
+    ],
+    [
+      "minecraft/zombie_villager/swamp/cleric"
+    ],
+    [
+      "minecraft/zombie_villager/swamp/farmer"
+    ],
+    [
+      "minecraft/zombie_villager/swamp/fisherman"
+    ],
+    [
+      "minecraft/zombie_villager/swamp/fletcher"
+    ],
+    [
+      "minecraft/zombie_villager/swamp/leatherworker"
+    ],
+    [
+      "minecraft/zombie_villager/swamp/librarian"
+    ],
+    [
+      "minecraft/zombie_villager/swamp/mason"
+    ],
+    [
+      "minecraft/zombie_villager/swamp/nitwit"
+    ],
+    [
+      "minecraft/zombie_villager/swamp/shepherd"
+    ],
+    [
+      "minecraft/zombie_villager/swamp/toolsmith"
+    ],
+    [
+      "minecraft/zombie_villager/swamp/weaponsmith"
+    ],
+    [
+      "minecraft/zombie_villager/taiga"
+    ],
+    [
+      "minecraft/zombie_villager/taiga/armorer"
+    ],
+    [
+      "minecraft/zombie_villager/taiga/butcher"
+    ],
+    [
+      "minecraft/zombie_villager/taiga/cartographer"
+    ],
+    [
+      "minecraft/zombie_villager/taiga/cleric"
+    ],
+    [
+      "minecraft/zombie_villager/taiga/farmer"
+    ],
+    [
+      "minecraft/zombie_villager/taiga/fisherman"
+    ],
+    [
+      "minecraft/zombie_villager/taiga/fletcher"
+    ],
+    [
+      "minecraft/zombie_villager/taiga/leatherworker"
+    ],
+    [
+      "minecraft/zombie_villager/taiga/librarian"
+    ],
+    [
+      "minecraft/zombie_villager/taiga/mason"
+    ],
+    [
+      "minecraft/zombie_villager/taiga/nitwit"
+    ],
+    [
+      "minecraft/zombie_villager/taiga/shepherd"
+    ],
+    [
+      "minecraft/zombie_villager/taiga/toolsmith"
+    ],
+    [
+      "minecraft/zombie_villager/taiga/weaponsmith"
+    ],
+    [
+      "minecraft/zombified_piglin"
     ]
   ],
   "sends_telemetry_event": true
