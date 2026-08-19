@@ -30,8 +30,9 @@ import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 public class ModAdvancementProvider extends AbstractAdvancementProvider {
-    private static final Comparator<Holder.Reference<HeadType>> RESOURCE_KEY_COMPARATOR = Comparator.comparing((Holder.Reference<HeadType> holder) -> holder.key()
-            .registry()).thenComparing((Holder.Reference<HeadType> holder) -> holder.key().identifier());
+    private static final Comparator<Holder<?>> HOLDER_COMPARATOR = Comparator.comparing((Holder<?> holder) -> holder.unwrapKey()
+            .orElseThrow()
+            .registry()).thenComparing((Holder<?> holder) -> holder.unwrapKey().orElseThrow().identifier());
     public static final AdvancementToken ROOT = new AdvancementToken(AllTheHeads.id("root"));
     public static final String KILL_DESCRIPTION_KEY = AllTheHeads.id("kill")
             .toLanguageKey("advancements", "description");
@@ -102,19 +103,17 @@ public class ModAdvancementProvider extends AbstractAdvancementProvider {
     }
 
     private Map<Holder<EntityType<?>>, List<Holder.Reference<HeadType>>> getHeadTypesByEntityType(HolderLookup.Provider context) {
-        Map<Holder<EntityType<?>>, List<Holder.Reference<HeadType>>> headTypesByEntityType = context.lookupOrThrow(
-                        ModRegistry.HEAD_REGISTRY_KEY)
+        return context.lookupOrThrow(ModRegistry.HEAD_REGISTRY_KEY)
                 .listElements()
+                .sorted(HOLDER_COMPARATOR)
                 .mapMulti((Holder.Reference<HeadType> headType, Consumer<Map.Entry<Holder<EntityType<?>>, Holder.Reference<HeadType>>> consumer) -> {
                     headType.value().getEntityTypes().forEach((Holder<EntityType<?>> holder) -> {
                         consumer.accept(Map.entry(holder, headType));
                     });
                 })
                 .collect(Collectors.groupingBy(Map.Entry::getKey,
+                        LinkedHashMap::new,
                         Collectors.mapping(Map.Entry::getValue, Collectors.toList())));
-        headTypesByEntityType.values()
-                .forEach((List<Holder.Reference<HeadType>> headTypes) -> headTypes.sort(RESOURCE_KEY_COMPARATOR));
-        return headTypesByEntityType;
     }
 
     private Map<EntityType<?>, Holder.Reference<Item>> gatherAllSpawnEggs(HolderLookup.Provider context) {
