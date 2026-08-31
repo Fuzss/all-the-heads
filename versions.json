@@ -1,8 +1,15 @@
 {
   "branches": {
+    "1.21.1": "maintained",
     "1.21.11": "archived",
     "26.1.x": "maintained",
-    "1.21.1": "maintained",
     "26.2.x": "primary"
+  },
+  "properties": {
+    "distributions.curseforge.id": "1369265",
+    "distributions.curseforge.slug": "all-the-heads",
+    "distributions.github.slug": "all-the-heads",
+    "distributions.modrinth.id": "Ax17wp3L",
+    "distributions.modrinth.slug": "all-the-heads"
   }
 }
