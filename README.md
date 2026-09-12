@@ -43,7 +43,7 @@ models.
 ## Overview
 
 - **Every mob can have a head.** A head type is a data pack entry that matches one or more entities via a
-  standard [entity predicate](https://minecraft.wiki/w/Advancement_definition#Entity_predicates) plus a few
+  standard [entity predicate](https://minecraft.wiki/w/Advancement/Conditions/entity) plus a few
   extra predicates added by the mod.
 - **Heads are real blocks and items.** Each head is the same `alltheheads:mob_head` item, distinguished by
   the `alltheheads:head_type` data component. Place them, wear them, put them on armour stands, use them as
@@ -145,7 +145,7 @@ the vanilla zombie texture and the generic humanoid model:
 
 | Field | Type | Required | Default | Description |
 | --- | --- | --- | --- | --- |
-| `entity_predicate` | [EntityPredicate](https://minecraft.wiki/w/Advancement_definition#Entity_predicates) | yes | – | Selects the entities this head belongs to. |
+| `entity_predicate` | [EntityPredicate](https://minecraft.wiki/w/Advancement/Conditions/entity) | yes | – | Selects the entities this head belongs to. |
 | `shape` | object | yes | – | Bounding box and render scale. |
 | `models` | list of model objects | yes | – | One or more render layers, drawn in order. |
 | `custom_name` | string | no | – | Translation-key suffix used for the item name. |
@@ -214,7 +214,7 @@ The `color` value shown is only one of four colour sources; the others are demon
 
 ### `entity_predicate`
 
-This is the vanilla [entity predicate](https://minecraft.wiki/w/Advancement_definition#Entity_predicates)
+This is the vanilla [entity predicate](https://minecraft.wiki/w/Advancement/Conditions/entity)
 used by advancements. The most common fields are:
 
 - `minecraft:entity_type` – an entity type or entity type tag.
@@ -346,7 +346,7 @@ A head with a base model, an emissive eyes layer and a tinted armour layer:
 
 ### Colours
 
-The `color` object is a [type-dispatched](https://minecraft.wiki/w/Data_pack#JSON) value. The `type` field
+The `color` object is a type-dispatched value. The `type` field
 selects the colour source; the remaining fields depend on it. All four types are built in and cannot be
 added by packs (see [Colour types](#colour-types)):
 
