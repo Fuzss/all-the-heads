@@ -1,12 +1,16 @@
 # All The Heads
 
+A Minecraft mod. Downloads can be found on [CurseForge](https://www.curseforge.com/members/fuzs_/projects) and [Modrinth](https://modrinth.com/user/Fuzs).
+
+![](https://raw.githubusercontent.com/Fuzss/modresources/main/pages/data/alltheheads/banner.png)
+
+---
+
 This mod expands Minecraft's vanilla heads into a fully data-driven system. Instead of one hardcoded head per mob, every
 entity can have any number of heads, each with its own model layers, tint colours, lighting, note block sound, drop
 rules and mob-disguise behaviour. Out of the box the mod ships definitions for hundreds of mobs and their variants;
 everything is defined in JSON and can be changed, removed or extended with data packs, while the actual geometry is
 provided by a fixed set of built-in models.
-
-![](https://raw.githubusercontent.com/Fuzss/modresources/main/pages/data/alltheheads/banner.png)
 
 ---
 
