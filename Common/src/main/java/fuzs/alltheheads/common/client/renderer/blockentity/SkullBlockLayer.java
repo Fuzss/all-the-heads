@@ -83,7 +83,8 @@ public interface SkullBlockLayer {
                                 OverlayTexture.NO_OVERLAY,
                                 UnbakedModel.this.tintColor(model, state),
                                 null,
-                                state.outlineColor);
+                                state.outlineColor,
+                                state.breakProgress);
             };
         }
 
