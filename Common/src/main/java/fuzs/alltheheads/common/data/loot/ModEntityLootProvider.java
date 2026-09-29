@@ -6,9 +6,10 @@ import fuzs.alltheheads.common.init.ModLootTables;
 import fuzs.alltheheads.common.init.ModRegistry;
 import fuzs.alltheheads.common.init.headtype.*;
 import fuzs.alltheheads.common.world.item.component.headtype.HeadType;
-import fuzs.puzzleslib.common.api.data.v2.AbstractLootProvider;
-import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
+import fuzs.puzzleslib.common.api.data.v3.loot.AbstractLootSubProvider;
 import net.minecraft.core.Holder;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -16,15 +17,14 @@ import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.SetComponentsFunction;
-import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.predicates.LootItemKilledByPlayerCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceWithEnchantedBonusCondition;
-import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import net.minecraft.world.level.storage.loot.providers.number.ints.ContextIntProviders;
 
 import java.util.Map;
 import java.util.function.BiConsumer;
 
-public class ModEntityLootProvider extends AbstractLootProvider.Simple {
+public class ModEntityLootProvider extends AbstractLootSubProvider {
     /**
      * The chances in this map are taken from <a href="https://vanillatweaks.net/">Vanilla Tweaks</a>.
      */
@@ -518,13 +518,13 @@ public class ModEntityLootProvider extends AbstractLootProvider.Simple {
         builder.accept(headType, new RandomChanceWithLooting(base, perLevelAfterFirst));
     }
 
-    public ModEntityLootProvider(DataProviderContext context) {
-        super(LootContextParamSets.ENTITY, context);
+    public ModEntityLootProvider(LootTableSubProvider.Context output) {
+        super(output);
     }
 
     @Override
-    public void addLootTables() {
-        this.registries().lookupOrThrow(ModRegistry.HEAD_REGISTRY_KEY).listElements().forEach(this::dropHead);
+    public void generate() {
+        this.output.listContextElements(ModRegistry.HEAD_REGISTRY_KEY).forEach(this::dropHead);
         this.dropVanillaHead(ModLootTables.ZOMBIE_INJECTION, Items.ZOMBIE_HEAD);
         this.dropVanillaHead(ModLootTables.SKELETON_INJECTION, Items.SKELETON_SKULL);
         this.dropVanillaHead(ModLootTables.CREEPER_INJECTION, Items.CREEPER_HEAD);
@@ -540,29 +540,30 @@ public class ModEntityLootProvider extends AbstractLootProvider.Simple {
                 AllTheHeads.LOGGER.warn("Missing head type loot drop chance for {}", headType.key());
             }
 
-            this.add(resourceKey,
+            this.output.accept(resourceKey,
                     LootTable.lootTable()
                             .withPool(LootPool.lootPool()
-                                    .setRolls(ConstantValue.exactly(1.0F))
+                                    .setRolls(ContextIntProviders.exactly(1))
                                     .add(LootItem.lootTableItem(ModRegistry.MOB_HEAD_ITEM.value()))
                                     .apply(SetComponentsFunction.setComponent(ModRegistry.HEAD_TYPE_DATA_COMPONENT_TYPE.value(),
                                             headType))
                                     .when(LootItemKilledByPlayerCondition.killedByPlayer())
                                     .when(LootItemRandomChanceWithEnchantedBonusCondition.randomChanceAndLootingBoost(
-                                            this.registries(),
+                                            this.output.lookup(Registries.ENCHANTMENT),
                                             randomChanceWithLooting.randomChance(),
                                             randomChanceWithLooting.lootingLevelBonus()))));
         });
     }
 
     public final void dropVanillaHead(ResourceKey<LootTable> resourceKey, Item item) {
-        this.add(resourceKey,
+        this.output.accept(resourceKey,
                 LootTable.lootTable()
                         .withPool(LootPool.lootPool()
-                                .setRolls(ConstantValue.exactly(1.0F))
+                                .setRolls(ContextIntProviders.exactly(1))
                                 .add(LootItem.lootTableItem(item))
                                 .when(LootItemKilledByPlayerCondition.killedByPlayer())
-                                .when(LootItemRandomChanceWithEnchantedBonusCondition.randomChanceAndLootingBoost(this.registries(),
+                                .when(LootItemRandomChanceWithEnchantedBonusCondition.randomChanceAndLootingBoost(this.output.lookup(
+                                                Registries.ENCHANTMENT),
                                         RandomChanceWithLooting.DEFAULT.randomChance(),
                                         RandomChanceWithLooting.DEFAULT.lootingLevelBonus()))));
     }

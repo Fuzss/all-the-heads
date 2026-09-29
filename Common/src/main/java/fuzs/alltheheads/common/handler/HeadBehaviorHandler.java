@@ -2,7 +2,6 @@ package fuzs.alltheheads.common.handler;
 
 import fuzs.alltheheads.common.init.ModRegistry;
 import fuzs.alltheheads.common.world.item.component.headtype.HeadType;
-import fuzs.puzzleslib.common.api.event.v1.data.MutableDouble;
 import net.minecraft.core.Holder;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
@@ -13,14 +12,16 @@ import org.jspecify.annotations.Nullable;
 
 public class HeadBehaviorHandler {
 
-    public static void onCalculateLivingVisibility(LivingEntity livingEntity, @Nullable Entity lookingEntity, MutableDouble visibilityPercentage) {
+    public static double getVisibilityPercent(LivingEntity livingEntity, @Nullable Entity lookingEntity, double visibilityPercent) {
         if (lookingEntity != null && lookingEntity.level() instanceof ServerLevel serverLevel) {
             ItemStack itemStack = livingEntity.getItemBySlot(EquipmentSlot.HEAD);
             Holder<HeadType> headType = itemStack.get(ModRegistry.HEAD_TYPE_DATA_COMPONENT_TYPE.value());
             if (headType != null && headType.value().mobDisguise() && headType.value()
                     .matches(serverLevel, lookingEntity)) {
-                visibilityPercentage.mapAsDouble((double value) -> value * 0.5);
+                return visibilityPercent * 0.5;
             }
         }
+
+        return visibilityPercent;
     }
 }

@@ -33,7 +33,15 @@ import java.util.function.Function;
 
 @FunctionalInterface
 public interface SkullBlockLayer {
-    void submit(Model model, MobHeadRenderState state, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, int order);
+    void submitModel(Model model, MobHeadRenderState state, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, int order);
+
+    default void submitCrumblingOverlay(Model model, MobHeadRenderState state, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, int order) {
+        // NO-OP
+    }
+
+    default boolean supportsCrumblingOverlay() {
+        return false;
+    }
 
     @FunctionalInterface
     interface Unbaked {
@@ -73,17 +81,40 @@ public interface SkullBlockLayer {
             ModelLayerLocation modelLayerLocation = MobHeadRenderer.createModelLayer(modelType);
             ModelPart modelPart = entityModelSet.bakeLayer(modelLayerLocation);
             SkullModelBase skullModel = this.model().apply(modelPart);
-            return (Model model, MobHeadRenderState state, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, int order) -> {
-                submitNodeCollector.order(order)
-                        .submitModel(skullModel,
-                                UnbakedModel.this.state(state),
-                                poseStack,
-                                UnbakedModel.this.renderType(model, state),
-                                UnbakedModel.this.lightCoords(model, state),
-                                OverlayTexture.NO_OVERLAY,
-                                UnbakedModel.this.tintColor(model, state),
-                                null,
-                                state.outlineColor);
+            return new SkullBlockLayer() {
+                @Override
+                public void submitModel(Model model, MobHeadRenderState state, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, int order) {
+                    submitNodeCollector.order(order)
+                            .submitModel(skullModel,
+                                    UnbakedModel.this.state(state),
+                                    poseStack,
+                                    UnbakedModel.this.renderType(model, state),
+                                    UnbakedModel.this.lightCoords(model, state),
+                                    OverlayTexture.NO_OVERLAY,
+                                    UnbakedModel.this.tintColor(model, state),
+                                    null,
+                                    state.outlineColor);
+                }
+
+                @Override
+                public void submitCrumblingOverlay(Model model, MobHeadRenderState state, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, int order) {
+                    if (state.breakProgress != null) {
+                        submitNodeCollector.order(order)
+                                .submitCrumblingOverlay(skullModel,
+                                        UnbakedModel.this.state(state),
+                                        poseStack,
+                                        UnbakedModel.this.renderType(model, state),
+                                        UnbakedModel.this.lightCoords(model, state),
+                                        OverlayTexture.NO_OVERLAY,
+                                        -1,
+                                        state.breakProgress);
+                    }
+                }
+
+                @Override
+                public boolean supportsCrumblingOverlay() {
+                    return true;
+                }
             };
         }
 
@@ -122,11 +153,11 @@ public interface SkullBlockLayer {
             blockModelResolver.update(containedBlock, this.blockState(), BLOCK_DISPLAY_CONTEXT);
             return (Model model, MobHeadRenderState state, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, int order) -> {
                 poseStack.pushPose();
-                poseStack.mulPose(Axis.XP.rotationDegrees(180.0F));
+                poseStack.rotate(Axis.XP.rotationDegrees(180.0F));
                 poseStack.translate(-0.5F, 0.0625F, -0.5F);
                 containedBlock.submit(poseStack,
                         submitNodeCollector,
-                        this.lightCoords(model, state),
+                        UnbakedBlock.this.lightCoords(model, state),
                         OverlayTexture.NO_OVERLAY,
                         state.outlineColor);
                 poseStack.popPose();

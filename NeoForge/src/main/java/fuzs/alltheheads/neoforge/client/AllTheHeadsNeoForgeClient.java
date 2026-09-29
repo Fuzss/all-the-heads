@@ -5,7 +5,7 @@ import fuzs.alltheheads.common.client.AllTheHeadsClient;
 import fuzs.alltheheads.common.data.client.ModLanguageProvider;
 import fuzs.alltheheads.common.data.client.ModModelProvider;
 import fuzs.puzzleslib.common.api.client.core.v1.ClientModConstructor;
-import fuzs.puzzleslib.neoforge.api.data.v2.core.DataProviderHelper;
+import fuzs.puzzleslib.neoforge.api.data.v3.core.DataProviderBuilder;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.fml.common.Mod;
 
@@ -14,6 +14,7 @@ public class AllTheHeadsNeoForgeClient {
 
     public AllTheHeadsNeoForgeClient() {
         ClientModConstructor.construct(AllTheHeads.MOD_ID, AllTheHeadsClient::new);
-        DataProviderHelper.registerDataProviders(AllTheHeads.MOD_ID, ModLanguageProvider::new, ModModelProvider::new);
+        DataProviderBuilder.of(AllTheHeads.MOD_ID)
+                .addProvider(ModLanguageProvider::new, ModModelProvider::new);
     }
 }

@@ -1,12 +1,12 @@
 package fuzs.alltheheads.common.data.client;
 
 import fuzs.alltheheads.common.AllTheHeads;
-import fuzs.alltheheads.common.data.ModAdvancementProvider;
+import fuzs.alltheheads.common.data.advancements.ModAdvancementProvider;
 import fuzs.alltheheads.common.init.ModRegistry;
 import fuzs.alltheheads.common.init.headtype.*;
 import fuzs.alltheheads.common.world.item.component.headtype.HeadType;
-import fuzs.puzzleslib.common.api.client.data.v2.AbstractLanguageProvider;
-import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
+import fuzs.puzzleslib.common.api.client.data.v3.language.AbstractLanguageProvider;
+import fuzs.puzzleslib.common.api.data.v3.core.DataProviderContext;
 import net.minecraft.resources.ResourceKey;
 
 import java.util.function.BiConsumer;
@@ -18,19 +18,19 @@ public class ModLanguageProvider extends AbstractLanguageProvider {
     }
 
     @Override
-    public void addTranslations(TranslationBuilder translationBuilder) {
-        translationBuilder.add(ModRegistry.CREATIVE_MODE_TAB.value(), AllTheHeads.MOD_NAME);
-        translationBuilder.add(ModRegistry.VILLAGER_CREATIVE_MODE_TAB.value(), "All The Villagers");
-        translationBuilder.add(ModRegistry.MOB_HEAD_BLOCK.value(), "Mob Head");
-        translationBuilder.add(ModAdvancementProvider.ROOT.title(), AllTheHeads.MOD_NAME);
-        translationBuilder.add(ModAdvancementProvider.ROOT.description(), "Obtain all heads");
-        translationBuilder.add(ModAdvancementProvider.KILL_DESCRIPTION_KEY, "Kill %s");
-        translationBuilder.add(ModAdvancementProvider.OBTAIN_DESCRIPTION_KEY, "Obtain %s");
+    public void addTranslations() {
+        this.add(ModRegistry.CREATIVE_MODE_TAB.value(), AllTheHeads.MOD_NAME);
+        this.add(ModRegistry.VILLAGER_CREATIVE_MODE_TAB.value(), "All The Villagers");
+        this.add(ModRegistry.MOB_HEAD_BLOCK.value(), "Mob Head");
+        this.add(ModAdvancementProvider.ROOT.title(), AllTheHeads.MOD_NAME);
+        this.add(ModAdvancementProvider.ROOT.description(), "Obtain all heads");
+        this.add(ModAdvancementProvider.KILL_DESCRIPTION_KEY, "Kill %s");
+        this.add(ModAdvancementProvider.OBTAIN_DESCRIPTION_KEY, "Obtain %s");
 
         BiConsumer<ResourceKey<HeadType>, String> translationConsumer = (ResourceKey<HeadType> resourceKey, String value) -> {
             String translationKey = HeadType.customName(resourceKey)
                     .toLanguageKey(ModRegistry.MOB_HEAD_BLOCK.value().getDescriptionId());
-            translationBuilder.add(translationKey, value);
+            this.add(translationKey, value);
         };
 
         AnimalHeadType.registerTranslations(translationConsumer);

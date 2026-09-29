@@ -2,22 +2,21 @@ package fuzs.alltheheads.common.world.item.component.headtype;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import fuzs.alltheheads.common.AllTheHeads;
 import fuzs.alltheheads.common.init.ModRegistry;
 import net.minecraft.advancements.predicates.entity.EntityPredicate;
 import net.minecraft.advancements.predicates.entity.EntitySubPredicate;
 import net.minecraft.advancements.predicates.entity.EntityTypePredicate;
 import net.minecraft.core.Holder;
-import net.minecraft.core.HolderLookup;
+import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.core.registries.codec.RegistryFixedCodec;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.resources.Identifier;
-import net.minecraft.resources.RegistryFixedCodec;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
@@ -66,11 +65,9 @@ public record HeadType(Optional<ResourceKey<LootItemCondition>> entityPredicate,
     public static final Codec<Holder<HeadType>> CODEC = RegistryFixedCodec.create(ModRegistry.HEAD_REGISTRY_KEY);
     public static final StreamCodec<RegistryFriendlyByteBuf, Holder<HeadType>> STREAM_CODEC = ByteBufCodecs.holderRegistry(
             ModRegistry.HEAD_REGISTRY_KEY);
-    private static final ResourceKey<LootItemCondition> EMPTY_PREDICATE = ResourceKey.create(Registries.PREDICATE,
-            AllTheHeads.id("empty"));
 
     private HeadType(Shape shape, Optional<String> customName, Optional<Holder<SoundEvent>> noteBlockSound, List<Model> models) {
-        this(Optional.empty(), shape, new Loot(Optional.empty(), true), customName, false, noteBlockSound, models);
+        this(Optional.empty(), shape, Loot.EMPTY, customName, false, noteBlockSound, models);
     }
 
     public static Builder builder() {
@@ -89,7 +86,7 @@ public record HeadType(Optional<ResourceKey<LootItemCondition>> entityPredicate,
     /**
      * This is only used during data-generation; hence it's ok to filter this out on-demand.
      */
-    public Stream<Holder<EntityType<?>>> getEntityTypes(HolderLookup.Provider context) {
+    public Stream<Holder<EntityType<?>>> getEntityTypes(HolderGetter<LootItemCondition> context) {
         return this.entityPredicate()
                 .flatMap(context::get)
                 .map(Holder.Reference::value)
@@ -115,7 +112,7 @@ public record HeadType(Optional<ResourceKey<LootItemCondition>> entityPredicate,
     /**
      * This is only used during data-generation; hence it's ok to filter this out on-demand.
      */
-    public Holder<EntityType<?>> getEntityType(HolderLookup.Provider context) {
+    public Holder<EntityType<?>> getEntityType(HolderGetter<LootItemCondition> context) {
         return this.getEntityTypes(context).findFirst().orElseThrow();
     }
 
@@ -126,9 +123,11 @@ public record HeadType(Optional<ResourceKey<LootItemCondition>> entityPredicate,
 
     public boolean matches(ServerLevel serverLevel, Entity entity) {
         LootParams lootParams = new LootParams.Builder(serverLevel).withParameter(LootContextParams.THIS_ENTITY, entity)
-                .create(ModRegistry.HEAD_CONTEXT_KEY_SET);
+                .create(ModRegistry.HEAD_CONTEXT_KEY_SET.value());
         LootContext context = new LootContext.Builder(lootParams).create(Optional.empty());
-        return serverLevel.registryAccess()
+        return serverLevel.getServer()
+                .reloadableRegistries()
+                .lookup()
                 .lookupOrThrow(Registries.PREDICATE)
                 .getOrThrow(this.entityPredicate().orElseThrow())
                 .value()

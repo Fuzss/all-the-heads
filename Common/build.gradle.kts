@@ -8,6 +8,7 @@ dependencies {
 
 multiloader {
     mixins {
+        mixin("LivingEntityMixin")
         clientMixin("ModelFeatureRendererMixin")
     }
 }

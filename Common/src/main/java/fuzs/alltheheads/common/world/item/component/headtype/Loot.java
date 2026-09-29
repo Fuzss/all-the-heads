@@ -14,7 +14,10 @@ import java.util.Optional;
 
 public record Loot(Optional<ResourceKey<LootTable>> lootTable, boolean chargedCreeperDrop) {
     public static final MapCodec<Loot> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(ResourceKey.codec(
-                            Registries.LOOT_TABLE).optionalFieldOf("loot_table").forGetter(Loot::lootTable),
+                                    Registries.LOOT_TABLE)
+                            .xmap(Optional::of, Optional::orElseThrow)
+                            .fieldOf("loot_table")
+                            .forGetter(Loot::lootTable),
                     Codec.BOOL.optionalFieldOf("charged_creeper_drop", true).forGetter(Loot::chargedCreeperDrop))
             .apply(instance, Loot::new));
     public static final StreamCodec<ByteBuf, Loot> STREAM_CODEC = StreamCodec.composite(ResourceKey.streamCodec(
@@ -23,8 +26,13 @@ public record Loot(Optional<ResourceKey<LootTable>> lootTable, boolean chargedCr
             ByteBufCodecs.BOOL,
             Loot::chargedCreeperDrop,
             Loot::new);
+    public static final Loot EMPTY = new Loot(Optional.empty());
 
-    public Loot(ResourceKey<LootTable> resourceKey) {
-        this(Optional.of(resourceKey), true);
+    public Loot(ResourceKey<LootTable> lootTable) {
+        this(Optional.of(lootTable));
+    }
+
+    private Loot(Optional<ResourceKey<LootTable>> lootTable) {
+        this(lootTable, true);
     }
 }

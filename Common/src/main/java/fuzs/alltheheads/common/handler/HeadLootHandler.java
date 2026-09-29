@@ -7,7 +7,7 @@ import fuzs.alltheheads.common.world.item.MobHeadItem;
 import fuzs.alltheheads.common.world.item.component.headtype.HeadType;
 import fuzs.puzzleslib.common.api.event.v1.core.EventResult;
 import net.minecraft.core.Holder;
-import net.minecraft.core.HolderLookup;
+import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
@@ -22,7 +22,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.NestedLootTable;
-import net.minecraft.world.level.storage.loot.predicates.ConditionReference;
 
 import java.util.Collection;
 import java.util.Map;
@@ -55,7 +54,7 @@ public class HeadLootHandler {
         return EventResult.PASS;
     }
 
-    public static void onLootTableLoad(Identifier id, LootTable.Builder lootTable, HolderLookup.Provider context) {
+    public static void onLootTableLoad(Identifier id, LootTable.Builder lootTable, HolderGetter.Provider context) {
         if (HEAD_TAGS.get().containsKey(id)) {
             context.lookupOrThrow(ModRegistry.HEAD_REGISTRY_KEY)
                     .get(HEAD_TAGS.get().get(id))
@@ -65,8 +64,8 @@ public class HeadLootHandler {
                                 // adding each one in as a separate pool allows for multiple heads to drop at once when conditions apply,
                                 // which is not ideal, but wrapping all of them in an "alternatives" entry did not succeed
                                 lootTable.withPool(LootPool.lootPool()
-                                        .add(NestedLootTable.lootTableReference(resourceKey)
-                                                .when(ConditionReference.conditionReference(headType.value()
+                                        .add(NestedLootTable.lootTableReference(context.getOrThrow(resourceKey))
+                                                .when(context.getOrThrow(headType.value()
                                                         .entityPredicate()
                                                         .orElseThrow()))));
                             });

@@ -18,7 +18,6 @@ import fuzs.puzzleslib.common.api.util.v1.CommonHelper;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
-import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -40,8 +39,6 @@ import net.minecraft.world.waypoints.Waypoint;
 public class ModRegistry {
     public static final ResourceKey<Registry<HeadType>> HEAD_REGISTRY_KEY = ResourceKey.createRegistryKey(AllTheHeads.id(
             "head"));
-    public static final RegistrySetBuilder REGISTRY_SET_BUILDER = new RegistrySetBuilder().add(Registries.PREDICATE,
-            HeadTypes::bootstrapLootItemConditions).add(HEAD_REGISTRY_KEY, HeadTypes::bootstrapHeadTypes);
     public static final SkullBlock.Type MOB_SKULL_BLOCK_TYPE = ContentRegistrationHelper.registerSkullBlockType(
             AllTheHeads.id("mob"));
 
@@ -56,10 +53,10 @@ public class ModRegistry {
             () -> BlockBehaviour.Properties.of()
                     .instrument(NoteBlockInstrument.CUSTOM_HEAD)
                     .strength(1.0F)
-                    .pushReaction(PushReaction.DESTROY));
+                    .pushReaction(PushReaction.POPPED));
     public static final Holder.Reference<Block> MOB_WALL_HEAD_BLOCK = REGISTRIES.registerBlock("mob_wall_head",
             MobHeadSkullBlock::new,
-            () -> Blocks.wallVariant(MOB_HEAD_BLOCK.value(), true).strength(1.0F).pushReaction(PushReaction.DESTROY));
+            () -> Blocks.wallVariant(MOB_HEAD_BLOCK.value(), true).strength(1.0F).pushReaction(PushReaction.POPPED));
     public static final Holder.Reference<Item> MOB_HEAD_ITEM = REGISTRIES.registerBlockItem(MOB_HEAD_BLOCK,
             (Block block, Item.Properties properties) -> new MobHeadItem(block,
                     MOB_WALL_HEAD_BLOCK.value(),
@@ -154,25 +151,25 @@ public class ModRegistry {
     public static final TagKey<HeadType> VILLAGER_LIKE_HEAD_TYPE_TAG = TAGS.registerTagKey(HEAD_REGISTRY_KEY,
             "villager_like");
 
-    public static final ContextKeySet HEAD_CONTEXT_KEY_SET = ContentRegistrationHelper.registerContextKeySet(AllTheHeads.id(
-            "head"), (ContextKeySet.Builder builder) -> {
-        builder.required(LootContextParams.THIS_ENTITY);
-    });
+    public static final Holder.Reference<ContextKeySet> HEAD_CONTEXT_KEY_SET = REGISTRIES.register(
+            Registries.CONTEXT_KEY_SET,
+            "head",
+            () -> new ContextKeySet.Builder().required(LootContextParams.THIS_ENTITY).build());
 
     public static void bootstrap() {
         ModLootTables.bootstrap();
-        REGISTRIES.prepareTag(Registries.ITEM, ItemTags.SULFUR_CUBE_ARCHETYPE_REGULAR);
-        REGISTRIES.prepareTag(Registries.ITEM, ItemTags.SULFUR_CUBE_ARCHETYPE_BOUNCY);
-        REGISTRIES.prepareTag(Registries.ITEM, ItemTags.SULFUR_CUBE_ARCHETYPE_SLOW_BOUNCY);
-        REGISTRIES.prepareTag(Registries.ITEM, ItemTags.SULFUR_CUBE_ARCHETYPE_SLOW_FLAT);
-        REGISTRIES.prepareTag(Registries.ITEM, ItemTags.SULFUR_CUBE_ARCHETYPE_FAST_FLAT);
-        REGISTRIES.prepareTag(Registries.ITEM, ItemTags.SULFUR_CUBE_ARCHETYPE_LIGHT);
-        REGISTRIES.prepareTag(Registries.ITEM, ItemTags.SULFUR_CUBE_ARCHETYPE_FAST_SLIDING);
-        REGISTRIES.prepareTag(Registries.ITEM, ItemTags.SULFUR_CUBE_ARCHETYPE_SLOW_SLIDING);
-        REGISTRIES.prepareTag(Registries.ITEM, ItemTags.SULFUR_CUBE_ARCHETYPE_HIGH_RESISTANCE);
-        REGISTRIES.prepareTag(Registries.ITEM, ItemTags.SULFUR_CUBE_ARCHETYPE_STICKY);
-        REGISTRIES.prepareTag(Registries.ITEM, ItemTags.SULFUR_CUBE_ARCHETYPE_EXPLOSIVE);
-        REGISTRIES.prepareTag(Registries.ITEM, ItemTags.SULFUR_CUBE_ARCHETYPE_HOT);
+        REGISTRIES.bootstrapTag(ItemTags.SULFUR_CUBE_ARCHETYPE_REGULAR);
+        REGISTRIES.bootstrapTag(ItemTags.SULFUR_CUBE_ARCHETYPE_BOUNCY);
+        REGISTRIES.bootstrapTag(ItemTags.SULFUR_CUBE_ARCHETYPE_SLOW_BOUNCY);
+        REGISTRIES.bootstrapTag(ItemTags.SULFUR_CUBE_ARCHETYPE_SLOW_FLAT);
+        REGISTRIES.bootstrapTag(ItemTags.SULFUR_CUBE_ARCHETYPE_FAST_FLAT);
+        REGISTRIES.bootstrapTag(ItemTags.SULFUR_CUBE_ARCHETYPE_LIGHT);
+        REGISTRIES.bootstrapTag(ItemTags.SULFUR_CUBE_ARCHETYPE_FAST_SLIDING);
+        REGISTRIES.bootstrapTag(ItemTags.SULFUR_CUBE_ARCHETYPE_SLOW_SLIDING);
+        REGISTRIES.bootstrapTag(ItemTags.SULFUR_CUBE_ARCHETYPE_HIGH_RESISTANCE);
+        REGISTRIES.bootstrapTag(ItemTags.SULFUR_CUBE_ARCHETYPE_STICKY);
+        REGISTRIES.bootstrapTag(ItemTags.SULFUR_CUBE_ARCHETYPE_EXPLOSIVE);
+        REGISTRIES.bootstrapTag(ItemTags.SULFUR_CUBE_ARCHETYPE_HOT);
     }
 
     private static ItemStack createDisplayItemStack(ResourceKey<HeadType> key) {

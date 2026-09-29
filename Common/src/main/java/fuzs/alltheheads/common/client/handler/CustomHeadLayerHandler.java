@@ -4,7 +4,7 @@ import fuzs.alltheheads.common.AllTheHeads;
 import fuzs.alltheheads.common.client.renderer.entity.layers.MobHeadLayer;
 import fuzs.alltheheads.common.init.ModRegistry;
 import fuzs.alltheheads.common.world.item.component.headtype.HeadType;
-import fuzs.puzzleslib.common.api.client.renderer.v1.RenderStateExtraData;
+import fuzs.puzzleslib.common.api.client.renderer.v2.RenderStateExtraData;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.HeadedModel;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class CustomHeadLayerHandler {
-    public static final ContextKey<Optional<Holder<HeadType>>> HEAD_TYPE_RENDER_PROPERTY = new ContextKey<>(AllTheHeads.id(
+    public static final ContextKey<Optional<Holder<HeadType>>> HEAD_TYPE_KEY = new ContextKey<>(AllTheHeads.id(
             "head_type"));
 
     public static void onExtractEntityRenderState(Entity entity, EntityRenderState renderState, float partialTick) {
@@ -36,7 +36,7 @@ public class CustomHeadLayerHandler {
             livingEntityRenderState.wornHeadType = null;
             ItemStack itemStack = livingEntity.getItemBySlot(EquipmentSlot.HEAD);
             Holder<HeadType> headType = itemStack.get(ModRegistry.HEAD_TYPE_DATA_COMPONENT_TYPE.value());
-            RenderStateExtraData.set(renderState, HEAD_TYPE_RENDER_PROPERTY, Optional.ofNullable(headType));
+            RenderStateExtraData.set(renderState, HEAD_TYPE_KEY, Optional.ofNullable(headType));
         }
     }
 

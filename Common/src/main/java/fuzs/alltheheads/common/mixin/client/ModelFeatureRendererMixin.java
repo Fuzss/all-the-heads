@@ -3,7 +3,7 @@ package fuzs.alltheheads.common.mixin.client;
 import com.llamalad7.mixinextras.sugar.Share;
 import com.llamalad7.mixinextras.sugar.ref.LocalBooleanRef;
 import fuzs.alltheheads.common.client.handler.CustomHeadLayerHandler;
-import fuzs.puzzleslib.common.api.client.renderer.v1.RenderStateExtraData;
+import fuzs.puzzleslib.common.api.client.renderer.v2.RenderStateExtraData;
 import net.minecraft.client.model.HeadedModel;
 import net.minecraft.client.renderer.entity.state.EntityRenderState;
 import net.minecraft.client.renderer.feature.ModelFeatureRenderer;
@@ -22,7 +22,7 @@ abstract class ModelFeatureRendererMixin {
         // The idea is taken from here: https://github.com/Mrbysco/Heads
         if (submit.state() instanceof EntityRenderState entityRenderState
                 && submit.model() instanceof HeadedModel headedModel && RenderStateExtraData.has(entityRenderState,
-                CustomHeadLayerHandler.HEAD_TYPE_RENDER_PROPERTY)) {
+                CustomHeadLayerHandler.HEAD_TYPE_KEY)) {
             isHeadVisibleRef.set(headedModel.getHead().visible);
             headedModel.getHead().visible = false;
         }
@@ -33,7 +33,7 @@ abstract class ModelFeatureRendererMixin {
             "is_head_visible") LocalBooleanRef isHeadVisibleRef) {
         if (submit.state() instanceof EntityRenderState entityRenderState
                 && submit.model() instanceof HeadedModel headedModel && RenderStateExtraData.has(entityRenderState,
-                CustomHeadLayerHandler.HEAD_TYPE_RENDER_PROPERTY)) {
+                CustomHeadLayerHandler.HEAD_TYPE_KEY)) {
             headedModel.getHead().visible = isHeadVisibleRef.get();
         }
     }
