@@ -1,13 +1,6 @@
 {
   "custom_name": "minecraft.tropical_fish_red_cichlid",
-  "entity_predicate": {
-    "alltheheads:tropical_fish": {
-      "base_color": "red",
-      "pattern": "betty",
-      "pattern_color": "white"
-    },
-    "minecraft:entity_type": "minecraft:tropical_fish"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/tropical_fish/red_cichlid",
   "loot_table": "alltheheads:entities/heads/minecraft/tropical_fish/red_cichlid",
   "models": [
     {

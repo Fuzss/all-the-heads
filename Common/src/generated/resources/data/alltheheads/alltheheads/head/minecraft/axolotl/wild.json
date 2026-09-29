@@ -1,11 +1,6 @@
 {
   "custom_name": "minecraft.axolotl_wild",
-  "entity_predicate": {
-    "minecraft:components": {
-      "minecraft:axolotl/variant": "wild"
-    },
-    "minecraft:entity_type": "minecraft:axolotl"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/axolotl/wild",
   "loot_table": "alltheheads:entities/heads/minecraft/axolotl/wild",
   "models": [
     {

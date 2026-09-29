@@ -1,14 +1,6 @@
 {
   "custom_name": "minecraft.wolf_spotted_angry",
-  "entity_predicate": {
-    "alltheheads:wolf": {
-      "angry": true
-    },
-    "minecraft:components": {
-      "minecraft:wolf/variant": "minecraft:spotted"
-    },
-    "minecraft:entity_type": "minecraft:wolf"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/wolf/spotted/angry",
   "loot_table": "alltheheads:entities/heads/minecraft/wolf/spotted/angry",
   "models": [
     {

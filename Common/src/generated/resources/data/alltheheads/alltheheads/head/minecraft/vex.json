@@ -1,11 +1,6 @@
 {
   "custom_name": "minecraft.vex",
-  "entity_predicate": {
-    "alltheheads:vex": {
-      "charging": false
-    },
-    "minecraft:entity_type": "minecraft:vex"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/vex",
   "loot_table": "alltheheads:entities/heads/minecraft/vex",
   "models": [
     {

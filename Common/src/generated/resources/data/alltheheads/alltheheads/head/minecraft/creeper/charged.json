@@ -1,11 +1,6 @@
 {
   "custom_name": "minecraft.creeper_charged",
-  "entity_predicate": {
-    "alltheheads:creeper": {
-      "powered": true
-    },
-    "minecraft:entity_type": "minecraft:creeper"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/creeper/charged",
   "loot_table": "alltheheads:entities/heads/minecraft/creeper/charged",
   "models": [
     {

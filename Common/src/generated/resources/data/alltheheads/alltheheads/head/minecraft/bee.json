@@ -1,12 +1,6 @@
 {
   "custom_name": "minecraft.bee",
-  "entity_predicate": {
-    "alltheheads:bee": {
-      "angry": false,
-      "has_nectar": false
-    },
-    "minecraft:entity_type": "minecraft:bee"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/bee",
   "loot_table": "alltheheads:entities/heads/minecraft/bee",
   "models": [
     {

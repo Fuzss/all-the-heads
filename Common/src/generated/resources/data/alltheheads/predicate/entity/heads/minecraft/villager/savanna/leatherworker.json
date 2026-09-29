@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:entity_properties",
+  "entity": "this",
+  "predicate": {
+    "alltheheads:villager_data": {
+      "villager_profession": "minecraft:leatherworker",
+      "villager_type": "minecraft:savanna"
+    },
+    "minecraft:entity_type": "minecraft:villager"
+  }
+}

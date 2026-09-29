@@ -1,14 +1,6 @@
 {
   "custom_name": "minecraft.wolf_rusty_tame",
-  "entity_predicate": {
-    "alltheheads:wolf": {
-      "tame": true
-    },
-    "minecraft:components": {
-      "minecraft:wolf/variant": "minecraft:rusty"
-    },
-    "minecraft:entity_type": "minecraft:wolf"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/wolf/rusty/tame",
   "loot_table": "alltheheads:entities/heads/minecraft/wolf/rusty/tame",
   "models": [
     {

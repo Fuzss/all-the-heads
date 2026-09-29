@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:entity_properties",
+  "entity": "this",
+  "predicate": {
+    "alltheheads:villager_data": {
+      "villager_profession": "minecraft:nitwit",
+      "villager_type": "minecraft:jungle"
+    },
+    "minecraft:entity_type": "minecraft:villager"
+  }
+}

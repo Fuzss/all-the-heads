@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:entity_properties",
+  "entity": "this",
+  "predicate": {
+    "minecraft:entity_type": "minecraft:sulfur_cube",
+    "minecraft:equipment": {
+      "body": {
+        "items": "#minecraft:sulfur_cube_archetype/light"
+      }
+    }
+  }
+}

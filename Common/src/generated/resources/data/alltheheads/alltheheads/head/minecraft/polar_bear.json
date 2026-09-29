@@ -1,8 +1,6 @@
 {
   "custom_name": "minecraft.polar_bear",
-  "entity_predicate": {
-    "minecraft:entity_type": "minecraft:polar_bear"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/polar_bear",
   "loot_table": "alltheheads:entities/heads/minecraft/polar_bear",
   "models": [
     {

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:entity_properties",
+  "entity": "this",
+  "predicate": {
+    "alltheheads:horse": {
+      "markings": "black_dots"
+    },
+    "minecraft:components": {
+      "minecraft:horse/variant": "brown"
+    },
+    "minecraft:entity_type": "minecraft:horse"
+  }
+}

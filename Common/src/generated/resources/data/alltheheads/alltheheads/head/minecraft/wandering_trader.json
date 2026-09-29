@@ -1,8 +1,6 @@
 {
   "custom_name": "minecraft.wandering_trader",
-  "entity_predicate": {
-    "minecraft:entity_type": "minecraft:wandering_trader"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/wandering_trader",
   "loot_table": "alltheheads:entities/heads/minecraft/wandering_trader",
   "models": [
     {

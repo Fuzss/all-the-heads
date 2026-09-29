@@ -1,11 +1,6 @@
 {
   "custom_name": "minecraft.parrot_green",
-  "entity_predicate": {
-    "minecraft:components": {
-      "minecraft:parrot/variant": "green"
-    },
-    "minecraft:entity_type": "minecraft:parrot"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/parrot/green",
   "loot_table": "alltheheads:entities/heads/minecraft/parrot/green",
   "models": [
     {

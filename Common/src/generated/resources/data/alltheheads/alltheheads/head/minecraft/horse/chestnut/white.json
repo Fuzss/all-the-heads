@@ -1,14 +1,6 @@
 {
   "custom_name": "minecraft.horse_chestnut_white",
-  "entity_predicate": {
-    "alltheheads:horse": {
-      "markings": "white"
-    },
-    "minecraft:components": {
-      "minecraft:horse/variant": "chestnut"
-    },
-    "minecraft:entity_type": "minecraft:horse"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/horse/chestnut/white",
   "loot_table": "alltheheads:entities/heads/minecraft/horse/chestnut/white",
   "models": [
     {

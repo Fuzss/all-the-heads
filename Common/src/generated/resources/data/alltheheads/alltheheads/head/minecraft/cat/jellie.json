@@ -1,11 +1,6 @@
 {
   "custom_name": "minecraft.cat_jellie",
-  "entity_predicate": {
-    "minecraft:components": {
-      "minecraft:cat/variant": "minecraft:jellie"
-    },
-    "minecraft:entity_type": "minecraft:cat"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/cat/jellie",
   "loot_table": "alltheheads:entities/heads/minecraft/cat/jellie",
   "models": [
     {

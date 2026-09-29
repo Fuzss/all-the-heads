@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:entity_properties",
+  "entity": "this",
+  "predicate": {
+    "alltheheads:wolf": {
+      "angry": false,
+      "tame": false
+    },
+    "minecraft:components": {
+      "minecraft:wolf/variant": "minecraft:ashen"
+    },
+    "minecraft:entity_type": "minecraft:wolf"
+  }
+}

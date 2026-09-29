@@ -1,15 +1,6 @@
 {
   "custom_name": "minecraft.wolf_woods",
-  "entity_predicate": {
-    "alltheheads:wolf": {
-      "angry": false,
-      "tame": false
-    },
-    "minecraft:components": {
-      "minecraft:wolf/variant": "minecraft:woods"
-    },
-    "minecraft:entity_type": "minecraft:wolf"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/wolf/woods",
   "loot_table": "alltheheads:entities/heads/minecraft/wolf/woods",
   "models": [
     {

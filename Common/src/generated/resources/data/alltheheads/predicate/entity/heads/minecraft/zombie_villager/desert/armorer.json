@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:entity_properties",
+  "entity": "this",
+  "predicate": {
+    "alltheheads:villager_data": {
+      "villager_profession": "minecraft:armorer",
+      "villager_type": "minecraft:desert"
+    },
+    "minecraft:entity_type": "minecraft:zombie_villager"
+  }
+}

@@ -1,11 +1,6 @@
 {
   "custom_name": "minecraft.cat_siamese",
-  "entity_predicate": {
-    "minecraft:components": {
-      "minecraft:cat/variant": "minecraft:siamese"
-    },
-    "minecraft:entity_type": "minecraft:cat"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/cat/siamese",
   "loot_table": "alltheheads:entities/heads/minecraft/cat/siamese",
   "models": [
     {

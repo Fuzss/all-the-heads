@@ -1,8 +1,6 @@
 {
   "custom_name": "minecraft.phantom",
-  "entity_predicate": {
-    "minecraft:entity_type": "minecraft:phantom"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/phantom",
   "loot_table": "alltheheads:entities/heads/minecraft/phantom",
   "models": [
     {

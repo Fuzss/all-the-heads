@@ -1,11 +1,6 @@
 {
   "custom_name": "minecraft.rabbit_brown",
-  "entity_predicate": {
-    "minecraft:components": {
-      "minecraft:rabbit/variant": "brown"
-    },
-    "minecraft:entity_type": "minecraft:rabbit"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/rabbit/brown",
   "loot_table": "alltheheads:entities/heads/minecraft/rabbit/brown",
   "models": [
     {

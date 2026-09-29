@@ -1,14 +1,6 @@
 {
   "custom_name": "minecraft.sheep_woolly_yellow",
-  "entity_predicate": {
-    "minecraft:components": {
-      "minecraft:sheep/color": "yellow"
-    },
-    "minecraft:entity_type": "minecraft:sheep",
-    "minecraft:type_specific/sheep": {
-      "sheared": false
-    }
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/sheep/woolly/yellow",
   "loot_table": "alltheheads:entities/heads/minecraft/sheep/woolly/yellow",
   "models": [
     {

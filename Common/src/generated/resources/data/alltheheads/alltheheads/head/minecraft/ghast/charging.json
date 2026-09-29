@@ -1,11 +1,6 @@
 {
   "custom_name": "minecraft.ghast_charging",
-  "entity_predicate": {
-    "alltheheads:ghast": {
-      "charging": true
-    },
-    "minecraft:entity_type": "minecraft:ghast"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/ghast/charging",
   "loot_table": "alltheheads:entities/heads/minecraft/ghast/charging",
   "models": [
     {

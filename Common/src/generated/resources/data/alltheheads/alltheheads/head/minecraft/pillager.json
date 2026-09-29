@@ -1,8 +1,6 @@
 {
   "custom_name": "minecraft.pillager",
-  "entity_predicate": {
-    "minecraft:entity_type": "minecraft:pillager"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/pillager",
   "loot_table": "alltheheads:entities/heads/minecraft/pillager",
   "models": [
     {

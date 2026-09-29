@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:entity_properties",
+  "entity": "this",
+  "predicate": {
+    "alltheheads:strider": {
+      "cold": true
+    },
+    "minecraft:entity_type": "minecraft:strider"
+  }
+}

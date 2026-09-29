@@ -1,8 +1,6 @@
 {
   "custom_name": "minecraft.dolphin",
-  "entity_predicate": {
-    "minecraft:entity_type": "minecraft:dolphin"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/dolphin",
   "loot_table": "alltheheads:entities/heads/minecraft/dolphin",
   "models": [
     {

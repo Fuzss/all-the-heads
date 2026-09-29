@@ -1,13 +1,6 @@
 {
   "custom_name": "minecraft.tropical_fish_parrotfish",
-  "entity_predicate": {
-    "alltheheads:tropical_fish": {
-      "base_color": "cyan",
-      "pattern": "dasher",
-      "pattern_color": "pink"
-    },
-    "minecraft:entity_type": "minecraft:tropical_fish"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/tropical_fish/parrotfish",
   "loot_table": "alltheheads:entities/heads/minecraft/tropical_fish/parrotfish",
   "models": [
     {

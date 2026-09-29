@@ -1,11 +1,6 @@
 {
   "custom_name": "minecraft.axolotl_gold",
-  "entity_predicate": {
-    "minecraft:components": {
-      "minecraft:axolotl/variant": "gold"
-    },
-    "minecraft:entity_type": "minecraft:axolotl"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/axolotl/gold",
   "loot_table": "alltheheads:entities/heads/minecraft/axolotl/gold",
   "models": [
     {

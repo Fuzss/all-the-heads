@@ -1,13 +1,6 @@
 {
   "custom_name": "minecraft.sulfur_cube_hot",
-  "entity_predicate": {
-    "minecraft:entity_type": "minecraft:sulfur_cube",
-    "minecraft:equipment": {
-      "body": {
-        "items": "#minecraft:sulfur_cube_archetype/hot"
-      }
-    }
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/sulfur_cube/hot",
   "loot_table": "alltheheads:entities/heads/minecraft/sulfur_cube/hot",
   "models": [
     {

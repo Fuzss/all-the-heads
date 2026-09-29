@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:entity_properties",
+  "entity": "this",
+  "predicate": {
+    "alltheheads:wolf": {
+      "tame": true
+    },
+    "minecraft:components": {
+      "minecraft:wolf/variant": "minecraft:rusty"
+    },
+    "minecraft:entity_type": "minecraft:wolf"
+  }
+}

@@ -1,8 +1,6 @@
 {
   "custom_name": "minecraft.stray",
-  "entity_predicate": {
-    "minecraft:entity_type": "minecraft:stray"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/stray",
   "loot_table": "alltheheads:entities/heads/minecraft/stray",
   "models": [
     {

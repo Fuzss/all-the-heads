@@ -1,8 +1,6 @@
 {
   "custom_name": "minecraft.hoglin",
-  "entity_predicate": {
-    "minecraft:entity_type": "minecraft:hoglin"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/hoglin",
   "loot_table": "alltheheads:entities/heads/minecraft/hoglin",
   "models": [
     {

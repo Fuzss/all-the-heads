@@ -1,11 +1,6 @@
 {
   "custom_name": "minecraft.rabbit_salt",
-  "entity_predicate": {
-    "minecraft:components": {
-      "minecraft:rabbit/variant": "salt"
-    },
-    "minecraft:entity_type": "minecraft:rabbit"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/rabbit/salt",
   "loot_table": "alltheheads:entities/heads/minecraft/rabbit/salt",
   "models": [
     {

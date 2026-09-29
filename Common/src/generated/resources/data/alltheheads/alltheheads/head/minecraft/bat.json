@@ -1,8 +1,6 @@
 {
   "custom_name": "minecraft.bat",
-  "entity_predicate": {
-    "minecraft:entity_type": "minecraft:bat"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/bat",
   "loot_table": "alltheheads:entities/heads/minecraft/bat",
   "models": [
     {

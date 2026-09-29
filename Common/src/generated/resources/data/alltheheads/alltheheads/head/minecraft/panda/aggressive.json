@@ -1,11 +1,6 @@
 {
   "custom_name": "minecraft.panda_aggressive",
-  "entity_predicate": {
-    "alltheheads:panda": {
-      "variant": "aggressive"
-    },
-    "minecraft:entity_type": "minecraft:panda"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/panda/aggressive",
   "loot_table": "alltheheads:entities/heads/minecraft/panda/aggressive",
   "models": [
     {

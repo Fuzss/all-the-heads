@@ -1,8 +1,6 @@
 {
   "custom_name": "minecraft.warden",
-  "entity_predicate": {
-    "minecraft:entity_type": "minecraft:warden"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/warden",
   "loot_table": "alltheheads:entities/heads/minecraft/warden",
   "models": [
     {

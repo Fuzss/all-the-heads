@@ -1,14 +1,6 @@
 {
   "custom_name": "minecraft.sheep_purple",
-  "entity_predicate": {
-    "minecraft:components": {
-      "minecraft:sheep/color": "purple"
-    },
-    "minecraft:entity_type": "minecraft:sheep",
-    "minecraft:type_specific/sheep": {
-      "sheared": true
-    }
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/sheep/purple",
   "loot_table": "alltheheads:entities/heads/minecraft/sheep/purple",
   "models": [
     {

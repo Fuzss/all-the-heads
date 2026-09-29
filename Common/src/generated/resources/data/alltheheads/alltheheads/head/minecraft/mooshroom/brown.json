@@ -1,11 +1,6 @@
 {
   "custom_name": "minecraft.mooshroom_brown",
-  "entity_predicate": {
-    "minecraft:components": {
-      "minecraft:mooshroom/variant": "brown"
-    },
-    "minecraft:entity_type": "minecraft:mooshroom"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/mooshroom/brown",
   "loot_table": "alltheheads:entities/heads/minecraft/mooshroom/brown",
   "models": [
     {

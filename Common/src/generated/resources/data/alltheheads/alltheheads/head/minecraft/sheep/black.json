@@ -1,14 +1,6 @@
 {
   "custom_name": "minecraft.sheep_black",
-  "entity_predicate": {
-    "minecraft:components": {
-      "minecraft:sheep/color": "black"
-    },
-    "minecraft:entity_type": "minecraft:sheep",
-    "minecraft:type_specific/sheep": {
-      "sheared": true
-    }
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/sheep/black",
   "loot_table": "alltheheads:entities/heads/minecraft/sheep/black",
   "models": [
     {

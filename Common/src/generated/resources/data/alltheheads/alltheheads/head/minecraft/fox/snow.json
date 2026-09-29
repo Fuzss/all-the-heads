@@ -1,11 +1,6 @@
 {
   "custom_name": "minecraft.fox_snow",
-  "entity_predicate": {
-    "minecraft:components": {
-      "minecraft:fox/variant": "snow"
-    },
-    "minecraft:entity_type": "minecraft:fox"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/fox/snow",
   "loot_table": "alltheheads:entities/heads/minecraft/fox/snow",
   "models": [
     {

@@ -1,8 +1,6 @@
 {
   "custom_name": "minecraft.cod",
-  "entity_predicate": {
-    "minecraft:entity_type": "minecraft:cod"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/cod",
   "loot_table": "alltheheads:entities/heads/minecraft/cod",
   "models": [
     {

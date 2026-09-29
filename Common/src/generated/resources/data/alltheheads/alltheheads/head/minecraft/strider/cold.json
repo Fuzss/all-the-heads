@@ -1,11 +1,6 @@
 {
   "custom_name": "minecraft.strider_cold",
-  "entity_predicate": {
-    "alltheheads:strider": {
-      "cold": true
-    },
-    "minecraft:entity_type": "minecraft:strider"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/strider/cold",
   "loot_table": "alltheheads:entities/heads/minecraft/strider/cold",
   "models": [
     {

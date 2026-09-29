@@ -1,13 +1,6 @@
 {
   "custom_name": "minecraft.sulfur_cube_sticky",
-  "entity_predicate": {
-    "minecraft:entity_type": "minecraft:sulfur_cube",
-    "minecraft:equipment": {
-      "body": {
-        "items": "#minecraft:sulfur_cube_archetype/sticky"
-      }
-    }
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/sulfur_cube/sticky",
   "loot_table": "alltheheads:entities/heads/minecraft/sulfur_cube/sticky",
   "models": [
     {

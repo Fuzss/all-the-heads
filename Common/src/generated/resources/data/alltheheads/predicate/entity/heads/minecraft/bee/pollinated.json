@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:entity_properties",
+  "entity": "this",
+  "predicate": {
+    "alltheheads:bee": {
+      "angry": false,
+      "has_nectar": true
+    },
+    "minecraft:entity_type": "minecraft:bee"
+  }
+}

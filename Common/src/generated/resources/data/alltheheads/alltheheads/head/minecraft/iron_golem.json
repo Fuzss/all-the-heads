@@ -1,8 +1,6 @@
 {
   "custom_name": "minecraft.iron_golem",
-  "entity_predicate": {
-    "minecraft:entity_type": "minecraft:iron_golem"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/iron_golem",
   "loot_table": "alltheheads:entities/heads/minecraft/iron_golem",
   "models": [
     {

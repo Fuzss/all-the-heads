@@ -1,8 +1,6 @@
 {
   "custom_name": "minecraft.goat",
-  "entity_predicate": {
-    "minecraft:entity_type": "minecraft:goat"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/goat",
   "loot_table": "alltheheads:entities/heads/minecraft/goat",
   "models": [
     {

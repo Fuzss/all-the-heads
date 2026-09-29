@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:entity_properties",
+  "entity": "this",
+  "predicate": {
+    "minecraft:components": {
+      "minecraft:mooshroom/variant": "red"
+    },
+    "minecraft:entity_type": "minecraft:mooshroom"
+  }
+}

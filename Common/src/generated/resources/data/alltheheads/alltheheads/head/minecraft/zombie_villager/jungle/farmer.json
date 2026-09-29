@@ -1,12 +1,6 @@
 {
   "custom_name": "minecraft.zombie_villager_jungle_farmer",
-  "entity_predicate": {
-    "alltheheads:villager_data": {
-      "villager_profession": "minecraft:farmer",
-      "villager_type": "minecraft:jungle"
-    },
-    "minecraft:entity_type": "minecraft:zombie_villager"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/zombie_villager/jungle/farmer",
   "loot_table": "alltheheads:entities/heads/minecraft/zombie_villager/jungle/farmer",
   "models": [
     {

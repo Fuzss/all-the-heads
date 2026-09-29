@@ -1,11 +1,6 @@
 {
   "custom_name": "minecraft.chicken_cold",
-  "entity_predicate": {
-    "minecraft:components": {
-      "minecraft:chicken/variant": "minecraft:cold"
-    },
-    "minecraft:entity_type": "minecraft:chicken"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/chicken/cold",
   "loot_table": "alltheheads:entities/heads/minecraft/chicken/cold",
   "models": [
     {

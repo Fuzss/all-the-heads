@@ -1,8 +1,6 @@
 {
   "custom_name": "minecraft.slime",
-  "entity_predicate": {
-    "minecraft:entity_type": "minecraft:slime"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/slime",
   "loot_table": "alltheheads:entities/heads/minecraft/slime",
   "models": [
     {

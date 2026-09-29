@@ -1,8 +1,6 @@
 {
   "custom_name": "minecraft.illusioner",
-  "entity_predicate": {
-    "minecraft:entity_type": "minecraft:illusioner"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/illusioner",
   "loot_table": "alltheheads:entities/heads/minecraft/illusioner",
   "models": [
     {

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:entity_properties",
+  "entity": "this",
+  "predicate": {
+    "alltheheads:tropical_fish": {
+      "base_color": "gray",
+      "pattern": "flopper",
+      "pattern_color": "blue"
+    },
+    "minecraft:entity_type": "minecraft:tropical_fish"
+  }
+}

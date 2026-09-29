@@ -1,8 +1,6 @@
 {
   "custom_name": "minecraft.pufferfish",
-  "entity_predicate": {
-    "minecraft:entity_type": "minecraft:pufferfish"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/pufferfish",
   "loot_table": "alltheheads:entities/heads/minecraft/pufferfish",
   "models": [
     {

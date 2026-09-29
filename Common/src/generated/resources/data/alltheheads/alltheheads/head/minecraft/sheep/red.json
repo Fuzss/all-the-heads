@@ -1,14 +1,6 @@
 {
   "custom_name": "minecraft.sheep_red",
-  "entity_predicate": {
-    "minecraft:components": {
-      "minecraft:sheep/color": "red"
-    },
-    "minecraft:entity_type": "minecraft:sheep",
-    "minecraft:type_specific/sheep": {
-      "sheared": true
-    }
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/sheep/red",
   "loot_table": "alltheheads:entities/heads/minecraft/sheep/red",
   "models": [
     {

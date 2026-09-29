@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:entity_properties",
+  "entity": "this",
+  "predicate": {
+    "alltheheads:horse": {
+      "markings": "white_field"
+    },
+    "minecraft:components": {
+      "minecraft:horse/variant": "chestnut"
+    },
+    "minecraft:entity_type": "minecraft:horse"
+  }
+}

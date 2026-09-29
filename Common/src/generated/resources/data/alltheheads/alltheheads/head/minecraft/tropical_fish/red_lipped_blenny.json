@@ -1,13 +1,6 @@
 {
   "custom_name": "minecraft.tropical_fish_red_lipped_blenny",
-  "entity_predicate": {
-    "alltheheads:tropical_fish": {
-      "base_color": "gray",
-      "pattern": "snooper",
-      "pattern_color": "red"
-    },
-    "minecraft:entity_type": "minecraft:tropical_fish"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/tropical_fish/red_lipped_blenny",
   "loot_table": "alltheheads:entities/heads/minecraft/tropical_fish/red_lipped_blenny",
   "models": [
     {

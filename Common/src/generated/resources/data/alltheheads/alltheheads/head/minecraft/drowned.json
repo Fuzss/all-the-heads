@@ -1,8 +1,6 @@
 {
   "custom_name": "minecraft.drowned",
-  "entity_predicate": {
-    "minecraft:entity_type": "minecraft:drowned"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/drowned",
   "loot_table": "alltheheads:entities/heads/minecraft/drowned",
   "models": [
     {

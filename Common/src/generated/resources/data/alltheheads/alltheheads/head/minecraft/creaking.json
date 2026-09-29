@@ -1,8 +1,6 @@
 {
   "custom_name": "minecraft.creaking",
-  "entity_predicate": {
-    "minecraft:entity_type": "minecraft:creaking"
-  },
+  "entity_predicate": "alltheheads:entity/heads/minecraft/creaking",
   "loot_table": "alltheheads:entities/heads/minecraft/creaking",
   "models": [
     {
