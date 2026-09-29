@@ -33,7 +33,7 @@ import java.util.function.Function;
 
 @FunctionalInterface
 public interface SkullBlockLayer {
-    void submit(Model model, MobHeadRenderState state, PoseStack poseStack, SubmitNodeCollector submitNodeCollector);
+    void submit(Model model, MobHeadRenderState state, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, int order);
 
     @FunctionalInterface
     interface Unbaked {
@@ -73,17 +73,17 @@ public interface SkullBlockLayer {
             ModelLayerLocation modelLayerLocation = MobHeadRenderer.createModelLayer(modelType);
             ModelPart modelPart = entityModelSet.bakeLayer(modelLayerLocation);
             SkullModelBase skullModel = this.model().apply(modelPart);
-            return (Model model, MobHeadRenderState state, PoseStack poseStack, SubmitNodeCollector submitNodeCollector) -> {
-                submitNodeCollector.submitModel(skullModel,
-                        UnbakedModel.this.state(state),
-                        poseStack,
-                        UnbakedModel.this.renderType(model, state),
-                        UnbakedModel.this.lightCoords(model, state),
-                        OverlayTexture.NO_OVERLAY,
-                        UnbakedModel.this.tintColor(model, state),
-                        null,
-                        state.outlineColor,
-                        state.breakProgress);
+            return (Model model, MobHeadRenderState state, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, int order) -> {
+                submitNodeCollector.order(order)
+                        .submitModel(skullModel,
+                                UnbakedModel.this.state(state),
+                                poseStack,
+                                UnbakedModel.this.renderType(model, state),
+                                UnbakedModel.this.lightCoords(model, state),
+                                OverlayTexture.NO_OVERLAY,
+                                UnbakedModel.this.tintColor(model, state),
+                                null,
+                                state.outlineColor);
             };
         }
 
@@ -120,7 +120,7 @@ public interface SkullBlockLayer {
         public SkullBlockLayer bake(ModelType modelType, EntityModelSet entityModelSet, BlockModelResolver blockModelResolver) {
             BlockModelRenderState containedBlock = new BlockModelRenderState();
             blockModelResolver.update(containedBlock, this.blockState(), BLOCK_DISPLAY_CONTEXT);
-            return (Model model, MobHeadRenderState state, PoseStack poseStack, SubmitNodeCollector submitNodeCollector) -> {
+            return (Model model, MobHeadRenderState state, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, int order) -> {
                 poseStack.pushPose();
                 poseStack.mulPose(Axis.XP.rotationDegrees(180.0F));
                 poseStack.translate(-0.5F, 0.0625F, -0.5F);
