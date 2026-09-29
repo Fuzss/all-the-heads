@@ -149,9 +149,10 @@ public class MobHeadRenderer extends SkullBlockRenderer {
      *         int, ModelFeatureRenderer.CrumblingOverlay)
      */
     public static void submitSkull(MobHeadRenderState state, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, Function<ModelType, SkullBlockLayer> skullLayerGetter) {
-        for (Model model : state.models) {
+        for (int order = 0; order < state.models.size(); order++) {
+            Model model = state.models.get(order);
             SkullBlockLayer skullLayer = skullLayerGetter.apply(model.model());
-            skullLayer.submit(model, state, poseStack, submitNodeCollector);
+            skullLayer.submit(model, state, poseStack, submitNodeCollector, order);
         }
     }
 }
