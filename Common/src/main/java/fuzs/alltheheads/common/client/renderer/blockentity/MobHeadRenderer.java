@@ -13,6 +13,7 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.object.skull.PiglinHeadModel;
 import net.minecraft.client.model.object.skull.SkullModel;
 import net.minecraft.client.model.object.skull.SkullModelBase;
+import net.minecraft.client.renderer.OrderedSubmitNodeCollector;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.blockentity.SkullBlockRenderer;
@@ -144,7 +145,8 @@ public class MobHeadRenderer extends SkullBlockRenderer {
     }
 
     public static void submitSkull(MobHeadRenderState state, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, Function<ModelType, SkullModelBase> skullModelGetter) {
-        for (Model model : state.models) {
+        for (int order = 0; order < state.models.size(); order++) {
+            Model model = state.models.get(order);
             SkullModelBase skullModel = skullModelGetter.apply(model.model().model());
             RenderType renderType = getRenderType(model.model(), state.time);
             int lightCoords = model.blockLight()
@@ -152,7 +154,13 @@ public class MobHeadRenderer extends SkullBlockRenderer {
                             LightCoordsUtil.sky(state.lightCoords)))
                     .orElse(state.lightCoords);
             int tintColor = model.color().map((Color color) -> color.getColor(state.time)).orElse(-1);
-            submitSkull(state, poseStack, submitNodeCollector, skullModel, renderType, lightCoords, tintColor);
+            submitSkull(state,
+                    poseStack,
+                    submitNodeCollector.order(order),
+                    skullModel,
+                    renderType,
+                    lightCoords,
+                    tintColor);
         }
     }
 
@@ -160,7 +168,7 @@ public class MobHeadRenderer extends SkullBlockRenderer {
      * @see SkullBlockRenderer#submitSkull(float, PoseStack, SubmitNodeCollector, int, SkullModelBase, RenderType,
      *         int, ModelFeatureRenderer.CrumblingOverlay)
      */
-    private static void submitSkull(MobHeadRenderState state, PoseStack poseStack, SubmitNodeCollector nodeCollector, SkullModelBase model, RenderType renderType, int lightCoords, int tintColor) {
+    private static void submitSkull(MobHeadRenderState state, PoseStack poseStack, OrderedSubmitNodeCollector nodeCollector, SkullModelBase model, RenderType renderType, int lightCoords, int tintColor) {
         SkullModelBase.State modelState = new SkullModelBase.State();
         modelState.animationPos = state.animationProgress;
         nodeCollector.submitModel(model,
