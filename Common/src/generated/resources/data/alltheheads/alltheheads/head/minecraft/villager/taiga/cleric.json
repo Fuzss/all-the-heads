@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.villager_taiga_cleric",
   "entity_predicate": "alltheheads:entity/heads/minecraft/villager/taiga/cleric",
+  "entity_type": "minecraft:villager",
   "loot_table": "alltheheads:entities/heads/minecraft/villager/taiga/cleric",
   "models": [
     {

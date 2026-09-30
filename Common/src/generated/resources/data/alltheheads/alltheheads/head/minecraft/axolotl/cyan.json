@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.axolotl_cyan",
   "entity_predicate": "alltheheads:entity/heads/minecraft/axolotl/cyan",
+  "entity_type": "minecraft:axolotl",
   "loot_table": "alltheheads:entities/heads/minecraft/axolotl/cyan",
   "models": [
     {

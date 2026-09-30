@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.trader_llama_brown",
   "entity_predicate": "alltheheads:entity/heads/minecraft/trader_llama/brown",
+  "entity_type": "minecraft:trader_llama",
   "loot_table": "alltheheads:entities/heads/minecraft/trader_llama/brown",
   "models": [
     {

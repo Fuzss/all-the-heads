@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.villager_swamp_toolsmith",
   "entity_predicate": "alltheheads:entity/heads/minecraft/villager/swamp/toolsmith",
+  "entity_type": "minecraft:villager",
   "loot_table": "alltheheads:entities/heads/minecraft/villager/swamp/toolsmith",
   "models": [
     {

@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.sulfur_cube_bouncy",
   "entity_predicate": "alltheheads:entity/heads/minecraft/sulfur_cube/bouncy",
+  "entity_type": "minecraft:sulfur_cube",
   "loot_table": "alltheheads:entities/heads/minecraft/sulfur_cube/bouncy",
   "models": [
     {

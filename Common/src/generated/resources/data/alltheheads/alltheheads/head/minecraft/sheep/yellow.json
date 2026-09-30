@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.sheep_yellow",
   "entity_predicate": "alltheheads:entity/heads/minecraft/sheep/yellow",
+  "entity_type": "minecraft:sheep",
   "loot_table": "alltheheads:entities/heads/minecraft/sheep/yellow",
   "models": [
     {

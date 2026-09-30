@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.cat_ragdoll",
   "entity_predicate": "alltheheads:entity/heads/minecraft/cat/ragdoll",
+  "entity_type": "minecraft:cat",
   "loot_table": "alltheheads:entities/heads/minecraft/cat/ragdoll",
   "models": [
     {

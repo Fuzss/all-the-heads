@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.horse_gray_black_dots",
   "entity_predicate": "alltheheads:entity/heads/minecraft/horse/gray/black_dots",
+  "entity_type": "minecraft:horse",
   "loot_table": "alltheheads:entities/heads/minecraft/horse/gray/black_dots",
   "models": [
     {

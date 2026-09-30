@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.enderman",
   "entity_predicate": "alltheheads:entity/heads/minecraft/enderman",
+  "entity_type": "minecraft:enderman",
   "loot_table": "alltheheads:entities/heads/minecraft/enderman",
   "models": [
     {

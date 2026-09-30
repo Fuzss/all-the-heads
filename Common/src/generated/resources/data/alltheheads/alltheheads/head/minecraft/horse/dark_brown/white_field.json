@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.horse_dark_brown_white_field",
   "entity_predicate": "alltheheads:entity/heads/minecraft/horse/dark_brown/white_field",
+  "entity_type": "minecraft:horse",
   "loot_table": "alltheheads:entities/heads/minecraft/horse/dark_brown/white_field",
   "models": [
     {

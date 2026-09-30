@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.sheep_woolly_light_gray",
   "entity_predicate": "alltheheads:entity/heads/minecraft/sheep/woolly/light_gray",
+  "entity_type": "minecraft:sheep",
   "loot_table": "alltheheads:entities/heads/minecraft/sheep/woolly/light_gray",
   "models": [
     {

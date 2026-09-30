@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.strider",
   "entity_predicate": "alltheheads:entity/heads/minecraft/strider",
+  "entity_type": "minecraft:strider",
   "loot_table": "alltheheads:entities/heads/minecraft/strider",
   "models": [
     {

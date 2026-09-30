@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.endermite",
   "entity_predicate": "alltheheads:entity/heads/minecraft/endermite",
+  "entity_type": "minecraft:endermite",
   "loot_table": "alltheheads:entities/heads/minecraft/endermite",
   "models": [
     {

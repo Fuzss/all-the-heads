@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.magma_cube",
   "entity_predicate": "alltheheads:entity/heads/minecraft/magma_cube",
+  "entity_type": "minecraft:magma_cube",
   "loot_table": "alltheheads:entities/heads/minecraft/magma_cube",
   "models": [
     {

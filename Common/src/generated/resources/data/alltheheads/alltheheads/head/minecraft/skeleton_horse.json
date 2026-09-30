@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.skeleton_horse",
   "entity_predicate": "alltheheads:entity/heads/minecraft/skeleton_horse",
+  "entity_type": "minecraft:skeleton_horse",
   "loot_table": "alltheheads:entities/heads/minecraft/skeleton_horse",
   "models": [
     {

@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.horse_brown",
   "entity_predicate": "alltheheads:entity/heads/minecraft/horse/brown",
+  "entity_type": "minecraft:horse",
   "loot_table": "alltheheads:entities/heads/minecraft/horse/brown",
   "models": [
     {

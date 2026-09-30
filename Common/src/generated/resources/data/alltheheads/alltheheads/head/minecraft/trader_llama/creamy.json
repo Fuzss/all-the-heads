@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.trader_llama_creamy",
   "entity_predicate": "alltheheads:entity/heads/minecraft/trader_llama/creamy",
+  "entity_type": "minecraft:trader_llama",
   "loot_table": "alltheheads:entities/heads/minecraft/trader_llama/creamy",
   "models": [
     {

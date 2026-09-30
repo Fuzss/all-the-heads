@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.husk",
   "entity_predicate": "alltheheads:entity/heads/minecraft/husk",
+  "entity_type": "minecraft:husk",
   "loot_table": "alltheheads:entities/heads/minecraft/husk",
   "models": [
     {

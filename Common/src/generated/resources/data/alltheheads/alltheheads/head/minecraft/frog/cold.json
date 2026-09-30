@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.frog_cold",
   "entity_predicate": "alltheheads:entity/heads/minecraft/frog/cold",
+  "entity_type": "minecraft:frog",
   "loot_table": "alltheheads:entities/heads/minecraft/frog/cold",
   "models": [
     {

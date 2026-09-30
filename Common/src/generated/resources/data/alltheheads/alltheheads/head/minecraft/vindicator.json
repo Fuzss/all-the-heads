@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.vindicator",
   "entity_predicate": "alltheheads:entity/heads/minecraft/vindicator",
+  "entity_type": "minecraft:vindicator",
   "loot_table": "alltheheads:entities/heads/minecraft/vindicator",
   "models": [
     {

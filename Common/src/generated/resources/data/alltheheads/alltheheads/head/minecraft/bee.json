@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.bee",
   "entity_predicate": "alltheheads:entity/heads/minecraft/bee",
+  "entity_type": "minecraft:bee",
   "loot_table": "alltheheads:entities/heads/minecraft/bee",
   "models": [
     {

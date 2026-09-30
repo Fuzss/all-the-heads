@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.cat_persian",
   "entity_predicate": "alltheheads:entity/heads/minecraft/cat/persian",
+  "entity_type": "minecraft:cat",
   "loot_table": "alltheheads:entities/heads/minecraft/cat/persian",
   "models": [
     {

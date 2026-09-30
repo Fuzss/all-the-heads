@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.squid",
   "entity_predicate": "alltheheads:entity/heads/minecraft/squid",
+  "entity_type": "minecraft:squid",
   "loot_table": "alltheheads:entities/heads/minecraft/squid",
   "models": [
     {

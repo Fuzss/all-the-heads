@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.sheep_woolly_green",
   "entity_predicate": "alltheheads:entity/heads/minecraft/sheep/woolly/green",
+  "entity_type": "minecraft:sheep",
   "loot_table": "alltheheads:entities/heads/minecraft/sheep/woolly/green",
   "models": [
     {

@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.bee_angry",
   "entity_predicate": "alltheheads:entity/heads/minecraft/bee/angry",
+  "entity_type": "minecraft:bee",
   "loot_table": "alltheheads:entities/heads/minecraft/bee/angry",
   "models": [
     {

@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.giant",
   "entity_predicate": "alltheheads:entity/heads/minecraft/giant",
+  "entity_type": "minecraft:giant",
   "loot_table": "alltheheads:entities/heads/minecraft/giant",
   "models": [
     {

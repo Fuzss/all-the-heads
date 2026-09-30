@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.silverfish",
   "entity_predicate": "alltheheads:entity/heads/minecraft/silverfish",
+  "entity_type": "minecraft:silverfish",
   "loot_table": "alltheheads:entities/heads/minecraft/silverfish",
   "models": [
     {

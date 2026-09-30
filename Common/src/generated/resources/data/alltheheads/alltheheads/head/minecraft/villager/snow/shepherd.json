@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.villager_snow_shepherd",
   "entity_predicate": "alltheheads:entity/heads/minecraft/villager/snow/shepherd",
+  "entity_type": "minecraft:villager",
   "loot_table": "alltheheads:entities/heads/minecraft/villager/snow/shepherd",
   "models": [
     {

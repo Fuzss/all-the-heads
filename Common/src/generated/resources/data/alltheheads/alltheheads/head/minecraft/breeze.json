@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.breeze",
   "entity_predicate": "alltheheads:entity/heads/minecraft/breeze",
+  "entity_type": "minecraft:breeze",
   "loot_table": "alltheheads:entities/heads/minecraft/breeze",
   "models": [
     {

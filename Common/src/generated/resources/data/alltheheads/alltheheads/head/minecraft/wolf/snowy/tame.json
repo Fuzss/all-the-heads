@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.wolf_snowy_tame",
   "entity_predicate": "alltheheads:entity/heads/minecraft/wolf/snowy/tame",
+  "entity_type": "minecraft:wolf",
   "loot_table": "alltheheads:entities/heads/minecraft/wolf/snowy/tame",
   "models": [
     {

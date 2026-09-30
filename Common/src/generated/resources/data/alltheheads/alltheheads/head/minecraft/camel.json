@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.camel",
   "entity_predicate": "alltheheads:entity/heads/minecraft/camel",
+  "entity_type": "minecraft:camel",
   "loot_table": "alltheheads:entities/heads/minecraft/camel",
   "models": [
     {

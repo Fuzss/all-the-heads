@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.sulfur_cube_sticky",
   "entity_predicate": "alltheheads:entity/heads/minecraft/sulfur_cube/sticky",
+  "entity_type": "minecraft:sulfur_cube",
   "loot_table": "alltheheads:entities/heads/minecraft/sulfur_cube/sticky",
   "models": [
     {

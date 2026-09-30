@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.mule",
   "entity_predicate": "alltheheads:entity/heads/minecraft/mule",
+  "entity_type": "minecraft:mule",
   "loot_table": "alltheheads:entities/heads/minecraft/mule",
   "models": [
     {

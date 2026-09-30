@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.villager_savanna_toolsmith",
   "entity_predicate": "alltheheads:entity/heads/minecraft/villager/savanna/toolsmith",
+  "entity_type": "minecraft:villager",
   "loot_table": "alltheheads:entities/heads/minecraft/villager/savanna/toolsmith",
   "models": [
     {

@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.piglin_brute",
   "entity_predicate": "alltheheads:entity/heads/minecraft/piglin_brute",
+  "entity_type": "minecraft:piglin_brute",
   "loot_table": "alltheheads:entities/heads/minecraft/piglin_brute",
   "models": [
     {

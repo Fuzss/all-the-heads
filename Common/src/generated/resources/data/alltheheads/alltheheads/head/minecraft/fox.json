@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.fox",
   "entity_predicate": "alltheheads:entity/heads/minecraft/fox",
+  "entity_type": "minecraft:fox",
   "loot_table": "alltheheads:entities/heads/minecraft/fox",
   "models": [
     {

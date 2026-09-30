@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.wither_blue_shielded",
   "entity_predicate": "alltheheads:entity/heads/minecraft/wither/blue/shielded",
+  "entity_type": "minecraft:wither",
   "loot_table": "alltheheads:entities/heads/minecraft/wither/blue/shielded",
   "models": [
     {

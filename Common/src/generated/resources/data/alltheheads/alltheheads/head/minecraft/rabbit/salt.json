@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.rabbit_salt",
   "entity_predicate": "alltheheads:entity/heads/minecraft/rabbit/salt",
+  "entity_type": "minecraft:rabbit",
   "loot_table": "alltheheads:entities/heads/minecraft/rabbit/salt",
   "models": [
     {

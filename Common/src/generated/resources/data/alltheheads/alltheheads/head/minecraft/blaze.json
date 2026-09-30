@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.blaze",
   "entity_predicate": "alltheheads:entity/heads/minecraft/blaze",
+  "entity_type": "minecraft:blaze",
   "loot_table": "alltheheads:entities/heads/minecraft/blaze",
   "models": [
     {

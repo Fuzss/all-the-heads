@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.parched",
   "entity_predicate": "alltheheads:entity/heads/minecraft/parched",
+  "entity_type": "minecraft:parched",
   "loot_table": "alltheheads:entities/heads/minecraft/parched",
   "models": [
     {

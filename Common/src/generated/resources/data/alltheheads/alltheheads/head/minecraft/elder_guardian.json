@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.elder_guardian",
   "entity_predicate": "alltheheads:entity/heads/minecraft/elder_guardian",
+  "entity_type": "minecraft:elder_guardian",
   "loot_table": "alltheheads:entities/heads/minecraft/elder_guardian",
   "models": [
     {

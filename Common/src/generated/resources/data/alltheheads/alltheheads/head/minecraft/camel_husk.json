@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.camel_husk",
   "entity_predicate": "alltheheads:entity/heads/minecraft/camel_husk",
+  "entity_type": "minecraft:camel_husk",
   "loot_table": "alltheheads:entities/heads/minecraft/camel_husk",
   "models": [
     {

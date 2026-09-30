@@ -1,6 +1,7 @@
 {
   "custom_name": "minecraft.panda_weak",
   "entity_predicate": "alltheheads:entity/heads/minecraft/panda/weak",
+  "entity_type": "minecraft:panda",
   "loot_table": "alltheheads:entities/heads/minecraft/panda/weak",
   "models": [
     {
