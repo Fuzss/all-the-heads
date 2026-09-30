@@ -115,13 +115,8 @@ public class ModAdvancementProvider extends AbstractAdvancementProvider {
         return this.output.listContextElements(ModRegistry.HEAD_REGISTRY_KEY)
                 .sorted(HOLDER_COMPARATOR)
                 .mapMulti((Holder.Reference<HeadType> headType, Consumer<Map.Entry<Holder<EntityType<?>>, Holder.Reference<HeadType>>> consumer) -> {
-                    // TODO the predicate registry is not available yet as advancements are registering in the same layer now
-                    // TODO instead store the entity on the head type again to keep it around during data generation
-                    headType.value()
-                            .getEntityTypes(this.output.lookup(Registries.PREDICATE))
-                            .forEach((Holder<EntityType<?>> holder) -> {
-                                consumer.accept(Map.entry(holder, headType));
-                            });
+                    Holder<EntityType<?>> holder = headType.value().entityType().orElseThrow();
+                    consumer.accept(Map.entry(holder, headType));
                 })
                 .collect(Collectors.groupingBy(Map.Entry::getKey,
                         LinkedHashMap::new,

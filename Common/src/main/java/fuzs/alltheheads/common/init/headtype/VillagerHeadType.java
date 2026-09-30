@@ -270,7 +270,7 @@ public class VillagerHeadType {
     }
 
     private static void bootstrapVillager(BootstrapContext<HeadType> context, ResourceKey<VillagerType> type, ResourceKey<HeadType> resourceKey) {
-        HeadType.builder()
+        HeadType.builder(EntityTypes.VILLAGER)
                 .shape(8.0, 10.0, 8.0)
                 .scale(0.9375)
                 .model(ModelType.VILLAGER, Identifier.withDefaultNamespace("entity/villager/villager"))
@@ -280,7 +280,7 @@ public class VillagerHeadType {
     }
 
     private static void bootstrapVillager(BootstrapContext<HeadType> context, ResourceKey<VillagerType> type, ResourceKey<VillagerProfession> profession, ResourceKey<HeadType> resourceKey) {
-        HeadType.builder()
+        HeadType.builder(EntityTypes.VILLAGER)
                 .shape(8.0, 10.0, 8.0)
                 .scale(0.9375)
                 .model(ModelType.VILLAGER, Identifier.withDefaultNamespace("entity/villager/villager"))

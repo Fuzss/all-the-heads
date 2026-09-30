@@ -7,6 +7,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 
@@ -22,20 +23,21 @@ public class IllagerHeadType {
     public static final ResourceKey<HeadType> ILLUSIONER = register("illusioner");
 
     public static void bootstrapHeadTypes(BootstrapContext<HeadType> context) {
-        bootstrapIllager(context, VINDICATOR,
+        bootstrapIllager(context, EntityTypes.VINDICATOR, VINDICATOR,
                 "entity/illager/vindicator",
                 SoundEvents.VINDICATOR_AMBIENT);
-        bootstrapIllager(context, EVOKER, "entity/illager/evoker", SoundEvents.EVOKER_AMBIENT);
-        bootstrapIllager(context, PILLAGER,
+        bootstrapIllager(context, EntityTypes.EVOKER, EVOKER, "entity/illager/evoker",
+                SoundEvents.EVOKER_AMBIENT);
+        bootstrapIllager(context, EntityTypes.PILLAGER, PILLAGER,
                 "entity/illager/pillager",
                 SoundEvents.PILLAGER_AMBIENT);
-        bootstrapIllager(context, ILLUSIONER,
+        bootstrapIllager(context, EntityTypes.ILLUSIONER, ILLUSIONER,
                 "entity/illager/illusioner",
                 SoundEvents.ILLUSIONER_AMBIENT);
     }
 
-    private static void bootstrapIllager(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation, SoundEvent noteBlockSound) {
-        HeadType.builder()
+    private static void bootstrapIllager(BootstrapContext<HeadType> context, EntityType<?> entityType, ResourceKey<HeadType> resourceKey, String textureLocation, SoundEvent noteBlockSound) {
+        HeadType.builder(entityType)
                 .shape(8.0, 10.0, 8.0)
                 .scale(0.9375)
                 .model(ModelType.ILLAGER, Identifier.withDefaultNamespace(textureLocation))

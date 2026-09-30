@@ -39,7 +39,7 @@ public class RabbitHeadType {
         bootstrapRabbit(context, GOLD_RABBIT, "entity/rabbit/rabbit_gold");
         bootstrapRabbit(context, SALT_RABBIT, "entity/rabbit/rabbit_salt");
         bootstrapRabbit(context, EVIL_RABBIT, "entity/rabbit/rabbit_caerbannog", SoundEvents.RABBIT_ATTACK);
-        HeadType.builder()
+        HeadType.builder(EntityTypes.RABBIT)
                 .shape(5.0, 5.0, 5.0)
                 .scale(1.2)
                 .model(ModelType.RABBIT, Identifier.withDefaultNamespace("entity/rabbit/rabbit_toast"))
@@ -52,7 +52,7 @@ public class RabbitHeadType {
     }
 
     private static void bootstrapRabbit(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation, SoundEvent noteBlockSound) {
-        HeadType.builder()
+        HeadType.builder(EntityTypes.RABBIT)
                 .shape(5.0, 5.0, 5.0)
                 .scale(1.2)
                 .model(ModelType.RABBIT, Identifier.withDefaultNamespace(textureLocation))

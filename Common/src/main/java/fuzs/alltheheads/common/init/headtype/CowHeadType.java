@@ -39,7 +39,7 @@ public class CowHeadType {
     }
 
     private static void bootstrapCow(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, ModelType modelType, String textureLocation) {
-        HeadType.builder()
+        HeadType.builder(EntityTypes.COW)
                 .shape(8.0, 8.0, 6.0)
                 .model(modelType, Identifier.withDefaultNamespace(textureLocation))
                 .noteBlockSound(SoundEvents.COW_SOUNDS.get(CowSoundVariants.SoundSet.CLASSIC).ambientSound())
@@ -47,7 +47,7 @@ public class CowHeadType {
     }
 
     private static void bootstrapMooshroom(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation) {
-        HeadType.builder()
+        HeadType.builder(EntityTypes.MOOSHROOM)
                 .shape(8.0, 8.0, 6.0)
                 .model(ModelType.TEMPERATE_COW, Identifier.withDefaultNamespace(textureLocation))
                 .noteBlockSound(SoundEvents.COW_SOUNDS.get(CowSoundVariants.SoundSet.CLASSIC).ambientSound())

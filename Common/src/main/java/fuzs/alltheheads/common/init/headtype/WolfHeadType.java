@@ -93,7 +93,7 @@ public class WolfHeadType {
     }
 
     private static void bootstrapWolf(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation) {
-        HeadType.builder()
+        HeadType.builder(EntityTypes.WOLF)
                 .shape(6.0, 6.0, 4.0)
                 .scale(4.0 / 3.0)
                 .model(ModelType.WOLF, Identifier.withDefaultNamespace(textureLocation))
@@ -104,7 +104,7 @@ public class WolfHeadType {
     }
 
     private static void bootstrapAngryWolf(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation) {
-        HeadType.builder()
+        HeadType.builder(EntityTypes.WOLF)
                 .shape(6.0, 6.0, 4.0)
                 .scale(4.0 / 3.0)
                 .model(ModelType.WOLF, Identifier.withDefaultNamespace(textureLocation))
@@ -115,7 +115,7 @@ public class WolfHeadType {
     }
 
     private static void bootstrapTameWolf(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation) {
-        HeadType.builder()
+        HeadType.builder(EntityTypes.WOLF)
                 .shape(6.0, 6.0, 4.0)
                 .scale(4.0 / 3.0)
                 .model(ModelType.WOLF, Identifier.withDefaultNamespace(textureLocation))

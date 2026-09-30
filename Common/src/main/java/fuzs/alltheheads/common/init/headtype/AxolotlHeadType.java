@@ -35,7 +35,7 @@ public class AxolotlHeadType {
     }
 
     private static void bootstrapAxolotl(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation) {
-        HeadType.builder()
+        HeadType.builder(EntityTypes.AXOLOTL)
                 .shape(8.0, 5.0, 5.0)
                 .model(ModelType.AXOLOTL, Identifier.withDefaultNamespace(textureLocation))
                 .noteBlockSound(SoundEvents.AXOLOTL_IDLE_AIR)

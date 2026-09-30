@@ -37,7 +37,7 @@ public class FelineHeadType {
     public static final ResourceKey<HeadType> ALL_BLACK_CAT = register("cat/all_black");
 
     public static void bootstrapHeadTypes(BootstrapContext<HeadType> context) {
-        HeadType.builder()
+        HeadType.builder(EntityTypes.OCELOT)
                 .shape(5.0, 4.0, 5.0)
                 .scale(1.6)
                 .model(ModelType.FELINE, Identifier.withDefaultNamespace("entity/cat/ocelot"))
@@ -57,7 +57,7 @@ public class FelineHeadType {
     }
 
     private static void bootstrapCat(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation) {
-        HeadType.builder()
+        HeadType.builder(EntityTypes.CAT)
                 .shape(5.0, 4.0, 5.0)
                 .scale(1.6)
                 .model(ModelType.FELINE, Identifier.withDefaultNamespace(textureLocation))

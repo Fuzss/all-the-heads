@@ -48,7 +48,7 @@ public class CopperGolemHeadType {
     }
 
     private static void bootstrapCopperGolem(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation, String eyesLocation, SoundEvent noteBlockSound) {
-        HeadType.builder()
+        HeadType.builder(EntityTypes.COPPER_GOLEM)
                 .shape(8.0, 5.0, 10.0)
                 .model(ModelType.COPPER_GOLEM, Identifier.withDefaultNamespace(textureLocation))
                 .model(ModelType.COPPER_GOLEM_EYES, Identifier.withDefaultNamespace(eyesLocation))

@@ -27,7 +27,7 @@ public class StriderHeadType {
     }
 
     private static void bootstrapStrider(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation, SoundEvent noteBlockSound) {
-        HeadType.builder()
+        HeadType.builder(EntityTypes.STRIDER)
                 .shape(16.0, 14.0, 16.0)
                 .scale(0.625)
                 .model(ModelType.STRIDER, Identifier.withDefaultNamespace(textureLocation))

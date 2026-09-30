@@ -108,7 +108,7 @@ public class TropicalFishHeadType {
     }
 
     private static void boostrapTropicalFish(BootstrapContext<HeadType> context, TropicalFish.Variant variant, ResourceKey<HeadType> resourceKey, String textureLocation, Shape shape, ModelType modelType) {
-        HeadType.builder()
+        HeadType.builder(EntityTypes.TROPICAL_FISH)
                 .shape(shape)
                 .scale(1.5)
                 .dyedModel(modelType,

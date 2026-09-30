@@ -25,7 +25,7 @@ public class VexHeadType {
     public static void bootstrapHeadTypes(BootstrapContext<HeadType> context) {
         bootstrapVex(context, VEX, "entity/illager/vex", SoundEvents.VEX_AMBIENT);
         bootstrapVex(context, CHARGING_VEX, "entity/illager/vex_charging", SoundEvents.VEX_CHARGE);
-        HeadType.builder()
+        HeadType.builder(EntityTypes.ALLAY)
                 .shape(5.0, 5.0, 5.0)
                 .scale(1.2)
                 .litModel(ModelType.ALLAY, Identifier.withDefaultNamespace("entity/allay/allay"))
@@ -34,7 +34,7 @@ public class VexHeadType {
     }
 
     private static void bootstrapVex(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation, SoundEvent noteBlockSound) {
-        HeadType.builder()
+        HeadType.builder(EntityTypes.VEX)
                 .shape(5.0, 5.0, 5.0)
                 .scale(1.2)
                 .litModel(ModelType.VEX, Identifier.withDefaultNamespace(textureLocation))

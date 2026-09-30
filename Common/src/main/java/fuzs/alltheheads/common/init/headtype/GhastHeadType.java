@@ -25,7 +25,7 @@ public class GhastHeadType {
     public static void bootstrapHeadTypes(BootstrapContext<HeadType> context) {
         bootstrapGhast(context, GHAST, "entity/ghast/ghast", SoundEvents.GHAST_AMBIENT);
         bootstrapGhast(context, CHARGING_GHAST, "entity/ghast/ghast_shooting", SoundEvents.GHAST_WARN);
-        HeadType.builder()
+        HeadType.builder(EntityTypes.HAPPY_GHAST)
                 .shape(16.0, 16.0, 16.0)
                 .scale(0.625)
                 .model(ModelType.HAPPY_GHAST, Identifier.withDefaultNamespace("entity/ghast/happy_ghast"))
@@ -34,7 +34,7 @@ public class GhastHeadType {
     }
 
     private static void bootstrapGhast(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation, SoundEvent noteBlockSound) {
-        HeadType.builder()
+        HeadType.builder(EntityTypes.GHAST)
                 .shape(16.0, 16.0, 16.0)
                 .scale(0.625)
                 .model(ModelType.GHAST, Identifier.withDefaultNamespace(textureLocation))

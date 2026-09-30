@@ -9,6 +9,7 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.storage.loot.LootTable;
 
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ import java.util.List;
 import java.util.Optional;
 
 public final class Builder {
+    private final Holder<EntityType<?>> entityType;
     private Shape shape = new Shape(8.0, 8.0, 8.0);
     private double scale = 1.0;
     private final List<Model> models = new ArrayList<>();
@@ -24,6 +26,10 @@ public final class Builder {
     private boolean chargedCreeperDrop = true;
     private boolean mobDisguise = true;
     private Optional<String> customName = Optional.empty();
+
+    Builder(EntityType<?> entityType) {
+        this.entityType = entityType.builtInRegistryHolder();
+    }
 
     public Builder shape(double width, double height, double depth) {
         return this.shape(new Shape(width, height, depth));
@@ -99,13 +105,14 @@ public final class Builder {
             this.customName(resourceKey);
         }
 
-        HeadType value = new HeadType(Optional.of(HeadTypes.conditionKey(resourceKey)),
+        HeadType value = new HeadType.Data(Optional.of(HeadTypes.conditionKey(resourceKey)),
                 this.shape.scale(this.scale),
                 this.buildLoot(),
                 this.customName,
                 this.mobDisguise,
                 this.noteBlockSound,
-                ImmutableList.copyOf(this.models));
+                ImmutableList.copyOf(this.models),
+                this.entityType);
         context.register(resourceKey, value);
     }
 

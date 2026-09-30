@@ -29,7 +29,7 @@ public class FoxHeadType {
     }
 
     private static void bootstrapFox(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation) {
-        HeadType.builder()
+        HeadType.builder(EntityTypes.FOX)
                 .shape(8.0, 6.0, 6.0)
                 .model(ModelType.FOX, Identifier.withDefaultNamespace(textureLocation))
                 .noteBlockSound(SoundEvents.FOX_AMBIENT)

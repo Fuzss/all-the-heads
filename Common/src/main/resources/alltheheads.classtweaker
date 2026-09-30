@@ -3,7 +3,6 @@ accessible  field   net/minecraft/util/ExtraCodecs$LateBoundIdMapper    idToValu
 accessible  field   net/minecraft/client/renderer/entity/layers/CustomHeadLayer transforms  Lnet/minecraft/client/renderer/entity/layers/CustomHeadLayer$Transforms;
 accessible  method  net/minecraft/client/model/geom/builders/LayerDefinition    <init>  (Lnet/minecraft/client/model/geom/builders/MeshDefinition;Lnet/minecraft/client/model/geom/builders/MaterialDefinition;)V
 accessible  field   net/minecraft/world/entity/monster/Creeper  droppedSkulls   Z
-accessible  field   net/minecraft/advancements/predicates/entity/EntityPredicate    parts   Ljava/util/Map;
 accessible  field   net/minecraft/core/component/DataComponentInitializers  initializers    Ljava/util/List;
 accessible  class   net/minecraft/core/component/DataComponentInitializers$InitializerEntry
 accessible  method  net/minecraft/core/component/DataComponentInitializers$InitializerEntry <init>  (Lnet/minecraft/resources/ResourceKey;Lnet/minecraft/core/component/DataComponentInitializers$Initializer;)V

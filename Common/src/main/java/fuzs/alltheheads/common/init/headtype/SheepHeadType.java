@@ -76,7 +76,7 @@ public class SheepHeadType {
         bootstrapSheep(context, DyeColor.GREEN, GREEN_SHEEP, GREEN_WOOLLY_SHEEP);
         bootstrapSheep(context, DyeColor.RED, RED_SHEEP, RED_WOOLLY_SHEEP);
         bootstrapSheep(context, DyeColor.BLACK, BLACK_SHEEP, BLACK_WOOLLY_SHEEP);
-        HeadType.builder()
+        HeadType.builder(EntityTypes.SHEEP)
                 .shape(6.0, 6.0, 8.0)
                 .model(ModelType.SHEEP, Identifier.withDefaultNamespace("entity/sheep/sheep"))
                 .dyedModel(ModelType.SHEEP,
@@ -84,7 +84,7 @@ public class SheepHeadType {
                         new Color.Rainbow())
                 .noteBlockSound(SoundEvents.SHEEP_AMBIENT)
                 .build(context, RAINBOW_SHEEP);
-        HeadType.builder()
+        HeadType.builder(EntityTypes.SHEEP)
                 .shape(6.0, 6.0, 8.0)
                 .model(ModelType.SHEEP, Identifier.withDefaultNamespace("entity/sheep/sheep"))
                 .dyedModel(ModelType.SHEEP,
@@ -98,7 +98,7 @@ public class SheepHeadType {
     }
 
     private static void bootstrapSheep(BootstrapContext<HeadType> context, DyeColor dyeColor, ResourceKey<HeadType> sheep, ResourceKey<HeadType> woollySheep) {
-        HeadType.builder()
+        HeadType.builder(EntityTypes.SHEEP)
                 .shape(6.0, 6.0, 8.0)
                 .model(ModelType.SHEEP, Identifier.withDefaultNamespace("entity/sheep/sheep"))
                 .dyedModel(ModelType.SHEEP,
@@ -106,7 +106,7 @@ public class SheepHeadType {
                         new Color.Sheep(dyeColor))
                 .noteBlockSound(SoundEvents.SHEEP_AMBIENT)
                 .build(context, sheep);
-        HeadType.builder()
+        HeadType.builder(EntityTypes.SHEEP)
                 .shape(6.0, 6.0, 8.0)
                 .model(ModelType.SHEEP, Identifier.withDefaultNamespace("entity/sheep/sheep"))
                 .dyedModel(ModelType.SHEEP,

@@ -7,6 +7,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 
@@ -20,16 +21,16 @@ public class PiglinHeadType {
     public static final ResourceKey<HeadType> PIGLIN_BRUTE = register("piglin_brute");
 
     public static void bootstrapHeadTypes(BootstrapContext<HeadType> context) {
-        bootstrapPiglin(context, ZOMBIFIED_PIGLIN,
+        bootstrapPiglin(context, EntityTypes.ZOMBIFIED_PIGLIN, ZOMBIFIED_PIGLIN,
                 "entity/piglin/zombified_piglin",
                 SoundEvents.ZOMBIFIED_PIGLIN_AMBIENT);
-        bootstrapPiglin(context, PIGLIN_BRUTE,
+        bootstrapPiglin(context, EntityTypes.PIGLIN_BRUTE, PIGLIN_BRUTE,
                 "entity/piglin/piglin_brute",
                 SoundEvents.PIGLIN_BRUTE_AMBIENT);
     }
 
-    private static void bootstrapPiglin(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation, SoundEvent noteBlockSound) {
-        HeadType.builder()
+    private static void bootstrapPiglin(BootstrapContext<HeadType> context, EntityType<?> entityType, ResourceKey<HeadType> resourceKey, String textureLocation, SoundEvent noteBlockSound) {
+        HeadType.builder(entityType)
                 .shape(10.0, 8.0, 8.0)
                 .model(ModelType.PIGLIN, Identifier.withDefaultNamespace(textureLocation))
                 .noteBlockSound(noteBlockSound)

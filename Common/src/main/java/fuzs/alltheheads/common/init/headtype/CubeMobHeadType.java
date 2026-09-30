@@ -39,18 +39,18 @@ public class CubeMobHeadType {
     public static final ResourceKey<HeadType> HOT_SULFUR_CUBE = register("sulfur_cube/hot");
 
     public static void bootstrapHeadTypes(BootstrapContext<HeadType> context) {
-        HeadType.builder()
+        HeadType.builder(EntityTypes.MAGMA_CUBE)
                 .shape(8.0, 8.0, 8.0)
                 .litModel(ModelType.MAGMA_CUBE, Identifier.withDefaultNamespace("entity/slime/magmacube"))
                 .noteBlockSound(SoundEvents.MAGMA_CUBE_SQUISH_SMALL)
                 .build(context, MAGMA_CUBE);
-        HeadType.builder()
+        HeadType.builder(EntityTypes.SLIME)
                 .shape(8.0, 8.0, 8.0)
                 .model(ModelType.SLIME, Identifier.withDefaultNamespace("entity/slime/slime"))
                 .model(ModelType.SLIME_GEL, Identifier.withDefaultNamespace("entity/slime/slime"))
                 .noteBlockSound(SoundEvents.SLIME_SQUISH)
                 .build(context, SLIME);
-        HeadType.builder()
+        HeadType.builder(EntityTypes.SULFUR_CUBE)
                 .shape(18.0, 18.0, 18.0)
                 .scale(8.0 / 18.0)
                 .model(ModelType.SULFUR_CUBE, Identifier.withDefaultNamespace("entity/sulfur_cube/sulfur_cube_inner"))
@@ -74,7 +74,7 @@ public class CubeMobHeadType {
 
     private static void bootstrapSulfurCube(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, ModelType modelType) {
         // The squish sound is different when there is a block inside.
-        HeadType.builder()
+        HeadType.builder(EntityTypes.SULFUR_CUBE)
                 .shape(18.0, 18.0, 18.0)
                 .scale(8.0 / 18.0)
                 .specialModel(modelType)

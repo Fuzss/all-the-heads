@@ -12,6 +12,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.animal.equine.Markings;
 import net.minecraft.world.entity.animal.equine.Variant;
@@ -73,14 +74,14 @@ public class EquineHeadType {
 
     public static void bootstrapHeadTypes(BootstrapContext<HeadType> context) {
         // Horses
-        bootstrapHorse(context, SKELETON_HORSE,
+        bootstrapHorse(context, EntityTypes.SKELETON_HORSE, SKELETON_HORSE,
                 "entity/horse/horse_skeleton",
                 SoundEvents.SKELETON_HORSE_AMBIENT);
-        bootstrapHorse(context, ZOMBIE_HORSE,
+        bootstrapHorse(context, EntityTypes.ZOMBIE_HORSE, ZOMBIE_HORSE,
                 "entity/horse/horse_zombie",
                 SoundEvents.ZOMBIE_HORSE_AMBIENT);
-        bootstrapHorse(context, DONKEY, "entity/horse/donkey", SoundEvents.DONKEY_AMBIENT);
-        bootstrapHorse(context, MULE, "entity/horse/mule", SoundEvents.MULE_AMBIENT);
+        bootstrapHorse(context, EntityTypes.DONKEY, DONKEY, "entity/horse/donkey", SoundEvents.DONKEY_AMBIENT);
+        bootstrapHorse(context, EntityTypes.MULE, MULE, "entity/horse/mule", SoundEvents.MULE_AMBIENT);
 
         // White Horses
         bootstrapHorse(context, WHITE_HORSE, "entity/horse/horse_white");
@@ -217,7 +218,11 @@ public class EquineHeadType {
     }
 
     private static void bootstrapHorse(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation, SoundEvent noteBlockSound) {
-        HeadType.builder()
+        bootstrapHorse(context, EntityTypes.HORSE, resourceKey, textureLocation, noteBlockSound);
+    }
+
+    private static void bootstrapHorse(BootstrapContext<HeadType> context, EntityType<?> entityType, ResourceKey<HeadType> resourceKey, String textureLocation, SoundEvent noteBlockSound) {
+        HeadType.builder(entityType)
                 .shape(4.0, 16.0, 8.0)
                 .scale(0.75)
                 .model(ModelType.HORSE, Identifier.withDefaultNamespace(textureLocation))
@@ -226,7 +231,11 @@ public class EquineHeadType {
     }
 
     private static void bootstrapHorse(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation) {
-        HeadType.builder()
+        bootstrapHorse(context, EntityTypes.HORSE, resourceKey, textureLocation);
+    }
+
+    private static void bootstrapHorse(BootstrapContext<HeadType> context, EntityType<?> entityType, ResourceKey<HeadType> resourceKey, String textureLocation) {
+        HeadType.builder(entityType)
                 .shape(4.0, 16.0, 8.0)
                 .scale(0.75)
                 .model(ModelType.HORSE, Identifier.withDefaultNamespace(textureLocation))
@@ -235,7 +244,11 @@ public class EquineHeadType {
     }
 
     private static void bootstrapHorse(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation, String markingsLocation) {
-        HeadType.builder()
+        bootstrapHorse(context, EntityTypes.HORSE, resourceKey, textureLocation, markingsLocation);
+    }
+
+    private static void bootstrapHorse(BootstrapContext<HeadType> context, EntityType<?> entityType, ResourceKey<HeadType> resourceKey, String textureLocation, String markingsLocation) {
+        HeadType.builder(entityType)
                 .shape(4.0, 16.0, 8.0)
                 .scale(0.75)
                 .model(ModelType.HORSE, Identifier.withDefaultNamespace(textureLocation))

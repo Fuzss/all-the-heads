@@ -29,7 +29,7 @@ public class WitherHeadType {
     }
 
     private static void bootstrapWither(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation) {
-        HeadType.builder()
+        HeadType.builder(EntityTypes.WITHER)
                 .shape(8.0, 8.0, 8.0)
                 .litModel(ModelType.HUMANOID, Identifier.withDefaultNamespace(textureLocation))
                 .noteBlockSound(SoundEvents.WITHER_AMBIENT)
@@ -37,7 +37,7 @@ public class WitherHeadType {
     }
 
     private static void bootstrapPoweredWither(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation) {
-        HeadType.builder()
+        HeadType.builder(EntityTypes.WITHER)
                 .shape(8.0, 8.0, 8.0)
                 .litModel(ModelType.HUMANOID, Identifier.withDefaultNamespace(textureLocation))
                 .dyedModel(ModelType.WITHER_SHIELD,

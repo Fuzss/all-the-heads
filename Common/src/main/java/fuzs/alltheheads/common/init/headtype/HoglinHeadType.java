@@ -7,6 +7,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 
@@ -20,12 +21,12 @@ public class HoglinHeadType {
     public static final ResourceKey<HeadType> ZOGLIN = register("zoglin");
 
     public static void bootstrapHeadTypes(BootstrapContext<HeadType> context) {
-        bootstrapHoglin(context, HOGLIN, "entity/hoglin/hoglin", SoundEvents.HOGLIN_AMBIENT);
-        bootstrapHoglin(context, ZOGLIN, "entity/hoglin/zoglin", SoundEvents.ZOGLIN_AMBIENT);
+        bootstrapHoglin(context, EntityTypes.HOGLIN, HOGLIN, "entity/hoglin/hoglin", SoundEvents.HOGLIN_AMBIENT);
+        bootstrapHoglin(context, EntityTypes.ZOGLIN, ZOGLIN, "entity/hoglin/zoglin", SoundEvents.ZOGLIN_AMBIENT);
     }
 
-    private static void bootstrapHoglin(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation, SoundEvent noteBlockSound) {
-        HeadType.builder()
+    private static void bootstrapHoglin(BootstrapContext<HeadType> context, EntityType<?> entityType, ResourceKey<HeadType> resourceKey, String textureLocation, SoundEvent noteBlockSound) {
+        HeadType.builder(entityType)
                 .shape(14.0, 18.0, 8.0)
                 .scale(0.625)
                 .model(ModelType.HOGLIN, Identifier.withDefaultNamespace(textureLocation))

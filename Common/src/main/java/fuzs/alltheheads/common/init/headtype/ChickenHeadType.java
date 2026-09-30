@@ -34,7 +34,7 @@ public class ChickenHeadType {
     }
 
     private static void bootstrapChicken(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, ModelType modelType, String textureLocation) {
-        HeadType.builder()
+        HeadType.builder(EntityTypes.CHICKEN)
                 .shape(4.0, 6.0, 3.0)
                 .scale(1.5)
                 .model(modelType, Identifier.withDefaultNamespace(textureLocation))

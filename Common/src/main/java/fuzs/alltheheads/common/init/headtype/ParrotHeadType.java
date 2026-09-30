@@ -35,7 +35,7 @@ public class ParrotHeadType {
     }
 
     private static void bootstrapParrot(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation) {
-        HeadType.builder()
+        HeadType.builder(EntityTypes.PARROT)
                 .shape(2.0, 4.0, 2.0)
                 .scale(2.0)
                 .model(ModelType.PARROT, Identifier.withDefaultNamespace(textureLocation))

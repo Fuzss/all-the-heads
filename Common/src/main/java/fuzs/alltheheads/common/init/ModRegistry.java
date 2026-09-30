@@ -112,6 +112,9 @@ public class ModRegistry {
             Registries.ENTITY_SUB_PREDICATE_TYPE,
             "wolf",
             () -> WolfPredicate.CODEC);
+    public static final Holder.Reference<ContextKeySet> HEAD_CONTEXT_KEY_SET = REGISTRIES.register(Registries.CONTEXT_KEY_SET,
+            "head",
+            () -> new ContextKeySet.Builder().required(LootContextParams.THIS_ENTITY).build());
     public static final Holder.Reference<CreativeModeTab> CREATIVE_MODE_TAB = REGISTRIES.registerCreativeModeTab("main",
             () -> createDisplayItemStack(MonsterHeadType.BLAZE),
             (CreativeModeTab.DisplayItemsGenerator generator) -> {
@@ -150,11 +153,6 @@ public class ModRegistry {
     static final TagFactory TAGS = TagFactory.make(AllTheHeads.MOD_ID);
     public static final TagKey<HeadType> VILLAGER_LIKE_HEAD_TYPE_TAG = TAGS.registerTagKey(HEAD_REGISTRY_KEY,
             "villager_like");
-
-    public static final Holder.Reference<ContextKeySet> HEAD_CONTEXT_KEY_SET = REGISTRIES.register(
-            Registries.CONTEXT_KEY_SET,
-            "head",
-            () -> new ContextKeySet.Builder().required(LootContextParams.THIS_ENTITY).build());
 
     public static void bootstrap() {
         ModLootTables.bootstrap();

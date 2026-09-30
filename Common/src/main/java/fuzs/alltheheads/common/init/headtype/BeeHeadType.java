@@ -31,7 +31,7 @@ public class BeeHeadType {
     }
 
     private static void bootstrapBee(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation) {
-        HeadType.builder()
+        HeadType.builder(EntityTypes.BEE)
                 .shape(7.0, 7.0, 6.0)
                 .model(ModelType.BEE, Identifier.withDefaultNamespace(textureLocation))
                 .noteBlockSound(SoundEvents.BEE_LOOP)

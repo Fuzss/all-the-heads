@@ -9,7 +9,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
@@ -109,14 +108,6 @@ public class HeadTypes {
 
     public static void bootstrap(BootstrapContext<LootItemCondition> context, ResourceKey<HeadType> key, EntityType<?> type, Consumer<EntityPredicate.Builder> entityPredicate) {
         bootstrap(context, key, HolderSet.direct(type.builtInRegistryHolder()), entityPredicate);
-    }
-
-    public static void bootstrap(BootstrapContext<LootItemCondition> context, ResourceKey<HeadType> key, TagKey<EntityType<?>> tag) {
-        bootstrap(context, key, context.lookup(Registries.ENTITY_TYPE).getOrThrow(tag), Function.identity()::apply);
-    }
-
-    public static void bootstrap(BootstrapContext<LootItemCondition> context, ResourceKey<HeadType> key, TagKey<EntityType<?>> tag, Consumer<EntityPredicate.Builder> entityPredicate) {
-        bootstrap(context, key, context.lookup(Registries.ENTITY_TYPE).getOrThrow(tag), entityPredicate);
     }
 
     private static void bootstrap(BootstrapContext<LootItemCondition> context, ResourceKey<HeadType> key, HolderSet<EntityType<?>> types, Consumer<EntityPredicate.Builder> entityPredicate) {

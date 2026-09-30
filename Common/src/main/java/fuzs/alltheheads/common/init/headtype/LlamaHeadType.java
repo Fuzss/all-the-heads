@@ -41,7 +41,7 @@ public class LlamaHeadType {
     }
 
     private static void bootstrapLlama(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation) {
-        HeadType.builder()
+        HeadType.builder(EntityTypes.LLAMA)
                 .shape(8.0, 10.0, 6.0)
                 .model(ModelType.LLAMA, Identifier.withDefaultNamespace(textureLocation))
                 .noteBlockSound(SoundEvents.LLAMA_AMBIENT)
@@ -49,7 +49,7 @@ public class LlamaHeadType {
     }
 
     private static void bootstrapTraderLlama(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation) {
-        HeadType.builder()
+        HeadType.builder(EntityTypes.TRADER_LLAMA)
                 .shape(8.0, 10.0, 6.0)
                 .model(ModelType.LLAMA, Identifier.withDefaultNamespace(textureLocation))
                 .model(ModelType.LLAMA_DECOR,

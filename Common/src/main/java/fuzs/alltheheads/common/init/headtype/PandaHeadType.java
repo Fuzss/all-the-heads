@@ -41,7 +41,7 @@ public class PandaHeadType {
     }
 
     private static void bootstrapPanda(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation, SoundEvent noteBlockSound) {
-        HeadType.builder()
+        HeadType.builder(EntityTypes.PANDA)
                 .shape(13.0, 10.0, 9.0)
                 .scale(10.0 / 13.0)
                 .model(ModelType.PANDA, Identifier.withDefaultNamespace(textureLocation))

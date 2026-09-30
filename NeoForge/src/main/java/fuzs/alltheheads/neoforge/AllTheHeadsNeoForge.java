@@ -1,6 +1,7 @@
 package fuzs.alltheheads.neoforge;
 
 import fuzs.alltheheads.common.AllTheHeads;
+import fuzs.alltheheads.common.data.HeadTypesValidator;
 import fuzs.alltheheads.common.data.advancements.ModAdvancementProvider;
 import fuzs.alltheheads.common.data.loot.ModBlockLootProvider;
 import fuzs.alltheheads.common.data.loot.ModEntityLootProvider;
@@ -25,7 +26,10 @@ public class AllTheHeadsNeoForge {
                 .addReloadableBootstrap(Registries.PREDICATE, HeadTypes::bootstrapLootItemConditions)
                 .addLootProvider(ModBlockLootProvider::new, LootContextParamSets.BLOCK)
                 .addLootProvider(ModEntityLootProvider::new, LootContextParamSets.ENTITY)
-                .addProvider(ModBlockTagsProvider::new, ModItemTagsProvider::new, ModHeadTypeTagsProvider::new)
+                .addProvider(ModBlockTagsProvider::new,
+                        ModItemTagsProvider::new,
+                        ModHeadTypeTagsProvider::new,
+                        HeadTypesValidator::new)
                 .addAdvancementProvider(ModAdvancementProvider::new);
     }
 }

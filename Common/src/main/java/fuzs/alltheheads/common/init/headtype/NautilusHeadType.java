@@ -13,6 +13,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.animal.nautilus.ZombieNautilusVariant;
 import net.minecraft.world.entity.animal.nautilus.ZombieNautilusVariants;
@@ -29,19 +30,19 @@ public class NautilusHeadType {
     public static final ResourceKey<HeadType> ZOMBIE_NAUTILUS = register("zombie_nautilus");
 
     public static void bootstrapHeadTypes(BootstrapContext<HeadType> context) {
-        bootstrapNautilus("entity/nautilus/nautilus", SoundEvents.NAUTILUS_AMBIENT).build(context,
+        bootstrapNautilus(EntityTypes.NAUTILUS, "entity/nautilus/nautilus", SoundEvents.NAUTILUS_AMBIENT).build(context,
                 NAUTILUS);
         bootstrapZombieNautilus(context, ZOMBIE_NAUTILUS, "entity/nautilus/zombie_nautilus");
         bootstrapZombieNautilus(context, CORAL_ZOMBIE_NAUTILUS, "entity/nautilus/zombie_nautilus_coral");
     }
 
     private static void bootstrapZombieNautilus(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation) {
-        bootstrapNautilus(textureLocation, SoundEvents.ZOMBIE_NAUTILUS_AMBIENT)
+        bootstrapNautilus(EntityTypes.ZOMBIE_NAUTILUS, textureLocation, SoundEvents.ZOMBIE_NAUTILUS_AMBIENT)
                 .build(context, resourceKey);
     }
 
-    private static Builder bootstrapNautilus(String textureLocation, SoundEvent noteBlockSound) {
-        return HeadType.builder()
+    private static Builder bootstrapNautilus(EntityType<?> entityType, String textureLocation, SoundEvent noteBlockSound) {
+        return HeadType.builder(entityType)
                 .shape(10.0, 8.0, 12.0)
                 .scale(6.0 / 8.0)
                 .model(ModelType.NAUTILUS, Identifier.withDefaultNamespace(textureLocation))

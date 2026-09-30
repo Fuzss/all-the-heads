@@ -7,6 +7,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 
@@ -20,14 +21,14 @@ public class SpiderHeadType {
     public static final ResourceKey<HeadType> CAVE_SPIDER = register("cave_spider");
 
     public static void bootstrapHeadTypes(BootstrapContext<HeadType> context) {
-        bootstrapSpider(context, SPIDER, "entity/spider/spider", SoundEvents.SPIDER_AMBIENT);
-        bootstrapSpider(context, CAVE_SPIDER,
+        bootstrapSpider(context, EntityTypes.SPIDER, SPIDER, "entity/spider/spider", SoundEvents.SPIDER_AMBIENT);
+        bootstrapSpider(context, EntityTypes.CAVE_SPIDER, CAVE_SPIDER,
                 "entity/spider/cave_spider",
                 SoundEvents.SPIDER_AMBIENT);
     }
 
-    private static void bootstrapSpider(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation, SoundEvent noteBlockSound) {
-        HeadType.builder()
+    private static void bootstrapSpider(BootstrapContext<HeadType> context, EntityType<?> entityType, ResourceKey<HeadType> resourceKey, String textureLocation, SoundEvent noteBlockSound) {
+        HeadType.builder(entityType)
                 .shape(8.0, 8.0, 8.0)
                 .model(ModelType.SPIDER, Identifier.withDefaultNamespace(textureLocation))
                 .model(ModelType.SPIDER_EYES, Identifier.withDefaultNamespace("entity/spider/spider_eyes"))

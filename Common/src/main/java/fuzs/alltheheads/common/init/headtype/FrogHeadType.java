@@ -33,7 +33,7 @@ public class FrogHeadType {
     }
 
     private static void bootstrapFrog(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation) {
-        HeadType.builder()
+        HeadType.builder(EntityTypes.FROG)
                 .shape(7.0, 5.0, 5.0)
                 .scale(8.0 / 7.0)
                 .model(ModelType.FROG, Identifier.withDefaultNamespace(textureLocation))

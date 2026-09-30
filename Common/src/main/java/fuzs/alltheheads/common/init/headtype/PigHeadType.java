@@ -34,7 +34,7 @@ public class PigHeadType {
     }
 
     private static void bootstrapPig(BootstrapContext<HeadType> context, ResourceKey<HeadType> resourceKey, String textureLocation) {
-        HeadType.builder()
+        HeadType.builder(EntityTypes.PIG)
                 .shape(8.0, 8.0, 8.0)
                 .model(ModelType.PIG, Identifier.withDefaultNamespace(textureLocation))
                 .noteBlockSound(SoundEvents.PIG_SOUNDS.get(PigSoundVariants.SoundSet.CLASSIC)
