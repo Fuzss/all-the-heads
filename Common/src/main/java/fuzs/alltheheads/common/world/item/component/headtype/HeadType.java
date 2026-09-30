@@ -34,6 +34,9 @@ public sealed interface HeadType permits HeadType.Local, HeadType.Shared {
                             .xmap(Optional::of, Optional::orElseThrow)
                             .fieldOf("entity_predicate")
                             .forGetter(HeadType::entityPredicate),
+                    BuiltInRegistries.ENTITY_TYPE.holderByNameCodec()
+                            .optionalFieldOf("entity_type")
+                            .forGetter(HeadType::entityType),
                     Shape.CODEC.fieldOf("shape").forGetter(HeadType::shape),
                     Loot.CODEC.forGetter(HeadType::loot),
                     Codec.STRING.optionalFieldOf("custom_name").forGetter(HeadType::customName),
@@ -42,7 +45,7 @@ public sealed interface HeadType permits HeadType.Local, HeadType.Shared {
                             .optionalFieldOf("note_block_sound")
                             .forGetter(HeadType::noteBlockSound),
                     Model.CODEC.listOf(1, Integer.MAX_VALUE).fieldOf("models").forGetter(HeadType::models))
-            .apply(instance, Server::new)).validate(HeadType::requireData);
+            .apply(instance, Shared::new)).validate(HeadType::requireData);
     Codec<HeadType> DIRECT_NETWORK_CODEC = RecordCodecBuilder.<HeadType>create(instance -> instance.group(Shape.CODEC.fieldOf(
                             "shape").forGetter(HeadType::shape),
                     Codec.STRING.optionalFieldOf("custom_name").forGetter(HeadType::customName),
@@ -110,59 +113,14 @@ public sealed interface HeadType permits HeadType.Local, HeadType.Shared {
                  List<Model> models) implements HeadType {
     }
 
-    abstract sealed class Shared implements HeadType permits HeadType.Server, HeadType.Data {
-        private final Optional<ResourceKey<LootItemCondition>> entityPredicate;
-        private final Shape shape;
-        private final Loot loot;
-        private final Optional<String> customName;
-        private final boolean mobDisguise;
-        private final Optional<Holder<SoundEvent>> noteBlockSound;
-        private final List<Model> models;
-
-        protected Shared(Optional<ResourceKey<LootItemCondition>> entityPredicate, Shape shape, Loot loot, Optional<String> customName, boolean mobDisguise, Optional<Holder<SoundEvent>> noteBlockSound, List<Model> models) {
-            this.entityPredicate = entityPredicate;
-            this.shape = shape;
-            this.loot = loot;
-            this.customName = customName;
-            this.mobDisguise = mobDisguise;
-            this.noteBlockSound = noteBlockSound;
-            this.models = models;
-        }
-
-        @Override
-        public Optional<ResourceKey<LootItemCondition>> entityPredicate() {
-            return this.entityPredicate;
-        }
-
-        @Override
-        public Shape shape() {
-            return this.shape;
-        }
-
-        @Override
-        public Loot loot() {
-            return this.loot;
-        }
-
-        @Override
-        public Optional<String> customName() {
-            return this.customName;
-        }
-
-        @Override
-        public boolean mobDisguise() {
-            return this.mobDisguise;
-        }
-
-        @Override
-        public Optional<Holder<SoundEvent>> noteBlockSound() {
-            return this.noteBlockSound;
-        }
-
-        @Override
-        public List<Model> models() {
-            return this.models;
-        }
+    record Shared(Optional<ResourceKey<LootItemCondition>> entityPredicate,
+                  Optional<Holder<EntityType<?>>> entityType,
+                  Shape shape,
+                  Loot loot,
+                  Optional<String> customName,
+                  boolean mobDisguise,
+                  Optional<Holder<SoundEvent>> noteBlockSound,
+                  List<Model> models) implements HeadType {
 
         @Override
         public boolean matches(ServerLevel serverLevel, Entity entity) {
@@ -176,26 +134,6 @@ public sealed interface HeadType permits HeadType.Local, HeadType.Shared {
                     .getOrThrow(this.entityPredicate.orElseThrow())
                     .value()
                     .test(context);
-        }
-    }
-
-    final class Server extends Shared {
-        public Server(Optional<ResourceKey<LootItemCondition>> entityPredicate, Shape shape, Loot loot, Optional<String> customName, boolean mobDisguise, Optional<Holder<SoundEvent>> noteBlockSound, List<Model> models) {
-            super(entityPredicate, shape, loot, customName, mobDisguise, noteBlockSound, models);
-        }
-    }
-
-    final class Data extends Shared {
-        private final Holder<EntityType<?>> entityType;
-
-        public Data(Optional<ResourceKey<LootItemCondition>> entityPredicate, Shape shape, Loot loot, Optional<String> customName, boolean mobDisguise, Optional<Holder<SoundEvent>> noteBlockSound, List<Model> models, Holder<EntityType<?>> entityType) {
-            super(entityPredicate, shape, loot, customName, mobDisguise, noteBlockSound, models);
-            this.entityType = entityType;
-        }
-
-        @Override
-        public Optional<Holder<EntityType<?>>> entityType() {
-            return Optional.of(this.entityType);
         }
     }
 }

@@ -105,14 +105,14 @@ public final class Builder {
             this.customName(resourceKey);
         }
 
-        HeadType value = new HeadType.Data(Optional.of(HeadTypes.conditionKey(resourceKey)),
+        HeadType value = new HeadType.Shared(Optional.of(HeadTypes.conditionKey(resourceKey)),
+                Optional.of(this.entityType),
                 this.shape.scale(this.scale),
                 this.buildLoot(),
                 this.customName,
                 this.mobDisguise,
                 this.noteBlockSound,
-                ImmutableList.copyOf(this.models),
-                this.entityType);
+                ImmutableList.copyOf(this.models));
         context.register(resourceKey, value);
     }
 
