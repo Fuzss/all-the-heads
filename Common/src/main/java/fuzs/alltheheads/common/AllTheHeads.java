@@ -9,6 +9,7 @@ import fuzs.alltheheads.common.world.item.component.headtype.HeadType;
 import fuzs.puzzleslib.common.api.config.v3.ConfigHolder;
 import fuzs.puzzleslib.common.api.core.v1.ModConstructor;
 import fuzs.puzzleslib.common.api.core.v1.context.DataPackRegistriesContext;
+import fuzs.puzzleslib.common.api.event.v1.entity.living.CalculateLivingVisibilityCallback;
 import fuzs.puzzleslib.common.api.event.v1.entity.living.LivingDropsCallback;
 import fuzs.puzzleslib.common.api.event.v1.server.LootTableLoadCallback;
 import net.minecraft.resources.Identifier;
@@ -32,6 +33,7 @@ public class AllTheHeads implements ModConstructor {
         LootTableLoadCallback.EVENT.register(ModLootTables::onLootTableLoad);
         LootTableLoadCallback.EVENT.register(HeadLootHandler::onLootTableLoad);
         LivingDropsCallback.EVENT.register(HeadLootHandler::onLivingDrops);
+        CalculateLivingVisibilityCallback.EVENT.register(HeadBehaviorHandler::onCalculateLivingVisibility);
     }
 
     @Override
