@@ -29,7 +29,7 @@ public class ModHeadTypeTagsProvider extends AbstractTagsProvider<HeadType> {
         context.lookupOrThrow(ModRegistry.HEAD_REGISTRY_KEY)
                 .listElements()
                 .forEach((Holder.Reference<HeadType> headType) -> {
-                    Holder<EntityType<?>> holder = headType.value().entityType().orElseThrow();
+                    Holder<EntityType<?>> holder = HeadType.entityType(headType.key());
                     if (holder.is(EntityTypeIds.VILLAGER) || holder.is(EntityTypeIds.ZOMBIE_VILLAGER)) {
                         villagerLikeTagAppender.add(headType);
                     }
@@ -37,7 +37,7 @@ public class ModHeadTypeTagsProvider extends AbstractTagsProvider<HeadType> {
         context.lookupOrThrow(ModRegistry.HEAD_REGISTRY_KEY)
                 .listElements()
                 .forEach((Holder.Reference<HeadType> headType) -> {
-                    Holder<EntityType<?>> holder = headType.value().entityType().orElseThrow();
+                    Holder<EntityType<?>> holder = HeadType.entityType(headType.key());
                     getDefaultLootTables(Stream.of(holder)
                             .map(Holder::value)).map(ModHeadTypeTagsProvider::getHeadTypeTagKey)
                             .map(this::tag)

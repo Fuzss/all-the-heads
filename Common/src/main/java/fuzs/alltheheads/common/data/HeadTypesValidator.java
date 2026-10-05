@@ -39,9 +39,8 @@ public class HeadTypesValidator implements DataProvider {
                 .collect(Collectors.toSet());
         Set<ResourceKey<EntityType<?>>> headTypeEntities = context.lookupOrThrow(ModRegistry.HEAD_REGISTRY_KEY)
                 .listElements()
-                .map(Holder.Reference::value)
+                .map(Holder.Reference::key)
                 .map(HeadType::entityType)
-                .map(Optional::orElseThrow)
                 .map(Holder::value)
                 .distinct()
                 .map(BuiltInRegistries.ENTITY_TYPE::getResourceKey)

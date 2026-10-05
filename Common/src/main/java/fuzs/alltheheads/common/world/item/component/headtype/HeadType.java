@@ -24,6 +24,7 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 public sealed interface HeadType permits HeadType.Local, HeadType.Shared {
@@ -34,9 +35,6 @@ public sealed interface HeadType permits HeadType.Local, HeadType.Shared {
                             .xmap(Optional::of, Optional::orElseThrow)
                             .fieldOf("entity_predicate")
                             .forGetter(HeadType::entityPredicate),
-                    BuiltInRegistries.ENTITY_TYPE.holderByNameCodec()
-                            .optionalFieldOf("entity_type")
-                            .forGetter(HeadType::entityType),
                     Shape.CODEC.fieldOf("shape").forGetter(HeadType::shape),
                     Loot.CODEC.forGetter(HeadType::loot),
                     Codec.STRING.optionalFieldOf("custom_name").forGetter(HeadType::customName),
@@ -62,6 +60,11 @@ public sealed interface HeadType permits HeadType.Local, HeadType.Shared {
 
     static Builder builder(EntityType<?> entityType) {
         return new Builder(entityType);
+    }
+
+    static Holder<EntityType<?>> entityType(ResourceKey<HeadType> resourceKey) {
+        Holder<EntityType<?>> holder = Builder.ENTITY_HEAD_TYPES.get(resourceKey);
+        return Objects.requireNonNull(holder, "entity type is null");
     }
 
     static Identifier customName(ResourceKey<HeadType> resourceKey) {
@@ -103,10 +106,6 @@ public sealed interface HeadType permits HeadType.Local, HeadType.Shared {
         return false;
     }
 
-    default Optional<Holder<EntityType<?>>> entityType() {
-        return Optional.empty();
-    }
-
     record Local(Shape shape,
                  Optional<String> customName,
                  Optional<Holder<SoundEvent>> noteBlockSound,
@@ -114,7 +113,6 @@ public sealed interface HeadType permits HeadType.Local, HeadType.Shared {
     }
 
     record Shared(Optional<ResourceKey<LootItemCondition>> entityPredicate,
-                  Optional<Holder<EntityType<?>>> entityType,
                   Shape shape,
                   Loot loot,
                   Optional<String> customName,

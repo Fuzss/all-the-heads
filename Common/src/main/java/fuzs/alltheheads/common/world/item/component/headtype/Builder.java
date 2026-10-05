@@ -12,11 +12,11 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.storage.loot.LootTable;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public final class Builder {
+    static final Map<ResourceKey<HeadType>, Holder<EntityType<?>>> ENTITY_HEAD_TYPES = Collections.synchronizedMap(new IdentityHashMap<>());
+
     private final Holder<EntityType<?>> entityType;
     private Shape shape = new Shape(8.0, 8.0, 8.0);
     private double scale = 1.0;
@@ -106,7 +106,6 @@ public final class Builder {
         }
 
         HeadType value = new HeadType.Shared(Optional.of(HeadTypes.conditionKey(resourceKey)),
-                Optional.of(this.entityType),
                 this.shape.scale(this.scale),
                 this.buildLoot(),
                 this.customName,
@@ -114,6 +113,7 @@ public final class Builder {
                 this.noteBlockSound,
                 ImmutableList.copyOf(this.models));
         context.register(resourceKey, value);
+        ENTITY_HEAD_TYPES.put(resourceKey, this.entityType);
     }
 
     private Loot buildLoot() {

@@ -115,7 +115,7 @@ public class ModAdvancementProvider extends AbstractAdvancementProvider {
         return this.output.listContextElements(ModRegistry.HEAD_REGISTRY_KEY)
                 .sorted(HOLDER_COMPARATOR)
                 .mapMulti((Holder.Reference<HeadType> headType, Consumer<Map.Entry<Holder<EntityType<?>>, Holder.Reference<HeadType>>> consumer) -> {
-                    Holder<EntityType<?>> holder = headType.value().entityType().orElseThrow();
+                    Holder<EntityType<?>> holder = HeadType.entityType(headType.key());
                     consumer.accept(Map.entry(holder, headType));
                 })
                 .collect(Collectors.groupingBy(Map.Entry::getKey,
