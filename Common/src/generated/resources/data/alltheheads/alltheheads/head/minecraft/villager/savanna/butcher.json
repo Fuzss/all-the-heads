@@ -1,7 +1,6 @@
 {
   "custom_name": "minecraft.villager_savanna_butcher",
   "entity_predicate": "alltheheads:entity/heads/minecraft/villager/savanna/butcher",
-  "entity_type": "minecraft:villager",
   "loot_table": "alltheheads:entities/heads/minecraft/villager/savanna/butcher",
   "models": [
     {

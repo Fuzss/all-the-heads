@@ -1,7 +1,6 @@
 {
   "custom_name": "minecraft.villager_plains_nitwit",
   "entity_predicate": "alltheheads:entity/heads/minecraft/villager/plains/nitwit",
-  "entity_type": "minecraft:villager",
   "loot_table": "alltheheads:entities/heads/minecraft/villager/plains/nitwit",
   "models": [
     {

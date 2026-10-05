@@ -1,7 +1,6 @@
 {
   "custom_name": "minecraft.snow_golem",
   "entity_predicate": "alltheheads:entity/heads/minecraft/snow_golem",
-  "entity_type": "minecraft:snow_golem",
   "loot_table": "alltheheads:entities/heads/minecraft/snow_golem",
   "models": [
     {

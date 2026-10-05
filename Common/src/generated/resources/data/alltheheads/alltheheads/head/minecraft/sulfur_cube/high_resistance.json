@@ -1,7 +1,6 @@
 {
   "custom_name": "minecraft.sulfur_cube_high_resistance",
   "entity_predicate": "alltheheads:entity/heads/minecraft/sulfur_cube/high_resistance",
-  "entity_type": "minecraft:sulfur_cube",
   "loot_table": "alltheheads:entities/heads/minecraft/sulfur_cube/high_resistance",
   "models": [
     {

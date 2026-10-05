@@ -1,7 +1,6 @@
 {
   "custom_name": "minecraft.parrot_cyan",
   "entity_predicate": "alltheheads:entity/heads/minecraft/parrot/cyan",
-  "entity_type": "minecraft:parrot",
   "loot_table": "alltheheads:entities/heads/minecraft/parrot/cyan",
   "models": [
     {

@@ -1,7 +1,6 @@
 {
   "custom_name": "minecraft.axolotl_gold",
   "entity_predicate": "alltheheads:entity/heads/minecraft/axolotl/gold",
-  "entity_type": "minecraft:axolotl",
   "loot_table": "alltheheads:entities/heads/minecraft/axolotl/gold",
   "models": [
     {

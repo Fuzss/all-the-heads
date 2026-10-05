@@ -1,7 +1,6 @@
 {
   "custom_name": "minecraft.bee_pollinated",
   "entity_predicate": "alltheheads:entity/heads/minecraft/bee/pollinated",
-  "entity_type": "minecraft:bee",
   "loot_table": "alltheheads:entities/heads/minecraft/bee/pollinated",
   "models": [
     {

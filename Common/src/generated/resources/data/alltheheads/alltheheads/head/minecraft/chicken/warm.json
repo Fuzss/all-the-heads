@@ -1,7 +1,6 @@
 {
   "custom_name": "minecraft.chicken_warm",
   "entity_predicate": "alltheheads:entity/heads/minecraft/chicken/warm",
-  "entity_type": "minecraft:chicken",
   "loot_table": "alltheheads:entities/heads/minecraft/chicken/warm",
   "models": [
     {

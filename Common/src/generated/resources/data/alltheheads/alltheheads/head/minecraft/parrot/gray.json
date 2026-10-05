@@ -1,7 +1,6 @@
 {
   "custom_name": "minecraft.parrot_gray",
   "entity_predicate": "alltheheads:entity/heads/minecraft/parrot/gray",
-  "entity_type": "minecraft:parrot",
   "loot_table": "alltheheads:entities/heads/minecraft/parrot/gray",
   "models": [
     {

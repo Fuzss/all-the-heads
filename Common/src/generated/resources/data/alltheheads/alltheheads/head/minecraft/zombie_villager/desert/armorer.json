@@ -1,7 +1,6 @@
 {
   "custom_name": "minecraft.zombie_villager_desert_armorer",
   "entity_predicate": "alltheheads:entity/heads/minecraft/zombie_villager/desert/armorer",
-  "entity_type": "minecraft:zombie_villager",
   "loot_table": "alltheheads:entities/heads/minecraft/zombie_villager/desert/armorer",
   "models": [
     {

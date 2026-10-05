@@ -1,7 +1,6 @@
 {
   "custom_name": "minecraft.wolf_woods_tame",
   "entity_predicate": "alltheheads:entity/heads/minecraft/wolf/woods/tame",
-  "entity_type": "minecraft:wolf",
   "loot_table": "alltheheads:entities/heads/minecraft/wolf/woods/tame",
   "models": [
     {

@@ -1,7 +1,6 @@
 {
   "custom_name": "minecraft.vex_charging",
   "entity_predicate": "alltheheads:entity/heads/minecraft/vex/charging",
-  "entity_type": "minecraft:vex",
   "loot_table": "alltheheads:entities/heads/minecraft/vex/charging",
   "models": [
     {

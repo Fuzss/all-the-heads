@@ -1,7 +1,6 @@
 {
   "custom_name": "minecraft.armadillo",
   "entity_predicate": "alltheheads:entity/heads/minecraft/armadillo",
-  "entity_type": "minecraft:armadillo",
   "loot_table": "alltheheads:entities/heads/minecraft/armadillo",
   "models": [
     {

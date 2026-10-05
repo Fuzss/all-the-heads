@@ -1,7 +1,6 @@
 {
   "custom_name": "minecraft.sheep_pink",
   "entity_predicate": "alltheheads:entity/heads/minecraft/sheep/pink",
-  "entity_type": "minecraft:sheep",
   "loot_table": "alltheheads:entities/heads/minecraft/sheep/pink",
   "models": [
     {

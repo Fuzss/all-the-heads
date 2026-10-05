@@ -1,7 +1,6 @@
 {
   "custom_name": "minecraft.frog_temperate",
   "entity_predicate": "alltheheads:entity/heads/minecraft/frog/temperate",
-  "entity_type": "minecraft:frog",
   "loot_table": "alltheheads:entities/heads/minecraft/frog/temperate",
   "models": [
     {

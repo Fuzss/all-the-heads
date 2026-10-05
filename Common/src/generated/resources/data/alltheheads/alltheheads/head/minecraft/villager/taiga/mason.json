@@ -1,7 +1,6 @@
 {
   "custom_name": "minecraft.villager_taiga_mason",
   "entity_predicate": "alltheheads:entity/heads/minecraft/villager/taiga/mason",
-  "entity_type": "minecraft:villager",
   "loot_table": "alltheheads:entities/heads/minecraft/villager/taiga/mason",
   "models": [
     {

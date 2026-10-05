@@ -1,7 +1,6 @@
 {
   "custom_name": "minecraft.sniffer",
   "entity_predicate": "alltheheads:entity/heads/minecraft/sniffer",
-  "entity_type": "minecraft:sniffer",
   "loot_table": "alltheheads:entities/heads/minecraft/sniffer",
   "models": [
     {

@@ -1,7 +1,6 @@
 {
   "custom_name": "minecraft.cow_temperate",
   "entity_predicate": "alltheheads:entity/heads/minecraft/cow/temperate",
-  "entity_type": "minecraft:cow",
   "loot_table": "alltheheads:entities/heads/minecraft/cow/temperate",
   "models": [
     {

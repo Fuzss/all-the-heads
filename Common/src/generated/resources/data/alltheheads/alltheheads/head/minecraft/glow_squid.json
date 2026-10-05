@@ -1,7 +1,6 @@
 {
   "custom_name": "minecraft.glow_squid",
   "entity_predicate": "alltheheads:entity/heads/minecraft/glow_squid",
-  "entity_type": "minecraft:glow_squid",
   "loot_table": "alltheheads:entities/heads/minecraft/glow_squid",
   "models": [
     {

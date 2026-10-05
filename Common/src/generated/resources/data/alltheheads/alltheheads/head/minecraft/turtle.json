@@ -1,7 +1,6 @@
 {
   "custom_name": "minecraft.turtle",
   "entity_predicate": "alltheheads:entity/heads/minecraft/turtle",
-  "entity_type": "minecraft:turtle",
   "loot_table": "alltheheads:entities/heads/minecraft/turtle",
   "models": [
     {

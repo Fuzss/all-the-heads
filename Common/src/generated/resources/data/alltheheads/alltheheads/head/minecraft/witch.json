@@ -1,7 +1,6 @@
 {
   "custom_name": "minecraft.witch",
   "entity_predicate": "alltheheads:entity/heads/minecraft/witch",
-  "entity_type": "minecraft:witch",
   "loot_table": "alltheheads:entities/heads/minecraft/witch",
   "models": [
     {

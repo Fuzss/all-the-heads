@@ -1,7 +1,6 @@
 {
   "custom_name": "minecraft.pig_cold",
   "entity_predicate": "alltheheads:entity/heads/minecraft/pig/cold",
-  "entity_type": "minecraft:pig",
   "loot_table": "alltheheads:entities/heads/minecraft/pig/cold",
   "models": [
     {

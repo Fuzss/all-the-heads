@@ -1,7 +1,6 @@
 {
   "custom_name": "minecraft.ocelot",
   "entity_predicate": "alltheheads:entity/heads/minecraft/ocelot",
-  "entity_type": "minecraft:ocelot",
   "loot_table": "alltheheads:entities/heads/minecraft/ocelot",
   "models": [
     {

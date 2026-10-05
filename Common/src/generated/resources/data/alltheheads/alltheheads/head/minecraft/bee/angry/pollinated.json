@@ -1,7 +1,6 @@
 {
   "custom_name": "minecraft.bee_angry_pollinated",
   "entity_predicate": "alltheheads:entity/heads/minecraft/bee/angry/pollinated",
-  "entity_type": "minecraft:bee",
   "loot_table": "alltheheads:entities/heads/minecraft/bee/angry/pollinated",
   "models": [
     {

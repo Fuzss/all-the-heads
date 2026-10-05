@@ -1,7 +1,6 @@
 {
   "custom_name": "minecraft.tropical_fish_blue_tang",
   "entity_predicate": "alltheheads:entity/heads/minecraft/tropical_fish/blue_tang",
-  "entity_type": "minecraft:tropical_fish",
   "loot_table": "alltheheads:entities/heads/minecraft/tropical_fish/blue_tang",
   "models": [
     {

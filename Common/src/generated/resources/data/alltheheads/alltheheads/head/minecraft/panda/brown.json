@@ -1,7 +1,6 @@
 {
   "custom_name": "minecraft.panda_brown",
   "entity_predicate": "alltheheads:entity/heads/minecraft/panda/brown",
-  "entity_type": "minecraft:panda",
   "loot_table": "alltheheads:entities/heads/minecraft/panda/brown",
   "models": [
     {

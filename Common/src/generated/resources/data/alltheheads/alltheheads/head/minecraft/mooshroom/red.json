@@ -1,7 +1,6 @@
 {
   "custom_name": "minecraft.mooshroom_red",
   "entity_predicate": "alltheheads:entity/heads/minecraft/mooshroom/red",
-  "entity_type": "minecraft:mooshroom",
   "loot_table": "alltheheads:entities/heads/minecraft/mooshroom/red",
   "models": [
     {

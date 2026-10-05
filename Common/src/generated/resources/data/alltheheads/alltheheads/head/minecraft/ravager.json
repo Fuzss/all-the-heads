@@ -1,7 +1,6 @@
 {
   "custom_name": "minecraft.ravager",
   "entity_predicate": "alltheheads:entity/heads/minecraft/ravager",
-  "entity_type": "minecraft:ravager",
   "loot_table": "alltheheads:entities/heads/minecraft/ravager",
   "models": [
     {

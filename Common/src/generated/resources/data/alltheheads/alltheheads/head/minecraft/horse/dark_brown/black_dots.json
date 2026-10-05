@@ -1,7 +1,6 @@
 {
   "custom_name": "minecraft.horse_dark_brown_black_dots",
   "entity_predicate": "alltheheads:entity/heads/minecraft/horse/dark_brown/black_dots",
-  "entity_type": "minecraft:horse",
   "loot_table": "alltheheads:entities/heads/minecraft/horse/dark_brown/black_dots",
   "models": [
     {

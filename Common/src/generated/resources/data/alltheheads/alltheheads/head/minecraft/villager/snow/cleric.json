@@ -1,7 +1,6 @@
 {
   "custom_name": "minecraft.villager_snow_cleric",
   "entity_predicate": "alltheheads:entity/heads/minecraft/villager/snow/cleric",
-  "entity_type": "minecraft:villager",
   "loot_table": "alltheheads:entities/heads/minecraft/villager/snow/cleric",
   "models": [
     {

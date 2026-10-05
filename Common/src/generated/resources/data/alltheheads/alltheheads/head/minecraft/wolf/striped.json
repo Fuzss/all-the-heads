@@ -1,7 +1,6 @@
 {
   "custom_name": "minecraft.wolf_striped",
   "entity_predicate": "alltheheads:entity/heads/minecraft/wolf/striped",
-  "entity_type": "minecraft:wolf",
   "loot_table": "alltheheads:entities/heads/minecraft/wolf/striped",
   "models": [
     {

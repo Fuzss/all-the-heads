@@ -1,7 +1,6 @@
 {
   "custom_name": "minecraft.rabbit_toast",
   "entity_predicate": "alltheheads:entity/heads/minecraft/rabbit/toast",
-  "entity_type": "minecraft:rabbit",
   "loot_table": "alltheheads:entities/heads/minecraft/rabbit/toast",
   "models": [
     {

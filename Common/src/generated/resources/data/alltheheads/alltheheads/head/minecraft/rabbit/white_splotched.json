@@ -1,7 +1,6 @@
 {
   "custom_name": "minecraft.rabbit_white_splotched",
   "entity_predicate": "alltheheads:entity/heads/minecraft/rabbit/white_splotched",
-  "entity_type": "minecraft:rabbit",
   "loot_table": "alltheheads:entities/heads/minecraft/rabbit/white_splotched",
   "models": [
     {

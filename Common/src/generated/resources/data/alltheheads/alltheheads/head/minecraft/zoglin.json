@@ -1,7 +1,6 @@
 {
   "custom_name": "minecraft.zoglin",
   "entity_predicate": "alltheheads:entity/heads/minecraft/zoglin",
-  "entity_type": "minecraft:zoglin",
   "loot_table": "alltheheads:entities/heads/minecraft/zoglin",
   "models": [
     {

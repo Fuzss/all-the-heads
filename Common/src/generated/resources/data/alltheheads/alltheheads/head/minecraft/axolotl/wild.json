@@ -1,7 +1,6 @@
 {
   "custom_name": "minecraft.axolotl_wild",
   "entity_predicate": "alltheheads:entity/heads/minecraft/axolotl/wild",
-  "entity_type": "minecraft:axolotl",
   "loot_table": "alltheheads:entities/heads/minecraft/axolotl/wild",
   "models": [
     {
