@@ -152,13 +152,12 @@ public class MobHeadRenderer extends SkullBlockRenderer {
         int order = 0;
         for (Model model : state.models) {
             SkullBlockLayer skullLayer = skullLayerGetter.apply(model.model());
-            skullLayer.submitModel(model, state, poseStack, submitNodeCollector, order++);
+            order = skullLayer.submitModel(model, state, poseStack, submitNodeCollector, order);
         }
 
         for (Model model : state.models) {
             SkullBlockLayer skullLayer = skullLayerGetter.apply(model.model());
-            if (skullLayer.supportsCrumblingOverlay()) {
-                skullLayer.submitCrumblingOverlay(model, state, poseStack, submitNodeCollector, order);
+            if (skullLayer.submitCrumblingOverlay(model, state, poseStack, submitNodeCollector, order) != order) {
                 break;
             }
         }

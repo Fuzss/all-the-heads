@@ -33,14 +33,10 @@ import java.util.function.Function;
 
 @FunctionalInterface
 public interface SkullBlockLayer {
-    void submitModel(Model model, MobHeadRenderState state, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, int order);
+    int submitModel(Model model, MobHeadRenderState state, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, int order);
 
-    default void submitCrumblingOverlay(Model model, MobHeadRenderState state, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, int order) {
-        // NO-OP
-    }
-
-    default boolean supportsCrumblingOverlay() {
-        return false;
+    default int submitCrumblingOverlay(Model model, MobHeadRenderState state, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, int order) {
+        return order;
     }
 
     @FunctionalInterface
@@ -83,8 +79,8 @@ public interface SkullBlockLayer {
             SkullModelBase skullModel = this.model().apply(modelPart);
             return new SkullBlockLayer() {
                 @Override
-                public void submitModel(Model model, MobHeadRenderState state, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, int order) {
-                    submitNodeCollector.order(order)
+                public int submitModel(Model model, MobHeadRenderState state, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, int order) {
+                    submitNodeCollector.order(order++)
                             .submitModel(skullModel,
                                     UnbakedModel.this.state(state),
                                     poseStack,
@@ -94,12 +90,13 @@ public interface SkullBlockLayer {
                                     UnbakedModel.this.tintColor(model, state),
                                     null,
                                     state.outlineColor);
+                    return order;
                 }
 
                 @Override
-                public void submitCrumblingOverlay(Model model, MobHeadRenderState state, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, int order) {
+                public int submitCrumblingOverlay(Model model, MobHeadRenderState state, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, int order) {
                     if (state.breakProgress != null) {
-                        submitNodeCollector.order(order)
+                        submitNodeCollector.order(order++)
                                 .submitCrumblingOverlay(skullModel,
                                         UnbakedModel.this.state(state),
                                         poseStack,
@@ -109,11 +106,8 @@ public interface SkullBlockLayer {
                                         -1,
                                         state.breakProgress);
                     }
-                }
 
-                @Override
-                public boolean supportsCrumblingOverlay() {
-                    return true;
+                    return order;
                 }
             };
         }
@@ -161,6 +155,7 @@ public interface SkullBlockLayer {
                         OverlayTexture.NO_OVERLAY,
                         state.outlineColor);
                 poseStack.popPose();
+                return order;
             };
         }
     }
