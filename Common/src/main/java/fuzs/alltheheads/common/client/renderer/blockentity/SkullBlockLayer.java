@@ -155,7 +155,7 @@ public interface SkullBlockLayer {
                         OverlayTexture.NO_OVERLAY,
                         state.outlineColor);
                 poseStack.popPose();
-                return order;
+                return ++order;
             };
         }
     }
