@@ -158,10 +158,6 @@ zombie texture and the generic humanoid model:
 > `loot_table` and `charged_creeper_drop` are technically part of a nested `Loot` object, but its codec is
 > flattened, so they are written at the **top level** of the JSON exactly as shown above.
 
-> Some built-in head definitions contain an additional `entity_type` field. It is optional and only used during data
-> generation: it is **not required** and should **not** be included in your own definitions. It is only mentioned here
-> to avoid confusion when reading the built-in packs.
-
 ### A complete example
 
 This definition uses every field of a head type, including all optional ones:
