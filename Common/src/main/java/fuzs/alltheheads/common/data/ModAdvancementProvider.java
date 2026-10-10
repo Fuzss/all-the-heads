@@ -3,6 +3,7 @@ package fuzs.alltheheads.common.data;
 import fuzs.alltheheads.common.AllTheHeads;
 import fuzs.alltheheads.common.init.ModRegistry;
 import fuzs.alltheheads.common.init.headtype.MonsterHeadType;
+import fuzs.alltheheads.common.init.headtype.RabbitHeadType;
 import fuzs.alltheheads.common.world.item.MobHeadItem;
 import fuzs.alltheheads.common.world.item.component.headtype.HeadType;
 import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
@@ -22,6 +23,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 
@@ -33,6 +35,8 @@ public class ModAdvancementProvider extends AbstractAdvancementProvider {
     private static final Comparator<Holder<?>> HOLDER_COMPARATOR = Comparator.comparing((Holder<?> holder) -> holder.unwrapKey()
             .orElseThrow()
             .registry()).thenComparing((Holder<?> holder) -> holder.unwrapKey().orElseThrow().identifier());
+    private static final Set<ResourceKey<HeadType>> UNOBTAINABLE_HEADS = Set.of(MonsterHeadType.CREAKING,
+            RabbitHeadType.EVIL_RABBIT);
     public static final AdvancementToken ROOT = new AdvancementToken(AllTheHeads.id("root"));
     public static final String KILL_DESCRIPTION_KEY = AllTheHeads.id("kill")
             .toLanguageKey("advancements", "description");
@@ -107,9 +111,11 @@ public class ModAdvancementProvider extends AbstractAdvancementProvider {
                 .listElements()
                 .sorted(HOLDER_COMPARATOR)
                 .mapMulti((Holder.Reference<HeadType> headType, Consumer<Map.Entry<Holder<EntityType<?>>, Holder.Reference<HeadType>>> consumer) -> {
-                    headType.value().getEntityTypes().forEach((EntityType<?> entityType) -> {
-                        consumer.accept(Map.entry(entityType.builtInRegistryHolder(), headType));
-                    });
+                    if (!UNOBTAINABLE_HEADS.contains(headType.key())) {
+                        headType.value().getEntityTypes().forEach((EntityType<?> entityType) -> {
+                            consumer.accept(Map.entry(entityType.builtInRegistryHolder(), headType));
+                        });
+                    }
                 })
                 .collect(Collectors.groupingBy(Map.Entry::getKey,
                         LinkedHashMap::new,
