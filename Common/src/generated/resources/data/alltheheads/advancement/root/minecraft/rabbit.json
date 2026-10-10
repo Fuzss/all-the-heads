@@ -27,19 +27,6 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "minecraft/rabbit/evil": {
-      "conditions": {
-        "items": [
-          {
-            "components": {
-              "alltheheads:head_type": "alltheheads:minecraft/rabbit/evil"
-            },
-            "items": "alltheheads:mob_head"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "minecraft/rabbit/gold": {
       "conditions": {
         "items": [
@@ -128,9 +115,6 @@
     ],
     [
       "minecraft/rabbit/brown"
-    ],
-    [
-      "minecraft/rabbit/evil"
     ],
     [
       "minecraft/rabbit/gold"
