@@ -520,19 +520,6 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "minecraft/creaking": {
-      "conditions": {
-        "items": [
-          {
-            "components": {
-              "alltheheads:head_type": "alltheheads:minecraft/creaking"
-            },
-            "items": "alltheheads:mob_head"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "minecraft/creeper/charged": {
       "conditions": {
         "items": [
@@ -1696,19 +1683,6 @@
           {
             "components": {
               "alltheheads:head_type": "alltheheads:minecraft/rabbit/brown"
-            },
-            "items": "alltheheads:mob_head"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "minecraft/rabbit/evil": {
-      "conditions": {
-        "items": [
-          {
-            "components": {
-              "alltheheads:head_type": "alltheheads:minecraft/rabbit/evil"
             },
             "items": "alltheheads:mob_head"
           }
@@ -6339,9 +6313,6 @@
       "minecraft/cow/warm"
     ],
     [
-      "minecraft/creaking"
-    ],
-    [
       "minecraft/creeper/charged"
     ],
     [
@@ -6610,9 +6581,6 @@
     ],
     [
       "minecraft/rabbit/brown"
-    ],
-    [
-      "minecraft/rabbit/evil"
     ],
     [
       "minecraft/rabbit/gold"

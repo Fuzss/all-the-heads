@@ -1,5 +1,5 @@
 {
-  "parent": "alltheheads:minecraft/rabbit/evil",
+  "parent": "alltheheads:minecraft/rabbit/brown",
   "criteria": {
     "minecraft/rabbit/gold": {
       "conditions": {
