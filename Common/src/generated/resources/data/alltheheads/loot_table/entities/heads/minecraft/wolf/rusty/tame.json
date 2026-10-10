@@ -23,8 +23,17 @@
           "predicate": {
             "type": "minecraft:wolf",
             "type_specific": {
-              "type": "alltheheads:wolf",
-              "tame": true
+              "type": "alltheheads:all_of",
+              "predicates": [
+                {
+                  "type": "minecraft:wolf",
+                  "variant": "minecraft:rusty"
+                },
+                {
+                  "type": "alltheheads:wolf",
+                  "tame": true
+                }
+              ]
             }
           }
         }

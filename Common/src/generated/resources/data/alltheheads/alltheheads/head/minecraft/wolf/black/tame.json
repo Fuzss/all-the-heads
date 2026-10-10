@@ -3,8 +3,17 @@
   "entity_predicate": {
     "type": "minecraft:wolf",
     "type_specific": {
-      "type": "alltheheads:wolf",
-      "tame": true
+      "type": "alltheheads:all_of",
+      "predicates": [
+        {
+          "type": "minecraft:wolf",
+          "variant": "minecraft:black"
+        },
+        {
+          "type": "alltheheads:wolf",
+          "tame": true
+        }
+      ]
     }
   },
   "loot_table": "alltheheads:entities/heads/minecraft/wolf/black/tame",

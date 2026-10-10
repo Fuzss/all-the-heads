@@ -3,9 +3,18 @@
   "entity_predicate": {
     "type": "minecraft:wolf",
     "type_specific": {
-      "type": "alltheheads:wolf",
-      "angry": false,
-      "tame": false
+      "type": "alltheheads:all_of",
+      "predicates": [
+        {
+          "type": "minecraft:wolf",
+          "variant": "minecraft:rusty"
+        },
+        {
+          "type": "alltheheads:wolf",
+          "angry": false,
+          "tame": false
+        }
+      ]
     }
   },
   "loot_table": "alltheheads:entities/heads/minecraft/wolf/rusty",

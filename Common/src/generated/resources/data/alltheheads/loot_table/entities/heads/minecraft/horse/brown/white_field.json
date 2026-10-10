@@ -23,8 +23,17 @@
           "predicate": {
             "type": "minecraft:horse",
             "type_specific": {
-              "type": "alltheheads:horse",
-              "markings": "white_field"
+              "type": "alltheheads:all_of",
+              "predicates": [
+                {
+                  "type": "minecraft:horse",
+                  "variant": "brown"
+                },
+                {
+                  "type": "alltheheads:horse",
+                  "markings": "white_field"
+                }
+              ]
             }
           }
         }

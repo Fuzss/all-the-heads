@@ -3,8 +3,17 @@
   "entity_predicate": {
     "type": "minecraft:horse",
     "type_specific": {
-      "type": "alltheheads:horse",
-      "markings": "black_dots"
+      "type": "alltheheads:all_of",
+      "predicates": [
+        {
+          "type": "minecraft:horse",
+          "variant": "gray"
+        },
+        {
+          "type": "alltheheads:horse",
+          "markings": "black_dots"
+        }
+      ]
     }
   },
   "loot_table": "alltheheads:entities/heads/minecraft/horse/gray/black_dots",

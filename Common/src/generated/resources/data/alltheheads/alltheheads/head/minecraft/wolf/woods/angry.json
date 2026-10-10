@@ -3,8 +3,17 @@
   "entity_predicate": {
     "type": "minecraft:wolf",
     "type_specific": {
-      "type": "alltheheads:wolf",
-      "angry": true
+      "type": "alltheheads:all_of",
+      "predicates": [
+        {
+          "type": "minecraft:wolf",
+          "variant": "minecraft:woods"
+        },
+        {
+          "type": "alltheheads:wolf",
+          "angry": true
+        }
+      ]
     }
   },
   "loot_table": "alltheheads:entities/heads/minecraft/wolf/woods/angry",
