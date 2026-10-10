@@ -19,7 +19,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.function.Function;
 
 /**
- * @see net.minecraft.client.renderer.special.SkullSpecialRenderer
+ * {@code net.minecraft.client.renderer.special.SkullSpecialRenderer}
  */
 public class MobHeadSpecialRenderer implements SpecialModelRenderer<@Nullable Holder<HeadType>> {
     private final Function<ModelType, SkullModelBase> skullModelGetter;
