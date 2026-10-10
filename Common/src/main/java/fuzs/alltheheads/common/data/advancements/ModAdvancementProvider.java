@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import fuzs.alltheheads.common.AllTheHeads;
 import fuzs.alltheheads.common.init.ModRegistry;
 import fuzs.alltheheads.common.init.headtype.MonsterHeadType;
+import fuzs.alltheheads.common.init.headtype.RabbitHeadType;
 import fuzs.alltheheads.common.world.item.MobHeadItem;
 import fuzs.alltheheads.common.world.item.component.headtype.HeadType;
 import fuzs.puzzleslib.common.api.data.v3.advancements.AbstractAdvancementProvider;
@@ -41,6 +42,8 @@ public class ModAdvancementProvider extends AbstractAdvancementProvider {
     private static final Comparator<Holder<?>> HOLDER_COMPARATOR = Comparator.comparing((Holder<?> holder) -> holder.unwrapKey()
             .orElseThrow()
             .registry()).thenComparing((Holder<?> holder) -> holder.unwrapKey().orElseThrow().identifier());
+    private static final Set<ResourceKey<HeadType>> UNOBTAINABLE_HEADS = Set.of(MonsterHeadType.CREAKING,
+            RabbitHeadType.EVIL_RABBIT);
     public static final AdvancementToken ROOT = new AdvancementToken(AllTheHeads.id("root"));
     public static final String KILL_DESCRIPTION_KEY = AllTheHeads.id("kill")
             .toLanguageKey("advancements", "description");
@@ -115,8 +118,10 @@ public class ModAdvancementProvider extends AbstractAdvancementProvider {
         return this.output.listContextElements(ModRegistry.HEAD_REGISTRY_KEY)
                 .sorted(HOLDER_COMPARATOR)
                 .mapMulti((Holder.Reference<HeadType> headType, Consumer<Map.Entry<Holder<EntityType<?>>, Holder.Reference<HeadType>>> consumer) -> {
-                    Holder<EntityType<?>> holder = HeadType.entityType(headType.key());
-                    consumer.accept(Map.entry(holder, headType));
+                    if (!UNOBTAINABLE_HEADS.contains(headType.key())) {
+                        Holder<EntityType<?>> holder = HeadType.entityType(headType.key());
+                        consumer.accept(Map.entry(holder, headType));
+                    }
                 })
                 .collect(Collectors.groupingBy(Map.Entry::getKey,
                         LinkedHashMap::new,
