@@ -70,6 +70,10 @@ public class ModRegistry {
             Registries.ENTITY_SUB_PREDICATE_TYPE,
             "villager_data",
             () -> VillagerDataPredicate.CODEC);
+    public static final Holder.Reference<MapCodec<AllOfEntityPredicate>> ALL_OF_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
+            Registries.ENTITY_SUB_PREDICATE_TYPE,
+            "all_of",
+            () -> AllOfEntityPredicate.CODEC);
     public static final Holder.Reference<MapCodec<VexPredicate>> VEX_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
             Registries.ENTITY_SUB_PREDICATE_TYPE,
             "vex",

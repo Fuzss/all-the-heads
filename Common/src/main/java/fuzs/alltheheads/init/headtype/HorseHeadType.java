@@ -1,5 +1,6 @@
 package fuzs.alltheheads.init.headtype;
 
+import fuzs.alltheheads.advancements.critereon.AllOfEntityPredicate;
 import fuzs.alltheheads.advancements.critereon.HorsePredicate;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
@@ -284,8 +285,8 @@ public class HorseHeadType {
     private static void bootstrapHorse(BootstrapContext<HeadType> context, Variant variant, ResourceKey<HeadType> resourceKey, String textureLocation) {
         HeadType.builder(EntityType.HORSE)
                 .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.subPredicate(EntitySubPredicates.HORSE.createPredicate(variant))
-                            .subPredicate(HorsePredicate.forMarkings(Markings.NONE));
+                    builder.subPredicate(AllOfEntityPredicate.of(EntitySubPredicates.HORSE.createPredicate(variant),
+                            HorsePredicate.forMarkings(Markings.NONE)));
                 })
                 .shape(4.0, 16.0, 8.0)
                 .scale(0.75)
@@ -297,8 +298,8 @@ public class HorseHeadType {
     private static void bootstrapHorse(BootstrapContext<HeadType> context, Variant variant, Markings markings, ResourceKey<HeadType> resourceKey, String textureLocation, String markingsLocation) {
         HeadType.builder(EntityType.HORSE)
                 .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.subPredicate(EntitySubPredicates.HORSE.createPredicate(variant))
-                            .subPredicate(HorsePredicate.forMarkings(markings));
+                    builder.subPredicate(AllOfEntityPredicate.of(EntitySubPredicates.HORSE.createPredicate(variant),
+                            HorsePredicate.forMarkings(markings)));
                 })
                 .shape(4.0, 16.0, 8.0)
                 .scale(0.75)

@@ -1,5 +1,6 @@
 package fuzs.alltheheads.init.headtype;
 
+import fuzs.alltheheads.advancements.critereon.AllOfEntityPredicate;
 import fuzs.alltheheads.advancements.critereon.WolfPredicate;
 import fuzs.alltheheads.world.item.component.headtype.HeadType;
 import fuzs.alltheheads.world.item.component.headtype.ModelType;
@@ -91,9 +92,9 @@ public class WolfHeadType {
     private static void bootstrapWolf(BootstrapContext<HeadType> context, ResourceKey<WolfVariant> variant, ResourceKey<HeadType> resourceKey, String textureLocation) {
         HeadType.builder(EntityType.WOLF)
                 .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.subPredicate(EntitySubPredicates.wolfVariant(HolderSet.direct(context.lookup(Registries.WOLF_VARIANT)
-                                    .getOrThrow(variant))))
-                            .subPredicate(new WolfPredicate(Optional.of(false), Optional.of(false)));
+                    builder.subPredicate(AllOfEntityPredicate.of(EntitySubPredicates.wolfVariant(HolderSet.direct(
+                                    context.lookup(Registries.WOLF_VARIANT).getOrThrow(variant))),
+                            new WolfPredicate(Optional.of(false), Optional.of(false))));
                 })
                 .shape(6.0, 6.0, 4.0)
                 .scale(4.0 / 3.0)
@@ -105,8 +106,8 @@ public class WolfHeadType {
     private static void bootstrapAngryWolf(BootstrapContext<HeadType> context, ResourceKey<WolfVariant> variant, ResourceKey<HeadType> resourceKey, String textureLocation) {
         HeadType.builder(EntityType.WOLF)
                 .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.subPredicate(EntitySubPredicates.wolfVariant(HolderSet.direct(context.lookup(Registries.WOLF_VARIANT)
-                            .getOrThrow(variant)))).subPredicate(WolfPredicate.isAngry());
+                    builder.subPredicate(AllOfEntityPredicate.of(EntitySubPredicates.wolfVariant(HolderSet.direct(
+                            context.lookup(Registries.WOLF_VARIANT).getOrThrow(variant))), WolfPredicate.isAngry()));
                 })
                 .shape(6.0, 6.0, 4.0)
                 .scale(4.0 / 3.0)
@@ -118,8 +119,8 @@ public class WolfHeadType {
     private static void bootstrapTameWolf(BootstrapContext<HeadType> context, ResourceKey<WolfVariant> variant, ResourceKey<HeadType> resourceKey, String textureLocation) {
         HeadType.builder(EntityType.WOLF)
                 .entityPredicate((EntityPredicate.Builder builder) -> {
-                    builder.subPredicate(EntitySubPredicates.wolfVariant(HolderSet.direct(context.lookup(Registries.WOLF_VARIANT)
-                            .getOrThrow(variant)))).subPredicate(WolfPredicate.isTame());
+                    builder.subPredicate(AllOfEntityPredicate.of(EntitySubPredicates.wolfVariant(HolderSet.direct(
+                            context.lookup(Registries.WOLF_VARIANT).getOrThrow(variant))), WolfPredicate.isTame()));
                 })
                 .shape(6.0, 6.0, 4.0)
                 .scale(4.0 / 3.0)
