@@ -21,6 +21,7 @@ import net.minecraft.core.component.DataComponentInitializers;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
@@ -38,10 +39,6 @@ public class ModAdvancementProvider extends AbstractAdvancementProvider {
     private static final Set<ResourceKey<HeadType>> UNOBTAINABLE_HEADS = Set.of(MonsterHeadType.CREAKING,
             RabbitHeadType.EVIL_RABBIT);
     public static final AdvancementToken ROOT = new AdvancementToken(AllTheHeads.id("root"));
-    public static final String KILL_DESCRIPTION_KEY = AllTheHeads.id("kill")
-            .toLanguageKey("advancements", "description");
-    public static final String OBTAIN_DESCRIPTION_KEY = AllTheHeads.id("obtain")
-            .toLanguageKey("advancements", "description");
 
     public ModAdvancementProvider(DataProviderContext context) {
         super(context);
@@ -67,7 +64,7 @@ public class ModAdvancementProvider extends AbstractAdvancementProvider {
                     Advancement.Builder builder = Advancement.Builder.advancement()
                             .display(display(MobHeadItem.createTemplate(holder),
                                     displayName,
-                                    Component.translatable(OBTAIN_DESCRIPTION_KEY, displayName)).build());
+                                    CommonComponents.EMPTY).build());
                     builder.parent = Optional.of(parentId);
                     builder.addCriterion(holder.key().identifier().getPath(),
                             InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item()
@@ -83,9 +80,7 @@ public class ModAdvancementProvider extends AbstractAdvancementProvider {
 
                 Component entityName = entityType.getDescription();
                 Advancement.Builder builder = Advancement.Builder.advancement()
-                        .display(display(item.value(),
-                                entityName,
-                                Component.translatable(KILL_DESCRIPTION_KEY, entityName)).build());
+                        .display(display(item.value(), entityName, CommonComponents.EMPTY).build());
                 builder.parent = Optional.of(ROOT.id());
                 for (Map.Entry<String, Criterion<?>> criterion : criteria.entrySet()) {
                     builder.addCriterion(criterion.getKey(), criterion.getValue());
@@ -97,7 +92,8 @@ public class ModAdvancementProvider extends AbstractAdvancementProvider {
         }
 
         Advancement.Builder builder = Advancement.Builder.advancement()
-                .display(display(MobHeadItem.createTemplate(context, MonsterHeadType.BLAZE), ROOT).setBackground(
+                .display(display(MobHeadItem.createTemplate(context, MonsterHeadType.BLAZE), ROOT.title(),
+                        CommonComponents.EMPTY).setBackground(
                         Identifier.withDefaultNamespace("gui/advancements/backgrounds/stone")).build());
         for (Map.Entry<String, Criterion<?>> criterion : rootCriteria.entrySet()) {
             builder.addCriterion(criterion.getKey(), criterion.getValue());
