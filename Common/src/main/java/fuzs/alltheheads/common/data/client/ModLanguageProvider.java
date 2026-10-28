@@ -23,9 +23,6 @@ public class ModLanguageProvider extends AbstractLanguageProvider {
         this.add(ModRegistry.VILLAGER_CREATIVE_MODE_TAB.value(), "All The Villagers");
         this.add(ModRegistry.MOB_HEAD_BLOCK.value(), "Mob Head");
         this.add(ModAdvancementProvider.ROOT.title(), AllTheHeads.MOD_NAME);
-        this.add(ModAdvancementProvider.ROOT.description(), "Obtain all heads");
-        this.add(ModAdvancementProvider.KILL_DESCRIPTION_KEY, "Kill %s");
-        this.add(ModAdvancementProvider.OBTAIN_DESCRIPTION_KEY, "Obtain %s");
 
         BiConsumer<ResourceKey<HeadType>, String> translationConsumer = (ResourceKey<HeadType> resourceKey, String value) -> {
             String translationKey = HeadType.customName(resourceKey)
