@@ -16,14 +16,7 @@
     }
   },
   "display": {
-    "description": {
-      "translate": "advancements.alltheheads.kill.description",
-      "with": [
-        {
-          "translate": "entity.minecraft.slime"
-        }
-      ]
-    },
+    "description": "",
     "icon": {
       "id": "minecraft:slime_spawn_egg"
     },

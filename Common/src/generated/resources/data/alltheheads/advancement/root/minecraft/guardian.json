@@ -16,14 +16,7 @@
     }
   },
   "display": {
-    "description": {
-      "translate": "advancements.alltheheads.kill.description",
-      "with": [
-        {
-          "translate": "entity.minecraft.guardian"
-        }
-      ]
-    },
+    "description": "",
     "icon": {
       "id": "minecraft:guardian_spawn_egg"
     },

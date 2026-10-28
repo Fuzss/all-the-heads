@@ -16,14 +16,7 @@
     }
   },
   "display": {
-    "description": {
-      "translate": "advancements.alltheheads.obtain.description",
-      "with": [
-        {
-          "translate": "block.alltheheads.mob_head.minecraft.cat_british_shorthair"
-        }
-      ]
-    },
+    "description": "",
     "icon": {
       "components": {
         "alltheheads:head_type": "alltheheads:minecraft/cat/british_shorthair"

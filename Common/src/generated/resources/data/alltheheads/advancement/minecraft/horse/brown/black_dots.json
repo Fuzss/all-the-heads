@@ -16,14 +16,7 @@
     }
   },
   "display": {
-    "description": {
-      "translate": "advancements.alltheheads.obtain.description",
-      "with": [
-        {
-          "translate": "block.alltheheads.mob_head.minecraft.horse_brown_black_dots"
-        }
-      ]
-    },
+    "description": "",
     "icon": {
       "components": {
         "alltheheads:head_type": "alltheheads:minecraft/horse/brown/black_dots"

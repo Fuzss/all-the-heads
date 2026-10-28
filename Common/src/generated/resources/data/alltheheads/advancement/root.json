@@ -6178,9 +6178,7 @@
   },
   "display": {
     "background": "minecraft:gui/advancements/backgrounds/stone",
-    "description": {
-      "translate": "advancements.alltheheads.root.description"
-    },
+    "description": "",
     "icon": {
       "components": {
         "alltheheads:head_type": "alltheheads:minecraft/blaze"

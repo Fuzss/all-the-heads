@@ -94,14 +94,7 @@
     }
   },
   "display": {
-    "description": {
-      "translate": "advancements.alltheheads.kill.description",
-      "with": [
-        {
-          "translate": "entity.minecraft.rabbit"
-        }
-      ]
-    },
+    "description": "",
     "icon": {
       "id": "minecraft:rabbit_spawn_egg"
     },

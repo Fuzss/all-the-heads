@@ -16,14 +16,7 @@
     }
   },
   "display": {
-    "description": {
-      "translate": "advancements.alltheheads.obtain.description",
-      "with": [
-        {
-          "translate": "block.alltheheads.mob_head.minecraft.zombie_villager_swamp_fletcher"
-        }
-      ]
-    },
+    "description": "",
     "icon": {
       "components": {
         "alltheheads:head_type": "alltheheads:minecraft/zombie_villager/swamp/fletcher"

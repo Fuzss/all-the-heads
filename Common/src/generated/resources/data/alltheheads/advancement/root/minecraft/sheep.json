@@ -445,14 +445,7 @@
     }
   },
   "display": {
-    "description": {
-      "translate": "advancements.alltheheads.kill.description",
-      "with": [
-        {
-          "translate": "entity.minecraft.sheep"
-        }
-      ]
-    },
+    "description": "",
     "icon": {
       "id": "minecraft:sheep_spawn_egg"
     },

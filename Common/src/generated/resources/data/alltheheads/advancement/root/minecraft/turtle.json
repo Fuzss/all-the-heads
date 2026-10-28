@@ -16,14 +16,7 @@
     }
   },
   "display": {
-    "description": {
-      "translate": "advancements.alltheheads.kill.description",
-      "with": [
-        {
-          "translate": "entity.minecraft.turtle"
-        }
-      ]
-    },
+    "description": "",
     "icon": {
       "id": "minecraft:turtle_spawn_egg"
     },

@@ -16,14 +16,7 @@
     }
   },
   "display": {
-    "description": {
-      "translate": "advancements.alltheheads.obtain.description",
-      "with": [
-        {
-          "translate": "block.alltheheads.mob_head.minecraft.bee_angry_pollinated"
-        }
-      ]
-    },
+    "description": "",
     "icon": {
       "components": {
         "alltheheads:head_type": "alltheheads:minecraft/bee/angry/pollinated"

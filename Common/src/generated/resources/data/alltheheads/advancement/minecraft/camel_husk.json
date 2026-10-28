@@ -16,14 +16,7 @@
     }
   },
   "display": {
-    "description": {
-      "translate": "advancements.alltheheads.obtain.description",
-      "with": [
-        {
-          "translate": "block.alltheheads.mob_head.minecraft.camel_husk"
-        }
-      ]
-    },
+    "description": "",
     "icon": {
       "components": {
         "alltheheads:head_type": "alltheheads:minecraft/camel_husk"

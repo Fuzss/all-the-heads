@@ -16,14 +16,7 @@
     }
   },
   "display": {
-    "description": {
-      "translate": "advancements.alltheheads.kill.description",
-      "with": [
-        {
-          "translate": "entity.minecraft.camel_husk"
-        }
-      ]
-    },
+    "description": "",
     "icon": {
       "id": "minecraft:camel_husk_spawn_egg"
     },

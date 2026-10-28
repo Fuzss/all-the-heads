@@ -16,14 +16,7 @@
     }
   },
   "display": {
-    "description": {
-      "translate": "advancements.alltheheads.kill.description",
-      "with": [
-        {
-          "translate": "entity.minecraft.zombified_piglin"
-        }
-      ]
-    },
+    "description": "",
     "icon": {
       "id": "minecraft:zombified_piglin_spawn_egg"
     },

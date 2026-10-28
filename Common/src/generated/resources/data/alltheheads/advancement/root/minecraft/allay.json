@@ -16,14 +16,7 @@
     }
   },
   "display": {
-    "description": {
-      "translate": "advancements.alltheheads.kill.description",
-      "with": [
-        {
-          "translate": "entity.minecraft.allay"
-        }
-      ]
-    },
+    "description": "",
     "icon": {
       "id": "minecraft:allay_spawn_egg"
     },

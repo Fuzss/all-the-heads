@@ -42,14 +42,7 @@
     }
   },
   "display": {
-    "description": {
-      "translate": "advancements.alltheheads.kill.description",
-      "with": [
-        {
-          "translate": "entity.minecraft.frog"
-        }
-      ]
-    },
+    "description": "",
     "icon": {
       "id": "minecraft:frog_spawn_egg"
     },

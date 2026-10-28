@@ -354,14 +354,7 @@
     }
   },
   "display": {
-    "description": {
-      "translate": "advancements.alltheheads.kill.description",
-      "with": [
-        {
-          "translate": "entity.minecraft.wolf"
-        }
-      ]
-    },
+    "description": "",
     "icon": {
       "id": "minecraft:wolf_spawn_egg"
     },
