@@ -11,6 +11,7 @@ import fuzs.puzzleslib.common.api.config.v3.ConfigHolder;
 import fuzs.puzzleslib.common.api.core.v1.ModConstructor;
 import fuzs.puzzleslib.common.api.core.v1.ModLoaderEnvironment;
 import fuzs.puzzleslib.common.api.core.v1.context.DataPackRegistriesContext;
+import fuzs.puzzleslib.common.api.core.v1.context.PackRepositorySourcesContext;
 import fuzs.puzzleslib.common.api.event.v1.entity.living.CalculateLivingVisibilityCallback;
 import fuzs.puzzleslib.common.api.event.v1.entity.living.LivingDropsCallback;
 import fuzs.puzzleslib.common.api.event.v1.server.LootTableLoadCallback;
@@ -18,6 +19,7 @@ import fuzs.puzzleslib.common.api.event.v1.server.ServerResourcesLoadCallback;
 import net.minecraft.core.Holder;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.ReloadableServerResources;
@@ -36,6 +38,7 @@ public class AllTheHeads implements ModConstructor {
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_NAME);
 
     public static final ConfigHolder CONFIG = ConfigHolder.builder(MOD_ID).common(CommonConfig.class);
+    public static final Identifier ADVANCEMENTS_ID = id("advancements");
 
     @Override
     public void onConstructMod() {
@@ -81,6 +84,11 @@ public class AllTheHeads implements ModConstructor {
         context.registerSyncedRegistry(ModRegistry.HEAD_REGISTRY_KEY,
                 HeadType.DIRECT_CODEC,
                 HeadType.DIRECT_NETWORK_CODEC);
+    }
+
+    @Override
+    public void onAddDataPackFinders(PackRepositorySourcesContext context) {
+        context.registerBuiltInPack(ADVANCEMENTS_ID, Component.literal("Advancements"), true);
     }
 
     public static Identifier id(String path) {

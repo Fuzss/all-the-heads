@@ -10,6 +10,7 @@ import fuzs.alltheheads.common.data.tags.ModItemTagsProvider;
 import fuzs.alltheheads.common.init.ModRegistry;
 import fuzs.puzzleslib.common.api.core.v1.ModConstructor;
 import fuzs.puzzleslib.neoforge.api.data.v2.core.DataProviderHelper;
+import net.minecraft.server.packs.PackType;
 import net.neoforged.fml.common.Mod;
 
 @Mod(AllTheHeads.MOD_ID)
@@ -23,7 +24,9 @@ public class AllTheHeadsNeoForge {
                 ModEntityLootProvider::new,
                 ModBlockTagsProvider::new,
                 ModItemTagsProvider::new,
-                ModHeadTypeTagsProvider::new,
+                ModHeadTypeTagsProvider::new);
+        DataProviderHelper.registerDataProviders(AllTheHeads.ADVANCEMENTS_ID,
+                PackType.SERVER_DATA,
                 ModAdvancementProvider::new);
     }
 }
