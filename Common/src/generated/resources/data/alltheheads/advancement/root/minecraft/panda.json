@@ -94,14 +94,7 @@
     }
   },
   "display": {
-    "description": {
-      "translate": "advancements.alltheheads.kill.description",
-      "with": [
-        {
-          "translate": "entity.minecraft.panda"
-        }
-      ]
-    },
+    "description": "",
     "icon": {
       "id": "minecraft:panda_spawn_egg"
     },

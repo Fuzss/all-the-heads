@@ -16,14 +16,7 @@
     }
   },
   "display": {
-    "description": {
-      "translate": "advancements.alltheheads.kill.description",
-      "with": [
-        {
-          "translate": "entity.minecraft.zombie_horse"
-        }
-      ]
-    },
+    "description": "",
     "icon": {
       "id": "minecraft:zombie_horse_spawn_egg"
     },

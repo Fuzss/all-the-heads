@@ -42,14 +42,7 @@
     }
   },
   "display": {
-    "description": {
-      "translate": "advancements.alltheheads.kill.description",
-      "with": [
-        {
-          "translate": "entity.minecraft.pig"
-        }
-      ]
-    },
+    "description": "",
     "icon": {
       "id": "minecraft:pig_spawn_egg"
     },

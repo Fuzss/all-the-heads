@@ -16,14 +16,7 @@
     }
   },
   "display": {
-    "description": {
-      "translate": "advancements.alltheheads.kill.description",
-      "with": [
-        {
-          "translate": "entity.minecraft.squid"
-        }
-      ]
-    },
+    "description": "",
     "icon": {
       "id": "minecraft:squid_spawn_egg"
     },

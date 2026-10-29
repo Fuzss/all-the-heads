@@ -16,14 +16,7 @@
     }
   },
   "display": {
-    "description": {
-      "translate": "advancements.alltheheads.kill.description",
-      "with": [
-        {
-          "translate": "entity.minecraft.wandering_trader"
-        }
-      ]
-    },
+    "description": "",
     "icon": {
       "id": "minecraft:wandering_trader_spawn_egg"
     },

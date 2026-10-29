@@ -16,14 +16,7 @@
     }
   },
   "display": {
-    "description": {
-      "translate": "advancements.alltheheads.kill.description",
-      "with": [
-        {
-          "translate": "entity.minecraft.bogged"
-        }
-      ]
-    },
+    "description": "",
     "icon": {
       "id": "minecraft:bogged_spawn_egg"
     },

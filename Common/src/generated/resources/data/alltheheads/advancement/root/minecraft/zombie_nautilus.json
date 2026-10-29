@@ -29,14 +29,7 @@
     }
   },
   "display": {
-    "description": {
-      "translate": "advancements.alltheheads.kill.description",
-      "with": [
-        {
-          "translate": "entity.minecraft.zombie_nautilus"
-        }
-      ]
-    },
+    "description": "",
     "icon": {
       "id": "minecraft:zombie_nautilus_spawn_egg"
     },

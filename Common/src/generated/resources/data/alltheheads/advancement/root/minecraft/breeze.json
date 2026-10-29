@@ -16,14 +16,7 @@
     }
   },
   "display": {
-    "description": {
-      "translate": "advancements.alltheheads.kill.description",
-      "with": [
-        {
-          "translate": "entity.minecraft.breeze"
-        }
-      ]
-    },
+    "description": "",
     "icon": {
       "id": "minecraft:breeze_spawn_egg"
     },

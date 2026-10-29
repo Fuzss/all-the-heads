@@ -16,14 +16,7 @@
     }
   },
   "display": {
-    "description": {
-      "translate": "advancements.alltheheads.kill.description",
-      "with": [
-        {
-          "translate": "entity.minecraft.sniffer"
-        }
-      ]
-    },
+    "description": "",
     "icon": {
       "id": "minecraft:sniffer_spawn_egg"
     },

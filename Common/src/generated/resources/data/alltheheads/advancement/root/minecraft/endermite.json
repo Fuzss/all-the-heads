@@ -16,14 +16,7 @@
     }
   },
   "display": {
-    "description": {
-      "translate": "advancements.alltheheads.kill.description",
-      "with": [
-        {
-          "translate": "entity.minecraft.endermite"
-        }
-      ]
-    },
+    "description": "",
     "icon": {
       "id": "minecraft:endermite_spawn_egg"
     },

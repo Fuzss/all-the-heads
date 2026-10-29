@@ -42,14 +42,7 @@
     }
   },
   "display": {
-    "description": {
-      "translate": "advancements.alltheheads.kill.description",
-      "with": [
-        {
-          "translate": "entity.minecraft.chicken"
-        }
-      ]
-    },
+    "description": "",
     "icon": {
       "id": "minecraft:chicken_spawn_egg"
     },

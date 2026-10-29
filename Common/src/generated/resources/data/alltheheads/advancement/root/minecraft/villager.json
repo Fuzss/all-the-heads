@@ -1368,14 +1368,7 @@
     }
   },
   "display": {
-    "description": {
-      "translate": "advancements.alltheheads.kill.description",
-      "with": [
-        {
-          "translate": "entity.minecraft.villager"
-        }
-      ]
-    },
+    "description": "",
     "icon": {
       "id": "minecraft:villager_spawn_egg"
     },

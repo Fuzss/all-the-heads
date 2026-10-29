@@ -16,14 +16,7 @@
     }
   },
   "display": {
-    "description": {
-      "translate": "advancements.alltheheads.kill.description",
-      "with": [
-        {
-          "translate": "entity.minecraft.snow_golem"
-        }
-      ]
-    },
+    "description": "",
     "icon": {
       "id": "minecraft:snow_golem_spawn_egg"
     },

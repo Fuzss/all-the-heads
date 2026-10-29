@@ -458,14 +458,7 @@
     }
   },
   "display": {
-    "description": {
-      "translate": "advancements.alltheheads.kill.description",
-      "with": [
-        {
-          "translate": "entity.minecraft.horse"
-        }
-      ]
-    },
+    "description": "",
     "icon": {
       "id": "minecraft:horse_spawn_egg"
     },
