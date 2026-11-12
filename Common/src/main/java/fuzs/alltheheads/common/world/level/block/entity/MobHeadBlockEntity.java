@@ -2,6 +2,7 @@ package fuzs.alltheheads.common.world.level.block.entity;
 
 import fuzs.alltheheads.common.init.ModRegistry;
 import fuzs.alltheheads.common.world.item.component.headtype.HeadType;
+import fuzs.puzzleslib.common.api.block.v1.entity.BlockEntityHelper;
 import fuzs.puzzleslib.common.api.block.v1.entity.TickingBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -10,7 +11,7 @@ import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.SkullBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
@@ -25,18 +26,14 @@ public class MobHeadBlockEntity extends SkullBlockEntity implements TickingBlock
     public int tickCount;
 
     public MobHeadBlockEntity(BlockPos pos, BlockState blockState) {
-        super(pos, blockState);
+        super(pos, Blocks.PLAYER_HEAD.defaultBlockState());
+        BlockEntityHelper.init(this, ModRegistry.MOB_HEAD_BLOCK_ENTITY_TYPE.value(), blockState);
     }
 
     @Override
     public void clientTick(Level level, BlockPos blockPos, BlockState blockState) {
         this.tickCount++;
         animation(level, blockPos, blockState, this);
-    }
-
-    @Override
-    public BlockEntityType<?> getType() {
-        return ModRegistry.MOB_HEAD_BLOCK_ENTITY_TYPE.value();
     }
 
     @Override
